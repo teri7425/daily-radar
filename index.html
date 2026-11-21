@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070c15">
+<meta name="description" content="2026-11-21 검증 브리핑 기반 오늘의 투자 레이더 — 시장·빅테크·고성장 섹터·금융권 감사 리스크·시사·시뮬레이터·절세 체크리스트">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="투자 레이더">
+<title>오늘의 투자 레이더 · 2026.11.21</title>
+<style>
+/* ===== tokens ===== */
+:root{
+  --bg:#070c15; --bg2:#0b1220; --card:#111b2c; --card2:#16223a;
+  --line:#1f2e47; --line2:#2a3d5c;
+  --tx:#e9f0fa; --tx2:#93a6c1; --tx3:#66799a;
+  --accent:#2fe0c4; --accent-d:#0e8f7e; --amber:#f2b134; --violet:#9d8cff;
+  --up:#ff5f6d; --down:#4f8dff;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+  --r:16px;
+}
+html[data-theme="light"]{
+  --bg:#eef2f8; --bg2:#f7f9fd; --card:#ffffff; --card2:#f4f7fc;
+  --line:#dfe7f2; --line2:#ccd8e8;
+  --tx:#0c1626; --tx2:#54657e; --tx3:#7f8fa6;
+  --accent:#0a8f7e; --accent-d:#067260; --amber:#b47a00; --violet:#5d4bd6;
+  --up:#d92b3c; --down:#1f5fd0;
+  --shadow:0 4px 18px rgba(16,32,56,.09);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:
+    radial-gradient(1100px 520px at 12% -8%, rgba(47,224,196,.10), transparent 62%),
+    radial-gradient(900px 480px at 92% -2%, rgba(157,140,255,.10), transparent 60%),
+    var(--bg);
+  color:var(--tx);
+  font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size:15px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:-0.01em;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 14px 40px}
+
+/* ===== top bar ===== */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:var(--bg);
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top);
+}
+.topbar-in{max-width:780px;margin:0 auto;padding:10px 14px 0}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{
+  width:32px;height:32px;border-radius:10px;flex:0 0 auto;
+  background:linear-gradient(145deg,var(--accent),var(--violet));
+  display:grid;place-items:center;font-size:17px;
+  box-shadow:0 4px 14px rgba(47,224,196,.28);
+}
+.brand h1{margin:0;font-size:16px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand>div{min-width:0}
+.brand .sub{font-size:10.5px;color:var(--tx3);letter-spacing:0;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.spacer{flex:1}
+.iconbtn{
+  width:34px;height:34px;border-radius:11px;border:1px solid var(--line);
+  background:var(--card);color:var(--tx);font-size:15px;cursor:pointer;
+  display:grid;place-items:center;padding:0;transition:.16s;
+}
+.iconbtn:active{transform:scale(.93)}
+.copy-pill{
+  width:auto;min-width:0;padding:0 11px;gap:5px;display:flex;align-items:center;
+  font-size:12px;font-weight:800;letter-spacing:-0.01em;
+  color:var(--accent);border-color:color-mix(in srgb,var(--accent) 40%,var(--line));
+}
+.tabs{
+  display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding:9px 0 9px;scroll-snap-type:x proximity;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  flex:0 0 auto;scroll-snap-align:center;
+  border:1px solid var(--line);background:var(--card);
+  color:var(--tx2);font:inherit;font-size:12.5px;font-weight:700;
+  padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  transition:.15s;letter-spacing:-0.01em;
+}
+.tab .em{margin-right:4px;font-size:13px}
+.tab[aria-selected="true"]{
+  background:linear-gradient(140deg,var(--accent),var(--accent-d));
+  border-color:transparent;color:#031b18;
+  box-shadow:0 4px 14px rgba(47,224,196,.28);
+}
+html[data-theme="light"] .tab[aria-selected="true"]{color:#fff}
+
+/* ===== panels ===== */
+.panel{display:none;animation:fade .22s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.phead{margin:16px 0 12px}
+.phead .eyebrow{
+  display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.09em;
+  color:var(--accent);text-transform:uppercase;margin-bottom:5px;
+}
+.phead h2{margin:0;font-size:20px;font-weight:800;letter-spacing:-0.03em;line-height:1.25}
+.phead p{margin:6px 0 0;font-size:12.5px;color:var(--tx2);line-height:1.55}
+.stamp{
+  display:inline-flex;align-items:center;gap:6px;margin-top:9px;
+  font-size:11px;font-weight:700;color:var(--tx2);
+  background:var(--card2);border:1px solid var(--line);
+  padding:4px 10px;border-radius:999px;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(47,224,196,.16)}
+
+/* ===== cards ===== */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px;margin:0 0 12px;box-shadow:var(--shadow);
+}
+.card.tight{padding:12px}
+.card h3{
+  margin:0 0 10px;font-size:13.5px;font-weight:800;letter-spacing:-0.01em;
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+}
+.card h3 .badge{
+  font-size:9.5px;font-weight:800;letter-spacing:.04em;
+  padding:2px 7px;border-radius:6px;background:var(--card2);
+  color:var(--accent);border:1px solid var(--line2);
+}
+.card h4{margin:14px 0 7px;font-size:12px;font-weight:800;color:var(--accent);letter-spacing:.02em}
+.card h4:first-child{margin-top:0}
+.hint{font-size:11.5px;color:var(--tx3);line-height:1.55;margin:8px 0 0}
+
+/* ===== metric grid ===== */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.metric{
+  background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  padding:10px 11px;
+}
+.metric .k{font-size:11px;color:var(--tx2);font-weight:700;display:flex;justify-content:space-between;gap:6px;align-items:baseline}
+.metric .v{font-size:17px;font-weight:800;letter-spacing:-0.03em;margin-top:2px;font-variant-numeric:tabular-nums}
+.metric .v.sm{font-size:14.5px}
+.d{font-size:11px;font-weight:800;font-variant-numeric:tabular-nums}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--tx2)}
+
+/* ===== data rows ===== */
+.rows{margin:0}
+.row{
+  display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  padding:8px 0;border-bottom:1px solid var(--line);
+  font-size:13px;
+}
+.row:last-child{border-bottom:0}
+.row .k{color:var(--tx2);font-weight:600;min-width:0}
+.row .k small{display:block;font-size:10.5px;color:var(--tx3);font-weight:600}
+.row .v{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.row .v small{display:block;font-size:10.5px;font-weight:600;color:var(--tx3)}
+
+/* stock item */
+.stk{
+  padding:9px 0;border-bottom:1px solid var(--line);
+}
+.stk:last-child{border-bottom:0}
+.stk .l1{display:flex;align-items:center;gap:8px}
+.stk .name{font-weight:800;font-size:13.5px;letter-spacing:-0.01em}
+.stk .tk{font-size:10.5px;font-weight:800;color:var(--tx3);letter-spacing:.03em}
+.stk .l1 .v{margin-left:auto;text-align:right;font-weight:800;font-variant-numeric:tabular-nums;font-size:13.5px}
+.stk .l2{display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:var(--tx2);margin-top:2px;align-items:center}
+.pill{
+  display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.02em;
+  padding:1.5px 7px;border-radius:6px;border:1px solid var(--line2);
+  background:var(--card2);color:var(--tx2);white-space:nowrap;
+}
+.pill.acc{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.pill.amb{color:var(--amber);border-color:color-mix(in srgb,var(--amber) 45%,transparent)}
+.pill.vio{color:var(--violet);border-color:color-mix(in srgb,var(--violet) 45%,transparent)}
+.pill.up{color:var(--up);border-color:color-mix(in srgb,var(--up) 45%,transparent)}
+.pill.down{color:var(--down);border-color:color-mix(in srgb,var(--down) 45%,transparent)}
+
+/* lists */
+ul.clean{margin:6px 0 0;padding:0 0 0 2px;list-style:none}
+ul.clean li{position:relative;padding:5px 0 5px 16px;font-size:12.5px;color:var(--tx);line-height:1.55}
+ul.clean li::before{
+  content:"";position:absolute;left:2px;top:12px;width:5px;height:5px;border-radius:50%;
+  background:var(--accent);opacity:.8;
+}
+ul.clean li b{font-weight:800}
+ul.clean li .muted{color:var(--tx2)}
+ul.warn li::before{background:var(--amber)}
+ul.risk li::before{background:var(--up)}
+
+.sub{font-size:11.5px;color:var(--tx3);line-height:1.6;margin:6px 0 0}
+
+/* callout */
+.callout{
+  border-left:3px solid var(--accent);
+  background:color-mix(in srgb,var(--accent) 7%,var(--card2));
+  border-radius:0 12px 12px 0;padding:10px 12px;margin:10px 0 0;
+  font-size:12.5px;line-height:1.6;
+}
+.callout.amber{border-left-color:var(--amber);background:color-mix(in srgb,var(--amber) 8%,var(--card2))}
+.callout .t{font-weight:800;font-size:11.5px;color:var(--accent);display:block;margin-bottom:3px;letter-spacing:.02em}
+.callout.amber .t{color:var(--amber)}
+
+/* audit idea */
+.idea{
+  border:1px solid var(--line);border-radius:14px;background:var(--card2);
+  padding:12px;margin-bottom:10px;
+}
+.idea .hd{display:flex;gap:9px;align-items:flex-start;margin-bottom:8px}
+.idea .num{
+  flex:0 0 auto;width:22px;height:22px;border-radius:7px;
+  background:linear-gradient(140deg,var(--accent),var(--accent-d));
+  color:#031b18;font-size:11.5px;font-weight:900;display:grid;place-items:center;margin-top:1px;
+}
+html[data-theme="light"] .idea .num{color:#fff}
+.idea .ttl{font-size:13px;font-weight:800;line-height:1.4;letter-spacing:-0.01em}
+.idea .ttl span{display:block;font-size:10px;font-weight:800;color:var(--tx3);letter-spacing:.06em;margin-bottom:2px;text-transform:uppercase}
+.idea dl{margin:0;font-size:12px;line-height:1.55}
+.idea dt{font-size:10.5px;font-weight:800;color:var(--tx3);letter-spacing:.04em;margin-top:7px}
+.idea dd{margin:2px 0 0;color:var(--tx)}
+.idea dd.do{color:var(--accent);font-weight:700}
+
+/* ===== sliders ===== */
+.ctrl{margin:0 0 14px}
+.ctrl .lab{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}
+.ctrl .lab span{font-size:12px;font-weight:700;color:var(--tx2)}
+.ctrl .lab output{
+  font-size:14px;font-weight:800;color:var(--accent);
+  font-variant-numeric:tabular-nums;letter-spacing:-0.02em;
+}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:26px;background:transparent;margin:0;cursor:pointer;
+}
+input[type=range]::-webkit-slider-runnable-track{
+  height:6px;border-radius:99px;
+  background:linear-gradient(90deg,var(--accent-d),var(--line2));
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;
+  background:#fff;border:4px solid var(--accent);margin-top:-8px;
+  box-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+input[type=range]::-moz-range-track{height:6px;border-radius:99px;background:var(--line2)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--accent)}
+
+.tiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px}
+.tile{
+  background:var(--card2);border:1px solid var(--line);border-radius:12px;
+  padding:10px 8px;text-align:center;
+}
+.tile .k{font-size:10px;color:var(--tx2);font-weight:700;line-height:1.3}
+.tile .v{font-size:14.5px;font-weight:900;letter-spacing:-0.03em;margin-top:3px;font-variant-numeric:tabular-nums;line-height:1.25}
+.tile .v small{font-size:10px;font-weight:700;color:var(--tx3)}
+.tile.hl{background:color-mix(in srgb,var(--accent) 10%,var(--card2));border-color:color-mix(in srgb,var(--accent) 35%,transparent)}
+.tile.hl .v{color:var(--accent)}
+
+/* pension table */
+.num-input{
+  width:100%;background:var(--card2);border:1px solid var(--line2);border-radius:10px;
+  color:var(--tx);font:inherit;font-size:15px;font-weight:800;padding:9px 11px;
+  font-variant-numeric:tabular-nums;
+}
+.num-input:focus{outline:none;border-color:var(--accent)}
+.seg{display:flex;gap:6px;margin-top:7px}
+.seg button{
+  flex:1;font:inherit;font-size:12px;font-weight:800;padding:8px 0;border-radius:10px;
+  border:1px solid var(--line2);background:var(--card2);color:var(--tx2);cursor:pointer;transition:.15s;
+}
+.seg button[aria-pressed="true"]{
+  background:linear-gradient(140deg,var(--accent),var(--accent-d));color:#031b18;border-color:transparent;
+}
+html[data-theme="light"] .seg button[aria-pressed="true"]{color:#fff}
+.ptab{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:4px}
+.ptab th{
+  text-align:right;font-size:10px;font-weight:800;color:var(--tx3);
+  padding:6px 4px;border-bottom:1px solid var(--line2);letter-spacing:.02em;white-space:nowrap;
+}
+.ptab th:first-child{text-align:left}
+.ptab td{
+  text-align:right;padding:8px 4px;border-bottom:1px solid var(--line);
+  font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;
+}
+.ptab td:first-child{text-align:left;font-weight:800}
+.ptab tr:last-child td{border-bottom:0}
+.ptab tr.on{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.ptab tr.on td:first-child{color:var(--accent)}
+.ptab .neg{color:var(--down)} .ptab .pos{color:var(--up)}
+
+/* checklist */
+.ghostbtn{
+  width:100%;margin-top:12px;font:inherit;font-size:12px;font-weight:800;
+  padding:9px 0;border-radius:10px;border:1px solid var(--line2);
+  background:transparent;color:var(--tx2);cursor:pointer;transition:.15s;
+}
+.ghostbtn:active{transform:scale(.98);background:var(--card2)}
+.chk{
+  display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);
+  cursor:pointer;
+}
+.chk:last-of-type{border-bottom:0}
+.chk input{
+  -webkit-appearance:none;appearance:none;flex:0 0 auto;width:21px;height:21px;margin:1px 0 0;
+  border:2px solid var(--line2);border-radius:7px;background:var(--card2);cursor:pointer;position:relative;transition:.15s;
+}
+.chk input:checked{background:var(--accent);border-color:var(--accent)}
+.chk input:checked::after{
+  content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+  border:solid #031b18;border-width:0 2.5px 2.5px 0;transform:rotate(42deg);
+}
+html[data-theme="light"] .chk input:checked::after{border-color:#fff}
+.chk .txt{font-size:12.5px;line-height:1.55}
+.chk .txt b{font-weight:800;display:block;font-size:12.5px}
+.chk .txt small{color:var(--tx2);font-size:11px;line-height:1.5;display:block;margin-top:1px}
+.chk input:checked ~ .txt b{text-decoration:line-through;color:var(--tx3)}
+.chk input:checked ~ .txt small{color:var(--tx3)}
+.progress{
+  height:5px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0 2px;
+}
+.progress i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--violet));transition:width .25s}
+
+/* notes / sources / details */
+details.src{
+  border:1px solid var(--line);border-radius:12px;background:var(--card2);
+  padding:9px 12px;margin-top:10px;font-size:11.5px;
+}
+details.src summary{
+  cursor:pointer;font-weight:800;color:var(--tx2);list-style:none;
+  display:flex;align-items:center;gap:6px;
+}
+details.src summary::-webkit-details-marker{display:none}
+details.src summary::before{content:"🔗";font-size:11px}
+details.src ul{margin:8px 0 0;padding-left:16px;color:var(--tx2);line-height:1.7}
+details.src a{color:var(--accent);text-decoration:none;word-break:break-all}
+details.src a:hover{text-decoration:underline}
+details.src li{margin-bottom:3px}
+
+details.tip{
+  border:1px dashed color-mix(in srgb,var(--accent) 40%,var(--line2));
+  border-radius:14px;background:color-mix(in srgb,var(--accent) 6%,var(--card));
+  padding:11px 13px;margin:0 0 12px;font-size:12px;
+}
+details.tip summary{cursor:pointer;font-weight:800;color:var(--accent);list-style:none;display:flex;gap:7px;align-items:center}
+details.tip summary::-webkit-details-marker{display:none}
+details.tip ol{margin:9px 0 0;padding-left:18px;line-height:1.7;color:var(--tx)}
+details.tip li{margin-bottom:4px}
+details.tip code{background:var(--card2);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:11px}
+
+.footer{
+  margin-top:22px;padding:14px;border-top:1px solid var(--line);
+  font-size:11px;color:var(--tx3);line-height:1.65;text-align:center;
+}
+.footer b{color:var(--tx2)}
+.disc{
+  border:1px solid color-mix(in srgb,var(--amber) 32%,var(--line));
+  background:color-mix(in srgb,var(--amber) 7%,var(--card));
+  border-radius:12px;padding:11px 13px;margin:14px 0 0;
+  font-size:11.5px;line-height:1.65;color:var(--tx);
+}
+.disc b{color:var(--amber)}
+
+/* toast */
+#toast{
+  position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));
+  transform:translate(-50%,20px);opacity:0;pointer-events:none;
+  background:var(--accent);color:#031b18;font-size:12.5px;font-weight:800;
+  padding:10px 18px;border-radius:999px;z-index:99;transition:.25s;
+  box-shadow:0 8px 26px rgba(47,224,196,.35);white-space:nowrap;
+}
+html[data-theme="light"] #toast{color:#fff}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (min-width:700px){
+  body{font-size:15.5px}
+  .phead h2{font-size:23px}
+  .grid2{grid-template-columns:repeat(3,1fr)}
+  .tiles{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <div class="logo">📡</div>
+      <div>
+        <h1>오늘의 투자 레이더</h1>
+        <div class="sub">2026.11.21 (토) · 시장 수치는 11/20(금) 마감</div>
+      </div>
+      <div class="spacer"></div>
+      <button class="iconbtn copy-pill" id="copyBtn" title="요약 텍스트 복사" aria-label="요약 텍스트 복사">📋 복사</button>
+      <button class="iconbtn" id="themeToggle" title="테마 전환" aria-label="테마 전환">☀️</button>
+    </div>
+    <div class="tabs" role="tablist" aria-label="대시보드 탭">
+      <button class="tab" role="tab" id="tab-market" data-tab="market" aria-selected="true" aria-controls="panel-market"><span class="em">📊</span>시장 레이더</button>
+      <button class="tab" role="tab" id="tab-bigtech" data-tab="bigtech" aria-selected="false" aria-controls="panel-bigtech"><span class="em">🤖</span>빅테크·해자</button>
+      <button class="tab" role="tab" id="tab-growth" data-tab="growth" aria-selected="false" aria-controls="panel-growth"><span class="em">🚀</span>고성장 섹터</button>
+      <button class="tab" role="tab" id="tab-audit" data-tab="audit" aria-selected="false" aria-controls="panel-audit"><span class="em">🏦</span>감사 리스크</button>
+      <button class="tab" role="tab" id="tab-news" data-tab="news" aria-selected="false" aria-controls="panel-news"><span class="em">📰</span>경제·시사</button>
+      <button class="tab" role="tab" id="tab-sim" data-tab="sim" aria-selected="false" aria-controls="panel-sim"><span class="em">🧮</span>시뮬레이터</button>
+      <button class="tab" role="tab" id="tab-tax" data-tab="tax" aria-selected="false" aria-controls="panel-tax"><span class="em">💡</span>절세·체크</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ============ 1. MARKET ============ -->
+<section class="panel active" id="panel-market" role="tabpanel" aria-labelledby="tab-market">
+  <div class="phead">
+    <span class="eyebrow">Market Radar</span>
+    <h2>📊 시장 레이더 · 금리 · 심리</h2>
+    <p>AI·반도체 조정이 본격화된 ‘검은 금요일’. 지수는 조정 국면, 자금은 미국채로, 심리는 극단적 공포까지 내려왔습니다.</p>
+    <div class="stamp"><span class="dot"></span>11/20(금) 종가 · 원/달러 15:30 기준</div>
+  </div>
+
+  <details class="tip">
+    <summary>📲 홈 화면에 앱처럼 추가하는 방법</summary>
+    <ol>
+      <li><b>안드로이드(Chrome)</b>: 주소창 오른쪽 <code>⋮</code> → <b>‘홈 화면에 추가’</b> → ‘추가’</li>
+      <li><b>아이폰(Safari)</b>: 하단 <code>공유</code> 버튼 → <b>‘홈 화면에 추가’</b></li>
+      <li>한 번 추가하면 아이콘만 눌러서 바로 열 수 있고, 주소창 없이 전체 화면으로 뜹니다.</li>
+      <li>오른쪽 위 <code>📋</code> 버튼을 누르면 지금 보고 있는 탭의 요약을 복사해 메모·메신저에 붙여 넣을 수 있어요.</li>
+    </ol>
+  </details>
+
+  <div class="card">
+    <h3>증시 <span class="badge">11/20 종가</span></h3>
+    <div class="grid2">
+      <div class="metric"><div class="k">코스피<span class="d down">▼5.21%</span></div><div class="v">4,869.96</div></div>
+      <div class="metric"><div class="k">코스닥<span class="d down">▼5.71%</span></div><div class="v">645.68</div></div>
+      <div class="metric"><div class="k">S&amp;P500<span class="d down">▼3.70%</span></div><div class="v">6,910.39</div></div>
+      <div class="metric"><div class="k">나스닥<span class="d down">▼5.28%</span></div><div class="v">22,617.73</div></div>
+      <div class="metric"><div class="k">다우<span class="d down">▼1.93%</span></div><div class="v">48,147.33</div></div>
+      <div class="metric"><div class="k">원/달러<span class="d up">▲6.2원</span></div><div class="v">1,336.2</div></div>
+    </div>
+    <div class="rows" style="margin-top:12px">
+      <div class="row"><div class="k">다우 하락폭<small>포인트 기준</small></div><div class="v down">-949.73p</div></div>
+      <div class="row"><div class="k">코스피 시가총액<small>4,000조원 붕괴 · 약 10개월 최저</small></div><div class="v">3,991조원</div></div>
+      <div class="row"><div class="k">코스피 주간<small>3거래일 만에 5,000선 아래</small></div><div class="v down">-7.9%</div></div>
+      <div class="row"><div class="k">나스닥 주간<small>2020년 이후 최대 낙폭</small></div><div class="v down">-10%</div></div>
+      <div class="row"><div class="k">S&amp;P500 사상최고(10/6) 대비</div><div class="v down">-11.6%</div></div>
+      <div class="row"><div class="k">역외 원/달러<small>서울환시 15:30 기준</small></div><div class="v">1,346원대</div></div>
+      <div class="row"><div class="k">매도 사이드카<small>코스피·코스닥 오후 동반 발동</small></div><div class="v">발동</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>채권 · 원자재</h3>
+    <div class="rows">
+      <div class="row"><div class="k">美 10년물</div><div class="v down">4.92% <small>-12bp</small></div></div>
+      <div class="row"><div class="k">美 2년물</div><div class="v down">4.63% <small>-13bp</small></div></div>
+      <div class="row"><div class="k">2s10s 스프레드</div><div class="v">+29bp</div></div>
+      <div class="row"><div class="k">韓 3년물</div><div class="v down">3.642% <small>-7.4bp</small></div></div>
+      <div class="row"><div class="k">韓 10년물</div><div class="v down">3.857% <small>-8.5bp</small></div></div>
+      <div class="row"><div class="k">WTI (12월물)</div><div class="v up">$83.98 <small>▲0.93%</small></div></div>
+      <div class="row"><div class="k">브렌트 (1월물)</div><div class="v up">$92.57 <small>▲0.64%</small></div></div>
+      <div class="row"><div class="k">금 (COMEX 12월물)<small>현물 약 $3,539</small></div><div class="v down">$3,515.40 <small>▼4.62%</small></div></div>
+      <div class="row"><div class="k">은</div><div class="v down">$41.07 <small>▼7.41%</small></div></div>
+      <div class="row"><div class="k">구리</div><div class="v down">$5.4850/lb <small>▼2.64%</small></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>심리 · 변동성</h3>
+    <div class="grid2">
+      <div class="metric"><div class="k">CNN 공포탐욕<span class="d down">극단적 공포</span></div><div class="v">10</div><div class="sub" style="margin-top:2px">전일 18 · 1주 전 37 · 1년 전 5</div></div>
+      <div class="metric"><div class="k">VIX<span class="d up">▲26.2%</span></div><div class="v">35.89</div><div class="sub" style="margin-top:2px">장중 40.03 · 2025년 4월 이후 최고</div></div>
+      <div class="metric"><div class="k">코스피 공포탐욕<span class="d down">극단적 공포</span></div><div class="v">11.73</div><div class="sub" style="margin-top:2px">CNN 방식 재구성 참고 지표</div></div>
+    </div>
+    <p class="hint">※ 한국판 공식 공포탐욕지수는 없습니다. 11.73은 CNN 방식을 재구성한 <b>참고 지표</b>입니다. CNN 지수는 11/20 18:59 ET 기준.</p>
+  </div>
+
+  <div class="card">
+    <h3>한·미 기준금리 · 다음 일정</h3>
+    <div class="rows">
+      <div class="row"><div class="k">한국 기준금리<small>7·8월 연속 +25bp 후 10/22 동결</small></div><div class="v">3.00%</div></div>
+      <div class="row"><div class="k">11/26 한은 금통위<small>JP모건·하나증권 등 3.25% 인상 전망</small></div><div class="v up">3.25% 유력</div></div>
+      <div class="row"><div class="k">미국 기준금리<small>9/17 +25bp · 10/28 동결(10-2)</small></div><div class="v">3.75~4.00%</div></div>
+      <div class="row"><div class="k">다음 FOMC<small>의사록 “거의 모두 추가 인상 필요”</small></div><div class="v">12/8~9</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>수급 · 특징주</h3>
+    <ul class="clean">
+      <li><b>외국인 6거래일 연속 순매도</b> — 누적 <b>5조965억원</b>. 지수 하락을 주도했습니다.</li>
+      <li><b>삼성전자 -7.01% · SK하이닉스 -5.92%</b> — 對中 반도체 수출통제 우려가 겹쳤습니다.</li>
+      <li><b>앤스로픽 상장(11/19)</b>도 투자심리를 살리지 못했습니다.</li>
+      <li><b>금·은·구리까지 매도</b> — 안전자산이 아니라 ‘현금 확보’ 성격의 장세였습니다.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>분석 &amp; 대응 시사점</h3>
+    <h4>① 지금 국면의 성격</h4>
+    <ul class="clean">
+      <li>S&amp;P500 7거래일 연속 하락·사상최고 대비 -11.6%, 나스닥 주간 -10%로 <b>‘조정’이 아니라 ‘AI 밸류에이션 재평가’</b> 성격이 짙습니다.</li>
+      <li>주식·금속이 동반 매도되고 미 국채만 강세(10Y -12bp) → <b>위험자산 축소·현금/단기채 선호</b>가 뚜렷합니다.</li>
+      <li>CNN 공포탐욕 10은 1년 전 5에 이어 <b>역사적 극단 공포 구간</b>입니다. 다만 극단 공포는 ‘바닥 신호’가 아니라 ‘변동성 확대 구간’으로 다루는 편이 안전합니다.</li>
+    </ul>
+    <h4>② 대응 아이디어</h4>
+    <ul class="clean">
+      <li><b>한 번에 사지 않기</b> — VIX 35.89·장중 40.03 구간에서는 분할 횟수를 늘리고 1회차 금액을 줄이는 편이 낫습니다. <b>🧮 시뮬레이터 탭</b>에서 예산·현금 비중을 바로 계산해 보세요.</li>
+      <li><b>현금성 자산 금리 활용</b> — 11/26 3.25% 인상 시 CMA·단기채 금리는 상방. 다만 인상이 ‘사이클 종료’인지 ‘추가 인상’인지에 따라 듀레이션을 나눠야 합니다.</li>
+      <li><b>환노출 점검</b> — 원/달러 1,336.2원(역외 1,346원대). 해외자산 비중이 크면 환차익 구간이므로 <b>환전을 분할</b>하는 편이 무난합니다.</li>
+      <li><b>반등 확인 전 추격 금지</b> — 11/20 시간외는 전 종목 상승(NVDA +3.58%, AVGO +2.34%)이었지만, 실제 신호는 <b>11/23(월) 개장</b>에서 확인해야 합니다.</li>
+    </ul>
+    <div class="callout amber">
+      <span class="t">주의</span>
+      이번 주 하락은 실적 악화가 아니라 <b>밸류에이션·수급·정책(수출통제·SEC 조사설)</b>이 원인입니다. 원인별로 회복 속도가 다르므로, 지수 방향보다 <b>개별 기업의 현금흐름</b>을 보는 편이 낫습니다.
+    </div>
+  </div>
+
+  <details class="src">
+    <summary>출처 · 근거</summary>
+    <ul>
+      <li>연합뉴스 — <a href="https://www.yna.co.kr/view/AKR20261120137600008" target="_blank" rel="noopener">‘검은 금요일’ 코스피 5.21% 급락</a></li>
+      <li>Investing.com — <a href="https://www.investing.com/news/stock-market-news/us-stocks-lower-at-close-of-trade-dow-jones-industrial-average-down-193-5042683" target="_blank" rel="noopener">Dow -1.93% 마감</a></li>
+      <li>동아일보 — <a href="https://www.donga.com/news/Economy/article/all/20261120/135064160/2" target="_blank" rel="noopener">삼성전자·TSMC 中 고객 일부 출하 중단 통보</a></li>
+      <li>Axios — <a href="https://www.axios.com/2026/11/20/anthropic-ipo-nvidia-ai-tech-selloff" target="_blank" rel="noopener">앤스로픽 IPO·엔비디아 매도</a></li>
+    </ul>
+  </details>
+</section>
+
+<!-- ============ 2. BIG TECH ============ -->
+<section class="panel" id="panel-bigtech" role="tabpanel" aria-labelledby="tab-bigtech">
+  <div class="phead">
+    <span class="eyebrow">Moat &amp; Quality</span>
+    <h2>🤖 빅테크 · 경제적 해자 · ROE/PEG</h2>
+    <p>실적은 최대인데 주가는 최악. ‘실적과 주가의 탈동조’가 이번 조정의 핵심입니다.</p>
+    <div class="stamp"><span class="dot"></span>전 종목 11/20 정규장 종가</div>
+  </div>
+
+  <div class="card">
+    <h3>빅테크 8종 <span class="badge">11/20 종가</span></h3>
+
+    <div class="stk">
+      <div class="l1"><span class="name">엔비디아</span><span class="tk">NVDA</span><span class="v down">$125.53</span></div>
+      <div class="l2"><span class="d down">▼14.01%</span><span class="pill acc">Wide</span><span>시총 $3.03조</span></div>
+      <div class="sub" style="margin-top:3px">SEC 회계조사 보도 + 중국 H200 출하 중단 · 7주 연속 하락</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">마이크로소프트</span><span class="tk">MSFT</span><span class="v down">$484.52</span></div>
+      <div class="l2"><span class="d down">▼2.77%</span><span class="pill acc">Wide</span><span>시총 $3.60조</span></div>
+      <div class="sub" style="margin-top:3px">Azure +48%·RPO 6,770억弗(+73%) 호조에도 AI 설비투자 부담</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">애플</span><span class="tk">AAPL</span><span class="v down">$342.56</span></div>
+      <div class="l2"><span class="d down">▼1.90%</span><span class="pill acc">Wide</span><span>시총 $4.98조</span></div>
+      <div class="sub" style="margin-top:3px">자체 DC 대신 클라우드 추론 → FCF 1,361억弗, 12월 총이익률 45~46% 가이던스</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">알파벳</span><span class="tk">GOOGL</span><span class="v down">$265.29</span></div>
+      <div class="l2"><span class="d down">▼2.70%</span><span class="pill acc">Wide</span><span>시총 $3.26조</span></div>
+      <div class="sub" style="margin-top:3px">Cloud +103%·Gemini 10억 사용자 vs 3분기 FCF -90.7억弗</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">아마존</span><span class="tk">AMZN</span><span class="v down">$246.82</span></div>
+      <div class="l2"><span class="d down">▼4.10%</span><span class="pill acc">Wide</span></div>
+      <div class="sub" style="margin-top:3px">AWS +39%(2021년 이후 최고) · 2026 capex 약 2,200억弗 · TTM FCF -424억弗</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">메타</span><span class="tk">META</span><span class="v down">$560.84</span></div>
+      <div class="l2"><span class="d down">▼5.93%</span><span class="pill acc">Wide</span><span>시총 $1.43조</span></div>
+      <div class="sub" style="margin-top:3px">매출 +26%에도 FCF 적자 · S&amp;P 전망 ‘부정적’</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">브로드컴</span><span class="tk">AVGO</span><span class="v down">$304.41</span></div>
+      <div class="l2"><span class="d down">▼12.19%</span><span class="pill acc">Wide</span><span>시총 $1.45조</span></div>
+      <div class="sub" style="margin-top:3px">커스텀 AI칩 비중 확대 · 12/9 실적 앞두고 반도체 동반 투매</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">TSMC</span><span class="tk">TSM</span><span class="v down">$318.71</span></div>
+      <div class="l2"><span class="d down">▼9.48%</span><span class="pill acc">Wide</span><span>시총 $1.57조</span></div>
+      <div class="sub" style="margin-top:3px">中 고객 일부 출하 중단 통보(FT) 여파</div>
+    </div>
+
+    <h4 style="margin-top:14px">확산 종목</h4>
+    <div class="rows">
+      <div class="row"><div class="k">AMD</div><div class="v down">$424.39 <small>▼13.25% · OpenAI 협업 성과에도 동반 급락</small></div></div>
+      <div class="row"><div class="k">TSLA</div><div class="v down">$345.82 <small>▼7.64% · 휴머노이드·자율주행 기대주 조정</small></div></div>
+      <div class="row"><div class="k">MU</div><div class="v down">$594.51 <small>▼13.89% · 메모리 급락·HBM 수요 논쟁</small></div></div>
+      <div class="row"><div class="k">PLTR</div><div class="v down">$143.49 <small>▼6.63% · 소프트웨어 멀티플 압축</small></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>BRK.B · 방어적 해자</h3>
+    <p class="hint" style="margin-top:0">이번 3종 브리핑에는 BRK.B의 11/20 종가·모닝스타 평가가 수록돼 있지 않아 <b>수치는 표기하지 않습니다</b>. 아래는 확인된 빅테크 데이터와 대비해 읽는 <b>정성적 프레임</b>입니다.</p>
+    <ul class="clean">
+      <li><b>왜 방어적으로 보나</b> — 이번 조정의 타격은 ‘AI capex를 자기 현금으로 감당하는 기업’에 집중됐습니다. 4대 하이퍼스케일러 3분기 capex 합계 <b>2,087억弗</b>, 영업현금흐름 대비 capex 비율은 MSFT 68% · META 106% · GOOGL 121% · AMZN 182%였습니다.</li>
+      <li><b>대조점</b> — 애플은 자체 데이터센터 대신 클라우드 추론으로 돌려 FCF 1,361억弗을 지켰고, 그날 -1.90%로 8종 중 낙폭이 가장 작았습니다. <b>‘capex를 안 쓰는 기업이 덜 맞았다’</b>는 것이 이번 조정의 실증입니다.</li>
+      <li><b>활용 방식</b> — 공격적 AI 베팅과 방어적 해자를 <b>비중으로 나눠</b> 담는 구조(Barbell)가 조정장에서 변동성을 낮춥니다.</li>
+    </ul>
+    <div class="callout amber"><span class="t">미확인 항목</span>BRK.B 종가·공정가치·별점은 별도 확인 후 채워 넣는 것이 정확합니다.</div>
+  </div>
+
+  <div class="card">
+    <h3>ROE 15%↑ + PEG 1 안팎 <span class="badge">GARP 3선</span></h3>
+    <p class="hint" style="margin-top:0">S&amp;P Global Market Intelligence 기준(stockanalysis.com, 11/20~21 갱신). PEG는 ‘트레일링 P/E ÷ 이익성장률’ 값 그대로 인용.</p>
+
+    <div class="stk">
+      <div class="l1"><span class="name">메타</span><span class="tk">META</span><span class="v down">$560.84</span></div>
+      <div class="l2"><span class="pill acc">PEG 0.88</span><span class="pill acc">ROE 32.26%</span><span>P/E 19.12 / 17.02</span></div>
+      <div class="sub" style="margin-top:3px">매출 +26% · 영업이익률 37.8% · 52주 -4.99%</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">넷플릭스</span><span class="tk">NFLX</span><span class="v down">$56.73</span></div>
+      <div class="l2"><span class="pill acc">PEG 0.76</span><span class="pill acc">ROE 53.46%</span><span>P/E 16.42 / 15.80</span></div>
+      <div class="sub" style="margin-top:3px">52주 -48.4%로 멀티플 급압축 · FCF 마진 22.9% · 애널 평균목표 $84.76</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">아리스타네트웍스</span><span class="tk">ANET</span><span class="v down">$167.62</span></div>
+      <div class="l2"><span class="pill acc">PEG 1.04</span><span class="pill acc">ROE 33.52%</span><span>P/E 44.94 / 29.63</span></div>
+      <div class="sub" style="margin-top:3px">무차입(순현금 143.6억弗) · 영업이익률 43.8% · 3년 매출성장 전망 37.3%</div>
+    </div>
+
+    <div class="callout">
+      <span class="t">왜 이 셋인가</span>
+      셋 다 ROE 15%를 크게 상회(32~53%)하고 PEG가 0.76 / 0.88 / 1.04로 <b>1을 중심으로 한 0.8~1.2 구간</b>에 들어옵니다. ANET는 1을 살짝 넘어 ‘1 상향 전환’, NFLX·META는 1 미만으로 내려온 쪽입니다.
+    </div>
+
+    <h4>탈락 사례 — 스크린이 얼마나 좁은지</h4>
+    <div class="rows">
+      <div class="row"><div class="k">NVDA / ORCL / AVGO<small>PEG가 기준보다 훨씬 낮아 제외</small></div><div class="v">0.21·117.4% / 0.41·41.2% / 0.32·44.3%</div></div>
+      <div class="row"><div class="k">MSFT / GOOGL</div><div class="v">1.43 / 1.40</div></div>
+      <div class="row"><div class="k">V / MA</div><div class="v">1.86 / 1.67</div></div>
+      <div class="row"><div class="k">AAPL / COST</div><div class="v">4.23 / 4.57</div></div>
+      <div class="row"><div class="k">SK하이닉스<small>PEG 0.04·ROE 92.5%, 주가 $103.57 — PEG 1 안팎 조건엔 미해당</small></div><div class="v">0.04 · 92.5%</div></div>
+    </div>
+    <p class="hint">※ PEG는 산출 방식에 따라 0.76~1.4까지 달라집니다. 다른 사이트 수치와 직접 비교하지 마세요.</p>
+  </div>
+
+  <div class="card">
+    <h3>모닝스타 Wide Moat TOP 5 <span class="badge">공정가치 대비</span></h3>
+    <p class="hint" style="margin-top:0">공정가치는 모닝스타 발표치(11/3·11/18), 할인율은 11/20 종가 기준 계산.</p>
+
+    <div class="stk">
+      <div class="l1"><span class="name">브로드컴</span><span class="tk">AVGO</span><span class="v down">$304.41</span></div>
+      <div class="l2"><span class="pill acc">5★</span><span class="pill amb">High 불확실성</span><span>공정가치 $650 → <b class="down">-53.2%</b></span></div>
+      <div class="sub" style="margin-top:3px">해자: 커스텀 AI칩 + 인프라 SW, 규모의 경제</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">엔비디아</span><span class="tk">NVDA</span><span class="v down">$125.53</span></div>
+      <div class="l2"><span class="pill acc">4★</span><span class="pill up">Very High</span><span>공정가치 $310 → <b class="down">-59.5%</b></span></div>
+      <div class="sub" style="margin-top:3px">해자: GPU·CUDA 생태계 지배력</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">알파벳</span><span class="tk">GOOGL</span><span class="v down">$265.29</span></div>
+      <div class="l2"><span class="pill acc">5★</span><span class="pill">Medium</span><span>공정가치 $450 → <b class="down">-41.0%</b></span></div>
+      <div class="sub" style="margin-top:3px">해자: 5개 원천 중 4개(무형자산·네트워크·원가·전환비용)</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">TSMC</span><span class="tk">TSM</span><span class="v down">$318.71</span></div>
+      <div class="l2"><span class="pill acc">4★</span><span class="pill">Medium</span><span>공정가치 $534 → <b class="down">-40.3%</b></span></div>
+      <div class="sub" style="margin-top:3px">해자: 파운드리 70% 점유 · 공정 리더십</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">메타</span><span class="tk">META</span><span class="v down">$560.84</span></div>
+      <div class="l2"><span class="pill acc">4★</span><span class="pill amb">High</span><span>공정가치 $850 → <b class="down">-34.0%</b></span></div>
+      <div class="sub" style="margin-top:3px">해자: 35억 MAU 네트워크 효과</div>
+    </div>
+
+    <div class="callout amber">
+      <span class="t">반드시 함께 읽을 것</span>
+      공정가치는 11/3·11/18 시점 값입니다. 11/20 급락으로 <b>모닝스타 별점이 이후 상향 조정될 수 있습니다.</b> ‘현재 별점’이 아니라 <b>‘최근 공표된 평가 + 현재가 괴리’</b>로 읽어야 합니다.
+    </div>
+    <p class="hint">참고: 모닝스타는 11/18 알파벳을 5★·공정가치 $450(기존 $433 상향)으로 제시하며 “2027년 EPS 추정 $17.27 대비 17배로 여전히 GARP, 5년 이익 CAGR 20%”라고 평가했습니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>글래스도어 · 블라인드 평점 3.5+ <span class="badge">조직 안정성</span></h3>
+    <p class="hint" style="margin-top:0">평점은 2026년 1~2월 발표 조사로, 이후 평판 변화는 반영되지 않았습니다.</p>
+
+    <div class="stk">
+      <div class="l1"><span class="name">앤스로픽</span><span class="tk">ANT</span><span class="v down">$88.91</span></div>
+      <div class="l2"><span class="pill vio">4.8 / 5</span><span>블라인드 2026 전체 1위</span><span class="d down">▼8.50%</span></div>
+      <div class="sub" style="margin-top:3px">11/19 상장으로 ‘상장사’ 반열 · 첫날 $97.17(+17%) → 11/20 $88.91</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">엔비디아</span><span class="tk">NVDA</span><span class="v down">$125.53</span></div>
+      <div class="l2"><span class="pill acc">4.5 / 5</span><span>글래스도어 2026 전체 3위 · 테크 1위</span></div>
+      <div class="sub" style="margin-top:3px">주가는 고점 대비 -36%</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">ServiceNow</span><span class="tk">NOW</span><span class="v down">$87.61</span></div>
+      <div class="l2"><span class="pill acc">4.4 / 5</span><span>글래스도어 전체 7위 · 테크 2위</span><span class="d down">▼1.42%</span></div>
+      <div class="sub" style="margin-top:3px">52주 -46.4% · PEG 0.79 · 5:1 분할(2025-12) 반영가</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">알파벳</span><span class="tk">GOOGL</span><span class="v down">$265.29</span></div>
+      <div class="l2"><span class="pill acc">4.4 / 5</span><span>글래스도어 전체 11위 · 테크 4위</span><span class="d down">▼2.70%</span></div>
+      <div class="sub" style="margin-top:3px">18년 연속 글래스도어 100선 · 블라인드 상위 6개사</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">EPAM Systems</span><span class="tk">EPAM</span><span class="v up">$153.24</span></div>
+      <div class="l2"><span class="pill acc">4.4 / 5</span><span>글래스도어 전체 10위</span><span class="d up">▲1.86%</span></div>
+      <div class="sub" style="margin-top:3px">AI 전환 수요 수혜 · 선행 P/E 10.9</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">넷플릭스</span><span class="tk">NFLX</span><span class="v down">$56.73</span></div>
+      <div class="l2"><span class="pill">블라인드 상위 6개사</span><span>구체 점수 미공개</span></div>
+      <div class="sub" style="margin-top:3px">2025-11 10:1 분할 반영 · ROE 53.5%</div>
+    </div>
+
+    <div class="stk">
+      <div class="l1"><span class="name">Datadog</span><span class="tk">DDOG</span><span class="v down">$157.37</span></div>
+      <div class="l2"><span class="pill">블라인드 상위 6개사</span><span class="d down">▼5.46%</span></div>
+      <div class="sub" style="margin-top:3px">52주 -10.7% · PEG 1.91</div>
+    </div>
+
+    <h4>대비점 — 빅테크 내 온도차</h4>
+    <div class="rows">
+      <div class="row"><div class="k">아마존<small>블라인드</small></div><div class="v down">3.11</div></div>
+      <div class="row"><div class="k">메타<small>블라인드</small></div><div class="v down">3.24</div></div>
+      <div class="row"><div class="k">애플<small>블라인드</small></div><div class="v">3.90</div></div>
+    </div>
+    <p class="hint">글래스도어 2026 전체 1위는 인디애나 세차업체 Crew Carwash(4.6). 테크 업종은 100선 중 24개사(2025년 26개·2024년 31개)로 3년 연속 감소했습니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>분석 &amp; 투자 아이디어</h3>
+    <h4>① 오늘의 핵심 — 실적과 주가의 탈동조</h4>
+    <ul class="clean">
+      <li>NVDA는 FQ3 매출 <b>1,158억弗(+103%)</b>, 데이터센터 1,076억弗(+110%), 4분기 가이던스 1,300억弗인데도 주가는 고점 대비 <b>-36%</b>.</li>
+      <li>알파벳은 Cloud +103%에도 3분기 FCF가 <b>-90.7억弗</b>. 성장이 현금으로 남지 않는 구조가 문제입니다.</li>
+      <li>즉 지금 시장이 매기는 것은 성장률이 아니라 <b>‘성장의 현금 전환율’</b>입니다.</li>
+    </ul>
+    <h4>② 아이디어</h4>
+    <ul class="clean">
+      <li><b>FCF 중심 선별</b> — capex 비율이 낮고 FCF가 플러스인 쪽(AAPL 등)이 조정장 방어력이 컸습니다.</li>
+      <li><b>GARP 3선은 ‘가격’ 기준 후보</b> — META·NFLX·ANET는 PEG 1 안팎이지만 META·NFLX는 FCF 적자/멀티플 압축이 진행 중입니다. <b>PEG는 후보 필터, 최종 판단은 현금흐름</b>으로.</li>
+      <li><b>Wide Moat 괴리는 ‘관심 목록’으로</b> — -34~-59.5% 괴리는 매수 신호가 아니라 <b>모니터링 강도</b>를 높이는 신호입니다. 별점 재조정 전까지는 참고치로만.</li>
+      <li><b>평점 3.5+는 보조 지표</b> — 인재 유입·조직 안정성은 장기 해자의 선행 지표. 다만 조사 시점이 2026년 1~2월이라 <b>현재와 최대 10개월 차이</b>가 있습니다.</li>
+      <li><b>11/23(월) 개장 확인</b> — 11/20 시간외는 전 종목 상승(NVDA +3.58%, AVGO +2.34%). 반등 신호인지 단순 되돌림인지는 월요일 개장으로만 판별됩니다.</li>
+    </ul>
+    <div class="callout amber">
+      <span class="t">놓치기 쉬운 리스크</span>
+      12/9 AVGO 실적, 12/8~9 FOMC가 연속 대기합니다. 지금의 ‘저가 매력’은 <b>이벤트 통과 전 변동성</b>과 함께 봐야 합니다.
+    </div>
+  </div>
+
+  <details class="src">
+    <summary>출처 · 근거</summary>
+    <ul>
+      <li>NVIDIA IR — <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027" target="_blank" rel="noopener">FQ3 2027 실적</a></li>
+      <li>Motley Fool — <a href="https://www.fool.com/coverage/stock-market-today/2026/11/20/stock-market-today-nov-20-nvidia-s-usd2-5-trillion-rout-deepens-as-sec-accounting-probe-adds-to-wall-street-s-ai-sell-off/" target="_blank" rel="noopener">NVDA $2.5조 매도</a></li>
+      <li>Morningstar — <a href="https://www.morningstar.com/stocks/best-ai-stocks-buy-now" target="_blank" rel="noopener">Best AI stocks</a> · <a href="https://www.morningstar.com/stocks/2-5-star-stocks-buy-big-discounts" target="_blank" rel="noopener">2~5★ 할인 종목</a> · <a href="https://www.morningstar.com/stocks/10-wide-moat-stocks-buy-that-look-cheap-today" target="_blank" rel="noopener">Wide Moat 저평가 10선</a></li>
+      <li>stockanalysis.com — <a href="https://stockanalysis.com/stocks/meta/statistics/" target="_blank" rel="noopener">META</a> · <a href="https://stockanalysis.com/stocks/nflx/statistics/" target="_blank" rel="noopener">NFLX</a> · <a href="https://stockanalysis.com/stocks/anet/statistics/" target="_blank" rel="noopener">ANET</a></li>
+      <li>CNBC Make It — <a href="https://www.cnbc.com/make-it/2026/01/21/the-10-best-us-companies-to-work-for-in-2026-according-to-new-glassdoor-report.html" target="_blank" rel="noopener">글래스도어 2026</a> · TechRepublic — <a href="https://www.techrepublic.com/article/news-glassdoor-best-places-to-work-2026/" target="_blank" rel="noopener">Best Places to Work</a></li>
+      <li>Team Blind — <a href="https://www.teamblind.com/blog/best-companies-to-work-for-in-the-u-s-2026-anthropic-netflix-and-google-lead/" target="_blank" rel="noopener">블라인드 2026</a></li>
+      <li>Anthropic — <a href="https://www.anthropic.com/news/ipo-close" target="_blank" rel="noopener">IPO 종료 공지</a></li>
+    </ul>
+  </details>
+</section>
+
+<!-- ============ 3. GROWTH ============ -->
+<section class="panel" id="panel-growth" role="tabpanel" aria-labelledby="tab-growth">
+  <div class="phead">
+    <span class="eyebrow">High Growth</span>
+    <h2>🚀 향후 5년 CAGR 30%+ 섹터</h2>
+    <p>세 개의 구조적 성장축 — 휴머노이드 로봇, 데이터센터 SMR, AI 추론 전용 하드웨어.</p>
+    <div class="stamp"><span class="dot"></span>시장조사기관 전망치 기준</div>
+  </div>
+
+  <div class="card">
+    <h3>① 휴머노이드 로보틱스 <span class="badge">CAGR 35.26%</span></h3>
+    <div class="grid2">
+      <div class="metric"><div class="k">2026년 규모</div><div class="v sm">$39.3억</div></div>
+      <div class="metric"><div class="k">2031년 규모</div><div class="v sm">$178억</div></div>
+    </div>
+    <p class="hint">Mordor Intelligence · 2026~2031 CAGR 35.26%. 물량이 아니라 <b>매출액</b> 기준입니다.</p>
+    <h4>성장 동력 (기여도)</h4>
+    <div class="rows">
+      <div class="row"><div class="k">고령화 돌봄 공백</div><div class="v up">+7.2%p</div></div>
+      <div class="row"><div class="k">AI 하드웨어 원가 하락 (대당 $25,000 미만)</div><div class="v up">+5.7%p</div></div>
+      <div class="row"><div class="k">G7·중국 공장 인력난</div><div class="v up">+4.8%p</div></div>
+      <div class="row"><div class="k">중국·한국 ‘Humanoid 2025’ 국가 프로그램</div><div class="v up">+3.8%p</div></div>
+    </div>
+    <h4>세부 성장률</h4>
+    <div class="rows">
+      <div class="row"><div class="k">양발형(biped)</div><div class="v">CAGR 57.1%</div></div>
+      <div class="row"><div class="k">소프트웨어</div><div class="v">CAGR 55.9%</div></div>
+      <div class="row"><div class="k">제조·물류</div><div class="v">CAGR 58.6%</div></div>
+      <div class="row"><div class="k">아시아태평양<small>2025년 매출 비중은 북미 37.4%</small></div><div class="v">CAGR 53.2%</div></div>
+      <div class="row"><div class="k">제조원가<small>2025 $35,000 → 2030 목표</small></div><div class="v">$13,000~17,000</div></div>
+    </div>
+    <h4>핵심 플레이어</h4>
+    <ul class="clean">
+      <li><b>테슬라 옵티머스</b> — 연 1만 대 · 대당 $2만~3만 목표</li>
+      <li><b>앱트로닉 ‘아폴로’</b> — 구글 딥마인드 협업</li>
+      <li><b>어질리티 ‘디지트’</b> — 아마존·GXO 배치</li>
+      <li><b>혼다 ‘하루’</b> — 스페인 요양병동 · <b>서일본철도</b> 유지보수용</li>
+    </ul>
+    <h4>한국 접점</h4>
+    <ul class="clean">
+      <li>로봇 밀도 <b>1만 명당 1,102대</b>로 세계 1위</li>
+      <li>정책금융 <b>3.5조원</b>(약 $25.3억) 투입</li>
+    </ul>
+    <h4>리스크 (기여도 마이너스)</h4>
+    <div class="rows">
+      <div class="row"><div class="k">시간당 운영원가 $0.75~1.25<small>협동로봇 $0.35~0.50보다 비쌈</small></div><div class="v down">-3.8%p</div></div>
+      <div class="row"><div class="k">안전·배상 책임 규제 불확실성</div><div class="v down">-2.4%p</div></div>
+      <div class="row"><div class="k">희토류 자석 병목</div><div class="v down">-1.9%p</div></div>
+      <div class="row"><div class="k">노조·사회적 수용성</div><div class="v down">-1.4%p</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>② 데이터센터용 SMR <span class="badge">CAGR ≈32%</span></h3>
+    <div class="grid2">
+      <div class="metric"><div class="k">2026년</div><div class="v sm">$13억</div></div>
+      <div class="metric"><div class="k">2032년</div><div class="v sm">$68억</div></div>
+    </div>
+    <p class="hint">MarketsandMarkets · 2026~2032 CAGR 약 32%.</p>
+    <h4>상위 시장과의 차이 (중요)</h4>
+    <div class="rows">
+      <div class="row"><div class="k">원자력 르네상스 + SMR 전체<small>2025 $1,200억 → 2031 $2,069억 · CAGR 9.5%</small></div><div class="v">9.5%</div></div>
+      <div class="row"><div class="k">그중 AI 데이터센터·산업용 전력<small>2025 $96억(8%) → 2031 $310억(15%)</small></div><div class="v up">21.6%</div></div>
+    </div>
+    <p class="hint">숫자를 섞어 읽으면 안 됩니다. <b>‘SMR 전체’가 아니라 ‘데이터센터 전력 세그먼트’가 빠른 것</b>입니다.</p>
+    <h4>성장 동력</h4>
+    <ul class="clean">
+      <li>AI 데이터센터 전력수요가 <b>송배전 확충 속도를 추월</b></li>
+      <li>하이퍼스케일러 전력구매계약(PPA)이 건설·재가동 의사결정의 <b>수익 가시성</b> 확보</li>
+      <li>첫 호기(FOAK) 건설·인허가 마일스톤이 ‘발표’를 ‘실물’로 전환</li>
+      <li>MS·구글·아마존·메타, 2031년까지 <b>10GW 이상</b> 확보 약속</li>
+    </ul>
+    <h4>핵심 플레이어</h4>
+    <p class="sub" style="margin-top:0">EDF · 컨스텔레이션 에너지 · GE버노바 · 롤스로이스 · 카메코 · BWX테크놀로지스</p>
+    <h4>리스크</h4>
+    <ul class="clean risk">
+      <li>FOAK 건설비·일정 리스크</li>
+      <li>인허가 지연</li>
+      <li>계통 연계·송전 병목</li>
+      <li>우라늄·연료 공급</li>
+      <li>SMR 출력 규모의 경제 미확보</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>③ AI 추론 최적화 하드웨어 <span class="badge">CAGR 41.1%</span></h3>
+    <div class="grid2">
+      <div class="metric"><div class="k">2026년</div><div class="v sm">$184억</div></div>
+      <div class="metric"><div class="k">2031년</div><div class="v sm">$1,028억</div></div>
+    </div>
+    <p class="hint">Knowledge Sourcing Intelligence · 2026~2031 CAGR 41.1%.</p>
+    <h4>구성</h4>
+    <div class="rows">
+      <div class="row"><div class="k">커스텀 추론 ASIC<small>2026년 92억(50%)</small></div><div class="v up">→ 2031년 $550억</div></div>
+      <div class="row"><div class="k">생성 디코딩·에이전틱 추론 워크로드<small>2026년 65억</small></div><div class="v up">→ 2031년 $410억</div></div>
+      <div class="row"><div class="k">AI 추론 시장 ‘전체’<small>2026 $1,327억 → 2033 $4,218억 (Grand View)</small></div><div class="v">CAGR 18~19%</div></div>
+    </div>
+    <div class="callout">
+      <span class="t">핵심 구분</span>
+      ‘추론 전체’(CAGR 18~19%)보다 <b>‘추론 전용 하드웨어’(41.1%)</b>가 두 배 이상 가파릅니다. 범용 GPU가 아니라 <b>전용 ASIC</b>에 베팅하는 구조입니다.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>반대 논리 · 인프라 아이디어</h3>
+    <h4>① 반대 논리 (왜 틀릴 수 있나)</h4>
+    <ul class="clean warn">
+      <li><b>로봇 ROI</b> — 시간당 운영원가가 협동로봇의 2~3배. 제조원가가 2030년 목표($13,000~17,000)에 도달하지 못하면 도입 사이클이 밀립니다.</li>
+      <li><b>SMR 시간축</b> — FOAK는 인허가·건설에 수년이 걸립니다. 2026~2032 CAGR은 <b>건설이 계획대로 진행된다는 가정</b>에 기대고 있습니다.</li>
+      <li><b>AI 인프라 자금조달</b> — 하이퍼스케일러 capex 비율이 이미 MSFT 68%·META 106%·GOOGL 121%·AMZN 182%. <b>성장의 전제인 자금이 이미 빠듯</b>합니다. 11/20 조정이 이 지점을 때렸습니다.</li>
+      <li><b>수출통제</b> — 미 BIS가 11/16 발표·11/19 발효한 임시 최종규칙으로 중국·마카오 대상 원격 컴퓨팅, 인도네시아·말레이시아·싱가포르·태국·브라질행 첨단 반도체에 허가 요건이 붙었습니다. 성장 경로 자체가 정책 변수입니다.</li>
+    </ul>
+    <h4>② 인프라·ETF 아이디어</h4>
+    <ul class="clean">
+      <li><b>개별 종목 대신 섹터 익스포저</b> — 3개 섹터 모두 승자 독점 구조가 아직 확정되지 않았습니다. 개별 베팅보다 섹터 분산이 리스크 대비 효율적입니다.</li>
+      <li><b>‘곡괭이와 삽’ 구간</b> — 로봇·SMR·추론칩 모두 <b>전력·냉각·변압기·송전</b>을 공통으로 필요로 합니다. SMR 성장 동력의 핵심도 ‘전력 인프라 병목’이므로, 인프라 밸류체인이 3개 테마의 교집합입니다.</li>
+      <li><b>한국 접점 활용</b> — 로봇 밀도 세계 1위(1,102대/1만 명)와 정책금융 3.5조원은 국내 부품·자동화 기업에 실수요 기반을 제공합니다.</li>
+      <li><b>비중은 작게</b> — 30%+ CAGR 테마는 변동성이 그만큼 큽니다. 전체 자산의 <b>위성 비중</b>으로 두고, 코어는 현금흐름 자산에 두는 구조가 일반적입니다.</li>
+    </ul>
+    <div class="callout amber">
+      <span class="t">숫자 읽는 법</span>
+      CAGR 30%+는 <b>작은 기저</b>에서 나온 값입니다(SMR 2026년 $13억, 로봇 $39.3억). 절대 규모가 작을수록 성장률은 커 보이므로, <b>%보다 금액 규모</b>를 함께 보세요.
+    </div>
+  </div>
+
+  <details class="src">
+    <summary>출처 · 근거</summary>
+    <ul>
+      <li>Mordor Intelligence — <a href="https://www.mordorintelligence.com/industry-reports/humanoids-market" target="_blank" rel="noopener">Humanoid Robots Market</a></li>
+      <li>MarketsandMarkets — <a href="https://www.marketsandmarkets.com/Market-Reports/small-modular-reactor-for-data-center-market-71251102.html" target="_blank" rel="noopener">SMR for Data Center</a></li>
+      <li>GlobeNewswire — <a href="https://www.globenewswire.com/news-release/2026/10/19/3383110/0/en/global-nuclear-energy-renaissance-and-small-modular-reactor-smr-market-strategic-outlook-2026-2031-ai-data-center-demand-drives-9-5-cagr-and-usd-206-9-billion-by-2031.html" target="_blank" rel="noopener">원전 르네상스+SMR 전망 2026-2031</a></li>
+      <li>Knowledge Sourcing — <a href="https://www.knowledge-sourcing.com/report/ai-inference-optimization-hardware-market" target="_blank" rel="noopener">AI Inference Optimization Hardware</a></li>
+      <li>Grand View Research — <a href="https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-inference-market-report" target="_blank" rel="noopener">AI Inference Market</a></li>
+      <li>Federal Register — <a href="https://www.federalregister.gov/documents/full_text/html/2026/11/19/2026-23529.html" target="_blank" rel="noopener">BIS 임시 최종규칙(11/19 발효)</a></li>
+    </ul>
+  </details>
+</section>
+
+<!-- ============ 4. AUDIT ============ -->
+<section class="panel" id="panel-audit" role="tabpanel" aria-labelledby="tab-audit">
+  <div class="phead">
+    <span class="eyebrow">Audit Intelligence</span>
+    <h2>🏦 금융권 동향 → 감사 리스크</h2>
+    <p>오늘 보도된 캐피탈·카드·지주·감독기관 동향에서 <b>직접 도출되는</b> 감사 아이디어. <b>발생 원인(외생)</b>과 <b>통제 미흡(내생)</b>을 구분했습니다.</p>
+    <div class="stamp"><span class="dot"></span>수집 구간 11/17~11/21</div>
+  </div>
+
+  <div class="card">
+    <h3>현대캐피탈 <span class="badge">이번 주 5개 이슈</span></h3>
+    <ul class="clean">
+      <li><b>11월 캐피탈 브랜드평판 1위</b> — 지수 171만210점(전월 156만4,428 대비 <b>+9.32%</b>). 2위 NH농협캐피탈 100만8,733(+15.87%), 3위 KB캐피탈 88만1,122(+35.16%).</li>
+      <li><b>한신평 정기평가(11/20)</b> — 회사채 <b>AA+(안정적)</b>, CP·단기사채 <b>A1</b>(단기사채 한도 2조원) 유지. <b>여전업계 유일 AA+</b>.</li>
+      <li><b>3분기 영업이익 1,155억원(-26.3%)</b> — 누적 순이익은 3,803억원(-14.9%). 캐피탈 5사 중 유일한 두 자릿수 감소.</li>
+      <li><b>EV 배터리 구독 출시 조율 중</b> — 당초 10월 계획 경과. 공개된 실증은 수도권 법인택시 아이오닉5 5대뿐.</li>
+      <li><b>모집인 146명 개인정보 유출 보도</b> — 지난 10월 초 외부 해킹. 언론이 “확인했다”고 전한 내용이며 <b>당국 제재·후속 조치 여부는 미확인</b>.</li>
+    </ul>
+    <div class="callout amber">
+      <span class="t">숫자를 섞지 마세요</span>
+      누적 순이익 3,803억원(-14.9%, 전년比)과 <b>3분기 단독 영업이익</b> 1,155억원(-26.3%)은 <b>기준이 다릅니다.</b>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>카드 · 캐피탈 업권</h3>
+    <div class="rows">
+      <div class="row"><div class="k">여신업 16곳 3Q 영업이익<small>매출 +15.1%인데 이익은 반토막</small></div><div class="v down">9,299억원 <small>-55.5%</small></div></div>
+      <div class="row"><div class="k">여신업 3Q 당기순이익</div><div class="v down">7,460억원 <small>-59.2%</small></div></div>
+      <div class="row"><div class="k">미래에셋캐피탈 영업손실<small>업종 전체 감소액의 76.5% 차지</small></div><div class="v down">5,460억원</div></div>
+      <div class="row"><div class="k">캐피탈 6곳 합계<small>현대 1,155억(-26.3%) · 하나 561억(-12.4%) · BNK 512억(-0.9%) · 우리 510억(-17.5%) · KB 868억(+1.5%, 유일 증가)</small></div><div class="v down">7,628억 흑자 → 1,855억 적자</div></div>
+      <div class="row"><div class="k">카드사 8 곳 3Q 영업이익<small>삼성 1,871억(-12.4%) · 신한 1,296억(-27.2%) · KB 1,273억(-6.5%) · 현대 1,170억(+2.5%) · 우리 546억(+48.2%) · 롯데 444억(-47.5%)</small></div><div class="v down">7,571억원 <small>-12.5%</small></div></div>
+    </div>
+    <div class="callout">
+      <span class="t">한신평 진단</span>
+      “카드사는 운용금리·포트폴리오 조정으로 조달비용 충격을 상당 부분 흡수했지만, <b>캐피탈사는 조달 부담이 커져 수익성이 전반적으로 저하</b>됐다. 여전사는 금리상승에 대응할 사업·재무적 완충력이 제한적이다.” — 채영서 수석연구원
+    </div>
+    <p class="hint">※ 3분기 카드사 순이익 집계는 매체별로 다릅니다 — 이코노미스트 7,349억(+7.5%), 한국경제 7,347억(+7.8%), CEO스코어 7,377억(+8.0%). 한 숫자만 인용해야 합니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>카드 — 연체율은 내려가는데 조달금리는 올랐다</h3>
+    <div class="rows">
+      <div class="row"><div class="k">9월 말 평균 연체율(1개월 이상)<small>전년 동기 1.75% → 1.72%. 단, 상각·매각 효과가 큼</small></div><div class="v down">1.72% <small>-0.02%p</small></div></div>
+      <div class="row"><div class="k">삼성카드<small>7개사 중 최저</small></div><div class="v">0.95%</div></div>
+      <div class="row"><div class="k">현대카드 / KB국민 / 신한</div><div class="v">1.06% / 1.41% / 1.52%</div></div>
+      <div class="row"><div class="k">하나 / 우리 / 롯데<small>롯데만 +0.24%p 악화</small></div><div class="v">2.08% / 2.46% / 2.59%</div></div>
+      <div class="row"><div class="k">카드채 금리 ↔ 4분기 뒤 연체율<small>회귀 설명력 59%</small></div><div class="v up">상관계수 0.77</div></div>
+      <div class="row"><div class="k">2027년 2분기 연체율 전망<small>3분기는 상승 폭 +0.25%p까지 확대 가능</small></div><div class="v up">1.74% <small>+0.20%p</small></div></div>
+      <div class="row"><div class="k">전업카드사 평균 조달금리<small>1년 새 +1.61%p · 8월 4.42%</small></div><div class="v up">4.42%</div></div>
+      <div class="row"><div class="k">카드론 평균금리<small>8월 14.14% · 제자리</small></div><div class="v">14.14%</div></div>
+      <div class="row"><div class="k">6월 말 카드대출채권 연체율</div><div class="v">3.35% <small>전년 말 +0.14%p</small></div></div>
+      <div class="row"><div class="k">12월 만기 카드채<small>연말까지 5조2,400억 중 55%가 12월 집중</small></div><div class="v up">5조2,400억</div></div>
+      <div class="row"><div class="k">같은 금리차로 차환 시 이자비용 증가</div><div class="v up">약 340억원</div></div>
+    </div>
+    <div class="callout amber">
+      <span class="t">‘착시’가 두 겹</span>
+      ① 연체율 개선은 <b>상각·매각 효과</b>이고, ② 3분기 카드사 순이익 증가는 <b>신한카드 사옥 매각이익(세전 1,656억)</b> 효과입니다. 이를 빼면 신한 제외 7개사 순이익은 <b>-8.7%</b>입니다.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>금융지주 · 은행</h3>
+    <div class="rows">
+      <div class="row"><div class="k">4대 지주 3Q 누적 순이익<small>역대 최대</small></div><div class="v up">17조원+</div></div>
+      <div class="row"><div class="k">NIM (그룹)<small>4곳 모두 하락 — KB 1.92%(-2bp) · 신한 1.91%(-2bp) · 하나 1.83%(-5bp) · 우리 1.68%(-7bp)</small></div><div class="v down">전원 하락</div></div>
+      <div class="row"><div class="k">은행권 CET1 비율<small>+7bp 개선처럼 보이지만 CET1 자본은 -0.4%</small></div><div class="v">13.18%</div></div>
+      <div class="row"><div class="k">CET1 ‘착시’의 원인<small>RWA가 환율 하락으로 -0.9% 줄어든 효과</small></div><div class="v">분모 감소</div></div>
+      <div class="row"><div class="k">NPL 커버리지<small>하나 90.2%는 100% 미달</small></div><div class="v">KB 129.3% · 신한 115.5% · 우리 112.7% · 하나 90.2%</div></div>
+      <div class="row"><div class="k">4대 지주 고정이하여신</div><div class="v up">약 14조3,200억 <small>전년 말 +2조3,900억</small></div></div>
+      <div class="row"><div class="k">주담대 최고금리<small>NH농협 6개월 변동형 4.51~6.51% (11/17부터)</small></div><div class="v up">6.51%</div></div>
+      <div class="row"><div class="k">9월 신규 주담대 금리<small>2012년 4월 이후 14년5개월 만의 최고</small></div><div class="v up">4.88%</div></div>
+      <div class="row"><div class="k">가계신용 잔액<small>사상 최대 · 주택관련대출 첫 1,200조 돌파</small></div><div class="v up">2,030조5,000억</div></div>
+      <div class="row"><div class="k">취약차주 연체율<small>취약 자영업자 12.71%</small></div><div class="v up">10.39%</div></div>
+      <div class="row"><div class="k">금리 0.25%p 인상 시 가계 이자부담<small>한은 추산</small></div><div class="v up">약 3조3,000억</div></div>
+      <div class="row"><div class="k">11/20 급락장 금융지주<small>종가는 자료마다 상이 — ‘-1% 내외 선방’으로 읽을 것</small></div><div class="v">선방</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>감독기관</h3>
+    <ul class="clean">
+      <li><b>금감원, 제8기 옴부즈만 5명 신규 위촉(11/20)</b> — 소비자·은행·중소서민·보험·금융투자 분야 외부 전문가, 임기 2년.</li>
+      <li><b>금융위, 실손보험 미청구 보험금 찾기 추진</b> — 최근 3년 미청구 <b>최대 1조원</b> 추정, <b>2027년 1분기</b> 출시. 실손24 연계율 54.2%, <b>11/23부터</b> 계약전환·선택형 할인 시행.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>동향에서 도출된 6대 감사 아이디어 <span class="badge">원인 vs 통제 미흡</span></h3>
+
+    <div class="idea">
+      <div class="hd">
+        <div class="num">1</div>
+        <div class="ttl"><span>실적 하락 → 무리한 영업</span>예외승인·저신용 취급·충당금 과소 적립 유인</div>
+      </div>
+      <dl>
+        <dt>동향 근거</dt>
+        <dd>캐피탈 6곳 합계가 7,628억 흑자 → 1,855억 적자로 전환, 현대캐피탈 3Q 영업이익 -26.3%.</dd>
+        <dt>발생 원인 (외생)</dt>
+        <dd>조달비용 급등·현대차 판매 둔화로 할부금융이 16조1,110억으로 축소.</dd>
+        <dt>통제 미흡 (내생)</dt>
+        <dd>실적 압박 국면에서 전결 예외승인·우대금리 적용이 확대되면 심사–승인 직무분리(SoD)가 형식화될 수 있음.</dd>
+        <dt>감사 착안점</dt>
+        <dd class="do">전결 예외 건 추이 및 업적 압박 영업점 표본 점검 · 저신용·고위험 취급 비중 변화 · 대손충당금 적립률 vs 업권 비교</dd>
+      </dl>
+    </div>
+
+    <div class="idea">
+      <div class="hd">
+        <div class="num">2</div>
+        <div class="ttl"><span>연체율 착시 · 4분기 시차</span>건전성 지표·충당금 모형의 시차 반영 적정성</div>
+      </div>
+      <dl>
+        <dt>동향 근거</dt>
+        <dd>9월 말 카드 연체율 1.72%로 ‘개선’됐지만 상각·매각 효과. 카드채 금리와 4분기 뒤 연체율의 상관계수 0.77, 2027년 2~3분기 +0.20~0.25%p 경고. 취약차주 연체율 10.39%.</dd>
+        <dt>발생 원인 (외생)</dt>
+        <dd>조달금리 +1.61%p 상승이 카드론 금리(14.14% 제자리)로 전가되지 못하는 구조.</dd>
+        <dt>통제 미흡 (내생)</dt>
+        <dd>상각·매각으로 표면 연체율을 관리하는 경우 실질 전이율이 지표에서 사라짐. 충당금 모형이 금리 시차를 반영하지 않으면 과소 적립.</dd>
+        <dt>감사 착안점</dt>
+        <dd class="do">상각 전·매각 전 실질 연체 전이율(Roll rate) 재산출 · 충당금 모형의 경기·금리 시차 반영 검증 · 취약차주 세그먼트 별도 모니터링</dd>
+      </dl>
+    </div>
+
+    <div class="idea">
+      <div class="hd">
+        <div class="num">3</div>
+        <div class="ttl"><span>12월 만기 집중 · 단기조달</span>유동성·차환·조달–운용 금리 갭</div>
+      </div>
+      <dl>
+        <dt>동향 근거</dt>
+        <dd>12월 만기 카드채 5조2,400억 중 55%가 12월 집중, 같은 금리차 차환 시 이자 +약 340억. 연말 여전채 만기 6조7,000억. 단기조달비중이 삼성카드 5.04→8.04%, 현대카드 4.07→7.81%, 신한카드 3.71→6.37%로 상승.</dd>
+        <dt>발생 원인 (외생)</dt>
+        <dd>11/26 금통위 3.25% 인상 전망 + 연말 차환 물량 집중.</dd>
+        <dt>통제 미흡 (내생)</dt>
+        <dd>금리 하락을 기대한 단기조달 확대가 만기 집중도를 높임. 만기 분산·조달수단 다변화(ABS·ESG채) 통제가 작동하는지.</dd>
+        <dt>감사 착안점</dt>
+        <dd class="do">만기 집중도·차환 스트레스 테스트 · 단기조달 비중 한도 준수 여부 · 조달–운용 금리 갭(스프레드) 관리 · 유동성 위기 시나리오 점검</dd>
+      </dl>
+    </div>
+
+    <div class="idea">
+      <div class="hd">
+        <div class="num">4</div>
+        <div class="ttl"><span>EV 배터리 구독</span>신상품 · 잔존가치(RV) · 약관 리스크</div>
+      </div>
+      <dl>
+        <dt>동향 근거</dt>
+        <dd>국토부 규제특례(5/11 의결) 기반 2년 실증 계획이었으나 당초 10월 출시를 넘겨 조율 중. 공개 실증은 법인택시 아이오닉5 5대뿐. 배터리는 EV 가격의 약 40%. 배터리 소유·금융 주체는 현대캐피탈.</dd>
+        <dt>발생 원인 (외생)</dt>
+        <dd>연말 보조금 소진으로 상품 경쟁력이 약해져 회사가 시기를 조정.</dd>
+        <dt>통제 미흡 (내생)</dt>
+        <dd>기존 할부·리스와 구조가 다른데(배터리 분리 소유) RV 산정 근거·담보권 분리·사고/화재 책임소재가 약관에 정리되지 않으면 분쟁 소지.</dd>
+        <dt>감사 착안점</dt>
+        <dd class="do">배터리 RV 산정 근거·검증 절차 · 소유권·담보권 분리 처리 · 중도해지·사고·화재 시 책임소재 약관 명확성 · 불완전판매 여부</dd>
+      </dl>
+    </div>
+
+    <div class="idea">
+      <div class="hd">
+        <div class="num">5</div>
+        <div class="ttl"><span>모집인 유출 · AI 확대</span>위수탁 접근통제 · AI 거버넌스</div>
+      </div>
+      <dl>
+        <dt>동향 근거</dt>
+        <dd>10월 초 외부 해킹으로 <b>주택대출 모집인 146명</b> 개인정보 일부 유출 보도(당국 제재 미확인). 같은 시기 AI 개인화 추천 ‘카앤에셋’(2024년 9월 출시) 고도화, 경쟁사 우리금융캐피탈도 12월 말 AI 추천 출시 예정.</dd>
+        <dt>발생 원인 (외생)</dt>
+        <dd>외부 해킹 자체는 외생적 사건. AI 추천 확대로 신용정보 활용 범위가 넓어지는 업권 흐름.</dd>
+        <dt>통제 미흡 (내생)</dt>
+        <dd>모집인 등 제3자 단말·조회권한의 최소권한·파기 통제. AI 추천의 신용정보 동의 범위·설명가능성.</dd>
+        <dt>감사 착안점</dt>
+        <dd class="do">제3자(모집인·위수탁사) 접근권한·로그 감사 · 개인정보 파기 통제 · AI 추천 입력변수·동의 적정성 · 이상징후 탐지(유출 조기경보) 작동 여부</dd>
+      </dl>
+    </div>
+
+    <div class="idea">
+      <div class="hd">
+        <div class="num">6</div>
+        <div class="ttl"><span>감독기관 기조</span>민원 · 소비자보호 선제 점검</div>
+      </div>
+      <dl>
+        <dt>동향 근거</dt>
+        <dd>금감원 제8기 옴부즈만 5명 신규 위촉(11/20), 금융위 실손 미청구 보험금 찾기 추진(최대 1조원, 2027년 1분기), 11/23부터 실손 계약전환·선택형 할인 시행.</dd>
+        <dt>발생 원인 (외생)</dt>
+        <dd>감독당국의 소비자 권리 안내 강화 기조.</dd>
+        <dt>통제 미흡 (내생)</dt>
+        <dd>고금리·수수료·해지 절차 안내 누락, 청구 가능한 권리를 알려주지 않는 관행.</dd>
+        <dt>감사 착안점</dt>
+        <dd class="do">금리인하요구권·중도상환수수료·해지 절차 안내 이행 증적 · 분쟁 빈발 유형 분석 · 옴부즈만 제기 사례와 내부 민원 비교 · 미청구 권리 안내 프로세스</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>체크포인트 캘린더</h3>
+    <div class="rows">
+      <div class="row"><div class="k">11/26 (목)<small>기준금리 3.00 → 3.25% 인상 여부</small></div><div class="v up">한은 금통위</div></div>
+      <div class="row"><div class="k">12월<small>카드채 5조2,400억 중 55% · 여전채 6조7,000억 차환 집중</small></div><div class="v up">차환 집중</div></div>
+      <div class="row"><div class="k">12/8~9<small>추가 인상 여부 · 의사록 “거의 모두 추가 인상 필요”</small></div><div class="v">FOMC</div></div>
+      <div class="row"><div class="k">2027년 1~2분기<small>7·8월 인상 여파로 취약차주 부담 본격화 (KB증권)</small></div><div class="v up">연체율 피크 경고</div></div>
+    </div>
+    <div class="callout">
+      <span class="t">한 줄 진단</span>
+      3분기 실적은 <b>“금리 상승기의 착시”</b>입니다. 조달비용은 즉시 오르고 대출금리·카드론 금리는 규제와 경쟁 때문에 늦게 오릅니다. 그래서 카드·캐피탈은 이익이 줄고, 은행·지주는 NIM이 줄었는데도 순이익은 사상 최대입니다.
+    </div>
+  </div>
+
+  <details class="src">
+    <summary>출처 · 근거</summary>
+    <ul>
+      <li>빅데이터뉴스 — <a href="https://www.thebigdata.co.kr/view.php?ud=202611200751025391d0a8833aad_23" target="_blank" rel="noopener">캐피탈 브랜드평판 1위</a></li>
+      <li>한국신용평가 — <a href="https://kisrating.com/ratings/hot_disclosure.do" target="_blank" rel="noopener">정기평가 공시</a></li>
+      <li>생생비즈플러스 — <a href="https://www.livebiz.today/news/articleView.html?idxno=206638" target="_blank" rel="noopener">EV 배터리 구독 일정 조율</a></li>
+      <li>이코노미트리뷴 — <a href="https://www.economytribune.co.kr/news/articleView.html?idxno=3904450" target="_blank" rel="noopener">AI 차 추천 · 모집인 146명 유출</a></li>
+      <li>더벨 — <a href="https://www.thebell.co.kr/front/newsview.asp?code=0705&amp;key=202611051535376880101040" target="_blank" rel="noopener">홍콩 IR (배경)</a></li>
+      <li>CEO스코어데일리 — <a href="https://m.ceoscoredaily.com/page/view/2026111914452572076" target="_blank" rel="noopener">여신업 3Q 영업익 -55.5%</a> · <a href="https://www.ceoscoredaily.com/page/view/2026111816043618460" target="_blank" rel="noopener">카드사 연체율</a></li>
+      <li>파이낸셜투데이 — <a href="http://www.ftoday.co.kr/news/articleView.html?idxno=370251" target="_blank" rel="noopener">카드채 금리와 연체율 시차</a></li>
+      <li>매일일보 — <a href="https://www.m-i.kr/news/articleView.html?idxno=2019480" target="_blank" rel="noopener">여전채 금리 안정</a></li>
+      <li>이코노미스트 — <a href="https://economist.co.kr/article/view/ecn202611180064" target="_blank" rel="noopener">카드사 순익 착시</a></li>
+      <li>뉴데일리 — <a href="https://biz.newdaily.co.kr/site/data/html/2026/11/17/2026111750093.html" target="_blank" rel="noopener">금융지주 자본 딜레마</a></li>
+      <li>EBN — <a href="https://www.ebn.co.kr/news/articleView.html?idxno=1731972" target="_blank" rel="noopener">NIM 하락·밸류업 2.0</a> · <a href="https://www.ebn.co.kr/news/articleView.html?idxno=1732242" target="_blank" rel="noopener">5대 은행 가계대출</a></li>
+      <li>YTN — <a href="https://www.ytn.co.kr/_ln/0102_202611171003233821" target="_blank" rel="noopener">주담대 최대 6.51%</a></li>
+      <li>파이낸셜뉴스 — <a href="https://www.fnnews.com/news/202611190620450911" target="_blank" rel="noopener">가계빚 2,030조·취약차주</a></li>
+      <li>금감원 — <a href="https://www.fss.or.kr/fss/main/sub6.do?menuNo=200747" target="_blank" rel="noopener">제8기 옴부즈만</a> · 금융위 — <a href="https://www.fsc.go.kr/no010101/88173" target="_blank" rel="noopener">실손 미청구 보험금</a></li>
+    </ul>
+  </details>
+</section>
+
+<!-- ============ 5. NEWS ============ -->
+<section class="panel" id="panel-news" role="tabpanel" aria-labelledby="tab-news">
+  <div class="phead">
+    <span class="eyebrow">Macro &amp; Policy</span>
+    <h2>📰 경제 · 부동산 · 국내외 시사</h2>
+    <p>물가 둔화, 공급 대책, 그리고 국내 정치·국제 정세까지 한 번에.</p>
+    <div class="stamp"><span class="dot"></span>2026.11.21 기준</div>
+  </div>
+
+  <div class="card">
+    <h3>경제 지표</h3>
+    <div class="rows">
+      <div class="row"><div class="k">10월 생산자물가 (전월比)</div><div class="v down">-0.1%</div></div>
+      <div class="row"><div class="k">10월 생산자물가 (전년比)<small>8월 7.9% → 9월 7.6% → 10월 7.2%로 둔화</small></div><div class="v">+7.2%</div></div>
+      <div class="row"><div class="k">농림수산품<small>사과 -29.2% · 돼지고기 -12.8%</small></div><div class="v down">-8.3%</div></div>
+      <div class="row"><div class="k">석유·화학제품<small>물가를 끌어올린 반대 요인</small></div><div class="v up">상승</div></div>
+      <div class="row"><div class="k">3분기 차주당 주담대 신규</div><div class="v up">2억1,451만원 <small>+622만원</small></div></div>
+      <div class="row"><div class="k">3분기 가계대출 신규취급액<small>2023년 1분기 이후 최대 감소 · 신용대출 -328만원이 원인</small></div><div class="v down">3,028만원 <small>-386만원, -11.3%</small></div></div>
+      <div class="row"><div class="k">5대 은행 가계대출 (1~10월)<small>전년의 절반 수준. 연말 ‘대출 절벽’ 우려는 완화</small></div><div class="v up">+15.9조원</div></div>
+    </div>
+    <div class="callout">
+      <span class="t">읽는 법</span>
+      생산자물가는 둔화인데 <b>주담대 신규 금액은 늘고 가계대출은 줄었습니다.</b> ‘집을 사는 사람은 더 큰 돈을 빌리고, 그 외 소비는 줄었다’는 구조로, 가계의 <b>주거 집중도</b>가 높아지는 신호입니다.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>부동산 · 공급 정책</h3>
+    <h4>HUG, 인허가 단계부터 PF 보증 사전심사</h4>
+    <ul class="clean">
+      <li>8·13 대책 후속 조치. 인허가 후 보증 승인까지 통상 <b>3개월 이상</b> 걸리던 절차를 병행 처리해 <b>약 2개월 단축</b> 기대.</li>
+      <li>다음 달 <b>‘주택공급 통합지원센터’</b> 본격 운영.</li>
+    </ul>
+    <h4>‘보편형 공공임대’ 입주 문턱 논의</h4>
+    <ul class="clean">
+      <li>국토부가 11/20 주거복지정책 토론회에서 소득·자산 기준 <b>모두 폐지안</b> 포함 <b>3개 대안</b> 제시.</li>
+      <li>단, <b>연구진 제안이며 정부 확정안이 아닙니다.</b> 세부 기준은 연내 확정 예정.</li>
+      <li>2030년까지 <b>19만3,000가구</b> 공급, <b>절반 이상 청년 우선 배정</b>.</li>
+    </ul>
+    <div class="callout amber">
+      <span class="t">표현 주의</span>
+      ‘보편형 공공임대 기준 폐지’가 이미 결정된 것처럼 읽히지 않도록 하세요. 현재는 <b>토론회에서 제시된 3개 대안 중 하나</b>입니다.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>이번 주 AI · 테크 5갈래</h3>
+    <h4>① 자본시장 — 앤스로픽, 첫 상장 프런티어 AI 기업</h4>
+    <ul class="clean">
+      <li>11/19 나스닥 상장(티커 <b>ANT</b>), 공모가 <b>$83</b>. 공모 주식수 초과배정 포함 <b>11억2,700만 주</b>, 앤스로픽 공식 발표 기준 총 조달 <b>약 935억 달러</b>.</li>
+      <li>첫날 $111.50 개장(+34%) → <b>$97.17 마감(+17%)</b> → 11/20 <b>$88.91(-8.50%)</b>. 시가총액 약 1.17조 달러.</li>
+      <li>MS·엔비디아·구글·AMD·브로드컴·마이크론·TSMC 참여 <b>260억 달러 사모 납입</b> 마감 → 두 거래 합계 약 <b>1,195억 달러</b>.</li>
+      <li>아마존·구글과의 컴퓨팅 계약 잔액 약 <b>9,000억 달러</b>(상장 서류 기재).</li>
+    </ul>
+    <p class="hint">※ 조달 규모 보도가 갈립니다 — 공식 발표·InformationWeek 약 935억弗, CNBC 813억弗, 연합뉴스 1,073억弗. <b>공식 발표치를 채택</b>했습니다.</p>
+
+    <h4>② 반도체 — 엔비디아는 ‘실적 최대·주가 최악’</h4>
+    <ul class="clean">
+      <li>FQ3(2027 회계연도) 매출 <b>1,158억弗(+103%)</b>, 데이터센터 <b>1,076억弗(+110%)</b>, 4분기 가이던스 <b>1,300억弗</b>(±3%).</li>
+      <li>그런데 주가는 사상 최고(10/6) 대비 <b>-36%</b>, <b>7주 연속 하락</b>(2008년 이후 최장).</li>
+      <li>임시 CEO 콜레트 크레스, 11/17 실적 콜에서 <b>“중국에 라이선스된 호퍼 데이터센터 제품(H200 포함)을 더 이상 출하하지 않는다”</b>고 선언. 직전 분기 중국향 호퍼는 24억弗(전체 약 2%)이고 4분기 가이던스에서 중국 데이터센터 매출은 전액 제외.</li>
+      <li>11/20 SEC 회계 조사 보도 겹치며 <b>-14.01%($125.53)</b>, 시총 2.5조弗 증발. 시총 순위는 알파벳에 밀려 미국 4위.</li>
+    </ul>
+
+    <h4>③ 정책 — 對中 ‘임대 우회’ 차단 · 데이터센터 해외 이전 압박</h4>
+    <ul class="clean">
+      <li>미 BIS 임시 최종규칙(11/16 발표·<b>11/19 발효</b>): 중국·마카오 기업에 대규모 컴퓨팅을 원격 제공하는 <b>해외 데이터센터</b>에 수출·재수출·이전 허가 요건 신설. <b>인도네시아·말레이시아·싱가포르·태국·브라질</b>행 첨단 반도체에도 허가 요건. 바이든 시절 AI 확산규칙은 공식 폐지. 의견 제출 마감 2027-01-19.</li>
+      <li>트럼프, 11/20 <b>“미국 기업이 해외에 데이터센터를 지으면 엄청난 세금을 물린다”</b>고 경고(텍사스·캘리포니아·웨스트버지니아를 대안으로 지목). 같은 날 상원은 데이터센터 인허가 완화 법안을 통과시켜 하원으로 넘김.</li>
+      <li>법적 근거가 불명확하다는 지적(WSJ)과 함께 시장은 매도로 반응.</li>
+    </ul>
+
+    <h4>④ 모델·제품 — 작아지는 모델, 길어지는 에이전트</h4>
+    <ul class="clean">
+      <li><b>Thinking Machines ‘Inkling 2 Mini’</b>(11/20): 총 264억 파라미터·토큰당 활성 34억, 체크포인트 약 20GB로 32GB 맥에서 구동, 컨텍스트 100만 토큰, Apache 2.0. <span class="muted">(벤치마크는 업체 자체 측정치)</span></li>
+      <li><b>OpenAI</b>: 자체 추론칩 ‘할라페뇨’ 설계에 자사 모델 활용 — 벡터유닛 표준셀 면적 13%·매트릭스유닛 10% 절감, AMD 협업에서 최대 14% PPA 개선. ChatGPT Space를 $20 Plus 구독자에 개방(11/20).</li>
+      <li><b>구글</b>: Gemini 앱 <b>10억 사용자</b> 돌파, 맥용 Gemini ‘컴퓨터 사용’ 출시(11/19), 에이전트 ‘Spark’→‘Tasks’ 무료화.</li>
+      <li><b>마이크로소프트</b>: Ignite 2026(11/17) <b>Copilot Workspaces</b> 발표. <b>메타</b>: Muse 에이전트 미국 사업자 전화 발신(11/13), 원가 문제로 글로벌 출시 보류.</li>
+    </ul>
+
+    <h4>⑤ 보안 — AI가 패치를 공격으로 바꾸다</h4>
+    <ul class="clean">
+      <li>CISA, 11/17 <b>Java4Shell(CVE-2026-114938)</b> 즉시 패치 권고 — x86-64 HotSpot JVM Base64 디코더 메모리 손상, 미인증 원격 코드 실행 가능. <b>컨테이너·어플라이언스에 내장된 런타임 탐지</b>가 관건.</li>
+      <li>구글, 패치를 역이용해 익스플로잇을 만드는 공격 정황 공개 + <b>‘AI Threat Defense’</b> 출시. 같은 주 PyPI 해킹으로 클라우드 자격증명 노출 가능성 보도.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>국내 주요 시사</h3>
+    <ul class="clean">
+      <li><b>경부선 화물열차 탈선 → 천안~대전 일반열차 중단</b> — 21일 오전 5시 37분 세종 소정리역 진입 중 제3810 화물열차가 비상제동 후 탈선, 21량 중 5량 이탈로 전차선 끊김. 코레일은 임시열차 15대와 버스 연계 수송 투입. 논술고사 수험생 큰 혼란.</li>
+      <li><b>이재명 대통령 “수능 부정 신고 포상금, 1건당 최소 1억 원”</b> — “최대 1억” 보도를 바로잡아 “건당 최소 1억, 부정행위자 수만큼 가산”이라고 밝힘. 자수 후 공범 신고 시 처벌 감경·포상금 지급. 배경은 AI·첨단장비 수능 부정 111건 적발과 LEET 만점자 사망 사건.</li>
+      <li><b>민주당 ‘조희대 대법원장 탄핵’ 당론 채택 → 연내 처리 속도전</b> — 한덕수 전 총리 사건 파기환송(11/19) 다음 날 의원총회에서 확정, 양부남 의원 단장 추진단 구성. 국민의힘은 “광기이자 국가적 비극”이라며 21일 대구 규탄집회. 대법원장 탄핵은 재적 3분의1 발의·과반 찬성 의결(민주당 161석).</li>
+      <li><b>이 대통령, 울산 SK AI데이터센터 현장 점검</b> — “AI 데이터센터·메모리 수요는 더 늘 것, 세계 경쟁에서 속도가 생명”. 건설 인력 부족과 전력 공급을 핵심 과제로 지목. 2주 연속 메가 프로젝트 현장 방문(직전 11/12 아산 삼성전자).</li>
+      <li><b>4년 만의 대중 무역흑자, 그러나 반도체 빼면 적자 확대</b> — 1~10월 대중 무역수지 <b>433억弗 흑자</b>(전년 동기 105억弗 적자). 대중 수출의 60% 이상이 반도체여서 수출 구조 편중 우려.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>국제 주요 시사</h3>
+    <ul class="clean">
+      <li><b>ICJ, 미얀마 로힝야족 집단학살 첫 판결</b> — 11/19 헤이그, 국가 상대 사상 첫 집단학살 판결(9-6). 2017년 ‘소탕작전’에서 살해·신체적 정신적 상해·출산 방해를 의도적으로 저질렀다고 인정. 약 1만 명 사망·마을 400곳 파괴 근거. 배상액·방식은 후속 절차, 미얀마는 2년 내 이행 보고서 제출. <span class="muted">(최종·구속력 있으나 강제수단 없음)</span></li>
+      <li><b>미·이란 긴장</b> — 트럼프는 재공습 결정을 새해 이후로 미루면서 “이란은 합의를 원하지만 내가 수용할 조건은 아니다”. 워싱턴 겨냥 ‘더티밤’ 음모 보도에는 “그러면 싸운다”. 이란 석유수익이 12월 중순 0이 될 전망 속 IRGC 계열은 <b>봉쇄 돌파용 유조선 호송</b> 추진.</li>
+      <li><b>덴마크, 러시아 국방무관 추방 / 키이우 대규모 피격</b> — 덴마크는 우크라이나 래퍼 암살 음모를 이유로 러 국방무관에 7일 내 출국 명령, 러 국민 비필수 비자 중단 예고. 러시아의 키이우 미사일·드론 공격으로 최소 7~9명 사망, 폴란드는 영공 침범 러 순항미사일 확인.</li>
+      <li><b>예멘·이라크·사우디 — 중동 다중 충돌</b> — 후티 집계로 24시간 내 사우디 주도 공습에 최소 41명(어린이 11·여성 7 포함) 사망. 후티는 사우디 남서부 발전소·항만 타격, 사우디 연합군은 리야드 상공 탄도미사일 3발 요격. 이라크 바스라 하르타 발전소 화재로 2~4명 사망·28~30명 부상, 800MW 가동 중단.</li>
+      <li><b>EU-영국, 브렉시트 후 첫 대형 협정 타결</b> — 11/20 정상회담에서 농식품 무역 간소화(검역증·검사 철폐), 탄소시장 연계, 청년 상호 거주·취업·유학 협정 마무리. 농식품 조항은 <b>2028년 3월 1일</b> 발효 예정.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>시사점 정리</h3>
+    <ul class="clean">
+      <li><b>물가·금리</b> — 생산자물가는 둔화(7.9→7.6→7.2%)인데 11/26 인상 전망. 물가 둔화가 인상 중단으로 이어지려면 <b>석유·화학</b>이 관건입니다.</li>
+      <li><b>공급</b> — HUG 사전심사·통합지원센터는 <b>‘절차 단축’</b>이지 공급량 확대가 아닙니다. 착공 데이터로 확인해야 합니다.</li>
+      <li><b>수출 구조</b> — 대중 흑자의 60% 이상이 반도체. 11/16 BIS 규정 변경과 11/20 삼성·TSMC 출하 중단 통보가 겹치면 <b>흑자 폭이 흔들릴 수 있는 구조</b>입니다.</li>
+      <li><b>지정학</b> — 호르무즈 긴장은 유가 상승 요인. WTI $83.98·브렌트 $92.57은 이미 이 리스크를 일부 반영한 가격입니다.</li>
+    </ul>
+  </div>
+
+  <details class="src">
+    <summary>출처 · 근거</summary>
+    <ul>
+      <li>연합뉴스 — <a href="https://www.yna.co.kr/view/AKR20261119157000002" target="_blank" rel="noopener">10월 생산자물가</a> · <a href="https://www.yna.co.kr/view/AKR20261120079200002" target="_blank" rel="noopener">주담대 신규취급액</a> · <a href="https://www.yna.co.kr/view/AKR20261121012752061" target="_blank" rel="noopener">경부선 탈선</a> · <a href="https://www.yna.co.kr/view/AKR20261121039400001" target="_blank" rel="noopener">수능 포상금</a> · <a href="https://www.yna.co.kr/view/AKR20261121033751001" target="_blank" rel="noopener">울산 SK AI데이터센터</a> · <a href="https://www.yna.co.kr/view/AKR20261120164900003" target="_blank" rel="noopener">대중 무역흑자</a></li>
+      <li>지이뉴스 — <a href="https://www.g-enews.com/article/Real-Estate/2026/11/202611201110341119d6c92cbcc5_1" target="_blank" rel="noopener">HUG PF 사전심사</a></li>
+      <li>한국경제 — <a href="https://www.hankyung.com/article/2026112006411" target="_blank" rel="noopener">보편형 공공임대</a></li>
+      <li>InformationWeek — <a href="https://www.informationweek.com/machine-learning-ai/the-week-of-nov-16-20-what-happened-what-matters-what-s-next" target="_blank" rel="noopener">11/16~20 주간 정리</a></li>
+      <li>CISA — <a href="https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching" target="_blank" rel="noopener">Java4Shell 즉시 패치</a></li>
+      <li>Al Jazeera — <a href="https://aljazeera.com/economy/2026/11/20/us-lawmakers-push-for-tougher-ai-chip-rules-amid-china-export-crackdown" target="_blank" rel="noopener">AI 칩 규정 강화</a></li>
+      <li>UN News — <a href="https://news.un.org/en/story/2026/11/1168836" target="_blank" rel="noopener">ICJ 로힝야 판결</a> · AP — <a href="https://apnews.com/article/rohingya-myanmar-genocide-court-icj-30df77b12bf3f911f1100e77ebe3973a" target="_blank" rel="noopener">판결 상세</a></li>
+      <li>Anadolu — <a href="https://www.aa.com.tr/en/world/morning-briefing-nov-21-2026/4132676" target="_blank" rel="noopener">11/21 세계 브리핑</a> · Xinhua — <a href="https://english.news.cn/20261121/cae87d64b4fa4dc785143332959c072d/c.html" target="_blank" rel="noopener">중동·EU-영국</a></li>
+      <li>CBS News — <a href="https://www.cbsnews.com/news/iran-war-us-israel-considering-new-assault-sources-say/" target="_blank" rel="noopener">미·이스라엘 이란 공격 검토</a> · Investing — <a href="https://www.investing.com/news/world-news/araqchi-says-iran-wants-diplomacy-to-end-war-trump-says-terms-unacceptable-5042853" target="_blank" rel="noopener">이란 외교 의사</a></li>
+    </ul>
+  </details>
+</section>
+
+<!-- ============ 6. SIMULATOR ============ -->
+<section class="panel" id="panel-sim" role="tabpanel" aria-labelledby="tab-sim">
+  <div class="phead">
+    <span class="eyebrow">Calculator</span>
+    <h2>🧮 분할매수 · 연금 시뮬레이터</h2>
+    <p>슬라이더를 움직이면 바로 계산됩니다. 계산값은 화면에서만 쓰이고 어디에도 저장·전송되지 않습니다.</p>
+    <div class="stamp"><span class="dot"></span>단순 계산 · 세금·수수료 미반영</div>
+  </div>
+
+  <div class="card">
+    <h3>① 분할 매수 계산기</h3>
+    <div class="ctrl">
+      <div class="lab"><span>총 투자예산</span><output id="out-budget">1,000만원</output></div>
+      <input type="range" id="budget" min="100" max="5000" step="50" value="1000" aria-label="총 투자예산">
+    </div>
+    <div class="ctrl">
+      <div class="lab"><span>현금 버퍼 (CMA 보유)</span><output id="out-buffer">30%</output></div>
+      <input type="range" id="buffer" min="0" max="70" step="5" value="30" aria-label="현금 버퍼 비율">
+    </div>
+    <div class="ctrl">
+      <div class="lab"><span>분할 횟수</span><output id="out-splits">5회</output></div>
+      <input type="range" id="splits" min="1" max="12" step="1" value="5" aria-label="분할 횟수">
+    </div>
+
+    <div class="tiles">
+      <div class="tile"><div class="k">투입 자금<br>(주식)</div><div class="v" id="out-invest">700<small>만원</small></div></div>
+      <div class="tile"><div class="k">CMA<br>현금 보유</div><div class="v" id="out-cash">300<small>만원</small></div></div>
+      <div class="tile hl"><div class="k">1회차<br>매수 금액</div><div class="v" id="out-per">140<small>만원</small></div></div>
+    </div>
+
+    <div class="rows" style="margin-top:14px">
+      <div class="row"><div class="k">회차별 매수 금액<small>동일 금액 분할 기준</small></div><div class="v" id="out-per2">140만원 × 5회</div></div>
+      <div class="row"><div class="k">현금 버퍼의 성격<small>추가 하락 시 2·3차 투입 재원</small></div><div class="v" id="out-cash2">300만원</div></div>
+    </div>
+
+    <div class="callout">
+      <span class="t">오늘 시장에 대입하면</span>
+      VIX <b>35.89</b>·CNN 공포탐욕 <b>10</b> 구간입니다. 변동성이 큰 구간에서는 <b>현금 버퍼를 30~50%, 분할 횟수를 5~8회</b>로 두는 조합이 1회차 충격을 줄입니다. 반대로 공포탐욕이 50 이상으로 회복되면 버퍼를 줄이는 방향으로 조정합니다.
+    </div>
+    <p class="hint">※ 원금 보장이 아닙니다. 분할은 ‘평균 단가’를 낮추는 도구가 아니라 <b>판단 시점을 나누는</b> 도구입니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>② 연금 수령 연령 비교</h3>
+    <div class="ctrl">
+      <div class="lab"><span>65세 기준 월 수령액</span><span style="font-size:12px;font-weight:800;color:var(--tx2)">만원</span></div>
+      <input type="number" class="num-input" id="pension" value="100" min="10" max="1000" step="1" inputmode="numeric" aria-label="65세 기준 월 수령액(만원)">
+    </div>
+    <div class="ctrl" style="margin-bottom:8px">
+      <div class="lab"><span>수령 개시 연령</span></div>
+      <div class="seg" id="ageSeg">
+        <button type="button" data-age="60" aria-pressed="false">60세</button>
+        <button type="button" data-age="65" aria-pressed="true">65세</button>
+        <button type="button" data-age="70" aria-pressed="false">70세</button>
+        <button type="button" data-age="75" aria-pressed="false">75세</button>
+      </div>
+    </div>
+
+    <div class="rows" style="margin-top:12px">
+      <div class="row"><div class="k">선택 연령의 예상 월액</div><div class="v" id="out-month">100만원</div></div>
+      <div class="row"><div class="k">65세 대비</div><div class="v" id="out-diff">±0만원</div></div>
+      <div class="row"><div class="k">손익분기 연령<small>65세 수령 누적액과 같아지는 나이</small></div><div class="v" id="out-be">—</div></div>
+      <div class="row"><div class="k">85세까지 누적 수령액</div><div class="v" id="out-total">—</div></div>
+    </div>
+
+    <h4>연령별 비교표</h4>
+    <div style="overflow-x:auto">
+      <table class="ptab" id="pTable">
+        <thead>
+          <tr><th>개시</th><th>월액</th><th>조정률</th><th>손익분기</th><th>85세 누적</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="callout amber">
+      <span class="t">계산식과 한계</span>
+      조기수령 <b>-6%/년</b>, 연기수령 <b>+7.2%/년</b> 단순 적용입니다. 실제 국민연금은 <b>조기·연기 상한이 각 5년</b>(60세·70세가 실질 경계)이라 <b>75세 행은 참고 시나리오</b>로만 보세요. 물가연동·과세·유족연금은 반영하지 않았습니다.
+    </div>
+    <p class="hint">※ 손익분기 연령 = <b>(조정률 × 개시연령 − 65) ÷ (조정률 − 1)</b>. 수령 개시가 빠를수록 손익분기 연령이 낮고, 늦을수록 높아집니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>③ 이번 주 숫자로 본 참고치</h3>
+    <div class="rows">
+      <div class="row"><div class="k">한국 기준금리 → 11/26 전망</div><div class="v">3.00% → 3.25%</div></div>
+      <div class="row"><div class="k">AA+ 3년 여전채 (11/16)</div><div class="v">4.283%</div></div>
+      <div class="row"><div class="k">국고 3년 (11/20)</div><div class="v">3.642%</div></div>
+      <div class="row"><div class="k">여전채–국고 스프레드<small>계산치</small></div><div class="v">약 64bp</div></div>
+      <div class="row"><div class="k">미 10년물</div><div class="v">4.92%</div></div>
+      <div class="row"><div class="k">원/달러</div><div class="v">1,336.2원</div></div>
+    </div>
+    <p class="hint">현금성 자산(CMA·단기채)의 기대수익은 이 금리 수준을 참고하되, <b>11/26 인상 폭과 내년 2월 추가 인상 여부</b>에 따라 달라집니다. 여전채 금리는 9/28 고점 4.680%에서 0.397%p 내려온 상태입니다.</p>
+  </div>
+</section>
+
+<!-- ============ 7. TAX ============ -->
+<section class="panel" id="panel-tax" role="tabpanel" aria-labelledby="tab-tax">
+  <div class="phead">
+    <span class="eyebrow">Action Checklist</span>
+    <h2>💡 절세 · 실행 체크리스트</h2>
+    <p>체크 상태는 <b>이 브라우저에만</b> 저장됩니다(localStorage). 다른 기기와 동기화되지 않습니다.</p>
+    <div class="stamp"><span class="dot"></span>연말 정산·양도세 대비</div>
+  </div>
+
+  <div class="card">
+    <h3>절세 포인트</h3>
+    <h4>해외주식 양도소득세</h4>
+    <ul class="clean">
+      <li><b>기본공제 250만원</b> — 연간 해외주식 양도차익 합산 기준입니다.</li>
+      <li><b>연말 전 손익 통산 점검</b> — 공제 한도를 넘길 것 같으면 <b>12월 안에</b> 손실 종목 매도로 이익을 상쇄하는 것이 일반적입니다. 단, 매도 후 재매수는 ‘가짜 손실’로 보지 않도록 <b>실제 보유 판단</b>과 함께 하세요.</li>
+      <li><b>환율</b> — 원/달러 1,336.2원. 달러 자산을 원화로 환산해 신고하므로 환율도 과세액에 영향을 줍니다.</li>
+    </ul>
+    <h4>중개형 ISA</h4>
+    <ul class="clean">
+      <li>국내 상장주식·ETF를 <b>절세 계좌</b>에서 운용. 순이익 <b>비과세 한도</b>와 <b>손익 통산</b> 혜택이 있습니다.</li>
+      <li>한도·요건은 연도·계좌 유형별로 다르므로, <b>올해 납입 여력</b>을 먼저 확인하세요.</li>
+      <li>만기 후 연금계좌로 <b>전환</b>하면 추가 세액공제 대상이 되는 제도가 있습니다.</li>
+    </ul>
+    <h4>연금저축 · IRP 세액공제</h4>
+    <ul class="clean">
+      <li><b>연금저축 600만원 + IRP 합산 최대 900만원</b>까지 세액공제 대상.</li>
+      <li>공제율은 총급여 구간에 따라 달라집니다. <b>연말까지 납입</b>해야 그 해 공제가 됩니다.</li>
+      <li>중도해지 시 <b>기타소득세</b>로 되돌아갈 수 있으니, ‘묶어도 되는 돈’으로만 넣으세요.</li>
+    </ul>
+    <div class="callout amber">
+      <span class="t">확인 필요</span>
+      세율·공제 한도·신고 기한 등 세부 요건은 <b>연도와 개인 상황(총급여·금융소득·가구)에 따라 달라집니다.</b> 이 화면은 방향을 잡기 위한 요약이며, 실제 신고 전에는 국세청 안내나 세무 전문가 확인을 권합니다.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>실행 체크리스트 <span class="badge" id="chkCount">0 / 10</span></h3>
+    <div class="progress"><i id="chkBar"></i></div>
+    <div id="chkList"></div>
+    <button type="button" class="ghostbtn" id="chkReset">체크 초기화</button>
+    <p class="hint">체크는 이 기기의 브라우저에 저장됩니다. 시크릿 모드·브라우저 데이터 삭제 시 사라집니다.</p>
+  </div>
+
+  <div class="card">
+    <h3>이번 주 확인할 일정</h3>
+    <div class="rows">
+      <div class="row"><div class="k">11/23 (월)<small>유니클로 등 유통 감사제 품목 공개 · 미장 개장(반등 확인)</small></div><div class="v">월요일</div></div>
+      <div class="row"><div class="k">11/26 (목)<small>한은 금통위 — 3.00 → 3.25% 인상 여부</small></div><div class="v up">금통위</div></div>
+      <div class="row"><div class="k">11/27 (금)<small>12월 카드채 차환 물량 집중 구간 시작</small></div><div class="v">차환</div></div>
+      <div class="row"><div class="k">12/8~9<small>FOMC</small></div><div class="v">FOMC</div></div>
+      <div class="row"><div class="k">12/9<small>브로드컴(AVGO) 실적</small></div><div class="v">실적</div></div>
+      <div class="row"><div class="k">12월 말<small>해외주식 양도차익 손익통산 확정 · 연금저축/IRP 납입 마감</small></div><div class="v up">연말 마감</div></div>
+    </div>
+  </div>
+</section>
+
+<button type="button" class="ghostbtn" id="copyBtn2" style="margin:18px 0 0">📋 지금 탭의 요약 텍스트 복사</button>
+
+<div class="disc">
+  <b>※ 본 대시보드와 시뮬레이션은 참고용이며 최종 판단과 책임은 본인에게 있습니다.</b><br>
+  수치는 2026-11-20(금) 마감 및 2026-11-21(토) 17시 KST 브리핑 기준이며, 브리핑에 수록된 검증된 값과 출처만 사용했습니다. 일부 항목(BRK.B 종가·평가)은 원자료에 없어 표기하지 않았습니다. 절세 항목의 세율·한도·기한은 연도·개인 상황에 따라 달라질 수 있습니다. 개별 종목의 매수·매도 권유가 아닙니다.
+</div>
+
+<div class="footer">
+  <b>오늘의 투자 레이더</b> · 2026.11.21 (토)<br>
+  단일 파일 · 오프라인 동작 · 외부 라이브러리 없음<br>
+  <span style="opacity:.75">데이터 기준: 11/20 종가 / 브리핑 2026-11-21 17:00 KST</span>
+</div>
+
+</div><!-- /wrap -->
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ---------- theme ---------- */
+  function applyTheme(t) {
+    document.documentElement.setAttribute("data-theme", t);
+    var btn = $("#themeToggle");
+    if (btn) {
+      btn.textContent = (t === "dark") ? "\u2600\uFE0F" : "\u{1F319}";
+      btn.setAttribute("aria-label", t === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환");
+    }
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", t === "dark" ? "#070c15" : "#eef2f8");
+  }
+  try {
+    var savedTheme = localStorage.getItem("radar.theme");
+    if (savedTheme === "light" || savedTheme === "dark") applyTheme(savedTheme);
+    else applyTheme("dark");
+  } catch (e) { applyTheme("dark"); }
+
+  var themeBtn = $("#themeToggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var cur = document.documentElement.getAttribute("data-theme");
+      var next = (cur === "dark") ? "light" : "dark";
+      applyTheme(next);
+      try { localStorage.setItem("radar.theme", next); } catch (e) {}
+    });
+  }
+
+  /* ---------- tabs ---------- */
+  var TABS = ["market", "bigtech", "growth", "audit", "news", "sim", "tax"];
+  var current = "market";
+
+  function activate(id, doScroll) {
+    if (TABS.indexOf(id) === -1) id = "market";
+    current = id;
+    $$(".tab").forEach(function (b) {
+      var on = b.getAttribute("data-tab") === id;
+      b.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    TABS.forEach(function (t) {
+      var p = document.getElementById("panel-" + t);
+      if (p) p.classList.toggle("active", t === id);
+    });
+    try {
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", "#" + id);
+      }
+    } catch (e) {}
+    if (doScroll) window.scrollTo({ top: 0, behavior: "auto" });
+    if (id === "sim") recalcAll();
+    if (id === "tax") renderChecklist();
+  }
+
+  $$(".tab").forEach(function (b) {
+    b.addEventListener("click", function () {
+      activate(b.getAttribute("data-tab"), true);
+    });
+    b.addEventListener("keydown", function (ev) {
+      var i = TABS.indexOf(b.getAttribute("data-tab"));
+      if (ev.key === "ArrowRight") { ev.preventDefault(); activate(TABS[(i + 1) % TABS.length], false); }
+      if (ev.key === "ArrowLeft") { ev.preventDefault(); activate(TABS[(i - 1 + TABS.length) % TABS.length], false); }
+    });
+  });
+
+  /* initial tab is applied at the end of this script, once every handler exists */
+
+  /* ---------- toast ---------- */
+  var toastTimer = null;
+  function toast(msg) {
+    var t = $("#toast");
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add("show");
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.classList.remove("show"); }, 2000);
+  }
+
+  /* ---------- copy summary ---------- */
+  var SUMMARIES = {
+    market: [
+      "[시장 레이더 · 2026-11-20 마감]",
+      "· 코스피 4,869.96 (-5.21%) / 코스닥 645.68 (-5.71%)",
+      "· S&P500 6,910.39 (-3.70%) / 나스닥 22,617.73 (-5.28%) / 다우 48,147.33 (-1.93%, -949.73p)",
+      "· 원/달러 1,336.2원 (+6.2원) / 역외 1,346원대",
+      "· 美10Y 4.92% (-12bp) / 美2Y 4.63% (-13bp) / 韓3Y 3.642% (-7.4bp)",
+      "· WTI $83.98 (+0.93%) / 브렌트 $92.57 / 금 $3,515.40 (-4.62%) / 은 $41.07 (-7.41%)",
+      "· CNN 공포탐욕 10 (극단적 공포) / VIX 35.89 (+26.2%)",
+      "· 기준금리 韓 3.00% (11/26 3.25% 인상 유력) / 美 3.75~4.00% (12/8~9 FOMC)",
+      "· 외국인 6거래일 연속 순매도 누적 5조965억원 / 코스피 시총 3,991조원",
+      "→ 대응: 분할 횟수 확대·현금 버퍼 30~50%, 환전 분할, 11/23 개장으로 반등 확인"
+    ],
+    bigtech: [
+      "[빅테크 · 해자 · ROE/PEG · 2026-11-20 종가]",
+      "· NVDA $125.53 (-14.01%, Wide) / MSFT $484.52 (-2.77%) / AAPL $342.56 (-1.90%) / GOOGL $265.29 (-2.70%)",
+      "· AMZN $246.82 (-4.10%) / META $560.84 (-5.93%) / AVGO $304.41 (-12.19%) / TSM $318.71 (-9.48%)",
+      "· ROE 15%↑ + PEG 1 안팎: META PEG 0.88·ROE 32.26% / NFLX 0.76·53.46% / ANET 1.04·33.52%",
+      "· 모닝스타 Wide Moat TOP5 (공정가치 대비): AVGO -53.2% / NVDA -59.5% / GOOGL -41.0% / TSM -40.3% / META -34.0%",
+      "· 평점 3.5+: Anthropic 4.8 / NVDA 4.5 / NOW 4.4 / GOOGL 4.4 / EPAM 4.4",
+      "· 4대 하이퍼스케일러 3Q capex 2,087억弗 (OCF 대비 MSFT 68%·META 106%·GOOGL 121%·AMZN 182%)",
+      "→ 아이디어: '성장률'이 아니라 '성장의 현금 전환율'로 선별. PEG는 후보 필터, 별점은 참고치."
+    ],
+    growth: [
+      "[CAGR 30%+ 고성장 섹터]",
+      "· 휴머노이드 로보틱스 CAGR 35.26% (2026 $39.3억 → 2031 $178억)",
+      "· 데이터센터용 SMR CAGR 약 32% (2026 $13억 → 2032 $68억). 상위 '원전 르네상스+SMR'은 9.5%, 'AI DC 전력' 세그먼트 21.6%",
+      "· AI 추론 최적화 HW CAGR 41.1% (2026 $184억 → 2031 $1,028억). 추론 시장 전체는 18~19%",
+      "· 리스크: 로봇 시간당 운영원가 $0.75~1.25(협동로봇 $0.35~0.50) / SMR FOAK 건설·인허가 / 수출통제(BIS 11/19 발효)",
+      "→ 아이디어: 개별 종목보다 섹터 분산, 3개 테마의 교집합인 전력·냉각·송전 인프라, 위성 비중으로 소액."
+    ],
+    audit: [
+      "[금융권 동향 → 감사 리스크 · 11/17~21]",
+      "· 현대캐피탈: 브랜드평판 1위 171만210점(+9.32%) / 한신평 AA+(안정적)·CP A1 / 3Q 영업익 1,155억(-26.3%), 누적 순익 3,803억(-14.9%) / EV 배터리 구독 조율 중 / 모집인 146명 정보유출 보도(제재 미확인)",
+      "· 여신업 16곳 3Q 영업익 9,299억(-55.5%), 순익 -59.2%. 미래에셋캐피탈 영업손실 5,460억(감소액 76.5%). 캐피탈 6곳 7,628억 흑자→1,855억 적자, KB캐피탈만 +1.5%",
+      "· 카드 9월 말 연체율 1.72%(삼성 0.95% 최저) — 상각·매각 착시. 카드채 금리↔4분기 후 연체율 상관 0.77, 2027 2~3Q +0.20~0.25%p 경고",
+      "· 12월 만기 카드채 5조2,400억 중 55% 집중, 차환 시 이자 +약 340억. 여전채 만기 6조7,000억",
+      "· 4대 지주 3Q 누적 순익 17조+(역대 최대)이나 NIM 전원 하락, CET1 13.18%(+7bp)는 RWA 감소 착시, 하나 NPL 커버리지 90.2%",
+      "· 주담대 최대 6.51% / 9월 주담대 4.88%(14년5개월 최고) / 가계신용 2,030.5조 / 취약차주 연체 10.39%",
+      "· 금감원 제8기 옴부즈만 5명 위촉(11/20) / 금융위 실손 미청구 보험금 찾기(2027 1Q)",
+      "",
+      "▶ 6대 감사 아이디어 (원인 vs 통제 미흡)",
+      "1) 실적 하락 → 예외승인·저신용 취급·충당금 과소 적립 유인 [통제: 심사–승인 SoD·전결 예외]",
+      "2) 연체율 착시·4분기 시차 → 건전성 모형 [통제: 상각 전 실질 전이율·충당금 모형 검증]",
+      "3) 12월 만기 집중·단기조달 → 유동성 [통제: 만기 집중도·차환 스트레스·조달–운용 갭]",
+      "4) EV 배터리 구독 → 신상품 [통제: 배터리 RV 산정·담보권 분리·약관 책임소재]",
+      "5) 모집인 146명 유출·AI 확대 → 위수탁 보안 [통제: 제3자 접근권한·로그 감사·AI 동의]",
+      "6) 감독기관 기조 → 소비자보호 [통제: 금리인하요구권·수수료·해지 절차 안내 증적]",
+      "",
+      "▶ 캘린더: 11/26 금통위 → 12월 차환 집중 → 2027 1~2Q 연체율 피크 경고"
+    ],
+    news: [
+      "[경제·부동산·시사 · 2026-11-21]",
+      "· 10월 생산자물가 전월比 -0.1% / 전년比 +7.2% (8월 7.9 → 9월 7.6 → 10월 7.2 둔화)",
+      "· 3분기 차주당 주담대 신규 2억1,451만원(+622만) vs 가계대출 신규취급 3,028만원(-386만, -11.3%)",
+      "· 5대 은행 가계대출 1~10월 +15.9조원(전년의 절반)",
+      "· HUG, 인허가 단계 PF 보증 사전심사 — 3개월 → 약 2개월 단축, 다음 달 주택공급 통합지원센터",
+      "· 보편형 공공임대: 소득·자산 기준 폐지안 포함 3개 대안 제시(연구진 제안, 정부 확정안 아님) · 2030년까지 19만3,000가구 · 절반 이상 청년",
+      "· 앤스로픽 상장(ANT): 공모가 $83, 첫날 $97.17(+17%) → 11/20 $88.91(-8.50%), 조달 약 935억弗(공식)",
+      "· NVDA FQ3 매출 1,158억弗(+103%)·데이터센터 1,076억弗(+110%) 인데 고점 대비 -36%",
+      "· BIS 임시 최종규칙 11/19 발효 — 중국·마카오 원격 컴퓨팅·5개국 첨단 반도체 허가 요건",
+      "· 국내: 경부선 화물열차 탈선(천안~대전 중단) / 수능 포상금 1건당 최소 1억 / 대법원장 탄핵 당론 / 울산 SK AI DC 점검 / 대중 무역흑자 433억弗(반도체 60%↑)",
+      "· 국제: ICJ 로힝야 집단학살 첫 판결(9-6) / 미·이란 공습 연초로 연기·호르무즈 대치 / 덴마크 러 국방무관 추방·키이우 피격 / 예멘·이라크·사우디 충돌 / EU-영국 브렉시트 후 첫 대형 협정(농식품 2028-03-01 발효)"
+    ],
+    sim: function () {
+      var b = $("#budget"), buf = $("#buffer"), sp = $("#splits");
+      var budget = b ? Number(b.value) : 1000;
+      var buffer = buf ? Number(buf.value) : 30;
+      var splits = sp ? Number(sp.value) : 5;
+      var invest = budget * (1 - buffer / 100);
+      var cash = budget * buffer / 100;
+      var per = splits > 0 ? invest / splits : invest;
+      function w(n) { return (Math.round(n * 10) / 10).toLocaleString("ko-KR"); }
+      var pEl2 = $("#pension");
+      var base = pEl2 ? Number(pEl2.value) : 100;
+      if (!isFinite(base) || base <= 0) base = 0;
+      var r2 = rateFor(selectedAge);
+      var m2 = base * r2;
+      return [
+        "[분할 매수 계산 결과]",
+        "· 총 투자예산 " + w(budget) + "만원 / 현금 버퍼 " + buffer + "% / 분할 " + splits + "회",
+        "· 투입 자금(주식) " + w(invest) + "만원",
+        "· CMA 현금 보유 " + w(cash) + "만원",
+        "· 1회차 매수 금액 " + w(per) + "만원",
+        "",
+        "[연금 수령 비교] 조기 -6%/년 · 연기 +7.2%/년 단순 적용 (국민연금 조기·연기 상한 각 5년)",
+        "· 선택: " + selectedAge + "세 개시 → 월 " + w(m2) + "만원 (65세 기준 " + w(base) + "만원 대비 " + (r2 === 1 ? "기준" : ((r2 > 1 ? "+" : "−") + Math.abs(Math.round((r2 - 1) * 1000) / 10) + "%")) + ")",
+        "· 손익분기(65세 누적 대비): 60세 개시 약 76.7세 · 70세 약 83.9세 · 75세 약 88.9세",
+        "· 85세까지 누적 수령: " + w(m2 * 12 * Math.max(0, 85 - selectedAge)) + "만원"
+      ];
+    },
+    tax: [
+      "[절세 · 실행 체크리스트]",
+      "· 해외주식 양도세 기본공제 250만원(연간) — 연말 전 손익통산 점검",
+      "· 중개형 ISA — 비과세 한도·손익통산, 만기 후 연금계좌 전환 제도 확인",
+      "· 연금저축 600만원 + IRP 합산 최대 900만원 세액공제 — 연말까지 납입",
+      "· 3개월 생활비는 CMA에 분리 운용 (투자금과 섞지 않기)",
+      "· 일정: 11/26 금통위 → 12/9 AVGO 실적 → 12/8~9 FOMC → 12월 말 양도차익 확정·연금 납입 마감",
+      "※ 세율·한도·기한은 연도·개인 상황에 따라 다를 수 있어 전문가 확인 권장"
+    ]
+  };
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      try {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.top = "-1000px";
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        if (ok) resolve(); else reject(new Error("copy failed"));
+      } catch (err) { reject(err); }
+    });
+  }
+
+  $$("#copyBtn, #copyBtn2").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var entry = SUMMARIES[current];
+      var lines = (typeof entry === "function") ? entry() : (entry || []);
+      var text = lines.join("\n");
+      copyText(text).then(function () {
+        toast("현재 탭 요약을 복사했어요");
+      }).catch(function () {
+        toast("복사가 막혔어요 · 길게 눌러 복사해 주세요");
+      });
+    });
+  });
+
+  /* ---------- split-buy simulator ---------- */
+  var bEl = $("#budget"), bufEl = $("#buffer"), spEl = $("#splits");
+
+  function fmtW(n) {
+    var r = Math.round(n * 10) / 10;
+    return r.toLocaleString("ko-KR");
+  }
+
+  function recalcSplit() {
+    if (!bEl || !bufEl || !spEl) return;
+    var budget = Number(bEl.value);
+    var buffer = Number(bufEl.value);
+    var splits = Number(spEl.value);
+    var invest = budget * (1 - buffer / 100);
+    var cash = budget * buffer / 100;
+    var per = splits > 0 ? invest / splits : invest;
+
+    var ob = $("#out-budget"), of = $("#out-buffer"), os = $("#out-splits");
+    if (ob) ob.textContent = fmtW(budget) + "만원";
+    if (of) of.textContent = buffer + "%";
+    if (os) os.textContent = splits + "회";
+
+    var oi = $("#out-invest"), oc = $("#out-cash"), op = $("#out-per");
+    if (oi) oi.innerHTML = fmtW(invest) + "<small>만원</small>";
+    if (oc) oc.innerHTML = fmtW(cash) + "<small>만원</small>";
+    if (op) op.innerHTML = fmtW(per) + "<small>만원</small>";
+
+    var op2 = $("#out-per2"), oc2 = $("#out-cash2");
+    if (op2) op2.textContent = fmtW(per) + "만원 × " + splits + "회";
+    if (oc2) oc2.textContent = fmtW(cash) + "만원";
+  }
+
+  [bEl, bufEl, spEl].forEach(function (el) {
+    if (!el) return;
+    el.addEventListener("input", recalcSplit);
+    el.addEventListener("change", recalcSplit);
+  });
+  recalcSplit();
+
+  /* ---------- pension calculator ---------- */
+  var pEl = $("#pension");
+  var selectedAge = 65;
+  var AGES = [60, 65, 70, 75];
+
+  function rateFor(age) {
+    if (age < 65) return 1 - 0.06 * (65 - age);
+    if (age > 65) return 1 + 0.072 * (age - 65);
+    return 1;
+  }
+  function breakEven(age, r) {
+    if (r === 1) return null;
+    return (r * age - 65) / (r - 1);
+  }
+
+  function recalcPension() {
+    if (!pEl) return;
+    var base = Number(pEl.value);
+    if (!isFinite(base) || base <= 0) base = 0;
+
+    var r = rateFor(selectedAge);
+    var monthly = base * r;
+    var diff = monthly - base;
+    var be = breakEven(selectedAge, r);
+    var byEightyFive = monthly * 12 * Math.max(0, 85 - selectedAge);
+    var baseByEightyFive = base * 12 * Math.max(0, 85 - 65);
+
+    var mEl = $("#out-month");
+    if (mEl) mEl.textContent = fmtW(monthly) + "만원";
+
+    var dEl = $("#out-diff");
+    if (dEl) {
+      if (Math.abs(diff) < 0.05) { dEl.textContent = "±0만원 (기준)"; dEl.className = "v"; }
+      else if (diff > 0) { dEl.textContent = "+" + fmtW(diff) + "만원 (+" + Math.round((r - 1) * 1000) / 10 + "%)"; dEl.className = "v up"; }
+      else { dEl.textContent = "−" + fmtW(Math.abs(diff)) + "만원 (" + Math.round((r - 1) * 1000) / 10 + "%)"; dEl.className = "v down"; }
+    }
+
+    var beEl = $("#out-be");
+    if (beEl) beEl.textContent = be === null ? "65세 (기준)" : (Math.round(be * 10) / 10) + "세";
+
+    var tEl = $("#out-total");
+    if (tEl) {
+      var gap = byEightyFive - baseByEightyFive;
+      var gapTxt = (gap >= 0 ? "+" : "−") + fmtW(Math.abs(gap)) + "만원";
+      tEl.innerHTML = fmtW(byEightyFive) + "만원 <small>65세 기준 대비 " + gapTxt + "</small>";
+    }
+
+    var tbody = $("#pTable") ? $("#pTable").querySelector("tbody") : null;
+    if (tbody) {
+      tbody.innerHTML = "";
+      AGES.forEach(function (age) {
+        var rr = rateFor(age);
+        var m = base * rr;
+        var b = breakEven(age, rr);
+        var total = m * 12 * Math.max(0, 85 - age);
+        var tr = document.createElement("tr");
+        if (age === selectedAge) tr.className = "on";
+        var adjCls = rr > 1 ? "pos" : (rr < 1 ? "neg" : "");
+        var adj = (rr === 1) ? "기준" : ((rr > 1 ? "+" : "−") + Math.abs(Math.round((rr - 1) * 1000) / 10) + "%");
+        tr.innerHTML =
+          "<td>" + age + "세</td>" +
+          "<td>" + fmtW(m) + "</td>" +
+          "<td class=\"" + adjCls + "\">" + adj + "</td>" +
+          "<td>" + (b === null ? "—" : (Math.round(b * 10) / 10) + "세") + "</td>" +
+          "<td>" + fmtW(total) + "</td>";
+        tbody.appendChild(tr);
+      });
+    }
+  }
+
+  if (pEl) {
+    pEl.addEventListener("input", recalcPension);
+    pEl.addEventListener("change", recalcPension);
+  }
+  $$("#ageSeg button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      selectedAge = Number(b.getAttribute("data-age"));
+      $$("#ageSeg button").forEach(function (x) {
+        x.setAttribute("aria-pressed", x === b ? "true" : "false");
+      });
+      recalcPension();
+    });
+  });
+  recalcPension();
+
+  function recalcAll() {
+    recalcSplit();
+    recalcPension();
+  }
+
+  /* ---------- checklist ---------- */
+  var CHECK_ITEMS = [
+    { id: "cma", t: "3개월 생활비 CMA 분리", s: "투자 예산과 섞이지 않게 별도 계좌로. 예산 슬라이더의 '현금 버퍼'와 구분해서 관리하세요." },
+    { id: "cash", t: "현금 버퍼 목표치 정하기", s: "VIX 35.89 구간 — 30~50% 수준에서 시작하는 조합이 일반적입니다." },
+    { id: "split", t: "분할 횟수·1회차 금액 확정", s: "🧮 시뮬레이터에서 계산한 뒤 숫자를 메모해 두세요." },
+    { id: "fx", t: "환전 분할 계획", s: "원/달러 1,336.2원(역외 1,346원대). 한 번에 환전하지 않기." },
+    { id: "tax250", t: "해외주식 양도차익 250만원 공제 잔여 확인", s: "연말 전 손익통산 검토. 증권사 양도소득 조회 화면에서 확인." },
+    { id: "loss", t: "손실 종목 통산 매도 검토", s: "공제 한도를 넘길 것 같을 때만. 보유 판단과 분리해서 결정하지 않기." },
+    { id: "isa", t: "중개형 ISA 납입 여력 확인", s: "비과세 한도·손익통산. 연도별 한도는 변동될 수 있음." },
+    { id: "pension", t: "연금저축·IRP 잔여 한도 확인", s: "연금저축 600만원 + IRP 합산 최대 900만원. 연말까지 납입해야 공제." },
+    { id: "pnote", t: "일정 체크: 11/26 금통위 · 12/9 AVGO · 12/8~9 FOMC", s: "이벤트 통과 전후로 변동성이 커지는 구간입니다." },
+    { id: "review", t: "이번 주 판단 되돌아보기", s: "11/23 개장 반등이 '신호'인지 '되돌림'인지 확인한 뒤 조정." }
+  ];
+  var STORE_KEY = "radar.checklist.v1";
+  var chkState = {};
+
+  function loadChecks() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (raw) {
+        var obj = JSON.parse(raw);
+        if (obj && typeof obj === "object") chkState = obj;
+      }
+    } catch (e) { chkState = {}; }
+  }
+  function saveChecks() {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(chkState)); } catch (e) {}
+  }
+  function updateProgress() {
+    var done = 0;
+    CHECK_ITEMS.forEach(function (it) { if (chkState[it.id]) done += 1; });
+    var cnt = $("#chkCount");
+    if (cnt) cnt.textContent = done + " / " + CHECK_ITEMS.length;
+    var bar = $("#chkBar");
+    if (bar) bar.style.width = (done / CHECK_ITEMS.length * 100).toFixed(1) + "%";
+  }
+
+  var chkRendered = false;
+  function renderChecklist() {
+    var list = $("#chkList");
+    if (!list || !CHECK_ITEMS || !CHECK_ITEMS.length) return;
+    if (!chkRendered) {
+      loadChecks();
+      list.innerHTML = "";
+      CHECK_ITEMS.forEach(function (it) {
+        var lab = document.createElement("label");
+        lab.className = "chk";
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.setAttribute("data-id", it.id);
+        cb.checked = !!chkState[it.id];
+        var box = document.createElement("div");
+        box.className = "txt";
+        var bt = document.createElement("b");
+        bt.textContent = it.t;
+        var sm = document.createElement("small");
+        sm.textContent = it.s;
+        box.appendChild(bt);
+        box.appendChild(sm);
+        lab.appendChild(cb);
+        lab.appendChild(box);
+        cb.addEventListener("change", function () {
+          chkState[it.id] = cb.checked;
+          saveChecks();
+          updateProgress();
+          if (cb.checked) {
+            var done = CHECK_ITEMS.filter(function (x) { return chkState[x.id]; }).length;
+            if (done === CHECK_ITEMS.length) toast("체크리스트 완료! 오늘 할 일 끝 👍");
+          }
+        });
+        list.appendChild(lab);
+      });
+      chkRendered = true;
+    }
+    updateProgress();
+  }
+  renderChecklist();
+
+  var resetBtn = $("#chkReset");
+  if (resetBtn) {
+    resetBtn.setAttribute("aria-label", "체크리스트 초기화");
+    resetBtn.addEventListener("click", function () {
+      chkState = {};
+      saveChecks();
+      $$("#chkList input[type=checkbox]").forEach(function (cb) { cb.checked = false; });
+      updateProgress();
+      toast("체크를 초기화했어요");
+    });
+  }
+
+  /* ---------- boot ---------- */
+  recalcAll();
+  activate((window.location.hash || "").replace("#", "") || "market", false);
+  if ((window.location.hash || "").length > 1) window.scrollTo({ top: 0, behavior: "auto" });
+
+  /* expose a tiny API for testing */
+  window.__radar = {
+    activate: activate,
+    recalcAll: recalcAll,
+    tabs: TABS.slice()
+  };
+})();
+</script>
+</body>
+</html>
