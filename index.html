@@ -208,6 +208,16 @@ ul.risk li::before{background:var(--up)}
 .callout .t{font-weight:800;font-size:11.5px;color:var(--accent);display:block;margin-bottom:3px;letter-spacing:.02em}
 .callout.amber .t{color:var(--amber)}
 
+/* source link pill */
+.linkbtn{
+  display:inline-flex;align-items:center;gap:5px;margin-top:10px;
+  font-size:11.5px;font-weight:800;letter-spacing:-0.01em;
+  color:var(--accent);background:var(--card2);
+  border:1px solid color-mix(in srgb,var(--accent) 38%,var(--line2));
+  border-radius:999px;padding:6px 12px;text-decoration:none;
+}
+.linkbtn:active{transform:scale(.97);background:color-mix(in srgb,var(--accent) 12%,var(--card2))}
+
 /* audit idea */
 .idea{
   border:1px solid var(--line);border-radius:14px;background:var(--card2);
@@ -365,6 +375,49 @@ details.tip code{background:var(--card2);border:1px solid var(--line);border-rad
 }
 .disc b{color:var(--amber)}
 
+/* ===== alert triggers ===== */
+.trig{
+  display:flex;flex-wrap:wrap;align-items:center;gap:5px;
+  margin-top:9px;padding-top:8px;border-top:1px dashed var(--line2);
+}
+.trig .lab{
+  font-size:10px;font-weight:800;color:var(--amber);
+  letter-spacing:.01em;white-space:nowrap;
+}
+.chip{
+  display:inline-flex;align-items:center;gap:2px;
+  font-size:10px;font-weight:800;line-height:1.55;
+  padding:1px 6px;border-radius:6px;white-space:nowrap;
+  background:var(--card2);border:1px solid var(--line2);color:var(--tx2);
+  font-variant-numeric:tabular-nums;letter-spacing:-0.01em;
+}
+.chip.hi{color:var(--up);border-color:color-mix(in srgb,var(--up) 40%,var(--line2))}
+.chip.lo{color:var(--down);border-color:color-mix(in srgb,var(--down) 40%,var(--line2))}
+.chip.hit{
+  color:var(--amber);border-color:color-mix(in srgb,var(--amber) 58%,var(--line2));
+  background:color-mix(in srgb,var(--amber) 13%,var(--card2));
+}
+.legend{display:flex;flex-wrap:wrap;gap:5px;margin:2px 0 8px}
+.metric .trig{gap:3px;margin-top:8px;padding-top:7px;border-top-color:color-mix(in srgb,var(--amber) 42%,var(--line2))}
+.metric .trig .lab{font-size:9px}
+.metric .trig .chip{font-size:9.5px;padding:0 5px;border-radius:5px;gap:1px}
+
+/* trigger board */
+.tlist{margin-top:2px}
+.titem{padding:6px 0;border-bottom:1px solid var(--line)}
+.titem:last-child{border-bottom:0;padding-bottom:0}
+.titem .tl{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.titem .tl .chip{font-size:9.5px;padding:0 5px}
+.titem .tn{
+  display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  font-size:12px;font-weight:800;letter-spacing:-0.01em;
+}
+.titem .tn .cur{
+  font-size:10.5px;font-weight:700;color:var(--tx3);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.titem .tl{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+
 /* toast */
 #toast{
   position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));
@@ -436,12 +489,24 @@ html[data-theme="light"] #toast{color:#fff}
   <div class="card">
     <h3>증시 <span class="badge">11/20 종가</span></h3>
     <div class="grid2">
-      <div class="metric"><div class="k">코스피<span class="d down">▼5.21%</span></div><div class="v">4,869.96</div></div>
-      <div class="metric"><div class="k">코스닥<span class="d down">▼5.71%</span></div><div class="v">645.68</div></div>
-      <div class="metric"><div class="k">S&amp;P500<span class="d down">▼3.70%</span></div><div class="v">6,910.39</div></div>
-      <div class="metric"><div class="k">나스닥<span class="d down">▼5.28%</span></div><div class="v">22,617.73</div></div>
-      <div class="metric"><div class="k">다우<span class="d down">▼1.93%</span></div><div class="v">48,147.33</div></div>
-      <div class="metric"><div class="k">원/달러<span class="d up">▲6.2원</span></div><div class="v">1,336.2</div></div>
+      <div class="metric"><div class="k">코스피<span class="d down">▼5.21%</span></div><div class="v">4,869.96</div>
+        <div class="trig"><span class="chip hi">5,000↑</span><span class="chip lo">4,600↓</span><span class="chip lo">4,200↓</span></div>
+      </div>
+      <div class="metric"><div class="k">코스닥<span class="d down">▼5.71%</span></div><div class="v">645.68</div>
+        <div class="trig"><span class="chip hi">650↑</span><span class="chip lo">600↓</span><span class="chip lo">550↓</span></div>
+      </div>
+      <div class="metric"><div class="k">S&amp;P500<span class="d down">▼3.70%</span></div><div class="v">6,910.39</div>
+        <div class="trig"><span class="chip hi">7,000↑</span><span class="chip lo">6,500↓</span><span class="chip lo">6,000↓</span></div>
+      </div>
+      <div class="metric"><div class="k">나스닥<span class="d down">▼5.28%</span></div><div class="v">22,617.73</div>
+        <div class="trig"><span class="chip hi">23,000↑</span><span class="chip lo">22,000↓</span><span class="chip lo">20,000↓</span></div>
+      </div>
+      <div class="metric"><div class="k">다우<span class="d down">▼1.93%</span></div><div class="v">48,147.33</div>
+        <div class="sub" style="margin-top:6px;font-size:10px;padding-top:7px;border-top:1px dashed var(--line2)">알림 없음 · 방향 참고용</div>
+      </div>
+      <div class="metric"><div class="k">원/달러<span class="d up">▲6.2원</span></div><div class="v">1,336.2</div>
+        <div class="trig"><span class="chip hi">1,350↑</span><span class="chip hi">1,400↑</span><span class="chip lo">1,300↓</span></div>
+      </div>
     </div>
     <div class="rows" style="margin-top:12px">
       <div class="row"><div class="k">코스피 주간<small>KB증권 집계 · 3거래일 만에 5,000선 이탈</small></div><div class="v down">-7.95%</div></div>
@@ -455,12 +520,50 @@ html[data-theme="light"] #toast{color:#fff}
     </div>
   </div>
 
+  <div class="card tight" id="triggerBoard">
+    <h3>🔔 설정된 지표 알림 트리거 <span class="badge">한눈에 보기</span></h3>
+    <p class="sub" style="margin:0 0 8px">아래 선을 넘으면 1시간마다 자동으로 확인해 알려드립니다. 숫자는 <b>알림이 울리는 기준선</b>입니다.</p>
+    <div class="legend">
+      <span class="chip hi">↑ 상향 돌파</span>
+      <span class="chip lo">↓ 하향 이탈</span>
+      <span class="chip hit">✔ 지금 이미 넘어선 선</span>
+    </div>
+    <div class="tlist">
+      <div class="titem"><div class="tn"><span>코스피</span><span class="cur">4,869.96</span></div>
+        <div class="tl"><span class="chip hi">5,000↑ 회복</span><span class="chip lo">4,600↓ 2차 지지</span><span class="chip lo">4,200↓ 위기</span></div></div>
+      <div class="titem"><div class="tn"><span>코스닥</span><span class="cur">645.68</span></div>
+        <div class="tl"><span class="chip hi">650↑</span><span class="chip lo">600↓</span><span class="chip lo">550↓</span></div></div>
+      <div class="titem"><div class="tn"><span>S&amp;P500</span><span class="cur">6,910.39</span></div>
+        <div class="tl"><span class="chip hi">7,000↑</span><span class="chip lo">6,500↓</span><span class="chip lo">6,000↓</span></div></div>
+      <div class="titem"><div class="tn"><span>나스닥</span><span class="cur">22,617.73</span></div>
+        <div class="tl"><span class="chip hi">23,000↑</span><span class="chip lo">22,000↓</span><span class="chip lo">20,000↓</span></div></div>
+      <div class="titem"><div class="tn"><span>원/달러</span><span class="cur">1,336.2</span></div>
+        <div class="tl"><span class="chip hi">1,350↑ 경계</span><span class="chip hi">1,400↑ 위기</span><span class="chip lo">1,300↓ 원화강세</span></div></div>
+      <div class="titem"><div class="tn"><span>美 10년물</span><span class="cur">4.92%</span></div>
+        <div class="tl"><span class="chip hi">5.00%↑</span><span class="chip hi">5.25%↑ 고점권</span><span class="chip lo">4.50%↓ 금리피크</span></div></div>
+      <div class="titem"><div class="tn"><span>VIX</span><span class="cur">35.89</span></div>
+        <div class="tl"><span class="chip hi hit">25↑ 경계</span><span class="chip hi hit">30↑ 공포</span><span class="chip hi">40↑ 패닉</span><span class="chip lo">20↓ 안정</span></div></div>
+      <div class="titem"><div class="tn"><span>CNN 공포탐욕</span><span class="cur">10</span></div>
+        <div class="tl"><span class="chip lo hit">≤20 극단공포</span><span class="chip lo hit">≤15</span><span class="chip lo hit">≤10</span><span class="chip lo">≤5</span><span class="chip hi">45↑ 중립회복</span><span class="chip hi">75↑ 탐욕</span></div></div>
+      <div class="titem"><div class="tn"><span>WTI</span><span class="cur">$83.98</span></div>
+        <div class="tl"><span class="chip hi">$90↑</span><span class="chip hi">$100↑ 물가</span><span class="chip lo">$70↓</span></div></div>
+      <div class="titem"><div class="tn"><span>금</span><span class="cur">$3,515.40</span></div>
+        <div class="tl"><span class="chip hi">$3,600↑</span><span class="chip lo">$3,400↓</span><span class="chip lo">$3,200↓</span></div></div>
+      <div class="titem"><div class="tn"><span>비트코인</span><span class="cur">$60,290</span></div>
+        <div class="tl"><span class="chip hi">$65,000↑</span><span class="chip hi">$70,000↑</span><span class="chip lo">$55,000↓</span><span class="chip lo">$50,000↓</span></div></div>
+      <div class="titem"><div class="tn"><span>BTC.D</span><span class="cur">59.06%</span></div>
+        <div class="tl"><span class="chip lo">50% 근처</span><span class="chip lo">45% 근처</span><span class="chip lo">40% 근처</span><span class="chip">±0.5%p 진입</span></div></div>
+    </div>
+    <p class="hint">※ 카드 수치는 11/20 종가·11/21~22 가상자산 기준이고, 자동 감시는 공개 시세 API(Yahoo Finance · TradingView · CoinGecko · CNN)의 <b>실시간 값</b>으로 판정합니다. 원/달러는 역외(KRW=X) 기준(서울 종가 대부 약 +10원), BTC.D는 TradingView(상위 125개) 기준입니다. 코스피 공포탐욕(11.73)은 재구성 참고 지표라 감시에서 제하였습니다.</p>
+  </div>
+
   <div class="card">
     <h3>주말 24시간 시장 <span class="badge">가상자산</span></h3>
     <div class="grid2">
       <div class="metric"><div class="k">비트코인<span class="d up">▲2.51%</span></div><div class="v">$60,290</div><div class="sub" style="margin-top:2px">11/21 21:52 UTC · 장중 $55,638~$59,213</div></div>
       <div class="metric"><div class="k">가상자산 공포탐욕</div><div class="v">12</div><div class="sub" style="margin-top:2px">극단적 공포</div></div>
     </div>
+    <div class="trig"><span class="lab">🔔 비트코인 알림</span><span class="chip hi">$65,000↑</span><span class="chip hi">$70,000↑</span><span class="chip lo">$55,000↓</span><span class="chip lo">$50,000↓</span></div>
     <div class="rows" style="margin-top:12px">
       <div class="row"><div class="k">6만 달러 이탈<small>7월 이후 4개월 만, 사상 최고(12만6,210달러) 대비 -52%</small></div><div class="v down">7주 연속 하락</div></div>
       <div class="row"><div class="k">미 현물 ETF 순유출 (11/19)<small>IBIT 5억4,110만 달러 — 출시 후 최대 일일</small></div><div class="v down">5억8,230만 달러</div></div>
@@ -472,6 +575,28 @@ html[data-theme="light"] #toast{color:#fff}
       <span class="t">주말의 의미</span>
       전통시장이 닫힌 주말에 24시간 시장으로 매도가 몰리는 패턴입니다. 다만 <b>장중 $55.6k에서 $60.3k로 되돌린 것</b>은 투매 일단락 신호일 수 있어, 월요일 <b>ETF 유출 중단 여부</b>가 1차 확인점입니다.
     </div>
+  </div>
+
+  <div class="card">
+    <h3>비트코인 도미넌스 (BTC.D) <span class="badge">자금 쏠림</span></h3>
+    <div class="metric">
+      <div class="k">BTC.D · 시가총액 점유율<span class="d down">▼0.12p</span></div>
+      <div class="v" style="font-size:22px">59.06%</div>
+      <div class="sub" style="margin-top:2px">11/22 11:39 KST · 전일 59.18% · 당일 59.03~59.19%</div>
+    </div>
+    <div class="trig"><span class="lab">🔔 알림</span><span class="chip lo">50% 근처</span><span class="chip lo">45% 근처</span><span class="chip lo">40% 근처</span><span class="chip">목표±0.5%p 진입 시</span></div>
+    <div class="rows" style="margin-top:12px">
+      <div class="row"><div class="k">전일 대비</div><div class="v down">-0.21% (-0.12p)</div></div>
+      <div class="row"><div class="k">1주 / 1개월<small>TradingView 표기(상대 변화율)</small></div><div class="v down">-1.43% / -2.46%</div></div>
+      <div class="row"><div class="k">이더리움 도미넌스<small>전체 코인 기준(CoinGecko)</small></div><div class="v">9.86%</div></div>
+      <div class="row"><div class="k">50%까지 거리<small>알림은 기준선 근처(±0.5%p) 진입 시 자동 발송</small></div><div class="v down">-9.06%p</div></div>
+    </div>
+    <div class="callout">
+      <span class="t">읽는 법</span>
+      도미넌스가 <b>오르면</b> 알트에서 돈이 빠져 비트코인으로 피신하는 <b>위험회피</b>, <b>내리면</b> 알트 순환매 신호입니다. 다만 비트코인이 급락해도 내려가니 <b>가격과 함께</b> 봐야 합니다. 지금은 BTC 반등($55.6k→$60.3k) 속에 1주·1개월 모두 하락 — <b>알트가 더 강했다</b>는 뜻이고, 59%대는 여전히 높아 <b>순환매 초입</b> 정도로 보는 게 안전합니다.
+    </div>
+    <a class="linkbtn" href="https://www.tradingview.com/symbols/BTC.D/?exchange=CRYPTOCAP" target="_blank" rel="noopener">📈 TradingView에서 BTC.D 차트 보기</a>
+    <p class="hint">TradingView CRYPTOCAP:BTC.D는 상위 125개 코인 기준입니다. 전체 코인 기준(CoinGecko 57.78%)보다 약 1.3p 높게 나오니, 추세는 <b>한 기준으로만</b> 비교하세요.</p>
   </div>
 
   <div class="card">
@@ -502,16 +627,23 @@ html[data-theme="light"] #toast{color:#fff}
       <div class="row"><div class="k">은</div><div class="v down">$41.07 <small>▼7.41%</small></div></div>
       <div class="row"><div class="k">구리</div><div class="v down">$5.4850/lb <small>▼2.64%</small></div></div>
     </div>
+    <div class="trig"><span class="lab">🔔 美 10년물</span><span class="chip hi">5.00%↑</span><span class="chip hi">5.25%↑ 고점권</span><span class="chip lo">4.50%↓ 금리피크</span></div>
+    <div class="trig"><span class="lab">🔔 WTI</span><span class="chip hi">$90↑</span><span class="chip hi">$100↑ 물가부담</span><span class="chip lo">$70↓</span></div>
+    <div class="trig"><span class="lab">🔔 금</span><span class="chip hi">$3,600↑</span><span class="chip lo">$3,400↓</span><span class="chip lo">$3,200↓</span></div>
   </div>
 
   <div class="card">
     <h3>심리 · 변동성</h3>
     <div class="grid2">
-      <div class="metric"><div class="k">CNN 공포탐욕<span class="d down">극단적 공포</span></div><div class="v">10</div><div class="sub" style="margin-top:2px">전일 18 · 1주 전 37 · 1년 전 5</div></div>
-      <div class="metric"><div class="k">VIX<span class="d up">▲26.2%</span></div><div class="v">35.89</div><div class="sub" style="margin-top:2px">장중 40.03</div></div>
+      <div class="metric"><div class="k">CNN 공포탐욕<span class="d down">극단적 공포</span></div><div class="v">10</div><div class="sub" style="margin-top:2px">전일 18 · 1주 전 37 · 1년 전 5</div>
+        <div class="trig"><span class="chip lo hit">≤20</span><span class="chip lo hit">≤15</span><span class="chip lo hit">≤10</span><span class="chip lo">≤5</span><span class="chip hi">45↑</span><span class="chip hi">75↑</span></div>
+      </div>
+      <div class="metric"><div class="k">VIX<span class="d up">▲26.2%</span></div><div class="v">35.89</div><div class="sub" style="margin-top:2px">장중 40.03</div>
+        <div class="trig"><span class="chip hi hit">25↑ 경계</span><span class="chip hi hit">30↑ 공포</span><span class="chip hi">40↑ 패닉</span><span class="chip lo">20↓ 안정</span></div>
+      </div>
       <div class="metric"><div class="k">코스피 공포탐욕<span class="d down">극단적 공포</span></div><div class="v">11.73</div><div class="sub" style="margin-top:2px">CNN 방식 재구성 참고 지표</div></div>
     </div>
-    <p class="hint">※ 한국판 공식 공포탐욕지수는 없습니다. 11.73은 CNN 방식을 재구성한 <b>참고 지표</b>입니다. CNN 지수는 11/20 18:59 ET 기준.</p>
+    <p class="hint">※ 한국판 공식 공포탐욕지수는 없습니다. 11.73은 CNN 방식을 재구성한 <b>참고 지표</b>입니다(알림 감시 제외). CNN 지수는 11/20 18:59 ET 기준.</p>
   </div>
 
   <div class="card">
@@ -1367,13 +1499,13 @@ html[data-theme="light"] #toast{color:#fff}
 
 <div class="disc">
   <b>※ 본 대시보드와 시뮬레이션은 참고용이며 최종 판단과 책임은 본인에게 있습니다.</b><br>
-  수치는 2026-11-20(금) 마감, 가상자산은 2026-11-21 21:52 UTC 기준이며, 브리핑에 수록된 검증된 값과 출처만 사용했습니다. 매체별 집계 차이가 있는 항목(코스피 외국인 순매도·코스닥 종가·AVGO 등락률·시장규모 전망)은 범위 또는 출처를 함께 표기했습니다. 절세 항목의 세율·한도·기한은 연도·개인 상황에 따라 달라질 수 있습니다. 개별 종목의 매수·매도 권유가 아닙니다.
+  수치는 2026-11-20(금) 마감, 가상자산은 2026-11-21 21:52 UTC(비트코인 도미넌스는 11-22 11:39 KST) 기준이며, 브리핑에 수록된 검증된 값과 출처만 사용했습니다. 매체별 집계 차이가 있는 항목(코스피 외국인 순매도·코스닥 종가·AVGO 등락률·시장규모 전망·비트코인 도미넌스 산정 기준)은 범위 또는 출처를 함께 표기했습니다. 절세 항목의 세율·한도·기한은 연도·개인 상황에 따라 달라질 수 있습니다. 개별 종목의 매수·매도 권유가 아닙니다.
 </div>
 
 <div class="footer">
   <b>오늘의 투자 레이더</b> · 2026.11.22 (일)<br>
   단일 파일 · 오프라인 동작 · 외부 라이브러리 없음<br>
-  <span style="opacity:.75">데이터 기준: 11/20 종가 · 가상자산 11/21 21:52 UTC / 브리핑 2026-11-22 07:00 KST</span>
+  <span style="opacity:.75">데이터 기준: 11/20 종가 · 가상자산 11/21 21:52 UTC · BTC.D 11/22 11:39 KST / 브리핑 2026-11-22 07:00 KST</span>
 </div>
 
 </div><!-- /wrap -->
@@ -1466,7 +1598,7 @@ html[data-theme="light"] #toast{color:#fff}
   /* ---------- copy summary ---------- */
   var SUMMARIES = {
     market: [
-      "[시장 레이더 · 2026-11-20 마감 / 가상자산 11-21]",
+      "[시장 레이더 · 2026-11-20 마감 / 가상자산 11-21~22]",
       "· 코스피 4,869.96 (-5.21%) / 코스닥 645.68 (-5.71%) / 주간 -7.95%",
       "· S&P500 6,910.39 (-3.70%) / 나스닥 22,617.73 (-5.28%) / 다우 48,147.33 (-1.93%)",
       "· 원/달러 1,336.2원 (+6.2원) / 美10Y 4.92% (-12bp) / 韓3Y 3.642%",
@@ -1474,6 +1606,7 @@ html[data-theme="light"] #toast{color:#fff}
       "· WTI $83.98 / 금 $3,515.40 (-4.62%) / 은 $41.07 (-7.41%)",
       "· CNN 공포탐욕 10 / VIX 35.89 (+26.2%) / 가상자산 공포탐욕 12",
       "· 비트코인 장중 $55,638 → $60,290(11/21 21:52 UTC), 7주 연속 하락, ETF 순유출 5.82억弗",
+      "· BTC 도미넌스 59.06%(11/22 11:39 KST, 전일 59.18%) · 1주 -1.43% / 1개월 -2.46% → 알트 순환매 조짐, 단 59%대는 아직 고점권",
       "· 대만 가권 -6.23%(7개월 최저) → 11/23부터 전일 종가 미만 공매도 전면 금지(2015년 이후 처음)",
       "· 금리: 韓 3.00% → 11/26 3.25% 컨센(최종 3.50%) / 美 3.75~4.00%, 12/8~9 인상 우위",
       "→ 대응: 분할 5~8회·현금 30~50%, 11/23 개장 3조건(SOX·외국인·환율) 확인, 12월 손익통산 점검"
