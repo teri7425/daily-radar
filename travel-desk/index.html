@@ -1,0 +1,3138 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#c0522d">
+<meta name="description" content="스페인 마드리드 여행일정 대시보드 — 일수·여행객에 맞춰 근교 데이투어가 자동 편성되는 모바일 여행 플래너. 도시 브리핑, Day별 동선·맛집, 예산·교통패스, 체크리스트와 스페인어 비상 카드.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Travel Desk">
+<title>Travel Desk — 스페인 · 마드리드</title>
+<style>
+/* ================= tokens ================= */
+:root{
+  --bg:#f4eee4; --bg2:#fbf7f0; --card:#ffffff; --card2:#faf4ea;
+  --line:#e7dccb; --line2:#d9c8b0;
+  --tx:#2b2119; --tx2:#6d5c4b; --tx3:#96836d;
+  --terra:#bf4f2a; --terra-d:#9a3c1d; --terra-soft:#f7e4da;
+  --saffron:#dd9a2e; --saffron-soft:#fbf0d8;
+  --olive:#6b7f47; --olive-soft:#e9eedb;
+  --sky:#2c6a8a; --sky-soft:#dfeaf1;
+  --plum:#7b3f5b;
+  --ok:#2c7a58; --warn:#a86c12; --bad:#b03a34;
+  --shadow:0 6px 22px rgba(80,54,30,.09);
+  --shadow-s:0 2px 10px rgba(80,54,30,.07);
+  --r:16px; --r-s:12px;
+  --mono:"SF Mono",ui-monospace,"Menlo","Consolas",monospace;
+}
+html[data-theme="dark"]{
+  --bg:#14100c; --bg2:#1b1611; --card:#211a14; --card2:#2a221a;
+  --line:#33291f; --line2:#453729;
+  --tx:#f2e9dd; --tx2:#b6a48e; --tx3:#8a7761;
+  --terra:#e8oop; --terra:#e87a51; --terra-d:#c25c33; --terra-soft:#33211a;
+  --saffron:#eab553; --saffron-soft:#332a18;
+  --olive:#a3b57c; --olive-soft:#252b1c;
+  --sky:#6fb0cf; --sky-soft:#1c2a33;
+  --plum:#c58aa8;
+  --ok:#5cba90; --warn:#d9a63f; --bad:#e5776f;
+  --shadow:0 6px 22px rgba(0,0,0,.42);
+  --shadow-s:0 2px 10px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:
+    radial-gradient(760px 380px at 8% -6%, rgba(221,154,46,.16), transparent 62%),
+    radial-gradient(680px 340px at 100% 0%, rgba(191,79,42,.12), transparent 60%),
+    var(--bg);
+  color:var(--tx);
+  font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size:14.5px;line-height:1.6;letter-spacing:-0.01em;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(28px + env(safe-area-inset-bottom));
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,p{margin:0}
+button{font-family:inherit;color:inherit}
+a{color:var(--sky);text-decoration:none}
+a:active{opacity:.7}
+.wrap{max-width:760px;margin:0 auto;padding:0 13px}
+
+/* ================= sticky header ================= */
+.stickytop{position:sticky;top:0;z-index:60}
+.topbar{
+  background:var(--bg2);
+  background:color-mix(in srgb, var(--bg2) 93%, transparent);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top);
+}
+.tb-in{max-width:760px;margin:0 auto;padding:7px 13px 9px}
+.brandrow{display:flex;align-items:center;gap:9px}
+.logo{
+  width:31px;height:31px;border-radius:10px;flex:0 0 auto;
+  background:linear-gradient(150deg,var(--terra),var(--saffron));
+  display:grid;place-items:center;font-size:15px;
+  box-shadow:0 4px 12px rgba(191,79,42,.28);
+}
+.brandrow .bt{min-width:0;flex:1}
+.brandrow h1{margin:0;font-size:14.5px;font-weight:800;letter-spacing:-0.03em;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brandrow .sub{font-size:10px;color:var(--tx3);font-weight:700;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;margin-top:1px}
+.iconbtn{
+  width:31px;height:31px;border-radius:10px;border:1px solid var(--line);
+  background:var(--card);font-size:14px;cursor:pointer;display:grid;place-items:center;
+  padding:0;flex:0 0 auto;transition:transform .14s;
+}
+.iconbtn:active{transform:scale(.92)}
+
+.ctrl{display:flex;gap:7px;align-items:center;margin-top:7px}
+.selwrap{position:relative;flex:1 1 118px;min-width:0}
+.selwrap select{
+  width:100%;appearance:none;-webkit-appearance:none;
+  background:var(--card);border:1px solid var(--line2);border-radius:10px;
+  padding:7px 24px 7px 9px;font-size:12px;font-weight:800;color:var(--tx);
+  font-family:inherit;cursor:pointer;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.selwrap::after{content:"▾";position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--tx3);pointer-events:none}
+.chips{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;flex:1 1 auto;min-width:0;padding:1px}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:0 0 auto;border:1px solid var(--line2);background:var(--card);
+  border-radius:9px;padding:5px 8px;font-size:11.5px;font-weight:800;color:var(--tx2);
+  cursor:pointer;transition:.14s;line-height:1.1;white-space:nowrap;
+}
+.chip:active{transform:scale(.95)}
+.chip[aria-pressed="true"]{background:var(--terra);border-color:var(--terra);color:#fff;box-shadow:0 3px 10px rgba(191,79,42,.28)}
+
+.travrow{display:flex;gap:7px;align-items:center;margin-top:7px;flex-wrap:wrap}
+#dayChips{flex-wrap:wrap;overflow:visible;flex:1 1 148px;gap:4px;padding:0}
+#dayChips .chip{flex:1 1 auto;max-width:58px;text-align:center;padding:5px 4px;font-size:11px}
+.stepper{
+  display:flex;align-items:center;gap:0;background:var(--card);
+  border:1px solid var(--line2);border-radius:10px;overflow:hidden;flex:1 1 0;min-width:0;
+}
+.stepper>span{font-size:10.5px;font-weight:800;color:var(--tx2);padding:0 7px;white-space:nowrap;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.stepper button{
+  width:27px;height:30px;border:0;background:transparent;font-size:15px;font-weight:800;
+  color:var(--terra);cursor:pointer;line-height:1;display:grid;place-items:center;padding:0;
+}
+.stepper button:disabled{color:var(--tx3);opacity:.4}
+.stepper button:active{background:var(--terra-soft)}
+.stepper b{min-width:15px;text-align:center;font-size:12.5px;font-variant-numeric:tabular-nums}
+.tourflag{
+  display:flex;align-items:center;justify-content:center;gap:4px;font-size:10px;font-weight:800;flex:1 1 100%;
+  border-radius:8px;padding:5px 7px;border:1px solid var(--line);background:var(--card2);
+  color:var(--tx3);white-space:nowrap;
+}
+.tourflag.on{background:var(--olive-soft);border-color:color-mix(in srgb,var(--olive) 40%,var(--line));color:var(--olive)}
+
+/* tabs */
+.tabs{
+  background:var(--bg2);
+  background:color-mix(in srgb, var(--bg2) 95%, transparent);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.tabs-in{max-width:760px;margin:0 auto;display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;padding:5px 10px 6px}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{
+  flex:1 0 auto;border:1px solid transparent;background:transparent;border-radius:10px;
+  padding:6px 8px;font-size:11px;font-weight:800;color:var(--tx3);cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:1px;line-height:1.15;transition:.14s;
+  min-width:62px;
+}
+.tab em{font-style:normal;font-size:14px;line-height:1}
+.tab[aria-selected="true"]{background:var(--card);border-color:var(--line2);color:var(--terra);box-shadow:var(--shadow-s)}
+.tab:active{transform:scale(.97)}
+
+/* ================= layout bits ================= */
+main{padding-top:11px}
+.panel{display:none;animation:fade .22s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.sec{margin-bottom:15px}
+.sec-h{display:flex;align-items:baseline;gap:7px;margin:0 2px 7px}
+.sec-h h2{font-size:14.5px;font-weight:850;letter-spacing:-0.03em}
+.sec-h .hint{font-size:10.5px;color:var(--tx3);font-weight:700;margin-left:auto;text-align:right;line-height:1.3}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:13px;box-shadow:var(--shadow-s);
+}
+.card+.card{margin-top:9px}
+.card h3{font-size:13px;font-weight:850;letter-spacing:-0.02em;margin-bottom:3px}
+.muted{color:var(--tx2)}
+.tiny{font-size:10.5px;line-height:1.5}
+.pill{
+  display:inline-flex;align-items:center;gap:3px;font-size:9.5px;font-weight:800;
+  border-radius:999px;padding:2px 7px;border:1px solid var(--line2);background:var(--card2);color:var(--tx2);
+  white-space:nowrap;line-height:1.5;
+}
+.pill.terra{background:var(--terra-soft);border-color:color-mix(in srgb,var(--terra) 35%,var(--line));color:var(--terra-d)}
+.pill.olive{background:var(--olive-soft);border-color:color-mix(in srgb,var(--olive) 40%,var(--line));color:var(--olive)}
+.pill.saffron{background:var(--saffron-soft);border-color:color-mix(in srgb,var(--saffron) 45%,var(--line));color:var(--warn)}
+.pill.sky{background:var(--sky-soft);border-color:color-mix(in srgb,var(--sky) 35%,var(--line));color:var(--sky)}
+.pill.ghost{background:transparent}
+
+/* hero */
+.hero{
+  position:relative;overflow:hidden;border-radius:18px;padding:15px 14px;
+  background:linear-gradient(135deg,#bf4f2a 0%,#d9743a 52%,#dd9a2e 100%);
+  color:#fff;box-shadow:0 10px 26px rgba(160,66,32,.28);margin-bottom:11px;
+}
+.hero::after{
+  content:"";position:absolute;right:-40px;top:-52px;width:170px;height:170px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.28),transparent 68%);
+}
+.hero .hh{display:flex;align-items:center;gap:9px;position:relative}
+.hero .fl{font-size:13px;font-weight:900;letter-spacing:.04em;line-height:1;border:1.6px solid rgba(255,255,255,.65);border-radius:8px;padding:6px 7px}
+.hero h2{font-size:19px;font-weight:900;letter-spacing:-0.035em;line-height:1.15}
+.hero .hs{font-size:10.5px;opacity:.92;font-weight:700;margin-top:2px}
+.hero .hstats{display:flex;gap:6px;margin-top:11px;position:relative;flex-wrap:wrap}
+.hero .hstat{background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.26);border-radius:9px;padding:4px 8px;font-size:10px;font-weight:800;backdrop-filter:blur(4px)}
+.hero .hstat b{font-size:12px;display八字;display:block;line-height:1.2}
+
+/* essentials 2x2 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ess{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 10px 11px;
+  box-shadow:var(--shadow-s);min-width:0;
+}
+.ess .eh{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:850;color:var(--tx2);margin-bottom:4px}
+.ess .ev{font-size:12.5px;font-weight:850;letter-spacing:-0.02em;line-height:1.35}
+.ess .ed{font-size:10px;color:var(--tx3);line-height:1.45;margin-top:3px;font-weight:600}
+.ess.warn-c{border-color:color-mix(in srgb,var(--bad) 26%,var(--line))}
+
+/* details */
+details.box{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:0;box-shadow:var(--shadow-s);overflow:hidden;
+}
+details.box+details.box{margin-top:8px}
+details.box>summary{
+  list-style:none;cursor:pointer;padding:11px 13px;display:flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:850;letter-spacing:-0.02em;
+}
+details.box>summary::-webkit-details-marker{display:none}
+details.box>summary .arw{margin-left:auto;font-size:9px;color:var(--tx3);transition:transform .18s}
+details.box[open]>summary .arw{transform:rotate(90deg)}
+details.box>summary .sicon{font-size:13px}
+details.box .body{padding:0 13px 13px;font-size:12px;color:var(--tx2);line-height:1.62}
+details.box .body b{color:var(--tx);font-weight:800}
+
+/* kv rows */
+.kv{display:flex;gap:8px;padding:5px 0;border-top:1px dashed var(--line);font-size:11.5px}
+.kv:first-child{border-top:0;padding-top:2px}
+.kv dt{flex:0 0 88px;color:var(--tx3);font-weight:800;font-size:10.5px}
+.kv dd{margin:0;flex:1;min-width:0;font-weight:650}
+.kv dd b{font-weight:850}
+
+/* climate chart */
+.chart{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 10px 9px;
+  box-shadow:var(--shadow-s);
+}
+.chart .ctitle{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--tx3);font-weight:800;padding:0 2px 8px}
+.bars{display:flex;align-items:flex-end;gap:0;height:104px;position:relative;padding:0 1px}
+.bars .col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;height:100%}
+.bars .b-high,.bars .b-low{width:min(13px,66%);border-radius:3px 3px 1px 1px}
+.bars .b-high{background:linear-gradient(180deg,#e08a3c,#c0522d)}
+.bars .b-low{background:color-mix(in srgb,var(--sky) 62%,#fff);height:3px;border-radius:2px}
+.bars .mm{font-size:7.5px;color:var(--tx3);font-weight:800;line-height:1;height:9px}
+.labels{display:flex;padding-top:4px;border-top:1px solid var(--line);margin-top:4px}
+.labels span{flex:1 1 0;min-width:0;text-align:center;font-size:8.5px;color:var(--tx3);font-weight:800}
+.legend{display:flex;gap:9px;font-size:9px;color:var(--tx3);font-weight:800;padding:6px 2px 0;flex-wrap:wrap}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:3px;vertical-align:-1px}
+table.clim{width:100%;border-collapse:collapse;font-size:10.5px;margin-top:7px}
+table.clim th,table.clim td{padding:4px 2px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+table.clim th{color:var(--tx3);font-size:9.5px;font-weight:800;text-align:right}
+table.clim th:first-child,table.clim td:first-child{text-align:left}
+table.clim td:first-child{font-weight:800;color:var(--tx2)}
+
+/* stay cards */
+.stay{display:flex;flex-direction:column;gap:5px}
+.stay-top{display:flex;align-items:center;gap:7px}
+.stay-top h3{font-size:12.5px;font-weight:850}
+.stay-top .price{margin-left:auto;font-size:11px;font-weight:900;color:var(--terra);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tagline{display:flex;gap:4px;flex-wrap:wrap;margin-top:1px}
+.stay p{font-size:11px;color:var(--tx2);line-height:1.55}
+.stay .ba{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:3px}
+.stay .ba div{background:var(--card2);border-radius:8px;padding:5px 7px;font-size:10px;line-height:1.45;font-weight:650;color:var(--tx2)}
+.stay .ba div b{display:block;font-size:9px;color:var(--tx3);font-weight:800;margin-bottom:1px}
+
+/* airport compare rows */
+.opt{padding:9px 0;border-top:1px dashed var(--line)}
+.opt:first-of-type{border-top:0;padding-top:2px}
+.opt-h{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:850}
+.opt-h .cost{margin-left:auto;font-size:12px;font-weight:900;color:var(--terra);font-variant-numeric:tabular-nums;white-space:nowrap}
+.opt-m{display:flex;gap:5px;flex-wrap:wrap;margin:4px 0 2px}
+.opt p{font-size:10.5px;color:var(--tx3);line-height:1.5;font-weight:600}
+
+/* sight cards */
+.sights{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sight{
+  background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px;
+  box-shadow:var(--shadow-s);display:flex;flex-direction:column;gap:4px;min-width:0;
+}
+.sight .nm{font-size:11.5px;font-weight:850;letter-spacing:-0.02em;line-height:1.25}
+.sight .en{font-size:8.5px;color:var(--tx3);font-weight:750;letter-spacing:0;line-height:1.2}
+.sight .pr{font-size:11px;font-weight:900;color:var(--terra);font-variant-numeric:tabular-nums}
+.sight .tip{font-size:9.5px;color:var(--tx2);line-height:1.45;font-weight:600;flex:1}
+.sight .btm{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-top:2px}
+.sight .mapl{font-size:9.5px;font-weight:800;color:var(--sky);white-space:nowrap}
+
+/* day tour cards */
+.tourcard{
+  border:1px solid var(--line);border-radius:14px;padding:11px;background:var(--card);
+  box-shadow:var(--shadow-s);position:relative;overflow:hidden;
+}
+.tourcard+.tourcard{margin-top:8px}
+.tourcard.locked{background:var(--card2);border-style:dashed}
+.tourcard.locked .tc-body{filter:blur(2.4px);opacity:.5;pointer-events:none;user-select:none}
+.tourcard .lockmsg{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;text-align:center;padding:14px;background:color-mix(in srgb,var(--card2) 78%,transparent);
+}
+.tourcard .lockmsg b{font-size:12px;font-weight:850}
+.tourcard .lockmsg span{font-size:10px;color:var(--tx2);font-weight:700;line-height:1.4}
+.tourcard .lockmsg button{
+  margin-top:3px;border:1px solid var(--terra);background:var(--terra);color:#fff;border-radius:9px;
+  padding:6px 11px;font-size:11px;font-weight:850;cursor:pointer;
+}
+.tc-h{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.tc-h h3{font-size:12.5px;font-weight:850}
+.tc-h .dist{margin-left:auto;font-size:9.5px;color:var(--tx3);font-weight:800;white-space:nowrap}
+.tc-body p{font-size:10.5px;color:var(--tx2);line-height:1.5;font-weight:600}
+.tc-body .row{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+.tc-body .row .pill{font-size:9px}
+
+/* chips list */
+.chipwrap{display:flex;flex-wrap:wrap;gap:4px}
+.chipwrap .pill{font-size:9.5px}
+
+/* ============ days ============ */
+.daytabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-bottom:7px;margin-bottom:2px}
+.daytabs::-webkit-scrollbar{display:none}
+.dtab{
+  flex:0 0 auto;border:1px solid var(--line2);background:var(--card);border-radius:10px;
+  padding:5px 9px;font-size:11px;font-weight:850;color:var(--tx2);cursor:pointer;line-height:1.2;
+  display:flex;flex-direction:column;align-items:center;gap:1px;transition:.14s;min-width:52px;
+}
+.dtab small{font-size:8.5px;font-weight:750;color:var(--tx3);letter-spacing:0}
+.dtab[aria-pressed="true"]{background:var(--terra);border-color:var(--terra);color:#fff;box-shadow:0 3px 10px rgba(191,79,42,.26)}
+.dtab[aria-pressed="true"] small{color:rgba(255,255,255,.82)}
+.dtab.tour[aria-pressed="false"]{border-style:dashed;border-color:color-mix(in srgb,var(--olive) 45%,var(--line2));color:var(--olive)}
+
+.dayhead{
+  border-radius:14px;padding:11px 12px;margin-bottom:8px;background:var(--card);
+  border:1px solid var(--line);box-shadow:var(--shadow-s);
+}
+.dayhead .dh-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.dayhead h3{font-size:14px;font-weight:900;letter-spacing:-0.03em}
+.dayhead .dsum{font-size:10.5px;color:var(--tx2);font-weight:700;margin-top:4px;line-height:1.5}
+.dayhead .dstats{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.dayhead .dstats .pill{font-size:9.5px}
+
+/* timeline */
+.tl{position:relative;padding-left:19px}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--line2),var(--line));border-radius:2px}
+.stop{position:relative;margin-bottom:8px}
+.stop .dot{
+  position:absolute;left:-19px;top:9px;width:11px;height:11px;border-radius:50%;
+  background:var(--card);border:2.5px solid var(--terra);box-shadow:0 0 0 2px var(--card2);
+}
+.stop.food .dot{border-color:var(--saffron)}
+.stop.opt .dot{border-color:var(--tx3);border-style:dashed}
+.scard{
+  background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px 11px;
+  box-shadow:var(--shadow-s);
+}
+.stop.opt .scard{border-style:dashed;background:var(--card2)}
+.stime{display:flex;align-items:center;gap:5px;font-size:9.5px;font-weight:900;color:var(--terra);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.stime .dur{margin-left:auto;color:var(--tx3);font-weight:800;font-size:9px}
+.scard h4{font-size:12.5px;font-weight:850;letter-spacing:-0.02em;margin:2px 0 0;line-height:1.3}
+.scard .en2{font-size:9px;color:var(--tx3);font-weight:700;letter-spacing:0;line-height:1.3;margin-top:1px}
+.scard .desc{font-size:10.5px;color:var(--tx2);line-height:1.52;margin-top:4px;font-weight:600}
+.smeta{display:flex;flex-wrap:wrap;gap:3px;margin-top:6px}
+.smeta .m{
+  font-size:9px;font-weight:800;color:var(--tx2);background:var(--card2);
+  border:1px solid var(--line);border-radius:7px;padding:2px 6px;white-space:nowrap;
+}
+.smeta .m.money{color:var(--terra-d);background:var(--terra-soft);border-color:color-mix(in srgb,var(--terra) 26%,var(--line))}
+.smeta .m.money.free{color:var(--olive);background:var(--olive-soft);border-color:color-mix(in srgb,var(--olive) 34%,var(--line))}
+.eat{
+  margin-top:7px;border-radius:10px;padding:8px 9px;background:var(--saffron-soft);
+  border:1px solid color-mix(in srgb,var(--saffron) 32%,var(--line));
+}
+.eat .eh{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:900;color:var(--warn)}
+.eat .eh .en3{margin-left:auto;font-size:9px;font-weight:900;color:var(--terra-d);white-space:nowrap}
+.eat .en4{font-size:11px;font-weight:850;margin-top:2px;line-height:1.3}
+.eat .em{font-size:9.5px;color:var(--tx2);line-height:1.45;margin-top:2px;font-weight:650}
+.eat .et{font-size:9.5px;color:var(--warn);line-height:1.45;margin-top:3px;font-weight:700}
+.rain{
+  margin-top:6px;display:flex;gap:5px;font-size:9.5px;line-height:1.45;color:var(--sky);
+  background:var(--sky-soft);border-radius:9px;padding:6px 8px;font-weight:650;
+}
+.rain b{flex:0 0 auto;font-weight:900;color:var(--sky)}
+.mapline{display:flex;align-items:center;gap:6px;margin-top:6px}
+.mapline a{
+  display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:850;
+  border:1px solid color-mix(in srgb,var(--sky) 34%,var(--line));background:var(--sky-soft);
+  color:var(--sky);border-radius:8px;padding:3px 8px;
+}
+.mapline .note{font-size:9px;color:var(--tx3);font-weight:700}
+
+/* tour option switch */
+.switchbar{
+  display:flex;gap:5px;align-items:center;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:7px 8px;margin-bottom:8px;box-shadow:var(--shadow-s);flex-wrap:wrap;
+}
+.switchbar .lab{font-size:10px;font-weight:850;color:var(--tx3)}
+.seg{display:flex;background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:2px;gap:2px}
+.seg button{
+  border:0;background:transparent;border-radius:6px;padding:3px 8px;font-size:10.5px;font-weight:850;
+  color:var(--tx2);cursor:pointer;line-height:1.3;
+}
+.seg button[aria-pressed="true"]{background:var(--terra);color:#fff}
+
+/* ============ budget ============ */
+.fxrow{display:flex;gap:7px;align-items:center}
+.fxrow .lab{font-size:10.5px;font-weight:850;color:var(--tx3)}
+.fxrow input{width:74px}
+input[type="number"],input[type="text"]{
+  width:92px;
+  background:var(--card2);border:1px solid var(--line2);border-radius:8px;padding:6px 7px;
+  font-size:12px;font-weight:850;color:var(--tx);font-family:inherit;
+  font-variant-numeric:tabular-nums;min-width:0;
+}
+input[type="number"]:focus,input[type="text"]:focus{outline:2px solid color-mix(in srgb,var(--terra) 35%,transparent);outline-offset:0}
+.fixedrow{display:flex;align-items:center;gap:7px;padding:8px 0;border-top:1px dashed var(--line);flex-wrap:wrap}
+.fixedrow:first-of-type{border-top:0}
+.fixedrow .fl{flex:1 1 150px;min-width:0}
+.fixedrow .fl b{display:block;font-size:11.5px;font-weight:850}
+.fixedrow .fl span{font-size:9.5px;color:var(--tx3);font-weight:700}
+.fixedrow .val{display:flex;align-items:center;gap:3px;font-size:11px;font-weight:850;color:var(--tx2)}
+.total{
+  background:linear-gradient(135deg,#3a2a1e,#5a3b26);color:#fff;border-radius:17px;padding:14px;
+  box-shadow:0 10px 24px rgba(60,38,20,.28);margin-bottom:10px;
+}
+html[data-theme="dark"] .total{background:linear-gradient(135deg,#33241a,#4a2f1e)}
+.total .tl1{font-size:10px;font-weight:800;opacity:.76;letter-spacing:.02em}
+.total .tl2{font-size:25px;font-weight:900;letter-spacing:-0.04em;line-height:1.15;margin-top:1px;font-variant-numeric:tabular-nums}
+.total .tl3{font-size:12px;font-weight:800;opacity:.9;margin-top:1px;font-variant-numeric:tabular-nums}
+.total .tgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:10px}
+.total .tgrid div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:5px 7px}
+.total .tgrid b{display:block;font-size:9px;font-weight:800;opacity:.72}
+.total .tgrid span{font-size:11px;font-weight:850;font-variant-numeric:tabular-nums}
+.breakrow{padding:6px 0;border-top:1px dashed var(--line)}
+.breakrow:first-of-type{border-top:0}
+.br-h{display:flex;align-items:baseline;gap:6px;font-size:11.5px;font-weight:800}
+.br-h .v{margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:900}
+.br-h .v small{font-size:9px;color:var(--tx3);font-weight:750;margin-left:3px}
+.brbar{height:5px;border-radius:3px;background:var(--card2);overflow:hidden;margin-top:4px}
+.brbar i{display:block;height:100%;border-radius:3px;background:var(--terra)}
+.br-d{font-size:9.5px;color:var(--tx3);font-weight:700;margin-top:3px}
+
+.passrow{padding:9px 0;border-top:1px dashed var(--line)}
+.passrow:first-of-type{border-top:0}
+.passrow .ph{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:850;flex-wrap:wrap}
+.passrow .ph .price{margin-left:auto;font-size:12.5px;font-weight:900;color:var(--terra-d);font-variant-numeric:tabular-nums;white-space:nowrap}
+.passrow.best{background:var(--olive-soft);border:1px solid color-mix(in srgb,var(--olive) 34%,var(--line));border-radius:11px;padding:9px;margin:4px 0}
+.passrow .pd{font-size:10px;color:var(--tx2);line-height:1.5;margin-top:3px;font-weight:650}
+.reco{
+  margin-top:8px;border-radius:11px;padding:9px 10px;background:var(--olive-soft);
+  border:1px solid color-mix(in srgb,var(--olive) 34%,var(--line));font-size:11px;line-height:1.55;font-weight:700;color:var(--tx);
+}
+.reco b{color:var(--olive)}
+
+/* ============ checklist ============ */
+.progress{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.progress .pbar{flex:1;height:7px;border-radius:4px;background:var(--card2);overflow:hidden;border:1px solid var(--line)}
+.progress .pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--olive),#8fa95f);border-radius:4px;transition:width .25s}
+.progress .pt{font-size:10.5px;font-weight:900;color:var(--olive);white-space:nowrap;font-variant-numeric:tabular-nums}
+.checkgroup{margin-bottom:9px}
+.cg-h{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:900;margin:0 2px 6px}
+.cg-h .pill{margin-left:auto}
+.check{
+  display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:var(--card);
+  border:1px solid var(--line);border-radius:11px;margin-bottom:5px;cursor:pointer;
+  box-shadow:var(--shadow-s);transition:.14s;
+}
+.check:active{transform:scale(.995)}
+.check input{
+  appearance:none;-webkit-appearance:none;width:17px;height:17px;flex:0 0 auto;margin:1px 0 0;
+  border:1.8px solid var(--line2);border-radius:5px;background:var(--card);cursor:pointer;position:relative;
+}
+.check input:checked{background:var(--olive);border-color:var(--olive)}
+.check input:checked::after{
+  content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:900;
+}
+.check .ct{font-size:11.5px;font-weight:750;line-height:1.45;min-width:0}
+.check .ct small{display:block;font-size:9.5px;color:var(--tx3);font-weight:650;margin-top:1px;line-height:1.4}
+.check.done{background:var(--olive-soft);border-color:color-mix(in srgb,var(--olive) 30%,{line});border-color:color-mix(in srgb,var(--olive) 30%,var(--line))}
+.check.done .ct{color:var(--tx3);text-decoration:line-through}
+.check.done .ct small{text-decoration:none}
+
+/* phrase cards */
+.phrase{display:flex;flex-direction:column;gap:2px;padding:8px 0;border-top:1px dashed var(--line)}
+.phrase:first-of-type{border-top:0;padding-top:2px}
+.phrase .ko{font-size:10px;color:var(--tx3);font-weight:800}
+.phrase .es{font-size:12.5px;font-weight:850;letter-spacing:-0.01em}
+.phrase .pr{font-size:10px;color:var(--terra);font-weight:750}
+.contact{
+  display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px dashed var(--line);
+}
+.contact:first-of-type{border-top:0;padding-top:2px}
+.contact .ci{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--terra-soft);font-size:13px;flex:0 0 auto}
+.contact .cb{flex:1;min-width:0}
+.contact .cb b{display:block;font-size:11px;font-weight:850}
+.contact .cb span{font-size:10px;color:var(--tx2);font-weight:650;display:block;line-height:1.4}
+.contact a.tel{font-size:11px;font-weight:900;color:var(--terra-d);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* footer */
+footer{margin-top:16px;padding:0 3px}
+footer .src{font-size:9.5px;color:var(--tx3);line-height:1.6;font-weight:650}
+footer .src b{color:var(--tx2)}
+.disclaimer{
+  margin-top:10px;border-radius:11px;padding:9px 10px;background:var(--card2);
+  border:1px solid var(--line);font-size:9.5px;color:var(--tx3);line-height:1.55;font-weight:650;
+}
+.dlbtn{
+  width:100%;margin-top:9px;border:0;border-radius:12px;padding:12px 10px;
+  background:linear-gradient(135deg,#217346,#2e8f5b);color:#fff;font-size:12.5px;font-weight:900;
+  letter-spacing:-0.02em;cursor:pointer;box-shadow:0 6px 16px rgba(33,115,70,.28);
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.dlbtn:active{transform:scale(.985)}
+.dlbtn:disabled{opacity:.65}
+.toast{
+  position:fixed;left:50%;bottom:20px;transform:translate(-50%,14px);opacity:0;pointer-events:none;
+  background:#2f2418;color:#fff;font-size:11.5px;font-weight:800;border-radius:11px;padding:9px 14px;
+  transition:.24s;z-index:200;box-shadow:0 8px 20px rgba(0,0,0,.3);max-width:88vw;text-align:center;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ============ 항공편 · 입출국 패널 ============ */
+.flcard{padding:12px}
+.flgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.flbox{
+  min-width:0;border:1px solid var(--line);border-radius:12px;padding:8px 9px;
+  background:linear-gradient(160deg,var(--card2),var(--card));
+}
+.flbox .dir{font-size:8.5px;font-weight:900;color:var(--tx3);letter-spacing:.02em;line-height:1.3}
+.flbox .no{margin-top:3px;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap;font-size:12px;font-weight:900;letter-spacing:-0.02em;line-height:1.25}
+.flbox .no .tm{font-variant-numeric:tabular-nums;color:var(--terra-d);font-size:14px;margin-left:auto}
+.flbox .ap{margin-top:3px;font-size:9px;font-weight:750;color:var(--tx2);line-height:1.4}
+.flmeta{margin-top:9px;padding-top:8px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:4px}
+.flmeta .mrow{display:flex;align-items:baseline;gap:6px;font-size:10px;font-weight:750;color:var(--tx2);line-height:1.35}
+.flmeta .mrow b{margin-left:auto;font-size:11.5px;font-weight:900;color:var(--tx);font-variant-numeric:tabular-nums;white-space:nowrap}
+.flcount{
+  margin-top:8px;border-radius:11px;padding:8px 10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;
+  background:var(--terra-soft);border:1px solid color-mix(in srgb,var(--terra) 30%,var(--line));
+  font-size:10px;font-weight:800;color:var(--terra-d);line-height:1.45;
+}
+.flcount b{font-size:12px;font-variant-numeric:tabular-nums;letter-spacing:-0.01em}
+.flset{margin-top:8px;padding-top:5px;border-top:1px dashed var(--line)}
+.flset summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:5px;padding:3px 0;font-size:10.5px;font-weight:850;color:var(--sky)}
+.flset summary::-webkit-details-marker{display:none}
+.flset[open] summary{color:var(--terra)}
+.flset .fin{padding-top:5px}
+.fgrid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}
+.fld{display:flex;flex-direction:column;gap:2px;min-width:0}
+.fld label{font-size:8.5px;font-weight:850;color:var(--tx3);line-height:1.3}
+.fld input,.fld select{
+  width:100%;min-width:0;border:1px solid var(--line2);border-radius:8px;background:var(--card);
+  padding:6px 7px;font-size:11.5px;font-weight:750;color:var(--tx);font-family:inherit;
+}
+.fld input[type="time"]{font-variant-numeric:tabular-nums}
+.fld input:focus,.fld select:focus{outline:2px solid color-mix(in srgb,var(--terra) 30%,transparent);border-color:var(--terra)}
+.flpresets{display:flex;gap:4px;flex-wrap:wrap}
+.flpresets button{
+  border:1px solid var(--line2);background:var(--card);border-radius:8px;padding:5px 7px;
+  font-size:9px;font-weight:800;color:var(--tx2);cursor:pointer;line-height:1.25;font-family:inherit;
+}
+.flpresets button[aria-pressed="true"]{background:var(--sky-soft);border-color:color-mix(in srgb,var(--sky) 40%,var(--line));color:var(--sky)}
+.flpresets button:active{transform:scale(.96)}
+.fllink{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px;font-size:9px;font-weight:850}
+.fllink a{color:var(--sky)}
+.flwarn{
+  margin-top:6px;border-radius:8px;padding:5px 7px;font-size:8.5px;font-weight:750;line-height:1.45;
+  background:var(--saffron-soft);border:1px solid color-mix(in srgb,var(--saffron) 32%,var(--line));color:var(--warn);
+}
+/* --- 항공편명 자동완성 --- */
+.flauto{margin-bottom:9px}
+.flauto-row{display:flex;gap:6px;align-items:stretch}
+.flauto-row input{
+  flex:1;min-width:0;border:1px solid var(--line2);border-radius:10px;background:var(--card);
+  padding:8px 9px;font-size:12px;font-weight:850;color:var(--tx);font-family:inherit;letter-spacing:.01em;
+}
+.flauto-row input::placeholder{font-weight:650;color:var(--tx3);letter-spacing:-0.02em;font-size:11px}
+.flauto-row input:focus{outline:2px solid color-mix(in srgb,var(--terra) 30%,transparent);border-color:var(--terra)}
+.flstat{
+  margin-top:5px;display:flex;align-items:center;gap:4px 6px;flex-wrap:wrap;
+  font-size:9.5px;font-weight:750;line-height:1.45;color:var(--tx2);
+  border:1px dashed var(--line2);border-radius:9px;padding:5px 8px;background:var(--card2);
+}
+.flstat:empty{display:none}
+.flstat b{font-weight:900;color:inherit;font-variant-numeric:tabular-nums}
+.flstat span{color:var(--tx3);font-weight:750}
+.flstat.ok{
+  color:var(--ok);border-style:solid;border-color:color-mix(in srgb,var(--ok) 34%,var(--line));
+  background:color-mix(in srgb,var(--ok) 9%,var(--card));
+}
+.flstat.ok span{color:color-mix(in srgb,var(--ok) 76%,var(--tx3))}
+.flstat.warn{
+  color:var(--warn);border-style:solid;border-color:color-mix(in srgb,var(--saffron) 34%,var(--line));
+  background:var(--saffron-soft);
+}
+.flstat.warn span{color:color-mix(in srgb,var(--warn) 76%,var(--tx3))}
+.flstat.miss{color:var(--tx3)}
+.flstat a{font-weight:850;color:var(--sky);white-space:nowrap}
+.flstat button{
+  border:1px solid color-mix(in srgb,var(--sky) 35%,var(--line));background:var(--card);color:var(--sky);
+  border-radius:7px;padding:2px 6px;font-size:9px;font-weight:850;font-family:inherit;cursor:pointer;white-space:nowrap;
+}
+.flstat button:active{transform:scale(.96)}
+.fpicks{display:flex;gap:4px;overflow-x:auto;margin-top:6px;padding:0 2px 3px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.fpicks::-webkit-scrollbar{display:none}
+.fpicks button{
+  border:1px solid var(--line2);background:var(--card);border-radius:999px;padding:4px 8px;
+  font-size:9px;font-weight:850;color:var(--tx2);white-space:nowrap;font-family:inherit;cursor:pointer;
+  display:inline-flex;gap:3px;align-items:baseline;flex:0 0 auto;
+}
+.fpicks button span{color:var(--terra-d);font-variant-numeric:tabular-nums}
+.fpicks button small{font-size:7.5px;color:var(--tx3);font-weight:850}
+.fpicks button:active{transform:scale(.97)}
+.fpicks button[aria-pressed="true"]{background:var(--sky-soft);border-color:color-mix(in srgb,var(--sky) 40%,var(--line));color:var(--sky)}
+.fpicks button[aria-pressed="true"] span{color:var(--sky)}
+.fstatrow{grid-column:1/-1}
+
+@media (min-width:620px){
+  .grid2{grid-template-columns:1fr 1fr 1fr 1fr}
+  .sights{grid-template-columns:1fr 1fr 1fr}
+  .stay .ba{grid-template-columns:1fr 1fr}
+  body{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="stickytop">
+  <header class="topbar">
+    <div class="tb-in">
+      <div class="brandrow">
+        <span class="logo">🧭</span>
+        <div class="bt">
+          <h1>Travel Desk</h1>
+          <span class="sub" id="hdrSub">스페인 · 마드리드 · 4일 · 성인 2 + 청소년 1</span>
+        </div>
+        <button class="iconbtn" id="themeBtn" aria-label="테마 전환" title="라이트/다크">🌙</button>
+      </div>
+      <div class="ctrl">
+        <div class="selwrap">
+          <select id="destSel" aria-label="국가와 도시">
+            <option value="es-madrid" selected>스페인 · 마드리드</option>
+            <option value="es-barcelona" disabled>스페인 · 바르셀로나 (준비 중)</option>
+            <option value="pt-lisbon" disabled>포르투갈 · 리스본 (준비 중)</option>
+          </select>
+        </div>
+        <div class="chips" id="dayChips" role="group" aria-label="일정 일수"></div>
+      </div>
+      <div class="travrow">
+        <div class="stepper" data-key="adults">
+          <span>성인</span>
+          <button type="button" class="minus" aria-label="성인 줄이기">−</button>
+          <b id="adultsN">2</b>
+          <button type="button" class="plus" aria-label="성인 늘리기">+</button>
+        </div>
+        <div class="stepper" data-key="youth">
+          <span>청소년</span>
+          <button type="button" class="minus" aria-label="청소년 줄이기">−</button>
+          <b id="youthN">1</b>
+          <button type="button" class="plus" aria-label="청소년 늘리기">+</button>
+        </div>
+        <div class="tourflag" id="tourFlag">근교 데이투어</div>
+      </div>
+    </div>
+  </header>
+  <nav class="tabs" aria-label="탭">
+    <div class="tabs-in" role="tablist" id="tabs">
+      <button class="tab" role="tab" data-tab="1" aria-selected="true"><em>🌏</em>도시 브리핑</button>
+      <button class="tab" role="tab" data-tab="2" aria-selected="false"><em>🗺️</em>일정·숙소</button>
+      <button class="tab" role="tab" data-tab="3" aria-selected="false"><em>🚶</em>Day별 동선</button>
+      <button class="tab" role="tab" data-tab="4" aria-selected="false"><em>💶</em>예산·패스</button>
+      <button class="tab" role="tab" data-tab="5" aria-selected="false"><em>✅</em>체크리스트</button>
+    </div>
+  </nav>
+</div>
+
+<main class="wrap">
+  <!-- ============ 1. 도시 브리핑 ============ -->
+  <section class="panel on" id="p1" role="tabpanel" aria-label="도시 브리핑">
+    <div class="hero">
+      <div class="hh">
+        <span class="fl">ES</span>
+        <div>
+          <h2>마드리드 Madrid</h2>
+          <div class="hs">스페인 수도 · 이베리아반도 한복판 · 해발 660m</div>
+        </div>
+      </div>
+      <div class="hstats">
+        <span class="hstat"><b>3.5M</b>시 인구</span>
+        <span class="hstat"><b>6.8M</b>광역권</span>
+        <span class="hstat"><b>604km²</b>면적</span>
+        <span class="hstat"><b>−8h</b>한국 시차</span>
+      </div>
+    </div>
+
+    <div class="sec" id="flightSec">
+      <div class="sec-h"><h2>✈️ 항공편 · 입출국 시간</h2><span class="hint">시각을 바꾸면 Day 1·마지막 날<br>동선이 바로 다시 짜입니다</span></div>
+      <div class="card flcard">
+        <div class="flauto">
+          <div class="flauto-row">
+            <label for="flQuick" style="position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">항공편명</label>
+            <input id="flQuick" type="text" list="flQuickList" autocomplete="off" spellcheck="false" placeholder="항공편명으로 자동 채우기 (예: KE913)" aria-describedby="flQuickStat">
+            <datalist id="flQuickList"></datalist>
+          </div>
+          <div class="flstat" id="flQuickStat"></div>
+          <div class="fpicks" id="flPicks" role="group" aria-label="확인된 인기 항공편"></div>
+        </div>
+        <div class="flgrid">
+          <div class="flbox">
+            <div class="dir">🛬 가는 편 · 마드리드 도착</div>
+            <div class="no"><span id="flGoLabel">대한항공 KE913</span><span class="tm" id="flGoTimeLbl">19:25</span></div>
+            <div class="ap" id="flGoAp">바라하스 T1 도착</div>
+          </div>
+          <div class="flbox">
+            <div class="dir">🛫 오는 편 · 마드리드 출발</div>
+            <div class="no"><span id="flBackLabel">대한항공 KE914</span><span class="tm" id="flBackTimeLbl">21:25</span></div>
+            <div class="ap" id="flBackAp">바라하스 T1 출발</div>
+          </div>
+        </div>
+        <div class="flmeta">
+          <div class="mrow"><span>출국일 — 공항 도착 권장</span><b id="flAirportBy">18:25</b></div>
+          <div class="mrow"><span>출국일 — 숙소 출발 권장</span><b id="flLeaveBy">17:40</b></div>
+          <div class="mrow"><span>Day 1 — 입국 후 숙소 도착</span><b id="flHotelBy">20:10</b></div>
+        </div>
+        <div class="flcount" id="flCount">📅 여행 1일차 날짜를 넣으면 출국 카운트다운이 표시됩니다.</div>
+        <details class="flset" id="flSet">
+          <summary>⚙️ 항공사 · 편명 · 시각 바꾸기</summary>
+          <div class="fin">
+            <div class="flpresets" id="flPresets" role="group" aria-label="항공편 프리셋"></div>
+            <div class="flwarn" id="flPresetNote">아래 프리셋과 자동완성 시각·터미널은 2026-11-22에 확인한 Winter 2026–27 시간표입니다(마드리드 현지 시각). 항공사 사정으로 바뀌니 출발 전 항공권으로 한 번 더 확인하세요.</div>
+            <div class="fgrid2">
+              <div class="fld"><label for="flGoCarrier">가는 편 항공사</label><input id="flGoCarrier" type="text" autocomplete="off" value="대한항공"></div>
+              <div class="fld"><label for="flGoNo">항공편명</label><input id="flGoNo" type="text" autocomplete="off" spellcheck="false" placeholder="KE913" value="KE913"></div>
+              <div class="flstat fstatrow" id="flGoStat"></div>
+              <div class="fld"><label for="flGoTime">마드리드 도착 (HH:MM)</label><input id="flGoTime" type="time" value="19:25"></div>
+              <div class="fld"><label for="flGoTerm">도착 터미널</label><select id="flGoTerm"><option>T1</option><option>T2</option><option>T3</option><option>T4</option><option>T4S</option></select></div>
+            </div>
+            <div class="fgrid2">
+              <div class="fld"><label for="flBackCarrier">오는 편 항공사</label><input id="flBackCarrier" type="text" autocomplete="off" value="대한항공"></div>
+              <div class="fld"><label for="flBackNo">항공편명</label><input id="flBackNo" type="text" autocomplete="off" spellcheck="false" placeholder="KE914" value="KE914"></div>
+              <div class="flstat fstatrow" id="flBackStat"></div>
+              <div class="fld"><label for="flBackTime">마드리드 출발 (HH:MM)</label><input id="flBackTime" type="time" value="21:25"></div>
+              <div class="fld"><label for="flBackTerm">출발 터미널</label><select id="flBackTerm"><option>T1</option><option>T2</option><option>T3</option><option>T4</option><option>T4S</option></select></div>
+            </div>
+            <div class="fgrid2">
+              <div class="fld" style="grid-column:1/-1"><label for="startDate">여행 1일차 날짜 (선택 — D-day 카운트다운)</label><input id="startDate" type="date" value=""></div>
+            </div>
+            <div class="fllink">
+              <a id="flGoLook" href="https://www.flightaware.com/live/flight/KE913" target="_blank" rel="noopener">🔎 KE913 실시간 조회</a>
+              <a id="flBackLook" href="https://www.flightaware.com/live/flight/KE914" target="_blank" rel="noopener">🔎 KE914 실시간 조회</a>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>출발 전 4가지</h2><span class="hint">현지에서 바로 체감되는 것만</span></div>
+      <div class="grid2">
+        <div class="ess">
+          <div class="eh">🕐 시차</div>
+          <div class="ev">한국보다 8시간 느림</div>
+          <div class="ed">서머타임(3월 말~10월 말)엔 7시간. 마드리드 09:00 = 서울 17:00. 귀국 3~4일은 밤에 깨는 게 정상.</div>
+        </div>
+        <div class="ess">
+          <div class="eh">🔌 전압·플러그</div>
+          <div class="ev">230V · 50Hz · C/F형</div>
+          <div class="ed">둥근 2핀. 한국 220V 기기는 멀티 어댑터로 사용 가능, 드라이어 같은 고출력 기기는 변압기 확인.</div>
+        </div>
+        <div class="ess warn-c">
+          <div class="eh">👛 치안</div>
+          <div class="ev">소매치기 주의 구역</div>
+          <div class="ed">솔 광장·그란 비아·아토차 역·메트로 1호선·엘 라스트로·레티로. 가방은 앞으로, 문 앞에서 휴대폰 노출 금지.</div>
+        </div>
+        <div class="ess">
+          <div class="eh">💳 팁·결제</div>
+          <div class="ev">카드 위주 + 소액 현금</div>
+          <div class="ed">비접촉 카드가 거의 다 됨. 팁은 식당 €1~2 또는 5~10%, 택시는 반올림. €50권 위조 확인 잦음.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>배경 지식</h2><span class="hint">접어 두고 필요할 때</span></div>
+      <details class="box" open>
+        <summary><span class="sicon">📐</span>규모 — 서울과 비슷한 면적, 절반의 인구<span class="arw">▶</span></summary>
+        <div class="body">
+          <dl class="kv"><dt>면적</dt><dd><b>604.4 km²</b> — 서울(605 km²)과 거의 같음. 도심은 걸어서 이동 가능한 폭.</dd></dl>
+          <dl class="kv"><dt>인구</dt><dd>시 <b>3,497,277명</b>(2026-01-01 주민등록) · 광역권 약 <b>678만</b> · 유럽연합 2위 도시</dd></dl>
+          <dl class="kv"><dt>고도</dt><dd><b>660m</b> — 한여름에도 아침저녁은 선선하고, 겨울 아침은 영하까지 내려감</dd></dl>
+          <dl class="kv"><dt>행정</dt><dd>마드리드 주(Comunidad de Madrid)의 수도이자 스페인 수도. 21개 구(distrito)</dd></dl>
+        </div>
+      </details>
+      <details class="box">
+        <summary><span class="sicon">📊</span>경제 — 스페인 GDP의 20%를 혼자 만드는 도시<span class="arw">▶</span></summary>
+        <div class="body">
+          <dl class="kv"><dt>스페인 GDP</dt><dd><b>1조 6,900억 유로</b>(2025, 명목) · 실질 성장 <b>+2.6%</b> · 1인당 <b>34,237유로</b></dd></dl>
+          <dl class="kv"><dt>마드리드 주</dt><dd>GDP <b>3,372억 유로</b> — 전국의 <b>19.8%</b>. 1인당 <b>47,220유로</b>(전국 평균의 137.9%, EU 평균 41,700유로 상회)</dd></dl>
+          <dl class="kv"><dt>체감</dt><dd>물가는 서유럽 평균보다 조금 낮지만 관광지 식당은 런던·파리 수준. 슈퍼마켓·시장은 저렴.</dd></dl>
+          <p class="tiny muted" style="margin-top:6px">출처: INE(스페인 통계청) 2025 지역계정, 2026-09 발표.</p>
+        </div>
+      </details>
+      <details class="box">
+        <summary><span class="sicon">🫒</span>산업·특산품 — 올리브오일·하몽·와인·자동차<span class="arw">▶</span></summary>
+        <div class="body">
+          <dl class="kv"><dt>농식품</dt><dd>올리브오일 세계 생산 1위(약 40%대), 하몽 이베리코, 리오하·리베라 델 두에로 와인, 만체고 치즈</dd></dl>
+          <dl class="kv"><dt>제조업</dt><dd>자동차(SEAT·폭스바겐·스텔란티스 공장), 항공부품, 철도차량 — 마드리드는 본사·금융 기능 집중</dd></dl>
+          <dl class="kv"><dt>서비스</dt><dd>관광이 스페인 GDP의 약 12~13%. IBEX35 상장사 본사와 스페인 중앙은행이 마드리드에 있음</dd></dl>
+          <dl class="kv"><dt>사 올 것</dt><dd>하몽(진공 포장)·올리브오일·사프란·마사판(톨레도)·에스파드리유(수제 신발)</dd></dl>
+        </div>
+      </details>
+      <details class="box">
+        <summary><span class="sicon">🏛️</span>역사 — 요새에서 남유럽 금융수도까지<span class="arw">▶</span></summary>
+        <div class="body">
+          <dl class="kv"><dt>9세기</dt><dd>이슬람 에미르가 만사나레스 강변에 요새 <b>마지리트</b> 축조 — 도시의 시작</dd></dl>
+          <dl class="kv"><dt>1085</dt><dd>기독교 왕국이 탈환. 이후 카스티야 왕국의 변방 도시</dd></dl>
+          <dl class="kv"><dt>1561</dt><dd>펠리페 2세가 궁정을 톨레도에서 마드리드로 옮기며 <b>사실상의 수도</b>가 됨</dd></dl>
+          <dl class="kv"><dt>17세기</dt><dd>황금시대 — 세르반테스·벨라스케스·로페 데 베가. 마요르 광장과 궁정 문화</dd></dl>
+          <dl class="kv"><dt>18세기</dt><dd>부르봉 왕조가 현재의 <b>마드리드 왕궁</b> 건설(1738~1764)</dd></dl>
+          <dl class="kv"><dt>1808</dt><dd>나폴레옹군에 맞선 5월 2일 봉기 — 고야가 그림으로 남긴 독립전쟁의 시작</dd></dl>
+          <dl class="kv"><dt>1936~39</dt><dd>내전. 마드리드는 공화파의 마지막 방어선이었고 도시가 크게 파괴됨</dd></dl>
+          <dl class="kv"><dt>1978</dt><dd>민주 헌법 채택, 입헌왕정 출발. 이후 금융·서비스 중심으로 급성장</dd></dl>
+          <dl class="kv"><dt>1992</dt><dd>유럽 문화수도 · 마드리드~세비야 고속철 개통으로 남유럽 교통 허브가 됨</dd></dl>
+        </div>
+      </details>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>월별 평균 기온·강수</h2><span class="hint">AEMET 마드리드 레티로<br>1981~2010 표준값</span></div>
+      <div class="chart">
+        <div class="ctitle"><span>평균 최고기온 (막대) · 월 강수량 (아래 숫자, mm)</span></div>
+        <div class="bars" id="climBars" aria-hidden="true"></div>
+        <div class="labels" id="climLabels"></div>
+        <div class="legend"><span><i style="background:linear-gradient(180deg,#e08a3c,#c0522d)"></i>최고</span><span><i style="background:color-mix(in srgb,var(--sky) 62%,#fff)"></i>최저</span><span>연 강수 421mm · 연평균 15.0℃</span></div>
+        <details class="box" style="margin-top:8px;box-shadow:none">
+          <summary style="padding:7px 2px;font-size:11px"><span class="sicon">📋</span>표로 보기 (12개월 전체)<span class="arw">▶</span></summary>
+          <div class="body" style="padding:0">
+            <table class="clim">
+              <thead><tr><th>월</th><th>평균</th><th>최고</th><th>최저</th><th>강수</th><th>비 온 날</th><th>일조</th></tr></thead>
+              <tbody id="climTable"></tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. 일정·숙소 ============ -->
+  <section class="panel" id="p2" role="tabpanel" aria-label="일정과 숙소">
+    <div class="sec">
+      <div class="sec-h"><h2>여행 시기 &amp; 옷차림</h2><span class="hint">여행 월을 고르면<br>바로 바뀝니다</span></div>
+      <div class="card">
+        <div class="chips" id="monthChips" role="group" aria-label="여행 월" style="margin-bottom:10px;gap:4px"></div>
+        <div class="stay-top" style="margin-bottom:4px">
+          <span class="pill saffron" id="wMonthPill">11월</span>
+          <span class="pill ghost" id="wTempPill">최고 13.5℃ · 최저 6.3℃</span>
+          <span class="pill sky" id="wRainPill">강수 58mm</span>
+        </div>
+        <p class="tiny" id="wCloth" style="font-size:11.5px;font-weight:700;line-height:1.55"></p>
+        <div class="pill ghost" id="wNote" style="margin-top:8px;white-space:normal;line-height:1.5;font-size:10px"></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>숙소 거점 3곳</h2><span class="hint">1박 가격은 3인 가족실<br>2026-11 기준 추정</span></div>
+      <div class="card stay">
+        <div class="stay-top"><span>⭐</span><h3>솔 · 센트로 (Puerta del Sol)</h3><span class="price">€140~180</span></div>
+        <div class="tagline"><span class="pill terra">첫 방문 추천</span><span class="pill">도보 관광</span><span class="pill">메트로 3개 노선</span></div>
+        <p>마요르·왕궁·산 미겔 시장이 모두 도보 10분. 저녁 늦게까지 사람이 많아 귀가가 편하고, 아토차·공항 이동도 단순.</p>
+        <div class="ba">
+          <div><b>장점</b>관광지 접근성 최고, 식당·카페 많음</div>
+          <div><b>단점</b>밤 소음, 방이 좁은 편</div>
+        </div>
+      </div>
+      <div class="card stay">
+        <div class="stay-top"><span>🎭</span><h3>그란 비아 · 추에카</h3><span class="price">€150~200</span></div>
+        <div class="tagline"><span class="pill">쇼핑·공연</span><span class="pill">야경</span><span class="pill">중앙 지하철</span></div>
+        <p>그란 비아와 극장가, 추에카의 레스토랑. 솔까지 도보 12분, 살라망카 쇼핑도 가깝다.</p>
+        <div class="ba">
+          <div><b>장점</b>저녁·문화생활, 교통 환승 편함</div>
+          <div><b>단점</b>주말 밤 소음, 가격대 높음</div>
+        </div>
+      </div>
+      <div class="card stay">
+        <div class="stay-top"><span>🌳</span><h3>살라망카 · 레티로</h3><span class="price">€180~260</span></div>
+        <div class="tagline"><span class="pill olive">조용함·가족</span><span class="pill">미술관 도보</span><span class="pill">고급 주거</span></div>
+        <p>프라도·레티로·세라노 거리가 도보권. 넓은 방과 조용한 밤, 아이 동반에 가장 편한 권역. 다만 저녁 식당은 센트로보다 적다.</p>
+        <div class="ba">
+          <div><b>장점</b>안전·정숙, 공원 접근</div>
+          <div><b>단점</b>가격, 밤엔 다소 한적</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>바라하스 공항 → 시내</h2><span class="hint">MAD · T1/T2/T3 · T4<br>3인 기준</span></div>
+      <div class="card">
+        <div class="opt">
+          <div class="opt-h"><span>🚇</span>메트로 8호선 <span class="cost">€4.5~5</span></div>
+          <div class="opt-m"><span class="pill">25~30분</span><span class="pill">06:05~01:30</span><span class="pill">누에보스 미니스테리오스</span></div>
+          <p>T4·T1-2-3 모두 연결. 1회권(€1.5~2) + <b>공항 추가요금 €3</b>. 짐 많으면 환승(6·10호선)이 번거로움.</p>
+        </div>
+        <div class="opt">
+          <div class="opt-h"><span>🚌</span>엑스프레스 203 <span class="cost">€5 /인</span></div>
+          <div class="opt-m"><span class="pill">30~40분</span><span class="pill">24시간</span><span class="pill">아토차 · 시벨레스</span></div>
+          <p>짐 실을 공간 있고 24시간 운행. 심야 도착이면 시벨레스 정류장 이용. <b>교통패스 사용 불가</b>, 차내 카드 결제 가능.</p>
+        </div>
+        <div class="opt">
+          <div class="opt-h"><span>🚕</span>택시 <span class="cost">€33 정액</span></div>
+          <div class="opt-m"><span class="pill">20~30분</span><span class="pill">M-30 안</span><span class="pill">3인+짐 유리</span></div>
+          <p>공항~M-30 안은 요일·시간 무관 <b>€33 정액</b>(추가요금 없음). 3인이면 버스와 총액 차이가 크지 않아 가장 편함.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>핵심 관광지</h2><span class="hint">입장료는 2026-11 확인<br>청소년 기준 별도 표기</span></div>
+      <div class="sights">
+        <div class="sight">
+          <div class="nm">프라도 미술관</div><div class="en">Museo del Prado</div>
+          <div class="pr">€15 <span class="tiny muted">· 18세 미만 무료</span></div>
+          <div class="tip">벨라스케스 <라스 메니나스>. 2시간 반 이상 필요. 월~토 18~20시 무료(줄 김).</div>
+          <div class="btm"><span class="pill terra">사전예매 권장</span><a class="mapl" href="https://www.google.com/maps/search/?api=1&amp;query=Museo+del+Prado+Madrid" target="_blank" rel="noopener">📍 지도</a></div>
+        </div>
+        <div class="sight">
+          <div class="nm">마드리드 왕궁</div><div class="en">Palacio Real</div>
+          <div class="pr">€18 <span class="tiny muted">· 5~16세 €9</span></div>
+          <div class="tip">3,000여 개 방 중 20여 개 공개. <b>사전예매 필수</b>(현장 매표소 대기 김). 월~목 16~18시 EU 시민 무료.</div>
+          <div class="btm"><span class="pill terra">사전예매 필수</span><a class="mapl" href="https://www.google.com/maps/search/?api=1&amp;query=Palacio+Real+de+Madrid" target="_blank" rel="noopener">📍 지도</a></div>
+        </div>
+        <div class="sight">
+          <div class="nm">레티로 공원</div><div class="en">Parque del Retiro</div>
+          <div class="pr">무료</div>
+          <div class="tip">수정궁·인공호수 보트(€6). 일요일 오전은 현지인으로 붐빔. 프라도와 도보 10분.</div>
+          <div class="btm"><span class="pill olive">예매 불필요</span><a class="mapl" href="https://www.google.com/maps/search/?api=1&amp;query=Parque+del+Retiro+Madrid" target="_blank" rel="noopener">📍 지도</a></div>
+        </div>
+        <div class="sight">
+          <div class="nm">산 미겔 시장</div><div class="en">Mercado de San Miguel</div>
+          <div class="pr">입장 무료</div>
+          <div class="tip">타파스 2~3점 €12~18. 관광지 가격이지만 한 번은 갈 만함. 19시 이전이 덜 붐빔.</div>
+          <div class="btm"><span class="pill olive">예매 불필요</span><a class="mapl" href="https://www.google.com/maps/search/?api=1&amp;query=Mercado+de+San+Miguel+Madrid" target="_blank" rel="noopener">📍 지도</a></div>
+        </div>
+        <div class="sight">
+          <div class="nm">마요르 광장</div><div class="en">Plaza Mayor</div>
+          <div class="pr">무료</div>
+          <div class="tip">17세기 광장. 테라스 커피는 비싸니 구경만 하고 식사는 골목에서. 크리스마스 시장 유명.</div>
+          <div class="btm"><span class="pill olive">예매 불필요</span><a class="mapl" href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+Mayor+Madrid" target="_blank" rel="noopener">📍 지도</a></div>
+        </div>
+        <div class="sight">
+          <div class="nm">티센 · 소피아</div><div class="en">Thyssen / Reina Sofía</div>
+          <div class="pr">€14 / €12</div>
+          <div class="tip">티센은 월 12~16시 무료, 소피아는 <b>화요일 휴관</b>·월·수~토 19~21시 무료. 소피아의 <게르니카>.</div>
+          <div class="btm"><span class="pill saffron">예매 권장</span><a class="mapl" href="https://www.google.com/maps/search/?api=1&amp;query=Museo+Thyssen-Bornemisza+Madrid" target="_blank" rel="noopener">📍 지도</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>근교 데이투어</h2><span class="hint" id="tourSecHint">3일 이상이면 자동 편성</span></div>
+      <div id="tourCards"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>기본 준비물</h2><span class="hint">체크리스트 탭에서<br>하나씩 지우세요</span></div>
+      <div class="card">
+        <div class="chipwrap">
+          <span class="pill">여권(6개월 이상)</span><span class="pill">유럽 C/F 어댑터</span><span class="pill">보조배터리</span>
+          <span class="pill">트래블카드(유로)</span><span class="pill">현금 €100~150</span><span class="pill">우산·얇은 겉옷</span>
+          <span class="pill">편한 신발</span><span class="pill">상비약</span><span class="pill">eSIM/로밍</span>
+          <span class="pill">예약 확인서(오프라인)</span><span class="pill">여권 사본</span><span class="pill">에코백(소매치기 대비)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. Day별 동선 ============ -->
+  <section class="panel" id="p3" role="tabpanel" aria-label="Day별 상세 동선">
+    <div class="sec">
+      <div class="sec-h"><h2 id="planTitle">4일 일정</h2><span class="hint" id="planHint">도시 2일 + 근교 2일</span></div>
+      <div class="switchbar" id="tourSwitch">
+        <span class="lab">근교 이동</span>
+        <div class="seg" id="modeSeg">
+          <button type="button" data-mode="train" aria-pressed="true">🚄 고속열차(Renfe)</button>
+          <button type="button" data-mode="bus" aria-pressed="false">🚌 1일 투어버스</button>
+        </div>
+        <span class="lab" id="toledoLenWrap" style="display:none">톨레도</span>
+        <div class="seg" id="lenSeg" style="display:none">
+          <button type="button" data-len="full" aria-pressed="true">종일</button>
+          <button type="button" data-len="half" aria-pressed="false">반나절</button>
+        </div>
+      </div>
+      <div class="daytabs" id="dayTabs" role="group" aria-label="Day 선택"></div>
+      <div id="dayBody"></div>
+    </div>
+  </section>
+
+  <!-- ============ 4. 예산·교통패스 ============ -->
+  <section class="panel" id="p4" role="tabpanel" aria-label="예산과 교통패스">
+    <div class="tab-head"></div>
+    <div class="total" id="totalCard">
+      <div class="tl1">예상 총경비 (항공·숙소 포함)</div>
+      <div class="tl2" id="totEur">€0</div>
+      <div class="tl3" id="totKrw">약 0원</div>
+      <div class="tgrid">
+        <div><b>1인당</b><span id="perPer">€0</span></div>
+        <div><b>1일당(1인)</b><span id="perDay">€0</span></div>
+        <div><b>현지 경비만</b><span id="localOnly">€0</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <div class="stay-top"><span>📊</span><h3>엑셀로 받아 인쇄하기</h3><span class="pill olive" style="margin-left:auto">A4 인쇄용</span></div>
+      <p class="tiny muted" style="margin-top:3px">시트 3장(① 개요·숙소·준비물 ② Day별 동선·맛집 ③ 예산·교통패스)으로 나눠 담고, 시트마다 <b>세로/가로</b>와 <b>페이지 너비 1장에 맞춤</b>을 지정합니다. 인쇄해도 열이 잘리지 않습니다.</p>
+      <button class="dlbtn" id="xlBtn" type="button">📥 엑셀(.xlsx) 다운로드 (A4 인쇄용)</button>
+      <p class="tiny" id="xlNote" style="margin-top:6px;color:var(--tx3)"></p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>고정비 입력</h2><span class="hint">직접 고쳐 쓰세요<br>나머지는 자동 계산</span></div>
+      <div class="card">
+        <div class="fixedrow">
+          <div class="fl"><b>항공 (1인 왕복)</b><span id="airHint">인천–마드리드 직항 약 15시간 15분, 주 4회</span></div>
+          <div class="val"><input type="number" id="airIn" min="0" step="10" value="850" inputmode="numeric"> €</div>
+        </div>
+        <div class="fixedrow">
+          <div class="fl"><b>숙소 (1박, 가족실)</b><span id="nightsNote">3박 자동 적용</span></div>
+          <div class="val"><input type="number" id="hotelIn" min="0" step="10" value="170" inputmode="numeric"> €</div>
+        </div>
+        <div class="fixedrow">
+          <div class="fl"><b>환율 (1€ = ?원)</b><span>ECB 2026-11-20 기준 1,472원</span></div>
+          <div class="val"><input type="number" id="fxIn" min="500" step="1" value="1470" inputmode="numeric"> 원</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>경비 내역</h2><span class="hint" id="breakHint">일정에서 자동 산출</span></div>
+      <div class="card" id="breakdown"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>교통패스 손익 비교</h2><span class="hint" id="rideHint">예상 승차 10회/인</span></div>
+      <div class="card">
+        <div class="passrow best" id="passBest"><div class="ph"><span>🏆</span>10회권 (Metrobús)<span class="price" id="pBest">€0</span></div><div class="pd" id="pBestD"></div></div>
+        <div class="passrow"><div class="ph"><span>🎫</span>관광패스 Abono Turístico (A구역)<span class="price" id="pTour">€0</span></div><div class="pd" id="pTourD"></div></div>
+        <div class="passrow"><div class="ph"><span>💳</span>1회권 <span class="price" id="pSingle">€0</span></div><div class="pd" id="pSingleD"></div></div>
+        <div class="passrow"><div class="ph"><span>🚕</span>택시 위주 <span class="price" id="pTaxi">€0</span></div><div class="pd" id="pTaxiD"></div></div>
+        <div class="reco" id="passReco"></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>요금 기준</h2><span class="hint">2026년 적용</span></div>
+      <details class="box">
+        <summary><span class="sicon">📌</span>마드리드 교통요금 메모<span class="arw">▶</span></summary>
+        <div class="body">
+          <dl class="kv"><dt>1회권</dt><dd>€1.50~2.00 (구간 수에 따라) · 공항역 승하차 시 <b>+€3</b></dd></dl>
+          <dl class="kv"><dt>10회권</dt><dd><b>€7.30</b> — 2025-07부터 이어진 한시 할인가가 2026-12-31까지 유지. 정가 €12.20</dd></dl>
+          <dl class="kv"><dt>Tarjeta Multi</dt><dd>€2.50 (재사용 카드). 관광패스 구매 시 카드값 포함</dd></dl>
+          <dl class="kv"><dt>관광패스</dt><dd>A구역 — 1일 €10.30 / 2일 €17.50 / 3일 €23.10 / 4일 €27.80 / 5일 €33.40 / 7일 €43.20. <b>공항 추가요금 포함</b>, 엑스프레스 버스 제외, 11세 미만 50%</dd></dl>
+          <dl class="kv"><dt>Renfe</dt><dd>톨레도 Avant 편도 €13.90(33~34분) · 세고비아 Avant 편도 €13.90(25~28분, Chamartín 출발) · 아빌라 €12.70</dd></dl>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ 5. 체크리스트 ============ -->
+  <section class="panel" id="p5" role="tabpanel" aria-label="체크리스트와 현지 카드">
+    <div class="sec">
+      <div class="sec-h"><h2>출발 준비 체크리스트</h2><span class="hint">누르면 이 기기에 저장<br>(localStorage)</span></div>
+      <div class="progress">
+        <div class="pbar"><i id="pbarFill" style="width:0%"></i></div>
+        <span class="pt" id="pTxt">0 / 0</span>
+        <button class="iconbtn" id="resetChecks" aria-label="체크 초기화" title="전체 초기화" style="width:26px;height:26px;font-size:12px">↺</button>
+      </div>
+      <div id="checkGroups"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>스페인어 비상 카드</h2><span class="hint">그대로 읽어 주세요<br>발음은 한글 근사값</span></div>
+      <div class="card" id="phrases"></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>택시 기사에게 보여주기</h2><span class="hint">화면을 그대로 보여주세요</span></div>
+      <div class="card">
+        <div class="phrase"><div class="ko">공항 T1으로 가주세요</div><div class="es">Al aeropuerto, Terminal 1, por favor.</div><div class="pr">알 아에로뿌에르또, 떼르미날 우노, 뽀르 파보르</div></div>
+        <div class="phrase"><div class="ko">아토차 역으로 가주세요</div><div class="es">A la estación de Atocha, por favor.</div><div class="pr">아 라 에스따시온 데 아또차, 뽀르 파보르</div></div>
+        <div class="phrase"><div class="ko">이 주소로 가주세요</div><div class="es">A esta dirección, por favor.</div><div class="pr">아 에스따 디렉시온, 뽀르 파보르</div></div>
+        <div class="phrase"><div class="ko">여기서 세워 주세요</div><div class="es">Pare aquí, por favor.</div><div class="pr">빠레 아끼, 뽀르 파보르</div></div>
+        <div class="phrase"><div class="ko">카드로 결제할 수 있나요?</div><div class="es">¿Puedo pagar con tarjeta?</div><div class="pr">뿌에도 빠가르 꼰 따르헤따?</div></div>
+        <div class="phrase"><div class="ko">영수증 주세요</div><div class="es">Un recibo, por favor.</div><div class="pr">운 레시보, 뽀르 파보르</div></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>긴급 연락처 · 위치</h2><span class="hint">전화번호는 눌러서 걸기</span></div>
+      <div class="card">
+        <div class="contact"><span class="ci">🆘</span><div class="cb"><b>통합 긴급 (경찰·소방·구급)</b><span>스페인 전역, 24시간 · 한국어 통역 연결 가능</span></div><a class="tel" href="tel:112">112</a></div>
+        <div class="contact"><span class="ci">🚔</span><div class="cb"><b>국가 police</b><span>소매치기·분실 신고서(denuncia) 발급</span></div><a class="tel" href="tel:091">091</a></div>
+        <div class="contact"><span class="ci">🇰🇷</span><div class="cb"><b>주스페인 한국대사관</b><span>C/ González Amigó 15, 28033 Madrid · 평일 09:00~14:00, 16:00~18:00</span></div><a class="tel" href="tel:+34913532000">+34 91 353 2000</a></div>
+        <div class="contact"><span class="ci">🌙</span><div class="cb"><b>대사관 야간·휴일 긴급</b><span>사건·사고 발생 시</span></div><a class="tel" href="tel:+34648924695">+34 648 924 695</a></div>
+        <div class="contact"><span class="ci">☎️</span><div class="cb"><b>영사콜센터 (한국)</b><span>365일 24시간, 7개 언어 통역</span></div><a class="tel" href="tel:+82232100404">+82-2-3210-0404</a></div>
+        <div class="contact"><span class="ci">🚉</span><div class="cb"><b>아토차 역 Atocha</b><span>Glta. Emperador Carlos V · 고속철·근교선·메트로 1호선</span></div><a class="tel" href="https://www.google.com/maps/search/?api=1&amp;query=Estaci%C3%B3n+de+Atocha+Madrid" target="_blank" rel="noopener">지도</a></div>
+        <div class="contact"><span class="ci">✈️</span><div class="cb"><b>바라하스 공항 T4 / T1</b><span>메트로 8호선 · 엑스프레스 203 · 택시 정액 €33</span></div><a class="tel" href="https://www.google.com/maps/search/?api=1&amp;query=Aeropuerto+Adolfo+Su%C3%A1rez+Madrid-Barajas+T4" target="_blank" rel="noopener">지도</a></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h"><h2>여권을 잃어버렸다면</h2><span class="hint">순서대로</span></div>
+      <div class="card">
+        <div class="opt"><div class="opt-h"><span>1</span>경찰 신고서(denuncia)</div><p>가까운 경찰서 또는 온라인(주말·야간엔 091 전화). 신고서 사본이 이후 모든 절차의 기본.</p></div>
+        <div class="opt"><div class="opt-h"><span>2</span>대사관에 연락</div><p>+34 91 353 2000(평일) 또는 야간 긴급번호. 여권 사본·사진·신고서를 준비하면 <b>여행증명서</b> 발급이 빠름.</p></div>
+        <div class="opt"><div class="opt-h"><span>3</span>항공사·보험사 통보</div><p>탑승 수속 시 여행증명서로 가능한지 확인. 여행자보험에 휴대품·서류 분실 특약이 있으면 영수증 보관.</p></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="disclaimer">
+        <b>확인 시점</b> — 요금·운행정보·입장료는 2026-11-22에 공식 사이트와 현지 안내로 확인했습니다. 항공편 시각·터미널은 2026-11-22 기준 Winter 2026–27 시간표로 확인한 편명(대한항공·아시아나(공동운항)·루프트한자·에어프랑스·핀에어·에미레이트·카타르·터키항공·KLM·영국항공)만 자동 입력되고, 확인되지 않은 편명은 항공사만 인식해 안내합니다. 항공사 사정으로 시간·터미널은 바뀔 수 있으니 출발 전 항공권으로 다시 확인하세요. 항공료·숙소·식당 가격은 추정치이며, 스페인은 요일·시간대별 요금이 자주 바뀝니다.
+      </div>
+      <p class="src" style="margin-top:9px">
+        <b>출처</b> · Aena(바라하스 공항 교통·택시·항공사 터미널) · 대한항공(KE913/KE914 2026-11 시간표) · Lufthansa(lufthansa.com FRA/MUC–MAD 시간표) · Air France · Finnair · Emirates · Qatar Airways · Turkish Airlines · KLM · British Airways(각 항공사 Winter 2026–27 시간표, AirNav Radar·FlightStats·flightmapper·exa 교차확인) · CRTM(마드리드 교통컨소시엄 요금, 2026년 요금 고시) · Renfe(Avant 운임·소요시간) · Patrimonio Nacional(왕궁) · Museo del Prado / Reina Sofía / Thyssen · INE(스페인·마드리드 GDP) · AEMET(레티로 기후 표준값) · 주스페인 대한민국 대사관 · ECB(유로/원 환율 2026-11-20)
+      </p>
+    </footer>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+<script>
+/* ============================================================
+   Travel Desk — Madrid
+   데이터 · 상태 · 렌더 · 엑셀 내보내기
+   ============================================================ */
+'use strict';
+
+/* ---------- 1. 데이터 ---------- */
+const FX_DEFAULT = 1470;
+
+const CLIMATE = [
+  {m:'1월', hi:9.8,  lo:2.7,  mean:6.3,  rain:33, rd:5.7, sun:149},
+  {m:'2월', hi:12.0, lo:3.7,  mean:7.9,  rain:34, rd:5.2, sun:158},
+  {m:'3월', hi:16.3, lo:6.2,  mean:11.2, rain:25, rd:4.1, sun:211},
+  {m:'4월', hi:18.2, lo:7.7,  mean:12.9, rain:45, rd:6.7, sun:230},
+  {m:'5월', hi:22.2, lo:11.3, mean:16.7, rain:50, rd:7.3, sun:268},
+  {m:'6월', hi:28.2, lo:16.1, mean:22.2, rain:21, rd:3.4, sun:315},
+  {m:'7월', hi:32.1, lo:19.0, mean:25.6, rain:12, rd:1.7, sun:355},
+  {m:'8월', hi:31.3, lo:18.8, mean:25.1, rain:10, rd:1.7, sun:332},
+  {m:'9월', hi:26.4, lo:15.4, mean:20.9, rain:22, rd:3.3, sun:259},
+  {m:'10월',hi:19.4, lo:10.7, mean:15.1, rain:60, rd:6.9, sun:200},
+  {m:'11월',hi:13.5, lo:6.3,  mean:9.9,  rain:58, rd:6.5, sun:144},
+  {m:'12월',hi:10.0, lo:3.6,  mean:6.9,  rain:51, rd:6.8, sun:124}
+];
+
+const MONTH_INFO = {
+  1:{cloth:'겨울 — 낮 10℃, 아침 3℃. 울 코트·목도리·두꺼운 니트. 해 진 뒤 급격히 추워집니다.', note:'비 5~6일/월. 눈은 드물지만 아침 결빙 주의. 실내 난방은 강한 편.'},
+  2:{cloth:'겨울 — 12℃/4℃. 코트 + 레이어드. 낮 햇빛은 따뜻합니다.', note:'강수 34mm로 연중 적은 달. 박물관·실내 일정에 좋음.'},
+  3:{cloth:'초봄 — 16℃/6℃. 트렌치나 가디건. 낮과 밤 차이가 10℃.', note:'비는 적지만 바람이 차가움. 3월 말부터 해가 길어짐(서머타임).'},
+  4:{cloth:'봄 — 18℃/8℃. 얇은 재킷 + 맨투맨. 우산 필수.', note:'강수 45mm·비 온 날 6.7일. 세미야·부활절 연휴엔 인파와 가격 상승.'},
+  5:{cloth:'늦봄 — 22℃/11℃. 반팔 + 얇은 겉옷. 자외선 강함.', note:'비 온 날 7일로 많지만 소나기형. 낮이 길어 관광하기 가장 편한 달.'},
+  6:{cloth:'초여름 — 28℃/16℃. 반팔·린넨, 모자, 물병.', note:'비 21mm로 건조. 한낮 30℃ 이상, 그늘은 선선.'},
+  7:{cloth:'한여름 — 32℃/19℃. 통풍 좋은 옷, 자외선 차단.', note:'연중 가장 더움(40℃ 넘는 날도). 오후 2~5시는 실내 일정 권장.'},
+  8:{cloth:'한여름 — 31℃/19℃. 7월과 비슷, 밤은 조금 김.', note:'비 10mm로 가장 건조. 박물관 냉방이 강해 얇은 겉옷 유용.'},
+  9:{cloth:'초가을 — 26℃/15℃. 반팔 + 가벼운 재킷.', note:'비 22mm. 낮은 덥고 아침저녁은 선선.'},
+  10:{cloth:'가을 — 19℃/11℃. 재킷·니트. 우산 필수.', note:'연중 비가 가장 많은 달(60mm). 박물관·실내 위주로 짜는 게 안전.'},
+  11:{cloth:'늦가을 — 13.5℃/6℃. 코트, 목도리, 우산.', note:'비 58mm·비 온 날 6.5일. 해가 17:50쯤 지므로 오전 일정을 앞당기세요.'},
+  12:{cloth:'겨울 — 10℃/3.6℃. 두꺼운 코트·장갑. 낮에도 체감 한기.', note:'크리스마스 시장·조명이 좋음. 12/24·31은 오후 단축 영업 많음.'}
+};
+
+/* --- Day 템플릿 (공통 필드: title, sub, stops, food, misc, localTransit) --- */
+const TPL = {};
+
+TPL.A = {
+  key:'A', kind:'city',
+  title:'도착 · 솔 광장과 마요르',
+  sub:'비행 후 무리하지 않는 첫날. 짐 풀고 도심만 가볍게 걷습니다.',
+  food:{a:42, y:30}, misc:{a:8, y:6}, localTransit:{a:0, y:0},
+  stops:[
+    {t:'13:00', name:'바라하스 공항 도착', en:'Adolfo Suárez Madrid-Barajas (MAD)',
+     desc:'입국 후 T1·T2·T3 또는 T4로 나옵니다. 두 구역은 떨어져 있으니 항공사 도착 터미널을 미리 확인하세요.',
+     dur:'40분', move:'입국·수하물', cost:{a:0,y:0,cat:'transit'},
+     map:'Aeropuerto Adolfo Suárez Madrid-Barajas T4',
+     rain:'실내 이동이라 영향 없음. 우천 시 택시(€33 정액)가 가장 편합니다.'},
+    {t:'14:00', name:'시내로 이동 — 엑스프레스 203', en:'Exprés Aeropuerto (línea 203)',
+     desc:'아토차 역·시벨레스 방면 24시간 버스. 짐 실을 공간이 있고 30~40분. 메트로 8호선은 €4.5~5에 25~30분.',
+     dur:'35분', move:'공항버스 · €5', cost:{a:5,y:5,cat:'transit',note:'메트로 대안 €1.5~2 + 공항 추가요금 €3'},
+     map:'Estación de Atocha Madrid',
+     rain:'정류장에 지붕이 있고 차내 짐칸 사용. 우천에도 무리 없음.'},
+    {t:'15:00', name:'호텔 체크인 · 솔 권역', en:'Puerta del Sol',
+     desc:'솔·그란 비아 권역 숙소에 짐을 풀고 30분 휴식. 스페인 호텔은 대부분 14~15시부터 체크인됩니다.',
+     dur:'1시간', move:'도보', cost:{a:0,y:0,cat:'transit'},
+     map:'Puerta del Sol Madrid',
+     rain:'짐 정리·휴식 시간이라 영향 없음.'},
+    {t:'16:30', name:'푸에르타 델 솔', en:'Puerta del Sol',
+     desc:'스페인 도로 원점(Km 0) 표지와 곰·딸기나무 동상. 마드리드의 모든 동선이 여기서 시작합니다.',
+     dur:'40분', move:'도보 · 무료', cost:{a:0,y:0,cat:'entry'},
+     map:'Puerta del Sol Madrid',
+     eat:{name:'초콜라테리아 산 히네스', menu:'추로스 + 진한 초콜릿', price:'1인 €4.5~6',
+          tip:'1894년부터. 줄이 길어도 회전이 빠르고 예약은 받지 않습니다. 서서 먹는 카운터가 더 빠름.',
+          map:'Chocolatería San Ginés'},
+     rain:'광장은 비를 피할 곳이 적음 → 바로 옆 El Corte Inglés(솔)로 대체.'},
+    {t:'17:40', name:'마요르 광장', en:'Plaza Mayor',
+     desc:'1619년 완성된 17세기 광장. 파나데리아(빵집) 계단과 프레스코 벽화가 포인트. 테라스 커피는 비싸니 구경만.',
+     dur:'30분', move:'도보 · 무료', cost:{a:0,y:0,cat:'entry'},
+     map:'Plaza Mayor Madrid',
+     rain:'광장 둘레 아케이드(소포르탈레스)로 비를 피할 수 있음.'},
+    {t:'18:20', name:'산 미겔 시장', en:'Mercado de San Miguel',
+     desc:'유리·철골 1916년 시장 건물. 타파스 2~3점 + 음료로 가볍게 저녁. 19시 전이 덜 붐빕니다.',
+     dur:'1시간 10분', move:'도보 · 입장 무료', cost:{a:0,y:0,cat:'entry'},
+     map:'Mercado de San Miguel Madrid',
+     eat:{name:'산 미겔 시장 안', menu:'하몽·치즈 플레이트, 굴, 타파스', price:'1인 €12~18 (타파스 2~3점)',
+          tip:'좌석은 서서 먹는 카운터가 기본. 18시대가 가장 여유롭고 21시 이후엔 매우 혼잡.',
+          map:'Mercado de San Miguel'},
+     rain:'전부 실내 — 우천 시 최적의 대피 장소.'},
+    {t:'20:00', name:'저녁 — 카사 라브라', en:'Casa Labra (1860)',
+     desc:'솔에서 3분. 바칼라오(대구) 튀김과 타파스로 유명한 1860년 문을 연 선술집. 스페인 내전 때 노동자들이 모이던 곳.',
+     dur:'1시간', move:'도보', cost:{a:0,y:0,cat:'entry'},
+     map:'Casa Labra Madrid',
+     eat:{name:'Casa Labra', menu:'타히타스 데 바칼라오(대구튀김), 엠파나디야', price:'1인 €12~18 · 대구튀김 1조각 €2.5',
+          tip:'주문은 카운터에서 선불. 19~21시는 붐비니 이른 저녁이 편함.', map:'Casa Labra'},
+     rain:'실내 좌석 위주. 우천 시 바로 근처 타파스 바를 2곳 대안으로.'},
+    {t:'21:30', name:'숙소 복귀', en:'',
+     desc:'비행 피로를 풀고 다음 날을 위해 일찍 쉽니다. 첫날 밤은 시차(한국 −8시간) 때문에 얕게 잘 수 있습니다.',
+     dur:'—', move:'도보 5~10분', cost:{a:0,y:0,cat:'transit'},
+     map:'',
+     rain:'비 오면 택시 이용(도심 기본요금 약 €3~6).'}
+  ]
+};
+
+TPL.B = {
+  key:'B', kind:'city',
+  title:'왕궁 & 라티나',
+  sub:'마드리드의 왕권과 서민 골목을 하루에. 저녁에는 프라도 무료 관람 옵션.',
+  food:{a:46, y:32}, misc:{a:8, y:6}, localTransit:{a:3, y:3},
+  stops:[
+    {t:'09:30', name:'마드리드 왕궁', en:'Palacio Real de Madrid',
+     desc:'3,000여 개 방 중 약 20개 공개. 왕좌의 방·식당·왕실 예배당과 왕실 무기고. 입장 전 보안 검색.',
+     dur:'2시간', move:'지하철 2호선 Ópera · 도보 5분',
+     cost:{a:18,y:9,cat:'entry',note:'€18 / 5~16세 €9 · 온라인 수수료 €0.77'},
+     map:'Palacio Real de Madrid',
+     rain:'실내 관람 — 우천에 강한 일정. 우비는 반입 제한될 수 있어 접이식 우산 권장.'},
+    {t:'11:45', name:'알무데나 대성당', en:'Catedral de la Almudena',
+     desc:'왕궁 바로 맞은편의 신고딕 성당. 무료 입장(자발적 1유로). 내부는 생각보다 어둡고 조용합니다.',
+     dur:'30분', move:'도보 3분 · 무료', cost:{a:0,y:0,cat:'entry'},
+     map:'Catedral de la Almudena Madrid',
+     rain:'실내. 미사 시간에는 관광 출입 제한.'},
+    {t:'12:30', name:'오리엔테 광장·사바티니 정원', en:'Plaza de Oriente · Jardines de Sabatini',
+     desc:'왕궁 뒤 정원에서 궁의 서쪽 면을 한 장에 담을 수 있는 포토 스팟. 왕궁이 그늘이 되어 오전이 쾌적.',
+     dur:'35분', move:'도보 · 무료', cost:{a:0,y:0,cat:'entry'},
+     map:'Jardines de Sabatini Madrid',
+     rain:'비 오면 생략하고 라티나 점심으로 바로 이동.'},
+    {t:'13:20', name:'점심 — 카바 바하', en:'Cava Baja, La Latina',
+     desc:'라티나 지구의 타파스 골목. huevos estrellados(감자 위 달걀 프라이)가 마드리드 대표 메뉴입니다.',
+     dur:'1시간 20분', move:'도보 12분', cost:{a:0,y:0,cat:'entry'},
+     map:'Cava Baja Madrid',
+     eat:{name:'Casa Lucio', menu:'Huevos estrellados, callos a la madrileña', price:'1인 €25~35 · 달걀요리 €16.5 + 빵 €2.5',
+          tip:'14시 전후 대기 길다. 예약은 전화·왓츠앱. 8월 휴무. 가볍게 먹으려면 40m 옆 Los Huevos de Lucio(€13.9~).',
+          map:'Casa Lucio Madrid'},
+     rain:'식당은 실내. 골목이 좁아 비 오면 우산보다 우비가 편함.'},
+    {t:'14:50', name:'엘 라스트로 거리 산책', en:'El Rastro · Calle de la Ribera de Curtidores',
+     desc:'일요일 오전에만 서는 벼룩시장. 평일에는 골목 상점과 빈티지숍 구경. 소매치기 주의 구역.',
+     dur:'1시간', move:'도보 · 무료', cost:{a:0,y:0,cat:'entry'},
+     map:'El Rastro Madrid',
+     rain:'일요일 시장은 우천 시 일부 철수. 대신 Mercado de San Antón(실내)으로 대체.'},
+    {t:'16:30', name:'라티나 카페에서 휴식', en:'La Latina',
+     desc:'세고비아 거리·카바 바하의 카페에서 커피와 초콜릿. 스페인 카페 라테는 진한 편.',
+     dur:'45분', move:'도보', cost:{a:0,y:0,cat:'entry'},
+     map:'Plaza de la Cebada Madrid',
+     rain:'실내 카페.'},
+    {t:'18:00', name:'프라도 미술관 (무료 시간)', en:'Museo del Prado · 무료 관람',
+     desc:'월~토 18~20시, 일·공휴일 17~19시 무료. 라스 메니나스·고야의 검은 그림. 무료 시간은 줄이 길어 17:40 도착 권장.',
+     dur:'2시간', move:'도보 15분 · 무료', cost:{a:0,y:0,cat:'entry'},
+     map:'Museo del Prado Madrid',
+     opt:true,
+     rain:'실내. 미술관 쪽으로 이동하는 10분만 우산 필요.'},
+    {t:'20:30', name:'저녁 — 소브리노 데 보틴', en:'Sobrino de Botín (1725)',
+     desc:'기네스가 인정한 세계에서 가장 오래된 식당. 나무 화덕에서 구운 코치니요(새끼돼지)와 코데로.',
+     dur:'1시간 30분', move:'도보 8분', cost:{a:0,y:0,cat:'entry'},
+     map:'Sobrino de Botín Madrid',
+     eat:{name:'Sobrino de Botín', menu:'Cochinillo asado(€32.5), Cordero asado(€33)', price:'1인 €40~55 (전채+메인+음료)',
+          tip:'2~3주 전 예약 권장. 지하 와인 저장고석 요청 가능. 13~23:30 영업.', map:'Sobrino de Botín'},
+     rain:'실내. 예약 시간 10분 전 도착.'}
+  ]
+};
+
+TPL.C = {
+  key:'C', kind:'city',
+  title:'프라도 · 레티로 · 황금삼각지',
+  sub:'미술관 두 곳과 공원. 다리보다 눈이 지치는 날이라 오후엔 카페 휴식.',
+  food:{a:46, y:32}, misc:{a:10, y:8}, localTransit:{a:3, y:3},
+  stops:[
+    {t:'09:45', name:'프라도 미술관', en:'Museo Nacional del Prado',
+     desc:'스페인 회화의 정점. 벨라스케스 <라스 메니나스>, 고야 <1808년 5월 3일>, 보스 <쾌락의 정원>. 2시간 반으로도 부족합니다.',
+     dur:'2시간 30분', move:'지하철 1호선 Atocha · 도보 8분',
+     cost:{a:15,y:0,cat:'entry',note:'€15 · 18세 미만 무료 · 온라인 시간 지정권 권장'},
+     map:'Museo del Prado Madrid',
+     eat:{name:'카페테리아 프라도', menu:'샌드위치·커피', price:'1인 €8~12', tip:'관람 중간 휴식용. 본격 식사는 밖에서.', map:'Museo del Prado'},
+     rain:'실내. 우천일에는 오히려 관람객이 몰리니 오전 첫 타임 예약.'},
+    {t:'12:30', name:'점심 — 보카디요 데 칼라마레스', en:'El Brillante',
+     desc:'아토차 역 앞 노포. 오징어 튀김을 바게트에 넣은 마드리드 서민 음식.',
+     dur:'45분', move:'도보 8분', cost:{a:0,y:0,cat:'entry'},
+     map:'El Brillante Madrid',
+     eat:{name:'El Brillante', menu:'Bocadillo de calamares, croquetas', price:'1인 €8~14 · 오징어 샌드위치 €6 내외',
+          tip:'카운터 선불. 12~14시는 붐비니 12:20 전 도착.', map:'El Brillante Madrid'},
+     rain:'실내 좌석.'},
+    {t:'13:40', name:'레티로 공원', en:'Parque del Retiro',
+     desc:'125ha 도심 공원. 수정궁(팔라시오 데 크리스탈), 인공호수 보트, 장미정원. 일요일엔 현지인으로 가득.',
+     dur:'1시간 40분', move:'도보 10분 · 무료', cost:{a:6,y:6,cat:'entry',note:'입장 무료 · 보트 대여 약 €6'},
+     map:'Parque del Retiro Madrid',
+     rain:'비 오면 공원은 생략하고 티센·소피아 관람으로 시간 배분.'},
+    {t:'15:40', name:'티센-보르네미사 미술관', en:'Museo Thyssen-Bornemisza',
+     desc:'르네상스부터 팝아트까지 1,000여 점. 프라도가 어려우면 여기서 서양미술 흐름을 한 번에 볼 수 있습니다.',
+     dur:'1시간 30분', move:'도보 12분', cost:{a:14,y:0,cat:'entry',note:'€14 · 18세 미만 무료 · 월 12~16시 상설전 무료'},
+     map:'Museo Thyssen-Bornemisza Madrid',
+     eat:{name:'미술관 카페', menu:'커피·페이스트리', price:'1인 €6~10', tip:'관람 후 정원 테라스에서 쉬기 좋음.', map:'Museo Thyssen-Bornemisza'},
+     rain:'실내. 소피아(€12, 화 휴관)로 바꿔도 좋음.'},
+    {t:'17:30', name:'세라노 거리 · 살라망카', en:'Calle de Serrano',
+     desc:'마드리드의 명품·패션 거리. Zara 대형점, Mango, Uniqlo와 백화점 El Corte Inglés가 이어집니다.',
+     dur:'1시간 30분', move:'도보 10분', cost:{a:0,y:0,cat:'entry'},
+     map:'Calle de Serrano Madrid',
+     rain:'El Corte Inglés(누에보스 미니스테리오스점)로 대체하면 완전 실내.'},
+    {t:'19:30', name:'저녁 — 살라망카 타파스', en:'Salamanca',
+     desc:'관광지보다 가격 대비 만족도가 좋은 동네 식당이 많습니다. 21시 이후가 현지 저녁 피크.',
+     dur:'1시간 30분', move:'도보', cost:{a:0,y:0,cat:'entry'},
+     map:'Calle de Jorge Juan Madrid',
+     eat:{name:'동네 타파스 바 (호르헤 후안 거리)', menu:'하몽·치즈·croquetas·와인', price:'1인 €25~35',
+          tip:'예약 없이 20시 이전 입장이 편함. 관광지보다 20~30% 저렴.', map:'Calle de Jorge Juan Madrid'},
+     rain:'실내 식당.'}
+  ]
+};
+
+TPL.D = {
+  key:'D', kind:'city',
+  title:'쇼핑 · 말라사냐 자유일',
+  sub:'마지막 날. 무리한 이동 없이 쇼핑과 동네 골목, 카페.',
+  food:{a:42, y:30}, misc:{a:12, y:8}, localTransit:{a:3, y:3},
+  stops:[
+    {t:'10:00', name:'그란 비아 & 카야오', en:'Gran Vía · Callao',
+     desc:'1920~30년대 극장가. 건물 외관만 봐도 볼거리. 대형 브랜드 매장과 영화관이 밀집.',
+     dur:'1시간 30분', move:'도보', cost:{a:0,y:0,cat:'entry'},
+     map:'Gran Vía Madrid',
+     rain:'아케이드와 백화점으로 연결. 우천에도 쇼핑 가능.'},
+    {t:'11:40', name:'말라사냐 골목', en:'Malasaña',
+     desc:'빈티지숍·독립서점·카페가 모인 동네. 그라피티 골목이 사진 찍기 좋습니다.',
+     dur:'1시간 30분', move:'도보 12분', cost:{a:0,y:0,cat:'entry'},
+     map:'Plaza del Dos de Mayo Madrid',
+     eat:{name:'Bodega de la Ardosa', menu:'Croquetas, vermut, tostas', price:'1인 €15~22 · croqueta €3',
+          tip:'1892년 문 연 선술집. 서서 먹는 카운터가 기본, 13시 전 여유.', map:'Bodega de la Ardosa Madrid'},
+     rain:'카페·상점 위주라 큰 지장 없음.'},
+    {t:'13:30', name:'점심 — 메르카도 데 산 안톤', en:'Mercado de San Antón',
+     desc:'추에카의 실내 시장. 1층 타파스 카운터, 2층 테라스 레스토랑. 비 오는 날 최적.',
+     dur:'1시간 15분', move:'도보 10분', cost:{a:0,y:0,cat:'entry'},
+     map:'Mercado de San Antón Madrid',
+     eat:{name:'Mercado de San Antón', menu:'타파스·해산물·이베리코', price:'1인 €18~26',
+          tip:'2층 테라스는 예약 가능. 14시 이후 자리 잡기 쉬움.', map:'Mercado de San Antón Madrid'},
+     rain:'전부 실내.'},
+    {t:'15:20', name:'추에카 광장 주변 산책', en:'Plaza de Chueca',
+     desc:'마드리드에서 가장 개방적인 동네. 소품점과 서점, 카페 구경.',
+     dur:'1시간', move:'도보 5분', cost:{a:0,y:0,cat:'entry'},
+     map:'Plaza de Chueca Madrid',
+     rain:'카페 위주로 대체.'},
+    {t:'16:40', name:'기념품·식료품 쇼핑', en:'Mercado de la Paz / El Corte Inglés',
+     desc:'하몽 진공팩, 올리브오일, 사프란, 마사판. 액체류는 위탁 수하물로.',
+     dur:'1시간 30분', move:'지하철 1~2정거장', cost:{a:0,y:0,cat:'entry'},
+     map:'El Corte Inglés Serrano Madrid',
+     rain:'백화점 식품관에서 한 번에 해결.'},
+    {t:'19:00', name:'마지막 저녁', en:'',
+     desc:'숙소 근처에서 예약 없이 들어갈 수 있는 타파스 바. 다음 날 출국이면 과음은 금물.',
+     dur:'1시간 30분', move:'도보', cost:{a:0,y:0,cat:'entry'},
+     map:'Puerta del Sol Madrid',
+     eat:{name:'숙소 근처 타파스 바', menu:'하몽·치즈·토르티야', price:'1인 €20~30',
+          tip:'마지막 날은 예약 없이 20시 이전 입장이 안전.', map:'Puerta del Sol Madrid'},
+     rain:'숙소 근처 실내 식당.'}
+  ]
+};
+
+/* 예비 자유일 템플릿 — 현재 편성 순서에는 쓰지 않고, 도심 자유일 대안으로만 보관 */
+
+TPL.E = {
+  key:'E', kind:'city',
+  title:'베르나베우 · 살라망카 · 쇼핑',
+  sub:'스타디움 투어와 살라망카 쇼핑. 저녁엔 플라멩코 옵션까지.',
+  food:{a:52, y:36}, misc:{a:14, y:10}, localTransit:{a:4, y:4},
+  stops:[
+    {t:'09:30', name:'산티아고 베르나베우 스타디움 투어', en:'Bernabéu Tour · Real Madrid',
+     desc:'리모델링 후 코스가 넓어졌습니다. 트로피 룸·라커룸·관중석·벤치까지 약 1시간 30분. 경기일에는 투어가 중단됩니다.',
+     dur:'1시간 30분', move:'지하철 10호선 Santiago Bernabéu',
+     cost:{a:35,y:25,cat:'entry',note:'성인 약 €35 · 어린이 약 €25 (시즌별 변동)'},
+     map:'Estadio Santiago Bernabéu Madrid',
+     rain:'실내 위주 코스로 우천에 강함. 경기·행사일 휴장 여부를 미리 확인.'},
+    {t:'11:30', name:'점심 — 살라망카의 메뉴 델 디아', en:'Salamanca',
+     desc:'베르나베우에서 도보·지하철 10분. 관광지보다 20~30% 저렴하고 현지인 비중이 높은 구역입니다.',
+     dur:'1시간 10분', move:'도보 12분', cost:{a:0,y:0,cat:'entry'},
+     map:'Calle de Jorge Juan Madrid',
+     eat:{name:'호르헤 후안 거리 동네 식당', menu:'메뉴 델 디아(전채+메인+음료)', price:'1인 €18~26',
+          tip:'14~16시에만 메뉴 델 디아. 15시 넘으면 주방이 닫는 곳이 많습니다.', map:'Calle de Jorge Juan Madrid'},
+     rain:'실내 식당.'},
+    {t:'13:00', name:'레티로 공원 산책', en:'Parque del Retiro',
+     desc:'125ha 도심 공원. 수정궁, 인공호수 보트, 장미정원. 9일 일정의 중반에 다리를 쉬어 가는 날입니다.',
+     dur:'1시간 30분', move:'도보 15분 · 무료', cost:{a:6,y:6,cat:'entry',note:'입장 무료 · 보트 약 €6'},
+     map:'Parque del Retiro Madrid',
+     rain:'비 오면 공원은 생략하고 티센·소피아 관람으로 대체.'},
+    {t:'15:00', name:'세라노 거리 쇼핑', en:'Calle de Serrano · El Corte Inglés',
+     desc:'Zara 대형점, Mango, Uniqlo와 백화점이 이어집니다. 세일 시즌(1월·7월)엔 오후가 가장 붐빕니다.',
+     dur:'2시간', move:'도보 10분', cost:{a:0,y:0,cat:'entry'},
+     map:'Calle de Serrano Madrid',
+     rain:'El Corte Inglés(누에보스 미니스테리오스점)로 대체하면 완전 실내.'},
+    {t:'17:20', name:'살라망카 카페 · 페이스트리', en:'Mallorca · Salamanca',
+     desc:'쇼핑 후 쉬어 가는 카페. 마드리드식 초콜릿과 페이스트리가 유명합니다.',
+     dur:'50분', move:'도보', cost:{a:9,y:7,cat:'entry',note:'커피+디저트 1인 €9 내외'},
+     map:'Mallorca Madrid Serrano',
+     eat:{name:'Mallorca (세라노)', menu:'커피 · 엔사이마다 · 초콜릿', price:'1인 €8~12',
+          tip:'테이블석은 서비스 포함가, 카운터는 저렴. 오후 5~7시가 가장 한산.', map:'Mallorca Madrid Serrano'},
+     rain:'실내.'},
+    {t:'19:00', name:'저녁 — 살라망카 타파스', en:'Salamanca',
+     desc:'마지막 도심 저녁. 예약 없이 들어가는 동네 바 위주로.',
+     dur:'1시간 30분', move:'도보', cost:{a:0,y:0,cat:'entry'},
+     map:'Calle de Jorge Juan Madrid',
+     eat:{name:'동네 타파스 바', menu:'하몽·치즈·croquetas·와인', price:'1인 €25~35',
+          tip:'20시 이전 입장이 편함. 팁은 5~10% 또는 €1~2.', map:'Calle de Jorge Juan Madrid'},
+     rain:'실내.'},
+    {t:'21:30', name:'플라멩코 (선택)', en:'Tablao flamenco',
+     desc:'마드리드는 플라멩코 타블라오의 본고장. 1시간 공연에 음료 포함이 일반적입니다.',
+     dur:'1시간', move:'택시 10분', cost:{a:45,y:40,cat:'entry',note:'공연+음료 약 €45~60'},
+     map:'Corral de la Morería Madrid', opt:true,
+     rain:'실내 공연장.'}
+  ]
+};
+
+/* --- 항공편 · 입출국 --- */
+const TERMS = ['T1','T2','T3','T4','T4S'];
+const FL_VERIFIED_AT = '2026-11-22';
+
+/* IATA 2글자 코드 → 항공사 (편명만 넣으면 항공사가 바로 채워진다) */
+const AIRLINES = {
+  KE:'대한항공', OZ:'아시아나항공', LH:'루프트한자', AF:'에어프랑스', AY:'핀에어', KL:'KLM네덜란드항공',
+  EK:'에미레이트', QR:'카타르항공', EY:'에티하드', TK:'터키항공', LO:'LOT폴란드항공', BA:'영국항공',
+  IB:'이베리아항공', UX:'에어유로파', VY:'부엘링', I2:'이베로익스프레스', TW:'티웨이항공',
+  MU:'중국동방항공', CA:'중국국제항공', CZ:'중국남방항공', SQ:'싱가포르항공', TG:'타이항공',
+  NH:'전일본공수', JL:'일본항공', CX:'캐세이퍼시픽', SV:'사우디아항공', LX:'스위스국제항공',
+  OS:'오스트리아항공', SK:'스칸디나비아항공', SN:'브뤼셀항공', TP:'포르투갈항공', AZ:'ITA항공',
+  A3:'에게항공', PC:'페가수스항공', DL:'델타항공', AA:'아메리칸항공',
+  UA:'유나이티드항공', FR:'라이언에어', U2:'이지젯', W6:'위즈에어', ET:'에티오피아항공',
+  CI:'중화항공', BR:'에바항공', AR:'아르헨티나항공', '6E':'인디고'
+};
+/* ICAO 3글자 코드도 인식 */
+const ICAO_AL = {KAL:'KE', AAR:'OZ', DLH:'LH', AFR:'AF', FIN:'AY', KLM:'KL', UAE:'EK', QTR:'QR', ETD:'EY', THY:'TK', LOT:'LO', BAW:'BA', IBE:'IB', AEA:'UX', VLG:'VY', TWB:'TW'};
+
+/* 2026-11-22 확인한 Winter 2026–27 시간표 — 마드리드 현지 시각. 확인되지 않은 편은 넣지 않는다. */
+const FLIGHT_DB = {
+  /* ── 마드리드 도착 ── */
+  KE913:{al:'대한항공', rt:'ICN→MAD', dir:'in', t:'19:25', tm:'T1', d:'화·목·토·일', n:'인천 12:10 출발 · 15시간 15분', s:'KE'},
+  OZ9805:{al:'아시아나항공', rt:'ICN→MAD', dir:'in', t:'19:25', tm:'T1', d:'화·목·토·일', n:'대한항공 KE913 공동운항 · 실제 운항 대한항공', s:'OZ'},
+  LH1112:{al:'루프트한자', rt:'FRA→MAD', dir:'in', t:'12:35', tm:'T2', d:'매일', n:'프랑크푸르트 09:55 출발', s:'LH'},
+  LH1114:{al:'루프트한자', rt:'FRA→MAD', dir:'in', t:'16:20', tm:'T2', d:'매일', n:'프랑크푸르트 13:40 출발', s:'LH'},
+  LH1116:{al:'루프트한자', rt:'FRA→MAD', dir:'in', t:'20:15', tm:'T2', d:'화·목·금·토·일', n:'프랑크푸르트 17:35 출발', s:'LH'},
+  LH1118:{al:'루프트한자', rt:'FRA→MAD', dir:'in', t:'23:55', tm:'T2', d:'매일', n:'프랑크푸르트 21:15 출발 · 인천발 당일 연결', s:'LH'},
+  LH1802:{al:'루프트한자', rt:'MUC→MAD', dir:'in', t:'15:10', tm:'T2', d:'화요일만', n:'뮌헨 12:30 출발', s:'LH'},
+  LH1804:{al:'루프트한자', rt:'MUC→MAD', dir:'in', t:'17:50', tm:'T2', d:'매일', n:'뮌헨 15:10 출발', s:'LH'},
+  AF1300:{al:'에어프랑스', rt:'CDG→MAD', dir:'in', t:'11:30', tm:'T2', d:'매일', n:'파리 09:20 출발', s:'AF'},
+  AF1600:{al:'에어프랑스', rt:'CDG→MAD', dir:'in', t:'15:20', tm:'T2', d:'매일', n:'파리 13:10 출발', s:'AF'},
+  AF1800:{al:'에어프랑스', rt:'CDG→MAD', dir:'in', t:'17:45', tm:'T2', d:'매일', n:'파리 15:35 출발', s:'AF'},
+  AF1100:{al:'에어프랑스', rt:'CDG→MAD', dir:'in', t:'19:10', tm:'T2', d:'주 5회', n:'파리 17:00 출발', s:'AF'},
+  AF1400:{al:'에어프랑스', rt:'CDG→MAD', dir:'in', t:'23:05', tm:'T2', d:'매일', n:'파리 20:55 출발', s:'AF'},
+  AY1661:{al:'핀에어', rt:'HEL→MAD', dir:'in', t:'20:05', tm:'T4', d:'매일', n:'헬싱키 16:40 출발', s:'AY'},
+  EK141:{al:'에미레이트', rt:'DXB→MAD', dir:'in', t:'12:40', tm:'T4S', d:'매일', n:'두바이 07:25 출발 · A380', s:'EK'},
+  EK143:{al:'에미레이트', rt:'DXB→MAD', dir:'in', t:'19:55', tm:'T4S', d:'매일', n:'두바이 14:45 출발', s:'EK'},
+  QR149:{al:'카타르항공', rt:'DOH→MAD', dir:'in', t:'13:50', tm:'T4S', d:'매일', n:'도하 08:15 출발(12/1부터 08:20)', s:'QR'},
+  TK1857:{al:'터키항공', rt:'IST→MAD', dir:'in', t:'10:25', tm:'T1', d:'매일', n:'이스탄불 07:55 출발', s:'TK'},
+  TK1859:{al:'터키항공', rt:'IST→MAD', dir:'in', t:'16:55', tm:'T1', d:'월·화·금·일', n:'수·목·토는 16:25 도착', s:'TK'},
+  KL1501:{al:'KLM네덜란드항공', rt:'AMS→MAD', dir:'in', t:'09:55', tm:'T2', d:'매일', n:'암스테르담 07:20 출발', s:'KL'},
+  KL1505:{al:'KLM네덜란드항공', rt:'AMS→MAD', dir:'in', t:'16:05', tm:'T2', d:'매일', n:'암스테르담 13:35 출발', s:'KL'},
+  KL1509:{al:'KLM네덜란드항공', rt:'AMS→MAD', dir:'in', t:'23:35', tm:'T2', d:'매일', n:'암스테르담 21:05 출발', s:'KL'},
+  BA456:{al:'영국항공', rt:'LHR→MAD', dir:'in', t:'09:40', tm:'T4S', d:'매일', n:'런던 히스로 06:10 출발', s:'BA'},
+  /* ── 마드리드 출발 ── */
+  KE914:{al:'대한항공', rt:'MAD→ICN', dir:'out', t:'21:25', tm:'T1', d:'월·화·수·금·일', n:'다음 날 18:15 인천 도착', s:'KE'},
+  OZ9806:{al:'아시아나항공', rt:'MAD→ICN', dir:'out', t:'21:25', tm:'T1', d:'월·화·수·금·일', n:'대한항공 KE914 공동운항 · 실제 운항 대한항공', s:'OZ'},
+  LH1113:{al:'루프트한자', rt:'MAD→FRA', dir:'out', t:'13:20', tm:'T2', d:'화~일', n:'프랑크푸르트 15:50 도착', s:'LH'},
+  LH1115:{al:'루프트한자', rt:'MAD→FRA', dir:'out', t:'17:15', tm:'T2', d:'매일', n:'프랑크푸르트 19:45 도착', s:'LH'},
+  LH1117:{al:'루프트한자', rt:'MAD→FRA', dir:'out', t:'06:05', tm:'T2', d:'매일', n:'프랑크푸르트 08:35 도착', s:'LH'},
+  LH1119:{al:'루프트한자', rt:'MAD→FRA', dir:'out', t:'08:35', tm:'T2', d:'월·수·금·토·일', n:'프랑크푸르트 11:05 도착', s:'LH'},
+  LH1805:{al:'루프트한자', rt:'MAD→MUC', dir:'out', t:'18:35', tm:'T2', d:'매일', n:'뮌헨 21:10 도착', s:'LH'},
+  AF1101:{al:'에어프랑스', rt:'MAD→CDG', dir:'out', t:'20:05', tm:'T2', d:'매일', n:'파리 22:15 도착', s:'AF'},
+  AY1662:{al:'핀에어', rt:'MAD→HEL', dir:'out', t:'10:10', tm:'T4', d:'매일', n:'헬싱키 15:30 도착', s:'AY'},
+  EK142:{al:'에미레이트', rt:'MAD→DXB', dir:'out', t:'14:35', tm:'T4S', d:'매일', n:'다음 날 00:25 두바이 도착 · A380', s:'EK'},
+  EK144:{al:'에미레이트', rt:'MAD→DXB', dir:'out', t:'21:45', tm:'T4S', d:'매일', n:'다음 날 07:40 두바이 도착', s:'EK'},
+  QR150:{al:'카타르항공', rt:'MAD→DOH', dir:'out', t:'15:20', tm:'T4S', d:'매일', n:'다음 날 00:10 도하 도착', s:'QR'},
+  TK1858:{al:'터키항공', rt:'MAD→IST', dir:'out', t:'11:55', tm:'T1', d:'매일', n:'이스탄불 18:15 도착', s:'TK'},
+  TK1860:{al:'터키항공', rt:'MAD→IST', dir:'out', t:'17:55', tm:'T1', d:'월·화·금·일', n:'18:00 출발하는 날도 있음 · 이스탄불 다음 날 00:15 도착', s:'TK'},
+  KL1502:{al:'KLM네덜란드항공', rt:'MAD→AMS', dir:'out', t:'10:50', tm:'T2', d:'매일', n:'암스테르담 행', s:'KL'},
+  KL1508:{al:'KLM네덜란드항공', rt:'MAD→AMS', dir:'out', t:'20:30', tm:'T2', d:'주 6회', n:'암스테르담 행', s:'KL'},
+  BA457:{al:'영국항공', rt:'MAD→LHR', dir:'out', t:'10:35', tm:'T4S', d:'매일', n:'런던 히스로 12:05 도착', s:'BA'}
+};
+const FL_SRC = {
+  KE:'대한항공 KE913/914 시간표 · AirNav Radar · Airportia (2026-11-22)',
+  OZ:'나우보딩 OZ9805/OZ9806 (대한항공 공동운항, 2026-11-22)',
+  LH:'lufthansa.com FRA/MUC–MAD 시간표 · Aena 터미널 안내 (2026-11-22)',
+  AF:'flightmapper · exa 항공편 정보 CDG–MAD (2026-11-22)',
+  AY:'flight.info · flightmapper AY1661/1662 (2026-11-22)',
+  EK:'emirates.com 시간표 · FlightStats EK141/142/143/144 (2026-11-22)',
+  QR:'flightmapper · flight.info QR149/150 (2026-11-22)',
+  TK:'flight.info · exa TK1857~TK1860 (2026-11-22)',
+  KL:'FlightStats · exa KL1501/1505/1509 (2026-11-22)',
+  BA:'FlightStats · exa BA456/BA457 (2026-11-22)'
+};
+/* 원터치 추천 (확인된 편명만) */
+const FL_PICKS = ['KE913','LH1114','AF1600','EK141','QR149','TK1859','AY1661','KL1509','EK143','KE914','LH1113','AF1101','QR150','TK1858','EK144','EK142'];
+
+const FL_PRESETS = [
+  {id:'ke', name:'대한항공 직항', verified:true,
+   go:{carrier:'대한항공', no:'KE913', time:'19:25', term:'T1'},
+   back:{carrier:'대한항공', no:'KE914', time:'21:25', term:'T1'}},
+  {id:'lh', name:'루프트한자 FRA', verified:true,
+   go:{carrier:'루프트한자', no:'LH1114', time:'16:20', term:'T2'},
+   back:{carrier:'루프트한자', no:'LH1113', time:'13:20', term:'T2'}},
+  {id:'af', name:'에어프랑스 CDG', verified:true,
+   go:{carrier:'에어프랑스', no:'AF1600', time:'15:20', term:'T2'},
+   back:{carrier:'에어프랑스', no:'AF1101', time:'20:05', term:'T2'}},
+  {id:'ay', name:'핀에어 HEL', verified:true,
+   go:{carrier:'핀에어', no:'AY1661', time:'20:05', term:'T4'},
+   back:{carrier:'핀에어', no:'AY1662', time:'10:10', term:'T4'}},
+  {id:'ek', name:'에미레이트 DXB', verified:true,
+   go:{carrier:'에미레이트', no:'EK141', time:'12:40', term:'T4S'},
+   back:{carrier:'에미레이트', no:'EK142', time:'14:35', term:'T4S'}},
+  {id:'qr', name:'카타르 DOH', verified:true,
+   go:{carrier:'카타르항공', no:'QR149', time:'13:50', term:'T4S'},
+   back:{carrier:'카타르항공', no:'QR150', time:'15:20', term:'T4S'}},
+  {id:'tk', name:'터키항공 IST', verified:true,
+   go:{carrier:'터키항공', no:'TK1857', time:'10:25', term:'T1'},
+   back:{carrier:'터키항공', no:'TK1858', time:'11:55', term:'T1'}}
+];
+
+/* ── 편명 해석 ── */
+function normCode(v){
+  return String(v == null ? '' : v).toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 9);
+}
+function codeParts(v){
+  const first = String(v == null ? '' : v).split('+')[0];
+  const c = normCode(first);
+  const m2 = /^([A-Z]{2})(\d{1,4})$/.exec(c);
+  const m3 = /^([A-Z]{3})(\d{1,4})$/.exec(c);
+  if(m2) return {code:c, iata:m2[1], num:m2[2]};
+  if(m3) return {code:c, iata:ICAO_AL[m3[1]] || null, icao:m3[1], num:m3[2]};
+  return {code:c, iata:null, num:null};
+}
+function airlineOf(v){
+  const p = codeParts(v);
+  if(p.iata && AIRLINES[p.iata]) return {name:AIRLINES[p.iata], iata:p.iata};
+  return null;
+}
+function dbEntry(v){
+  const p = codeParts(v);
+  return p.code ? (FLIGHT_DB[p.code] || null) : null;
+}
+function sameAirlineFlights(iata, dir){
+  return Object.keys(FLIGHT_DB).filter(k=>FLIGHT_DB[k].dir===dir && FLIGHT_DB[k].al===AIRLINES[iata]).slice(0,3);
+}
+/* 같은 항공사의 반대 방향 편 (KE914 ↔ KE913) */
+function counterpartCode(code){
+  const hit = dbEntry(code); if(!hit) return null;
+  const wantDir = hit.dir === 'in' ? 'out' : 'in';
+  const list = Object.keys(FLIGHT_DB).filter(k=>FLIGHT_DB[k].al === hit.al && FLIGHT_DB[k].dir === wantDir);
+  return list.length ? list[0] : null;
+}
+
+function tmin(s){
+  const m = /^(\d{1,2}):(\d{2})$/.exec(String(s == null ? '' : s).trim());
+  if(!m) return -1;
+  const h = parseInt(m[1],10), mi = parseInt(m[2],10);
+  if(h > 23 || mi > 59) return -1;
+  return h*60 + mi;
+}
+function hmm(m){
+  m = ((Math.round(m) % 1440) + 1440) % 1440;
+  return String(Math.floor(m/60)).padStart(2,'0') + ':' + String(m%60).padStart(2,'0');
+}
+function clampTime(v, def){ return tmin(v) < 0 ? def : tmin(v); }
+
+function flightPlan(){
+  const A = clampTime(S.flGo.time, tmin('19:25'));
+  const D = clampTime(S.flBack.time, tmin('21:25'));
+  const bag = A + 45;                              // 입국심사·수하물
+  const goMode = (A >= 20*60 || bag >= 22*60) ? 'taxi' : 'bus';
+  const goTravel = goMode === 'taxi' ? 30 : 40;
+  const hotelAt = bag + goTravel;                  // 숙소 도착
+  const airportBy = D - 180;                       // 국제선 출발 3시간 전
+  const leaveBy = airportBy - 45;                  // 공항 이동 30분 + 여유 15분
+  const checkout = leaveBy - 25;
+  return {A, D, bag, goMode, goTravel, hotelAt, airportBy, leaveBy, checkout};
+}
+
+/* Day 1 — 도착 시각에 따라 오후 동선을 다시 짠다 */
+function arrivalDay(){
+  const f = flightPlan();
+  const A = f.A, term = S.flGo.term || 'T1';
+  const gno = S.flGo.no || 'KE913';
+  const bus = f.goMode !== 'taxi';
+  const early = A < 14*60, mid = A >= 14*60 && A < 18*60;
+  const stops = [];
+  const P = (t,o)=>{ o.t = hmm(t); stops.push(o); return o; };
+  const title = early ? '도착 · 솔 광장과 마요르' : mid ? '도착 · 체크인과 가벼운 산책' : '도착 · 체크인하고 휴식';
+
+  P(A, {name:'바라하스 공항 도착', en:'Adolfo Suárez Madrid-Barajas · ' + term,
+    desc: gno + ' ' + hmm(A) + ' 마드리드 도착. 입국심사와 수하물 수취에 40~50분 걸립니다. T1~T3과 T4는 서로 떨어져 있으니 도착 터미널을 확인하세요.',
+    dur:'45분', move: gno + ' 도착', cost:{a:0,y:0,cat:'transit'},
+    map:'Aeropuerto Adolfo Suárez Madrid-Barajas ' + term,
+    rain:'실내 이동이라 영향 없음. 우천 시 택시(€33 정액)가 가장 편합니다.'});
+
+  P(f.bag, bus ? {
+    name:'시내로 이동 — 엑스프레스 203', en:'Exprés Aeropuerto (línea 203)',
+    desc:'아토차 역·시벨레스 방면 24시간 버스. 짐 실을 공간이 있고 30~40분. 메트로 8호선은 25~30분에 €4.5~5(공항 추가요금 포함).',
+    dur:'40분', move:'공항버스 · €5', cost:{a:5,y:5,cat:'transit',note:'메트로 대안 €4.5~5'},
+    map:'Estación de Atocha Madrid', rain:'차내 짐칸이 있어 우천에도 무리 없음.'
+  } : {
+    name:'택시로 숙소까지', en:'Taxi · €33 정액',
+    desc:'도착이 늦으면 공항버스보다 택시가 편합니다. 공항~M-30 안은 시간·요일 무관 €33 정액이라 3인이면 버스와 총액 차이가 크지 않습니다.',
+    dur:'30분', move:'택시 · €33 정액', cost:{a:33,y:33,cat:'transit',note:'1대 기준 · 짐 포함'},
+    map:'Puerta del Sol Madrid', rain:'차량 이동.'
+  });
+
+  P(f.hotelAt, {
+    name:'호텔 체크인 · 짐 풀기', en:'Check-in',
+    desc: early ? '스페인 호텔은 보통 14~15시부터 체크인됩니다. 일러 도착하면 프런트에 짐을 맡기고 나갔다 오면 됩니다.' : '체크인 후 20~30분 쉬며 시차(한국 −8시간)를 풉니다. 여권은 프런트에서 바로 돌려받으세요.',
+    dur:'30분', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'Puerta del Sol Madrid', rain:'실내.'
+  });
+
+  if(early){
+    const s = f.hotelAt + 40;
+    P(s, {name:'푸에르타 델 솔', en:'Puerta del Sol',
+      desc:'스페인 도로 원점(Km 0) 표지와 곰·딸기나무 동상. 마드리드의 모든 동선이 여기서 시작됩니다.',
+      dur:'40분', move:'도보 · 무료', cost:{a:0,y:0,cat:'entry'}, map:'Puerta del Sol Madrid',
+      rain:'광장은 비를 피할 곳이 적음 → 바로 옆 El Corte Inglés(솔)로 대체.'});
+    P(s+45, {name:'마요르 광장', en:'Plaza Mayor',
+      desc:'1619년 완성된 17세기 광장. 파나데리아 계단과 프레스코 벽화가 포인트. 테라스 커피는 비싸니 구경만.',
+      dur:'30분', move:'도보 · 무료', cost:{a:0,y:0,cat:'entry'}, map:'Plaza Mayor Madrid',
+      rain:'광장 둘레 아케이드(소포르탈레스)로 비를 피할 수 있음.'});
+    P(s+80, {name:'산 미겔 시장', en:'Mercado de San Miguel',
+      desc:'유리·철골 1916년 시장 건물. 타파스 2~3점과 음료로 가볍게. 19시 전이 덜 붐빕니다.',
+      dur:'1시간', move:'도보 · 입장 무료', cost:{a:0,y:0,cat:'entry'}, map:'Mercado de San Miguel Madrid',
+      eat:{name:'산 미겔 시장 안', menu:'하몽·치즈 플레이트, 굴, 타파스', price:'1인 €12~18 (타파스 2~3점)',
+           tip:'서서 먹는 카운터가 기본. 21시 이후엔 매우 혼잡합니다.', map:'Mercado de San Miguel'},
+      rain:'전부 실내 — 우천 시 최적의 대피 장소.'});
+    const din = Math.max(20*60, s+160);
+    P(s+150, {name:'숙소 복귀 · 시차 적응 휴식', en:'Descanso',
+      desc:'장거리 비행 뒤 15~19시가 가장 졸린 시간대입니다. 40~60분만 자고 저녁에 다시 나서면 밤잠이 편해집니다.',
+      dur:'~19시 30분', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'숙소.'});
+    P(din, {name:'저녁 — 카사 라브라', en:'Casa Labra (1860)',
+      desc:'솔에서 3분. 바칼라오(대구) 튀김과 타파스로 유명한 1860년 선술집.',
+      dur:'1시간', move:'도보', cost:{a:0,y:0,cat:'entry'}, map:'Casa Labra Madrid',
+      eat:{name:'Casa Labra', menu:'타히타스 데 바칼라오, 엠파나디야', price:'1인 €12~18 · 대구튀김 1조각 €2.5',
+           tip:'주문은 카운터에서 선불. 19~21시는 붐비니 이른 저녁이 편함.', map:'Casa Labra'},
+      rain:'실내 좌석 위주.'});
+    P(din+70, {name:'숙소 복귀 · 휴식', en:'',
+      desc:'비행 피로를 풀고 다음 날을 위해 일찍 쉽니다. 첫날 밤은 시차 때문에 얕게 잘 수 있습니다.',
+      dur:'—', move:'도보 5~10분', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'비 오면 택시(도심 기본요금 약 €3~6).'});
+  } else if(mid){
+    const s = f.hotelAt + 25;
+    P(s, {name:'솔·마요르 가벼운 산책', en:'Puerta del Sol → Plaza Mayor',
+      desc:'짐을 푼 뒤 무리하지 않는 짧은 산책. Km 0 표지와 마요르 광장만 보고 돌아옵니다.',
+      dur:'45분', move:'도보 · 무료', cost:{a:0,y:0,cat:'entry'}, map:'Plaza Mayor Madrid',
+      rain:'아케이드와 El Corte Inglés(솔)로 대체하면 완전 실내.'});
+    P(s+55, {name:'추로스 · 초콜릿으로 시차 달래기', en:'Chocolatería San Ginés',
+      desc:'솔 골목의 1894년 초콜라테리아. 짧게 앉았다 가기 좋습니다.',
+      dur:'30분', move:'도보', cost:{a:0,y:0,cat:'entry'}, map:'Chocolatería San Ginés',
+      eat:{name:'Chocolatería San Ginés', menu:'추로스 + 진한 초콜릿', price:'1인 €4.5~6',
+           tip:'예약 없음. 서서 먹는 카운터가 회전이 빠름.', map:'Chocolatería San Ginés'},
+      rain:'실내.'});
+    const din = Math.max(20*60, s+130);
+    P(s+85, {name:'숙소에서 짬짬이 휴식', en:'Descanso',
+      desc:'이른 도착이 아니면 오후에 한 번 쉬어 두는 편이 좋습니다. 짐 정리와 씻기까지 40분이면 충분합니다.',
+      dur:'~19시 30분', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'숙소.'});
+    P(din, {name:'저녁 — 숙소 근처 타파스', en:'Tapas cerca del hotel',
+      desc:'첫날은 이동이 많아 숙소에서 가까운 곳으로. 21시 이후가 현지 저녁 피크입니다.',
+      dur:'1시간 10분', move:'도보', cost:{a:0,y:0,cat:'entry'}, map:'Puerta del Sol Madrid',
+      eat:{name:'동네 타파스 바', menu:'하몽·치즈·croquetas·토르티야', price:'1인 €18~28',
+           tip:'예약 없이 20시 이전 입장이 편함.', map:'Puerta del Sol Madrid'},
+      rain:'실내 식당.'});
+    P(din+80, {name:'숙소 복귀 · 휴식', en:'',
+      desc:'다음 날 아침 일정을 위해 일찍 쉽니다.',
+      dur:'—', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'', rain:''});
+  } else {
+    const s = f.hotelAt + 15;
+    P(s, {name:'숙소 근처 저녁', en:'Cena cerca del hotel',
+      desc:'늦은 도착이라 시내 일정은 넣지 않습니다. 스페인은 21~23시에도 주방이 열려 있어 늦은 저녁이 어렵지 않습니다.',
+      dur:'1시간', move:'도보', cost:{a:0,y:0,cat:'entry'}, map:'Puerta del Sol Madrid',
+      eat:{name:'숙소 근처 바', menu:'토르티야·하몽·croquetas', price:'1인 €15~25',
+           tip:'짐이 있으면 호텔에서 3분 이내로. 심야엔 24시간 편의점 활용.', map:'Puerta del Sol Madrid'},
+      rain:'실내.'});
+    P(s+70, {name:'편의점 · 생수 · 교통카드', en:'Supermercado / Estanco',
+      desc:'생수와 다음 날 아침 간식, 필요하면 Tarjeta Multi(€2.5)를 미리 사 둡니다.',
+      dur:'20분', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'Puerta del Sol Madrid', rain:'실내.'});
+    P(s+100, {name:'숙소 복귀 · 취침', en:'',
+      desc:'시차(한국 −8시간) 때문에 첫날 밤은 얕게 잘 수 있습니다. 다음 날은 늦게 시작해도 됩니다.',
+      dur:'—', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'', rain:''});
+  }
+
+  return {key:'A', kind:'city', title: title,
+    sub: gno + ' ' + hmm(A) + ' ' + term + ' 도착 → 숙소 ' + hmm(f.hotelAt) + '. ' +
+      (early ? '오후가 남아 솔·마요르를 돌고 첫 저녁까지 챙깁니다.' : mid ? '체크인 뒤 가벼운 산책과 타파스로 첫날을 마무리합니다.' : '무리하지 않고 체크인·저녁·휴식만. 다음 날부터 본 일정.'),
+    food: early ? {a:42,y:30} : mid ? {a:36,y:28} : {a:26,y:18},
+    misc:{a:8,y:6}, localTransit:{a:0,y:0}, stops};
+}
+
+/* 마지막 날 — 출국 시각에서 3시간 전 공항 도착을 역산 */
+function departureDay(){
+  const f = flightPlan();
+  const D = f.D, term = S.flBack.term || 'T1';
+  const bno = S.flBack.no || 'KE914';
+  const air = f.airportBy, taxi = f.leaveBy;
+  const early = D < 13*60, midday = D >= 13*60 && D < 18*60;
+  const stops = [];
+  const P = (t,o)=>{ o.t = hmm(t); stops.push(o); return o; };
+  const normalOut = 11*60 + 45;                        // 스페인 호텔 정규 체크아웃 12시
+  const hotelBag = taxi - 30;                          // 호텔로 돌아와 짐 찾는 시각
+  const keepBags = !early && normalOut < taxi - 45;    // 정오에 체크아웃하고 짐을 맡김
+  let dropped = 0;
+
+  if(early){
+    if(taxi - 75 >= 6*60){
+      P(taxi-75, {name:'조식 · 짐 최종 점검', en:'Desayuno',
+        desc:'이른 출발이라 아침 일정은 넣지 않습니다. 조식 후 바로 공항으로 이동합니다.',
+        dur:'45분', move:'호텔', cost:{a:0,y:0,cat:'entry'}, map:'', rain:'실내.'});
+    } else {
+      P(taxi-45, {name:'기상 · 짐 최종 점검', en:'Check-out ready',
+        desc:'새벽·이른 출발이라 조식은 공항이나 전날 사 둔 것으로 해결합니다. 프런트에 밤사이 체크아웃과 택시 호출을 미리 알려 두세요.',
+        dur:'40분', move:'호텔', cost:{a:0,y:0,cat:'entry'}, map:'', rain:''});
+    }
+    P(taxi-20, {name:'호텔 체크아웃', en:'Check-out',
+      desc:'짐을 모두 챙기고 여권·탑승권을 확인합니다.',
+      dur:'20분', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'실내.'});
+  } else {
+    P(8*60+20, {name:'조식 · 짐 정리', en:'Desayuno',
+      desc:'출국일 아침은 호텔 조식 또는 근처 카페에서. 짐은 전날 밤에 싸 두면 아침이 편합니다.',
+      dur:'35분', move:'호텔 · 도보', cost:{a:0,y:0,cat:'entry'}, map:'', rain:'실내.'});
+    let cur = 9*60+5;
+    const items = midday ? [
+      {m:45, o:{name:'솔 · 마요르 마지막 산책', en:'Puerta del Sol → Plaza Mayor',
+        desc:'출국 전 마지막 도심 산책. 사진과 기념품 위주로 짧게.', dur:'45분', move:'도보 · 무료',
+        cost:{a:0,y:0,cat:'entry'}, map:'Plaza Mayor Madrid', rain:'아케이드 위주로 짧게.'}},
+      {m:35, o:{name:'기념품 쇼핑 — 하몽·올리브오일·사프란', en:'Mercado de la Paz / El Corte Inglés',
+        desc:'하몽 진공팩, 올리브오일, 사프란, 마사판. 액체류는 위탁 수하물로 보내야 합니다.', dur:'35분', move:'도보',
+        cost:{a:0,y:0,cat:'entry'}, map:'El Corte Inglés Serrano Madrid', rain:'백화점 식품관에서 한 번에 해결.'}}
+    ] : [
+      {m:70, o:{name:'레티로 공원 아침 산책', en:'Parque del Retiro',
+        desc:'출국일에 맞는 가벼운 코스. 수정궁과 호수 둘레만 돌아도 1시간이면 충분합니다.', dur:'70분', move:'도보 · 무료',
+        cost:{a:0,y:0,cat:'entry'}, map:'Parque del Retiro Madrid', rain:'비 오면 세라노 쇼핑으로 대체.'}},
+      {m:65, o:{name:'세라노 거리 쇼핑', en:'Calle de Serrano',
+        desc:'Zara 대형점·Mango·Uniqlo·El Corte Inglés가 이어집니다. 마지막 쇼핑을 여기서 정리.', dur:'65분', move:'도보',
+        cost:{a:0,y:0,cat:'entry'}, map:'Calle de Serrano Madrid', rain:'백화점으로 대체하면 완전 실내.'}}
+    ];
+    const limit = keepBags ? normalOut + 5 : taxi - 45;
+    items.forEach(it=>{
+      if(cur + it.m <= limit){ P(cur, it.o); cur += it.m; } else { dropped++; }
+    });
+    if(keepBags){
+      P(normalOut, {name:'호텔 체크아웃 · 짐 보관', en:'Check-out / luggage storage',
+        desc:'스페인 호텔은 대부분 12시 체크아웃입니다. 짐은 프런트에 맡기고 오후 일정을 이어가면 됩니다.',
+        dur:'15분', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'실내.'});
+      const lunchAt = Math.max(normalOut + 30, cur + 5);
+      P(lunchAt, {name:'점심 — 마지막 한 끼', en:'Comida',
+        desc:'살라망카·레티로 권역에서 예약 없이 들어갈 수 있는 식당. 15시 전후가 자리 잡기 쉽습니다.',
+        dur:'70분', move:'도보', cost:{a:0,y:0,cat:'entry'}, map:'Calle de Jorge Juan Madrid',
+        eat:{name:'동네 타파스 바 · 메뉴 델 디아', menu:'메뉴 델 디아(전채+메인+음료)', price:'1인 €18~26',
+             tip:'14~16시 메뉴 델 디아가 가장 저렴. 카드 결제 가능 여부는 입구에 표시.', map:'Calle de Jorge Juan Madrid'},
+        rain:'실내.'});
+      const freeAt = lunchAt + 80, freeEnd = hotelBag - 40;
+      if(freeEnd - freeAt >= 45){
+        P(freeAt, {name:'카페 · 마지막 쇼핑', en:'Café / Últimas compras',
+          desc:'출국 전 남는 시간. 짐을 다 싼 상태라 가벼운 쇼핑이나 카페에서 시간을 조절합니다. 호텔까지 도보 거리로 움직이세요.',
+          dur:'~' + hmm(freeEnd), move:'도보', cost:{a:7,y:6,cat:'entry'}, map:'Puerta del Sol Madrid', rain:'실내 카페·백화점.'});
+      }
+      P(hotelBag, {name:'호텔에서 짐 찾기', en:'Luggage pick-up',
+        desc:'맡겨 둔 짐을 찾고 화장실·물을 챙깁니다. 여기서 10분만 늦어도 공항 도착이 밀리니 서두르세요.',
+        dur:'20분', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'실내.'});
+    } else {
+      P(taxi-35, {name:'호텔 체크아웃', en:'Check-out',
+        desc:'짐을 모두 챙기고 여권·탑승권을 확인합니다. 수하물을 잠시 맡기고 나갔다 와도 됩니다.',
+        dur:'20분', move:'도보', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'실내.'});
+    }
+  }
+
+  P(taxi, {name:'택시로 바라하스 공항', en:'Taxi · €33 정액',
+    desc:'공항~M-30 안 €33 정액. 3인+짐이면 엑스프레스 203(€5/인)보다 총액이 비슷하고 빠릅니다.',
+    dur:'30분', move:'택시 · €33 정액', cost:{a:33,y:33,cat:'transit',note:'1대 기준 · 짐 포함'},
+    map:'Aeropuerto Adolfo Suárez Madrid-Barajas ' + term, rain:'차량 이동.'});
+  P(air, {name:'공항 도착 · 탑승 수속', en:'Adolfo Suárez Madrid-Barajas · ' + term,
+    desc:'국제선은 출발 3시간 전 공항 도착을 권장합니다. ' + bno + ' ' + hmm(D) + ' 출발 기준으로 역산한 시각입니다.' +
+      (early || !keepBags ? ' 점심을 못 먹었다면 수속 후 보안 전 식당가에서 가볍게 먹을 수 있습니다.' : ''),
+    dur:'보안·출국심사 60~90분', move: bno + ' · ' + hmm(D) + ' 출발', cost:{a:0,y:0,cat:'transit'},
+    map:'Aeropuerto Adolfo Suárez Madrid-Barajas ' + term, rain:'실내.'});
+  if(D - air >= 150){
+    P(air + 85, {name:'면세점 · 라운지', en:'Duty free / Lounge',
+      desc:'탑승구가 확정되면 이동 시간을 계산해 남는 시간을 씁니다. 라운지는 카드사 조건을 확인하세요.',
+      dur:'1시간', move:'보안 안', cost:{a:0,y:0,cat:'entry'}, map:'', rain:'실내.'});
+  }
+  P(D-45, {name:'탑승구 이동 · 탑승', en:'Boarding',
+    desc:'탑승은 출발 40~45분 전에 시작합니다. 게이트는 수속 후 보드에 뜨니 확인하고 움직이세요.',
+    dur:'45분', move:'보안 안', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'실내.'});
+  P(D, {name:'출국 — ' + bno, en:'DEPARTURE · ' + term,
+    desc: bno + ' ' + hmm(D) + ' 마드리드 출발. 인천 도착은 항공권 기준으로 확인하세요(시차 −8시간).',
+    dur:'', move:'', cost:{a:0,y:0,cat:'transit'}, map:'', rain:''});
+
+  return {key:'X', kind:'departure', title:'마무리 & 출국',
+    sub: bno + ' ' + hmm(D) + ' 출발 → 공항 ' + hmm(air) + ' 도착(3시간 전) · 숙소 ' + hmm(taxi) + ' 출발.' +
+      (early ? ' 이른 출발이라 공항 이동만.' : keepBags ? ' 12시 체크아웃 후 오후 일정, 짐은 호텔 보관.' :
+        dropped ? ' 남는 시간이 짧아 오전 일정은 줄였습니다.' : ' 오전 일정 후 공항으로.'),
+    food: early ? {a:18,y:14} : midday ? {a:32,y:24} : {a:38,y:28},
+    misc:{a:10,y:8}, localTransit:{a:0,y:0}, stops};
+}
+
+/* --- 근교 데이투어 빌더 --- */
+function toledoDay(){
+  const bus = S.mode === 'bus';
+  const half = (S.days === 3 && S.len === 'half');
+  const stops = [];
+  if (bus){
+    stops.push({t: half?'09:20':'08:35', name:(half?'반나절 투어버스 출발':'종일 투어버스 출발'), en:'San Bernardo 5 (마드리드 시내)',
+      desc: half ? '가이드 동반 반나절 코스. 톨레도 대성당과 구시가지를 돌고 15:30 마드리드 복귀.' : '가이드 동반 종일 코스. 톨레도 대성당·유대인 지구·알카사르를 하루에. 버스 이동과 가이드가 포함.',
+      dur:'1시간', move:'투어버스', cost:{a: half?34:39, y: half?34:39, cat:'tour', note:'가이드·버스 포함 · 입장료 별도'},
+      map:'Calle de San Bernardo 5 Madrid', rain:'버스·실내 위주로 우천에 강함.'});
+    stops.push({t: half?'10:20':'09:50', name:'톨레도 구시가지 도착 · 가이드 산책', en:'Toledo casco histórico',
+      desc:'세 문화(기독교·이슬람·유대)가 겹친 구시가지. 좁은 골목과 중세 성벽.', dur:'60분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Toledo casco histórico', rain:'골목 산책은 우천 시 짧게 조정.'});
+    stops.push({t:'11:30', name:'톨레도 대성당', en:'Catedral Primada de Toledo',
+      desc:'스페인 가톨릭의 수석 대성당. 엘 그레코 <옷을 벗긴 그리스도>와 금빛 제단 뒤편.',
+      dur:'70분', move:'도보', cost:{a:12,y:8,cat:'entry',note:'€12 · 8~14세 €6'}, map:'Catedral de Toledo', rain:'실내.'});
+    if(!half) stops.push({t:'13:10', name:'유대인 지구 · 산타 마리아 라 블랑카', en:'Juderia · Sinagoga',
+      desc:'14세기 무데하르 양식 회당. 기둥과 아치가 정교합니다.', dur:'50분', move:'도보',
+      cost:{a:4,y:2,cat:'entry'}, map:'Sinagoga de Santa María la Blanca Toledo', rain:'실내 관람.'});
+    stops.push({t: half?'13:00':'14:10', name:'점심 — 카르카무사스', en:'Toledo',
+      desc:'톨레도 향토 음식. 돼지고기·소시지·완두콩을 토마토로 끓인 스튜.', dur:'60분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Bar Ludeña Toledo', rain:'실내.',
+      eat:{name:'Bar Ludeña (톨레도)', menu:'Carcamusas, 마사판', price:'1인 €14~20', tip:'현지인 비중 높은 바. 14시 이후 웨이팅.'}});
+    if(!half) stops.push({t:'15:30', name:'알카사르 (군사박물관)', en:'Alcázar de Toledo',
+      desc:'도시를 내려다보는 요새. 내전 당시 공성전의 상징이 된 건물.', dur:'60분', move:'도보',
+      cost:{a:6,y:6,cat:'entry'}, map:'Alcázar de Toledo', rain:'실내.'});
+    stops.push({t: half?'14:30':'17:10', name:'마드리드로 귀환', en:'',
+      desc: half ? '15:30 마드리드 도착 → 오후는 레티로 산책이나 카페로 가볍게.' : '18:30 전후 마드리드 도착 → 저녁은 라티나에서.',
+      dur:'60분', move:'투어버스', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'버스 이동.'});
+    if(half) stops.push({t:'16:30', name:'레티로 공원 산책 (선택)', en:'Parque del Retiro',
+      desc:'반나절 투어 후 남는 오후. 보트 대여나 수정궁 관람.', dur:'90분', move:'도보·지하철',
+      cost:{a:0,y:0,cat:'entry'}, map:'Parque del Retiro Madrid', rain:'우천 시 메르카도 데 산 안톤으로 대체.'});
+  } else {
+    stops.push({t:'08:15', name:'아토차 역으로', en:'Madrid Puerta de Atocha',
+      desc:'고속철 출발 30분 전 도착 권장. 아토차는 보안 검색이 있어 여유가 필요합니다.', dur:'20분', move:'지하철 1호선 · €1.5',
+      cost:{a:1.5,y:1.5,cat:'transit'}, map:'Estación de Atocha Madrid', rain:'지하철 이용으로 비 영향 적음.'});
+    stops.push({t:'08:45', name:'Avant 탑승 → 톨레도', en:'Renfe Avant',
+      desc:'33~34분 직행. 좌석 지정제라 다른 열차로 갈아탈 수 없습니다.', dur:'34분', move:'고속열차 · €13.9',
+      cost:{a:13.9,y:13.9,cat:'transit',note:'편도 €13.9 · 왕복 €27.8'}, map:'Estación de Toledo', rain:'열차.'});
+    stops.push({t:'09:25', name:'톨레도 역 → 구시가지', en:'Bus urbano',
+      desc:'역은 시내 밖 언덕. 시내버스로 10분(€1.4) 또는 도보 25분 내리막.', dur:'20분', move:'시내버스 · €1.4',
+      cost:{a:1.4,y:1.4,cat:'transit'}, map:'Estación de Autobuses de Toledo', rain:'버스 이용.'});
+    stops.push({t:'09:50', name:'톨레도 대성당', en:'Catedral Primada de Toledo',
+      desc:'스페인 가톨릭의 수석 대성당. 엘 그레코 <옷을 벗긴 그리스도>, 25m 금빛 제단.', dur:'90분', move:'도보',
+      cost:{a:12,y:8,cat:'entry',note:'€12 · 8~14세 €6'}, map:'Catedral de Toledo', rain:'실내 — 우천 핵심 코스.'});
+    stops.push({t:'11:30', name:'유대인 지구 · 산타 마리아 라 블랑카', en:'Sinagoga de Santa María la Blanca',
+      desc:'14세기 무데하르 회당. 흰 기둥과 아치가 아름답고 관람객이 적습니다.', dur:'60분', move:'도보',
+      cost:{a:4,y:2,cat:'entry'}, map:'Sinagoga de Santa María la Blanca Toledo', rain:'실내.'});
+    if(!half) stops.push({t:'12:40', name:'점심 — 카르카무사스', en:'Bar Ludeña',
+      desc:'톨레도 향토 스튜. 현지인 식당 위주라 가격이 착합니다.', dur:'60분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Bar Ludeña Toledo', rain:'실내.',
+      eat:{name:'Bar Ludeña', menu:'Carcamusas, 마사판 디저트', price:'1인 €14~20', tip:'13~15시만 주방 운영. 카운터 선불이 빠름.'}});
+    if(!half) stops.push({t:'14:00', name:'알카사르 (군사박물관)', en:'Alcázar de Toledo',
+      desc:'도시를 내려다보는 요새. 내전 공성전의 상징. 전망대에서 구시가지가 한눈에.', dur:'75분', move:'도보',
+      cost:{a:6,y:6,cat:'entry'}, map:'Alcázar de Toledo', rain:'실내.'});
+    stops.push({t: half?'13:40':'15:40', name:'산 마르틴 다리 · 전망', en:'Puente de San Martín',
+      desc:'타구스 강과 구시가지 스카이라인을 담는 포토 스팟. 해 질 무렵 빛이 좋음.', dur:'40분', move:'도보 · 무료',
+      cost:{a:0,y:0,cat:'entry'}, map:'Puente de San Martín Toledo', rain:'비 오면 생략.'});
+    stops.push({t: half?'14:30':'16:40', name:'마사판 사 오기', en:'Santo Tomé',
+      desc:'톨레도 마사판은 아몬드·설탕 반죽 과자. 진공 포장 가능.', dur:'20분', move:'도보 · €3',
+      cost:{a:3,y:3,cat:'entry'}, map:'Mazapán Santo Tomé Toledo', rain:'상점 실내.'});
+    stops.push({t: half?'15:10':'17:20', name:'톨레도 역 → 마드리드', en:'Renfe Avant',
+      desc:'34분. 아토차 도착 후 숙소로.', dur:'55분', move:'버스+고속열차 · €15.3',
+      cost:{a:15.3,y:15.3,cat:'transit'}, map:'Estación de Toledo', rain:'열차.'});
+    if(half) stops.push({t:'17:00', name:'레티로 공원 산책', en:'Parque del Retiro',
+      desc:'반나절 투어 뒤 남는 오후. 수정궁과 호수 보트.', dur:'90분', move:'도보·지하철',
+      cost:{a:0,y:0,cat:'entry'}, map:'Parque del Retiro Madrid', rain:'우천 시 메르카도 데 산 안톤으로 대체.'});
+  }
+  return {key:'T', kind:'tour', title: half?'톨레도 반나절':'톨레도 데이투어',
+    sub: bus ? '투어버스로 이동·가이드 포함. 입장료는 별도.' : '아토차에서 고속열차로 34분. 도보 중심 자유여행.',
+    food:{a: bus?38:44, y:28}, misc:{a:8,y:6}, localTransit:{a: bus?1.5:0, y: bus?1.5:0}, stops};
+}
+
+function segoviaDay(){
+  const bus = S.mode === 'bus';
+  const stops = [];
+  if(bus){
+    stops.push({t:'07:50', name:'투어버스 출발', en:'Madrid',
+      desc:'가이드 동반 세고비아 종일 코스. 왕복 버스와 가이드 포함, 알카사르 입장은 옵션.', dur:'1시간 30분', move:'투어버스',
+      cost:{a:44,y:44,cat:'tour',note:'알카사르 포함 옵션 €49'}, map:'Calle de San Bernardo 5 Madrid', rain:'버스·실내.'});
+    stops.push({t:'09:30', name:'로마 수도교', en:'Acueducto de Segovia',
+      desc:'1세기 로마 수도교. 모르타르 없이 167개 아치, 최고 28m. 도시 어디서나 보입니다.', dur:'50분', move:'도보 · 무료',
+      cost:{a:0,y:0,cat:'entry'}, map:'Acueducto de Segovia', rain:'야외 — 우천 시 짧게.'});
+    stops.push({t:'10:40', name:'세고비아 대성당', en:'Catedral de Segovia',
+      desc:'16세기 후기 고딕. 스페인 대성당 중 가장 늦게 지어진 편.', dur:'50분', move:'도보',
+      cost:{a:4,y:4,cat:'entry'}, map:'Catedral de Segovia', rain:'실내.'});
+    stops.push({t:'11:50', name:'알카사르 데 세고비아', en:'Alcázar de Segovia',
+      desc:'동화 같은 성. 디즈니 성의 모델로 알려짐. 후안 2세 탑 전망.', dur:'70분', move:'도보',
+      cost:{a:7,y:7,cat:'entry',note:'€7 · 탑 포함 €10'}, map:'Alcázar de Segovia', rain:'실내.'});
+    stops.push({t:'13:20', name:'점심 — 코치니요', en:'Mesón de Cándido',
+      desc:'세고비아 대표 음식은 화덕에 구운 새끼돼지. 수도교 바로 옆 노포.', dur:'80분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Mesón de Cándido Segovia', rain:'실내.',
+      eat:{name:'Mesón de Cándido', menu:'Cochinillo asado, judiones', price:'1인 €35~45', tip:'예약 권장. 15시 이후 주방 마감.'}});
+    stops.push({t:'15:10', name:'Calle Real · 유대인 지구', en:'Judería de Segovia',
+      desc:'수도교에서 알카사르로 이어지는 구시가지 중심 골목. 기념품과 마사판.', dur:'80분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Calle Real Segovia', rain:'상점 위주.'});
+    stops.push({t:'17:00', name:'마드리드로 귀환', en:'',
+      desc:'19시 전후 마드리드 도착.', dur:'1시간 30분', move:'투어버스', cost:{a:0,y:0,cat:'transit'}, map:'', rain:'버스.'});
+  } else {
+    stops.push({t:'08:40', name:'차마르틴 역으로', en:'Madrid Chamartín',
+      desc:'세고비아행 Avant는 아토차가 아니라 차마르틴에서 출발합니다. 헷갈리기 쉬운 지점.', dur:'25분', move:'지하철 1호선 · €1.5',
+      cost:{a:1.5,y:1.5,cat:'transit'}, map:'Estación de Chamartín Madrid', rain:'지하철.'});
+    stops.push({t:'09:10', name:'Avant → 세고비아 구이오마르', en:'Renfe Avant',
+      desc:'25~28분. 주말 첫 Avant는 10:15라 아침 일정은 평일이 유리.', dur:'28분', move:'고속열차 · €13.9',
+      cost:{a:13.9,y:13.9,cat:'transit',note:'편도 €13.9 · 왕복 €27.8'}, map:'Estación Segovia-Guiomar', rain:'열차.'});
+    stops.push({t:'09:45', name:'구이오마르 → 수도교', en:'Bus urbano línea 11',
+      desc:'역은 시내에서 4.8km. 11번 버스로 15분(€2.25, AVE 승객 요금).', dur:'20분', move:'시내버스 · €2.25',
+      cost:{a:2.25,y:2.25,cat:'transit'}, map:'Acueducto de Segovia', rain:'버스.'});
+    stops.push({t:'10:10', name:'로마 수도교', en:'Acueducto de Segovia',
+      desc:'1세기 로마 수도교. 모르타르 없이 167개 아치. 아침 빛이 가장 좋습니다.', dur:'50분', move:'도보 · 무료',
+      cost:{a:0,y:0,cat:'entry'}, map:'Acueducto de Segovia', rain:'야외 — 비 오면 대성당으로 바로.'});
+    stops.push({t:'11:10', name:'세고비아 대성당', en:'Catedral de Segovia',
+      desc:'후기 고딕 대성당. 회랑과 제단화.', dur:'50분', move:'도보', cost:{a:4,y:4,cat:'entry'},
+      map:'Catedral de Segovia', rain:'실내.'});
+    stops.push({t:'12:10', name:'알카사르 데 세고비아', en:'Alcázar de Segovia',
+      desc:'디즈니 성의 모델로 알려진 요새. 탑에 오르면 구시가지 전경.', dur:'70분', move:'도보',
+      cost:{a:7,y:7,cat:'entry',note:'€7 · 탑 포함 €10'}, map:'Alcázar de Segovia', rain:'실내.'});
+    stops.push({t:'13:40', name:'점심 — 코치니요', en:'Mesón de Cándido',
+      desc:'세고비아 전통 코치니요. 접시로 자르는 퍼포먼스.', dur:'80분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Mesón de Cándido Segovia', rain:'실내.',
+      eat:{name:'Mesón de Cándido', menu:'Cochinillo asado(1/4 €33)', price:'1인 €35~45', tip:'예약 필수. 15시 이후 주방 마감.'}});
+    stops.push({t:'15:30', name:'Calle Real · 유대인 지구', en:'Judería de Segovia',
+      desc:'수도교~알카사르를 잇는 골목. 기념품·마사판.', dur:'60분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Calle Real Segovia', rain:'상점 위주.'});
+    stops.push({t:'16:40', name:'세고비아 → 마드리드', en:'Bus 11 + Renfe Avant',
+      desc:'버스 11번으로 구이오마르, Avant로 차마르틴. 18:30 전후 마드리드.', dur:'1시간 20분', move:'버스+열차 · €16.15',
+      cost:{a:16.15,y:16.15,cat:'transit'}, map:'Estación Segovia-Guiomar', rain:'실내 대기.'});
+  }
+  return {key:'S', kind:'tour', title:'세고비아 데이투어',
+    sub: bus ? '투어버스로 이동·가이드 포함.' : '차마르틴에서 Avant 28분 + 시내버스 15분.',
+    food:{a: bus?40:46, y:28}, misc:{a:8,y:6}, localTransit:{a: bus?1.5:0, y: bus?1.5:0}, stops};
+}
+
+function avilaDay(){
+  const bus = S.mode === 'bus';
+  const stops = [];
+  const P = (t,o)=>{ o.t = t; stops.push(o); return o; };
+  if(bus){
+    P('07:50', {name:'투어버스 출발', en:'Calle de San Bernardo 5',
+      desc:'아빌라 종일 코스. 왕복 버스와 가이드 포함, 성벽 산책로 입장은 옵션으로 추가합니다.', dur:'1시간 40분', move:'투어버스',
+      cost:{a:55,y:45,cat:'tour',note:'가이드·버스 포함 · 성벽 산책로 별도'}, map:'Calle de San Bernardo 5 Madrid', rain:'버스·실내 위주.'});
+    P('09:40', {name:'성벽 · 구시가지 가이드 산책', en:'Murallas de Ávila',
+      desc:'11~14세기에 쌓은 성벽이 도시를 한 바퀴 감쌉니다. 성벽 위 산책로는 약 1.7km.', dur:'70분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Murallas de Ávila', rain:'성벽 위는 비를 맞으니 짧게.'});
+    P('11:00', {name:'아빌라 대성당', en:'Catedral del Salvador de Ávila',
+      desc:'성벽에 붙어 지은 요새형 성당. 내부 박물관에 엘 그레코 작품이 있습니다.', dur:'50분', move:'도보',
+      cost:{a:6,y:4,cat:'entry'}, map:'Catedral de Ávila', rain:'실내.'});
+    P('12:30', {name:'점심 — 추레톤', en:'Mesón del Rastro',
+      desc:'아빌라 대표 음식은 두툼한 소고기 스테이크 추레톤. 성벽 근처 노포가 많습니다.', dur:'75분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Mesón del Rastro Ávila', rain:'실내.',
+      eat:{name:'Mesón del Rastro (아빌라)', menu:'Chuletón de Ávila, judías', price:'1인 €30~40', tip:'추레톤은 2인 1kg 기준이 흔함. 15시 이후 주방 마감.', map:'Mesón del Rastro Ávila'}});
+    P('14:10', {name:'산 비센테 성당 · 쿠아트로 포스테스', en:'Basílica de San Vicente',
+      desc:'성벽 밖 로만식 성당과, 도시 전경이 한 장에 담기는 쿠아트로 포스테스 전망대.', dur:'70분', move:'도보·택시 5분',
+      cost:{a:3,y:2,cat:'entry'}, map:'Cuatro Postes Ávila', rain:'전망대는 비 오면 생략.'});
+    P('15:40', {name:'예마스 · 마사판 사기', en:'Yemas de Santa Teresa',
+      desc:'아빌라의 명물은 노른자 과자 예마스. 상자 포장이 가능합니다.', dur:'30분', move:'도보',
+      cost:{a:6,y:6,cat:'entry'}, map:'Yemas de Santa Teresa Ávila', rain:'상점 실내.'});
+    P('16:30', {name:'마드리드로 귀환', en:'',
+      desc:'18시 30분 전후 마드리드 도착. 저녁은 숙소 근처에서 가볍게.', dur:'1시간 40분', move:'투어버스',
+      cost:{a:0,y:0,cat:'transit'}, map:'', rain:'버스.'});
+  } else {
+    P('08:15', {name:'차마르틴 역으로', en:'Madrid Chamartín',
+      desc:'아빌라행 Avant는 아토차가 아니라 차마르틴에서 출발합니다. 출발 30분 전 도착 권장.', dur:'25분', move:'지하철 1호선 · €1.5',
+      cost:{a:1.5,y:1.5,cat:'transit'}, map:'Estación de Chamartín Madrid', rain:'지하철.'});
+    P('08:50', {name:'Avant → 아빌라', en:'Renfe Avant',
+      desc:'1시간 26분 직행. 좌석 지정제라 다른 열차로 갈아탈 수 없습니다.', dur:'1시간 26분', move:'고속열차 · €12.70',
+      cost:{a:12.7,y:12.7,cat:'transit',note:'편도 €12.70 · 왕복 €25.40'}, map:'Estación de Ávila', rain:'열차.'});
+    P('10:20', {name:'아빌라 역 → 성벽', en:'Estación de Ávila',
+      desc:'역에서 성벽까지 도보 15분 내리막. 짐이 없으면 걸어가는 편이 빠릅니다.', dur:'20분', move:'도보 · 무료',
+      cost:{a:0,y:0,cat:'transit'}, map:'Murallas de Ávila', rain:'우산 필요.'});
+    P('10:45', {name:'성벽 산책로', en:'Murallas de Ávila',
+      desc:'11~14세기 성벽. 위로 올라가 걸을 수 있는 구간이 약 1.7km 이어집니다. 난간이 낮아 아이와 함께면 손을 잡으세요.',
+      dur:'70분', move:'도보', cost:{a:5,y:5,cat:'entry',note:'성벽 산책로 성인 약 €5'}, map:'Murallas de Ávila', rain:'성벽 위는 비를 그대로 맞음 → 대성당으로 먼저.'});
+    P('12:10', {name:'아빌라 대성당', en:'Catedral del Salvador de Ávila',
+      desc:'성벽과 한 몸처럼 붙은 요새형 성당. 성벽 안쪽에서 가장 먼저 만나는 건물입니다.', dur:'50분', move:'도보',
+      cost:{a:6,y:4,cat:'entry'}, map:'Catedral de Ávila', rain:'실내.'});
+    P('13:10', {name:'점심 — 추레톤', en:'Mesón del Rastro',
+      desc:'아빌라 대표 음식은 두툼한 소고기 스테이크 추레톤. 2인 1kg이 흔한 단위입니다.', dur:'80분', move:'도보',
+      cost:{a:0,y:0,cat:'entry'}, map:'Mesón del Rastro Ávila', rain:'실내.',
+      eat:{name:'Mesón del Rastro (아빌라)', menu:'Chuletón de Ávila, judías del Barco', price:'1인 €30~40', tip:'15시 이후 주방 마감. 예약 없이 13시 전 입장이 안전.', map:'Mesón del Rastro Ávila'}});
+    P('14:50', {name:'산 비센테 성당', en:'Basílica de San Vicente',
+      desc:'성벽 밖 로만식 성당. 입구 조각이 정교하고 관람객이 적습니다.', dur:'45분', move:'도보 8분',
+      cost:{a:3,y:2,cat:'entry'}, map:'Basílica de San Vicente Ávila', rain:'실내.'});
+    P('15:50', {name:'쿠아트로 포스테스 전망', en:'Cuatro Postes',
+      desc:'성벽 도시 전체가 한 장에 담기는 전망대. 해 질 무렵 빛이 가장 좋습니다.', dur:'30분', move:'도보 20분 · 택시 €5',
+      cost:{a:0,y:0,cat:'entry'}, map:'Cuatro Postes Ávila', rain:'비 오면 생략.'});
+    P('16:30', {name:'예마스 · 마사판 사기', en:'Yemas de Santa Teresa',
+      desc:'아빌라 명물 노른자 과자 예마스. 상자 포장 가능해 선물용으로 좋습니다.', dur:'25분', move:'도보',
+      cost:{a:6,y:6,cat:'entry'}, map:'Yemas de Santa Teresa Ávila', rain:'상점 실내.'});
+    P('17:15', {name:'아빌라 → 마드리드', en:'Renfe Avant',
+      desc:'1시간 26분. 차마르틴 도착 후 숙소로.', dur:'1시간 30분', move:'고속열차 · €12.70',
+      cost:{a:12.7,y:12.7,cat:'transit'}, map:'Estación de Ávila', rain:'열차.'});
+  }
+  return {key:'V', kind:'tour', title:'아빌라 성벽 데이투어',
+    sub: bus ? '투어버스 종일 코스. 가이드·이동 포함.' : '차마르틴에서 Avant 1시간 26분. 비가 오면 엘 에스코리알(세르카니아스 C-3/C-8, 아토차 1시간)로 바꾸는 편이 낫습니다.',
+    food:{a: bus?42:48, y:30}, misc:{a:8,y:6}, localTransit:{a: bus?1.5:0, y: bus?1.5:0}, stops};
+}
+
+function alcalaDay(){
+  const stops = [];
+  const P = (t,o)=>{ o.t = t; stops.push(o); return o; };
+  P('09:20', {name:'아토차 역으로', en:'Madrid Puerta de Atocha · Cercanías',
+    desc:'세르카니아스 C-2·C-7 직통. 알칼라 데 에나레스까지 35분, 배차 10~15분. Tarjeta Multi에 충전해 타면 편합니다.',
+    dur:'15분', move:'지하철 1호선 · €1.5', cost:{a:1.5,y:1.5,cat:'transit'}, map:'Estación de Atocha Madrid', rain:'지하철.'});
+  P('09:40', {name:'세르카니아스 → 알칼라 데 에나레스', en:'Cercanías C-2 / C-7',
+    desc:'아토차에서 35분. 통근열차라 좌석 지정이 없고, 낮 시간대엔 자리가 넉넉합니다.', dur:'35분', move:'통근열차 · 약 €3.6',
+    cost:{a:3.6,y:3.6,cat:'transit',note:'편도 약 €3.6 · 왕복 약 €7.2'}, map:'Alcalá de Henares', rain:'열차.'});
+  P('10:20', {name:'시스네로스 광장', en:'Plaza de Cervantes',
+    desc:'알칼라의 중심 광장. 시청과 코레히도르 극장, 세르반테스 동상이 모여 있습니다.', dur:'30분', move:'도보',
+    cost:{a:0,y:0,cat:'entry'}, map:'Plaza de Cervantes Alcalá de Henares', rain:'광장 주변 아케이드로 대피.'});
+  P('10:55', {name:'알칼라 대학 · 코레히도르', en:'Universidad de Alcalá (1499)',
+    desc:'1499년 설립. 세르반테스와 콜럼버스 시대의 대학 건물과 안뜰(파티오)이 그대로 남아 있습니다. 유네스코 세계유산.',
+    dur:'60분', move:'도보 · 무료', cost:{a:0,y:0,cat:'entry',note:'건물 안뜰 무료 · 해설 투어 별도'}, map:'Universidad de Alcalá', rain:'안뜰은 비를 피하기 어려움 → 생가 박물관 먼저.'});
+  P('12:05', {name:'세르반테스 생가 박물관', en:'Museo Casa Natal de Cervantes',
+    desc:'돈키호테를 쓴 세르반테스가 태어난 집. 16세기 가구와 원고 자료. 입장 무료.', dur:'45분', move:'도보 · 무료',
+    cost:{a:0,y:0,cat:'entry',note:'무료 · 월요일 휴관'}, map:'Museo Casa Natal de Cervantes Alcalá de Henares', rain:'실내.'});
+  P('13:05', {name:'점심 — 마요르 거리 타파스', en:'Calle Mayor',
+    desc:'스페인에서 가장 긴 아케이드 거리 중 하나. 타파스 바와 테라스가 이어집니다.', dur:'75분', move:'도보',
+    cost:{a:0,y:0,cat:'entry'}, map:'Calle Mayor Alcalá de Henares', rain:'아케이드 아래 테라스 이용.',
+    eat:{name:'Calle Mayor 타파스 바', menu:'타파스·메뉴 델 디아', price:'1인 €15~22', tip:'14~16시 메뉴 델 디아. 관광객 가격이 섞여 있으니 메뉴판 가격부터 확인.', map:'Calle Mayor Alcalá de Henares'}});
+  P('14:30', {name:'대성당 (마히스트랄)', en:'Catedral Magistral de Alcalá',
+    desc:'고딕과 르네상스가 섞인 성당. 규모는 작지만 조용하고 볼거리가 알찹니다.', dur:'40분', move:'도보',
+    cost:{a:3,y:2,cat:'entry'}, map:'Catedral Magistral de Alcalá de Henares', rain:'실내.'});
+  P('15:20', {name:'카페에서 여유', en:'Café · Calle Mayor',
+    desc:'9일 일정에서 일부러 비워 둔 오후. 다음 날 출국 준비를 하거나 그냥 앉아 있어도 좋습니다.', dur:'50분', move:'도보',
+    cost:{a:7,y:6,cat:'entry'}, map:'Calle Mayor Alcalá de Henares', rain:'실내 카페.'});
+  P('16:20', {name:'마드리드로 복귀', en:'Cercanías C-2 / C-7',
+    desc:'아토차까지 35분. 저녁은 숙소 근처에서.', dur:'45분', move:'통근열차 · 약 €3.6',
+    cost:{a:3.6,y:3.6,cat:'transit'}, map:'Estación de Atocha Madrid', rain:'열차.'});
+  return {key:'K', kind:'tour', title:'알칼라 데 에나레스 근교',
+    sub: '아토차에서 세르카니아스 35분. 세르반테스의 고향이자 대학 도시.' +
+      (S.mode === 'bus' ? ' 이 날은 투어버스 상품이 없어 이동수단 설정과 무관하게 통근열차로 갑니다.' : ' 아랑후에스(왕궁·정원)로 바꿔도 이동 시간이 비슷합니다.'),
+    food:{a:34,y:26}, misc:{a:9,y:7}, localTransit:{a:0,y:0}, stops};
+}
+
+/* ---------- 2. 상태 ---------- */
+const SKEY = 'jian.travel.madrid.v1';
+const CKEY = 'jian.travel.madrid.checks.v1';
+const DEF = {days:4, adults:2, youth:1, month:11, mode:'train', len:'full', air:850, hotel:170, fx:FX_DEFAULT, tab:'1', day:1, theme:'light',
+  flGo:{carrier:'대한항공', no:'KE913', time:'19:25', term:'T1'},
+  flBack:{carrier:'대한항공', no:'KE914', time:'21:25', term:'T1'},
+  startDate:'', preset:'ke'};
+let S = {...DEF};
+
+function load(){
+  try{
+    const raw = localStorage.getItem(SKEY);
+    if(raw){ const o = JSON.parse(raw); Object.keys(DEF).forEach(k=>{ if(o[k]!==undefined && o[k]!==null) S[k]=o[k]; }); }
+  }catch(e){}
+}
+function save(){ try{ localStorage.setItem(SKEY, JSON.stringify(S)); }catch(e){} }
+
+function normFlight(){
+  const g = (S.flGo && typeof S.flGo === 'object') ? S.flGo : {};
+  const b = (S.flBack && typeof S.flBack === 'object') ? S.flBack : {};
+  S.flGo = {
+    carrier: String(g.carrier || '대한항공').slice(0,24),
+    no: String(g.no || 'KE913').slice(0,18),
+    time: tmin(g.time) >= 0 ? g.time : '19:25',
+    term: TERMS.indexOf(g.term) >= 0 ? g.term : 'T1'
+  };
+  S.flBack = {
+    carrier: String(b.carrier || '대한항공').slice(0,24),
+    no: String(b.no || 'KE914').slice(0,18),
+    time: tmin(b.time) >= 0 ? b.time : '21:25',
+    term: TERMS.indexOf(b.term) >= 0 ? b.term : 'T1'
+  };
+  if(typeof S.startDate !== 'string') S.startDate = '';
+  if(!S.preset) S.preset = 'none';
+}
+
+const $ = (s,r)=> (r||document).querySelector(s);
+const $$ = (s,r)=> Array.from((r||document).querySelectorAll(s));
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const eur = n => '€' + (Math.round(n*10)/10).toLocaleString('en-US',{maximumFractionDigits:1});
+const eur0 = n => '€' + Math.round(n).toLocaleString('en-US');
+const krw = n => Math.round(n).toLocaleString('ko-KR') + '원';
+function mapLink(q){
+  if(!q) return '';
+  return '<a href="https://www.google.com/maps/search/?api=1&amp;query=' + encodeURIComponent(q) + '" target="_blank" rel="noopener">📍 구글맵</a>';
+}
+
+/* ---------- 3. 일정 빌더 ---------- */
+const SEQ = {
+  2:['A','X'],
+  3:['A','T','X'],
+  4:['A','B','T','X'],
+  5:['A','B','T','S','X'],
+  6:['A','B','C','T','S','X'],
+  7:['A','B','C','T','S','V','X'],
+  8:['A','B','C','T','S','V','E','X'],
+  9:['A','B','C','T','S','V','E','K','X']
+};
+const DAY_OPTS = [2,3,4,5,6,7,8,9];
+
+function dayFor(k){
+  if(k === 'A') return arrivalDay();
+  if(k === 'X') return departureDay();
+  if(k === 'T') return toledoDay();
+  if(k === 'S') return segoviaDay();
+  if(k === 'V') return avilaDay();
+  if(k === 'K') return alcalaDay();
+  return JSON.parse(JSON.stringify(TPL[k] || TPL.B));
+}
+
+function plan(){
+  const seq = SEQ[S.days] || SEQ[4];
+  return seq.map((k,i)=>({no:i+1, day: dayFor(k)}));
+}
+
+function dayCost(w){
+  const d = (w && w.day) ? w.day : w;
+  const t = {};
+  (d.stops || []).forEach(s=>{ const c=s.cost||{a:0,y:0,cat:'entry'}; t[c.cat]=(t[c.cat]||0)+c.a*S.adults+c.y*S.youth; });
+  if(d.localTransit) t.transit=(t.transit||0)+d.localTransit.a*S.adults+d.localTransit.y*S.youth;
+  return t;
+}
+function budget(){
+  const P = plan();
+  let transit=0, entry=0, tour=0, food=0, misc=0;
+  P.forEach(w=>{
+    const d = w.day;
+    const c = dayCost(w);
+    transit += c.transit||0; entry += c.entry||0; tour += c.tour||0;
+    food += d.food.a*S.adults + d.food.y*S.youth;
+    misc += d.misc.a*S.adults + d.misc.y*S.youth;
+  });
+  const pax = S.adults + S.youth;
+  const nights = Math.max(0, S.days - 1);
+  const air = S.air * pax;
+  const hotel = S.hotel * nights;
+  const local = transit + entry + tour + food + misc;
+  const total = local + air + hotel;
+  return {P, transit, entry, tour, food, misc, air, hotel, local, total, pax, nights};
+}
+
+/* ---------- 4. 렌더 ---------- */
+function renderChips(){
+  const wrap = $('#dayChips');
+  wrap.innerHTML = DAY_OPTS.map(n=>
+    '<button class="chip" type="button" data-days="'+n+'" aria-pressed="'+(S.days===n)+'">'+n+'일</button>').join('');
+  $('#adultsN').textContent = S.adults;
+  $('#youthN').textContent = S.youth;
+  $$('.stepper').forEach(st=>{
+    const k = st.dataset.key;
+    st.querySelector('.minus').disabled = (k==='adults'? S.adults<=1 : S.youth<=0);
+    st.querySelector('.plus').disabled = (k==='adults'? S.adults>=8 : S.youth>=6);
+  });
+  const tf = $('#tourFlag');
+  if(S.days>=3){ tf.classList.add('on'); tf.textContent = '🚄 근교 데이투어 자동 편성'; }
+  else { tf.classList.remove('on'); tf.textContent = '근교 데이투어 · 3일부터'; }
+  const pax = S.adults + S.youth;
+  $('#hdrSub').textContent = '스페인 · 마드리드 · ' + S.days + '일 · 성인 ' + S.adults + (S.youth? ' + 청소년 '+S.youth : '');
+  $('#planTitle').textContent = S.days + '일 일정';
+  const P = plan();
+  const city = P.filter(d=>d.day.kind==='city').length, tours = P.filter(d=>d.day.kind==='tour').length;
+  const dep = P.filter(d=>d.day.kind==='departure').length;
+  $('#planHint').textContent = '도심 ' + city + '일' + (tours? ' + 근교 ' + tours + '일' : '') + (dep? ' + 출국 ' + dep + '일' : '') + ' · ' + pax + '명 기준';
+}
+
+function renderClimate(){
+  const max = 34;
+  $('#climBars').innerHTML = CLIMATE.map(c=>{
+    const h = Math.round(c.hi/max*100), l = Math.round(c.lo/max*100);
+    return '<div class="col" title="'+c.m+' 최고 '+c.hi+'℃ / 최저 '+c.lo+'℃ / 강수 '+c.rain+'mm">'
+      + '<span class="mm">'+c.rain+'</span>'
+      + '<div class="b-high" style="height:'+h+'%"></div>'
+      + '<div class="b-low" style="height:'+l+'%"></div></div>';
+  }).join('');
+  $('#climLabels').innerHTML = CLIMATE.map(c=>'<span>'+c.m.replace('월','')+'</span>').join('');
+  $('#climTable').innerHTML = CLIMATE.map(c=>'<tr><td>'+c.m+'</td><td>'+c.mean+'</td><td>'+c.hi+'</td><td>'+c.lo+'</td><td>'+c.rain+'</td><td>'+c.rd+'</td><td>'+c.sun+'</td></tr>').join('');
+}
+
+function renderMonth(){
+  $('#monthChips').innerHTML = CLIMATE.map(c=>{
+    const n = parseInt(c.m,10);
+    return '<button class="chip" type="button" data-month="'+n+'" aria-pressed="'+(S.month===n)+'" style="min-width:34px">'+n+'월</button>';
+  }).join('');
+  const c = CLIMATE[S.month-1], inf = MONTH_INFO[S.month];
+  $('#wMonthPill').textContent = S.month + '월 평균';
+  $('#wTempPill').textContent = '최고 ' + c.hi + '℃ · 최저 ' + c.lo + '℃';
+  $('#wRainPill').textContent = '강수 ' + c.rain + 'mm · 비 ' + c.rd + '일';
+  $('#wCloth').textContent = inf.cloth;
+  $('#wNote').textContent = inf.note;
+}
+
+function renderTourCards(){
+  const cards = [
+    {n:'톨레도', e:'Toledo', from:3, icon:'🏰', d:'33분 · 유네스코 구시가지',
+     p:'고속열차 왕복 €27.8 + 시내버스 €2.8 · 대성당 €12 · 알카사르 €6',
+     t:'세 문화가 겹친 중세 도시. 반나절로도 충분하고, 처음이면 종일이 여유.', tag:'가장 인기'},
+    {n:'세고비아', e:'Segovia', from:5, icon:'🏛️', d:'28분 + 버스 15분',
+     p:'고속열차 왕복 €27.8 + 시내버스 €4.5 · 대성당 €4 · 알카사르 €7',
+     t:'로마 수도교와 동화 같은 성. 코치니요 한 끼를 넣으면 반나절이 훌쩍.', tag:'가족 추천'},
+    {n:'아빌라', e:'Ávila · El Escorial', from:7, icon:'🧱', d:'1시간 26분',
+     p:'고속열차 왕복 약 €25.4 · 성벽 산책로 €5 · 대성당 €6',
+     t:'중세 성벽으로 둘러싸인 도시. 비가 오면 엘 에스코리알(아토차 1시간)로 바꾸는 편이 낫습니다.', tag:'7일부터'},
+    {n:'알칼라 데 에나레스', e:'Alcalá de Henares', from:9, icon:'📖', d:'세르카니아스 35분',
+     p:'통근열차 왕복 약 €7.2 · 대학·생가 무료 · 대성당 €3',
+     t:'세르반테스의 고향. 출국 전날을 여유롭게 쓰는 근교 코스.', tag:'9일 전용'}
+  ];
+  $('#tourCards').innerHTML = cards.map(c=>{
+    const on = S.days >= c.from;
+    const body = '<div class="tc-h"><span>'+c.icon+'</span><h3>'+c.n+' <span class="tiny muted">'+c.e+'</span></h3><span class="dist">'+c.d+'</span></div>'
+      + '<div class="tc-body"><p>'+c.t+'</p><div class="row"><span class="pill '+(on?'olive':'')+'">'+(on?'✅ 일정에 편성됨':c.from+'일부터 편성')+'</span><span class="pill saffron">'+c.tag+'</span></div><p style="margin-top:5px;font-size:10px">'+c.p+'</p></div>';
+    const lock = on ? '' : '<div class="lockmsg"><b>🔒 '+c.from+'일 이상이면 자동 편성</b><span>일정을 '+c.from+'일로 늘리면 이 날이 들어갑니다.</span><button type="button" data-unlock="'+c.from+'">'+c.from+'일 일정으로 보기</button></div>';
+    return '<div class="tourcard '+(on?'':'locked')+'">'+body+lock+'</div>';
+  }).join('');
+  const inc = plan().filter(d=>d.day.kind==='tour').map(d=>d.day.title.replace(/ 데이투어| 근교/g,''));
+  $('#tourSecHint').textContent = S.days < 3 ? '지금은 2일 — 잠김' : ('편성: ' + inc.join(' · '));
+  $$('#tourCards [data-unlock]').forEach(b=>b.addEventListener('click', ()=>{
+    const n = parseInt(b.dataset.unlock,10);
+    if(!SEQ[n]) return;
+    S.days = n; if(S.day > n) S.day = 1;
+    save(); renderAll();
+    toast(n + '일 일정으로 바꿨습니다 — 근교 데이투어가 편성됐어요');
+  }));
+}
+
+function costLabel(c){
+  if(!c) return '<span class="m money free">무료</span>';
+  if(c.a===0 && c.y===0) return '<span class="m money free">무료</span>';
+  const ytxt = (c.y>0 && c.y!==c.a) ? ' · 청소년 ' + eur(c.y) : '';
+  return '<span class="m money">' + eur(c.a) + ytxt + '</span>';
+}
+
+function stopHTML(s, i){
+  const cls = (s.opt?'opt ':'') + (s.eat?'food':'');
+  let h = '<div class="stop '+cls+'"><span class="dot"></span><div class="scard">';
+  h += '<div class="stime">'+esc(s.t)+(s.dur?'<span class="dur">'+esc(s.dur)+'</span>':'')+'</div>';
+  h += '<h4>'+esc(s.name)+(s.opt?' <span class="pill ghost" style="font-size:8.5px">선택</span>':'')+'</h4>';
+  if(s.en) h += '<div class="en2">'+esc(s.en)+'</div>';
+  if(s.desc) h += '<div class="desc">'+esc(s.desc)+'</div>';
+  h += '<div class="smeta">';
+  if(s.move) h += '<span class="m">'+esc(s.move)+'</span>';
+  h += costLabel(s.cost);
+  if(s.cost && s.cost.note) h += '<span class="m" style="font-size:8.5px;font-weight:700">'+esc(s.cost.note)+'</span>';
+  h += '</div>';
+  if(s.eat){
+    h += '<div class="eat"><div class="eh">🍽 맛집<span class="en3">'+esc(s.eat.price)+'</span></div>'
+      + '<div class="en4">'+esc(s.eat.name)+'</div>'
+      + '<div class="em">'+esc(s.eat.menu)+'</div>'
+      + '<div class="et">💡 '+esc(s.eat.tip)+'</div></div>';
+  }
+  if(s.rain) h += '<div class="rain"><b>우천·휴관</b><span>'+esc(s.rain)+'</span></div>';
+  if(s.map) h += '<div class="mapline">'+mapLink(s.map)+'<span class="note">길찾기</span></div>';
+  h += '</div></div>';
+  return h;
+}
+
+function renderPlan(){
+  const P = plan();
+  if(S.day > P.length) S.day = P.length;
+  $('#dayTabs').innerHTML = P.map(d=>
+    '<button class="dtab '+(d.day.kind==='tour'?'tour':'')+'" type="button" data-day="'+d.no+'" aria-pressed="'+(S.day===d.no)+'">'
+    + 'D'+d.no+'<small>'+esc(d.day.title.split(' ')[0])+'</small></button>').join('');
+  const d = P[S.day-1];
+  const c = dayCost(d);
+  const totalDay = Object.values(c).reduce((a,b)=>a+b,0);
+  const last = P.length;
+  const tabWrap = $('#dayTabs'), selTab = tabWrap.querySelector('[aria-pressed="true"]');
+  if(selTab) tabWrap.scrollLeft = Math.max(0, selTab.offsetLeft - tabWrap.clientWidth/2 + selTab.offsetWidth/2);
+  const kindPill = d.day.kind==='tour' ? '<span class="pill olive">근교 데이투어</span>'
+    : d.day.kind==='departure' ? '<span class="pill terra">출국일</span>' : '<span class="pill">도심</span>';
+  let fl = '';
+  if(d.no === 1) fl = '<span class="pill sky">🛬 '+esc(S.flGo.no)+' '+hmm(clampTime(S.flGo.time, tmin('19:25')))+' '+esc(S.flGo.term)+' 도착</span>';
+  if(d.no === last) fl = '<span class="pill terra">🛫 '+esc(S.flBack.no)+' '+hmm(clampTime(S.flBack.time, tmin('21:25')))+' '+esc(S.flBack.term)+' 출발</span>';
+  const dd = dayLabel(d.no);
+  let h = '<div class="dayhead"><div class="dh-top"><h3>Day '+d.no+' · '+esc(d.day.title)+'</h3>' + kindPill + '</div>'
+    + '<div class="dsum">'+esc(d.day.sub)+'</div><div class="dstats">'
+    + (dd ? '<span class="pill ghost">📅 '+esc(dd)+'</span>' : '')
+    + fl
+    + '<span class="pill">일정 '+d.day.stops.length+'곳</span>'
+    + '<span class="pill saffron">식비 1인 '+eur(d.day.food.a)+'</span>'
+    + '<span class="pill sky">교통·입장 합계 '+(totalDay?eur(totalDay):'€0')+'</span>'
+    + '</div></div>';
+  h += '<div class="tl">' + d.day.stops.map(stopHTML).join('') + '</div>';
+  if(d.day.kind==='tour'){
+    h += '<div class="card" style="margin-top:4px"><div class="tiny muted">이동수단을 바꾸면 같은 Day의 소요시간·비용·동선이 다시 계산됩니다. 위 <b>근교 이동</b> 스위치를 눌러 보세요.</div></div>';
+  }
+  $('#dayBody').innerHTML = h;
+  $('#toledoLenWrap').style.display = (S.days===3)? '' : 'none';
+  $('#lenSeg').style.display = (S.days===3)? '' : 'none';
+  $('#tourSwitch').style.display = P.some(w=>w.day.kind==='tour') ? '' : 'none';
+  $$('#modeSeg button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.mode===S.mode)));
+  $$('#lenSeg button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.len===S.len)));
+}
+
+function renderBudget(){
+  const b = budget();
+  $('#totEur').textContent = eur0(b.total);
+  $('#totKrw').textContent = '약 ' + krw(b.total * S.fx);
+  $('#perPer').textContent = eur0(b.total / b.pax);
+  $('#perDay').textContent = eur0(b.local / S.days / b.pax);
+  $('#localOnly').textContent = eur0(b.local);
+  const rows = [
+    {k:'식비', v:b.food, c:'var(--saffron)', d:'성인 1일 €'+TOTAL_FOOD_A()+', 청소년 €'+TOTAL_FOOD_Y()+' × '+S.days+'일'},
+    {k:'교통', v:b.transit, c:'var(--sky)', d:'공항·시내·근교 열차·버스 (관광패스 미적용)'},
+    {k:'입장료', v:b.entry, c:'var(--olive)', d:'미술관·왕궁·성당·알카사르 (청소년 할인 반영)'},
+    {k:'데이투어', v:b.tour, c:'var(--plum)', d:S.mode==='bus'? '투어버스 요금 (가이드·이동 포함)' : '고속열차 이용 — 요금은 교통에 포함'},
+    {k:'기타', v:b.misc, c:'var(--tx3)', d:'간식·기념품·소액 팁'},
+    {k:'항공', v:b.air, c:'var(--terra)', d:eur0(S.air)+' × '+b.pax+'명 (직항 약 15시간 15분)'},
+    {k:'숙소', v:b.hotel, c:'var(--terra-d)', d:eur0(S.hotel)+' × '+b.nights+'박 (가족실 기준)'}
+  ];
+  const max = Math.max.apply(null, rows.map(r=>r.v));
+  $('#breakdown').innerHTML = rows.map(r=>
+    '<div class="breakrow"><div class="br-h"><span>'+r.k+'</span><span class="v">'+eur0(r.v)+'<small>'+krw(r.v*S.fx)+'</small></span></div>'
+    + '<div class="brbar"><i style="width:'+Math.max(2,Math.round(r.v/max*100))+'%;background:'+r.c+'"></i></div>'
+    + '<div class="br-d">'+esc(r.d)+'</div></div>').join('')
+    + '<div class="breakrow" style="border-top:1px solid var(--line2);margin-top:6px;padding-top:8px"><div class="br-h"><b>합계</b><span class="v">'+eur0(b.total)+'<small>'+krw(b.total*S.fx)+'</small></span></div></div>';
+  $('#nightsNote').textContent = b.nights + '박 자동 적용 (일수 − 1)';
+  $('#breakHint').textContent = '여행객 ' + b.pax + '명 · ' + S.days + '일';
+  renderPasses(b);
+}
+function TOTAL_FOOD_A(){ const P=plan(); return Math.round(P.reduce((t,w)=>t+w.day.food.a,0)/P.length); }
+function TOTAL_FOOD_Y(){ const P=plan(); return Math.round(P.reduce((t,w)=>t+w.day.food.y,0)/P.length); }
+
+function ridesNeeded(b){
+  const P = b.P;
+  const city = P.filter(d=>d.day.kind==='city').length;
+  const tours = P.filter(d=>d.day.kind==='tour').length;
+  return city*2 + tours*2 + 2;
+}
+
+function renderPasses(b){
+  const rides = ridesNeeded(b);
+  const single = rides*1.75 + 6;
+  const t10 = Math.ceil(rides/10)*7.30 + 2.50 + 6;
+  const days = Math.min(S.days,7);
+  const passPrice = ({1:10.30,2:17.50,3:23.10,4:27.80,5:33.40,6:33.40,7:43.20})[days];
+  const taxi = 33*2 + Math.max(0,(rides-4))*8;
+  $('#rideHint').textContent = '예상 승차 ' + rides + '회/인';
+  $('#pBest').textContent = eur(t10);
+  $('#pBestD').textContent = '카드 €2.50 + 10회권 €7.30 × ' + Math.ceil(rides/10) + '장 + 공항 추가요금 €6. 한 장을 일행이 나눠 쓸 수 있어 3인은 총 ' + eur(Math.ceil(rides*b.pax/10)*7.30+2.50+6*b.pax) + '. 2026-12-31까지 한시 할인가(정가 €12.20).';
+  $('#pTour').textContent = eur(passPrice);
+  $('#pTourD').textContent = days + '일권 A구역 ' + eur(passPrice) + ' (1·2·3·4·5·7일권). 공항 추가요금 포함, 엑스프레스 버스 제외. 11세 미만 50%.';
+  $('#pSingle').textContent = eur(single);
+  $('#pSingleD').textContent = '€1.50~2.00 × ' + rides + '회 + 공항 추가요금 €3×2. 매번 표 사는 번거로움 있음.';
+  $('#pTaxi').textContent = eur(taxi);
+  $('#pTaxiD').textContent = '공항 왕복 €33×2 + 시내 5회 × 약 €8 (추정). 3인이면 1인당 부담은 낮아짐.';
+  const best = Math.min(t10, passPrice, single, taxi);
+  const name = best===t10?'10회권':best===passPrice?'관광패스':best===single?'1회권':'택시';
+  const diff = (passPrice - t10);
+  $('#passReco').innerHTML = '<b>추천: ' + name + ' (' + eur(best) + '/인)</b><br>'
+    + '이 일정은 도심 ' + b.P.filter(d=>d.day.kind==='city').length + '일 + 근교 ' + b.P.filter(d=>d.day.kind==='tour').length + '일이라 1인당 승차가 ' + rides + '회 정도입니다. '
+    + (best===t10 ? '관광패스(' + eur(passPrice) + ')보다 ' + eur(Math.abs(diff)) + ' 저렴하고, 공항 추가요금 €3은 따로 붙습니다.' : '패스가 유리한 구간입니다.')
+    + ' 하루 4회 이상 탄다면 ' + days + '일 관광패스도 고려하세요(1일 환산 ' + eur(passPrice/days) + ').';
+  const bestEl = $('#passBest');
+  bestEl.style.opacity = (name==='10회권')? '1' : '.55';
+}
+
+function renderChecks(){
+  const groups = [
+    {t:'D-30 · 예약과 서류', ic:'🗓', items:[
+      {id:'passport', t:'여권 유효기간 확인', n:'출국일 기준 3개월 이상 남고, 발급 10년 이내여야 합니다(솅겐 규정).'},
+      {id:'flight', t:'항공권 예약 · 좌석 지정', n:'인천–마드리드 직항 KE913 주 4회(화·목·토·일), 약 15시간 15분.'},
+      {id:'hotel', t:'숙소 예약 (취소 무료 옵션)', n:'솔·그란비아·살라망카 중 1곳. 3인 가족실 기준 1박 €140~260.'},
+      {id:'ins', t:'여행자보험 가입', n:'의료·휴대품·항공 지연 특약 확인.'},
+      {id:'card', t:'트래블카드 신청 · 유로 충전', n:'트래블월렛/트래블로그. 현지 ATM 인출 수수료 조건 비교.'},
+      {id:'esim', t:'eSIM 또는 로밍 준비', n:'데이터 5~10GB면 지도·번역·메시지 충분.'},
+      {id:'prado', t:'프라도 미술관 시간 지정권', n:'성수기·주말은 오전 타임이 빨리 닫힙니다. 무료 시간대는 예약 불필요.'},
+      {id:'palace', t:'마드리드 왕궁 티켓', n:'tickets.patrimonionacional.es · €18 / 5~16세 €9.'},
+      {id:'renfe', t:'Renfe 톨레도·세고비아 왕복', n:'톨레도는 아토차, 세고비아는 차마르틴 출발. Avant €13.9/편도.'},
+      {id:'tour', t:'근교 투어버스 예약 (3일 이상)', n:'반나절 €29~34, 종일 €39~44 수준. 취소 무료 조건 확인.'}
+    ]},
+    {t:'D-7 · 준비물', ic:'🧳', items:[
+      {id:'cash', t:'유로 현금 €100~150', n:'€50권 위주. 시장·소규모 식당은 현금이 편함.'},
+      {id:'limit', t:'카드 해외결제 한도·분실신고 번호', n:'카드사 앱에 한도 상향과 분실신고 번호 저장.'},
+      {id:'apps', t:'오프라인 지도·번역 앱', n:'구글맵 오프라인 저장(마드리드), 파파고 오프라인 스페인어.'},
+      {id:'med', t:'상비약', n:'소화제·두통약·밴드·연고. 처방약은 영문 처방전.'},
+      {id:'lug', t:'캐리어 무게·기내 액체', n:'액체 100ml 이하 1L 지퍼백. 하몽·올리브오일은 위탁.'},
+      {id:'copy', t:'여권 사본·사진', n:'휴대폰과 종이 각 1부. 분실 시 대사관 절차가 빨라집니다.'},
+      {id:'checkin', t:'숙소 체크인 시간·조식 확인', n:'스페인은 14~15시 체크인이 일반적. 짐 보관 가능 여부 확인.'}
+    ]},
+    {t:'D-1 · 출국 전날', ic:'✈️', items:[
+      {id:'online', t:'온라인 체크인', n:'출발 24시간 전 오픈. 좌석·수하물 확인.'},
+      {id:'battery', t:'보조배터리·충전기·어댑터', n:'C/F형 어댑터. 보조배터리는 기내만.'},
+      {id:'umbrella', t:'우산·얇은 겉옷', n:'11월은 비 6.5일/월. 아침 6℃까지 내려감.'},
+      {id:'airport', t:'공항 3시간 전 도착', n:'인천 T2. 직항 KE913은 12:10 출발.'},
+      {id:'offline', t:'예약 QR 오프라인 저장', n:'프라도·왕궁·Renfe·투어 바우처를 사진으로 저장.'},
+      {id:'contact', t:'대사관·숙소 연락처 저장', n:'+34 91 353 2000 / 야간 +34 648 924 695.'}
+    ]}
+  ];
+  let saved = {};
+  try{ saved = JSON.parse(localStorage.getItem(CKEY) || '{}'); }catch(e){ saved = {}; }
+  $('#checkGroups').innerHTML = groups.map(g=>{
+    const done = g.items.filter(i=>saved[i.id]).length;
+    return '<div class="checkgroup"><div class="cg-h">'+g.ic+' '+g.t+'<span class="pill '+(done===g.items.length?'olive':'')+'">'+done+'/'+g.items.length+'</span></div>'
+      + g.items.map(it=>'<label class="check '+(saved[it.id]?'done':'')+'"><input type="checkbox" data-cid="'+it.id+'"'+(saved[it.id]?' checked':'')+'>'
+        + '<span class="ct">'+esc(it.t)+'<small>'+esc(it.n)+'</small></span></label>').join('')
+      + '</div>';
+  }).join('');
+  const total = groups.reduce((t,g)=>t+g.items.length,0);
+  const done = groups.reduce((t,g)=>t+g.items.filter(i=>saved[i.id]).length,0);
+  $('#pbarFill').style.width = (total? done/total*100:0) + '%';
+  $('#pTxt').textContent = done + ' / ' + total;
+  $$('#checkGroups input').forEach(cb=>{
+    cb.addEventListener('change', ()=>{
+      let st={}; try{ st=JSON.parse(localStorage.getItem(CKEY)||'{}'); }catch(e){ st={}; }
+      st[cb.dataset.cid] = cb.checked;
+      try{ localStorage.setItem(CKEY, JSON.stringify(st)); }catch(e){}
+      cb.closest('.check').classList.toggle('done', cb.checked);
+      const total = $$('#checkGroups input').length;
+      const done = $$('#checkGroups input:checked').length;
+      $('#pbarFill').style.width = (done/total*100)+'%';
+      $('#pTxt').textContent = done + ' / ' + total;
+    });
+  });
+  $('#resetChecks').onclick = ()=>{ try{ localStorage.removeItem(CKEY); }catch(e){} renderChecks(); toast('체크리스트를 초기화했습니다'); };
+}
+
+function renderPhrases(){
+  const rows = [
+    ['안녕하세요','Hola','올라'],
+    ['감사합니다','Gracias','그라시아스'],
+    ['실례합니다 / 죄송합니다','Perdón','뻬르돈'],
+    ['이거 얼마예요?','¿Cuánto cuesta?','꽌또 꾸에스따?'],
+    ['계산서 주세요','La cuenta, por favor','라 꾸엔따, 뽀르 파보르'],
+    ['도와주세요!','¡Ayuda!','아유다!'],
+    ['경찰을 불러 주세요','Llame a la policía','야메 아 라 뽈리시아'],
+    ['병원에 가야 해요','Necesito ir al hospital','네세시또 이르 알 오스삐딸'],
+    ['여권을 잃어버렸어요','He perdido mi pasaporte','에 뻬르디도 미 빠사뽀르떼'],
+    ['영어 하세요?','¿Habla inglés?','아블라 잉글레스?'],
+    ['예약했어요 (이름은 …)','Tengo una reserva a nombre de …','뗑고 우나 레세르바 아 놈브레 데 …'],
+    ['카드로 결제할 수 있나요?','¿Puedo pagar con tarjeta?','뿌에도 빠가르 꼰 따르헤따?']
+  ];
+  $('#phrases').innerHTML = rows.map(r=>'<div class="phrase"><div class="ko">'+esc(r[0])+'</div><div class="es">'+esc(r[1])+'</div><div class="pr">'+esc(r[2])+'</div></div>').join('');
+}
+
+/* ---------- 항공편 패널 ---------- */
+function depDate(){
+  if(!S.startDate) return null;
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(S.startDate);
+  if(!m) return null;
+  const d = new Date(parseInt(m[1],10), parseInt(m[2],10)-1, parseInt(m[3],10));
+  return isNaN(d.getTime()) ? null : d;
+}
+function dayLabel(no){
+  const d0 = depDate(); if(!d0) return '';
+  const d = new Date(d0.getTime() + (no-1)*86400000);
+  return (d.getMonth()+1) + '/' + String(d.getDate()).padStart(2,'0') + ' (' + '일월화수목금토'[d.getDay()] + ')';
+}
+function setVal(id, v){
+  const el = $('#'+id); if(!el) return;
+  if(document.activeElement === el) return;
+  if(el.value !== String(v)) el.value = v;
+}
+function lookupHref(no){
+  const first = String(no||'KE913').split('+')[0].replace(/\s+/g,'');
+  return 'https://www.flightaware.com/live/flight/' + encodeURIComponent(first);
+}
+
+/* ── 편명 자동완성: 상태 필 · 추천 칩 · 입력 처리 ── */
+function flHitHtml(code){
+  const hit = dbEntry(code);
+  return hit ? '✅ 시간표 자동 반영됨 <b>' + esc(hit.al + ' ' + normCode(code)) + ' · ' + hit.t + ' ' + hit.tm + '</b>' : '';
+}
+function quickStatus(code){
+  const hit = dbEntry(code), al = airlineOf(code);
+  if(hit) return {cls:'ok', html: flHitHtml(code)
+    + '<span>' + (hit.dir === 'in' ? '마드리드 도착' : '마드리드 출발') + ' · ' + esc(hit.rt) + ' · 확인 기준 ' + FL_VERIFIED_AT + '</span>'};
+  if(al) return {cls:'warn', html:'✈️ 항공사 자동 인식 · 시각·터미널은 항공권에 맞게 확인해 주세요'
+    + '<a href="' + lookupHref(code) + '" target="_blank" rel="noopener">' + esc(normCode(code) || '편명') + ' FlightAware</a>'};
+  return {cls:'miss', html:'❓ 항공사 미확인 — 편명을 2글자 코드 + 숫자로 넣어 주세요 (예: KE913)'};
+}
+function sideStatus(side){
+  const f = side === 'go' ? S.flGo : S.flBack;
+  const wantIn = side === 'go';
+  const code = f.no || '';
+  const hit = dbEntry(code), al = airlineOf(code);
+  if(hit && (hit.dir === 'in') !== wantIn){
+    const other = hit.dir === 'in' ? 'go' : 'back';
+    return {cls:'warn', html:'⚠️ <b>' + esc(hit.al + ' ' + normCode(code)) + '</b>는 마드리드 ' + (hit.dir === 'in' ? '도착' : '출발') + '편입니다'
+      + '<button type="button" data-move="' + other + '" data-code="' + esc(normCode(code)) + '">' + (other === 'go' ? '가는 편' : '오는 편') + '에 넣기</button>'};
+  }
+  if(hit) return {cls:'ok', html: flHitHtml(code)
+    + '<span>' + esc(hit.rt) + ' · ' + esc(hit.d) + '</span>'
+    + '<span>확인 기준 ' + FL_VERIFIED_AT + '</span>'
+    + '<a href="' + lookupHref(code) + '" target="_blank" rel="noopener">실시간 조회</a>'};
+  if(al) return {cls:'warn', html:'✈️ 항공사 자동 인식 · 시각·터미널은 항공권에 맞게 확인해 주세요'
+    + '<a href="' + lookupHref(code) + '" target="_blank" rel="noopener">' + esc(normCode(code) || '편명') + ' FlightAware</a>'};
+  return {cls:'miss', html:''};
+}
+function fillFlightCatalog(){
+  const picks = $('#flPicks');
+  if(picks){
+    picks.innerHTML = FL_PICKS.filter(c=>FLIGHT_DB[c]).map(c=>{
+      const e = FLIGHT_DB[c];
+      return '<button type="button" data-pick="' + c + '" aria-pressed="false">' + esc(c) + ' <span>' + e.t + '</span> <small>' + e.tm + '</small></button>';
+    }).join('');
+  }
+  const dl = $('#flQuickList');
+  if(dl){
+    dl.innerHTML = Object.keys(FLIGHT_DB).map(c=>{
+      const e = FLIGHT_DB[c];
+      const lab = e.al + ' · ' + (e.dir === 'in' ? '마드리드 도착 ' : '마드리드 출발 ') + e.t + ' ' + e.tm;
+      return '<option value="' + c + '" label="' + esc(lab) + '"></option>';
+    }).join('');
+  }
+}
+function renderFlightAssist(){
+  const qi = $('#flQuick'), qs = $('#flQuickStat');
+  if(qs){
+    const v = qi ? qi.value.trim() : '';
+    if(!v){
+      qs.className = 'flstat';
+      qs.innerHTML = '✈️ 편명을 넣으면 항공사와 마드리드 도착·출발 시각, 터미널이 자동으로 채워집니다';
+    } else {
+      const st = quickStatus(v); qs.className = 'flstat ' + st.cls; qs.innerHTML = st.html;
+    }
+  }
+  [['flGoStat','go'],['flBackStat','back']].forEach(function(pair){
+    const el = $('#' + pair[0]); if(!el) return;
+    const st = sideStatus(pair[1]);
+    el.className = 'flstat fstatrow ' + st.cls; el.innerHTML = st.html;
+  });
+  const picks = $('#flPicks');
+  if(picks){
+    if(!picks.childElementCount) fillFlightCatalog();
+    Array.from(picks.children).forEach(function(b){
+      const code = b.dataset.pick, hit = FLIGHT_DB[code];
+      if(!hit) return;
+      const side = hit.dir === 'out' ? S.flBack : S.flGo;
+      const on = normCode(side.no) === code && side.time === hit.t;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+}
+function commitFlight(side, patch){
+  const tgt = side === 'go' ? S.flGo : S.flBack;
+  let changed = false;
+  Object.keys(patch).forEach(function(k){
+    const v = patch[k];
+    if(v == null) return;
+    if(k === 'time' && tmin(v) < 0) return;
+    if(k === 'term' && TERMS.indexOf(v) < 0) return;
+    if(tgt[k] !== v){ tgt[k] = v; changed = true; }
+  });
+  if(!changed) return false;
+  S.preset = 'none'; save(); renderAll(); return true;
+}
+function applyFlight(code, forceSide){
+  const raw = String(code || '').toUpperCase().replace(/\s+/g,'').slice(0,18);
+  if(!raw) return null;
+  const hit = dbEntry(raw), al = airlineOf(raw);
+  if(hit){
+    const side = forceSide || (hit.dir === 'out' ? 'back' : 'go');
+    const patch = {no:raw, carrier:hit.al};
+    if((hit.dir === 'in') === (side === 'go')){ patch.time = hit.t; patch.term = hit.tm; }
+    commitFlight(side, patch);
+    return {side:side, hit:hit};
+  }
+  if(al){
+    const side = forceSide || 'go';
+    commitFlight(side, {no:raw, carrier:al.name});
+    return {side:side, al:al};
+  }
+  const side = forceSide || 'go';
+  commitFlight(side, {no:raw});
+  return {side:side};
+}
+function renderFlight(){
+  const f = flightPlan();
+  $('#flGoLabel').textContent = ((S.flGo.carrier||'') + ' ' + (S.flGo.no||'')).trim();
+  $('#flBackLabel').textContent = ((S.flBack.carrier||'') + ' ' + (S.flBack.no||'')).trim();
+  $('#flGoTimeLbl').textContent = hmm(f.A);
+  $('#flBackTimeLbl').textContent = hmm(f.D);
+  $('#flGoAp').textContent = '바라하스 ' + S.flGo.term + ' 도착 · 숙소 ' + hmm(f.hotelAt) + ' 도착 예상';
+  $('#flBackAp').textContent = '바라하스 ' + S.flBack.term + ' 출발 · 공항 ' + hmm(f.airportBy) + ' 도착 권장';
+  $('#flAirportBy').textContent = hmm(f.airportBy);
+  $('#flLeaveBy').textContent = hmm(f.leaveBy);
+  $('#flHotelBy').textContent = hmm(f.hotelAt);
+  const ah = $('#airHint');
+  if(ah) ah.textContent = (S.flGo.no||'') + ' ' + hmm(f.A) + ' 도착 · ' + (S.flBack.no||'') + ' ' + hmm(f.D) + ' 출발 기준';
+  const ps = $('#flPresets');
+  if(ps) ps.innerHTML = FL_PRESETS.map(p=>'<button type="button" data-preset="'+p.id+'" aria-pressed="'+(S.preset===p.id)+'">'+esc(p.name)+'</button>').join('');
+  setVal('flGoCarrier', S.flGo.carrier); setVal('flGoNo', S.flGo.no);
+  setVal('flGoTime', S.flGo.time); setVal('flGoTerm', S.flGo.term);
+  setVal('flBackCarrier', S.flBack.carrier); setVal('flBackNo', S.flBack.no);
+  setVal('flBackTime', S.flBack.time); setVal('flBackTerm', S.flBack.term);
+  setVal('startDate', S.startDate || '');
+  const gl = $('#flGoLook'), bl = $('#flBackLook');
+  if(gl){ gl.href = lookupHref(S.flGo.no); gl.textContent = '🔎 ' + (S.flGo.no || '가는 편') + ' 실시간 조회'; }
+  if(bl){ bl.href = lookupHref(S.flBack.no); bl.textContent = '🔎 ' + (S.flBack.no || '오는 편') + ' 실시간 조회'; }
+  renderFlightAssist();
+  tickCountdown();
+}
+function tickCountdown(){
+  const el = $('#flCount'); if(!el) return;
+  const f = flightPlan();
+  const d0 = depDate();
+  if(!d0){ el.textContent = '📅 여행 1일차 날짜를 넣으면 출국 카운트다운이 표시됩니다.'; return; }
+  const dep = new Date(d0.getTime() + (S.days-1)*86400000);
+  const air = new Date(dep.getTime() + f.airportBy*60000);
+  const diff = air.getTime() - Date.now();
+  if(diff <= 0){ el.textContent = '✈️ ' + dayLabel(S.days) + ' 출국일이 이미 지났습니다 — 날짜를 새로 넣어 주세요.'; return; }
+  const dd = Math.floor(diff/86400000), hh = Math.floor(diff%86400000/3600000), mm = Math.floor(diff%3600000/60000);
+  el.innerHTML = '⏳ ' + dayLabel(S.days).replace(/ /g,'') + ' 공항 도착 권장 ' + hmm(f.airportBy) + '까지 <b>' + (dd? dd+'일 ':'') + hh + '시간 ' + mm + '분</b>';
+}
+
+function renderAll(){
+  renderChips();
+  renderClimate();
+  renderMonth();
+  renderFlight();
+  renderTourCards();
+  renderPlan();
+  renderBudget();
+  renderChecks();
+}
+
+/* ---------- 5. 이벤트 ---------- */
+function switchTab(id){
+  S.tab = String(id); save();
+  $$('.tab').forEach(b=>b.setAttribute('aria-selected', String(b.dataset.tab===String(id))));
+  $$('.panel').forEach(p=>p.classList.toggle('on', p.id === 'p'+id));
+  window.scrollTo({top:0, behavior:'instant' in window ? 'auto' : 'auto'});
+}
+
+let toastTimer;
+function toast(msg){
+  const t = $('#toast');
+  t.textContent = msg; t.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('on'), 2200);
+}
+
+function bind(){
+  $('#dayChips').addEventListener('click', e=>{
+    const b = e.target.closest('[data-days]'); if(!b) return;
+    S.days = parseInt(b.dataset.days,10);
+    if(S.day > S.days) S.day = S.days;
+    save(); renderAll();
+    toast(S.days>=3 ? S.days+'일 — 근교 데이투어가 자동 편성됐습니다' : S.days+'일 — 도심 일정만 표시합니다');
+  });
+  $$('.stepper').forEach(st=>{
+    st.addEventListener('click', e=>{
+      const k = st.dataset.key, plus = e.target.closest('.plus'), minus = e.target.closest('.minus');
+      if(!plus && !minus) return;
+      const delta = plus? 1 : -1;
+      const min = k==='adults'?1:0, max = k==='adults'?8:6;
+      S[k] = Math.min(max, Math.max(min, S[k]+delta));
+      save(); renderAll();
+    });
+  });
+  $('#tabs').addEventListener('click', e=>{
+    const b = e.target.closest('.tab'); if(b) switchTab(b.dataset.tab);
+  });
+  $('#monthChips').addEventListener('click', e=>{
+    const b = e.target.closest('[data-month]'); if(!b) return;
+    S.month = parseInt(b.dataset.month,10); save(); renderMonth();
+  });
+  $('#dayTabs').addEventListener('click', e=>{
+    const b = e.target.closest('[data-day]'); if(!b) return;
+    S.day = parseInt(b.dataset.day,10); save(); renderPlan();
+  });
+  $('#modeSeg').addEventListener('click', e=>{
+    const b = e.target.closest('[data-mode]'); if(!b) return;
+    S.mode = b.dataset.mode; save(); renderPlan(); renderBudget(); renderTourCards();
+    toast(S.mode==='bus'? '투어버스 기준으로 다시 계산했습니다' : '고속열차 기준으로 다시 계산했습니다');
+  });
+  $('#lenSeg').addEventListener('click', e=>{
+    const b = e.target.closest('[data-len]'); if(!b) return;
+    S.len = b.dataset.len; save(); renderPlan(); renderBudget();
+  });
+  ['airIn','hotelIn','fxIn'].forEach(id=>{
+    const el = $('#'+id);
+    el.addEventListener('input', ()=>{
+      const v = parseFloat(el.value);
+      if(!isFinite(v) || v<0) return;
+      if(id==='airIn') S.air=v; if(id==='hotelIn') S.hotel=v; if(id==='fxIn') S.fx=v||FX_DEFAULT;
+      save(); renderBudget();
+    });
+  });
+  $('#themeBtn').addEventListener('click', ()=>{
+    S.theme = (S.theme==='dark')?'light':'dark';
+    document.documentElement.dataset.theme = S.theme;
+    $('#themeBtn').textContent = S.theme==='dark'?'☀️':'🌙';
+    save();
+  });
+  $('#xlBtn').addEventListener('click', exportXlsx);
+
+  const FL_FIELDS = [
+    ['flGoCarrier','carrier','go'],['flGoNo','no','go'],['flGoTime','time','go'],['flGoTerm','term','go'],
+    ['flBackCarrier','carrier','back'],['flBackNo','no','back'],['flBackTime','time','back'],['flBackTerm','term','back']
+  ];
+  FL_FIELDS.forEach(pair=>{
+    const id = pair[0], key = pair[1], side = pair[2];
+    const el = $('#'+id); if(!el) return;
+    const apply = ()=>{
+      const v = String(el.value || '');
+      if(key === 'time' && tmin(v) < 0) return;
+      if(key === 'term' && TERMS.indexOf(v) < 0) return;
+      const tgt = side === 'go' ? S.flGo : S.flBack;
+      if(tgt[key] === v) return;
+      tgt[key] = v; S.preset = 'none'; save(); renderAll();
+    };
+    el.addEventListener('change', apply);
+    if(key === 'time' || key === 'term') el.addEventListener('input', apply);
+  });
+  const sd = $('#startDate');
+  if(sd) sd.addEventListener('change', ()=>{ S.startDate = sd.value || ''; save(); renderAll(); });
+  const fp = $('#flPresets');
+  if(fp) fp.addEventListener('click', e=>{
+    const b = e.target.closest('[data-preset]'); if(!b) return;
+    const p = FL_PRESETS.filter(x=>x.id===b.dataset.preset)[0]; if(!p) return;
+    S.flGo = Object.assign({}, p.go);
+    S.flBack = Object.assign({}, p.back);
+    S.preset = p.id; save();
+    const qi = $('#flQuick'); if(qi) qi.value = '';
+    renderAll();
+    toast(p.name + ' — Day 1·마지막 날 동선을 다시 짰습니다');
+  });
+
+  /* 항공편명 자동완성 */
+  const qi = $('#flQuick');
+  if(qi){
+    let qT = null;
+    const runQuick = ()=>{
+      const v = qi.value.trim();
+      if(!v){ renderFlightAssist(); return; }
+      const p = codeParts(v);
+      if(!p.iata || !p.num){ renderFlightAssist(); return; }
+      const r = applyFlight(v);
+      renderFlightAssist();
+      if(r && r.hit) toast(r.hit.al + ' ' + normCode(v) + ' — ' + r.hit.t + ' ' + r.hit.tm + ' 자동 입력');
+      else if(r && r.al) toast(r.al.name + ' 인식 — 시각·터미널은 항공권으로 확인하세요');
+    };
+    qi.addEventListener('input', ()=>{ renderFlightAssist(); clearTimeout(qT); qT = setTimeout(runQuick, 220); });
+    qi.addEventListener('change', ()=>{ clearTimeout(qT); runQuick(); });
+    qi.addEventListener('keydown', e=>{ if(e.key === 'Enter'){ e.preventDefault(); clearTimeout(qT); runQuick(); } });
+  }
+  [['flGoNo','go'],['flBackNo','back']].forEach(pair=>{
+    const el = $('#' + pair[0]), side = pair[1]; if(!el) return;
+    el.addEventListener('input', ()=>{
+      const v = String(el.value || '').trim();
+      const p = codeParts(v);
+      if(!p.iata || !p.num){ renderFlightAssist(); return; }
+      const al = airlineOf(v), hit = dbEntry(v);
+      const patch = {no: v.toUpperCase().replace(/\s+/g,'').slice(0,18)};
+      if(al) patch.carrier = al.name;
+      /* 편명의 방향과 칸이 다르면 시각·터미널은 건드리지 않는다 */
+      if(hit && ((hit.dir === 'in') === (side === 'go'))){ patch.time = hit.t; patch.term = hit.tm; }
+      commitFlight(side, patch);
+      renderFlightAssist();
+    });
+  });
+  const fs = $('#flightSec');
+  if(fs) fs.addEventListener('click', e=>{
+    const pk = e.target.closest('[data-pick]');
+    if(pk){
+      const code = pk.dataset.pick;
+      const r = applyFlight(code);
+      renderFlightAssist();
+      if(r && r.hit) toast(r.hit.al + ' ' + code + ' — ' + r.hit.t + ' ' + r.hit.tm + '로 다시 짰습니다');
+      return;
+    }
+    const mv = e.target.closest('[data-move]');
+    if(mv){
+      const code = mv.dataset.code, target = mv.dataset.move;
+      const src = target === 'go' ? 'back' : 'go';
+      const srcNo = normCode((src === 'go' ? S.flGo : S.flBack).no);
+      const r = applyFlight(code, target);
+      let extra = '';
+      if(srcNo === normCode(code)){
+        const cp = counterpartCode(code);
+        if(cp){
+          const e = FLIGHT_DB[cp];
+          commitFlight(src, {no:cp, carrier:e.al, time:e.t, term:e.tm});
+          extra = ' · ' + (src === 'go' ? '가는 편' : '오는 편') + '은 ' + cp + '(' + e.t + ')';
+        }
+      }
+      renderFlightAssist();
+      if(r && r.hit) toast(r.hit.al + ' ' + normCode(code) + ' → ' + (target === 'go' ? '가는 편' : '오는 편') + ' ' + r.hit.t + extra);
+    }
+  });
+}
+
+/* ---------- 6. 엑셀 내보내기 (A4 인쇄용) ---------- */
+const XL_NAME = 'Malgun Gothic';
+const C = {terra:'FFBF4F2A', terraL:'FFF7E4DA', saff:'FFDD9A2E', saffL:'FFFBF0D8', olive:'FF6B7F47', oliveL:'FFE9EEDB', ink:'FF2B2119', ink2:'FF6B5C4B', line:'FFE0D3BF', white:'FFFFFFFF', grey:'FFF7F3EC'};
+
+function xlSheet(wb, name, orientation, widths){
+  const ws = wb.addWorksheet(name, {views:[{showGridLines:false}], pageSetup:{paperSize:9, orientation, fitToPage:true, fitToWidth:1, fitToHeight:0}});
+  ws.pageSetup.paperSize = 9;
+  ws.pageSetup.orientation = orientation;
+  ws.pageSetup.fitToPage = true;
+  ws.pageSetup.fitToWidth = 1;
+  ws.pageSetup.fitToHeight = 0;
+  ws.pageSetup.horizontalCentered = true;
+  ws.pageSetup.margins = {left:0.35, right:0.35, top:0.32, bottom:0.32, header:0.18, footer:0.18};
+  ws.headerFooter = {oddFooter:'&L&"'+XL_NAME+',Regular"&8마드리드 여행일정 · Travel Desk&R&8&P / &N'};
+  widths.forEach((w,i)=>{ ws.getColumn(i+1).width = w; });
+  ws.properties.defaultRowHeight = 17;
+  return ws;
+}
+
+function xlTitle(ws, text, sub, ncols){
+  const r1 = ws.addRow([text]); r1.height = 24;
+  xlMerge(ws, r1.number,1,r1.number,ncols);
+  const c1 = r1.getCell(1);
+  c1.font = {name:XL_NAME, size:15, bold:true, color:{argb:C.white}};
+  c1.fill = {type:'pattern', pattern:'solid', fgColor:{argb:C.terra}};
+  c1.alignment = {vertical:'middle', horizontal:'left', indent:1};
+  const r2 = ws.addRow([sub]); r2.height = 18;
+  xlMerge(ws, r2.number,1,r2.number,ncols);
+  const c2 = r2.getCell(1);
+  c2.font = {name:XL_NAME, size:9.5, color:{argb:C.white}, bold:true};
+  c2.fill = {type:'pattern', pattern:'solid', fgColor:{argb:'FFD9743A'}};
+  c2.alignment = {vertical:'middle', horizontal:'left', indent:1};
+  xlSpacer(ws);
+}
+
+function xlSection(ws, text, ncols){
+  const r = ws.addRow([text]); r.height = 16;
+  xlMerge(ws, r.number,1,r.number,ncols);
+  const c = r.getCell(1);
+  c.font = {name:XL_NAME, size:10.5, bold:true, color:{argb:C.ink}};
+  c.fill = {type:'pattern', pattern:'solid', fgColor:{argb:C.saffL}};
+  c.alignment = {vertical:'middle', horizontal:'left', indent:1};
+  c.border = {top:{style:'thin',color:{argb:C.saff}}, bottom:{style:'thin',color:{argb:C.saff}}, left:{style:'thin',color:{argb:C.saff}}, right:{style:'thin',color:{argb:C.saff}}};
+}
+
+function xlRow(ws, cells, ncols, opt){
+  opt = opt || {};
+  const r = ws.addRow(cells);
+  r.height = opt.height || 17;
+  for(let i=1;i<=ncols;i++){
+    const c = r.getCell(i);
+    c.font = {name:XL_NAME, size:opt.size || 10, bold:!!opt.bold, color:{argb: opt.color || C.ink}};
+    c.alignment = {vertical:'top', wrapText:true, horizontal: (opt.align && opt.align[i-1]) || 'left'};
+    c.border = {top:{style:'hair',color:{argb:C.line}}, bottom:{style:'hair',color:{argb:C.line}}, left:{style:'hair',color:{argb:C.line}}, right:{style:'hair',color:{argb:C.line}}};
+    if(opt.fill) c.fill = {type:'pattern', pattern:'solid', fgColor:{argb:opt.fill}};
+  }
+  xlMerge(ws, r.number,1,r.number,ncols);
+  return r;
+}
+
+function xlTable(ws, header, rows, widths, opt){
+  opt = opt || {};
+  const n = header.length;
+  const hr = ws.addRow(header); hr.height = 20;
+  header.forEach((h,i)=>{
+    const c = hr.getCell(i+1);
+    c.font = {name:XL_NAME, size:9.5, bold:true, color:{argb:C.white}};
+    c.fill = {type:'pattern', pattern:'solid', fgColor:{argb:C.ink2}};
+    c.alignment = {vertical:'middle', horizontal:'center', wrapText:true};
+    c.border = {top:{style:'thin',color:{argb:C.line}},bottom:{style:'thin',color:{argb:C.line}},left:{style:'thin',color:{argb:C.line}},right:{style:'thin',color:{argb:C.line}}};
+  });
+  rows.forEach((row, ri)=>{
+    const r = ws.addRow(row);
+    r.height = (opt.heights && opt.heights[ri]) || opt.rowHeight || 16;
+    for(let i=1;i<=n;i++){
+      const c = r.getCell(i);
+      c.font = {name:XL_NAME, size:opt.size || 9.5, color:{argb:C.ink}};
+      const _h = (opt.align && opt.align[i-1]) || 'left';
+      c.alignment = {vertical:'top', wrapText:true, horizontal:_h, indent: _h==='right'?1:0};
+      c.border = {top:{style:'hair',color:{argb:C.line}},bottom:{style:'hair',color:{argb:C.line}},left:{style:'hair',color:{argb:C.line}},right:{style:'hair',color:{argb:C.line}}};
+      if(ri%2===1) c.fill = {type:'pattern',pattern:'solid',fgColor:{argb:C.grey}};
+    }
+  });
+}
+
+function xlMerge(ws, r1, c1, r2, c2){
+  ws.mergeCells(r1, c1, r2, c2);
+  (ws.__merges = ws.__merges || []).push([r1, c1, r2, c2]);
+}
+
+function xlSpacer(ws, h){ const r = ws.addRow([]); r.height = h || 6; return r; }
+
+function xlNote(ws, text, ncols){
+  const r = ws.addRow([text]); r.height = 15;
+  xlMerge(ws, r.number,1,r.number,ncols);
+  const c = r.getCell(1);
+  c.font = {name:XL_NAME, size:8.5, color:{argb:C.ink2}};
+  c.alignment = {vertical:'middle', horizontal:'left', indent:1, wrapText:true};
+}
+
+async function buildWorkbook(){
+  const wb = new ExcelJS.Workbook();
+  wb.creator = 'Jian · Travel Desk';
+  wb.created = new Date();
+  const b = budget();
+  const P = b.P;
+  const fl = flightPlan();
+  const paxTxt = '성인 ' + S.adults + (S.youth? ' · 청소년·어린이 ' + S.youth : '');
+  const date = new Date();
+  const stamp = date.getFullYear() + '-' + String(date.getMonth()+1).padStart(2,'0') + '-' + String(date.getDate()).padStart(2,'0');
+
+  /* ===== Sheet 1 : 개요 ===== */
+  const w1 = xlSheet(wb, '1. 여행 개요', 'portrait', [20, 44, 30]);
+  w1.pageSetup.printTitlesRow = '1:2';
+  xlTitle(w1, '스페인 · 마드리드 ' + S.days + '일 여행 계획', 'Travel Desk · ' + paxTxt + ' · 환율 1€ = ' + S.fx.toLocaleString('ko-KR') + '원 · 확인 ' + stamp, 3);
+
+  xlSection(w1, '한눈 요약', 3);
+  xlTable(w1, ['항목','내용','메모'], [
+    ['여행지','스페인 · 마드리드 (Madrid)','수도 · 해발 660m · 광역 678만 명'],
+    ['일정',S.days + '일 (도심 ' + P.filter(d=>d.day.kind==='city').length + '일 + 근교 ' + P.filter(d=>d.day.kind==='tour').length + '일)', paxTxt],
+    ['숙박', b.nights + '박 · 1박 €' + S.hotel + ' 기준', '솔·그란비아·살라망카 권역'],
+    ['예상 총경비', '€' + Math.round(b.total).toLocaleString('en-US') + '  (약 ' + krw(b.total*S.fx) + ')', '1인당 €' + Math.round(b.total/b.pax) + ' · 현지경비 €' + Math.round(b.local)],
+    ['교통 · 입장 합계', '€' + Math.round(b.transit+b.entry) + ' (' + b.pax + '인 합계)','청소년 할인 반영 · 1인 약 €' + Math.round((b.transit+b.entry)/b.pax)],
+    ['데이투어', S.mode==='bus' ? '투어버스 (가이드·이동 포함)' : '고속열차 Renfe Avant 자유여행',
+      P.filter(d=>d.day.kind==='tour').map(d=>d.day.title.replace(/ 데이투어| 근교/g,'')).join(' · ') || '없음']
+  ], [20,44,30], {rowHeight:15, size:9.5});
+  xlSpacer(w1, 4);
+
+  xlSection(w1, '항공편 · 입출국 시간', 3);
+  xlTable(w1, ['구간','편명 · 시각','메모'], [
+    ['가는 편 (도착)', (S.flGo.carrier?S.flGo.carrier+' ':'') + S.flGo.no + ' · ' + hmm(fl.A) + ' · ' + S.flGo.term, 'Day 1 동선 기준'],
+    ['오는 편 (출발)', (S.flBack.carrier?S.flBack.carrier+' ':'') + S.flBack.no + ' · ' + hmm(fl.D) + ' · ' + S.flBack.term, '공항 ' + hmm(fl.airportBy) + ' · 숙소 ' + hmm(fl.leaveBy)],
+    ['공항 ↔ 숙소', '숙소 ' + hmm(fl.hotelAt) + ' 도착 · 택시 €33 정액', '택시 20~30분 · 버스 €5/인']
+  ], [20,44,30], {rowHeight:15, size:9.5});
+  xlSpacer(w1, 4);
+  xlNote(w1, '항공편 시각을 바꾸면 이 표와 Day 1·마지막 날 동선이 함께 바뀝니다. 프리셋 시각·터미널은 2026-11-22 확인값입니다.', 3);
+  xlSpacer(w1, 3);
+
+  xlSection(w1, '출발 전 4가지', 3);
+  xlTable(w1, ['구분','내용','현지 팁'], [
+    ['시차','한국보다 8시간 느림 (서머타임 7시간)','마드리드 09:00 = 서울 17:00'],
+    ['전압','230V · 50Hz · C/F형 둥근 2핀','한국 기기는 멀티 어댑터 필요'],
+    ['치안','소매치기 주의 — 솔·그란비아·아토차','가방은 앞으로, 휴대폰 노출 금지'],
+    ['결제·팁','카드 위주 + 소액 현금 €100~150','식당 5~10%, 택시 반올림']
+  ], [20,44,30], {rowHeight:15, size:9.5});
+  xlSpacer(w1, 4);
+
+  xlSection(w1, '바라하스 공항 → 시내 (3인 기준)', 3);
+  xlTable(w1, ['수단','소요·요금','메모'], [
+    ['메트로 8호선','25~30분 · €4.5~5','1회권 €1.5~2 + 공항 추가요금 €3 · 06:05~01:30'],
+    ['엑스프레스 203','30~40분 · €5','24시간 · 아토차/시벨레스 · 교통패스 불가'],
+    ['택시','20~30분 · €33 정액','M-30 안 · 3인+짐이면 가장 편함']
+  ], [20,44,30], {rowHeight:15, size:9.5});
+  xlSpacer(w1, 4);
+
+  xlSection(w1, '숙소 거점 비교 (3인 가족실 1박)', 3);
+  xlTable(w1, ['권역','장점','단점 / 가격'], [
+    ['솔 · 센트로','마요르·왕궁·산 미겔 도보 10분, 첫 방문 최적','밤 소음 · €140~180'],
+    ['그란 비아 · 추에카','쇼핑·공연·야경, 환승 편함','주말 소음 · €150~200'],
+    ['살라망카 · 레티로','조용하고 넓은 방, 미술관 도보','가격 · €180~260']
+  ], [20,44,30], {rowHeight:15, size:9.5});
+  xlSpacer(w1, 4);
+
+  xlSection(w1, '핵심 관광지 · 예매', 3);
+  xlTable(w1, ['관광지','입장료','예매'], [
+    ['프라도 미술관','€15 (18세 미만 무료)','사전예매 권장 · 월~토 18~20시 무료'],
+    ['마드리드 왕궁','€18 / 5~16세 €9','사전예매 필수 · 월~목 16~18시 EU 무료'],
+    ['레티로 공원','무료 (보트 €6)','예매 불필요'],
+    ['산 미겔 시장','입장 무료 · 타파스 €12~18','예매 불필요 · 19시 이전'],
+    ['티센-보르네미사','€14 (18세 미만 무료)','월 12~16시 무료'],
+    ['소피아 미술관','€12','화 휴관 · 월·수~토 19~21시 무료']
+  ], [20,44,30], {rowHeight:15, size:9.5});
+  xlSpacer(w1, 4);
+
+  xlNote(w1, '준비물 체크리스트와 대사관·긴급 연락처는 3번 시트 아래에 정리했습니다.', 3);
+
+  /* ===== Sheet 2 : Day별 ===== */
+  const w2 = xlSheet(wb, '2. Day별 동선', 'landscape', [6, 7.5, 27, 19.5, 13, 25, 21]);
+  w2.pageSetup.printTitlesRow = '1:4';
+  xlTitle(w2, 'Day별 상세 동선 · 맛집', paxTxt + ' · ' + S.days + '일 · ' + (S.mode==='bus'?'투어버스 기준':'고속열차 기준') + ' · ' + S.flGo.no + ' ' + hmm(fl.A) + ' 도착 / ' + S.flBack.no + ' ' + hmm(fl.D) + ' 출국', 7);
+  const h2 = ['Day','시간','일정 · 장소','이동 · 소요','비용(1인)','맛집 · 대표 메뉴 · 가격','우천 · 휴관 대체'];
+  const hr2 = w2.addRow(h2); hr2.height = 20;
+  h2.forEach((h,i)=>{ const c=hr2.getCell(i+1);
+    c.font={name:XL_NAME,size:9.5,bold:true,color:{argb:C.white}};
+    c.fill={type:'pattern',pattern:'solid',fgColor:{argb:C.ink2}};
+    c.alignment={vertical:'middle',horizontal:'center',wrapText:true};
+    c.border={top:{style:'thin',color:{argb:C.line}},bottom:{style:'thin',color:{argb:C.line}},left:{style:'thin',color:{argb:C.line}},right:{style:'thin',color:{argb:C.line}}};
+  });
+  P.forEach((d, di)=>{
+    const dr = w2.addRow(['D'+d.no, d.day.title + '  —  ' + d.day.sub, '', '', '', '', '']);
+    dr.height = Math.max(20, Math.ceil(xlTextWeight(d.day.title + '  —  ' + d.day.sub) / 78) * 13.6 + 4);
+    xlMerge(w2, dr.number, 2, dr.number, 7);
+    const dc = dr.getCell(1);
+    dc.font={name:XL_NAME,size:10,bold:true,color:{argb:C.white}};
+    dc.fill={type:'pattern',pattern:'solid',fgColor:{argb:C.terra}};
+    dc.alignment={vertical:'middle',horizontal:'center'};
+    const dt = dr.getCell(2);
+    dt.font={name:XL_NAME,size:10,bold:true,color:{argb:C.terra}};
+    dt.alignment={vertical:'middle',horizontal:'left',wrapText:true};
+    dt.fill={type:'pattern',pattern:'solid',fgColor:{argb:C.terraL}};
+    d.day.stops.forEach(s=>{
+      const cost = !s.cost || (s.cost.a===0 && s.cost.y===0) ? '무료' : ('€'+s.cost.a + (s.cost.y && s.cost.y!==s.cost.a ? ' / 청소년 €'+s.cost.y : ''));
+      const eat = s.eat ? (s.eat.name + ' — ' + s.eat.menu + ' ('+s.eat.price+')') : '';
+      const move = ((s.move||'') + (s.dur && s.dur!=='—' ? ' · '+s.dur : '')).replace(/(\d)\s*(분|시간|박|일)/g, '$1\u00A0$2');
+      const r = w2.addRow(['', s.t, s.name + (s.en? '  ('+s.en+')':''), move, cost, eat, s.rain||'']);
+      r.height = s.eat ? 30 : 24;
+      for(let i=1;i<=7;i++){
+        const c = r.getCell(i);
+        c.font={name:XL_NAME,size:10,color:{argb:C.ink}};
+        c.alignment={vertical:'top',wrapText:true,horizontal:(i===1||i===2||i===5)?'center':'left'};
+        c.border={top:{style:'hair',color:{argb:C.line}},bottom:{style:'hair',color:{argb:C.line}},left:{style:'hair',color:{argb:C.line}},right:{style:'hair',color:{argb:C.line}}};
+      }
+      if(s.opt){ r.getCell(3).font={name:XL_NAME,size:10,italic:true,color:{argb:C.ink2}}; }
+    });
+  });
+  xlSpacer(w2);
+  xlNote(w2, '비용은 1인 기준이며 청소년 요금이 다르면 함께 표기했습니다. 입장료·열차 요금은 2026-11 확인값이고, 현장에서 달라질 수 있습니다.', 7);
+
+  /* ===== Sheet 3 : 예산 ===== */
+  const w3 = xlSheet(wb, '3. 예산 · 교통패스', 'portrait', [20, 30, 12, 14, 22]);
+  w3.pageSetup.printTitlesRow = '1:2';
+  xlTitle(w3, '예산 · 교통패스', paxTxt + ' · ' + S.days + '일 · 1€ = ' + S.fx.toLocaleString('ko-KR') + '원', 5);
+  xlSection(w3, '경비 내역', 5);
+  xlTable(w3, ['항목','계산','EUR','KRW','메모'], [
+    ['식비','1인 1일 평균 €'+TOTAL_FOOD_A()+' · 청소년 €'+TOTAL_FOOD_Y()+' × '+S.days+'일','€'+Math.round(b.food), krw(b.food*S.fx),'카페·타파스 포함'],
+    ['교통','공항·시내·근교 열차·버스','€'+Math.round(b.transit), krw(b.transit*S.fx),'관광패스 미적용'],
+    ['입장료','미술관·왕궁·성당·알카사르','€'+Math.round(b.entry), krw(b.entry*S.fx),'청소년 할인 반영'],
+    ['데이투어', S.mode==='bus'?'투어버스 요금':'고속열차(교통에 포함)','€'+Math.round(b.tour), krw(b.tour*S.fx), S.mode==='bus'?'가이드·이동 포함':'Renfe Avant'],
+    ['기타','간식·기념품·소액 팁','€'+Math.round(b.misc), krw(b.misc*S.fx),''],
+    ['항공','€'+S.air+' × '+b.pax+'명','€'+Math.round(b.air), krw(b.air*S.fx), S.flGo.no + ' / ' + S.flBack.no + ' 기준'],
+    ['숙소','€'+S.hotel+' × '+b.nights+'박','€'+Math.round(b.hotel), krw(b.hotel*S.fx),'가족실 기준'],
+    ['합계','','€'+Math.round(b.total), krw(b.total*S.fx),'1인당 €'+Math.round(b.total/b.pax)]
+  ], [20,30,12,14,22], {rowHeight:18, size:10, align:['left','left','right','right','left']});
+  xlSpacer(w3);
+
+  const rides = ridesNeeded(b);
+  const s10 = Math.ceil(rides/10)*7.30 + 2.50 + 6;
+  const single = rides*1.75 + 6;
+  const passP = ({1:10.30,2:17.50,3:23.10,4:27.80,5:33.40,6:33.40,7:43.20})[Math.min(S.days,7)];
+  xlSection(w3, '교통패스 비교 (1인 · 예상 승차 ' + rides + '회)', 5);
+  xlTable(w3, ['수단','구성','EUR','KRW','비고'], [
+    ['10회권 Metrobús','카드 €2.50 + 10회권 €7.30 × '+Math.ceil(rides/10)+' + 공항 €6','€'+Math.round(s10), krw(s10*S.fx),'2026-12-31까지 한시가(정가 €12.20)'],
+    ['관광패스 A구역', Math.min(S.days,7)+'일권','€'+Math.round(passP), krw(passP*S.fx),'공항 추가요금 포함·엑스프레스 제외'],
+    ['1회권', '€1.50~2.00 × '+rides+' + 공항 €6','€'+Math.round(single), krw(single*S.fx),'매번 표 구매'],
+    ['택시 위주','공항 왕복 €66 + 시내 5회','€'+Math.round(33*2+40), krw((33*2+40)*S.fx),'3인은 1인당 부담 낮음']
+  ], [20,30,12,14,22], {rowHeight:18, size:10, align:['left','left','right','right','left']});
+  xlSpacer(w3);
+  xlNote(w3, '추천: 10회권 €'+Math.round(s10)+'/인이 관광패스 €'+Math.round(passP)+'보다 유리합니다. 하루 4회 이상 탄다면 관광패스도 고려.', 5);
+  if(S.days > 7) xlNote(w3, S.days + '일 일정은 관광패스 최장이 7일권입니다. 7일권 + 10회권 1~2장을 조합하거나, 근교 3일은 패스 없이 다니세요(근교 열차·버스는 패스 적용 제외).', 5);
+  xlSpacer(w3);
+  xlSection(w3, '요금 메모 (2026)', 5);
+  xlNote(w3, '1회권 €1.50~2.00 (+공항 €3) · 10회권 €7.30 · Tarjeta Multi €2.50 · 관광패스 A 1일 €10.30 / 2일 €17.50 / 3일 €23.10 / 4일 €27.80 / 5일 €33.40 / 7일 €43.20', 5);
+  xlNote(w3, 'Renfe Avant: 톨레도 편도 €13.90(33~34분, 아토차) · 세고비아 편도 €13.90(25~28분, 차마르틴) · 아빌라 €12.70', 5);
+  xlSpacer(w3);
+  xlSection(w3, '준비물 · 긴급 연락처', 5);
+  xlNote(w3, '여권(6개월 이상) · 유럽 C/F 어댑터 · 보조배터리 · 트래블카드(유로) · 현금 €100~150 · 우산 · 편한 신발 · 상비약 · eSIM · 예약 확인서(오프라인) · 여권 사본', 5);
+  xlNote(w3, '주스페인 한국대사관 C/ González Amigó 15, 28033 Madrid · +34 91 353 2000 · 야간 +34 648 924 695 · 영사콜센터 +82-2-3210-0404 · 응급 112', 5);
+  xlNote(w3, '출처: CRTM 2026년 요금 고시 · Aena · Renfe · Patrimonio Nacional · Museo del Prado · INE · AEMET · ECB(2026-11-20, 1€=1,472원)', 5);
+
+  xlAutofit(w1, [20,44,30], 15);
+  xlAutofit(w2, [6,7.5,27,19.5,12,25,22], 22);
+  xlAutofit(w3, [20,30,12,14,22], 15);
+
+  return wb;
+}
+
+
+/* --- row heights: Korean-aware autofit so no cell is clipped when printed --- */
+function xlTextWeight(s){
+  let w = 0;
+  for (const ch of String(s||'')){ const o = ch.codePointAt(0); w += o > 0x2E80 ? 1.9 : (ch==='€'||ch==='₩' ? 1.2 : 1.0); }
+  return w;
+}
+function xlAutofit(ws, widths, minH){
+  minH = minH || 15;
+  const mergedW = {}, covered = {};
+  (ws.__merges || []).forEach(mg=>{
+    const [r1,c1,r2,c2] = mg;
+    let sum = 0; for(let c=c1;c<=c2;c++) sum += (widths[c-1]||8.43);
+    mergedW[r1+':'+c1] = sum;
+    for(let rr=r1; rr<=r2; rr++) for(let cc=c1; cc<=c2; cc++){ if(rr!==r1 || cc!==c1) covered[rr+':'+cc] = 1; }
+  });
+  ws.eachRow({includeEmpty:false}, (row, rn)=>{
+    let need = 1, size = 9.5;
+    row.eachCell({includeEmpty:false}, (cell, cn)=>{
+      if(covered[rn+':'+cn]) return;
+      if(cell.value==null || cell.value==='') return;
+      const fsz = (cell.font && cell.font.size) ? cell.font.size : 9.5;
+      const wrap = cell.alignment && cell.alignment.wrapText;
+      if(!wrap) return;
+      const wsum = mergedW[rn+':'+cn] || (widths[cn-1] || 8.43);
+      const usable = Math.max(4, (wsum - 1.2) * (11 / Math.max(fsz,6)) * 0.95);
+      need = Math.max(need, Math.ceil(xlTextWeight(cell.value) / usable));
+      size = Math.max(size, fsz);
+    });
+    const h = need * (size * 1.38) + 2.4;
+    const cur = row.height || 0;
+    if(h > cur) row.height = Math.round(h*10)/10;
+  });
+}
+
+async function exportXlsx(){
+  const btn = $('#xlBtn');
+  const note = $('#xlNote');
+  if(typeof ExcelJS === 'undefined'){
+    toast('엑셀 라이브러리를 불러오지 못했습니다. 인터넷 연결을 확인하세요.');
+    if(note) note.textContent = '⚠️ ExcelJS(CDN) 로드 실패 — 오프라인이면 생성할 수 없습니다.';
+    return;
+  }
+  btn.disabled = true;
+  const prev = btn.textContent;
+  btn.textContent = '⏳ 생성 중…';
+  try{
+    const wb = await buildWorkbook();
+    const buf = await wb.xlsx.writeBuffer();
+    const blob = new Blob([buf], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Madrid_Travel_Itinerary_A4_' + S.days + 'day.xlsx';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 4000);
+    if(note) note.textContent = '✅ ' + a.download + ' 생성 완료 — 시트 3장 · A4 너비 1장 맞춤';
+    toast('엑셀 파일을 만들었습니다');
+  }catch(err){
+    console.error(err);
+    toast('생성 실패: ' + (err && err.message ? err.message : '알 수 없는 오류'));
+    if(note) note.textContent = '⚠️ 생성 실패 — ' + (err && err.message ? err.message : '');
+  }finally{
+    btn.disabled = false;
+    btn.textContent = prev;
+  }
+}
+
+/* ---------- 7. 시작 ---------- */
+load();
+normFlight();
+document.documentElement.dataset.theme = S.theme || 'light';
+$('#themeBtn').textContent = (S.theme==='dark')?'☀️':'🌙';
+if(S.mode!=='bus') S.mode='train';
+if(['full','half'].indexOf(S.len)<0) S.len='full';
+if(!SEQ[S.days]) S.days=4;
+bind();
+renderPhrases();
+renderAll();
+switchTab(S.tab || '1');
+setInterval(tickCountdown, 30000);
+
+</script>
+</body>
+</html>
