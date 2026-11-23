@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070b14">
+<meta name="description" content="일상·여행·비즈니스 3트랙으로 능동 회상, 5회 듣기, 변형 드릴, 실전 롤플레이를 한 화면에서 도는 개인 영어 스튜디오">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Echo &amp; Recall">
+<meta name="robots" content="noindex, nofollow">
+<title>Echo &amp; Recall Studio · 일상·여행·비즈니스 3트랙</title>
+<style>
+/* ================= tokens ================= */
+:root{
+  --bg:#070b14; --bg2:#0b1220; --card:#0f1a2c; --card2:#152238; --card3:#1a2a44;
+  --line:#1e2d45; --line2:#2b3f5f;
+  --tx:#e8eff9; --tx2:#9aabc4; --tx3:#6b7f9e;
+  --accent:#4ad9c0; --accent-d:#12a08c; --violet:#a78bfa; --amber:#f7b955; --bad:#ff7183;
+  --tc:#4ad9c0; --tc-d:#12a08c;
+  --shadow:0 8px 28px rgba(0,0,0,.36);
+  --r:18px;
+}
+html[data-theme="light"]{
+  --bg:#eef2f9; --bg2:#f8fafd; --card:#ffffff; --card2:#f2f6fc; --card3:#e9f0fa;
+  --line:#dde6f2; --line2:#c9d7e8;
+  --tx:#0b1626; --tx2:#4f6382; --tx3:#7c8ea8;
+  --accent:#0a8f7e; --accent-d:#06725f; --violet:#6047d6; --amber:#a87200; --bad:#c62b3c;
+  --shadow:0 6px 20px rgba(16,32,56,.09);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(900px 460px at 8% -10%, rgba(74,217,192,.10), transparent 62%),
+    radial-gradient(760px 420px at 96% -4%, rgba(167,139,250,.12), transparent 60%),
+    var(--bg);
+  color:var(--tx);
+  font-family:"Pretendard","Pretendard Variable",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,"Segoe UI",Roboto,sans-serif;
+  font-size:15.5px; line-height:1.62; letter-spacing:-0.01em;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(34px + env(safe-area-inset-bottom));
+}
+.wrap{max-width:820px;margin:0 auto;padding:0 14px 30px}
+button{font-family:inherit}
+a{color:var(--accent)}
+h1,h2,h3,h4{margin:0;letter-spacing:-0.02em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ================= top bar ================= */
+.topbar{
+  position:sticky;top:0;z-index:60;background:var(--bg);
+  background:color-mix(in srgb, var(--bg) 90%, transparent);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top);
+}
+.topbar-in{max-width:820px;margin:0 auto;padding:9px 14px 10px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{
+  width:36px;height:36px;border-radius:12px;flex:0 0 auto;display:grid;place-items:center;font-size:18px;
+  background:linear-gradient(145deg,#4ad9c0,#a78bfa);box-shadow:0 4px 14px rgba(74,217,192,.3);
+}
+.brand>.binfo{min-width:0;flex:1}
+.brand h1{font-size:15.5px;font-weight:800;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .sub{font-size:10.5px;font-weight:600;color:var(--tx3);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconbtn{
+  width:36px;height:36px;flex:0 0 auto;border-radius:12px;border:1px solid var(--line);
+  background:var(--card);color:var(--tx);font-size:16px;display:grid;place-items:center;cursor:pointer;transition:.15s;padding:0;
+}
+.iconbtn:active{transform:scale(.93)}
+
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:9px}
+.stat{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:6px 8px;min-width:0;text-align:center;
+}
+.stat b{display:block;font-size:15px;font-weight:800;line-height:1.25;color:var(--tc);letter-spacing:-0.02em}
+.stat span{display:block;font-size:9.5px;font-weight:700;color:var(--tx3);letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* track tabs */
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin-top:8px}
+.ttab{
+  min-width:0;display:flex;align-items:center;justify-content:center;gap:4px;
+  border:1px solid var(--line);background:var(--card);color:var(--tx2);
+  font-size:11.5px;font-weight:800;padding:8px 3px;border-radius:11px;cursor:pointer;
+  white-space:nowrap;transition:.15s;letter-spacing:-0.02em;
+}
+.ttab .em{font-size:13px;line-height:1}
+.ttab .lb{overflow:hidden;text-overflow:ellipsis}
+.ttab .en{display:none}
+.ttab[aria-selected="true"]{color:#04140f;border-color:transparent;box-shadow:0 4px 14px rgba(74,217,192,.22)}
+.ttab[data-track="daily"][aria-selected="true"]{background:linear-gradient(140deg,#4ad9c0,#12a08c)}
+.ttab[data-track="travel"][aria-selected="true"]{background:linear-gradient(140deg,#f7b955,#d98c14)}
+.ttab[data-track="business"][aria-selected="true"]{background:linear-gradient(140deg,#b79cff,#7c5cf0);color:#0d0424}
+html[data-theme="light"] .ttab[aria-selected="true"]{color:#fff}
+
+/* mode tabs */
+.mtabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:6px;background:var(--card2);padding:4px;border-radius:12px;border:1px solid var(--line)}
+.mtab{
+  min-width:0;border:0;background:transparent;color:var(--tx2);font-size:11.5px;font-weight:800;
+  padding:7px 2px;border-radius:9px;cursor:pointer;white-space:nowrap;letter-spacing:-0.02em;transition:.15s;
+}
+.mtab[aria-selected="true"]{background:var(--card);color:var(--tx);box-shadow:0 2px 8px rgba(0,0,0,.18);border:1px solid var(--line2)}
+.mtab .lb{overflow:hidden;text-overflow:ellipsis}
+
+/* ================= panels ================= */
+.panel{display:none}
+.panel.active{display:block;animation:fade .2s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.cue{
+  display:flex;align-items:center;gap:8px;margin:12px 0 10px;
+  font-size:11.5px;font-weight:700;color:var(--tx2);flex-wrap:wrap;
+}
+.cue .dot{width:7px;height:7px;border-radius:50%;background:var(--tc);flex:0 0 auto;box-shadow:0 0 8px var(--tc)}
+.cue .sep{color:var(--tx3);opacity:.6}
+.cue b{color:var(--tx)}
+
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.card+.card{margin-top:12px}
+.pad{padding:13px 14px}
+
+/* scene */
+.scene{position:relative;width:100%;aspect-ratio:16/9;background:#0a1220;overflow:hidden}
+.scene svg{display:block;width:100%;height:100%}
+.scene .sceneTag{
+  position:absolute;left:10px;top:10px;font-size:10px;font-weight:800;letter-spacing:.02em;
+  color:#eaf6ff;background:rgba(6,12,22,.62);border:1px solid rgba(255,255,255,.16);
+  padding:3px 8px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+
+/* meta chips */
+.meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:9px}
+.chip{
+  font-size:10.5px;font-weight:800;color:var(--tx2);background:var(--card2);
+  border:1px solid var(--line);padding:3px 8px;border-radius:999px;letter-spacing:-0.01em;
+}
+.chip.tc{color:var(--tc);border-color:color-mix(in srgb, var(--tc) 40%, transparent);background:color-mix(in srgb, var(--tc) 12%, transparent)}
+.chip.due{color:var(--amber);border-color:color-mix(in srgb, var(--amber) 40%, transparent);background:color-mix(in srgb, var(--amber) 12%, transparent)}
+
+.steps{display:flex;align-items:center;gap:3px;flex-wrap:wrap;margin:0 0 10px;font-size:9.5px;font-weight:900;letter-spacing:-0.01em}
+.steps .stp{color:var(--tx3);background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:2px 6px;white-space:nowrap}
+.steps .stp.on{color:#04140f;background:var(--tc);border-color:transparent}
+.steps .stp.done{color:var(--tc);border-color:color-mix(in srgb, var(--tc) 40%, transparent)}
+html[data-theme="light"] .steps .stp.on{color:#fff}
+.steps .ar{color:var(--tx3);font-size:9px;opacity:.6}
+.ko-sit{margin:0 0 7px;font-size:12.5px;color:var(--tx3);font-weight:600}
+.ko-target{margin:0 0 12px;font-size:16.5px;font-weight:800;line-height:1.5;letter-spacing:-0.02em}
+.tg{display:inline-block;font-size:10px;font-weight:900;letter-spacing:0;color:#04140f;background:var(--tc);
+  border-radius:5px;padding:2px 7px;margin-right:7px;vertical-align:3px}
+html[data-theme="light"] .tg{color:#fff}
+
+.toolrow{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}
+.tool{
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  border:1px solid var(--line2);background:var(--card2);color:var(--tx2);
+  font-size:12px;font-weight:800;padding:10px 6px;border-radius:11px;cursor:pointer;transition:.15s;
+  white-space:nowrap;
+}
+.tool:active{transform:scale(.975)}
+.tool[aria-pressed="true"]{color:#06120f;background:linear-gradient(140deg,var(--tc),var(--tc-d));border-color:transparent}
+html[data-theme="light"] .tool[aria-pressed="true"]{color:#fff}
+
+/* 3s challenge */
+.chal{display:none;margin:0 0 11px;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+.chal.on{display:block}
+.chal .row{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:800;color:var(--tx2);margin-bottom:7px}
+.chal .row b{color:var(--tc)}
+.chal .bar{height:8px;border-radius:999px;background:var(--card3);overflow:hidden;border:1px solid var(--line)}
+.chal .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--tc),var(--blue,#7cc7ff))}
+.chal.on .bar i{animation:chal3 3s linear forwards}
+@keyframes chal3{from{width:0}to{width:100%}}
+.chal.done .bar i{background:linear-gradient(90deg,var(--amber),#ff9d5c)}
+
+.hintbox{display:none;margin:0 0 11px;border-left:3px solid var(--amber);background:color-mix(in srgb, var(--amber) 10%, transparent);border-radius:0 10px 10px 0;padding:8px 11px;font-size:12.5px;font-weight:700;color:var(--tx)}
+.hintbox.on{display:block}
+.hintbox .k{display:block;font-size:10px;font-weight:800;color:var(--amber);letter-spacing:.06em;margin-bottom:2px}
+
+.btn-primary{
+  width:100%;border:0;cursor:pointer;border-radius:13px;padding:14px 12px;
+  font-size:14.5px;font-weight:900;letter-spacing:-0.02em;color:#04140f;
+  background:linear-gradient(140deg,var(--tc),var(--tc-d));
+  box-shadow:0 6px 20px color-mix(in srgb, var(--tc) 32%, transparent);
+  transition:.15s;
+}
+html[data-theme="light"] .btn-primary{color:#fff}
+.btn-primary:active{transform:scale(.985)}
+.btn-primary.small{padding:11px 12px;font-size:13px}
+
+/* answer */
+.answer{display:none;margin-top:14px;border-top:1px dashed var(--line2);padding-top:13px}
+.answer.on{display:block;animation:fade .22s ease}
+.en{
+  font-size:19px;line-height:1.62;font-weight:700;letter-spacing:-0.015em;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  margin:0 0 8px;word-break:keep-all;
+}
+.en .chunk{background:linear-gradient(transparent 62%, color-mix(in srgb, var(--tc) 22%, transparent) 62%);border-radius:3px;padding:0 1px}
+.en b{font-weight:900;color:var(--tc)}
+.en .sl{color:var(--tx3);font-weight:400;margin:0 5px;opacity:.75}
+.nuance{margin:0 0 11px;font-size:12.5px;line-height:1.65;color:var(--tx2);background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:9px 11px}
+.nuance b{color:var(--tx);font-weight:800}
+
+/* tts */
+.ttsbar{background:var(--card2);border:1px solid var(--line);border-radius:13px;padding:10px 11px;margin-bottom:9px}
+.ttshead{display:flex;align-items:center;gap:7px;justify-content:space-between;margin-bottom:8px}
+.roundbadge{
+  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800;color:var(--tc);
+  background:color-mix(in srgb, var(--tc) 12%, transparent);border:1px solid color-mix(in srgb, var(--tc) 34%, transparent);
+  padding:4px 9px;border-radius:999px;white-space:nowrap;
+}
+.roundbadge.idle{color:var(--tx3);background:transparent;border-color:var(--line2)}
+.roundbadge .pulse{width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.75)}}
+.ttsctl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.ttsctl button{
+  border:1px solid var(--line2);background:var(--card);color:var(--tx);
+  font-size:11.5px;font-weight:800;padding:9px 3px;border-radius:10px;cursor:pointer;white-space:nowrap;transition:.15s;
+}
+.ttsctl button:active{transform:scale(.96)}
+.ttsctl button.stop{color:var(--bad);border-color:color-mix(in srgb, var(--bad) 40%, transparent)}
+.ttsctl button:disabled{opacity:.45}
+.voicerow{display:flex;align-items:center;gap:7px;margin-top:8px}
+.voicerow label{font-size:10.5px;font-weight:800;color:var(--tx3);white-space:nowrap}
+.voicerow select{
+  flex:1;min-width:0;background:var(--card);color:var(--tx);border:1px solid var(--line2);
+  border-radius:9px;padding:7px 8px;font-size:11.5px;font-weight:700;font-family:inherit;
+}
+.ttswarn{display:none;margin-top:8px;font-size:11px;font-weight:700;color:var(--amber);line-height:1.5}
+.ttswarn.on{display:block}
+
+/* accent selector (4종) */
+.accbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:9px 10px 10px;margin:12px 0 0}
+.acchead{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:7px}
+.acchead .k{font-size:9.5px;font-weight:900;color:var(--tx3);letter-spacing:.06em;white-space:nowrap}
+.acchead .cur{font-size:10.5px;font-weight:900;color:var(--tc);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",-apple-system,"Segoe UI",Roboto,sans-serif}
+.accrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.acc{
+  min-width:0;min-height:46px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0px;
+  border:1px solid var(--line2);background:var(--card2);color:var(--tx2);border-radius:11px;
+  padding:4px 2px;cursor:pointer;transition:.15s;
+}
+.acc .fl{font-size:15px;line-height:1.15;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.acc .nm{font-size:11.5px;font-weight:900;line-height:1.25;letter-spacing:-0.02em}
+.acc .lc{font-size:8.5px;font-weight:800;color:var(--tx3);letter-spacing:0;line-height:1.3}
+.acc[aria-pressed="true"]{border-color:color-mix(in srgb, var(--tc) 60%, transparent);background:color-mix(in srgb, var(--tc) 12%, transparent);color:var(--tx)}
+.acc[aria-pressed="true"] .lc{color:var(--tc)}
+.acc:active{transform:scale(.97)}
+.accwarn{display:none;margin-top:7px;font-size:10.5px;font-weight:800;color:var(--amber);line-height:1.45}
+.accwarn.on{display:block}
+
+/* shadow cue */
+.shadow{
+  display:flex;gap:8px;align-items:flex-start;margin:0 0 12px;font-size:12px;font-weight:700;line-height:1.55;
+  color:var(--tx2);background:color-mix(in srgb, var(--violet) 10%, transparent);
+  border:1px solid color-mix(in srgb, var(--violet) 28%, transparent);border-radius:11px;padding:8px 10px;
+}
+.shadow .em{font-size:14px;line-height:1.2}
+.shadow b{color:var(--tx)}
+
+/* srs */
+.srshead{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.srshead .t{font-size:11px;font-weight:800;color:var(--tx3);letter-spacing:.02em}
+.srshead .n{font-size:10.5px;font-weight:800;color:var(--tx3)}
+.srs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+.srs button{
+  border:1px solid var(--line2);border-radius:11px;background:var(--card2);color:var(--tx);
+  padding:9px 2px;cursor:pointer;font-weight:800;transition:.15s;min-width:0;
+}
+.srs button:active{transform:scale(.96)}
+.srs button .r{display:block;font-size:11.5px;line-height:1.25;font-weight:900;letter-spacing:-0.02em}
+.srs button .i{display:block;font-size:10px;color:var(--tx3);font-weight:700;margin-top:2px}
+.srs button[data-r="again"]{border-color:color-mix(in srgb, var(--bad) 45%, transparent)}
+.srs button[data-r="again"] .r{color:var(--bad)}
+.srs button[data-r="hard"]{border-color:color-mix(in srgb, var(--amber) 45%, transparent)}
+.srs button[data-r="hard"] .r{color:var(--amber)}
+.srs button[data-r="good"]{border-color:color-mix(in srgb, var(--tc) 45%, transparent)}
+.srs button[data-r="good"] .r{color:var(--tc)}
+.srs button[data-r="easy"]{border-color:color-mix(in srgb, var(--violet) 45%, transparent)}
+.srs button[data-r="easy"] .r{color:var(--violet)}
+.srsdone{display:none;margin-top:9px;font-size:11.5px;font-weight:800;color:var(--tc);text-align:center}
+.srsdone.on{display:block}
+
+/* progress bar */
+.pwrap{margin:0 0 11px}
+.pwrap .lbl{display:flex;justify-content:space-between;font-size:10.5px;font-weight:800;color:var(--tx3);margin-bottom:5px}
+.pbar{height:7px;border-radius:999px;background:var(--card2);border:1px solid var(--line);overflow:hidden;display:flex}
+.pbar i{display:block;height:100%}
+.pbar .p-mastered{background:linear-gradient(90deg,var(--tc),var(--tc-d))}
+.pbar .p-learning{background:color-mix(in srgb, var(--amber) 65%, transparent)}
+
+/* ================= drill ================= */
+.sec-h{display:flex;align-items:baseline;gap:7px;margin:2px 0 9px}
+.sec-h h2{font-size:16px;font-weight:900}
+.sec-h .s{font-size:11px;font-weight:700;color:var(--tx3)}
+.patsel{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:11px}
+.pat{
+  text-align:left;border:1px solid var(--line);background:var(--card);color:var(--tx2);
+  border-radius:12px;padding:8px 9px;cursor:pointer;transition:.15s;min-width:0;
+}
+.pat[aria-pressed="true"]{border-color:color-mix(in srgb, var(--tc) 55%, transparent);background:color-mix(in srgb, var(--tc) 10%, transparent);color:var(--tx)}
+.pat .k{display:block;font-size:11.5px;font-weight:900;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pat .e{display:block;font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.pat[aria-pressed="true"] .e{color:var(--tc)}
+
+.pgroup{margin-bottom:10px}
+.pgroup .gl{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:900;color:var(--tx3);letter-spacing:.03em;margin-bottom:5px}
+.pgroup .gl .num{width:15px;height:15px;border-radius:5px;background:var(--card2);border:1px solid var(--line);display:grid;place-items:center;font-size:9px;color:var(--tx2)}
+.pills{display:flex;gap:5px;flex-wrap:wrap}
+.pill{
+  border:1px solid var(--line2);background:var(--card2);color:var(--tx2);
+  font-size:11.5px;font-weight:800;padding:7px 10px;border-radius:999px;cursor:pointer;transition:.15s;white-space:nowrap;
+}
+.pill[aria-pressed="true"]{background:linear-gradient(140deg,var(--tc),var(--tc-d));border-color:transparent;color:#04140f;box-shadow:0 3px 12px color-mix(in srgb, var(--tc) 30%, transparent)}
+html[data-theme="light"] .pill[aria-pressed="true"]{color:#fff}
+
+.outbox{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line2);border-radius:14px;padding:13px 12px;margin-bottom:10px}
+.out{
+  font-size:18px;line-height:1.5;font-weight:800;letter-spacing:-0.015em;margin:0;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;word-break:keep-all;
+}
+.out .v{color:var(--tc);background:color-mix(in srgb, var(--tc) 16%, transparent);border-radius:4px;padding:0 2px}
+.outko{margin:7px 0 0;font-size:11.5px;font-weight:700;color:var(--tx3);line-height:1.55}
+.drillbtns{display:grid;grid-template-columns:1fr auto;gap:6px}
+.drillbtns button{
+  border:1px solid var(--line2);background:var(--card2);color:var(--tx);font-size:12px;font-weight:900;
+  padding:11px 10px;border-radius:11px;cursor:pointer;white-space:nowrap;
+}
+.drillbtns button.main{background:linear-gradient(140deg,var(--tc),var(--tc-d));border-color:transparent;color:#04140f}
+html[data-theme="light"] .drillbtns button.main{color:#fff}
+.pnote{margin-top:10px;font-size:11.5px;line-height:1.6;color:var(--tx2);border-left:2px solid var(--line2);padding-left:9px}
+
+/* ================= project ================= */
+.missel{display:grid;gap:6px;margin-bottom:12px}
+.mis{
+  display:flex;align-items:center;gap:9px;text-align:left;width:100%;
+  border:1px solid var(--line);background:var(--card);color:var(--tx2);
+  border-radius:12px;padding:9px 11px;cursor:pointer;transition:.15s;
+}
+.mis[aria-pressed="true"]{border-color:color-mix(in srgb, var(--tc) 55%, transparent);background:color-mix(in srgb, var(--tc) 9%, transparent);color:var(--tx)}
+.mis .ico{width:26px;height:26px;border-radius:9px;background:var(--card2);border:1px solid var(--line);display:grid;place-items:center;font-size:13px;flex:0 0 auto}
+.mis .tx{min-width:0;flex:1}
+.mis .tx b{display:block;font-size:12.5px;font-weight:900;line-height:1.3;letter-spacing:-0.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mis .tx span{display:block;font-size:10px;font-weight:700;color:var(--tx3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mis .st{font-size:10px;font-weight:900;color:var(--tc);white-space:nowrap}
+.mis .st.off{color:var(--tx3)}
+
+.misbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px}
+.misbox .mt{font-size:14px;font-weight:900;margin-bottom:3px}
+.misbox .ms{font-size:11px;font-weight:700;color:var(--tx3);margin-bottom:9px}
+.mprog{display:flex;align-items:center;gap:7px}
+.mprog .bar{flex:1;height:6px;background:var(--card2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.mprog .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--tc),var(--tc-d));transition:width .3s}
+.mprog span{font-size:10.5px;font-weight:900;color:var(--tx2);white-space:nowrap}
+
+.turn{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;margin-bottom:9px}
+.turn .th{display:flex;align-items:center;gap:7px;padding:8px 11px;background:var(--card2);border-bottom:1px solid var(--line)}
+.turn .th .n{width:18px;height:18px;border-radius:6px;background:var(--tc);color:#04140f;display:grid;place-items:center;font-size:10px;font-weight:900;flex:0 0 auto}
+.turn .th .l{font-size:11px;font-weight:900;color:var(--tx2);letter-spacing:.01em}
+.turn .tb{padding:10px 11px}
+.partner{display:flex;gap:8px;align-items:flex-start;margin-bottom:9px}
+.partner .av{width:24px;height:24px;border-radius:8px;background:color-mix(in srgb, var(--violet) 22%, transparent);border:1px solid color-mix(in srgb, var(--violet) 40%, transparent);display:grid;place-items:center;font-size:12px;flex:0 0 auto}
+.partner .tx{min-width:0;flex:1}
+.partner .who{font-size:9.5px;font-weight:900;color:var(--violet);letter-spacing:.04em;margin-bottom:1px}
+.partner .en{font-size:13.5px;font-weight:700;line-height:1.45;margin:0;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.partner button{
+  border:1px solid var(--line2);background:var(--card2);color:var(--tx);border-radius:9px;
+  font-size:10px;font-weight:900;padding:6px 8px;cursor:pointer;white-space:nowrap;flex:0 0 auto;
+}
+.userq{background:color-mix(in srgb, var(--tc) 8%, transparent);border:1px solid color-mix(in srgb, var(--tc) 26%, transparent);border-radius:10px;padding:8px 10px;margin-bottom:8px}
+.userq .who{font-size:9.5px;font-weight:900;color:var(--tc);letter-spacing:.04em;margin-bottom:2px}
+.userq .ko{font-size:12.5px;font-weight:800;line-height:1.5}
+.tbtns{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.tbtns button{border:1px solid var(--line2);background:var(--card2);color:var(--tx);font-size:11px;font-weight:900;padding:9px 4px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.tbtns button.main{background:linear-gradient(140deg,var(--tc),var(--tc-d));border-color:transparent;color:#04140f}
+html[data-theme="light"] .tbtns button.main{color:#fff}
+.model{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line2)}
+.model.on{display:block;animation:fade .2s ease}
+.model .en{font-size:14.5px;margin:0 0 5px}
+.model .nk{font-size:11px;color:var(--tx3);font-weight:700;margin:0}
+.turn .done{display:flex;align-items:center;gap:7px;padding:7px 11px;border-top:1px solid var(--line);font-size:11px;font-weight:800;color:var(--tx2);cursor:pointer}
+.turn .done input{width:16px;height:16px;accent-color:var(--tc);margin:0}
+.turn.completed{border-color:color-mix(in srgb, var(--tc) 42%, transparent)}
+
+.foot{margin:18px 0 0;padding-top:13px;border-top:1px solid var(--line);font-size:10.5px;line-height:1.7;color:var(--tx3);font-weight:600}
+.foot .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap}
+.foot button{background:transparent;border:1px solid var(--line);color:var(--tx3);font-size:10.5px;font-weight:800;padding:6px 10px;border-radius:9px;cursor:pointer}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translate(-50%,20px);
+  background:var(--card3);color:var(--tx);border:1px solid var(--line2);border-radius:12px;
+  padding:9px 15px;font-size:12px;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.4);
+  opacity:0;pointer-events:none;transition:.25s;z-index:90;max-width:calc(100vw - 32px);text-align:center;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* larger screens: track tabs show english sub */
+@media(min-width:560px){
+  .ttab{font-size:12.5px;padding:9px 6px}
+  .ttab .en{display:inline;font-size:10px;color:inherit;opacity:.72;font-weight:700;margin-left:3px}
+  .stats .stat b{font-size:17px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🎙️</div>
+      <div class="binfo">
+        <h1>Echo &amp; Recall Studio</h1>
+        <div class="sub">3트랙 회상 · 5회 듣기 · 실전 미션</div>
+      </div>
+      <button class="iconbtn" id="themeBtn" type="button" aria-label="다크/라이트 테마 전환" title="테마 전환">🌙</button>
+    </div>
+
+    <div class="stats" aria-live="polite">
+      <div class="stat"><b id="statDue">0</b><span>이 트랙 복습 대기</span></div>
+      <div class="stat"><b id="statStreak">0</b><span>연속 학습일</span></div>
+      <div class="stat"><b id="statMastered">0%</b><span>이 트랙 숙달률</span></div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="학습 트랙" id="trackTabs">
+      <button class="ttab" type="button" role="tab" data-track="daily" aria-selected="true"><span class="em">☕</span><span class="lb">일상회화</span><span class="en">Daily</span></button>
+      <button class="ttab" type="button" role="tab" data-track="travel" aria-selected="false"><span class="em">✈️</span><span class="lb">여행영어</span><span class="en">Travel</span></button>
+      <button class="ttab" type="button" role="tab" data-track="business" aria-selected="false"><span class="em">💼</span><span class="lb">비즈니스</span><span class="en">Business</span></button>
+    </div>
+
+    <div class="mtabs" role="tablist" aria-label="학습 모드" id="modeTabs">
+      <button class="mtab" type="button" role="tab" data-mode="recall" aria-selected="true"><span class="lb">🎧 회상·5회</span></button>
+      <button class="mtab" type="button" role="tab" data-mode="drill" aria-selected="false"><span class="lb">⚡ 변형 드릴</span></button>
+      <button class="mtab" type="button" role="tab" data-mode="project" aria-selected="false"><span class="lb">🎯 실전 미션</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="accbox" id="accentBox">
+    <div class="acchead"><span class="k">억양 · ACCENT</span><span class="cur" id="accCur">🇺🇸 미국 (en-US)</span></div>
+    <div class="accrow" role="group" aria-label="영어 억양 선택">
+      <button class="acc" type="button" data-accent="en-US" aria-pressed="true"><span class="fl">🇺🇸</span><span class="nm">미국</span><span class="lc">en-US</span></button>
+      <button class="acc" type="button" data-accent="en-GB" aria-pressed="false"><span class="fl">🇬🇧</span><span class="nm">영국</span><span class="lc">en-GB</span></button>
+      <button class="acc" type="button" data-accent="en-AU" aria-pressed="false"><span class="fl">🇦🇺</span><span class="nm">호주</span><span class="lc">en-AU</span></button>
+      <button class="acc" type="button" data-accent="en-IN" aria-pressed="false"><span class="fl">🇮🇳</span><span class="nm">인도</span><span class="lc">en-IN</span></button>
+    </div>
+    <div class="accwarn" id="accWarn">해당 억양 음성 미설치 — 기기 기본 음성으로 재생</div>
+  </div>
+
+  <section class="panel active" id="panel-recall" role="tabpanel" aria-label="능동 회상과 5회 듣기">
+    <div class="cue" id="recallCue"></div>
+    <div id="recallBody"></div>
+  </section>
+
+  <section class="panel" id="panel-drill" role="tabpanel" aria-label="변형 드릴">
+    <div class="cue" id="drillCue"></div>
+    <div id="drillBody"></div>
+  </section>
+
+  <section class="panel" id="panel-project" role="tabpanel" aria-label="실전 미션 롤플레이">
+    <div class="cue" id="projectCue"></div>
+    <div id="projectBody"></div>
+  </section>
+
+  <div class="foot">
+    <div>학습 기록은 이 기기의 브라우저 저장소(localStorage)에만 남습니다. 서버로 전송되지 않습니다.</div>
+    <div class="row">
+      <span>Echo &amp; Recall Studio · 초안 v1</span>
+      <button type="button" id="resetBtn">진행 초기화</button>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+
+/* ============================================================
+   1) 장면 일러스트 — 외부 URL 없이 인라인 SVG만 사용
+   ============================================================ */
+const SCENES = {
+  cafe: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2f49"/><stop offset="1" stop-color="#0a1424"/></linearGradient>
+      <linearGradient id="c${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a7fa6"/><stop offset="1" stop-color="#33506f"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <g stroke="#223a56" stroke-width="1" opacity=".65"><path d="M0 46h320M0 66h320M0 86h320"/></g>
+    <rect x="18" y="40" width="104" height="5" rx="2.5" fill="#2c4460"/>
+    <rect x="26" y="24" width="12" height="16" rx="2" fill="#3f5c7e"/><circle cx="56" cy="32" r="8" fill="#3f5c7e"/>
+    <rect x="72" y="20" width="9" height="20" rx="2" fill="#3f5c7e"/><circle cx="98" cy="30" r="10" fill="#3f5c7e"/>
+    <path d="M232 0v24" stroke="#2c4460" stroke-width="2"/>
+    <path d="M218 24h28l-6 12h-16z" fill="#f7b955" opacity=".92"/>
+    <path d="M226 36 212 122h40z" fill="#f7b955" opacity=".10"/>
+    <rect y="126" width="320" height="54" fill="#08111d"/>
+    <rect x="140" y="98" width="170" height="9" rx="4" fill="url(#c${u})"/>
+    <rect x="150" y="107" width="150" height="58" fill="#182c44"/>
+    <rect x="160" y="60" width="56" height="38" rx="5" fill="#33506f"/>
+    <rect x="168" y="70" width="22" height="11" rx="2" fill="#0a1424"/>
+    <circle cx="204" cy="75" r="4" fill="#f7b955"/><rect x="166" y="92" width="10" height="6" rx="2" fill="#0a1424"/>
+    <path d="M244 78h26v16a13 13 0 0 1-26 0z" fill="#eef4fb"/>
+    <path d="M270 82h6a5 5 0 0 1 0 10h-6" fill="none" stroke="#eef4fb" stroke-width="3"/>
+    <ellipse cx="257" cy="97" rx="18" ry="4" fill="#c7d6e8"/>
+    <path d="M251 70c3-5-3-8 0-13M261 70c3-5-3-8 0-13" stroke="#a9c6e0" stroke-width="2" fill="none" stroke-linecap="round" opacity=".75"/>
+    <rect x="34" y="120" width="5" height="40" fill="#26405d"/><ellipse cx="36" cy="118" rx="15" ry="5" fill="#3f5c7e"/>
+    <rect x="86" y="120" width="5" height="40" fill="#26405d"/><ellipse cx="88" cy="118" rx="15" ry="5" fill="#3f5c7e"/>`,
+
+  shop: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2b42"/><stop offset="1" stop-color="#0a1321"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect y="132" width="320" height="48" fill="#08111d"/>
+    <g fill="#2c4460"><rect x="20" y="30" width="120" height="6" rx="3"/><rect x="20" y="70" width="120" height="6" rx="3"/></g>
+    <g fill="#3f5c7e">
+      <rect x="28" y="14" width="14" height="16" rx="2"/><rect x="48" y="10" width="12" height="20" rx="2"/><rect x="66" y="16" width="16" height="14" rx="2"/><rect x="90" y="12" width="11" height="18" rx="2"/><rect x="108" y="18" width="18" height="12" rx="2"/>
+      <rect x="30" y="54" width="18" height="16" rx="2"/><rect x="56" y="50" width="12" height="20" rx="2"/><rect x="76" y="56" width="16" height="14" rx="2"/><rect x="100" y="52" width="20" height="18" rx="2"/>
+    </g>
+    <rect x="150" y="102" width="162" height="9" rx="4" fill="#5a7fa6"/>
+    <rect x="160" y="111" width="150" height="54" fill="#182c44"/>
+    <path d="M200 64h54l5 38h-64z" fill="#e8d9b8"/>
+    <rect x="206" y="56" width="42" height="10" rx="4" fill="#d6c39c"/>
+    <path d="M212 76h30M212 84h22" stroke="#b9a37c" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="266" y="66" width="26" height="36" rx="2" fill="#f2f6fb"/>
+    <path d="M270 74h18M270 80h14M270 86h18M270 92h10" stroke="#a9b8c9" stroke-width="2" stroke-linecap="round"/>
+    <path d="M152 48l28-15 15 15-28 15z" fill="#f7b955"/><circle cx="174" cy="48" r="3.2" fill="#0a1424"/>`,
+
+  phone: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#172a40"/><stop offset="1" stop-color="#091220"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <ellipse cx="160" cy="150" rx="120" ry="16" fill="#060e19"/>
+    <rect x="104" y="12" width="112" height="156" rx="18" fill="#0d1828" stroke="#33506f" stroke-width="3"/>
+    <rect x="114" y="28" width="92" height="122" rx="9" fill="#16263c"/>
+    <rect x="146" y="19" width="28" height="5" rx="2.5" fill="#33506f"/>
+    <rect x="121" y="38" width="54" height="18" rx="9" fill="#2c4460"/><path d="M126 56h8l-4 6z" fill="#2c4460"/>
+    <rect x="146" y="60" width="52" height="18" rx="9" fill="#4ad9c0" opacity=".88"/>
+    <rect x="121" y="86" width="62" height="14" rx="7" fill="#2c4460"/>
+    <rect x="121" y="106" width="40" height="14" rx="7" fill="#2c4460"/>
+    <rect x="158" y="126" width="40" height="14" rx="7" fill="#4ad9c0" opacity=".45"/>
+    <g stroke="#4ad9c0" stroke-width="2.5" fill="none" opacity=".55" stroke-linecap="round">
+      <path d="M234 36a22 22 0 0 1 0 34"/><path d="M246 24a36 36 0 0 1 0 56"/>
+    </g>
+    <g stroke="#a78bfa" stroke-width="2.5" fill="none" opacity=".45" stroke-linecap="round">
+      <path d="M86 36a22 22 0 0 0 0 34"/><path d="M74 24a36 36 0 0 0 0 56"/>
+    </g>`,
+
+  home: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d2438"/><stop offset="1" stop-color="#0b1120"/></linearGradient>
+      <linearGradient id="win${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#20395c"/><stop offset="1" stop-color="#0e1b2e"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect x="196" y="18" width="86" height="74" rx="4" fill="url(#win${u})" stroke="#33496b" stroke-width="3"/>
+    <path d="M239 18v74M196 55h86" stroke="#33496b" stroke-width="2"/>
+    <circle cx="264" cy="36" r="9" fill="#f2f7ff" opacity=".8"/><circle cx="259" cy="33" r="9" fill="#20395c"/>
+    <rect y="140" width="320" height="40" fill="#0a101c"/>
+    <rect x="20" y="86" width="128" height="42" rx="8" fill="#2c4460"/>
+    <rect x="26" y="76" width="116" height="16" rx="8" fill="#3a5474"/>
+    <rect x="30" y="100" width="34" height="24" rx="5" fill="#26405d"/>
+    <rect x="72" y="100" width="34" height="24" rx="5" fill="#26405d"/>
+    <rect x="114" y="100" width="34" height="24" rx="5" fill="#26405d"/>
+    <path d="M56 140v14M112 140v14" stroke="#3f5c7e" stroke-width="5" stroke-linecap="round"/>
+    <path d="M166 0v58" stroke="#33506f" stroke-width="2"/>
+    <path d="M154 58h24l-8 18h-8z" fill="#f7b955"/>
+    <path d="M158 76 148 140h36z" fill="#f7b955" opacity=".12"/>
+    <ellipse cx="180" cy="146" rx="62" ry="9" fill="#1a2f49" opacity=".6"/>
+    <rect x="246" y="104" width="30" height="34" rx="4" fill="#26405d"/>
+    <path d="M252 104c0-12 18-12 18 0" stroke="#4ad9c0" stroke-width="2.5" fill="none" opacity=".7"/>`,
+
+  street: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#152840"/><stop offset=".6" stop-color="#102034"/><stop offset="1" stop-color="#0a1424"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <g fill="#1c3450">
+      <rect x="8" y="44" width="52" height="86" rx="2"/><rect x="66" y="30" width="40" height="100" rx="2"/><rect x="214" y="36" width="46" height="94" rx="2"/><rect x="266" y="52" width="46" height="78" rx="2"/>
+    </g>
+    <g fill="#f7b955" opacity=".62">
+      <rect x="18" y="56" width="8" height="8"/><rect x="34" y="56" width="8" height="8"/><rect x="18" y="74" width="8" height="8"/><rect x="34" y="74" width="8" height="8"/>
+      <rect x="76" y="44" width="8" height="8"/><rect x="90" y="44" width="8" height="8"/><rect x="76" y="62" width="8" height="8"/><rect x="90" y="62" width="8" height="8"/>
+      <rect x="224" y="50" width="8" height="8"/><rect x="240" y="50" width="8" height="8"/><rect x="224" y="68" width="8" height="8"/><rect x="240" y="68" width="8" height="8"/>
+    </g>
+    <rect y="130" width="320" height="50" fill="#0b1524"/>
+    <path d="M0 152h320" stroke="#38506b" stroke-width="2" stroke-dasharray="16 12"/>
+    <path d="M118 128l14-96h56l14 96z" fill="#0c1a2b" opacity=".55"/>
+    <g filter="none">
+      <path d="M160 40c-15 0-27 9-30 22l-3 12c-1 5 3 9 8 9h50c5 0 9-4 8-9l-3-12c-3-13-15-22-30-22z" fill="#4ad9c0"/>
+      <circle cx="160" cy="40" r="12" fill="#4ad9c0"/>
+      <path d="M150 78v14M170 78v14" stroke="#0a1424" stroke-width="3"/>
+    </g>
+    <ellipse cx="160" cy="120" rx="16" ry="5" fill="#0a1424" opacity=".55"/>`,
+
+  airport: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b3558"/><stop offset=".55" stop-color="#2a4a72"/><stop offset="1" stop-color="#101d31"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <g opacity=".85">
+      <path d="M0 118h320v62H0z" fill="#0d1a2c"/>
+      <path d="M0 118h320" stroke="#4d6f96" stroke-width="2"/>
+    </g>
+    <g stroke="#c7dcf2" stroke-width="2.5" opacity=".55" stroke-linecap="round">
+      <rect x="14" y="10" width="292" height="108" rx="6" fill="none" stroke="#7fa3c8"/>
+      <path d="M160 10v108M14 64h55M251 64h55"/>
+    </g>
+    <g fill="#f7b955" opacity=".9">
+      <circle cx="34" cy="128" r="3"/><circle cx="76" cy="132" r="3"/><circle cx="120" cy="128" r="3"/><circle cx="244" cy="130" r="3"/><circle cx="288" cy="127" r="3"/>
+    </g>
+    <g transform="translate(160 62) rotate(-8)">
+      <path d="M-52 0c0-6 8-10 22-10h40c14 0 22 4 22 10s-8 10-22 10h-40c-14 0-22-4-22-10z" fill="#eaf3fb"/>
+      <path d="M-14 8 8 34h14L8 8z" fill="#d6e6f5"/>
+      <path d="M-14-8 8-34h14L8-8z" fill="#c7dcee"/>
+      <path d="M-52 0 -74-12v24z" fill="#eaf3fb"/>
+      <circle cx="18" cy="0" r="3" fill="#2a4a72"/><circle cx="28" cy="0" r="3" fill="#2a4a72"/><circle cx="38" cy="0" r="3" fill="#2a4a72"/>
+    </g>
+    <rect x="220" y="18" width="78" height="16" rx="4" fill="#0b1727" opacity=".8"/>
+    <rect x="226" y="23" width="40" height="5" rx="2.5" fill="#4ad9c0" opacity=".8"/>`,
+
+  passport: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#122b3c"/><stop offset="1" stop-color="#091320"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect y="146" width="320" height="34" fill="#07101b"/>
+    <rect x="52" y="34" width="104" height="112" rx="8" fill="#1d3a52" stroke="#33607f" stroke-width="2"/>
+    <rect x="62" y="44" width="84" height="92" rx="5" fill="#254966"/>
+    <circle cx="104" cy="80" r="22" fill="none" stroke="#7fb0cc" stroke-width="2.5"/>
+    <path d="M82 80h44M104 58c-10 12-10 32 0 44M104 58c10 12 10 32 0 44" stroke="#7fb0cc" stroke-width="2" fill="none"/>
+    <rect x="78" y="112" width="52" height="5" rx="2.5" fill="#7fb0cc" opacity=".8"/>
+    <path d="M120 118l10 8-14 6z" fill="#4ad9c0"/>
+    <circle cx="128" cy="126" r="16" fill="none" stroke="#4ad9c0" stroke-width="3" opacity=".7"/>
+    <rect x="172" y="52" width="96" height="58" rx="6" fill="#eef4fb"/>
+    <rect x="180" y="62" width="46" height="6" rx="3" fill="#9fb4c9"/>
+    <rect x="180" y="74" width="80" height="5" rx="2.5" fill="#c3d3e2"/>
+    <rect x="180" y="84" width="60" height="5" rx="2.5" fill="#c3d3e2"/>
+    <rect x="180" y="96" width="30" height="5" rx="2.5" fill="#9fb4c9"/>
+    <rect x="240" y="92" width="20" height="12" rx="2" fill="#4ad9c0" opacity=".55"/>
+    <path d="M172 52 262 110" stroke="#0a1424" stroke-width="0" />
+    <g fill="#0a1424"><rect x="176" y="56" width="88" height="3" opacity=".3"/></g>`,
+
+  hotel: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2c46"/><stop offset="1" stop-color="#0a1321"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect y="144" width="320" height="36" fill="#08111d"/>
+    <rect x="26" y="16" width="150" height="132" rx="4" fill="#14243a"/>
+    <g fill="#f7b955" opacity=".55">
+      <rect x="38" y="30" width="16" height="14" rx="2"/><rect x="62" y="30" width="16" height="14" rx="2"/><rect x="86" y="30" width="16" height="14" rx="2"/><rect x="110" y="30" width="16" height="14" rx="2"/><rect x="134" y="30" width="16" height="14" rx="2"/>
+      <rect x="38" y="56" width="16" height="14" rx="2"/><rect x="62" y="56" width="16" height="14" rx="2"/><rect x="86" y="56" width="16" height="14" rx="2"/><rect x="134" y="56" width="16" height="14" rx="2"/>
+      <rect x="38" y="82" width="16" height="14" rx="2"/><rect x="62" y="82" width="16" height="14" rx="2"/><rect x="86" y="82" width="16" height="14" rx="2"/><rect x="110" y="82" width="16" height="14" rx="2"/>
+    </g>
+    <rect x="20" y="14" width="162" height="8" rx="4" fill="#2c4460"/>
+    <rect x="86" y="110" width="34" height="38" rx="3" fill="#4ad9c0" opacity=".8"/>
+    <path d="M86 120h34" stroke="#0a1424" stroke-width="2" opacity=".4"/>
+    <rect x="196" y="80" width="60" height="38" rx="6" fill="#2c4460" stroke="#3f5c7e" stroke-width="2"/>
+    <rect x="204" y="88" width="20" height="14" rx="2" fill="#f7b955"/>
+    <rect x="230" y="90" width="18" height="4" rx="2" fill="#9db4cd"/><rect x="230" y="98" width="12" height="4" rx="2" fill="#9db4cd"/>
+    <rect x="210" y="118" width="8" height="26" rx="3" fill="#3f5c7e"/><rect x="236" y="118" width="8" height="26" rx="3" fill="#3f5c7e"/>
+    <rect x="268" y="96" width="10" height="48" rx="3" fill="#3f5c7e"/>
+    <rect x="262" y="88" width="22" height="14" rx="3" fill="#2c4460"/>
+    <path d="M282 142c0-16-14-22-14-22" stroke="#3f5c7e" stroke-width="3" fill="none"/>`,
+
+  restaurant: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#20303f"/><stop offset="1" stop-color="#0b1420"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect y="118" width="320" height="62" fill="#101c2b"/>
+    <ellipse cx="160" cy="120" rx="136" ry="30" fill="#16263a"/>
+    <ellipse cx="160" cy="112" rx="132" ry="28" fill="#1d3047"/>
+    <ellipse cx="160" cy="108" rx="48" ry="18" fill="#eef4fb"/>
+    <ellipse cx="160" cy="106" rx="36" ry="12" fill="#cfe0ef"/>
+    <path d="M148 100c8-4 16-4 24 0" stroke="#9fb4c9" stroke-width="2.5" fill="none"/>
+    <path d="M136 92c4-6-4-9 0-15M184 92c4-6-4-9 0-15" stroke="#a9c6e0" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"/>
+    <g stroke="#b8cbdd" stroke-width="3" stroke-linecap="round">
+      <path d="M62 88v40M62 88v16M57 88v12M67 88v12"/>
+      <path d="M258 88v40M258 88c-6 0-8 8-8 14s8 6 8 6"/>
+    </g>
+    <g>
+      <path d="M206 66h20l-3 30h-14z" fill="#cfe0ef" opacity=".85"/>
+      <path d="M206 66h20l-3 10h-14z" fill="#f7b955" opacity=".7"/>
+      <rect x="216" y="96" width="2" height="14" fill="#cfe0ef"/>
+      <ellipse cx="217" cy="112" rx="9" ry="3" fill="#cfe0ef"/>
+    </g>
+    <rect x="98" y="52" width="44" height="30" rx="3" fill="#e8eff9" transform="rotate(-6 120 67)"/>
+    <path d="M106 62h28M106 70h18" stroke="#9db4cd" stroke-width="2" stroke-linecap="round" transform="rotate(-6 120 67)"/>
+    <g fill="#f7b955" opacity=".9"><circle cx="120" cy="30" r="4"/><circle cx="200" cy="26" r="4"/><circle cx="242" cy="34" r="4"/></g>`,
+
+  transit: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16304a"/><stop offset="1" stop-color="#09121f"/></linearGradient>
+      <linearGradient id="bus${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f6f8f"/><stop offset="1" stop-color="#1b4459"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect y="132" width="320" height="48" fill="#0a1423"/>
+    <path d="M0 156h320" stroke="#3a5570" stroke-width="2" stroke-dasharray="18 14"/>
+    <rect x="52" y="34" width="216" height="94" rx="14" fill="url(#bus${u})"/>
+    <rect x="66" y="48" width="82" height="40" rx="5" fill="#0d2030"/>
+    <rect x="156" y="48" width="98" height="40" rx="5" fill="#0d2030"/>
+    <path d="M156 48h98v40h-98z" fill="#7cc7ff" opacity=".12"/>
+    <rect x="66" y="94" width="188" height="10" rx="4" fill="#0d2030" opacity=".7"/>
+    <rect x="96" y="20" width="128" height="18" rx="6" fill="#0b1727"/>
+    <rect x="106" y="26" width="52" height="6" rx="3" fill="#f7b955"/>
+    <rect x="166" y="26" width="34" height="6" rx="3" fill="#4ad9c0" opacity=".8"/>
+    <circle cx="96" cy="132" r="14" fill="#0b1727" stroke="#3f5c7e" stroke-width="4"/>
+    <circle cx="224" cy="132" r="14" fill="#0b1727" stroke="#3f5c7e" stroke-width="4"/>
+    <rect x="256" y="60" width="6" height="14" rx="3" fill="#f7b955"/>
+    <rect x="272" y="86" width="6" height="12" rx="3" fill="#f7b955" opacity=".6"/>
+    <path d="M16 172h88" stroke="#4ad9c0" stroke-width="3" stroke-dasharray="8 8" opacity=".5"/>`,
+
+  meeting: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2740"/><stop offset="1" stop-color="#0a1220"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect y="126" width="320" height="54" fill="#0b1424"/>
+    <rect x="196" y="18" width="104" height="56" rx="4" fill="#e8eff9" opacity=".92"/>
+    <path d="M206 64l10-22 12 12 10-18 12 28z" fill="#4ad9c0" opacity=".55"/>
+    <path d="M206 64h84" stroke="#9fb4c9" stroke-width="2"/>
+    <circle cx="40" cy="34" r="18" fill="#f2f7ff" opacity=".9"/>
+    <path d="M40 34v-10M40 34l7 5" stroke="#0b1424" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="160" cy="112" rx="102" ry="26" fill="#22354e"/>
+    <ellipse cx="160" cy="106" rx="98" ry="24" fill="#2c4460"/>
+    <g>
+      <circle cx="96" cy="86" r="13" fill="#4ad9c0"/><rect x="84" y="100" width="24" height="16" rx="8" fill="#4ad9c0" opacity=".8"/>
+      <circle cx="160" cy="78" r="14" fill="#a78bfa"/><rect x="147" y="93" width="26" height="18" rx="9" fill="#a78bfa" opacity=".8"/>
+      <circle cx="224" cy="86" r="13" fill="#f7b955"/><rect x="212" y="100" width="24" height="16" rx="8" fill="#f7b955" opacity=".8"/>
+    </g>
+    <rect x="132" y="104" width="56" height="8" rx="4" fill="#eef4fb" opacity=".85"/>
+    <rect x="140" y="96" width="40" height="6" rx="3" fill="#eef4fb" opacity=".55"/>`,
+
+  office: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2a42"/><stop offset="1" stop-color="#0a1321"/></linearGradient>
+      <linearGradient id="scr${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e2136"/><stop offset="1" stop-color="#123049"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect y="128" width="320" height="52" fill="#0a1423"/>
+    <rect x="38" y="98" width="244" height="10" rx="5" fill="#3f5c7e"/>
+    <rect x="62" y="108" width="8" height="34" fill="#2c4460"/><rect x="250" y="108" width="8" height="34" fill="#2c4460"/>
+    <rect x="86" y="34" width="150" height="62" rx="6" fill="url(#scr${u})" stroke="#3f5c7e" stroke-width="2"/>
+    <rect x="98" y="44" width="126" height="4" rx="2" fill="#4ad9c0" opacity=".6"/>
+    <g fill="#4ad9c0" opacity=".85">
+      <rect x="100" y="72" width="12" height="14" rx="2"/><rect x="120" y="64" width="12" height="22" rx="2"/><rect x="140" y="54" width="12" height="32" rx="2"/><rect x="160" y="66" width="12" height="20" rx="2"/><rect x="180" y="58" width="12" height="28" rx="2"/>
+    </g>
+    <path d="M100 84h96" stroke="#3f5c7e" stroke-width="1.5"/>
+    <rect x="148" y="96" width="26" height="6" rx="2" fill="#2c4460"/>
+    <rect x="196" y="88" width="46" height="12" rx="3" fill="#2c4460" transform="rotate(8 219 94)"/>
+    <rect x="70" y="86" width="34" height="14" rx="3" fill="#e8eff9" opacity=".9"/>
+    <path d="M76 90h22M76 95h14" stroke="#9db4cd" stroke-width="1.5"/>
+    <rect x="258" y="72" width="22" height="26" rx="4" fill="#2c4460"/>
+    <path d="M280 78h5a4 4 0 0 1 0 8h-5" fill="none" stroke="#3f5c7e" stroke-width="2.5"/>
+    <path d="M266 64c2-4-2-6 0-10" stroke="#a9c6e0" stroke-width="2" fill="none" stroke-linecap="round" opacity=".6"/>`,
+
+  docs: u => `<defs>
+      <linearGradient id="w${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2b3c"/><stop offset="1" stop-color="#091320"/></linearGradient>
+    </defs>
+    <rect width="320" height="180" fill="url(#w${u})"/>
+    <rect y="140" width="320" height="40" fill="#08111d"/>
+    <path d="M40 56h96l16 16v76H40z" fill="#c9a35f"/>
+    <path d="M136 56l16 16h-16z" fill="#a8843f"/>
+    <rect x="52" y="46" width="96" height="12" rx="3" fill="#e8eff9"/>
+    <rect x="150" y="60" width="112" height="76" rx="4" fill="#eef4fb" transform="rotate(3 206 98)"/>
+    <g stroke="#a9b8c9" stroke-width="3" stroke-linecap="round" transform="rotate(3 206 98)">
+      <path d="M164 78h84M164 90h84M164 102h62M164 114h74"/>
+    </g>
+    <g transform="rotate(3 206 98)" fill="#4ad9c0">
+      <path d="M252 74l4 4 7-8" stroke="#4ad9c0" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+    <circle cx="238" cy="126" r="26" fill="#0d1a2b" opacity=".55"/>
+    <circle cx="236" cy="122" r="24" fill="none" stroke="#4ad9c0" stroke-width="5"/>
+    <path d="M254 140l18 18" stroke="#4ad9c0" stroke-width="8" stroke-linecap="round"/>
+    <rect x="44" y="72" width="34" height="6" rx="3" fill="#8a6a32" opacity=".6"/>
+    <rect x="44" y="86" width="26" height="6" rx="3" fill="#8a6a32" opacity=".45"/>`
+};
+
+function sceneSVG(kind, uid, label) {
+  const body = (SCENES[kind] || SCENES.cafe)(uid);
+  return '<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="' +
+    esc(label || '장면 일러스트') + '">' + body + '</svg>';
+}
+
+/* ============================================================
+   2) 학습 데이터 — 3트랙 × 10카드, 4패턴, 2미션
+   ============================================================ */
+const TRACKS = {
+  daily: {
+    key: 'daily', emoji: '☕', name: '일상회화', en: 'Daily Life',
+    color: '#4ad9c0', dark: '#12a08c',
+    desc: '스몰토크 · 정중한 부탁과 거절 · 감정 표현 · 카페·배달·생활 문제 해결',
+    cards: [
+      { id: 'd1', scene: 'cafe', tag: '카페 · 주문',
+        sit: '카페 카운터, 주문을 받는 직원 앞',
+        ko: '따뜻한 라떼 한 잔을, 얼음은 조금만 넣어 달라고 주문하세요.',
+        hint: 'Can I get …',
+        en: 'Can I **get** a warm latte, / with **just** a little ice?',
+        nuance: '"Can I get~"은 카페·매장에서 가장 무난한 주문 틀입니다. "just a little"은 "조금만"이라는 뜻으로 "a little"보다 부담이 적게 들립니다. 쉼표 뒤에서 한 번 끊으면 훨씬 자연스럽습니다.' },
+      { id: 'd2', scene: 'shop', tag: '카페 · 주문 오류',
+        sit: '주문과 다른 음료를 받은 순간, 계산대 앞',
+        ko: '주문한 것과 다르다며 정중히 교환을 요청하세요.',
+        hint: 'Sorry, I think …',
+        en: 'Sorry, / I think this **isn\'t** what I ordered. / Could you **swap** it for a warm latte?',
+        nuance: '"I think~"를 넣으면 상대를 탓하지 않는 부드러운 지적이 됩니다. "swap A for B"는 "A를 B로 바꾸다"라는 실전 교환 표현입니다.' },
+      { id: 'd3', scene: 'phone', tag: '직장 · 짧은 부탁',
+        sit: '바쁜 동료에게 짧게 부탁하고 싶은 순간',
+        ko: '상대가 바쁘다는 걸 인정하면서 잠깐 시간을 내 달라고 하세요.',
+        hint: 'I know you\'re …',
+        en: 'I **know** you\'re busy, / but do you have a **quick** second?',
+        nuance: '"quick second"는 "잠깐"의 구어 표현입니다. "but" 앞에서 끊으면 부탁의 각도가 부드러워집니다.' },
+      { id: 'd4', scene: 'phone', tag: '관계 · 정중한 거절',
+        sit: '부탁을 받았지만 이번에는 들어주기 어려운 상황',
+        ko: '고마움을 먼저 말하고 이번엔 어렵다고 정중히 거절하세요.',
+        hint: 'I appreciate …',
+        en: 'I **appreciate** the offer, / but I\'ll have to **pass** this time.',
+        nuance: '"I\'ll have to pass"는 "이번엔 사양할게요"의 정중한 거절입니다. "I\'ll"을 살려 말하면 부담 없이 들립니다.' },
+      { id: 'd5', scene: 'home', tag: '감정 · 솔직한 표현',
+        sit: '퇴근 후, 가까운 사람에게 요즘 상태를 말하는 자리',
+        ko: '솔직하게 지금 좀 지쳐 있다고 말하세요.',
+        hint: 'To be honest, …',
+        en: 'To be **honest**, / I\'m a bit **worn out** / with so much going on at work.',
+        nuance: '"worn out"은 몸과 마음이 함께 지친 상태입니다. "a bit"을 앞에 두면 강도를 낮춰 말할 수 있습니다.' },
+      { id: 'd6', scene: 'phone', tag: '배달 · 지연 문의',
+        sit: '배달이 30분 넘게 늦어지는 상황, 가게에 전화',
+        ko: '배달이 늦어지고 있다고 말하고 확인을 요청하세요.',
+        hint: 'My delivery\'s …',
+        en: 'My delivery\'s **running** about thirty minutes late. / Could you **check** on it for me?',
+        nuance: '"running late"는 "예정보다 늦어지고 있다"는 진행 뉘앙스입니다. "check on it"이 "확인해 보다"입니다.' },
+      { id: 'd7', scene: 'home', tag: '이웃 · 층간 소음',
+        sit: '밤늦게 윗집 소리가 들려, 문자로 정중히 말하는 상황',
+        ko: '죄송하다고 먼저 말하고 밤에 소리가 조금 크다고 전하세요.',
+        hint: 'Sorry to bother …',
+        en: 'Sorry to **bother** you, / but it gets a **little loud** late at night.',
+        nuance: '"Sorry to bother you"로 시작하면 항의가 아니라 부탁으로 들립니다. "get loud"는 "소리가 커지다"입니다.' },
+      { id: 'd8', scene: 'phone', tag: '약속 · 일정 변경',
+        sit: '내일 약속을 미뤄야 하는 상황',
+        ko: '내일 약속을 다음 주로 미룰 수 있는지 물어보세요.',
+        hint: 'Could we push …',
+        en: 'Could we **push** tomorrow\'s plan / to **next** week?',
+        nuance: '"push A to B"는 일정을 B로 미루는 표현입니다. "move"보다 회화에서 자주 쓰입니다.' },
+      { id: 'd9', scene: 'cafe', tag: '감사 · 칭찬',
+        sit: '도움을 받고 나서, 고마움을 전하는 순간',
+        ko: '덕분에 훨씬 편했다고 말하고 고맙다고 전하세요.',
+        hint: 'That made …',
+        en: 'That made it **so** much easier for me. / **Thanks** a lot.',
+        nuance: '"so much easier"에서 "so"를 강하게 말하면 진심이 실립니다. "Thanks a lot"은 가볍게 던지는 감사입니다.' },
+      { id: 'd10', scene: 'street', tag: '스몰토크 · 주말',
+        sit: '주말에 만난 지인과의 스몰토크',
+        ko: '주말에 뭐 했는지 묻고, 나는 집에서 쉬었다고 답하세요.',
+        hint: 'What did you …',
+        en: 'What did you **get up to** over the weekend? / I just **stayed in** and relaxed.',
+        nuance: '"get up to"는 "무엇을 하며 지내다"의 구어 표현입니다. "stay in"은 "집에 머물다"입니다.' }
+    ],
+    patterns: [
+      { ko: '카페·매장 주문', title: 'Can I get ~?',
+        subs: ['I', 'we', 'Could I'], tenses: ['현재', '과거(정중)', '미래(예정)'],
+        conds: ['a latte with just a little ice', 'a large iced Americano to go', 'two warm lattes to share'],
+        note: '같은 주문도 시제를 바꾸면 "지금 주문"(현재) → "조심스러운 부탁"(과거) → "예정된 주문"(미래)으로 결이 달라집니다.',
+        build(si, ti, ci) {
+          const c = this.conds[ci];
+          if (si === 0) return ti === 0 ? `Can I get ${c}?` : ti === 1 ? `I was wondering if I could get ${c}.` : `I'll have ${c}, please.`;
+          if (si === 1) return ti === 0 ? `Can we get ${c}?` : ti === 1 ? `We were wondering if we could get ${c}.` : `We'll have ${c}, please.`;
+          return ti === 0 ? `Could I get ${c}?` : ti === 1 ? `I was hoping I could get ${c}.` : `I'd like to get ${c}, please.`;
+        } },
+      { ko: '부탁하기', title: 'Could you ~ for me?',
+        subs: ['you', 'Could you', 'Would you be able to'], tenses: ['현재', '과거(공손)', '미래(나중에)'],
+        conds: ['check on my order', 'swap this out', 'take a look at this'],
+        note: '"Could you"와 "Would you be able to"는 같은 부탁도 격식이 다릅니다. 미래 시제를 고르면 "나중에"라는 여유를 줍니다.',
+        build(si, ti, ci) {
+          const c = this.conds[ci];
+          if (ti === 0) return si === 0 ? `Can you ${c} for me?` : si === 1 ? `Could you ${c} for me?` : `Would you be able to ${c} for me?`;
+          if (ti === 1) return si === 0 ? `I was wondering if you could ${c} for me.` : si === 1 ? `I was hoping you could ${c} for me.` : `I meant to ask if you could ${c} for me.`;
+          return si === 0 ? `Can you ${c} for me later today?` : si === 1 ? `Could you ${c} for me when you get a chance?` : `Would you be able to ${c} for me by tomorrow?`;
+        } },
+      { ko: '상태·감정 말하기', title: 'I\'m a bit ~',
+        subs: ['I', 'we', 'the team'], tenses: ['현재', '과거', '미래'],
+        conds: ['worn out from work', 'swamped this week', 'behind on things'],
+        note: '"a bit"은 강도를 낮추는 완충 장치입니다. 주체를 "the team"으로 바꾸면 개인 감정이 아니라 팀 상황 보고가 됩니다.',
+        build(si, ti, ci) {
+          const c = this.conds[ci];
+          const pres = ['I\'m', 'We\'re', 'The team\'s'][si];
+          const past = ['I was', 'We were', 'The team was'][si];
+          const fut = ['I think I\'ll be', 'I think we\'ll be', 'The team will probably be'][si];
+          return `${ti === 0 ? pres : ti === 1 ? past : fut} a bit ${c}.`;
+        } },
+      { ko: '일정 조율', title: 'Can we push ~?',
+        subs: ['we', 'I', 'you'], tenses: ['현재', '과거(양해)', '미래(단정)'],
+        conds: ['tomorrow\'s plan to next week', 'this meeting by an hour', 'the delivery to Friday'],
+        note: '"push A to B"는 날짜로, "push A by B"는 시간 간격으로 미룹니다. 주체를 "you"로 두면 상대에게 요청하는 문장이 됩니다.',
+        build(si, ti, ci) {
+          const c = this.conds[ci];
+          if (ti === 0) return si === 0 ? `Can we push ${c}?` : si === 1 ? `Can I push ${c}?` : `Can you push ${c}?`;
+          if (ti === 1) return si === 0 ? `I was hoping we could push ${c}.` : si === 1 ? `I was hoping I could push ${c}.` : `Were you able to push ${c}?`;
+          return si === 0 ? `Let's push ${c}.` : si === 1 ? `I'll push ${c} if that works.` : `Could you push ${c}?`;
+        } }
+    ],
+    projects: [
+      { id: 'd-p1', icon: '☕', title: '카페 주문 오류 교환', sub: '일상 · 3턴 롤플레이',
+        goal: '주문과 다른 음료를 받았을 때, 기분 상하지 않게 교환까지 이끌기',
+        turns: [
+          { who: '바리스타', partner: 'Hi there, what can I get for you today?',
+            ask: '따뜻한 라떼 한 잔을 주문하고, 얼음은 조금만 넣어 달라고 해 보세요.',
+            model: 'Hi, can I **get** a warm latte, / with **just** a little ice?',
+            note: '"Can I get~"으로 시작하면 곧바로 주문으로 들립니다. "just a little"을 붙여 범위를 좁히세요.' },
+          { who: '바리스타', partner: 'Here you go — one iced Americano.',
+            ask: '주문과 다른 음료라는 걸 정중히 알리고, 따뜻한 라떼로 교환을 요청하세요.',
+            model: 'Sorry, / I think this **isn\'t** what I ordered. / Could you **swap** it for a warm latte?',
+            note: '"I think"와 "Sorry"로 시작하면 상대를 탓하지 않는 지적이 됩니다.' },
+          { who: '바리스타', partner: 'Oh, my mistake. Sorry about that — I\'ll remake it right away.',
+            ask: '괜찮다고 말하고, 기다릴 수 있다고 전하세요.',
+            model: 'No worries, it happens. / I\'m **happy** to wait — thanks for fixing it.',
+            note: '"No worries, it happens"는 실수를 가볍게 넘겨 주는 표현입니다.' }
+        ] },
+      { id: 'd-p2', icon: '🛵', title: '배달 지연 문의 전화', sub: '일상 · 3턴 롤플레이',
+        goal: '배달이 늦어질 때 감정 없이 상황을 확인하고 도착 시간을 받아내기',
+        turns: [
+          { who: '가게 직원', partner: 'Thanks for calling. How can I help you?',
+            ask: '배달이 30분 넘게 늦어지고 있다고 말하고, 확인을 요청하세요.',
+            model: 'Hi, my delivery\'s **running** about thirty minutes late. / Could you **check** on it for me?',
+            note: '"running late"로 이미 진행 중인 지연임을 드러냅니다.' },
+          { who: '가게 직원', partner: 'Let me look that up. What\'s your order number?',
+            ask: '주문번호를 알려주고, 지금 배달원이 어디쯤인지 물어보세요.',
+            model: 'It\'s order **4821**. / Do you know where the driver is right now?',
+            note: '번호를 먼저 주고 질문을 붙이면 통화가 짧아집니다.' },
+          { who: '가게 직원', partner: 'The driver\'s about five minutes away. Sorry for the wait.',
+            ask: '기다릴 수 있다고 말하고 감사 인사를 전하세요.',
+            model: 'That\'s **fine** — thanks for checking. / I appreciate it.',
+            note: '"I appreciate it"은 전화 통화를 닫는 자연스러운 감사입니다.' }
+        ] }
+    ]
+  },
+
+  travel: {
+    key: 'travel', emoji: '✈️', name: '여행영어', en: 'Travel',
+    color: '#f7b955', dark: '#d98c14',
+    desc: '공항·입국심사 · 호텔 체크인 · 식당 주문과 알레르기 · 길 찾기 · 분실·환불·일정 변경',
+    cards: [
+      { id: 't1', scene: 'airport', tag: '공항 · 체크인',
+        sit: '체크인 카운터, 좌석을 고르는 순간',
+        ko: '가능하면 앞쪽 창가 자리로 달라고 요청하세요.',
+        hint: 'Could I get …',
+        en: 'Could I get a **window** seat, / **close** to the front if possible?',
+        nuance: '"if possible"을 뒤에 붙이면 요청이 한결 부드러워집니다. "close to the front"가 "앞쪽"입니다.' },
+      { id: 't2', scene: 'passport', tag: '입국심사',
+        sit: '입국심사대, 여권을 건네며',
+        ko: '관광으로 5일 머물고 시내 호텔에 묵는다고 답하세요.',
+        hint: 'I\'m here for …',
+        en: 'I\'m here for **five** days on vacation, / and I\'m **staying** at a hotel downtown.',
+        nuance: '입국심사에서는 목적·기간·숙소를 한 문장에 담으면 되묻는 질문이 줄어듭니다. "on vacation"이 목적입니다.' },
+      { id: 't3', scene: 'hotel', tag: '호텔 · 체크인',
+        sit: '호텔 프런트, 짐을 끌고 도착한 오후',
+        ko: '예약했다고 말하고 조기 체크인이 가능한지 물어보세요.',
+        hint: 'I have a reservation …',
+        en: 'I have a **reservation**. / Would **early** check-in be possible?',
+        nuance: '"Would ~ be possible?"은 호텔·항공 카운터에서 가장 격식 있는 요청 틀입니다.' },
+      { id: 't4', scene: 'hotel', tag: '호텔 · 시설 문제',
+        sit: '방에 들어왔는데 에어컨이 작동하지 않는 밤',
+        ko: '방 에어컨이 작동하지 않는다고 말하고 점검을 부탁하세요.',
+        hint: 'The air conditioning …',
+        en: 'The **air conditioning** in my room isn\'t working. / Could you have someone **take a look**?',
+        nuance: '"have someone take a look"은 "누군가를 보내 확인하게 하다"입니다. 문제를 사람 탓 없이 전달합니다.' },
+      { id: 't5', scene: 'restaurant', tag: '식당 · 알레르기',
+        sit: '식당에서 메뉴를 고르기 전, 알레르기 확인',
+        ko: '이 음식에 땅콩이 들어가는지 묻고, 알레르기가 있다고 말하세요.',
+        hint: 'Does this have …',
+        en: 'Does this dish have **peanuts**? / I\'m **allergic** to them.',
+        nuance: '"I\'m allergic to ~"가 가장 분명한 알레르기 표현입니다. "to them"은 앞의 peanuts를 받습니다.' },
+      { id: 't6', scene: 'restaurant', tag: '식당 · 주문 변경',
+        sit: '주문을 바꾸고 싶은 순간, 직원을 부르며',
+        ko: '이것을 다른 것으로 바꿀 수 있는지 물어보세요.',
+        hint: 'Could I swap …',
+        en: 'Could I **swap** this / for **something** else?',
+        nuance: '"swap A for B"는 이미 나온 주문을 바꿀 때 자연스럽습니다. "change"보다 구체적입니다.' },
+      { id: 't7', scene: 'street', tag: '길 찾기',
+        sit: '낯선 거리, 지하철역을 찾는 중',
+        ko: '여기서 지하철역까지 걸어서 갈 수 있는지 물어보세요.',
+        hint: 'Can I walk …',
+        en: 'Can I **walk** to the subway station / from here?',
+        nuance: '"from here"를 붙이면 "여기서부터"라는 기준점이 분명해집니다. 도보 가능 여부를 묻는 가장 짧은 틀입니다.' },
+      { id: 't8', scene: 'transit', tag: '교통 · 노선 확인',
+        sit: '버스 정류장, 시내로 가는 버스 앞',
+        ko: '이 버스가 시내 중심가로 가는지 물어보세요.',
+        hint: 'Does this bus …',
+        en: 'Does this bus **go** / downtown?',
+        nuance: '"downtown"은 부사로 쓰여 "시내로"가 됩니다. "go to downtown"이라고 하지 않습니다.' },
+      { id: 't9', scene: 'shop', tag: '환불 · 영수증',
+        sit: '어제 산 물건을 들고 매장에 다시 온 상황',
+        ko: '어제 샀다고 말하고, 영수증을 보이며 환불이 가능한지 물어보세요.',
+        hint: 'I bought this …',
+        en: 'I **bought** this yesterday. / Can I **get a refund**? I have the receipt.',
+        nuance: '"get a refund"가 "환불받다"입니다. 영수증이 있다는 말을 덧붙이면 처리가 빨라집니다.' },
+      { id: 't10', scene: 'airport', tag: '결항 · 재예약',
+        sit: '공항 안내데스크, 결항 안내를 받은 직후',
+        ko: '비행기가 취소됐다며 다음 편으로 바꿔 달라고 요청하세요.',
+        hint: 'My flight …',
+        en: 'My flight was **canceled**. / Could you **move** me to the next one?',
+        nuance: '"move me to ~"는 항공·호텔에서 "나를 ~로 옮겨 주다"입니다. "the next one"이 다음 편입니다.' }
+    ],
+    patterns: [
+      { ko: '허락 구하기', title: 'Is it okay if I ~?',
+        subs: ['I', 'we'], tenses: ['현재', '과거(공손)', '미래(의향)'],
+        conds: ['check in a little early', 'leave my bags at the front desk', 'move to an earlier flight'],
+        note: '주체를 "we"로 바꾸면 "my"가 "our"로 함께 움직입니다. "Is it okay if"는 금지 여부를 묻는 가장 부드러운 틀입니다.',
+        build(si, ti, ci) {
+          const base = this.conds[ci];
+          const c = si === 1 ? base.replace(/\bmy\b/g, 'our') : base;
+          const s = si === 1 ? 'we' : 'I';
+          if (ti === 0) return `Is it okay if ${s} ${c}?`;
+          if (ti === 1) return `${si === 1 ? 'We were' : 'I was'} wondering if it was okay if ${s} ${c}.`;
+          return `${si === 1 ? "We'd" : "I'd"} like to ${c} — would that be okay?`;
+        } },
+      { ko: '길 묻기', title: 'How do I get to ~?',
+        subs: ['I', 'we', 'you'], tenses: ['현재', '과거(공손)', '미래(최적 경로)'],
+        conds: ['the subway station', 'the old town', 'the airport bus stop'],
+        note: '질문 패턴에서 "과거"는 곧 공손체입니다. "Could you tell me ~"처럼 한 겹 감싸면 낯선 사람에게 묻기 좋습니다.',
+        build(si, ti, ci) {
+          const c = this.conds[ci];
+          if (ti === 0) return si === 0 ? `How do I get to ${c}?` : si === 1 ? `How do we get to ${c}?` : `How do you get to ${c} from here?`;
+          if (ti === 1) return si === 0 ? `Could you tell me how to get to ${c}?` : si === 1 ? `Could you tell us how to get to ${c}?` : `Could you show me the way to ${c}?`;
+          return si === 0 ? `What's the best way to get to ${c}?` : si === 1 ? `What's the easiest way for us to get to ${c}?` : `What's the fastest way to get to ${c}?`;
+        } },
+      { ko: '환불·교환', title: 'Could I get a refund?',
+        subs: ['this one', 'that one', 'the larger size'], tenses: ['현재', '과거(산 사실)', '미래(다시 올 계획)'],
+        conds: ['if it doesn\'t fit', 'if the seal is broken', 'if I change my mind'],
+        note: '"if ~" 조건을 붙이면 환불 규정을 확인하는 질문이 됩니다. 과거는 이미 산 사실, 미래는 다시 올 계획을 담습니다.',
+        build(si, ti, ci) {
+          const s = this.subs[si], c = this.conds[ci];
+          if (ti === 0) return `Could I get a refund for ${s} ${c}?`;
+          if (ti === 1) return `I bought ${s} yesterday. / Could I get a refund ${c}?`;
+          return `I'll bring ${s} back tomorrow. / Could I get a refund ${c}?`;
+        } },
+      { ko: '예약 가능 여부', title: 'Is there ~?',
+        subs: ['a table for two', 'a table by the window', 'a table outside'], tenses: ['현재', '과거(미리 확인)', '미래(나중)'],
+        conds: ['around seven', 'for tonight', 'after six'],
+        note: '"Is there ~?"로 지금 가능한지, "Will there be ~?"로 나중을 묻습니다. 전화로 미리 확인했을 때는 "I called earlier about ~"가 자연스럽습니다.',
+        build(si, ti, ci) {
+          const s = this.subs[si], c = this.conds[ci];
+          if (ti === 0) return `Is there ${s} ${c}?`;
+          if (ti === 1) return `I called earlier about ${s} ${c}.`;
+          return `Will there be ${s} ${c}?`;
+        } }
+    ],
+    projects: [
+      { id: 't-p1', icon: '🍽️', title: '식당 주문과 알레르기', sub: '여행 · 3턴 롤플레이',
+        goal: '알레르기를 숨기지 않고 메뉴를 안전하게 고르기',
+        turns: [
+          { who: '서버', partner: 'Good evening. Are you ready to order?',
+            ask: '바로 주문하지 말고 추천을 부탁하면서, 땅콩 알레르기가 있다고 먼저 밝히세요.',
+            model: 'Almost — / could you **recommend** something? / I\'m **allergic** to peanuts.',
+            note: '알레르기는 메뉴를 고르기 전에 먼저 말해야 안전합니다.' },
+          { who: '서버', partner: 'The pad thai is popular, but it has peanuts. The green curry doesn\'t.',
+            ask: '그린 커리로 주문하고, 맵기를 조절할 수 있는지 물어보세요.',
+            model: 'Then I\'ll have the **green curry**. / Can you make it **mild**?',
+            note: '"I\'ll have ~"는 식당에서 가장 자연스러운 주문입니다.' },
+          { who: '서버', partner: 'Sure, mild it is. Anything to drink?',
+            ask: '물 한 잔을 부탁하고 감사 인사를 전하세요.',
+            model: 'Just **water**, please. / Thanks a lot.',
+            note: '"Just water"처럼 "just"를 붙이면 "물이면 충분해요"라는 가벼운 뉘앙스가 됩니다.' }
+        ] },
+      { id: 't-p2', icon: '🏨', title: '호텔 체크인과 조기 체크인', sub: '여행 · 3턴 롤플레이',
+        goal: '방이 아직 준비되지 않아도 짐과 시간을 확보하기',
+        turns: [
+          { who: '프런트', partner: 'Good afternoon. Checking in?',
+            ask: '예약했다고 말하고, 조기 체크인이 가능한지 물어보세요.',
+            model: 'Yes, I have a **reservation**. / Would **early** check-in be possible?',
+            note: '"Yes"로 시작해 질문에 먼저 답한 뒤 요청을 붙입니다.' },
+          { who: '프런트', partner: 'Your room isn\'t ready until 3, but I can hold your bags.',
+            ask: '짐을 맡아 준다니 고맙다고 하고, 근처에 걸어 볼 곳을 추천해 달라고 하세요.',
+            model: 'That **works** — thank you. / Could you suggest somewhere nearby to walk around?',
+            note: '"That works"는 상대 제안을 받아들이는 짧은 표현입니다.' },
+          { who: '프런트', partner: 'The riverside market is a ten-minute walk. I\'ll text you when the room is ready.',
+            ask: '알겠다고 말하고, 안내에 감사 인사를 전하세요.',
+            model: '**Perfect**, I\'ll head there. / Thanks for your help.',
+            note: '"I\'ll head there"는 "그쪽으로 갈게요"라는 계획 표현입니다.' }
+        ] }
+    ]
+  },
+
+  business: {
+    key: 'business', emoji: '💼', name: '비즈니스', en: 'Business',
+    color: '#a78bfa', dark: '#7c5cf0',
+    desc: '회의 일정 변경·리마인드 · 제안과 동의/반대 · 진행 보고 · 이메일 후속 · 감사 검토 대응',
+    cards: [
+      { id: 'b1', scene: 'meeting', tag: '회의 · 30분 지연',
+        sit: '회의 시작 30분 전, 참석자에게 전화',
+        ko: '죄송하다고 말하고, 회의를 30분 늦춰도 되는지 물어보세요.',
+        hint: 'I\'m sorry, …',
+        en: 'I\'m **sorry**, / but could we **push** the meeting back thirty minutes?',
+        nuance: '"push back"은 일정을 뒤로 미루는 업무 표현입니다. "I\'m sorry, but ~"이 사과와 요청을 한 번에 잇습니다.' },
+      { id: 'b2', scene: 'meeting', tag: '회의 · 리마인드',
+        sit: '회의 전날, 팀에 짧게 알리는 메시지',
+        ko: '내일 오전 10시 회의를 잊지 말라고 짧게 알리세요.',
+        hint: 'Just a quick reminder …',
+        en: 'Just a **quick** reminder / about tomorrow\'s **10 a.m.** meeting.',
+        nuance: '"Just a quick reminder"는 이메일·메신저에서 가장 흔한 리마인드 도입입니다.' },
+      { id: 'b3', scene: 'office', tag: '제안 · 우선순위',
+        sit: '분기 리뷰 회의, 우선순위를 정하는 자리',
+        ko: '이번 분기에는 이 지표를 먼저 보자고 제안하세요.',
+        hint: 'For this quarter, …',
+        en: 'For this **quarter**, / I\'d suggest we **look** at this metric first.',
+        nuance: '"I\'d suggest we ~"는 단정하지 않는 제안입니다. "For this quarter"를 앞에 두면 범위가 분명해집니다.' },
+      { id: 'b4', scene: 'meeting', tag: '동의 · 우려',
+        sit: '동료 의견에 동의하면서 우려를 덧붙이는 순간',
+        ko: '동의한다고 말하고, 일정이 걱정이라고 덧붙이세요.',
+        hint: 'I agree with you. …',
+        en: 'I **agree** with you. / My only **concern** is the timeline.',
+        nuance: '"My only concern is ~"는 반대가 아니라 확인 요청으로 들립니다. "only"가 완충 역할을 합니다.' },
+      { id: 'b5', scene: 'meeting', tag: '반대 · 리스크',
+        sit: '방향은 이해되지만 리스크가 커 보이는 자리',
+        ko: '상대 논리를 이해한다고 말하고, 리스크가 너무 커 보인다고 말하세요.',
+        hint: 'I see where …',
+        en: 'I **see** where you\'re coming from, / but the **risk** feels too high.',
+        nuance: '"I see where you\'re coming from"은 "무슨 말인지 이해한다"의 관용 표현입니다. "feels"를 쓰면 단정이 줄어듭니다.' },
+      { id: 'b6', scene: 'office', tag: '진행 · 상태 보고',
+        sit: '진행 상황을 짧게 보고하는 자리',
+        ko: '80% 완료했고 금요일까지 마무리될 것 같다고 보고하세요.',
+        hint: 'Quick update: …',
+        en: '**Quick** update: / we\'re about **80 percent** done / and should wrap up by Friday.',
+        nuance: '"wrap up"은 "마무리하다"입니다. 숫자를 먼저 말하면 보고가 짧아집니다.' },
+      { id: 'b7', scene: 'phone', tag: '이메일 · 후속',
+        sit: '지난주에 보낸 메일에 답이 없는 상황',
+        ko: '지난주 메일에 아직 회신을 못 받았다고 말하세요.',
+        hint: 'I haven\'t heard back …',
+        en: 'I **haven\'t** heard back / on the email I sent last week.',
+        nuance: '"hear back"은 "회신을 받다"입니다. "on the email"로 대상을 붙입니다.' },
+      { id: 'b8', scene: 'office', tag: '협업 · 검토 요청',
+        sit: '동료에게 검토를 부탁하는 자리',
+        ko: '이 부분을 검토해 줄 수 있는지 묻고, 내일까지면 된다고 말하세요.',
+        hint: 'Would you mind …',
+        en: 'Would you **mind** taking a look at this? / Tomorrow would be **fine**.',
+        nuance: '"Would you mind ~ing?"는 "~해 주시겠어요?"의 정중한 틀입니다. 대답은 "Sure"가 자연스럽습니다.' },
+      { id: 'b9', scene: 'docs', tag: '감사 · 보류 항목',
+        sit: '감사 결과를 정리하며 보류 항목을 설명하는 자리',
+        ko: '증빙이 부족해서 이 항목을 보류했다고 설명하세요.',
+        hint: 'We held …',
+        en: 'We **held** this item / because the **supporting** documents were insufficient.',
+        nuance: '"hold an item"은 "항목을 보류하다"입니다. "supporting documents"가 증빙 서류입니다.' },
+      { id: 'b10', scene: 'meeting', tag: '감사 · 통제 확인',
+        sit: '감사인이 통제 절차를 확인하는 자리',
+        ko: '이 통제가 실제로 어떻게 작동하는지 예를 들어 설명해 달라고 요청하세요.',
+        hint: 'Could you walk me through …',
+        en: 'Could you **walk** me through / how this **control** actually works?',
+        nuance: '"walk someone through"는 "차근차근 설명해 주다"입니다. 감사·검토 자리에서 자주 쓰입니다.' }
+    ],
+    patterns: [
+      { ko: '일정 변경', title: 'Could we push ~?',
+        subs: ['we', 'I', 'the team'], tenses: ['현재', '과거(양해)', '미래(단정)'],
+        conds: ['the meeting back thirty minutes', 'the call to Thursday', 'the review to next week'],
+        note: '"push back"은 시간을, "push to"는 날짜를 미룹니다. "Let\'s"는 팀 안에서, "Could we"는 상대 일정을 존중할 때 씁니다.',
+        build(si, ti, ci) {
+          const c = this.conds[ci];
+          if (ti === 0) return si === 0 ? `Could we push ${c}?` : si === 1 ? `Could I push ${c}?` : `Could the team push ${c}?`;
+          if (ti === 1) return si === 0 ? `I meant to ask if we could push ${c}.` : si === 1 ? `I was hoping I could push ${c}.` : `I asked earlier if the team could push ${c}.`;
+          return si === 0 ? `Let's push ${c}.` : si === 1 ? `I'll push ${c} if that works.` : `The team will push ${c}.`;
+        } },
+      { ko: '동의와 반대', title: 'I agree, but ~',
+        subs: ['I', 'we'], tenses: ['현재', '과거(처음엔)', '미래(조건부 지지)'],
+        conds: ['the timeline is tight', 'the evidence isn\'t complete yet', 'we may be underestimating the risk'],
+        note: '동의를 먼저 주고 "but" 뒤에 우려를 두면, 반대가 아니라 검토 요청으로 들립니다.',
+        build(si, ti, ci) {
+          const c = this.conds[ci];
+          const s = si === 0 ? 'I' : 'We';
+          if (ti === 0) return `${s} agree with the direction, / but ${c}.`;
+          if (ti === 1) return `${s} agreed at first, / but ${c}.`;
+          return `${si === 0 ? 'I' : 'We'}'ll support it, / but ${c}.`;
+        } },
+      { ko: '진행 보고', title: 'We\'re about ~ done',
+        subs: ['the audit prep', 'the reconciliation', 'the report'], tenses: ['현재', '과거(어제 기준)', '미래(완료 시점)'],
+        conds: ['80 percent', '60 percent', '90 percent'],
+        note: '진행률은 "about 80 percent done"처럼 말합니다. 과거는 어제 기준, 미래는 완료 시점을 담습니다.',
+        build(si, ti, ci) {
+          const s = this.subs[si], c = this.conds[ci];
+          if (ti === 0) return `${s[0].toUpperCase() + s.slice(1)} is about ${c} done.`;
+          if (ti === 1) return `${s[0].toUpperCase() + s.slice(1)} was about ${c} done yesterday.`;
+          return `${s[0].toUpperCase() + s.slice(1)} should be ${c} done by Friday.`;
+        } },
+      { ko: '절차 설명 요청', title: 'Could you walk me through ~?',
+        subs: ['this control', 'this process', 'this approval'], tenses: ['현재', '과거(이미 요청)', '미래(회의 전)'],
+        conds: ['step by step', 'with an example', 'in the system'],
+        note: '"walk someone through"는 차근차근 설명해 달라는 요청입니다. 과거는 이미 요청한 사실, 미래는 회의 전까지의 기한을 담습니다.',
+        build(si, ti, ci) {
+          const s = this.subs[si], c = this.conds[ci];
+          if (ti === 0) return `Could you walk me through ${s} ${c}?`;
+          if (ti === 1) return `I asked earlier if you could walk me through ${s} ${c}.`;
+          return `Could you walk us through ${s} ${c} before the meeting?`;
+        } }
+    ],
+    projects: [
+      { id: 'b-p1', icon: '⏰', title: '회의 30분 지연 안내와 새 시간 제안', sub: '비즈니스 · 3턴 롤플레이',
+        goal: '사과와 대안을 한 번에 주고, 참석자 공유까지 맡기기',
+        turns: [
+          { who: 'Min (감사팀)', partner: 'Hi, this is Min from the audit team. We\'re set for 2 p.m., right?',
+            ask: '죄송하다고 말하고, 회의를 30분 늦출 수 있는지 물어보세요.',
+            model: 'Hi Min — I\'m **sorry**, / but could we **push** the meeting back thirty minutes?',
+            note: '"I\'m sorry, but could we ~"는 사과와 요청을 한 문장에 담습니다.' },
+          { who: 'Min (감사팀)', partner: '2:30 works for me. Should I tell the others?',
+            ask: '그렇게 해 달라고 하고, 2시 30분으로 옮겼다고 모두에게 알려 달라고 부탁하세요.',
+            model: 'Yes, **please**. / Could you let everyone know we\'ve moved to 2:30?',
+            note: '"let everyone know"는 "모두에게 알리다"의 업무 표현입니다.' },
+          { who: 'Min (감사팀)', partner: 'Will do. Anything I should prepare?',
+            ask: '지난 분기 증빙 자료를 준비해 달라고 요청하세요.',
+            model: 'Thanks. / Could you bring last quarter\'s **supporting** documents?',
+            note: '"bring"을 쓰면 회의 자리로 가져오라는 뜻이 분명해집니다.' }
+        ] },
+      { id: 'b-p2', icon: '📋', title: '진행 상황 보고와 리스크 제기', sub: '비즈니스 · 3턴 롤플레이',
+        goal: '숫자로 보고하고, 증빙 부족 리스크를 함께 올리기',
+        turns: [
+          { who: '팀장', partner: 'How\'s the audit prep going?',
+            ask: '80% 완료했고 금요일까지 마무리될 것 같다고 보고하세요.',
+            model: '**Quick** update: / we\'re about 80 percent done / and should wrap up by Friday.',
+            note: '숫자 → 기한 순서로 말하면 보고가 짧고 분명해집니다.' },
+          { who: '팀장', partner: 'Great. Any concerns?',
+            ask: '증빙이 부족한 항목이 있어 리스크가 있다고 말하세요.',
+            model: 'One **concern** — / a few items are missing supporting documents.',
+            note: '"One concern"으로 시작하면 우려를 하나로 좁혀 전달합니다.' },
+          { who: '팀장', partner: 'Which items? I can chase them down.',
+            ask: '목록을 보내겠다고 하고, 내일까지 회신해 달라고 부탁하세요.',
+            model: 'I\'ll **send** you the list. / Could you get back to me by tomorrow?',
+            note: '"get back to me"는 "회신해 주다"의 가장 흔한 업무 표현입니다.' }
+        ] }
+    ]
+  }
+};
+
+/* ============================================================
+   3) 저장소 · 상태
+   ============================================================ */
+const LS_KEY = 'echoRecallStudio.v1';
+const LS_THEME = 'echoRecallStudio.theme';
+/* 4개국 억양 — voice.lang 매칭·발화 lang의 기준 */
+const ACCENTS = [
+  { key: 'en-US', flag: '🇺🇸', name: '미국' },
+  { key: 'en-GB', flag: '🇬🇧', name: '영국' },
+  { key: 'en-AU', flag: '🇦🇺', name: '호주' },
+  { key: 'en-IN', flag: '🇮🇳', name: '인도' }
+];
+function accentDef(key) { return ACCENTS.find(a => a.key === key) || ACCENTS[0]; }
+const DAY = 1440; /* 분 단위 하루 */
+let memStore = null;
+
+function readStore() {
+  try { const raw = localStorage.getItem(LS_KEY); return raw ? JSON.parse(raw) : null; }
+  catch (e) { return memStore; }
+}
+function writeStore(v) {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(v)); } catch (e) { memStore = v; }
+}
+const _saved = readStore() || {};
+const st = {
+  track: _saved.track || 'daily',
+  mode: _saved.mode || 'recall',
+  accent: ACCENTS.some(a => a.key === _saved.accent) ? _saved.accent : 'en-US',
+  /* 억양별로 마지막에 고른 음성 이름 (localStorage 저장) */
+  voices: (_saved.voices && typeof _saved.voices === 'object' && !Array.isArray(_saved.voices)) ? _saved.voices : {},
+  srs: _saved.srs || {},
+  days: _saved.days || {},
+  proj: _saved.proj || {}
+};
+function save() { writeStore(st); }
+
+const view = { cardId: null, revealed: false, hint: false, chal: false, drill: {}, proj: 0, model: {}, voice: null };
+
+/* ============================================================
+   4) 유틸
+   ============================================================ */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+}
+function todayStr(d = new Date()) {
+  const p = n => String(n).padStart(2, '0');
+  return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+}
+function srsOf(id) {
+  const s = st.srs[id];
+  return s ? Object.assign({}, s) : { ease: 2.5, ivl: 0, due: 0, reps: 0, lapses: 0 };
+}
+function fmtIvl(min) {
+  if (min < 60) return Math.max(1, Math.round(min)) + '분';
+  if (min < DAY) return Math.round(min / 60) + '시간';
+  const d = min / DAY;
+  if (d < 30) return Math.round(d) + '일';
+  return Math.round(d / 30) + '개월';
+}
+function nextIvl(id, rating) {
+  const s = srsOf(id);
+  if (rating === 'again') return 1;
+  if (!s.reps || s.ivl < 1) return rating === 'hard' ? DAY : rating === 'good' ? 3 * DAY : 7 * DAY;
+  const days = s.ivl / DAY;
+  if (rating === 'hard') return Math.max(0.7, days * 1.2) * DAY;
+  if (rating === 'good') return Math.max(2, days * s.ease) * DAY;
+  return Math.max(3, days * s.ease * 1.3) * DAY;
+}
+function queueOf(track) {
+  const cards = TRACKS[track].cards.slice();
+  return cards.sort((a, b) => (srsOf(a.id).due - srsOf(b.id).due) || (a.id < b.id ? -1 : 1));
+}
+function dueOf(track) {
+  const n = Date.now();
+  return TRACKS[track].cards.filter(c => srsOf(c.id).due <= n);
+}
+function dueTotal() {
+  return Object.keys(TRACKS).reduce((a, k) => a + dueOf(k).length, 0);
+}
+function streak() {
+  let n = 0; const d = new Date();
+  if (!st.days[todayStr(d)]) d.setDate(d.getDate() - 1);
+  for (let i = 0; i < 800; i++) {
+    if (st.days[todayStr(d)]) { n++; d.setDate(d.getDate() - 1); } else break;
+  }
+  return n;
+}
+function renderEn(en) {
+  return en.split('/').map(part => {
+    const html = esc(part.trim()).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+    return '<span class="chunk">' + html + '</span>';
+  }).join('<span class="sl">/</span>');
+}
+function plain(en) {
+  return en.replace(/\*\*/g, '').replace(/\s*\/\s*/g, ' ');
+}
+let toastTimer = null;
+function toast(msg) {
+  const t = $('#toast');
+  t.textContent = msg; t.classList.add('on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('on'), 2200);
+}
+function headerH() {
+  const h = document.querySelector('.topbar');
+  return h ? Math.round(h.getBoundingClientRect().height) : 200;
+}
+function scrollToEl(el) {
+  if (!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY - headerH() - 10;
+  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+}
+
+/* ============================================================
+   5) 테마
+   ============================================================ */
+const TC_LIGHT = { daily: ['#0a8f7e', '#067260'], travel: ['#a26a00', '#7a4f00'], business: ['#5d43d6', '#432fb0'] };
+function applyTrackColor() {
+  const tr = TRACKS[st.track];
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  const pair = isLight ? TC_LIGHT[tr.key] : [tr.color, tr.dark];
+  document.documentElement.style.setProperty('--tc', pair[0]);
+  document.documentElement.style.setProperty('--tc-d', pair[1]);
+}
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  const b = $('#themeBtn');
+  if (b) { b.textContent = t === 'dark' ? '🌙' : '☀️'; b.setAttribute('aria-label', t === 'dark' ? '라이트 테마로 전환' : '다크 테마로 전환'); }
+  const m = document.querySelector('meta[name="theme-color"]');
+  if (m) m.setAttribute('content', t === 'dark' ? '#070b14' : '#eef2f9');
+  try { localStorage.setItem(LS_THEME, t); } catch (e) { }
+  if (typeof TRACKS !== 'undefined') applyTrackColor();
+}
+function initTheme() {
+  let t = null;
+  try { t = localStorage.getItem(LS_THEME); } catch (e) { }
+  if (!t) t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+  applyTheme(t);
+}
+
+/* ============================================================
+   6) 음성 (Web Speech API) — 4개국 억양 · 5회 루프
+   ============================================================ */
+const TTS = { token: 0 };
+const PLAN = [
+  { r: 1, rate: 0.98, label: '기본 속도' },
+  { r: 2, rate: 0.98, label: '기본 속도' },
+  { r: 3, rate: 0.85, label: '느리게 쉐도잉', gap: 1000 },
+  { r: 4, rate: 0.85, label: '느리게 쉐도잉', gap: 1000 },
+  { r: 5, rate: 1.0, label: '원속도' }
+];
+function ttsOK() {
+  return typeof window.speechSynthesis !== 'undefined' && typeof window.SpeechSynthesisUtterance !== 'undefined';
+}
+/* lang 비교는 대소문자·-/_ 차이를 무시한다 (en_US / EN-gb 모두 같은 억양) */
+function normLang(l) { return String(l || '').replace(/_/g, '-').trim().toLowerCase(); }
+function sameAccent(lang, key) {
+  const a = normLang(lang), b = normLang(key);
+  return a === b || a.indexOf(b + '-') === 0;
+}
+function voicesAll() {
+  if (!ttsOK()) return [];
+  try { return window.speechSynthesis.getVoices() || []; } catch (e) { return []; }
+}
+function voicesForAccent(key) {
+  return voicesAll().filter(v => sameAccent(v.lang, key));
+}
+function updateAccentUI() {
+  const cur = accentDef(st.accent);
+  $$('.acc').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.accent === st.accent)));
+  const c = $('#accCur');
+  if (c) c.textContent = cur.flag + ' ' + cur.name + ' (' + cur.key + ')';
+  const w = $('#accWarn');
+  if (w) w.classList.toggle('on', ttsOK() && voicesForAccent(st.accent).length === 0);
+}
+function updateVoiceLang() {
+  const el = $('#voiceLang');
+  if (el) el.textContent = st.accent + ' · 5회';
+}
+/* ------------------------------------------------------------
+   VOICE 드롭다운 — 4개국 억양 전체를 optgroup 으로 한 번에
+   · option value = "accent|voiceName" (음성이 없으면 "accent|__fallback__")
+   · 상단 억양 4필과 양방향 동기화 + 억양별 선택 음성을 localStorage 에 저장
+   ------------------------------------------------------------ */
+const VOICE_FALLBACK = '__fallback__';
+function savedVoice(acc) {
+  const v = st.voices && st.voices[acc];
+  return (typeof v === 'string' && v) ? v : null;
+}
+function setSavedVoice(acc, name) {
+  if (!st.voices) st.voices = {};
+  if (!name || name === VOICE_FALLBACK) { delete st.voices[acc]; return; }
+  st.voices[acc] = name;
+}
+/* 그 억양에서 지금 보여 줄(=발화에 쓸) 음성 이름 */
+function fillVoices() {
+  const sel = $('#voiceSel');
+  const vsAll = voicesAll();
+  let dirty = false;
+  const groups = ACCENTS.map(a => {
+    const vs = vsAll.filter(v => sameAccent(v.lang, a.key));
+    const saved = savedVoice(a.key);
+    let pick = VOICE_FALLBACK;
+    if (vs.length) {
+      const v = vs.find(x => x.name === saved) || vs.find(x => x.default) || vs[0];
+      pick = v.name;
+      /* 저장된 음성이 사라졌으면 지금 고를 수 있는 음성으로 정리 */
+      if (saved !== pick) { setSavedVoice(a.key, pick); dirty = true; }
+    }
+    return { a, vs, pick };
+  });
+  if (dirty) save();
+  const cur = groups.find(g => g.a.key === st.accent) || groups[0];
+  if (sel) {
+    sel.innerHTML = groups.map(g => {
+      const head = '<optgroup label="' + esc(g.a.flag + ' ' + g.a.name + ' (' + g.a.key + ')') + '">';
+      const body = g.vs.length
+        ? g.vs.map(v => '<option value="' + esc(g.a.key + '|' + v.name) + '">' + esc(v.name) + ' (' + esc(v.lang) + ')</option>').join('')
+        : '<option value="' + esc(g.a.key + '|' + VOICE_FALLBACK) + '">' + esc(g.a.flag + ' ' + g.a.name + ' (기본 음성으로 재생)') + '</option>';
+      return head + body + '</optgroup>';
+    }).join('');
+    sel.disabled = false;
+    /* 현재 억양의 저장된(또는 첫) 음성을 선택 상태로 */
+    sel.value = cur.a.key + '|' + cur.pick;
+    if (sel.selectedIndex < 0 && sel.options.length) sel.selectedIndex = 0;
+    view.voice = cur.pick === VOICE_FALLBACK ? null : cur.pick;
+  }
+  updateAccentUI();
+  updateVoiceLang();
+}
+function pickedVoice() {
+  const vs = voicesForAccent(st.accent);
+  if (!vs.length) return null;
+  const sel = $('#voiceSel');
+  if (sel) {
+    const raw = String(sel.value || '');
+    const i = raw.indexOf('|');
+    if (i > 0 && raw.slice(0, i) === st.accent) {
+      const v = vs.find(x => x.name === raw.slice(i + 1));
+      if (v) return v;
+    }
+  }
+  return vs.find(x => x.name === savedVoice(st.accent)) || null;
+}
+/* VOICE 드롭다운에서 고른 값 적용 — 억양 필·저장소·발화 언어를 함께 맞춘다 */
+function applyVoicePick(acc, name) {
+  if (!ACCENTS.some(a => a.key === acc)) return;
+  const vs = voicesForAccent(acc);
+  const accentChanged = acc !== st.accent;
+  st.accent = acc;
+  setSavedVoice(acc, vs.some(v => v.name === name) ? name : VOICE_FALLBACK);
+  save();
+  stopTTS();
+  fillVoices();
+  const d = accentDef(acc);
+  const vn = (name && name !== VOICE_FALLBACK && vs.some(v => v.name === name)) ? name : '기본 음성';
+  toast(accentChanged
+    ? '억양 · ' + d.flag + ' ' + d.name + ' (' + acc + ') · ' + vn
+    : '음성 · ' + d.flag + ' ' + vn + ' (' + acc + ')');
+}
+function setAccent(key) {
+  if (!ACCENTS.some(a => a.key === key)) return;
+  const changed = key !== st.accent;
+  st.accent = key;
+  save();
+  if (changed) stopTTS();
+  view.voice = savedVoice(key);
+  /* 필을 눌러도 VOICE 드롭다운이 그 억양의 저장 음성(없으면 첫 음성/기본)으로 맞춰진다 */
+  fillVoices();
+  if (changed) {
+    const d = accentDef(key);
+    toast('억양 · ' + d.flag + ' ' + d.name + ' (' + key + ')');
+  }
+}
+function utter(text, rate, done) {
+  const cb = done || function () { };
+  if (!ttsOK()) {
+    const w = text.trim().split(/\s+/).length;
+    setTimeout(cb, Math.max(400, Math.round(w * 160)));
+    return;
+  }
+  let u;
+  try { u = new SpeechSynthesisUtterance(text); } catch (e) { setTimeout(cb, 800); return; }
+  const v = pickedVoice();
+  if (v) u.voice = v;
+  /* 음성이 없어도 선택한 억양의 locale로 발화를 시도한다 */
+  u.lang = v ? (v.lang || st.accent) : st.accent;
+  u.rate = rate; u.pitch = 1; u.volume = 1;
+  let fin = false;
+  let tm = null;
+  const end = () => { if (fin) return; fin = true; if (tm) clearTimeout(tm); cb(); };
+  const words = text.trim().split(/\s+/).length;
+  const ms = Math.min(9000, Math.max(1200, Math.round(words * 430 / rate))) + 450;
+  tm = setTimeout(end, ms);
+  u.onend = end; u.onerror = end;
+  try { window.speechSynthesis.speak(u); } catch (e) { end(); }
+}
+function stopTTS() {
+  TTS.token++;
+  try { if (ttsOK()) window.speechSynthesis.cancel(); } catch (e) { }
+}
+function setBadge(el, txt, idle) {
+  if (!el) return;
+  el.innerHTML = txt;
+  el.classList.toggle('idle', !!idle);
+}
+async function runFive(text, badgeId) {
+  stopTTS();
+  const my = ++TTS.token;
+  const badge = badgeId ? document.getElementById(badgeId) : null;
+  for (const p of PLAN) {
+    if (my !== TTS.token) return;
+    if (p.gap) await new Promise(r => setTimeout(r, p.gap));
+    if (my !== TTS.token) return;
+    setBadge(badge, '<span class="pulse"></span>🔊 ' + p.r + '/5회 · ' + p.label, false);
+    await new Promise(res => utter(text, p.rate, res));
+  }
+  if (my !== TTS.token) return;
+  setBadge(badge, '✅ 5회 완료 · 이제 직접 말해 보세요', false);
+}
+
+/* ============================================================
+   7) 헤더 · 큐 · 진행률
+   ============================================================ */
+function renderHeader() {
+  const tr = TRACKS[st.track];
+  applyTrackColor();
+  $('#statDue').textContent = dueOf(st.track).length;
+  $('#statStreak').textContent = streak();
+  const mast = tr.cards.filter(c => srsOf(c.id).ivl >= 7 * DAY).length;
+  $('#statMastered').textContent = Math.round(mast / tr.cards.length * 100) + '%';
+  $$('#trackTabs .ttab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.track === st.track)));
+  $$('#modeTabs .mtab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.mode === st.mode)));
+  $$('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + st.mode));
+}
+function cueHTML(extra) {
+  const tr = TRACKS[st.track];
+  return '<span class="dot"></span><b>' + tr.emoji + ' ' + esc(tr.name) + '</b>' +
+    '<span class="sep">·</span><span>' + esc(tr.en) + '</span>' +
+    '<span class="sep">·</span><span>' + extra + '</span>';
+}
+function progressHTML() {
+  const tr = TRACKS[st.track];
+  const n = tr.cards.length;
+  const mast = tr.cards.filter(c => srsOf(c.id).ivl >= 7 * DAY).length;
+  const learn = tr.cards.filter(c => { const s = srsOf(c.id); return s.reps > 0 && s.ivl < 7 * DAY; }).length;
+  const fresh = n - mast - learn;
+  return '<div class="pwrap"><div class="lbl"><span>숙달 ' + mast + ' · 학습 중 ' + learn + ' · 새 카드 ' + fresh + '</span><span>' + Math.round(mast / n * 100) + '%</span></div>' +
+    '<div class="pbar" aria-hidden="true"><i class="p-mastered" style="width:' + (mast / n * 100) + '%"></i><i class="p-learning" style="width:' + (learn / n * 100) + '%"></i></div></div>';
+}
+
+/* ============================================================
+   8) 모드 1 — 능동 회상 · 5회 듣기
+   ============================================================ */
+let chalTimer = null;
+function renderRecall() {
+  const tr = TRACKS[st.track];
+  const q = queueOf(st.track);
+  const card = q.find(c => c.id === view.cardId) || q[0];
+  if (!card) return;
+  view.cardId = card.id;
+  const s = srsOf(card.id);
+  const idx = tr.cards.findIndex(c => c.id === card.id) + 1;
+  const isDue = s.due <= Date.now();
+  const stateChip = isDue
+    ? '<span class="chip due">오늘 복습</span>'
+    : (s.reps ? '<span class="chip">다음 ' + fmtIvl(Math.max(1, (s.due - Date.now()) / 60000)) + ' 뒤</span>' : '<span class="chip">새 카드</span>');
+
+  $('#recallCue').innerHTML = cueHTML('오늘 복습 ' + dueOf(st.track).length + '장 · 전체 ' + dueTotal() + '장');
+  $('#recallBody').innerHTML =
+    progressHTML() +
+    '<article class="card" data-card="' + card.id + '">' +
+      '<div class="scene">' + sceneSVG(card.scene, card.id, card.tag) + '<span class="sceneTag">' + esc(card.tag) + '</span></div>' +
+      '<div class="pad">' +
+        '<div class="meta">' +
+          '<span class="chip tc">' + tr.emoji + ' ' + esc(tr.name) + '</span>' +
+          '<span class="chip">' + idx + ' / ' + tr.cards.length + '</span>' + stateChip +
+        '</div>' +
+        '<div class="steps" aria-hidden="true">' +
+          '<span class="stp ' + (view.revealed ? 'done' : 'on') + '">1 노출</span><span class="ar">›</span>' +
+          '<span class="stp ' + (view.revealed ? 'done' : '') + '">2 정답·5회</span><span class="ar">›</span>' +
+          '<span class="stp ' + (view.revealed ? 'on' : '') + '">3 쉐도잉</span><span class="ar">›</span>' +
+          '<span class="stp">4 평가</span>' +
+        '</div>' +
+        '<p class="ko-sit">' + esc(card.sit) + '</p>' +
+        '<p class="ko-target"><span class="tg">목표</span>' + esc(card.ko) + '</p>' +
+        '<div class="toolrow">' +
+          '<button class="tool" type="button" id="chalBtn" aria-pressed="' + (view.chal ? 'true' : 'false') + '">⏱️ 3초 챌린지 ' + (view.chal ? 'ON' : 'OFF') + '</button>' +
+          '<button class="tool" type="button" id="hintBtn" aria-pressed="' + (view.hint ? 'true' : 'false') + '">💡 첫 단어 힌트</button>' +
+        '</div>' +
+        '<div class="chal' + (view.chal ? ' on' : '') + '" id="chalBox">' +
+          '<div class="row"><span id="chalLbl">3초 안에 말해 보세요</span><b id="chalTime">3.0s</b></div>' +
+          '<div class="bar"><i></i></div>' +
+        '</div>' +
+        '<div class="hintbox' + (view.hint ? ' on' : '') + '" id="hintBox"><span class="k">FIRST WORDS</span>' + esc(card.hint) + '</div>' +
+        '<button class="btn-primary" type="button" id="revealBtn"' + (view.revealed ? ' hidden' : '') + '>🎧 정답 확인 + 5회 듣기</button>' +
+        '<div class="answer' + (view.revealed ? ' on' : '') + '" id="answerBox">' +
+          '<p class="en">' + renderEn(card.en) + '</p>' +
+          '<p class="nuance"><b>뉘앙스</b> · ' + esc(card.nuance) + '</p>' +
+          '<div class="ttsbar">' +
+            '<div class="ttshead"><span class="roundbadge idle" id="roundBadge">🔊 대기 중</span><span id="voiceLang" style="font-size:10px;font-weight:800;color:var(--tx3)">' + st.accent + ' · 5회</span></div>' +
+            '<div class="ttsctl">' +
+              '<button type="button" class="stop" id="stopBtn">⏸ 중지</button>' +
+              '<button type="button" id="againBtn">🔁 다시 5회</button>' +
+              '<button type="button" id="onceBtn">🔊 1회</button>' +
+            '</div>' +
+            '<div class="voicerow"><label for="voiceSel">VOICE</label><select id="voiceSel"></select></div>' +
+            '<div class="ttswarn" id="ttsWarn">이 브라우저에서는 음성 합성을 쓸 수 없습니다. 문장을 소리 내어 직접 읽어 보세요.</div>' +
+          '</div>' +
+          '<div class="shadow"><span class="em">🗣️</span><div><b>3회차부터</b> 작게 따라 말하며 연음·강세를 체크하세요. <b>4회차</b>는 한 박자 늦게 겹쳐 말하면 쉐도잉이 쉽습니다.</div></div>' +
+          '<div class="srshead"><span class="t">4단계 · 오늘 기억 정도를 고르세요</span><span class="n">간격 자동 계산</span></div>' +
+          '<div class="srs">' +
+            '<button type="button" data-r="again"><span class="r">Again</span><span class="i">' + fmtIvl(nextIvl(card.id, 'again')) + '</span></button>' +
+            '<button type="button" data-r="hard"><span class="r">Hard</span><span class="i">' + fmtIvl(nextIvl(card.id, 'hard')) + '</span></button>' +
+            '<button type="button" data-r="good"><span class="r">Good</span><span class="i">' + fmtIvl(nextIvl(card.id, 'good')) + '</span></button>' +
+            '<button type="button" data-r="easy"><span class="r">Easy</span><span class="i">' + fmtIvl(nextIvl(card.id, 'easy')) + '</span></button>' +
+          '</div>' +
+          '<div class="srsdone" id="srsDone"></div>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
+
+  fillVoices();
+  if (!ttsOK()) { const w = $('#ttsWarn'); if (w) w.classList.add('on'); }
+  bindRecall(card);
+  if (view.chal) startChal();
+}
+
+function bindRecall(card) {
+  const revealBtn = $('#revealBtn');
+  if (revealBtn) revealBtn.addEventListener('click', () => {
+    view.revealed = true;
+    revealBtn.hidden = true;
+    const box = $('#answerBox');
+    box.classList.add('on');
+    fillVoices();
+    scrollToEl(box);
+    runFive(plain(card.en), 'roundBadge');
+  });
+  const chalBtn = $('#chalBtn');
+  if (chalBtn) chalBtn.addEventListener('click', () => {
+    view.chal = !view.chal;
+    chalBtn.setAttribute('aria-pressed', String(view.chal));
+    chalBtn.textContent = '⏱️ 3초 챌린지 ' + (view.chal ? 'ON' : 'OFF');
+    if (view.chal) startChal(); else stopChal();
+  });
+  const hintBtn = $('#hintBtn');
+  if (hintBtn) hintBtn.addEventListener('click', () => {
+    view.hint = !view.hint;
+    hintBtn.setAttribute('aria-pressed', String(view.hint));
+    $('#hintBox').classList.toggle('on', view.hint);
+  });
+  const stopBtn = $('#stopBtn');
+  if (stopBtn) stopBtn.addEventListener('click', () => {
+    stopTTS();
+    setBadge($('#roundBadge'), '⏸ 정지됨 · 다시 들으려면 🔁', false);
+  });
+  const againBtn = $('#againBtn');
+  if (againBtn) againBtn.addEventListener('click', () => runFive(plain(card.en), 'roundBadge'));
+  const onceBtn = $('#onceBtn');
+  if (onceBtn) onceBtn.addEventListener('click', () => {
+    stopTTS();
+    const my = ++TTS.token;
+    setBadge($('#roundBadge'), '<span class="pulse"></span>🔊 1회 재생', false);
+    utter(plain(card.en), 1.0, () => { if (my === TTS.token) setBadge($('#roundBadge'), '🔊 1회 완료', true); });
+  });
+  const sel = $('#voiceSel');
+  if (sel) sel.addEventListener('change', () => {
+    const raw = String(sel.value || '');
+    const i = raw.indexOf('|');
+    if (i < 0) return;
+    const acc = raw.slice(0, i), name = raw.slice(i + 1);
+    applyVoicePick(acc, name);
+    if (!ACCENTS.some(a => a.key === acc)) return;
+    const badge = $('#roundBadge');
+    if (badge && !badge.classList.contains('idle')) setBadge(badge, '⏸ 음성 변경 · 다시 들으려면 🔁', false);
+  });
+  $$('.srs button').forEach(b => b.addEventListener('click', () => rate(card, b.dataset.r)));
+}
+
+function startChal() {
+  const box = $('#chalBox'), t = $('#chalTime'), lbl = $('#chalLbl');
+  if (!box) return;
+  box.classList.add('on');
+  box.classList.remove('done');
+  const bar = box.querySelector('.bar i');
+  bar.style.animation = 'none';
+  void bar.offsetWidth;
+  bar.style.animation = '';
+  let left = 3000;
+  t.textContent = '3.0s';
+  lbl.textContent = '3초 안에 말해 보세요';
+  clearInterval(chalTimer);
+  chalTimer = setInterval(() => {
+    left -= 100;
+    if (left <= 0) {
+      clearInterval(chalTimer);
+      t.textContent = '0.0s';
+      box.classList.add('done');
+      lbl.textContent = '시간 종료 — 정답을 확인하세요';
+    } else {
+      t.textContent = (left / 1000).toFixed(1) + 's';
+    }
+  }, 100);
+}
+function stopChal() {
+  clearInterval(chalTimer);
+  const box = $('#chalBox');
+  if (box) box.classList.remove('on', 'done');
+}
+
+const RATING_KO = { again: 'Again', hard: 'Hard', good: 'Good', easy: 'Easy' };
+function rate(card, rating) {
+  const s = srsOf(card.id);
+  const ivl = Math.round(nextIvl(card.id, rating));
+  if (rating === 'again') { s.ease = Math.max(1.3, s.ease - 0.2); s.lapses++; s.reps = 0; }
+  else if (rating === 'hard') { s.ease = Math.max(1.3, s.ease - 0.15); s.reps++; }
+  else if (rating === 'good') { s.reps++; }
+  else { s.ease = Math.min(3, +(s.ease + 0.15).toFixed(2)); s.reps++; }
+  s.ivl = ivl;
+  s.due = Date.now() + ivl * 60000;
+  st.srs[card.id] = s;
+  const k = todayStr();
+  st.days[k] = (st.days[k] || 0) + 1;
+  save();
+  toast(RATING_KO[rating] + ' · 다음 복습 ' + fmtIvl(s.ivl) + ' 뒤');
+  nextCard(card.id);
+}
+function nextCard(fromId) {
+  stopTTS();
+  const q = queueOf(st.track);
+  const i = q.findIndex(c => c.id === fromId);
+  const next = q[(i + 1) % q.length];
+  view.cardId = next ? next.id : null;
+  view.revealed = false; view.hint = false; view.chal = false;
+  renderAll();
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+/* ============================================================
+   9) 모드 2 — 변형 드릴
+   ============================================================ */
+function drillState(track) {
+  if (!view.drill[track]) view.drill[track] = { pat: 0, s: 0, t: 0, c: 0 };
+  return view.drill[track];
+}
+function renderDrill() {
+  const tr = TRACKS[st.track];
+  const d = drillState(st.track);
+  const p = tr.patterns[d.pat] || tr.patterns[0];
+  const out = p.build(d.s, d.t, d.c).replace(/\s*\/\s*/g, ' ');
+  const condText = p.conds[d.c];
+  const alt = condText.replace(/\bmy\b/g, 'our');
+  let html = esc(out);
+  const hit = html.indexOf(esc(condText)) >= 0 ? esc(condText) : (html.indexOf(esc(alt)) >= 0 ? esc(alt) : null);
+  if (hit) html = html.replace(hit, '<span class="v">' + hit + '</span>');
+
+  $('#drillCue').innerHTML = cueHTML('핵심 패턴 ' + tr.patterns.length + '개 · 조합 ' + (p.subs.length * p.tenses.length * p.conds.length) + '가지');
+  $('#drillBody').innerHTML =
+    '<div class="card"><div class="pad">' +
+      '<div class="sec-h"><h2>⚡ 변형 드릴</h2><span class="s">' + esc(tr.name) + ' · 탭해서 문장을 바꿔 보세요</span></div>' +
+      '<div class="patsel">' + tr.patterns.map((pp, i) =>
+        '<button class="pat" type="button" data-pat="' + i + '" aria-pressed="' + (i === d.pat) + '">' +
+          '<span class="k">' + esc(pp.ko) + '</span><span class="e">' + esc(pp.title) + '</span></button>').join('') +
+      '</div>' +
+      '<div class="pgroup"><div class="gl"><span class="num">1</span>주체 (SUBJECT)</div><div class="pills">' +
+        p.subs.map((s, i) => '<button class="pill" type="button" data-s="' + i + '" aria-pressed="' + (i === d.s) + '">' + esc(s) + '</button>').join('') +
+      '</div></div>' +
+      '<div class="pgroup"><div class="gl"><span class="num">2</span>시제 (TENSE)</div><div class="pills">' +
+        p.tenses.map((s, i) => '<button class="pill" type="button" data-t="' + i + '" aria-pressed="' + (i === d.t) + '">' + esc(s) + '</button>').join('') +
+      '</div></div>' +
+      '<div class="pgroup"><div class="gl"><span class="num">3</span>상황 조건 (CONDITION)</div><div class="pills">' +
+        p.conds.map((s, i) => '<button class="pill" type="button" data-c="' + i + '" aria-pressed="' + (i === d.c) + '">' + esc(s) + '</button>').join('') +
+      '</div></div>' +
+      '<div class="outbox"><p class="out" id="drillOut">' + html + '</p>' +
+        '<p class="outko">' + esc(p.title) + ' · ' + esc(p.subs[d.s]) + ' / ' + esc(p.tenses[d.t]) + '</p></div>' +
+      '<div class="drillbtns"><button class="main" type="button" id="drillSpeak">🔊 들어보기</button><button type="button" id="drillOnce">1회</button></div>' +
+      '<div class="pnote">' + esc(p.note) + '</div>' +
+    '</div></div>';
+
+  const speak = () => recallSpeak(plain(out), 'drillOut');
+  const b1 = $('#drillSpeak'); if (b1) b1.addEventListener('click', speak);
+  const b2 = $('#drillOnce'); if (b2) b2.addEventListener('click', () => { stopTTS(); utter(plain(out), 1.0, () => { }); toast('1회 재생'); });
+}
+function recallSpeak(text, anchorId) {
+  const anchor = anchorId ? document.getElementById(anchorId) : null;
+  if (anchor) {
+    anchor.style.transition = 'color .2s';
+    anchor.style.color = 'var(--tc)';
+    setTimeout(() => { anchor.style.color = ''; }, 900);
+  }
+  stopTTS();
+  utter(text, 0.95, () => { });
+  toast('🔊 ' + text.slice(0, 42) + (text.length > 42 ? '…' : ''));
+}
+
+/* ============================================================
+   10) 모드 3 — 실전 미션
+   ============================================================ */
+function renderProject() {
+  const tr = TRACKS[st.track];
+  const mi = Math.min(view.proj || 0, tr.projects.length - 1);
+  const m = tr.projects[mi];
+  const done = st.proj[m.id] || [false, false, false];
+  const doneN = done.filter(Boolean).length;
+
+  $('#projectCue').innerHTML = cueHTML('미션 ' + tr.projects.length + '개 · 3턴 롤플레이');
+  $('#projectBody').innerHTML =
+    '<div class="missel">' + tr.projects.map((mm, i) => {
+      const dd = (st.proj[mm.id] || []).filter(Boolean).length;
+      return '<button class="mis" type="button" data-mis="' + i + '" aria-pressed="' + (i === mi) + '">' +
+        '<span class="ico">' + mm.icon + '</span>' +
+        '<span class="tx"><b>' + esc(mm.title) + '</b><span>' + esc(mm.sub) + '</span></span>' +
+        '<span class="st' + (dd === 3 ? '' : ' off') + '">' + dd + '/3</span></button>';
+    }).join('') + '</div>' +
+    '<div class="misbox"><div class="mt">' + m.icon + ' ' + esc(m.title) + '</div>' +
+      '<div class="ms">' + esc(m.goal) + '</div>' +
+      '<div class="mprog"><div class="bar"><i style="width:' + (doneN / 3 * 100) + '%"></i></div><span>' + doneN + ' / 3 턴</span></div>' +
+    '</div>' +
+    m.turns.map((t, i) => {
+      const id = 'model-' + m.id + '-' + i;
+      const open = !!view.model[m.id + ':' + i];
+      return '<div class="turn' + (done[i] ? ' completed' : '') + '">' +
+        '<div class="th"><span class="n">' + (i + 1) + '</span><span class="l">TURN ' + (i + 1) + ' · ' + esc(t.who) + '</span></div>' +
+        '<div class="tb">' +
+          '<div class="partner"><div class="av">🎧</div><div class="tx"><div class="who">' + esc(t.who) + '</div><p class="en">' + esc(t.partner) + '</p></div>' +
+            '<button type="button" data-hear="' + i + '">🔊 상대방 말</button></div>' +
+          '<div class="userq"><div class="who">MY LINE</div><div class="ko">' + esc(t.ask) + '</div></div>' +
+          '<div class="tbtns"><button class="main" type="button" data-model="' + i + '">모범 답안 + 5회 듣기</button>' +
+            '<button type="button" data-once="' + i + '">🔊 1회</button></div>' +
+          '<div class="model' + (open ? ' on' : '') + '" id="' + id + '">' +
+            '<p class="en">' + renderEn(t.model) + '</p>' +
+            '<p class="nk">' + esc(t.note) + '</p>' +
+            '<div class="ttshead" style="margin-top:7px"><span class="roundbadge idle" id="pb-' + m.id + '-' + i + '">🔊 대기 중</span></div>' +
+            '<div class="tbtns" style="margin-top:7px"><button type="button" data-stop="' + i + '">⏸ 중지</button><button type="button" data-again="' + i + '">🔁 다시 5회</button></div>' +
+          '</div>' +
+        '</div>' +
+        '<label class="done"><input type="checkbox" data-check="' + i + '"' + (done[i] ? ' checked' : '') + '> 이 턴 완료로 표시</label>' +
+      '</div>';
+    }).join('');
+  bindProject(m, done);
+}
+function bindProject(m, done) {
+  $$('#projectBody .mis').forEach(b => b.addEventListener('click', () => {
+    view.proj = +b.dataset.mis;
+    stopTTS();
+    renderProject();
+  }));
+  $$('#projectBody [data-hear]').forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.hear;
+    stopTTS();
+    utter(m.turns[i].partner, 1.0, () => { });
+    toast('🔊 상대방 말 재생');
+  }));
+  $$('#projectBody [data-model]').forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.model;
+    view.model[m.id + ':' + i] = true;
+    const box = document.getElementById('model-' + m.id + '-' + i);
+    if (box) {
+      box.classList.add('on');
+      scrollToEl(box);
+      runFive(plain(m.turns[i].model), 'pb-' + m.id + '-' + i);
+    }
+  }));
+  $$('#projectBody [data-once]').forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.once;
+    stopTTS();
+    utter(plain(m.turns[i].model), 1.0, () => { });
+    toast('🔊 모범 답안 1회 재생');
+  }));
+  $$('#projectBody [data-stop]').forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.stop;
+    stopTTS();
+    setBadge(document.getElementById('pb-' + m.id + '-' + i), '⏸ 정지됨 · 다시 들으려면 🔁', false);
+  }));
+  $$('#projectBody [data-again]').forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.again;
+    view.model[m.id + ':' + i] = true;
+    const box = document.getElementById('model-' + m.id + '-' + i);
+    if (box) box.classList.add('on');
+    runFive(plain(m.turns[i].model), 'pb-' + m.id + '-' + i);
+  }));
+  $$('#projectBody [data-check]').forEach(cb => cb.addEventListener('change', () => {
+    const i = +cb.dataset.check;
+    const arr = (st.proj[m.id] || [false, false, false]).slice();
+    arr[i] = cb.checked;
+    st.proj[m.id] = arr;
+    save();
+    renderHeader();
+    renderProject();
+    const n = arr.filter(Boolean).length;
+    toast(n === 3 ? '🎉 미션 완료! 3턴을 모두 마쳤습니다' : n + '/3 턴 완료');
+  }));
+}
+
+/* ============================================================
+   11) 렌더 · 이벤트
+   ============================================================ */
+function renderAll() {
+  renderHeader();
+  if (st.mode === 'recall') renderRecall();
+  else if (st.mode === 'drill') renderDrill();
+  else renderProject();
+}
+function setTrack(t) {
+  if (!TRACKS[t]) return;
+  st.track = t; save();
+  stopTTS();
+  view.cardId = null; view.revealed = false; view.hint = false; view.chal = false;
+  view.proj = 0;
+  renderAll();
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+function setMode(m) {
+  st.mode = m; save();
+  stopTTS();
+  renderAll();
+}
+document.addEventListener('click', e => {
+  const ab = e.target.closest('.acc');
+  if (ab) { setAccent(ab.dataset.accent); return; }
+  const tb = e.target.closest('[data-track]');
+  if (tb) { setTrack(tb.dataset.track); return; }
+  const mb = e.target.closest('[data-mode]');
+  if (mb) { setMode(mb.dataset.mode); return; }
+  const pat = e.target.closest('.pat');
+  if (pat) {
+    const d = drillState(st.track);
+    d.pat = +pat.dataset.pat; d.s = 0; d.t = 0; d.c = 0;
+    renderDrill();
+    return;
+  }
+  const pill = e.target.closest('.pill');
+  if (pill) {
+    const d = drillState(st.track);
+    if (pill.dataset.s !== undefined && pill.dataset.s !== '') d.s = +pill.dataset.s;
+    if (pill.dataset.t !== undefined && pill.dataset.t !== '') d.t = +pill.dataset.t;
+    if (pill.dataset.c !== undefined && pill.dataset.c !== '') d.c = +pill.dataset.c;
+    renderDrill();
+    return;
+  }
+});
+$('#themeBtn').addEventListener('click', () => {
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+$('#resetBtn').addEventListener('click', () => {
+  if (!confirm('학습 기록(SRS 간격·연속일·미션 체크)을 모두 지울까요? 되돌릴 수 없습니다.')) return;
+  st.srs = {}; st.days = {}; st.proj = {};
+  save();
+  view.cardId = null; view.revealed = false; view.model = {};
+  renderAll();
+  toast('학습 기록을 초기화했습니다');
+});
+if (ttsOK()) {
+  try {
+    window.speechSynthesis.addEventListener('voiceschanged', fillVoices);
+    window.speechSynthesis.getVoices();
+  } catch (e) { }
+}
+initTheme();
+updateAccentUI();
+renderAll();
+setTimeout(() => { fillVoices(); updateAccentUI(); }, 250);
+</script>
+</body>
+</html>
