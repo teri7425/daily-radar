@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="소리튠 여행 5회" />
+<meta name="theme-color" content="#0b1220" />
+<link rel="manifest" href="./manifest.json" />
+<link rel="apple-touch-icon" href="./icon-180.png" />
+<link rel="icon" href="./icon-180.png" />
+<title>소리튠 해외여행 영어 · 영상 5회 반복 트레이너</title>
+<style>
+  /* 라틴 문자 전용 임베드 폰트 (기기별 폰트 차이 제거) */
+  @font-face{font-family:'AppSans';src:url(data:font/woff;base64,__FONT_REG__) format('woff');font-weight:400 600;font-style:normal;font-display:swap}
+  @font-face{font-family:'AppSans';src:url(data:font/woff;base64,__FONT_BOLD__) format('woff');font-weight:700 900;font-style:normal;font-display:swap}
+  :root{
+    --bg:#0b1220; --bg2:#0f172a; --card:#1b2436; --card2:#141d2e;
+    --line:#2b3a52; --primary:#3b82f6; --primary-d:#1d4ed8;
+    --accent:#f59e0b; --success:#10b981; --danger:#ef4444;
+    --text:#f1f5f9; --muted:#93a3ba; --muted2:#64748b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"AppSans",-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic","Noto Sans CJK KR",Roboto,"Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); padding-bottom:96px;
+    overscroll-behavior-y:contain;
+  }
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,textarea,select{font-family:inherit;font-size:15px}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(11,18,32,.96);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .top-bar{padding:13px 14px 6px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .brand{display:flex;align-items:center;gap:7px;min-width:0}
+  .top-bar h1{font-size:15.5px;font-weight:800;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .badge{background:var(--primary-d);font-size:11px;padding:4px 9px;border-radius:99px;font-weight:700;white-space:nowrap}
+  .badge.warm{background:#7c2d12;color:#fdba74}
+
+  .tabs{display:flex;overflow-x:auto;gap:6px;padding:6px 12px 11px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab-btn{
+    flex:0 0 auto;padding:7px 12px;border-radius:99px;border:1px solid var(--line);
+    background:var(--card2);color:var(--muted);font-size:12.5px;font-weight:700;transition:.15s;
+  }
+  .tab-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .tab-btn.hard.active{background:var(--accent);color:#111;border-color:var(--accent)}
+  .tab-btn.cat-tab.active{background:#1e3a8a;border-color:#3b82f6;color:#dbeafe}
+  .tab-btn .cnt{font-size:11px;opacity:.75;margin-left:3px;font-weight:600}
+
+  /* ---------- player ---------- */
+  .player-wrap{
+    position:relative;z-index:45;background:#000;width:100%;
+    aspect-ratio:16/9;max-height:186px;border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  body.looping .player-wrap{position:sticky;top:92px;z-index:50}
+  #yt-player{width:100%;height:100%;display:block}
+  .player-cover{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:7px;color:#94a3b8;font-size:12px;
+    background:radial-gradient(120% 130% at 50% 0%,#1c2b46 0%,#0c1524 60%,#070d16 100%);
+    text-align:center;padding:14px;
+  }
+  .player-cover .big-play{
+    width:52px;height:52px;border-radius:50%;background:#1e293b;border:1px solid #334155;
+    display:flex;align-items:center;justify-content:center;font-size:19px;color:#e2e8f0;
+  }
+  .player-cover .cap{font-size:11px;color:#64748b}
+  .player-cover.hidden{display:none}
+
+  /* ---------- trainer ---------- */
+  main{max-width:560px;margin:0 auto}
+  .panel{margin:10px 12px;padding:14px 14px 12px;background:var(--card);border-radius:18px;border:1px solid var(--line)}
+  .video-title{font-size:11.5px;color:var(--muted);margin-bottom:9px;line-height:1.45;display:flex;gap:5px;align-items:flex-start}
+  .video-title span{flex:1}
+  .video-title a{color:#7dd3fc;text-decoration:none;font-weight:700;white-space:nowrap;font-size:11px}
+  .sentence-en{font-family:"AppSans",-apple-system,"Noto Sans KR","Apple SD Gothic Neo",Roboto,"Noto Sans CJK KR",sans-serif;font-size:19px;font-weight:800;line-height:1.42;margin-bottom:7px;color:#fff;letter-spacing:-.2px;word-break:keep-all}
+  .sentence-ko{font-size:13.5px;color:#cbd5e1;margin-bottom:13px;line-height:1.5;word-break:keep-all}
+  .ref-badge{display:inline-block;margin:-6px 0 11px;padding:3px 9px;border-radius:99px;background:#0e3a2f;border:1px solid #14b8a6;color:#5eead4;font-size:10.5px;font-weight:800}
+  .ref-pill{flex:0 0 auto;font-size:9.5px;font-weight:800;color:#5eead4;background:#0e3a2f;border:1px solid #14b8a6;border-radius:6px;padding:2px 5px}
+
+  .repeat-tracker{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--bg2);padding:8px 11px;border-radius:13px;margin-bottom:10px}
+  .dots{display:flex;gap:5px}
+  .dot{width:23px;height:23px;border-radius:50%;background:#334155;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;transition:.18s}
+  .dot.done{background:var(--success);color:#fff}
+  .dot.current{background:var(--primary);color:#fff;transform:scale(1.14);box-shadow:0 0 0 3px #3b82f640}
+  .status-text{font-size:11.5px;color:var(--accent);font-weight:700;text-align:right;flex:1;line-height:1.3}
+
+  .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+  .btn{padding:12px 8px;border-radius:12px;font-size:13.5px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:5px;transition:.15s;border:1px solid transparent}
+  .btn:active{transform:scale(.975)}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-tts{background:#334155;color:#fff}
+  .btn-stop{background:#3f1d1d;color:#fca5a5;border-color:#7f1d1d}
+  .btn-hard{background:var(--card2);border:1px solid var(--accent);color:var(--accent)}
+  .btn-hard.saved{background:var(--accent);color:#111}
+  .btn-nav{background:var(--bg2);border:1px solid var(--line);color:#e2e8f0}
+  .btn.playing{box-shadow:0 0 0 2px #fff3 inset}
+  .btn[disabled]{opacity:.45}
+
+  .opt-block{margin-top:9px;padding-top:9px;border-top:1px dashed #2b3a52}
+  .opt-label{font-size:10.5px;font-weight:800;color:var(--muted2);letter-spacing:.4px;margin-bottom:6px;text-transform:uppercase}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{padding:6px 11px;border-radius:9px;background:var(--card2);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--muted)}
+  .chip.active{background:#1e3a8a;border-color:#60a5fa;color:#dbeafe}
+  .chip.acc.active{background:#312e81;border-color:#818cf8;color:#e0e7ff}
+
+  /* ---------- list ---------- */
+  .list-section{padding:0 12px}
+  .list-header{display:flex;align-items:center;justify-content:space-between;margin:14px 4px 8px;scroll-margin-top:150px}
+  .list-header .lt{font-size:12.5px;color:var(--muted);font-weight:700}
+  .list-header .lsub{font-size:11px;color:var(--muted2)}
+  .sentence-item{background:var(--card);padding:11px 13px;border-radius:13px;margin-bottom:7px;border:1px solid transparent;display:flex;justify-content:space-between;align-items:center;gap:9px;transition:.15s}
+  .sentence-item.active{border-color:var(--primary);background:#132444}
+  .item-text{flex:1;min-width:0}
+  .item-en{font-family:"AppSans",-apple-system,"Noto Sans KR","Apple SD Gothic Neo",Roboto,"Noto Sans CJK KR",sans-serif;font-size:13.5px;font-weight:700;margin-bottom:2px;line-height:1.4;word-break:keep-all}
+  .item-sub{font-size:10.5px;color:var(--muted2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .star-btn{font-size:19px;color:#475569;padding:3px 2px;line-height:1}
+  .star-btn.saved{color:var(--accent)}
+  .empty{padding:28px 16px;text-align:center;color:var(--muted);font-size:13px;line-height:1.6}
+  .empty b{color:#cbd5e1}
+
+  /* ---------- catalog ---------- */
+  #catalog-view{display:none;padding:12px}
+  #catalog-view.show{display:block}
+  #learn-view{display:block}
+  #learn-view.hide{display:none}
+  .search-box{display:flex;gap:7px;margin-bottom:10px}
+  .search-box input{flex:1;padding:11px 13px;border-radius:11px;border:1px solid var(--line);background:var(--card2);color:var(--text);outline:none}
+  .search-box input:focus{border-color:var(--primary)}
+  .filters{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+  .filters .chip{flex:0 0 auto;white-space:nowrap}
+  .filters::-webkit-scrollbar{display:none}
+  .vid-row{background:var(--card);border-radius:12px;padding:11px 12px;margin-bottom:7px;display:flex;gap:10px;align-items:flex-start;border:1px solid transparent}
+  .vid-row.done{border-color:#1e3a8a66;background:#132444}
+  .vid-row .num{font-size:10.5px;color:var(--muted2);font-weight:800;min-width:22px;padding-top:2px}
+  .vid-row .body{flex:1;min-width:0}
+  .vid-row .t{font-size:13px;font-weight:700;line-height:1.42;margin-bottom:4px;word-break:keep-all}
+  .vid-row .meta{font-size:10.5px;color:var(--muted2);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .pill{font-size:10px;font-weight:800;padding:2px 7px;border-radius:99px;background:#1e293b;color:#94a3b8}
+  .pill.ok{background:#064e3b;color:#6ee7b7}
+  .pill.wait{background:#3f2d0d;color:#fcd34d}
+  .pill.vlog{background:#1f2937;color:#9ca3af}
+  .catalog-note{margin:4px 4px 12px;padding:11px 12px;border-radius:12px;background:#111c2e;border:1px dashed #2b3a52;font-size:11.5px;color:var(--muted);line-height:1.6}
+
+  /* ---------- modal ---------- */
+  .modal{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:#000a}
+  .modal.show{display:flex}
+  .modal-card{width:100%;max-width:560px;max-height:86vh;overflow:auto;background:var(--bg2);border-radius:20px 20px 0 0;padding:18px 16px 22px;border-top:1px solid var(--line)}
+  .modal-card h3{font-size:15px;margin-bottom:4px}
+  .modal-card .hint{font-size:11.5px;color:var(--muted);margin-bottom:12px;line-height:1.55}
+  .field{margin-bottom:9px}
+  .field label{display:block;font-size:11px;font-weight:800;color:var(--muted2);margin-bottom:4px}
+  .field input,.field textarea,.field select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card2);color:var(--text);outline:none}
+  .field textarea{min-height:110px;resize:vertical;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5}
+  .modal-actions{display:flex;gap:8px;margin-top:12px}
+  .modal-actions .btn{flex:1}
+  .toast{position:fixed;left:50%;bottom:104px;transform:translateX(-50%) translateY(14px);background:#1e293b;color:#e2e8f0;padding:10px 16px;border-radius:99px;font-size:12.5px;font-weight:700;opacity:0;pointer-events:none;transition:.22s;z-index:200;border:1px solid var(--line);max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* bottom bar */
+  .bottombar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(11,18,32,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;gap:8px;padding:9px 12px calc(9px + env(safe-area-inset-bottom))}
+  .bottombar .btn{flex:1;padding:11px 6px;font-size:12.5px}
+  .bottombar .btn.ghost{background:var(--card2);border:1px solid var(--line);color:#cbd5e1}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    <div class="brand">
+      <h1>✈️ 소리튠 해외여행 영어 5회</h1>
+    </div>
+    <span class="badge" id="progress-badge">불러오는 중…</span>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</header>
+
+<div id="learn-view">
+  <div class="player-wrap">
+    <div id="yt-player"></div>
+    <div class="player-cover" id="player-cover">
+      <div class="big-play">▶︎</div>
+      <div><b style="color:#e2e8f0">영상 구간 5회 반복</b>으로 듣고 따라 말하세요</div>
+      <div class="cap">주아쌤_소리튠영어 원본 영상 구간을 반복 재생합니다</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="video-title">
+      <span id="current-video-title">영상을 불러오는 중…</span>
+      <a id="current-video-link" href="#" target="_blank" rel="noopener">원본 ↗</a>
+    </div>
+    <div class="sentence-en" id="current-en">문장을 선택해 주세요</div>
+    <div class="sentence-ko" id="current-ko"></div>
+    <div class="ref-badge" id="current-ref" style="display:none"></div>
+
+    <div class="repeat-tracker">
+      <div class="dots" id="repeat-dots">
+        <div class="dot">1</div><div class="dot">2</div><div class="dot">3</div><div class="dot">4</div><div class="dot">5</div>
+      </div>
+      <div class="status-text" id="repeat-status">대기 중</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-video5x" onclick="startVideo5x()">▶ 영상 구간 5회</button>
+      <button class="btn btn-tts" id="btn-tts" onclick="startTTS()"><span>🔊 음성만 <b id="tts-count-label" style="font-weight:800">5</b>회</span></button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-hard" id="toggle-hard-btn" onclick="toggleCurrentHard()">☆ 어려움 체크</button>
+      <button class="btn btn-nav" onclick="nextSentence()">다음 문장 ⏭</button>
+    </div>
+    <div class="btn-row" style="grid-template-columns:1fr">
+      <button class="btn btn-stop" onclick="stopAll(true)">⏹️ 멈춤</button>
+    </div>
+
+    <div class="opt-block">
+      <div class="opt-label">음성 반복 횟수</div>
+      <div class="chips" id="tts-count-chips">
+        <button class="chip" data-n="3">3회</button>
+        <button class="chip active" data-n="5">5회</button>
+        <button class="chip" data-n="10">10회</button>
+        <button class="chip" data-n="0">∞ 무한</button>
+      </div>
+    </div>
+    <div class="opt-block">
+      <div class="opt-label">속도 (영상 · 음성 공통)</div>
+      <div class="chips" id="speed-chips">
+        <button class="chip" data-s="0.8">0.8x</button>
+        <button class="chip" data-s="0.9">0.9x</button>
+        <button class="chip active" data-s="1.0">1.0x</button>
+        <button class="chip" data-s="1.1">1.1x</button>
+        <button class="chip" data-s="1.2">1.2x</button>
+      </div>
+    </div>
+    <div class="opt-block">
+      <div class="opt-label">TTS 억양 (음성 전용)</div>
+      <div class="chips" id="accent-chips">
+        <button class="chip acc active" data-a="en-US">🇺🇸 미국</button>
+        <button class="chip acc" data-a="en-GB">🇬🇧 영국</button>
+        <button class="chip acc" data-a="en-AU">🇦🇺 호주</button>
+        <button class="chip acc" data-a="en-IN">🇮🇳 인도</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="list-section">
+    <div class="list-header">
+      <div class="lt" id="list-header">문장 목록</div>
+      <div class="lsub" id="list-sub"></div>
+    </div>
+    <div id="sentence-list"></div>
+  </div>
+</div>
+
+<div id="catalog-view">
+  <div class="catalog-note">
+    <b style="color:#e2e8f0">@soritunenglish 여행영어 영상 34편 전체 목록</b><br />
+    ✅ 표시된 영상은 자막에서 문장·타임스탬프를 이미 추출해 바로 학습할 수 있어요. 나머지는 목록에서 원본을 열어 보거나, <b style="color:#e2e8f0">Jian에게 “다음 영상 자막 추출해줘”</b>라고 하면 이어서 채워집니다.
+  </div>
+  <div class="search-box">
+    <input id="cat-search" type="search" placeholder="제목 검색 (예: 공항, 호텔, 쇼핑, 패턴)" oninput="renderCatalog()" />
+  </div>
+  <div class="filters" id="cat-filters"></div>
+  <div id="catalog-list"></div>
+</div>
+
+<div class="bottombar">
+  <button class="btn ghost" onclick="openModal('add')">＋ 내 문장</button>
+  <button class="btn ghost" onclick="openModal('json')">JSON 불러오기</button>
+  <button class="btn ghost" onclick="openModal('data')">내보내기</button>
+</div>
+
+<!-- 내 문장 추가 -->
+<div class="modal" id="modal-add">
+  <div class="modal-card">
+    <h3>＋ 내 문장 추가</h3>
+    <div class="hint">유튜브에서 직접 찾은 문장이나 강의 자료의 문장을 넣을 수 있어요. 영상 ID와 시작 초를 넣으면 ‘영상 구간 5회’도 그대로 동작합니다.</div>
+    <div class="field"><label>영어 문장</label><input id="add-en" placeholder="I'm running late." /></div>
+    <div class="field"><label>한국어 뜻</label><input id="add-ko" placeholder="나 늦었어." /></div>
+    <div class="field"><label>카테고리</label>
+      <select id="add-cat">
+        <option>공항·기내</option><option>호텔·숙소</option><option>식당·카페</option>
+        <option>쇼핑·결제</option><option>교통·길찾기</option><option>관광·명소</option><option>긴급·기타</option>
+      </select>
+    </div>
+    <div class="field"><label>유튜브 영상 ID (선택)</label><input id="add-vid" placeholder="hu2_8I1CBzE" /></div>
+    <div class="field"><label>시작 초 / 끝 초 (선택)</label>
+      <div style="display:flex;gap:8px">
+        <input id="add-start" type="number" placeholder="75" />
+        <input id="add-end" type="number" placeholder="82" />
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-nav" onclick="closeModal('add')">취소</button>
+      <button class="btn btn-primary" onclick="saveCustomSentence()">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- JSON 불러오기 -->
+<div class="modal" id="modal-json">
+  <div class="modal-card">
+    <h3>JSON 불러오기</h3>
+    <div class="hint">추출한 문장 데이터를 붙여넣거나 파일을 선택하세요. 형식: <code>{"videos":{"영상ID":{"title":"…","category":"공항·기내","sentences":[{"en":"…","ko":"…","start":1,"end":4}]}}}</code></div>
+    <div class="field"><label>파일 선택</label><input type="file" accept=".json,application/json" onchange="loadJsonFile(this)" /></div>
+    <div class="field"><label>또는 JSON 붙여넣기</label><textarea id="json-text" placeholder='{"videos": { … }}'></textarea></div>
+    <div class="modal-actions">
+      <button class="btn btn-nav" onclick="closeModal('json')">닫기</button>
+      <button class="btn btn-primary" onclick="importJsonText()">불러오기</button>
+    </div>
+  </div>
+</div>
+
+<!-- 내보내기 -->
+<div class="modal" id="modal-data">
+  <div class="modal-card">
+    <h3>내 학습 데이터</h3>
+    <div class="hint">어려움 체크와 내가 추가한 문장은 이 기기 브라우저에 저장됩니다. 아래에서 백업하거나 옮길 수 있어요.</div>
+    <div class="field"><label>현재 상태</label><div id="data-summary" style="font-size:12.5px;color:#cbd5e1;line-height:1.7"></div></div>
+    <div class="modal-actions">
+      <button class="btn btn-nav" onclick="closeModal('data')">닫기</button>
+      <button class="btn btn-primary" onclick="exportData()">JSON 내려받기</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-stop" onclick="resetProgress()">어려움 체크 초기화</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- 부트스트랩 데이터 (file:// 에서도 바로 동작) -->
+<script id="bootstrap-data" type="application/json">/*__DATA__*/</script>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+/* =====================================================================
+   소리튠 해외여행 영어 · 영상 5회 반복 트레이너
+   - 7개 여행 상황 카테고리 + 🔥 Hard 복습 (localStorage)
+   - 유튜브 구간 5회 반복 / TTS 3·5·10·∞ + 속도 5단계 + 4개 억양
+   ===================================================================== */
+const LS = {
+  hard: 'soritune_video_hard_ids',
+  custom: 'soritune_video_custom_sentences',
+  cat: 'soritune_video_last_category',
+  speed: 'soritune_video_speed',
+  accent: 'soritune_video_accent',
+  ttsCount: 'soritune_video_tts_count'
+};
+const CATS = ['공항·기내', '호텔·숙소', '식당·카페', '쇼핑·결제', '교통·길찾기', '관광·명소', '긴급·기타'];
+
+const state = {
+  data: null,
+  cats: CATS,
+  videos: {},        // video_id -> {id,title,category,sentences[]}
+  allVideos: [],
+  custom: [],
+  hardIds: new Set(),
+  category: '회화',
+  flat: [],
+  index: 0,
+  speed: 1.0,
+  accent: 'en-US',
+  ttsCount: 5,
+  player: null,
+  playerReady: false,
+  timer: null,
+  speaking: false,
+  repeat: 0,
+  running: false,
+  view: 'learn',
+  catalogFilter: 'all'
+};
+
+/* ---------------- 저장소 ---------------- */
+function readJSON(key, fallback) {
+  try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+  catch (e) { return fallback; }
+}
+function writeJSON(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+
+/* ---------------- 데이터 로드 ---------------- */
+async function loadData() {
+  let base = null;
+  try { base = JSON.parse(document.getElementById('bootstrap-data').textContent); } catch (e) {}
+  // http(s)로 열렸다면 data.json 이 더 최신일 수 있으니 시도 (실패하면 인라인 사용)
+  try {
+    if (location.protocol.startsWith('http')) {
+      const res = await fetch('./data.json', { cache: 'no-store' });
+      if (res.ok) { const j = await res.json(); if (j && j.videos) base = j; }
+    }
+  } catch (e) {}
+  if (!base) base = { videos: {}, allVideos: [], categories: CATS };
+
+  state.data = base;
+  if (Array.isArray(base.categories) && base.categories.length) state.cats = base.categories;
+  state.videos = {};
+  Object.keys(base.videos || {}).forEach(id => {
+    const v = base.videos[id];
+    state.videos[id] = {
+      id: id,
+      title: v.title || '',
+      category: v.category || '회화',
+      sentences: (v.sentences || []).map((s, i) => ({
+        id: s.id || (id + '_' + (i + 1)),
+        en: s.en, ko: s.ko || '',
+        cat: s.cat || v.category || CATS[0],
+        ref402: s.ref402 || 0,
+        start: Number(s.start || 0),
+        end: Number(s.end || (Number(s.start || 0) + 4))
+      }))
+    };
+  });
+  state.allVideos = base.allVideos || [];
+
+  state.hardIds = new Set(readJSON(LS.hard, []));
+  state.custom = readJSON(LS.custom, []);
+  state.speed = Number(localStorage.getItem(LS.speed) || 1.0);
+  state.accent = localStorage.getItem(LS.accent) || 'en-US';
+  state.ttsCount = Number(localStorage.getItem(LS.ttsCount) || 5);
+
+  buildTabs();
+  syncOptionChips();
+  const savedCat = localStorage.getItem(LS.cat);
+  selectCategory(state.cats.includes(savedCat) ? savedCat : state.cats[0]);
+  updateProgressBadge();
+}
+
+/* ---------------- 탭 ---------------- */
+function buildTabs() {
+  const el = document.getElementById('tabs');
+  const counts = categoryCounts();
+  let html = `<button class="tab-btn hard" data-cat="HARD">🔥 Hard<span class="cnt" id="hard-count">${state.hardIds.size}</span></button>`;
+  state.cats.forEach(c => {
+    html += `<button class="tab-btn cat-tab" data-cat="${c}">${c}<span class="cnt">${counts[c] || 0}</span></button>`;
+  });
+  html += `<button class="tab-btn" data-cat="ALL">📚 전체<span class="cnt">${state.allVideos.length}</span></button>`;
+  el.innerHTML = html;
+  el.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const c = btn.dataset.cat;
+      if (c === 'ALL') { showCatalog(); return; }
+      showLearn();
+      selectCategory(c);
+    });
+  });
+}
+
+function categoryCounts() {
+  const out = {};
+  state.cats.forEach(c => out[c] = 0);
+  Object.values(state.videos).forEach(v => {
+    v.sentences.forEach(s => {
+      const c = s.cat || v.category;
+      if (out[c] == null) out[c] = 0;
+      out[c] += 1;
+    });
+  });
+  state.custom.forEach(s => { out[s.category] = (out[s.category] || 0) + 1; });
+  return out;
+}
+
+function showLearn() {
+  state.view = 'learn';
+  document.getElementById('learn-view').classList.remove('hide');
+  document.getElementById('catalog-view').classList.remove('show');
+}
+function showCatalog() {
+  state.view = 'catalog';
+  stopAll(false);
+  document.getElementById('learn-view').classList.add('hide');
+  document.getElementById('catalog-view').classList.add('show');
+  buildCatalogFilters();
+  renderCatalog();
+  setActiveTab('ALL');
+  updateProgressBadge();
+}
+
+function setActiveTab(cat) {
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    const on = b.dataset.cat === String(cat);
+    b.classList.toggle('active', on);
+    if (on && b.scrollIntoView) {
+      try { b.scrollIntoView({ inline: 'center', block: 'nearest' }); } catch (e) {}
+    }
+  });
+}
+
+/* ---------------- 카테고리 선택 ---------------- */
+function selectCategory(cat) {
+  stopAll(false);
+  state.category = cat;
+  localStorage.setItem(LS.cat, cat);
+  setActiveTab(cat === 'HARD' ? 'HARD' : cat);
+  showLearn();
+  buildFlat();
+  state.index = 0;
+  renderList();
+  loadSentence(0);
+  updateProgressBadge();
+}
+
+function buildFlat() {
+  const out = [];
+  if (state.category === 'HARD') {
+    Object.values(state.videos).forEach(v => {
+      v.sentences.forEach(s => {
+        if (state.hardIds.has(s.id)) out.push({ ...s, video_id: v.id, video_title: v.title, group: s.cat || v.category });
+      });
+    });
+    state.custom.forEach(s => {
+      if (state.hardIds.has(s.id)) out.push({ ...s, video_id: s.video_id || '', video_title: '내가 추가한 문장', group: s.category });
+    });
+  } else {
+    // 내 문장 먼저
+    state.custom.filter(s => s.category === state.category).forEach(s => {
+      out.push({ ...s, video_id: s.video_id || '', video_title: '✏️ 내가 추가한 문장' });
+    });
+    Object.values(state.videos).forEach(v => {
+      v.sentences.forEach(s => {
+        const c = s.cat || v.category;
+        if (c !== state.category) return;
+        out.push({ ...s, video_id: v.id, video_title: v.title });
+      });
+    });
+  }
+  state.flat = out;
+}
+
+/* ---------------- 목록/현재 문장 ---------------- */
+function renderList() {
+  const listEl = document.getElementById('sentence-list');
+  const header = document.getElementById('list-header');
+  const sub = document.getElementById('list-sub');
+  const label = state.category === 'HARD' ? '🔥 Hard 복습 문장' : state.category + ' 학습 문장';
+  header.textContent = `${label} (${state.flat.length}개)`;
+  sub.textContent = state.flat.length ? `${state.index + 1} / ${state.flat.length}` : '';
+
+  if (!state.flat.length) {
+    listEl.innerHTML = `<div class="empty">${state.category === 'HARD'
+      ? '아직 어려움 체크한 문장이 없어요.<br>학습 중 <b>☆ 어려움 체크</b>를 눌러 모아 보세요.'
+      : '이 탭에는 아직 문장이 없습니다.<br><b>📚 전체 영상</b>에서 다른 영상을 열거나, <b>＋ 내 문장</b>으로 추가하세요.'}</div>`;
+    return;
+  }
+  listEl.innerHTML = state.flat.map((s, idx) => `
+    <div class="sentence-item ${idx === state.index ? 'active' : ''}" onclick="loadSentence(${idx})">
+      <div class="item-text">
+        <div class="item-en">${idx + 1}. ${escapeHtml(s.en)}</div>
+        <div class="item-sub">${escapeHtml(s.ko || s.video_title || '')}</div>
+      </div>
+      ${s.ref402 ? '<span class="ref-pill">402</span>' : ''}
+      <button class="star-btn ${state.hardIds.has(s.id) ? 'saved' : ''}"
+        onclick="event.stopPropagation(); toggleHardById('${s.id}')"
+        aria-label="어려움 체크">${state.hardIds.has(s.id) ? '★' : '☆'}</button>
+    </div>`).join('');
+}
+
+function loadSentence(idx) {
+  stopAll(false, true);
+  if (!state.flat.length) {
+    document.getElementById('current-video-title').textContent = '학습할 문장이 없습니다';
+    document.getElementById('current-en').textContent = '—';
+    document.getElementById('current-ko').textContent = '';
+    document.getElementById('current-video-link').style.display = 'none';
+    return;
+  }
+  state.index = ((idx % state.flat.length) + state.flat.length) % state.flat.length;
+  const item = state.flat[state.index];
+  document.getElementById('current-video-title').textContent = '📺 ' + (item.video_title || '내 문장');
+  const link = document.getElementById('current-video-link');
+  if (item.video_id) {
+    link.style.display = '';
+    link.href = 'https://www.youtube.com/watch?v=' + item.video_id + '&t=' + Math.max(0, item.start - 2) + 's';
+  } else {
+    link.style.display = 'none';
+  }
+  document.getElementById('current-en').textContent = item.en;
+  document.getElementById('current-ko').textContent = item.ko || '';
+  const refEl = document.getElementById('current-ref');
+  if (refEl) {
+    if (item.ref402 && state.data && state.data.ref402) {
+      const ch = (state.data.ref402.chapters || {})[String(item.ref402)] || ('챕터 ' + item.ref402);
+      refEl.textContent = '402문장 ' + ch + ' 에도 있음';
+      refEl.style.display = '';
+    } else {
+      refEl.textContent = '';
+      refEl.style.display = 'none';
+    }
+  }
+  updateDots(0, '대기 중');
+  updateHardBtn();
+  renderList();
+  updateProgressBadge();
+
+  if (state.playerReady && item.video_id) {
+    try { state.player.cueVideoById({ videoId: item.video_id, startSeconds: item.start }); } catch (e) {}
+  }
+  // 플레이어가 같은 영상이면 미리 seek
+  if (state.playerReady && item.video_id) {
+    const cover = document.getElementById('player-cover');
+    if (cover) cover.classList.add('hidden');
+  }
+}
+
+function nextSentence() {
+  if (!state.flat.length) return;
+  loadSentence(state.index + 1);
+}
+function prevSentence() {
+  if (!state.flat.length) return;
+  loadSentence(state.index - 1);
+}
+
+/* ---------------- 어려움 ---------------- */
+function toggleCurrentHard() {
+  const item = state.flat[state.index];
+  if (!item) return;
+  toggleHardById(item.id);
+}
+function toggleHardById(id) {
+  if (state.hardIds.has(id)) state.hardIds.delete(id); else state.hardIds.add(id);
+  writeJSON(LS.hard, [...state.hardIds]);
+  const hc = document.getElementById('hard-count');
+  if (hc) hc.textContent = state.hardIds.size;
+  updateHardBtn();
+  if (state.category === 'HARD') { buildFlat(); state.index = Math.min(state.index, Math.max(0, state.flat.length - 1)); loadSentence(state.index); }
+  else renderList();
+  updateProgressBadge();
+}
+function updateHardBtn() {
+  const item = state.flat[state.index];
+  const btn = document.getElementById('toggle-hard-btn');
+  if (!btn) return;
+  if (item && state.hardIds.has(item.id)) {
+    btn.classList.add('saved'); btn.textContent = '★ 어려움 저장됨';
+  } else {
+    btn.classList.remove('saved'); btn.textContent = '☆ 어려움 체크';
+  }
+}
+
+/* ---------------- 유튜브 플레이어 ---------------- */
+function onYouTubeIframeAPIReady() {
+  const first = state.flat[state.index];
+  state.player = new YT.Player('yt-player', {
+    height: '100%', width: '100%',
+    videoId: (first && first.video_id) || Object.keys(state.videos)[0],
+    playerVars: { playsinline: 1, rel: 0, modestbranding: 1, origin: location.origin === 'null' ? undefined : location.origin },
+    events: {
+      onReady: () => {
+        state.playerReady = true;
+        try { state.player.setPlaybackRate(state.speed); } catch (e) {}
+        document.getElementById('player-cover').classList.add('hidden');
+        // API 준비 전에 누른 재생 요청이 있으면 이어서
+        if (state.pendingPlay) { const p = state.pendingPlay; state.pendingPlay = null; doVideoRepeat(p); }
+      },
+      onError: () => { /* 영상 재생 불가 시 문구 유지 */ }
+    }
+  });
+}
+
+/* ---------------- 영상 구간 5회 ---------------- */
+const MAX_REPEAT = 5;
+function startVideo5x() {
+  const item = state.flat[state.index];
+  if (!item) return;
+  if (!item.video_id) { toast('영상 ID가 없어요. TTS로 연습해 보세요.'); startTTS(); return; }
+  stopAll(false, true);
+  state.running = 'video';
+  document.body.classList.add('looping');
+  document.getElementById('btn-video5x').classList.add('playing');
+  state.repeat = 1;
+  if (!state.playerReady) { state.pendingPlay = item; updateDots(1, '플레이어 준비 중…'); return; }
+  doVideoRepeat(item);
+}
+
+function doVideoRepeat(item) {
+  const p = state.player;
+  if (!p) return;
+  const start = Math.max(0, Number(item.start) || 0);
+  const end = Math.max(start + 1.2, Number(item.end) || (start + 4));
+  updateDots(state.repeat, `🎧 ${state.repeat}/${MAX_REPEAT} 듣는 중`);
+  try {
+    p.loadVideoById({ videoId: item.video_id, startSeconds: start, endSeconds: end });
+    p.setPlaybackRate(state.speed);
+    p.playVideo();
+  } catch (e) {}
+
+  clearInterval(state.timer);
+  const deadline = Date.now() + ((end - start) / state.speed) * 1000 + 900;
+  state.timer = setInterval(() => {
+    if (state.running !== 'video') { clearInterval(state.timer); return; }
+    let t = 0;
+    try { t = p.getCurrentTime(); } catch (e) { t = end; }
+    const over = t >= end - 0.12 || Date.now() > deadline;
+    if (over) {
+      clearInterval(state.timer);
+      try { p.pauseVideo(); } catch (e) {}
+      if (state.repeat >= MAX_REPEAT) {
+        updateDots(MAX_REPEAT, '✅ 5회 완료');
+        finishRun();
+        return;
+      }
+      updateDots(state.repeat, `🗣️ ${state.repeat}회차 — 따라 말해요`);
+      state.repeat += 1;
+      state.timer = setTimeout(() => {
+        if (state.running === 'video') {
+          try { p.seekTo(start, true); } catch (e) {}
+          doVideoRepeat(item);
+        }
+      }, 2300);
+    }
+  }, 180);
+}
+
+/* ---------------- TTS 반복 ---------------- */
+function startTTS() {
+  const item = state.flat[state.index];
+  if (!item) return;
+  stopAll(false, true);
+  state.running = 'tts';
+  document.body.classList.add('looping');
+  state.repeat = 1;
+  document.getElementById('btn-tts').classList.add('playing');
+  speakOnce(item);
+}
+
+function speakOnce(item) {
+  if (state.running !== 'tts') return;
+  const total = state.ttsCount; // 0 = ∞
+  const label = total === 0 ? '∞' : total;
+  updateDots(total === 0 ? Math.min(state.repeat, 5) : state.repeat, `🔊 ${total === 0 ? '' : state.repeat + '/' + label + ' '}듣는 중`);
+  const u = new SpeechSynthesisUtterance(item.en);
+  u.lang = state.accent;
+  u.rate = state.speed;
+  u.pitch = 1;
+  const v = pickVoice(state.accent);
+  if (v) u.voice = v;
+  u.onend = () => {
+    if (state.running !== 'tts') return;
+    if (total !== 0 && state.repeat >= total) { updateDots(5, '✅ 반복 완료'); finishRun(); return; }
+    updateDots(total === 0 ? Math.min(state.repeat, 5) : state.repeat, `🗣️ 따라 말해요`);
+    state.repeat += 1;
+    state.timer = setTimeout(() => speakOnce(item), 1700);
+  };
+  u.onerror = () => { if (state.running === 'tts') finishRun(); };
+  try { speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) { finishRun(); }
+}
+
+let voiceCache = null;
+function pickVoice(lang) {
+  if (!('speechSynthesis' in window)) return null;
+  if (!voiceCache) voiceCache = speechSynthesis.getVoices() || [];
+  let list = voiceCache.filter(v => v.lang && v.lang.toLowerCase() === lang.toLowerCase());
+  if (!list.length) list = voiceCache.filter(v => v.lang && v.lang.toLowerCase().startsWith(lang.slice(0, 2)));
+  if (!list.length) list = voiceCache.filter(v => v.lang && v.lang.toLowerCase().startsWith('en'));
+  return list[0] || null;
+}
+if ('speechSynthesis' in window) {
+  speechSynthesis.onvoiceschanged = () => { voiceCache = speechSynthesis.getVoices(); };
+}
+
+/* ---------------- 정지/완료 ---------------- */
+function finishRun() {
+  state.running = false;
+  document.body.classList.remove('looping');
+  document.getElementById('btn-video5x').classList.remove('playing');
+  document.getElementById('btn-tts').classList.remove('playing');
+}
+function stopAll(showMsg, silent) {
+  clearInterval(state.timer);
+  clearTimeout(state.timer);
+  state.timer = null;
+  state.running = false;
+  document.body.classList.remove('looping');
+  state.pendingPlay = null;
+  try { speechSynthesis.cancel(); } catch (e) {}
+  if (state.playerReady && state.player && state.player.pauseVideo) {
+    try { state.player.pauseVideo(); } catch (e) {}
+  }
+  const b1 = document.getElementById('btn-video5x');
+  const b2 = document.getElementById('btn-tts');
+  if (b1) b1.classList.remove('playing');
+  if (b2) b2.classList.remove('playing');
+  if (!silent) updateDots(0, showMsg ? '⏹️ 멈춤' : '대기 중');
+}
+
+function updateDots(step, text) {
+  document.getElementById('repeat-status').textContent = text || '대기 중';
+  const dots = document.querySelectorAll('#repeat-dots .dot');
+  dots.forEach((d, i) => {
+    d.classList.remove('done', 'current');
+    if (step >= 999) { d.classList.add('done'); return; }
+    if (i + 1 < step) d.classList.add('done');
+    else if (i + 1 === step) d.classList.add('current');
+  });
+  if (step >= 5 && /완료/.test(text || '')) dots.forEach(d => { d.classList.add('done'); });
+}
+
+/* ---------------- 옵션 칩 ---------------- */
+function syncOptionChips() {
+  document.querySelectorAll('#speed-chips .chip').forEach(c => {
+    c.classList.toggle('active', Number(c.dataset.s) === state.speed);
+  });
+  document.querySelectorAll('#accent-chips .chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.a === state.accent);
+  });
+  document.querySelectorAll('#tts-count-chips .chip').forEach(c => {
+    c.classList.toggle('active', Number(c.dataset.n) === state.ttsCount);
+  });
+  const lbl = document.getElementById('tts-count-label');
+  if (lbl) lbl.textContent = state.ttsCount === 0 ? '∞' : state.ttsCount;
+}
+
+document.addEventListener('click', (e) => {
+  const chip = e.target.closest('.chip');
+  if (!chip) return;
+  if (chip.dataset.s) {
+    state.speed = Number(chip.dataset.s);
+    localStorage.setItem(LS.speed, String(state.speed));
+    if (state.playerReady) { try { state.player.setPlaybackRate(state.speed); } catch (e) {} }
+    toast('속도 ' + state.speed.toFixed(1) + 'x');
+  } else if (chip.dataset.a) {
+    state.accent = chip.dataset.a;
+    localStorage.setItem(LS.accent, state.accent);
+    toast('TTS 억양 ' + chip.textContent.trim());
+  } else if (chip.dataset.n !== undefined) {
+    state.ttsCount = Number(chip.dataset.n);
+    localStorage.setItem(LS.ttsCount, String(state.ttsCount));
+    toast('음성 반복 ' + (state.ttsCount === 0 ? '무한' : state.ttsCount + '회'));
+  }
+  syncOptionChips();
+});
+
+/* ---------------- 전체 영상 카탈로그 ---------------- */
+function buildCatalogFilters() {
+  const el = document.getElementById('cat-filters');
+  const opts = [
+    ['all', '전체'], ['done', '✅ 추출 완료'], ['todo', '⏳ 미추출'],
+    ...state.cats.map(c => ['cat:' + c, c])
+  ];
+  el.innerHTML = opts.map(([k, label]) =>
+    `<button class="chip ${state.catalogFilter === k ? 'active' : ''}" data-f="${k}">${label}</button>`).join('');
+  el.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+    state.catalogFilter = b.dataset.f;
+    buildCatalogFilters(); renderCatalog();
+  }));
+}
+
+function renderCatalog() {
+  const q = (document.getElementById('cat-search').value || '').trim().toLowerCase();
+  let list = state.allVideos.slice();
+  const f = state.catalogFilter;
+  if (f === 'done') list = list.filter(v => v.extracted);
+  else if (f === 'todo') list = list.filter(v => !v.extracted);
+  else if (f.startsWith('cat:')) list = list.filter(v => (v.cats || []).includes(f.slice(4)));
+  if (q) list = list.filter(v => (v.title || '').toLowerCase().includes(q));
+
+  const el = document.getElementById('catalog-list');
+  if (!list.length) { el.innerHTML = '<div class="empty">조건에 맞는 영상이 없습니다.</div>'; return; }
+  el.innerHTML = list.map(v => `
+    <div class="vid-row ${v.extracted ? 'done' : ''}" onclick="catalogTap('${v.id}')">
+      <div class="num">${v.order || ''}</div>
+      <div class="body">
+        <div class="t">${escapeHtml(v.title)}</div>
+        <div class="meta">
+          ${(v.cats || []).map(c => `<span class="pill">#${escapeHtml(c)}</span>`).join('')}
+          ${v.extracted ? `<span class="pill ok">✅ ${v.sentenceCount}문장</span>` : '<span class="pill wait">⏳ 미추출</span>'}
+          ${v.duration ? `<span>${fmtDur(v.duration)}</span>` : ''}
+        </div>
+      </div>
+      <div style="font-size:16px;color:#475569">›</div>
+    </div>`).join('');
+}
+
+function catalogTap(id) {
+  const v = state.allVideos.find(x => x.id === id);
+  if (!v) return;
+  if (state.videos[id] && state.videos[id].sentences.length) {
+    showLearn();
+    const first = state.videos[id].sentences[0];
+    selectCategory(first.cat || state.videos[id].category);
+    const idx = state.flat.findIndex(s => s.video_id === id);
+    if (idx >= 0) loadSentence(idx);
+    toast('✅ ' + state.videos[id].sentences.length + '문장으로 시작합니다');
+  } else {
+    window.open('https://www.youtube.com/watch?v=' + id, '_blank', 'noopener');
+    toast('유튜브로 열었어요. 문장 추출은 Jian에게 요청!');
+  }
+}
+
+/* ---------------- 모달 ---------------- */
+function openModal(kind) {
+  if (kind === 'data') {
+    document.getElementById('data-summary').innerHTML =
+      `어려움 체크: <b>${state.hardIds.size}</b>개<br>내 문장: <b>${state.custom.length}</b>개<br>` +
+      `추출된 영상: <b>${Object.keys(state.videos).length}</b>개 / 여행영어 영상 ${state.allVideos.length}개<br>` +
+      `402문장와 겹치는 문장: <b>${Object.values(state.videos).reduce((n, v) => n + v.sentences.filter(s => s.ref402).length, 0)}</b>개`;
+  }
+  if (kind === 'json') document.getElementById('json-text').value = '';
+  document.getElementById('modal-' + kind).classList.add('show');
+}
+function closeModal(kind) { document.getElementById('modal-' + kind).classList.remove('show'); }
+
+function saveCustomSentence() {
+  const en = document.getElementById('add-en').value.trim();
+  const ko = document.getElementById('add-ko').value.trim();
+  if (!en) { toast('영어 문장을 입력해 주세요'); return; }
+  const start = Number(document.getElementById('add-start').value || 0);
+  const end = Number(document.getElementById('add-end').value || (start + 5));
+  const rec = {
+    id: 'custom_' + Date.now(),
+    en: en, ko: ko,
+    category: document.getElementById('add-cat').value,
+    video_id: document.getElementById('add-vid').value.trim(),
+    start: start, end: end
+  };
+  state.custom.push(rec);
+  writeJSON(LS.custom, state.custom);
+  document.getElementById('add-en').value = '';
+  document.getElementById('add-ko').value = '';
+  document.getElementById('add-vid').value = '';
+  document.getElementById('add-start').value = '';
+  document.getElementById('add-end').value = '';
+  closeModal('add');
+  buildTabs();
+  selectCategory(rec.category);
+  toast('내 문장에 추가했어요');
+}
+
+function loadJsonFile(input) {
+  const f = input.files && input.files[0];
+  if (!f) return;
+  const r = new FileReader();
+  r.onload = () => { document.getElementById('json-text').value = r.result; toast('파일을 읽었어요. ‘불러오기’를 누르세요'); };
+  r.readAsText(f);
+}
+
+function importJsonText() {
+  const txt = document.getElementById('json-text').value.trim();
+  if (!txt) { toast('JSON을 붙여넣어 주세요'); return; }
+  let obj;
+  try { obj = JSON.parse(txt); } catch (e) { toast('JSON 형식이 올바르지 않아요'); return; }
+  let added = 0;
+  const src = obj.videos || obj;
+  Object.keys(src).forEach(id => {
+    const v = src[id];
+    if (!v || !Array.isArray(v.sentences)) return;
+    const cat = state.cats.includes(v.category) ? v.category : state.cats[0];
+    state.videos[id] = {
+      id: id, title: v.title || id, category: cat,
+      sentences: v.sentences.map((s, i) => ({
+        id: s.id || (id + '_' + (i + 1)),
+        en: s.en, ko: s.ko || '',
+        cat: state.cats.includes(s.cat) ? s.cat : cat,
+        ref402: s.ref402 || 0,
+        start: Number(s.start || 0), end: Number(s.end || (Number(s.start || 0) + 4))
+      })).filter(s => s.en)
+    };
+    added += state.videos[id].sentences.length;
+    const meta = state.allVideos.find(a => a.id === id);
+    if (meta) { meta.extracted = true; meta.sentenceCount = state.videos[id].sentences.length; }
+  });
+  buildTabs();
+  selectCategory(state.category);
+  closeModal('json');
+  toast(added ? added + '문장을 불러왔어요' : '새 문장이 없었어요');
+}
+
+function exportData() {
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    hardIds: [...state.hardIds],
+    custom: state.custom,
+    settings: { speed: state.speed, accent: state.accent, ttsCount: state.ttsCount }
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 1)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'soritune-video-my-learning.json';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+  toast('내려받기 시작');
+}
+
+function resetProgress() {
+  if (!confirm('어려움 체크를 모두 지울까요? (내 문장은 그대로 둡니다)')) return;
+  state.hardIds = new Set();
+  writeJSON(LS.hard, []);
+  const hc = document.getElementById('hard-count');
+  if (hc) hc.textContent = '0';
+  buildFlat(); state.index = 0; renderList(); loadSentence(0);
+  closeModal('data');
+  toast('초기화했어요');
+}
+
+/* ---------------- 유틸 ---------------- */
+function updateProgressBadge() {
+  const total = Object.values(state.videos).reduce((n, v) => n + v.sentences.length, 0) + state.custom.length;
+  const badge = document.getElementById('progress-badge');
+  if (!badge) return;
+  if (state.view === 'catalog') {
+    badge.textContent = `전체 ${total}문장 · ★${state.hardIds.size}`;
+    badge.classList.remove('warm');
+    return;
+  }
+  badge.textContent = `${state.flat.length}문장 · ★${state.hardIds.size}`;
+  badge.classList.toggle('warm', state.category === 'HARD');
+}
+function escapeHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function fmtDur(sec) {
+  sec = Number(sec) || 0;
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return m + ':' + String(s).padStart(2, '0');
+}
+let toastTimer = null;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 1900);
+}
+
+/* ---------------- 시작 ---------------- */
+document.addEventListener('keydown', (e) => {
+  if (e.target.matches('input,textarea,select')) return;
+  if (e.key === 'ArrowRight') nextSentence();
+  if (e.key === 'ArrowLeft') prevSentence();
+  if (e.key === ' ') { e.preventDefault(); startVideo5x(); }
+  if (e.key === 'Escape') stopAll(true);
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopAll(false, true);
+});
+loadData();
+</script>
+</body>
+</html>

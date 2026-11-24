@@ -1,0 +1,15 @@
+{
+  "name": "소리튠 해외여행 영어 · 영상 5회 반복",
+  "short_name": "소리튠 여행 5회",
+  "description": "주아쌤_소리튠영어 여행영어 영상 구간을 5회 반복하며 따라 말하는 학습 앱",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "./icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
