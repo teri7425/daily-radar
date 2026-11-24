@@ -1,0 +1,2682 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#4f46e5" />
+  <!-- 홈 화면 아이콘: 별도 파일 없이 인라인 SVG + PNG(180x180) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM2MzY2ZjEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMWQ0ZWQ4Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNCIgZmlsbD0idXJsKCNnKSIvPgogIDxwYXRoIGQ9Ik01MiAxMSBMMTYgMjguNSBMMzEuNSAzMi41IFoiIGZpbGw9IiNmZmZmZmYiLz4KICA8cGF0aCBkPSJNNTIgMTEgTDMxLjUgMzIuNSBMMzcuNSA0OSBaIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc4Ii8+CiAgPHBhdGggZD0iTTkgNDcgUTE5IDUzLjUgMjggNDguNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utb3BhY2l0eT0iMC40NSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==" />
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAAAwFBMVEX////d4frU2vnT2vmns/N9j+1cZO9YY+1YYu1VYuxVYexTYetSYOtRYOtQX+pPYOpPX+pOX+pOXulNX+lNXulMXulLXulLXehKXuhKXehJXehIXedHXOdGX+VGXOdFXOZEXOZEW+ZDW+ZCW+VBW+VAWuU/WuQ+WeQ9WeQ8WeM7WOM6WOI5WOI4V+I3V+E2V+E1V+E1VuE0VuAzVuAzVeAyVuAyVd8xVd8wVd8vVN8uVN4sU90rU90qUtwnUdwkUNq1IHTsAAALC0lEQVR42tWd21rqOBiGQ7NhIWp1UAd11R2KIqjjZrlbCvd/V/MnaUugaZukDdS/zxzNHHzzPl9fapMAQsXTwoQQShlMm7VhfiWXmM6vjY68uhv82tzY7Mpra3Nrc3sLru2drZ1wJ9zd2d3d41dvv7cP8+/+vweHcB314To6Pvp9DFebUUoIbqEKgwmbj8zclnnjzJCaJ04HcvPEYrZgeGZIzWeXz15vb29/j2c+EHPYPzw8OjyCOYbM/J/fv09gGMGOiSljmcy/Fkhv8EuSznLeEpy3draB887uzj8LnA9izocJZ0n6+IRfJ6cn56chtc9N2PIonH9Zc96JOXPSi5yPJGdBOeZ8enIKc352TKpFLuvzRn6fd3R9Psj2eYGzuM4uQlKFcjXOpX0+VvrMOfPEcJ1fXHSJS5fzOBf2eTPt8zbv865ln2POZxeQesAMYmcju3HeTjjvJpx7+xZ9Pj/nnCEzDC3Tcm5mr37WcT6/OBtcwDW4GrBCcbdYCWfPfl7s84XIDKmvwoLUmJVy9u7ntM8XCeery6vLCJtbYz1+XubM55I4c16Vn5U+c84iNXbq80r9vMiZT79l47o1+VlyHkjOw6vrK/Yj/KxyHsJQg5tw/X5O+nzNSQ+vl1PjZvpZZpacIfU1LilHM/zMU/M+c85wsVLbNcLPKufr6xtSBLo5fk76zK+b63bpM38z/Kxwhpmjbraf55xvbm6jPNBN8/Oc883NiOo/v5vn55QzXMOWDnQT/ZxyhiEadTTSzynn29Et1d2GjfRzyvl2FGU+WJrq55QzXHip0s31c8L59lb042f4OeU8HoULwmuEnxnpF3K+HY8DpR1N8DPDLVLU5/FoPB6TeegG+Jlh1MK0hLMaev1+5i+kWxifFfV5DKnv6PyjZc1+Fu/QWzigZZwnkyT0uv0sX/tD5qBb3OfxXUp6zX6mAUoykxLO48ndhKG1+/mMJm9hIHNAS/o8vpvc9dCa/TyPLDLjqKTPEyA9RGv1czSPLDJDO0r6POEXWqOf1cgyc8DK+jy5g9RobX7uEfWNosyMr8r6nJBei5+XFttk5oAW9lkkhrlHa/Hz8kJbnBl3yvsMmSdoDX7OrA3GmQNi0Oe7e0F6xX7uZBYiksyyHSV9hsyiHqv0czu7dpJmxoNiP4s+Q+Z7tFI/61Zf08yiHcV9ntxP7nnoFfpZu2A8zxwwkz7DPKCV+Zlpl6eUzMSozw9woRX5OWfLSaCEpqV+lpwfYtK+/Zy3S6alZIZnpTI/i8z3PLR/P+du7FEzw21o1OeHmLRfP8dP+GWZA1beZ8n5USHtx8/5kZcy42G5nyXnh0fk08/HtIUMM8NtWO5nyXlO2oOfCyMvZ8Zdwz4/PD5K0j783KfF22EWMwfExM+C839PcT1q9/PiE37xh4psh4mfJefHJ+TDz6WRM5lxZOJn3uenR0m6Zj8bbKVbzszbYdhnyPyE6vZzx2AbXSYzSNrEz3DxzFCPWv1sElmTmZj5mXPmg+r0c9toj2U2c0DN/Mz7/PL08oTq8zMz3BaazYwj8z7DPKO6/GwYWZcZ2mHmZ54ZSD+jevxsGlmbOaCGfpacn19QHX5mxpvKtZnx0NDPL0/PwBlIV++zxT54bWYAbdFnyCxIV/KzzdZ9feagbernF9Ho15S0o5+tThvkZCbGfhacX19fURU/Fzzhl/wRu9wOMz/zPr8+v/5B7n2mdmdo8jLDs5JNn18T0g5+PrCMnHmAVtth6mfJ+e0VOfl53zZyfuaAmfv5+UWAfkMOfg6tIxdkxhZ+lpw5ads+h8T+PFh+ZnhWsuvz69vbG7L0c5cgVGdmHFr4WXKG0FZ+7rhELsoMt6GFnyXnt3dk5WfqdFSwIDOmNn6WnD/gRrT0s/1RwYLMAb6x7TNkTkhbPT/3KcH1cIbb0MbPkvPHO3J8v2EcvIhzgNtWfhbz8f6BKrzf6FESVOKMiZ2fJWcgXfH9c0gLtV3Mmd+GVn1+f3t/l6Qrrw92c4MXc4ZnJTs/S86SdB3rgx1d8BLOmFj6WWb++EA17t9gS8GLOcMwSz9Lzpx0vfvr2PxvmTLOGI8t/Sw5c9K1768byM+fsj7DbWjrZ3l98tBe9j+DDcs449DWz5Lzxyfytf+5h4v7zG9DWz9Lzpy0r/3PpIQzptZ+lpw/JWkv+59pYZ9hhtZ+lpx5aF/nUwa4kDNvh62fJWcR2tf5FFLQZy5pez9zzn8//wrSns6nsCLO/NPQ2s+CM6RG/s6nDHF+n8VtaO1n3mdJ2t/5FJrPGcOzkr2fP1PS/s6ndHBen6EdLn7++ykv5PN8CsnlDB/hDn6OM3PS/s6n0Jw+w4xc/Dwn7fH8YIRzOGPq5GeemA/yen6QaPsM03Hy8984NfJ6fpDqOcNt6OTnlLTX84OXWNdn3g4nP8vUX4K0x/ODVMcZnpXc/Cw4f319Ib/nB9uaPkM7HP0sMkNq5Pn8INFwxszRzzFoQdrn+UGKNaQnjn6WnL+/kK/z3fG+ghBnh7r6WWCG1MjX+e5kXwHJhu65+llyBtLeznfH67A0k5k4+1lyBtLeznfH692X2na4+VlyFqQ9ne9Oz2lmJO3sZ8n5G0h7O98drw+yZdDufv5OSPs73x2vD46WQnfc/Sw5C9K+zncn64N06TZ093N8QWg/flb2b7Qz7XD1s+QMoX35WVkfXLgVowp+/o5zI19+VtYH6WI73P38LTNPkS8/K+tWkdqOKn7mmadwIW9+VtYHlX5MqvhZzHQ6RZ77LN4/U+U2rOJnkRlSI29+VtZThvPbsJKfJWdJ2pOflfXBpB+kmp8lZwjtz8/K+2eW3oaV/Cw5Q2h9n/uUEMoq9zl5/zxJ3itV8/M0To20fj6GzPzLsruV/Ky8F5W3Iqno56lCWnPeisRD+xX8rLx/7sg/aCv6eR5a1+c0NMSu4GflPZK4FR8q+lkJrTs/SJTUzLjPEaOU6fdv8H7Qqn5WSWf9rIbmsc9MOEfxjTDSrQ/yj/Koqp/T0Fo/d8niUBqW+TlM/0eZdn2QwG1Y1c9z0lo/M7I8lBVwHjD1LtCuD1JMK/s5DZ3zvNGn2diUhbo+37SpGplQ7frgCG7DOvo8nc6gHnnPz91sbBG824vmnENGaeY/0a9btav7OUmNCp6fmS52HExO9l/A1XFeHyzzs+Q8m6Gi5+ez/Nj5/zvMfX3w06DPkFmSzn9+jqxSA2caVVgfNOnzjIfuljw/9ym1wBzdVVkfLPOz5Dz7g1j587NhSSgdOu7fMPXzTJIOETV5fo5KcVPaHjnv3zD1s+A8mzFEDf8e1MhNvftGLvvrXPoMQxGxeL+hC84/ckaO++ts/TwPbfl+46zXYUxamrF2OHTZ/+zq53gIwjW+3/Dt5zR0q8b3G779HE8LIVbf+w3Pfo6Hf4UsqfH9hl8/p/chQrjG9xt+/RyP2DYcntb2fsOvn+X8kV/lXPX986r8PG8HlLrq++dV+TkRnjhadfpD/Cwn+ZWAH+JnpR0w/R/hZzHf6VEJ8iP8vAgarPcT/MznXf01lx/gZ0Ud8XSa72c+w8Ufzmm+nzOgQXuN97P443BpWMP9HD+TLh05DhvtZ5iR5vxgEDXZz7PZl/aUKR4018/ZmzBVSHP9nJsZWPcb6ufZe8HR6Va7mX4eFn8xAP0RftakbpqfqcGRetYsP0dm3wRAus3xc2Txm8FRM/z8x/LXmS/X7+dvav1VIoRG6/TzJ3X61hb+M83d9fh5SB1/JF35PXrKwvEq/DwdiRXr0u/f+B+r56ilyyEBNgAAAABJRU5ErkJggg==" />
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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" />
+  <title>소리튠 해외여행 영어 402문장 완전정복</title>
+  <!-- Tailwind CSS with Dark Mode Class Support -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Noto Sans KR', 'Inter', 'sans-serif'],
+            en: ['Inter', 'Noto Sans KR', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    /* 플래시카드 전환 효과 */
+    .flashcard-pop {
+      animation: cardPop 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @keyframes cardPop {
+      0% { opacity: 0.4; transform: scale(0.97) translateY(6px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(79, 70, 229, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+    }
+    .active-rep-dot {
+      animation: pulseRing 1.4s infinite;
+    }
+    /* 퀴즈 정답 축하 토스트 & 색종이 (가벼운 CSS 애니메이션) */
+    .celebrate-toast {
+      position: fixed;
+      left: 50%;
+      top: 46%;
+      z-index: 60;
+      pointer-events: none;
+      animation: celebratePop 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes celebratePop {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+      30% { opacity: 1; transform: translate(-50%, -50%) scale(1.06); }
+      70% { opacity: 1; transform: translate(-50%, -54%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -68%) scale(0.98); }
+    }
+    .confetti-layer { position: fixed; inset: 0; z-index: 70; pointer-events: none; overflow: hidden; }
+    .confetti-piece {
+      position: absolute;
+      top: -12%;
+      border-radius: 2px;
+      animation-name: confettiFall;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+    }
+    @keyframes confettiFall {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 1; }
+      100% { transform: translate3d(0, 118vh, 0) rotate(680deg); opacity: 0.85; }
+    }
+    @keyframes comboPop {
+      0% { transform: scale(0.8); }
+      60% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+    .combo-pop { animation: comboPop 0.35s ease-out; }
+    @media (prefers-reduced-motion: reduce) {
+      .confetti-piece, .celebrate-toast, .combo-pop { animation-duration: 0.01s !important; }
+    }
+    /* 문장 카드의 억양 알약: 320~350px처럼 좁은 화면에서는 국기만 남겨 줄바꿈을 막는다 */
+    @media (max-width: 359px) {
+      .accent-label { display: none; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased transition-colors duration-200">
+
+  <!-- 모바일 퍼스트 중앙 컨테이너 -->
+  <div class="max-w-[500px] mx-auto min-h-screen bg-slate-50 dark:bg-slate-900 shadow-2xl flex flex-col relative pb-24 transition-colors duration-200">
+
+    <!-- 상단 고정 헤더 & 대시보드 -->
+    <header class="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 px-4 pt-3.5 pb-3 shadow-sm">
+      <!-- 1행: 타이틀, 다크모드, 홈추가 안내, 초기화 -->
+      <div class="flex items-center justify-between gap-2 mb-2.5">
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">주아쌤 소리튠영어</span>
+            <span id="headerTotalBadge" class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">전체 402문장</span>
+          </div>
+          <h1 id="pageTitle" style="word-break: keep-all" class="text-[15px] sm:text-lg font-extrabold text-slate-900 dark:text-white tracking-tight leading-snug mt-1">해외여행 영어 402문장 완전정복</h1>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <!-- 스마트폰 홈 화면 추가 안내 버튼 -->
+          <button onclick="toggleInstallGuide()" aria-label="홈 화면 추가 안내" class="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-300 border border-indigo-200/70 dark:border-indigo-800 active:scale-95 transition text-xs font-bold whitespace-nowrap shrink-0">
+            📱 앱설치
+          </button>
+          <!-- 다크모드 토글 -->
+          <button id="darkModeBtn" onclick="toggleDarkMode()" aria-label="다크모드 전환" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-300 border border-slate-200 dark:border-slate-700 active:scale-95 transition text-sm">
+            🌙
+          </button>
+          <!-- 초기화 버튼 -->
+          <button onclick="openResetModal()" aria-label="학습 기록 초기화" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700 active:scale-95 transition text-xs font-bold">
+            ↺
+          </button>
+        </div>
+      </div>
+
+      <!-- 2행: 대시보드 진행률 카드 -->
+      <div class="bg-slate-100/90 dark:bg-slate-800/90 rounded-2xl p-2.5 border border-slate-200/70 dark:border-slate-700/80 mb-2.5">
+        <div class="flex items-center justify-between text-xs font-bold mb-1.5">
+          <div class="flex items-center gap-2">
+            <span class="text-slate-600 dark:text-slate-300">암기 <strong id="statMemorized" class="text-emerald-600 dark:text-emerald-400">0</strong>/<span id="statTotal">402</span></span>
+            <span class="text-slate-300 dark:text-slate-600">|</span>
+            <span class="text-slate-600 dark:text-slate-300">즐겨찾기 <strong id="statStarred" class="text-amber-500">0</strong></span>
+            <span class="text-slate-300 dark:text-slate-600">|</span>
+            <span class="text-slate-600 dark:text-slate-300">🔥 <strong id="statDifficult" class="text-rose-500">0</strong></span>
+          </div>
+          <span id="statPercent" class="text-indigo-600 dark:text-indigo-400 font-extrabold">0%</span>
+        </div>
+        <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+          <div id="statProgressBar" class="h-full bg-gradient-to-r from-indigo-500 via-blue-500 to-emerald-500 rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+
+        <!-- 오늘의 미션 & 연속 학습일 (탭하면 목표 문장 수 변경) -->
+        <div class="flex items-center justify-between gap-2 mt-2">
+          <button type="button" onclick="openMissionGoalModal()" aria-label="오늘의 미션 목표 변경" class="flex items-center gap-1.5 min-w-0 active:scale-95 transition">
+            <span id="missionLabel" class="text-[10px] font-extrabold text-slate-600 dark:text-slate-300 whitespace-nowrap">🎯 오늘의 미션 0/10</span>
+            <span class="inline-block w-12 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+              <span id="missionBar" class="block h-full bg-amber-400 rounded-full transition-all duration-500" style="width: 0%"></span>
+            </span>
+          </button>
+          <span id="streakBadge" class="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200/70 dark:border-amber-900/80 whitespace-nowrap">🔥 0일 연속</span>
+        </div>
+      </div>
+
+      <!-- 3행: 3가지 학습 모드 탭 -->
+      <div class="grid grid-cols-3 gap-1.5 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200/60 dark:border-slate-700">
+        <button id="mode-btn-list" onclick="switchMode('list')" class="py-2 px-2 rounded-lg text-xs font-extrabold transition-all flex items-center justify-center gap-1">
+          <span>📋</span><span>카드 리스트</span>
+        </button>
+        <button id="mode-btn-flash" onclick="switchMode('flash')" class="py-2 px-2 rounded-lg text-xs font-extrabold transition-all flex items-center justify-center gap-1">
+          <span>🃏</span><span>플래시카드</span>
+        </button>
+        <button id="mode-btn-quiz" onclick="switchMode('quiz')" class="py-2 px-2 rounded-lg text-xs font-extrabold transition-all flex items-center justify-center gap-1">
+          <span>🎯</span><span>스피킹·퀴즈</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 스마트폰 홈 화면 추가 안내 드로어 -->
+    <div id="installGuideBody" class="hidden mx-4 mt-3 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl text-white p-3.5 shadow-md text-xs space-y-2">
+      <div class="flex items-center justify-between">
+        <p class="font-extrabold text-sm">📱 스마트폰 홈 화면에 추가하여 앱처럼 공부하기</p>
+        <button onclick="toggleInstallGuide()" class="bg-white/20 px-2 py-0.5 rounded-lg font-bold whitespace-nowrap shrink-0">닫기 ✕</button>
+      </div>
+      <div class="bg-white/10 rounded-xl p-2.5 leading-relaxed">
+        <p class="font-bold">🍎 아이폰 (Safari)</p>
+        <p class="text-indigo-100">하단 <strong>[공유 버튼 (□↑)]</strong> → <strong>[홈 화면에 추가]</strong> 터치</p>
+      </div>
+      <div class="bg-white/10 rounded-xl p-2.5 leading-relaxed">
+        <p class="font-bold">🤖 갤럭시 / 안드로이드 (Chrome, 삼성인터넷)</p>
+        <p class="text-indigo-100">우측 상단 <strong>[⋮ 메뉴]</strong> → <strong>[현재 페이지 추가 / 홈 화면에 추가]</strong> 터치</p>
+      </div>
+    </div>
+
+    <!-- 공통 필터 영역: 9개 챕터 드롭다운 + 실시간 검색 + 상태 필터 -->
+    <section class="px-4 pt-3 pb-2 space-y-2.5 border-b border-slate-200/70 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60">
+      <!-- 9개 챕터 드롭다운 선택기 -->
+      <div class="relative">
+        <select id="categorySelect" onchange="onCategoryChange(this.value)"
+          class="w-full appearance-none bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-xs font-extrabold rounded-xl px-3.5 py-2.5 pr-9 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <!-- 전체·챕터 옵션은 JS(renderCategoryOptions)가 실제 문장 수와 함께 생성한다 -->
+          <option value="all">📚 전체 챕터 보기 (402문장)</option>
+        </select>
+        <span class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs">▼</span>
+      </div>
+
+      <!-- 가로 스크롤 챕터 퀵 필 (빠른 한 손 탭 이동용) -->
+      <div id="chapterPills" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
+        <!-- JS로 생성 -->
+      </div>
+
+      <!-- 4개국 원어민 억양 선택 (미국·영국·호주·인도) + 기기 음성 선택 + 반복 속도 -->
+      <div class="bg-white/80 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/80 px-2 py-1.5 space-y-1.5">
+        <div id="accentPills" class="grid grid-cols-4 gap-1" role="group" aria-label="원어민 억양 선택 (미국·영국·호주·인도)">
+          <!-- JS로 생성 -->
+        </div>
+        <div class="flex items-center gap-1">
+          <select id="voiceSelect" onchange="onVoiceChange(this.value)" aria-label="억양별 세부 음성 선택"
+            class="min-w-0 flex-1 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-[11px] font-bold rounded-lg px-2 py-1 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <!-- JS로 생성 -->
+          </select>
+          <button type="button" onclick="previewAccent()" aria-label="이 억양으로 미리듣기"
+            class="shrink-0 w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/70 border border-indigo-200/70 dark:border-indigo-800 text-indigo-600 dark:text-indigo-300 text-xs font-extrabold active:scale-95 transition flex items-center justify-center">🔊</button>
+        </div>
+        <p id="voiceHint" class="hidden text-[10px] font-bold text-amber-600 dark:text-amber-400 leading-snug"></p>
+
+        <!-- 3회·5회·10회 반복 재생 속도 (믹스 0.85→1.0 / 카드에서 고른 듣기 속도) -->
+        <div class="flex items-center gap-1.5 pt-0.5">
+          <span class="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 whitespace-nowrap">🔁 반복 속도</span>
+          <div id="speedPills" class="grid grid-cols-2 gap-1 flex-1" role="group" aria-label="3회·5회·10회 반복 재생 속도 선택"></div>
+        </div>
+      </div>
+
+      <!-- 리스트 모드 전용 필터 (플래시카드·퀴즈에서는 검색/상태 필터를 숨겨 화면을 넓게 쓴다) -->
+      <div id="listOnlyFilters" class="space-y-2.5">
+      <!-- 실시간 검색창 -->
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs">🔍</span>
+        <input id="searchInput" type="text" oninput="onSearchInput(this.value)"
+          placeholder="영어 문장, 한국어 뜻, 소리블록(예: Could I) 검색..."
+          class="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl pl-8 pr-8 py-2 text-xs font-medium text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold px-1">✕</button>
+      </div>
+
+      <!-- 상태 필터 4종 + 한국어만 보기 스위치 -->
+      <div class="flex items-center justify-between gap-1.5 flex-wrap">
+        <div class="flex items-center gap-1 flex-wrap">
+          <button id="filter-all" onclick="setStatusFilter('all')" class="status-filter-btn px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border transition whitespace-nowrap">전체</button>
+          <button id="filter-unmemorized" onclick="setStatusFilter('unmemorized')" class="status-filter-btn px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border transition whitespace-nowrap">미암기만</button>
+          <button id="filter-memorized" onclick="setStatusFilter('memorized')" class="status-filter-btn px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border transition whitespace-nowrap">암기완료</button>
+          <button id="filter-starred" onclick="setStatusFilter('starred')" class="status-filter-btn px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border transition whitespace-nowrap">★ 즐겨찾기</button>
+          <button id="filter-hard" onclick="setStatusFilter('hard')" class="status-filter-btn px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border transition whitespace-nowrap">🔥 Hard</button>
+        </div>
+
+        <!-- 한국어만 보기 (영어 가리기) 스위치 -->
+        <button id="hideEnglishToggle" onclick="toggleHideEnglish()" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 active:scale-95 transition">
+          <span id="hideEnglishIcon">🙈</span>
+          <span id="hideEnglishLabel">한국어만 보기</span>
+        </button>
+      </div>
+      </div>
+    </section>
+
+    <!-- ==================== 메인 학습 뷰 컨테이너 ==================== -->
+    <main id="mainContent" class="flex-1 px-4 py-3">
+      <!-- 선택된 모드(카드 리스트 / 플래시카드 / 퀴즈)가 여기에 렌더링됨 -->
+    </main>
+
+    <!-- 5회 연속 자동 재생 플로팅 컨트롤러 -->
+    <div id="repeatFloatingBar" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-[468px] z-40 bg-slate-900/95 text-white rounded-2xl p-3.5 shadow-2xl border border-slate-700 backdrop-blur-md">
+      <div class="flex items-center justify-between gap-3">
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span id="repeatStatusText" aria-live="polite" class="text-xs font-extrabold text-emerald-400">5회 반복 듣기 진행 중 (1/5회)</span>
+          </div>
+          <p id="repeatSentenceText" class="text-xs text-slate-300 truncate mt-1 font-en">Could I get a coffee, please?</p>
+          <div id="repeatDots" class="flex items-center gap-1 mt-1.5"></div>
+        </div>
+        <button onclick="stopRepeatPlayback()" class="shrink-0 bg-rose-500 hover:bg-rose-600 active:scale-95 text-white text-xs font-extrabold px-3 py-2 rounded-xl shadow flex items-center gap-1">
+          <span>⏹️</span><span>멈춤</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 커스텀 확인/알림 모달 (alert/confirm 금지 준수) -->
+  <div id="customModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-700">
+      <h3 id="modalTitle" class="text-base font-extrabold text-slate-900 dark:text-white mb-1.5">알림</h3>
+      <p id="modalMessage" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">내용</p>
+      <div id="modalActions" class="flex justify-end gap-2"></div>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. 주아쌤 소리튠영어 해외여행 회화 3편 전체 402문장 완전 데이터 (생략 없음)
+    // =========================================================================
+    const CHAPTER_META = [
+      { id: 'all', short: '전체 (402)', title: '전체 챕터 (402문장)' },
+      { id: '1', short: '1.패턴1~5', title: '1. 패턴 1~5: 요청·원함·길묻기·가격·재고' },
+      { id: '2', short: '2.패턴6~10', title: '2. 패턴 6~10: 존재·가능·도움·시간·추천·안전·거리' },
+      { id: '3', short: '3.패턴11~20', title: '3. 패턴 11~20: 심화·정중 요청 & 상황 대처 블록' },
+      { id: '4', short: '4.공항·기내', title: '4. 상황별 ① 공항 & 기내' },
+      { id: '5', short: '5.식당·카페', title: '5. 상황별 ② 식당 & 카페' },
+      { id: '6', short: '6.관광·명소', title: '6. 상황별 ③ 관광 & 명소' },
+      { id: '7', short: '7.교통·긴급', title: '7. 상황별 ④ 길찾기 & 교통 & 긴급상황' },
+      { id: '8', short: '8.쇼핑·마트', title: '8. 상황별 ⑤ 쇼핑몰 & 마트·식료품' },
+      { id: '9', short: '9.호텔·숙박', title: '9. 상황별 ⑥ 호텔 & 숙박' }
+    ];
+
+    // 포맷: [카테고리번호, 영어문장, 한국어뜻, 소리블록/상황태그]
+    const RAW_SENTENCES = [
+      // ==================== 카테고리 1 (36문장) ====================
+      [1, "Could I get a coffee, please?", "커피 좀 주세요.", "패턴: Could I get"],
+      [1, "Could I get a large coffee, please?", "라지 사이즈 커피 주세요.", "패턴: Could I get"],
+      [1, "Could I get another beer?", "맥주 한 잔 더 주세요.", "패턴: Could I get"],
+      [1, "Can I get a menu, please?", "메뉴 좀 주시겠어요?", "패턴: Can I get"],
+      [1, "Can I get a discount?", "할인 좀 받을 수 있을까요?", "패턴: Can I get"],
+      [1, "Could I get a refund?", "환불 좀 받을 수 있을까요?", "패턴: Could I get"],
+      [1, "Excuse me, could I get something to drink?", "실례합니다, 마실 것 좀 주실 수 있을까요?", "패턴: Could I get"],
+      [1, "Could I have some water, please?", "물 좀 주세요.", "패턴: Could I have"],
+      [1, "Could I have some more milk?", "우유 좀 더 주세요.", "패턴: Could I have"],
+      [1, "Could we have three coffees, please?", "우리 커피 세 잔 주세요.", "패턴: Could we have"],
+      [1, "Could I get the receipt, please?", "영수증 좀 주세요.", "패턴: Could I get"],
+      [1, "I'd like some coffee, please.", "커피 좀 마시고 싶어요.", "패턴: I'd like"],
+      [1, "I'd love some pie.", "파이 좀 먹고 싶어요.", "패턴: I'd love"],
+      [1, "I'd like to order room service.", "룸서비스를 주문하고 싶어요.", "패턴: I'd like"],
+      [1, "I'd like to go home.", "집에 가고 싶어요.", "패턴: I'd like"],
+      [1, "I'd really like to drink some alcohol.", "술을 좀 마시고 싶어요.", "패턴: I'd like"],
+      [1, "How do I get to my gate?", "제 탑승구로 어떻게 가나요?", "패턴: How do I get to"],
+      [1, "How do I get to the subway station?", "지하철역으로 어떻게 가나요?", "패턴: How do I get to"],
+      [1, "How do I get to Broadway?", "브로드웨이로 어떻게 가나요?", "패턴: How do I get to"],
+      [1, "Can you tell me how I get to the subway station?", "지하철역 가는 방법을 알려주실 수 있나요?", "패턴: How I get to"],
+      [1, "Can you tell me how I get to Grand Central?", "그랜드 센트럴 가는 방법을 알려주실 수 있나요?", "패턴: How I get to"],
+      [1, "Excuse me, can you tell me how to get to the museum?", "실례합니다, 박물관 가는 방법 좀 알려주시겠어요?", "패턴: How to get to"],
+      [1, "Do you know how to get to Connecticut?", "코네티컷 가는 방법 아세요?", "패턴: Do you know"],
+      [1, "Do you know where the grocery store is?", "식료품점이 어디 있는지 아세요?", "패턴: Do you know where"],
+      [1, "Where is the nearest cafe?", "가장 가까운 카페가 어디예요?", "패턴: Where is the nearest"],
+      [1, "How much is this?", "이거 얼마예요?", "패턴: How much is"],
+      [1, "Excuse me, how much is this book?", "실례합니다, 이 책 얼마예요?", "패턴: How much is"],
+      [1, "How much does this beer cost?", "이 맥주 얼마예요?", "패턴: How much does ~ cost"],
+      [1, "How much does something like this cost?", "이런 건 얼마 정도 하나요?", "패턴: How much does ~ cost"],
+      [1, "How much is this with the discount?", "할인 적용하면 얼마예요?", "패턴: How much is"],
+      [1, "How much is this after the discount?", "할인 후 가격이 얼마예요?", "패턴: How much is"],
+      [1, "Do you have this?", "이거 있어요?", "패턴: Do you have"],
+      [1, "Do you have any oolong tea?", "우롱차 있어요?", "패턴: Do you have"],
+      [1, "Do you have this in a smaller size?", "이거 더 작은 사이즈 있어요?", "패턴: Do you have"],
+      [1, "Do you have this in a larger size?", "이거 더 큰 사이즈 있어요?", "패턴: Do you have"],
+      [1, "Do you have this cashmere sweater in a larger size?", "이 캐시미어 스웨터 더 큰 사이즈 있으세요?", "패턴: Do you have"],
+
+      // ==================== 카테고리 2 (50문장) ====================
+      [2, "Is there anything to drink in here?", "여기 마실 것 좀 있어요?", "패턴: Is there"],
+      [2, "Is there a men's room?", "남자 화장실 있어요?", "패턴: Is there"],
+      [2, "Is there a restroom?", "화장실 있어요?", "패턴: Is there"],
+      [2, "Is there a fitness center in the hotel?", "이 호텔에 피트니스 센터 있어요?", "패턴: Is there"],
+      [2, "Is there a swimming pool in the hotel?", "이 호텔에 수영장 있어요?", "패턴: Is there"],
+      [2, "Is there a senior discount?", "노인 할인 있어요?", "패턴: Is there"],
+      [2, "Is there a bar around here?", "여기 근처에 바 있어요?", "패턴: Is there"],
+      [2, "Is there a park near here?", "이 근처에 공원 있어요?", "패턴: Is there"],
+      [2, "Is there a Wi-Fi connection?", "와이파이 연결되나요?", "패턴: Is there"],
+      [2, "Is there a place to store my luggage?", "짐을 맡겨둘 곳이 있나요?", "패턴: Is there"],
+      [2, "Is it possible to take pictures?", "사진 찍어도 괜찮나요?", "패턴: Is it possible to"],
+      [2, "Is it possible to cancel my flight?", "항공편 취소가 가능한가요?", "패턴: Is it possible to"],
+      [2, "Is it possible to cancel my flight and get a refund?", "항공편 취소하고 환불받는 게 가능한가요?", "패턴: Is it possible to"],
+      [2, "Is it possible to rent a car without a credit card?", "신용카드 없이 렌터카 빌리는 게 가능한가요?", "패턴: Is it possible to"],
+      [2, "Is it possible to change my order to a different dish?", "주문을 다른 음식으로 바꾸는 게 가능한가요?", "패턴: Is it possible to"],
+      [2, "Can you please help me with that?", "그것 좀 도와주실 수 있나요?", "패턴: Can you please help me"],
+      [2, "Can you please help me fix this?", "이것 좀 고치는 걸 도와주실 수 있나요?", "패턴: Can you please help me"],
+      [2, "Can you please help me with my luggage?", "제 짐 좀 도와주실 수 있나요?", "패턴: Can you please help me"],
+      [2, "Can you please help me with directions to the nearest metro station?", "가장 가까운 지하철역 가는 길 좀 알려주실 수 있나요?", "패턴: Can you please help me"],
+      [2, "Can you please help me with directions to the bus stop?", "버스 정류장 가는 길 좀 알려주실 수 있나요?", "패턴: Can you please help me"],
+      [2, "What time does this restaurant open?", "이 레스토랑 몇 시에 여나요?", "패턴: What time does"],
+      [2, "What time does it close?", "그거 몇 시에 닫나요?", "패턴: What time does"],
+      [2, "By the way, what time does the library close?", "그런데 도서관 몇 시에 문 닫나요?", "패턴: What time does"],
+      [2, "Excuse me, what time does the snack bar close?", "실례합니다, 스낵바 몇 시에 닫나요?", "패턴: What time does"],
+      [2, "What time does the bus go?", "버스 몇 시에 가나요?", "패턴: What time does"],
+      [2, "What time does the bus leave?", "버스 몇 시에 떠나나요?", "패턴: What time does"],
+      [2, "What time does our flight leave?", "우리 비행기 몇 시에 출발하나요?", "패턴: What time does"],
+      [2, "Can you recommend a good restaurant nearby?", "이 근처 좋은 레스토랑 추천해 주시겠어요?", "패턴: Can you recommend"],
+      [2, "Can you recommend a good local dish?", "맛있는 현지 요리 추천해 주시겠어요?", "패턴: Can you recommend"],
+      [2, "Can you recommend a good souvenir shop?", "좋은 기념품 가게 추천해 주시겠어요?", "패턴: Can you recommend"],
+      [2, "Could you please recommend any fun activities to do around here?", "이 근처에서 할 만한 재미있는 활동 추천해 주시겠어요?", "패턴: Could you please recommend"],
+      [2, "What's the best way to get to the beach?", "해변까지 가는 가장 좋은 방법이 뭐예요?", "패턴: What's the best way to"],
+      [2, "What's the best way to get to the airport?", "공항까지 가는 가장 좋은 방법이 뭐예요?", "패턴: What's the best way to"],
+      [2, "What's the best way to see the city in a day?", "하루 만에 도시를 다 둘러보는 가장 좋은 방법이 뭐예요?", "패턴: What's the best way to"],
+      [2, "What's the best way to get to the hotel from the train station?", "기차역에서 호텔까지 가는 가장 좋은 방법이 뭐예요?", "패턴: What's the best way to"],
+      [2, "What's the best way to experience the local nightlife?", "현지 밤문화를 즐기는 가장 좋은 방법이 뭐예요?", "패턴: What's the best way to"],
+      [2, "What's the best way to learn English?", "영어를 배우는 가장 좋은 방법이 뭐예요?", "패턴: What's the best way to"],
+      [2, "Is it safe to walk around this neighborhood at night?", "밤에 이 동네 걸어 다녀도 안전한가요?", "패턴: Is it safe to"],
+      [2, "Is it safe to drink the tap water here?", "여기서 수돗물 마셔도 안전한가요?", "패턴: Is it safe to"],
+      [2, "Is it safe to take public transportation in this city?", "이 도시에서 대중교통을 이용해도 안전한가요?", "패턴: Is it safe to"],
+      [2, "Is it safe to take a taxi?", "택시 타도 안전한가요?", "패턴: Is it safe to"],
+      [2, "Is this seat taken?", "이 자리 비었나요?", "패턴: Is this ~ taken"],
+      [2, "Is this taken?", "여기 자리 있나요?", "패턴: Is this taken"],
+      [2, "Is this table taken?", "이 테이블 비었나요?", "패턴: Is this ~ taken"],
+      [2, "Excuse me, is this locker taken?", "실례합니다, 이 사물함 사용 중인가요?", "패턴: Is this ~ taken"],
+      [2, "How far is it to the beach from the resort?", "리조트에서 해변까지 얼마나 먼가요?", "패턴: How far is it to"],
+      [2, "How far is it to the airport from this hotel?", "이 호텔에서 공항까지 얼마나 먼가요?", "패턴: How far is it to"],
+      [2, "How far is it to the nearest grocery store?", "가장 가까운 식료품점까지 얼마나 먼가요?", "패턴: How far is it to"],
+      [2, "How far is the nearest restaurant from here?", "여기서 가장 가까운 레스토랑이 얼마나 먼가요?", "패턴: How far is"],
+      [2, "How far is it to Starbucks?", "스타벅스까지 얼마나 먼가요?", "패턴: How far is it to"],
+
+      // ==================== 카테고리 3 (67문장) ====================
+      [3, "Could I get a glass of water?", "물 한 잔 얻을 수 있을까요?", "패턴: Could I"],
+      [3, "Could I have a menu, please?", "메뉴판 좀 받을 수 있을까요?", "패턴: Could I"],
+      [3, "Could I get the Wi-Fi password?", "와이파이 비밀번호 좀 알 수 있을까요?", "패턴: Could I"],
+      [3, "Could I use the Wi-Fi?", "와이파이 좀 사용할 수 있을까요?", "패턴: Could I"],
+      [3, "Could I get a latte, please?", "라떼 한 잔 주실 수 있을까요?", "패턴: Could I"],
+      [3, "Could I use the restroom, please?", "화장실 좀 사용할 수 있을까요?", "패턴: Could I"],
+      [3, "Can I get a straw, please?", "빨대 하나 주실 수 있을까요?", "패턴: Can I"],
+      [3, "Can I get a cappuccino, please?", "카푸치노 한 잔 주실 수 있을까요?", "패턴: Can I"],
+      [3, "Could I get a steak medium, please?", "스테이크 미디엄으로 주실 수 있을까요?", "패턴: Could I"],
+      [3, "What kind of dishes do you have?", "어떤 종류의 요리들이 있나요?", "패턴: What kind of"],
+      [3, "What kind of juices do you have?", "어떤 종류의 주스가 있나요?", "패턴: What kind of"],
+      [3, "What kind of desserts do you have?", "어떤 종류의 디저트가 있나요?", "패턴: What kind of"],
+      [3, "What kind of coffee beans do you use?", "어떤 종류의 원두를 사용하세요?", "패턴: What kind of"],
+      [3, "What kind of sandwiches do you have on the menu?", "메뉴에 어떤 종류의 샌드위치가 있나요?", "패턴: What kind of"],
+      [3, "What kind of vegetables are in the sandwich?", "샌드위치에 어떤 종류의 채소가 들어가나요?", "패턴: What kind of"],
+      [3, "What kind of soups do you have?", "어떤 종류의 수프가 있나요?", "패턴: What kind of"],
+      [3, "Do I have to check in online before my flight?", "비행기 타기 전에 온라인 체크인을 먼저 해야 하나요?", "패턴: Do I have to"],
+      [3, "Do I have to pay extra for Wi-Fi?", "와이파이를 쓰려면 추가 요금을 내야 하나요?", "패턴: Do I have to"],
+      [3, "I'm here to get my ticket.", "티켓을 받으러 왔어요.", "패턴: I'm here to"],
+      [3, "I'm here to visit my cousin.", "사촌을 방문하러 왔어요.", "패턴: I'm here to"],
+      [3, "I'm here to attend the international conference.", "국제회의에 참석하러 왔어요.", "패턴: I'm here to"],
+      [3, "I'm here to try the famous street food.", "유명한 길거리 음식을 먹어보러 왔어요.", "패턴: I'm here to"],
+      [3, "I need to book a taxi for tomorrow morning.", "내일 아침에 탈 택시를 예약해야 해요.", "패턴: I need to"],
+      [3, "I can't find my hotel. Please help me.", "제 호텔을 못 찾겠어요. 도와주세요.", "패턴: I can't find"],
+      [3, "Excuse me, I can't find the train station.", "실례합니다, 기차역을 못 찾겠어요.", "패턴: I can't find"],
+      [3, "Excuse me, which bus goes to the downtown area?", "실례합니다, 어떤 버스가 시내 쪽으로 가나요?", "패턴: Which"],
+      [3, "I can't find my phone.", "제 휴대폰을 못 찾겠어요.", "패턴: I can't"],
+      [3, "I can't speak Chinese.", "중국어를 못 해요.", "패턴: I can't"],
+      [3, "I can't believe it.", "믿을 수가 없어요.", "패턴: I can't"],
+      [3, "I think it's going to rain.", "비가 올 것 같아요.", "패턴: I think"],
+      [3, "I think you're in my seat.", "제 자리에 앉으신 것 같아요.", "패턴: I think"],
+      [3, "Do you have any recommendations for dessert?", "디저트로 추천해 주실 만한 게 있나요?", "패턴: Do you have"],
+      [3, "Do you have a pen I could borrow?", "제가 빌릴 수 있는 펜이 있으실까요?", "패턴: Do you have"],
+      [3, "Do you have a pen I could buy?", "제가 살 수 있는 펜이 있을까요?", "패턴: Do you have"],
+      [3, "Do you have any idea?", "혹시 짐작 가는 게 있나요?", "패턴: Do you have"],
+      [3, "Which one do you recommend for dinner, steak or pasta?", "저녁으로 스테이크랑 파스타 중에 어떤 걸 추천하세요?", "패턴: Which one do you recommend"],
+      [3, "Which one do you recommend as a gift?", "선물로 어떤 걸 추천하세요?", "패턴: Which one do you recommend"],
+      [3, "Could you help me carry this bag?", "이 가방 드는 것 좀 도와주시겠어요?", "패턴: Could you"],
+      [3, "Could you explain that again?", "그거 다시 한 번만 설명해 주시겠어요?", "패턴: Could you"],
+      [3, "We're going to visit the museum tomorrow.", "우리 내일 박물관에 갈 거예요.", "패턴: We're gonna"],
+      [3, "We're going to watch a movie tonight.", "우리 오늘 밤에 영화 볼 거예요.", "패턴: We're gonna"],
+      [3, "I think it's a great idea.", "좋은 생각인 것 같아요.", "패턴: I think"],
+      [3, "Do you mind if I sit here?", "제가 여기 앉아도 될까요?", "패턴: Do you mind"],
+      [3, "Do you mind turning down the music?", "음악 소리 좀 줄여 주실 수 있을까요?", "패턴: Do you mind"],
+      [3, "Do you mind if I open a window?", "창문 열어도 괜찮을까요?", "패턴: Do you mind if"],
+      [3, "Do you mind if we talk?", "우리 이야기 좀 해도 될까요?", "패턴: Do you mind if"],
+      [3, "I'm not sure if this is the right way.", "이 길이 맞는지 잘 모르겠어요.", "패턴: I'm not sure if"],
+      [3, "I was wondering if you could help me.", "저 좀 도와주실 수 있으실지 궁금해서요.", "패턴: I was wondering if"],
+      [3, "I was wondering if we could get together.", "우리가 함께 모일 수 있을지 궁금해서요.", "패턴: I was wondering if"],
+      [3, "Let me see if I can check with the front desk.", "프런트 데스크에 확인할 수 있는지 볼게요.", "패턴: Let me see if"],
+      [3, "Let me see if I can fix it.", "제가 그걸 고칠 수 있는지 확인해 볼게요.", "패턴: Let me see if"],
+      [3, "I don't mind at all.", "전혀 상관없어요 / 괜찮아요.", "패턴: I don't mind"],
+      [3, "I don't mind switching seats.", "자리 바꾸는 거 괜찮아요.", "패턴: I don't mind"],
+      [3, "I don't mind waiting.", "기다리는 거 괜찮아요.", "패턴: I don't mind"],
+      [3, "I'm sorry, I didn't get what you said. Could you say that again?", "죄송하지만 방금 하신 말씀을 못 알아들었어요. 다시 말씀해 주시겠어요?", "패턴: I didn't get"],
+      [3, "I didn't get the last part.", "마지막 부분을 못 알아들었어요.", "패턴: I didn't get"],
+      [3, "Sorry, I didn't get the amount. Could you repeat that?", "죄송하지만 금액을 잘 못 들었어요. 다시 말씀해 주실래요?", "패턴: I didn't get"],
+      [3, "I'm going to travel.", "여행할 거예요.", "패턴: I'm gonna"],
+      [3, "I'm going to stay for two weeks.", "2주 동안 머무를 거예요.", "패턴: I'm gonna"],
+      [3, "I'm going to rent a car here at the airport.", "여기 공항에서 렌터카를 빌릴 거예요.", "패턴: I'm gonna"],
+      [3, "Would it be possible to get an early check-in?", "얼리 체크인이 가능할까요?", "패턴: Would it be possible to"],
+      [3, "Would it be possible to move to a window seat?", "창가 자리로 옮기는 게 가능할까요?", "패턴: Would it be possible to"],
+      [3, "Is there any chance I could get a room with a view?", "전망이 좋은 방을 받을 수 있을까요?", "패턴: Is there any chance I could"],
+      [3, "Is there any chance I could change my reservation?", "예약을 변경할 수 있을까요?", "패턴: Is there any chance I could"],
+      [3, "Would you be able to give me a refund?", "환불해 주실 수 있으세요?", "패턴: Would you be able to"],
+      [3, "Do you happen to know where the subway station is?", "혹시 지하철역이 어디 있는지 아세요?", "패턴: Do you happen to know"],
+      [3, "I was wondering if you could give me a refund.", "환불해 주실 수 있으실지 여쭤보려고요.", "패턴: I was wondering if you could"],
+
+      // ==================== 카테고리 4 (51문장) ====================
+      [4, "Where can I check in for my flight?", "제 비행기 체크인은 어디에서 하나요?", "상황: 공항"],
+      [4, "What time does boarding start?", "탑승은 언제 시작하나요?", "상황: 공항"],
+      [4, "Where is the security checkpoint?", "보안 검색대는 어디에 있나요?", "상황: 공항"],
+      [4, "Can I bring this on the plane?", "이걸 비행기에 가지고 탈 수 있나요?", "상황: 공항"],
+      [4, "Where is the customs office?", "세관은 어디에 있나요?", "상황: 공항"],
+      [4, "Where is the baggage claim area?", "수하물 찾는 곳은 어디인가요?", "상황: 공항"],
+      [4, "My luggage is lost.", "제 수하물이 없어졌어요.", "상황: 공항"],
+      [4, "Where is the nearest restroom?", "가장 가까운 화장실이 어디에 있나요?", "상황: 공항"],
+      [4, "Is there a currency exchange here?", "여기에 환전소가 있나요?", "상황: 공항"],
+      [4, "Where can I find the taxi stand?", "택시 승차장은 어디에 있나요?", "상황: 공항"],
+      [4, "How much is a taxi to downtown?", "시내까지 택시 요금이 얼마인가요?", "상황: 공항"],
+      [4, "Can I get a map of the airport?", "공항 지도를 받을 수 있을까요?", "상황: 공항"],
+      [4, "What time does the shuttle bus leave?", "셔틀버스는 언제 출발하나요?", "상황: 공항"],
+      [4, "Can I store my luggage here?", "여기서 짐을 보관할 수 있나요?", "상황: 공항"],
+      [4, "Could I have a blanket, please?", "담요를 주실 수 있나요?", "상황: 기내"],
+      [4, "Can I get some water, please?", "물 좀 주실 수 있나요?", "상황: 기내"],
+      [4, "What time will we arrive?", "도착 시간이 언제인가요?", "상황: 기내"],
+      [4, "Can I change seats?", "좌석을 바꿀 수 있을까요?", "상황: 기내"],
+      [4, "Is there an in-flight meal service?", "기내식 서비스가 있나요?", "상황: 기내"],
+      [4, "Can I have a vegetarian meal, please?", "채식 메뉴를 주실 수 있나요?", "상황: 기내"],
+      [4, "Can I have a vegan meal, please?", "비건 메뉴를 주실 수 있나요?", "상황: 기내"],
+      [4, "Can I recline my seat?", "좌석을 젖혀도 되나요?", "상황: 기내"],
+      [4, "Can I use the lavatory now?", "지금 화장실을 사용할 수 있나요?", "상황: 기내"],
+      [4, "Could I get some more coffee, please?", "커피를 좀 더 주실 수 있나요?", "상황: 기내"],
+      [4, "Do you have any customs forms?", "세관 신고서가 있나요?", "상황: 기내"],
+      [4, "Where can I find the emergency exit?", "비상구는 어디에 있나요?", "상황: 기내"],
+      [4, "Could you help me with my luggage?", "짐을 도와주실 수 있나요?", "상황: 기내"],
+      [4, "When will the seat belt sign be turned off?", "좌석벨트 사인이 언제 꺼지나요?", "상황: 기내"],
+      [4, "Could I get some earphones?", "이어폰을 받을 수 있을까요?", "상황: 기내"],
+      [4, "Is this a direct flight?", "직항편인가요?", "상황: 공항/기내"],
+      [4, "Can you wake me up for meals?", "기내식 때 깨워 주실 수 있나요?", "상황: 기내"],
+      [4, "How long is the flight?", "비행 시간은 얼마나 되나요?", "상황: 공항/기내"],
+      [4, "What's the local time at our destination?", "도착지의 현지 시간이 몇 시인가요?", "상황: 기내"],
+      [4, "Does this flight have a layover?", "이 비행기에 경유지가 있나요?", "상황: 공항/기내"],
+      [4, "Could I have some ice, please?", "얼음을 좀 주실 수 있나요?", "상황: 기내"],
+      [4, "Can you help me fill out this form?", "양식을 작성하는 것을 도와주실 수 있나요?", "상황: 공항/기내"],
+      [4, "Thank you for your help.", "도와주셔서 감사합니다.", "상황: 공항/기내"],
+      [4, "Could you tell me how to get to my gate?", "제 게이트로 가는 길을 알려주실 수 있나요?", "상황: 공항"],
+      [4, "Is this the line for security check?", "이 줄이 보안 검색대 줄인가요?", "상황: 공항"],
+      [4, "How much time do I have before boarding?", "탑승까지 시간이 얼마나 남았나요?", "상황: 공항"],
+      [4, "Is there a place to charge my phone?", "제 휴대폰을 충전할 곳이 있나요?", "상황: 공항"],
+      [4, "Where can I find the smoking area?", "흡연 구역은 어디에 있나요?", "상황: 공항"],
+      [4, "Can I use my electronic devices now?", "이제 전자 기기를 사용할 수 있나요?", "상황: 기내"],
+      [4, "What should I do if I miss my flight?", "비행기를 놓치면 어떻게 해야 하나요?", "상황: 공항"],
+      [4, "Are there any updates on my flight?", "제 비행기에 대한 업데이트가 있나요?", "상황: 공항"],
+      [4, "Is this the right gate for the flight to Paris?", "파리행 비행기 탑승 게이트가 맞나요?", "상황: 공항"],
+      [4, "Can I get a refund for my ticket?", "제 티켓 환불이 가능할까요?", "상황: 공항"],
+      [4, "How long will the delay be?", "지연 시간이 얼마나 될까요?", "상황: 공항"],
+      [4, "Will my luggage be transferred automatically?", "제 수하물이 자동으로 환승될까요?", "상황: 공항"],
+      [4, "Where can I find the lost and found?", "분실물 보관소는 어디에 있나요?", "상황: 공항"],
+      [4, "What's the weather like at our destination?", "도착지의 날씨는 어떤가요?", "상황: 기내"],
+
+      // ==================== 카테고리 5 (50문장) ====================
+      [5, "Table for two, please.", "두 명 자리 부탁합니다.", "상황: 식당"],
+      [5, "Is there a wait?", "기다려야 하나요?", "상황: 식당"],
+      [5, "Can I get a table by the window?", "창가 자리로 부탁드릴 수 있을까요?", "상황: 식당"],
+      [5, "Do you have a vegetarian menu?", "채식 메뉴가 있나요?", "상황: 식당"],
+      [5, "Can we sit outside?", "밖에서 앉을 수 있을까요?", "상황: 식당/카페"],
+      [5, "Can I see the menu, please?", "메뉴판을 볼 수 있을까요?", "상황: 식당"],
+      [5, "What do you recommend?", "추천해 주실 만한 게 있나요?", "상황: 식당"],
+      [5, "I'll have the special of the day.", "오늘의 특별 요리로 할게요.", "상황: 식당"],
+      [5, "Can I have the same as them?", "저 사람들과 같은 걸로 주세요.", "상황: 식당"],
+      [5, "Can I have a glass of water, please?", "물 한 잔 부탁합니다.", "상황: 식당"],
+      [5, "Could I get this without onions?", "양파 없이 해 주실 수 있나요?", "상황: 식당"],
+      [5, "Can I add extra cheese?", "치즈를 추가할 수 있나요?", "상황: 식당"],
+      [5, "Is this dish spicy?", "이 요리는 매운가요?", "상황: 식당"],
+      [5, "I'll have a medium steak.", "스테이크를 미디엄으로 해주세요.", "상황: 식당"],
+      [5, "Can I get it to go?", "포장해 주실 수 있나요?", "상황: 식당/카페"],
+      [5, "Can I have the check, please?", "계산서 좀 부탁합니다.", "상황: 식당"],
+      [5, "Can I have a coffee, please?", "커피 한 잔 부탁합니다.", "상황: 카페"],
+      [5, "Can I get a latte with almond milk?", "아몬드 우유로 라떼 하나 주세요.", "상황: 카페"],
+      [5, "Is this coffee decaf?", "이 커피는 디카페인인가요?", "상황: 카페"],
+      [5, "Could I have it iced?", "아이스로 해 주실 수 있나요?", "상황: 카페"],
+      [5, "Can I get a refill, please?", "리필해 주실 수 있을까요?", "상황: 카페"],
+      [5, "Do you have any non-dairy milk options?", "비유제품 우유 옵션이 있나요?", "상황: 카페"],
+      [5, "What's your most popular dessert?", "가장 인기 있는 디저트가 뭐예요?", "상황: 카페"],
+      [5, "I'll have a slice of cheesecake, please.", "치즈케이크 한 조각 부탁합니다.", "상황: 카페"],
+      [5, "Do you have any vegan desserts?", "비건 디저트가 있나요?", "상황: 카페"],
+      [5, "Can I get that to go?", "그거 포장해 주실 수 있나요?", "상황: 카페"],
+      [5, "Is this gluten-free?", "이거 글루텐프리인가요?", "상황: 식당/카페"],
+      [5, "I think there's a mistake with my order.", "주문에 문제가 있는 것 같아요.", "상황: 식당"],
+      [5, "This isn't what I ordered.", "이건 제가 주문한 게 아니에요.", "상황: 식당"],
+      [5, "Could you warm this up a bit?", "이거 조금 더 데워 주실 수 있나요?", "상황: 식당/카페"],
+      [5, "Sorry, but this is too salty.", "죄송하지만 이건 너무 짜요.", "상황: 식당"],
+      [5, "Could you bring me a clean fork?", "깨끗한 포크 좀 가져다주실 수 있나요?", "상황: 식당"],
+      [5, "Can I speak to the manager, please?", "매니저와 이야기할 수 있을까요?", "상황: 식당"],
+      [5, "Can I pay with a credit card?", "신용카드로 결제할 수 있나요?", "상황: 식당/카페"],
+      [5, "Do you accept cash?", "현금 받으시나요?", "상황: 식당/카페"],
+      [5, "Can I split the bill?", "계산을 나눌 수 있나요?", "상황: 식당"],
+      [5, "Could we have separate checks?", "따로따로 계산서 받을 수 있을까요?", "상황: 식당"],
+      [5, "Is service included?", "서비스료가 포함되어 있나요?", "상황: 식당"],
+      [5, "Do you take tips?", "팁 받으시나요?", "상황: 식당"],
+      [5, "Excuse me, where's the restroom?", "실례지만 화장실이 어디인가요?", "상황: 식당/카페"],
+      [5, "Can you recommend a good local dish?", "현지에서 좋은 요리 추천해 주실 수 있나요?", "상황: 식당"],
+      [5, "How long will it take for the food to be ready?", "음식 준비되는 데 얼마나 걸릴까요?", "상황: 식당"],
+      [5, "Can you bring the check when you're ready?", "준비되셨을 때 계산서 가져다주실 수 있나요?", "상황: 식당"],
+      [5, "Can I have some more napkins, please?", "냅킨 좀 더 주실 수 있나요?", "상황: 식당"],
+      [5, "Can I order something else?", "다른 것을 주문할 수 있을까요?", "상황: 식당"],
+      [5, "What's in this dish?", "이 요리에는 뭐가 들어가 있나요?", "상황: 식당"],
+      [5, "Do you have a kids' menu?", "어린이 메뉴가 있나요?", "상황: 식당"],
+      [5, "Could I get some ice with that?", "얼음 좀 주실 수 있을까요?", "상황: 식당/카페"],
+      [5, "Can I have a straw, please?", "빨대 하나 주실 수 있나요?", "상황: 카페"],
+      [5, "Can we get a high chair for the baby?", "아기용 의자 하나 받을 수 있을까요?", "상황: 식당"],
+
+      // ==================== 카테고리 6 (15문장) ====================
+      [6, "Where is the nearest tourist information center?", "가장 가까운 관광 안내소가 어디인가요?", "상황: 관광"],
+      [6, "Are there any guided tours available?", "가이드 투어가 있나요?", "상황: 관광"],
+      [6, "How much is the entrance fee?", "입장료는 얼마인가요?", "상황: 관광"],
+      [6, "Do I need to book tickets in advance?", "미리 티켓을 예약해야 하나요?", "상황: 관광"],
+      [6, "What time does the museum open?", "박물관은 몇 시에 여나요?", "상황: 관광"],
+      [6, "Is there a map of the site?", "이 장소의 지도가 있나요?", "상황: 관광"],
+      [6, "Do you offer audio guides?", "오디오 가이드를 제공하나요?", "상황: 관광"],
+      [6, "Can I get a brochure in English?", "영어로 된 브로슈어를 받을 수 있을까요?", "상황: 관광"],
+      [6, "How long is the tour?", "투어는 얼마나 걸리나요?", "상황: 관광"],
+      [6, "Is there a discount for students?", "학생 할인이 있나요?", "상황: 관광"],
+      [6, "Where is the ticket counter?", "티켓 카운터는 어디인가요?", "상황: 관광"],
+      [6, "Is this a famous landmark?", "이곳은 유명한 명소인가요?", "상황: 관광"],
+      [6, "Can I take pictures here?", "여기서 사진을 찍어도 되나요?", "상황: 관광"],
+      [6, "Are there any events today?", "오늘 어떤 행사가 있나요?", "상황: 관광"],
+      [6, "Is this place wheelchair accessible?", "이곳은 휠체어로 접근할 수 있나요?", "상황: 관광"],
+
+      // ==================== 카테고리 7 (35문장) ====================
+      [7, "Excuse me, how do I get to the train station?", "실례합니다, 기차역으로 어떻게 가나요?", "상황: 길찾기"],
+      [7, "Can you show me on the map?", "지도에서 위치를 보여주시겠어요?", "상황: 길찾기"],
+      [7, "Is it far from here?", "여기서 멀리 있나요?", "상황: 길찾기"],
+      [7, "How long does it take to get there?", "거기까지 가는 데 얼마나 걸리나요?", "상황: 길찾기"],
+      [7, "Can I walk there or should I take a bus?", "걸어갈 수 있나요, 아니면 버스를 타야 하나요?", "상황: 길찾기"],
+      [7, "Which way is the subway?", "지하철은 어느 방향인가요?", "상황: 길찾기"],
+      [7, "Is there a shortcut?", "지름길이 있나요?", "상황: 길찾기"],
+      [7, "How do I get to the main square?", "메인 광장으로 어떻게 가나요?", "상황: 길찾기"],
+      [7, "Is it safe to walk around here at night?", "밤에 이 주변을 걸어 다녀도 안전한가요?", "상황: 길찾기"],
+      [7, "Where can I find a taxi?", "택시를 어디서 찾을 수 있나요?", "상황: 교통"],
+      [7, "When is the next train?", "다음 기차는 언제 오나요?", "상황: 교통"],
+      [7, "Where can I buy a bus ticket?", "버스 티켓은 어디서 살 수 있나요?", "상황: 교통"],
+      [7, "How much is a one-way ticket?", "편도 티켓은 얼마인가요?", "상황: 교통"],
+      [7, "Is there a return ticket option?", "왕복 티켓 옵션이 있나요?", "상황: 교통"],
+      [7, "Where is the bus stop?", "버스 정류장은 어디인가요?", "상황: 교통"],
+      [7, "How long is the ride?", "이동 시간은 얼마나 걸리나요?", "상황: 교통"],
+      [7, "Does this bus go to the airport?", "이 버스는 공항으로 가나요?", "상황: 교통"],
+      [7, "Do I need to transfer trains?", "기차를 환승해야 하나요?", "상황: 교통"],
+      [7, "Is this the right platform?", "이 플랫폼이 맞나요?", "상황: 교통"],
+      [7, "Can you call me a taxi, please?", "택시를 불러 주실 수 있나요?", "상황: 교통"],
+      [7, "How much is the fare?", "요금이 얼마인가요?", "상황: 교통"],
+      [7, "Do you accept credit cards?", "신용카드 받으시나요?", "상황: 교통"],
+      [7, "Can I pay with cash?", "현금으로 지불해도 되나요?", "상황: 교통"],
+      [7, "Excuse me, could you help me?", "실례합니다, 도와주실 수 있나요?", "상황: 편의/긴급"],
+      [7, "Where can I find a restroom?", "화장실은 어디서 찾을 수 있나요?", "상황: 편의"],
+      [7, "Is there a convenience store nearby?", "근처에 편의점이 있나요?", "상황: 편의"],
+      [7, "Where is the nearest pharmacy?", "가장 가까운 약국은 어디인가요?", "상황: 편의"],
+      [7, "Can I use my phone here?", "여기서 휴대폰을 사용해도 되나요?", "상황: 편의"],
+      [7, "Where can I exchange currency?", "환전은 어디서 할 수 있나요?", "상황: 편의"],
+      [7, "Can I charge my phone somewhere?", "어디서 휴대폰을 충전할 수 있나요?", "상황: 편의"],
+      [7, "Help, I need assistance.", "도와주세요, 도움이 필요해요.", "상황: 긴급"],
+      [7, "Can you call the police for me?", "경찰을 불러 주실 수 있나요?", "상황: 긴급"],
+      [7, "I've lost my passport.", "여권을 잃어버렸어요.", "상황: 긴급"],
+      [7, "Can I borrow your phone, please?", "전화기를 빌려 주실 수 있나요?", "상황: 긴급"],
+      [7, "I've been robbed. Can you help me?", "강도를 당했어요. 도와주실 수 있나요?", "상황: 긴급"],
+
+      // ==================== 카테고리 8 (48문장) ====================
+      [8, "Where is the nearest shopping mall?", "가장 가까운 쇼핑몰이 어디에 있나요?", "상황: 쇼핑몰"],
+      [8, "What time does the mall open?", "쇼핑몰은 몇 시에 여나요?", "상황: 쇼핑몰"],
+      [8, "Could you tell me where the fitting room is?", "탈의실이 어디 있는지 알려주실 수 있나요?", "상황: 쇼핑몰"],
+      [8, "Can I try this on?", "이거 입어 봐도 되나요?", "상황: 쇼핑몰"],
+      [8, "Do you have this in a different size?", "이거 다른 사이즈 있나요?", "상황: 쇼핑몰"],
+      [8, "Do you have this in another color?", "이거 다른 색상 있나요?", "상황: 쇼핑몰"],
+      [8, "What size do you recommend for me?", "제게 어떤 사이즈가 맞을까요?", "상황: 쇼핑몰"],
+      [8, "Is there a discount on this item?", "이 상품 할인되나요?", "상황: 쇼핑몰"],
+      [8, "How much is this?", "이거 얼마인가요?", "상황: 쇼핑몰"],
+      [8, "Are there any sales going on right now?", "지금 세일 중인 상품이 있나요?", "상황: 쇼핑몰"],
+      [8, "Can I return this if it doesn't fit?", "이게 안 맞으면 반품할 수 있나요?", "상황: 쇼핑몰"],
+      [8, "How long is the return policy?", "반품 가능 기간은 얼마나 되나요?", "상황: 쇼핑몰"],
+      [8, "Can I get a refund?", "환불받을 수 있나요?", "상황: 쇼핑몰"],
+      [8, "What's your exchange policy?", "교환 정책은 어떻게 되나요?", "상황: 쇼핑몰"],
+      [8, "Where can I find the customer service desk?", "고객 서비스 데스크는 어디에 있나요?", "상황: 쇼핑몰"],
+      [8, "Is there a gift wrapping service?", "선물 포장 서비스가 있나요?", "상황: 쇼핑몰"],
+      [8, "How much is this after the discount?", "할인 후 가격은 얼마인가요?", "상황: 쇼핑몰"],
+      [8, "Can you hold this item for me?", "이 상품을 잠시 맡아 주실 수 있나요?", "상황: 쇼핑몰"],
+      [8, "Where can I pay for this?", "이거 어디서 결제하나요?", "상황: 쇼핑몰"],
+      [8, "Do you offer tax-free shopping for tourists?", "관광객을 위한 면세 쇼핑이 가능한가요?", "상황: 쇼핑몰"],
+      [8, "Can I get a receipt, please?", "영수증을 받을 수 있을까요?", "상황: 쇼핑몰"],
+      [8, "Is there a food court in the mall?", "쇼핑몰 안에 푸드코트가 있나요?", "상황: 쇼핑몰"],
+      [8, "Can you help me find this item?", "이 상품을 찾는 것을 도와주실 수 있나요?", "상황: 마트"],
+      [8, "Is this on sale?", "이거 세일 중인가요?", "상황: 마트"],
+      [8, "Where can I find the vegetable section?", "채소 코너는 어디에 있나요?", "상황: 마트"],
+      [8, "Do you have any fresh produce?", "신선한 농산물이 있나요?", "상황: 마트"],
+      [8, "Is this item organic?", "이 상품 유기농인가요?", "상황: 마트"],
+      [8, "Where is the dairy section?", "유제품 코너는 어디에 있나요?", "상황: 마트"],
+      [8, "Can I get this meat sliced?", "고기를 썰어 주실 수 있나요?", "상황: 마트"],
+      [8, "Are there any deals on fruits today?", "오늘 과일 할인 있나요?", "상황: 마트"],
+      [8, "Where can I find bottled water?", "생수는 어디에 있나요?", "상황: 마트"],
+      [8, "Do you sell gluten-free products?", "글루텐프리 제품도 판매하나요?", "상황: 마트"],
+      [8, "Is this item on promotion?", "이 상품 프로모션 중인가요?", "상황: 마트"],
+      [8, "Can I buy this in bulk?", "이거 대량으로 살 수 있나요?", "상황: 마트"],
+      [8, "Where are the shopping carts?", "쇼핑 카트는 어디에 있나요?", "상황: 마트"],
+      [8, "Could you help me with my groceries?", "제 장 보는 걸 도와주실 수 있나요?", "상황: 마트"],
+      [8, "Do you have reusable bags?", "재사용 가능한 장바구니가 있나요?", "상황: 마트"],
+      [8, "Can I get a plastic bag?", "비닐봉지 받을 수 있을까요?", "상황: 마트"],
+      [8, "Where is the bakery section?", "베이커리 코너는 어디에 있나요?", "상황: 마트"],
+      [8, "Where can I find the frozen foods?", "냉동식품은 어디에 있나요?", "상황: 마트"],
+      [8, "Is there a pharmacy inside?", "안에 약국이 있나요?", "상황: 마트"],
+      [8, "Where can I weigh my produce?", "채소 무게를 어디서 재나요?", "상황: 마트"],
+      [8, "Can I get a refund if I don't like this?", "이걸 마음에 안 들면 환불받을 수 있나요?", "상황: 마트"],
+      [8, "Is there a limit on how many I can buy?", "제가 구매할 수 있는 수량의 제한이 있나요?", "상황: 마트"],
+      [8, "Where can I find the cash registers?", "계산대는 어디에 있나요?", "상황: 마트"],
+      [8, "Do you offer home delivery?", "집으로 배달해 주시나요?", "상황: 마트"],
+      [8, "Is there a self-checkout kiosk?", "셀프 계산대가 있나요?", "상황: 마트"],
+      [8, "Could you help me carry my bags to the car?", "제 가방을 차로 가져가는 걸 도와주실 수 있나요?", "상황: 마트"],
+
+      // ==================== 카테고리 9 (50문장) ====================
+      [9, "Where is the nearest hotel?", "가장 가까운 호텔이 어디에 있나요?", "상황: 호텔"],
+      [9, "Do you have any rooms available?", "빈방이 있나요?", "상황: 호텔"],
+      [9, "Can I check in early?", "일찍 체크인할 수 있나요?", "상황: 호텔"],
+      [9, "What time is check-in?", "체크인 시간은 몇 시인가요?", "상황: 호텔"],
+      [9, "What time is check-out?", "체크아웃 시간은 언제인가요?", "상황: 호텔"],
+      [9, "Can I get a room with a view?", "전망이 좋은 방을 받을 수 있나요?", "상황: 호텔"],
+      [9, "Do you have any non-smoking rooms?", "금연 객실이 있나요?", "상황: 호텔"],
+      [9, "How much is a night's stay?", "1박 요금이 얼마인가요?", "상황: 호텔"],
+      [9, "Do you offer room service?", "룸서비스가 있나요?", "상황: 호텔"],
+      [9, "Is breakfast included?", "아침 식사가 포함되어 있나요?", "상황: 호텔"],
+      [9, "Where is the dining area?", "식사 공간은 어디에 있나요?", "상황: 호텔"],
+      [9, "Can I get a wake-up call?", "모닝콜을 받을 수 있나요?", "상황: 호텔"],
+      [9, "Do you have a laundry service?", "세탁 서비스가 있나요?", "상황: 호텔"],
+      [9, "Can I request extra towels?", "추가 수건을 요청할 수 있나요?", "상황: 호텔"],
+      [9, "Where is the elevator?", "엘리베이터는 어디에 있나요?", "상황: 호텔"],
+      [9, "Is there a restaurant nearby?", "근처에 레스토랑이 있나요?", "상황: 호텔"],
+      [9, "What time is breakfast served?", "아침 식사는 몇 시에 제공되나요?", "상황: 호텔"],
+      [9, "Where is the nearest convenience store?", "가장 가까운 편의점은 어디에 있나요?", "상황: 호텔"],
+      [9, "Is there an airport shuttle service?", "공항 셔틀 서비스가 있나요?", "상황: 호텔"],
+      [9, "Can I store my luggage here?", "여기서 짐을 보관할 수 있나요?", "상황: 호텔"],
+      [9, "Is the pool open?", "수영장은 개장했나요?", "상황: 호텔"],
+      [9, "Can I get a late check-out?", "늦게 체크아웃할 수 있나요?", "상황: 호텔"],
+      [9, "Is there a business center?", "비즈니스 센터가 있나요?", "상황: 호텔"],
+      [9, "Can I book a taxi from here?", "여기서 택시를 예약할 수 있나요?", "상황: 호텔"],
+      [9, "How do I get to the nearest train station?", "가장 가까운 기차역은 어떻게 가나요?", "상황: 호텔"],
+      [9, "Can I change my room?", "방을 바꿀 수 있을까요?", "상황: 호텔"],
+      [9, "Is there a minibar in the room?", "방에 미니바가 있나요?", "상황: 호텔"],
+      [9, "Can I pay by credit card?", "신용카드로 결제할 수 있나요?", "상황: 호텔"],
+      [9, "Can I get an extra blanket?", "추가 담요를 받을 수 있나요?", "상황: 호텔"],
+      [9, "Is there a safe in the room?", "방에 금고가 있나요?", "상황: 호텔"],
+      [9, "Where is the front desk?", "프런트 데스크는 어디에 있나요?", "상황: 호텔"],
+      [9, "Do you have a hair dryer in the room?", "방에 헤어드라이어가 있나요?", "상황: 호텔"],
+      [9, "Can I have my room cleaned?", "방 청소를 해 주실 수 있나요?", "상황: 호텔"],
+      [9, "Can I order room service?", "룸서비스를 주문할 수 있나요?", "상황: 호텔"],
+      [9, "Do you provide bathrobes?", "목욕 가운을 제공하시나요?", "상황: 호텔"],
+      [9, "Where can I park my car?", "차를 어디에 주차할 수 있나요?", "상황: 호텔"],
+      [9, "Do you offer valet parking?", "발레파킹 서비스가 있나요?", "상황: 호텔"],
+      [9, "Can I get directions to the city center?", "시내로 가는 길을 알려 주시겠어요?", "상황: 호텔"],
+      [9, "Is there a phone in the room?", "방에 전화기가 있나요?", "상황: 호텔"],
+      [9, "What amenities are included?", "포함된 편의 시설은 무엇인가요?", "상황: 호텔"],
+      [9, "Is there a hot tub in the hotel?", "호텔에 온수 욕조가 있나요?", "상황: 호텔"],
+      [9, "Where can I find the vending machines?", "자판기는 어디에 있나요?", "상황: 호텔"],
+      [9, "Can I get an extra pillow?", "추가 베개를 받을 수 있나요?", "상황: 호텔"],
+      [9, "Where is the emergency exit?", "비상구는 어디에 있나요?", "상황: 호텔"],
+      [9, "Can you recommend a good local restaurant?", "근처 좋은 레스토랑을 추천해 주실 수 있나요?", "상황: 호텔"],
+      [9, "Do you have a room with two beds?", "침대가 두 개인 방이 있나요?", "상황: 호텔"],
+      [9, "Can I order a taxi to the airport?", "공항으로 가는 택시를 부를 수 있나요?", "상황: 호텔"],
+      [9, "Where can I find the nearest ATM?", "가장 가까운 현금인출기는 어디에 있나요?", "상황: 호텔"],
+      [9, "Is there a spa in the hotel?", "호텔에 스파가 있나요?", "상황: 호텔"],
+      [9, "Can I get help with my luggage?", "제 짐을 도와주실 수 있나요?", "상황: 호텔"]
+    ];
+
+    // 402문장 객체화 (고유 ID 부여)
+    const SENTENCES = RAW_SENTENCES.map((row, index) => ({
+      id: index + 1,
+      category: String(row[0]),
+      en: row[1],
+      ko: row[2],
+      tag: row[3]
+    }));
+
+    // 표시되는 모든 문장 수 라벨은 실제 데이터 개수를 따른다 (데이터 수정 시 자동 반영)
+    const TOTAL_SENTENCES = SENTENCES.length;
+    CHAPTER_META[0].short = `전체 (${TOTAL_SENTENCES})`;
+    CHAPTER_META[0].title = `전체 챕터 (${TOTAL_SENTENCES}문장)`;
+
+    // =========================================================================
+    // 2. 원어민 리듬 & 강세 하이라이트 자동 생성 엔진 (소리튠 리듬 훈련용)
+    // =========================================================================
+    const FUNCTION_WORDS = new Set([
+      'a', 'an', 'the', 'to', 'of', 'in', 'on', 'at', 'for', 'with', 'by', 'from',
+      'is', 'are', 'am', 'was', 'were', 'be', 'been', 'do', 'does', 'did',
+      'can', 'could', 'would', 'should', 'will', 'may', 'might',
+      'i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them',
+      'my', 'your', 'his', 'its', 'our', 'their', 'this', 'that', 'these', 'those',
+      'if', 'or', 'and', 'but', 'so', 'as', 'there', 'here'
+    ]);
+
+    function formatRhythmHighlight(sentence) {
+      // 패턴 핵심 소리블록 추출
+      return sentence.split(' ').map(word => {
+        const clean = word.toLowerCase().replace(/[^a-z']/g, '');
+        const isContentWord = clean.length >= 3 && !FUNCTION_WORDS.has(clean);
+        if (isContentWord) {
+          return `<span class="font-extrabold text-indigo-700 dark:text-indigo-300 underline decoration-indigo-300/80 dark:decoration-indigo-600 decoration-2 underline-offset-4">${word}</span>`;
+        }
+        return `<span class="text-slate-600 dark:text-slate-400 font-medium">${word}</span>`;
+      }).join(' ');
+    }
+
+    // 힌트 문장: 앞 2단어 + 중간 핵심 단어 1개만 남기고 나머지는 ___ 로 가린다
+    // 예) "Could I get a coffee, please?" → "Could I ___ ___ coffee, ___"
+    function buildHintSentence(sentence) {
+      const words = String(sentence || '').trim().split(/\s+/).filter(Boolean);
+      if (words.length <= 2) return String(sentence || '');
+
+      let keyIdx = -1;
+      let best = 0;
+      for (let i = 2; i < words.length - 1; i++) {
+        const clean = words[i].toLowerCase().replace(/[^a-z']/g, '');
+        if (clean.length >= 3 && !FUNCTION_WORDS.has(clean) && clean.length > best) {
+          best = clean.length;
+          keyIdx = i;
+        }
+      }
+      if (keyIdx < 0 && words.length > 3) keyIdx = 2; // 중간에 내용어가 없으면 세 번째 단어를 공개
+
+      return words.map((w, i) => (i < 2 || i === keyIdx) ? w : '___').join(' ');
+    }
+
+    function toggleHint(id) {
+      if (!state.hintedIds) state.hintedIds = {};
+      if (state.hintedIds[id]) delete state.hintedIds[id];
+      else state.hintedIds[id] = true;
+      renderActiveMode();
+    }
+
+    function toggleFlashHint() {
+      state.flashHint = !state.flashHint;
+      renderFlashMode();
+    }
+
+    // =========================================================================
+    // 3. 상태 관리 & localStorage 영속성
+    // =========================================================================
+    const STORAGE_KEY = 'soritune_339_app_state_v1'; // 기존 학습 기록 보존을 위해 키 이름은 유지
+    const PAGE_SIZE = 20;
+
+    let state = {
+      mode: 'list',          // 'list' | 'flash' | 'quiz'
+      category: 'all',       // 'all' | '1' ~ '9'
+      statusFilter: 'all',   // 'all' | 'unmemorized' | 'memorized' | 'starred' | 'hard'
+      searchQuery: '',
+      hideEnglish: false,
+      darkMode: false,
+      currentPage: 1,
+      flashIndex: 0,
+      flashFlipped: false,
+      flashDeckOrder: null,  // 셔플 시 ID 배열
+      accent: 'en-US',       // 'en-US' | 'en-GB' | 'en-AU' | 'en-IN'
+      voiceByAccent: {},     // { [accent]: voiceURI }
+      repeatPace: 'mix',     // 'mix' (0.85x→1.0x) | 'steady' (카드에서 고른 듣기 속도)
+      speed: 1.0,            // 듣기 속도: 0.8 | 0.9 | 1.0 | 1.1 | 1.2
+      flashHint: false,      // 플래시카드 앞면 힌트 표시
+      hintedIds: {},         // { [id]: true } 힌트를 연 문장 (세션 단위)
+      mission: { date: '', goal: 10, studied: {} }, // 오늘의 미션 (날짜가 바뀌면 자동 초기화)
+      streak: { count: 0, lastGoalDate: '' },       // 연속 학습일
+      memorized: {},         // { [id]: true }
+      starred: {},           // { [id]: true }
+      difficult: {}          // { [id]: true } — 🔥 Hard 표시한 어려운 문장
+    };
+
+    // 퀴즈 상태
+    let quizState = {
+      type: 'choice',        // 'choice' (4지선다) | 'order' (어순 배열)
+      questions: [],
+      currentIdx: 0,
+      score: 0,
+      answered: false,
+      selectedOption: null,
+      orderedWords: [],
+      availableWords: [],
+      wrongList: [],
+      combo: 0,              // 연속 정답 수
+      finished: false
+    };
+
+    // 문장별 반복 재생 상태 (3회 / 5회 / 10회)
+    const REPEAT_TIMES = 5;
+    const REPEAT_CHOICES = [3, 5, 10];
+    const LOOP_DOTS = 10;   // 문장별 연속재생 중 표시되는 진행 점 개수(순환)
+    const REPEAT_GAP_MS = 1600; // 발화 후 따라 말할 수 있게 두는 여유 시간
+    // 듣기 속도 5단계 (카드·플래시카드에서 바로 선택·재생)
+    const SPEEDS = [0.8, 0.9, 1.0, 1.1, 1.2];
+    // 3회·5회·10회 반복 속도 — 믹스는 처음 2회를 0.85x로, 이후는 1.0x로 / 듣기속도는 고른 속도 그대로
+    const REPEAT_PACES = {
+      mix:    { label: '믹스 0.85→1.0', slowRate: 0.85, warmup: 2 },
+      steady: { label: '듣기속도 그대로', speedBased: true }
+    };
+    let repeatState = {
+      active: false,
+      sentenceId: null,
+      step: 0,
+      times: REPEAT_TIMES,
+      loop: false,        // true면 같은 문장을 멈출 때까지 무한 반복 (문장별 '연속재생')
+      timerId: null
+    };
+
+    // 자동 연속재생 상태 (지금 필터된 목록을 문장별로 자동 반복하며 다음 문장으로 넘어간다)
+    let autoState = { active: false, items: [], index: 0, step: 1, reps: 5, timerId: null };
+
+    function loadAppState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          state.memorized = parsed.memorized || {};
+          state.starred = parsed.starred || {};
+          state.difficult = (parsed.difficult && typeof parsed.difficult === 'object') ? parsed.difficult : {};
+          state.category = parsed.category || 'all';
+          state.mode = parsed.mode || 'list';
+          state.currentPage = parsed.currentPage || 1;
+          state.flashIndex = parsed.flashIndex || 0;
+          state.darkMode = Boolean(parsed.darkMode);
+          state.accent = ACCENTS[parsed.accent] ? parsed.accent : 'en-US';
+          state.voiceByAccent = (parsed.voiceByAccent && typeof parsed.voiceByAccent === 'object') ? parsed.voiceByAccent : {};
+          state.repeatPace = REPEAT_PACES[parsed.repeatPace]
+            ? parsed.repeatPace
+            : ((parsed.repeatPace === 'slow' || parsed.repeatPace === 'normal') ? 'steady' : 'mix');
+          state.speed = SPEEDS.indexOf(Number(parsed.speed)) >= 0 ? Number(parsed.speed) : 1.0;
+          state.mission = (parsed.mission && typeof parsed.mission === 'object')
+            ? { date: parsed.mission.date || '', goal: Number(parsed.mission.goal) || 10, studied: parsed.mission.studied || {} }
+            : { date: '', goal: 10, studied: {} };
+          state.streak = (parsed.streak && typeof parsed.streak === 'object')
+            ? { count: Number(parsed.streak.count) || 0, lastGoalDate: parsed.streak.lastGoalDate || '' }
+            : { count: 0, lastGoalDate: '' };
+        }
+        ensureMissionToday();
+      } catch (e) {
+        console.error('State load error:', e);
+      }
+      applyDarkModeClass();
+    }
+
+    function saveAppState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          memorized: state.memorized,
+          starred: state.starred,
+          difficult: state.difficult,
+          category: state.category,
+          mode: state.mode,
+          currentPage: state.currentPage,
+          flashIndex: state.flashIndex,
+          darkMode: state.darkMode,
+          accent: state.accent,
+          voiceByAccent: state.voiceByAccent,
+          repeatPace: state.repeatPace,
+          speed: state.speed,
+          mission: state.mission,
+          streak: state.streak
+        }));
+      } catch (e) {
+        console.error('State save error:', e);
+      }
+    }
+
+    function applyDarkModeClass() {
+      const htmlEl = document.documentElement;
+      const btn = document.getElementById('darkModeBtn');
+      if (state.darkMode) {
+        htmlEl.classList.add('dark');
+        if (btn) btn.textContent = '☀️';
+      } else {
+        htmlEl.classList.remove('dark');
+        if (btn) btn.textContent = '🌙';
+      }
+    }
+
+    function toggleDarkMode() {
+      state.darkMode = !state.darkMode;
+      applyDarkModeClass();
+      saveAppState();
+    }
+
+    // =========================================================================
+    // 3-1. 오늘의 미션 · 연속 학습일 · 정답 축하 효과
+    // =========================================================================
+    function dateKey(d = new Date()) {
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    }
+
+    function yesterdayKey() {
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      return dateKey(d);
+    }
+
+    // 날짜가 바뀌면 오늘의 미션 진행만 새로 시작한다 (연속 학습일 기록은 유지)
+    function ensureMissionToday() {
+      const today = dateKey();
+      if (!state.mission || typeof state.mission !== 'object') {
+        state.mission = { date: today, goal: 10, studied: {} };
+      } else if (state.mission.date !== today) {
+        state.mission = { date: today, goal: Number(state.mission.goal) || 10, studied: {} };
+      }
+      if (!state.streak || typeof state.streak !== 'object') {
+        state.streak = { count: 0, lastGoalDate: '' };
+      }
+      return state.mission;
+    }
+
+    function studiedTodayCount() {
+      ensureMissionToday();
+      return Object.keys(state.mission.studied).length;
+    }
+
+    function isStreakAlive() {
+      const last = state.streak && state.streak.lastGoalDate;
+      return Boolean(last) && (last === dateKey() || last === yesterdayKey());
+    }
+
+    function awardStreak() {
+      ensureMissionToday();
+      const today = dateKey();
+      if (state.streak.lastGoalDate === today) return;
+      state.streak.count = (state.streak.lastGoalDate === yesterdayKey())
+        ? (Number(state.streak.count) || 0) + 1
+        : 1;
+      state.streak.lastGoalDate = today;
+      saveAppState();
+      burstConfetti(26);
+      showCelebrate(`오늘의 미션 완료! 🔥 ${state.streak.count}일 연속`, '🎯');
+    }
+
+    // 오늘 학습한 문장으로 기록 (듣기·암기 체크·퀴즈 정답 모두 포함)
+    function markStudied(id) {
+      ensureMissionToday();
+      if (state.mission.studied[id]) {
+        updateMissionUI();
+        return;
+      }
+      state.mission.studied[id] = true;
+      if (studiedTodayCount() >= state.mission.goal) awardStreak();
+      saveAppState();
+      updateMissionUI();
+    }
+
+    function updateMissionUI() {
+      ensureMissionToday();
+      const goal = Number(state.mission.goal) || 10;
+      const done = studiedTodayCount();
+      const pct = Math.min(100, Math.round((done / goal) * 100));
+      const label = document.getElementById('missionLabel');
+      const bar = document.getElementById('missionBar');
+      const badge = document.getElementById('streakBadge');
+
+      if (label) {
+        label.textContent = done >= goal
+          ? `🎯 오늘의 미션 완료! (${done}/${goal})`
+          : `🎯 오늘의 미션 ${done}/${goal}`;
+      }
+      if (bar) bar.style.width = `${pct}%`;
+      if (badge) {
+        if (isStreakAlive()) {
+          badge.textContent = `🔥 ${state.streak.count}일 연속`;
+          badge.className = 'px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200/70 dark:border-amber-900/80 whitespace-nowrap';
+        } else {
+          badge.textContent = '🔥 0일 연속';
+          badge.className = 'px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 border border-slate-200/70 dark:border-slate-700 whitespace-nowrap';
+        }
+      }
+    }
+
+    function setMissionGoal(goal) {
+      const g = [5, 10, 20, 30].indexOf(Number(goal)) >= 0 ? Number(goal) : 10;
+      ensureMissionToday();
+      state.mission.goal = g;
+      if (studiedTodayCount() >= g) awardStreak();
+      saveAppState();
+      updateMissionUI();
+      closeModal();
+    }
+
+    function openMissionGoalModal() {
+      ensureMissionToday();
+      const current = Number(state.mission.goal) || 10;
+      const buttons = [5, 10, 20, 30].map(g =>
+        `<button onclick="setMissionGoal(${g})" class="px-3 py-2 rounded-xl text-xs font-extrabold ${
+          g === current ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200'
+        }">${g}문장</button>`
+      ).join('');
+      showModal(
+        '오늘의 미션 목표',
+        `하루에 몇 문장을 들어볼까요? (지금 목표 ${current}문장 · 오늘 ${studiedTodayCount()}문장 완료)`,
+        `<div class="grid grid-cols-3 gap-1.5 w-full">${buttons}<button onclick="closeModal()" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 text-xs font-extrabold">닫기</button></div>`
+      );
+    }
+
+    function showCelebrate(text, emoji = '🎉') {
+      const el = document.createElement('div');
+      el.className = 'celebrate-toast';
+      el.innerHTML = `
+        <div class="bg-slate-900/95 text-white rounded-2xl px-4 py-2.5 shadow-2xl border border-white/10 text-center">
+          <div class="text-2xl leading-none mb-1">${emoji}</div>
+          <div class="text-xs font-extrabold whitespace-nowrap">${escapeHtml(text)}</div>
+        </div>
+      `;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1300);
+    }
+
+    function burstConfetti(count = 18) {
+      const colors = ['#6366f1', '#22c55e', '#f59e0b', '#ef4444', '#06b6d4', '#a855f7'];
+      const layer = document.createElement('div');
+      layer.className = 'confetti-layer';
+      for (let i = 0; i < count; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti-piece';
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.width = `${5 + Math.random() * 5}px`;
+        piece.style.height = `${8 + Math.random() * 7}px`;
+        piece.style.background = colors[i % colors.length];
+        piece.style.animationDelay = `${(Math.random() * 0.3).toFixed(2)}s`;
+        piece.style.animationDuration = `${(1.1 + Math.random() * 0.8).toFixed(2)}s`;
+        layer.appendChild(piece);
+      }
+      document.body.appendChild(layer);
+      setTimeout(() => layer.remove(), 2400);
+    }
+
+    // =========================================================================
+    // 4. 필터링 & 검색 데이터 계산
+    // =========================================================================
+    function getFilteredSentences() {
+      const q = state.searchQuery.trim().toLowerCase();
+      return SENTENCES.filter(item => {
+        if (state.category !== 'all' && item.category !== state.category) return false;
+        if (state.statusFilter === 'memorized' && !state.memorized[item.id]) return false;
+        if (state.statusFilter === 'unmemorized' && state.memorized[item.id]) return false;
+        if (state.statusFilter === 'starred' && !state.starred[item.id]) return false;
+        if (state.statusFilter === 'hard' && !state.difficult[item.id]) return false;
+        if (q) {
+          const matchEn = item.en.toLowerCase().includes(q);
+          const matchKo = item.ko.toLowerCase().includes(q);
+          const matchTag = item.tag.toLowerCase().includes(q);
+          if (!matchEn && !matchKo && !matchTag) return false;
+        }
+        return true;
+      });
+    }
+
+    // =========================================================================
+    // 5. 원어민 TTS 음성 출력 (4개국 억양 / 듣기 속도 5단계 / 5·10회 반복 듣기)
+    // =========================================================================
+    // 4개국 억양 정의 — speechSynthesis의 lang 코드와 1:1 대응
+    const ACCENTS = {
+      'en-US': { flag: '🇺🇸', label: '미국', code: 'US' },
+      'en-GB': { flag: '🇬🇧', label: '영국', code: 'UK' },
+      'en-AU': { flag: '🇦🇺', label: '호주', code: 'AU' },
+      'en-IN': { flag: '🇮🇳', label: '인도', code: 'IN' }
+    };
+    const ACCENT_ORDER = ['en-US', 'en-GB', 'en-AU', 'en-IN'];
+    // 기기에 여러 음성이 있을 때 좀 더 자연스러운 음성을 먼저 고른다
+    const PREFERRED_VOICE_RE = /(google|natural|neural|enhanced|premium|samantha|daniel|karen|moira|tessa|rishi|neerja)/i;
+
+    function normalizeLang(lang) {
+      return String(lang || '').replace(/_/g, '-').toLowerCase();
+    }
+
+    function escapeHtml(value) {
+      return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    function getEnglishVoices() {
+      if (!('speechSynthesis' in window) || typeof window.speechSynthesis.getVoices !== 'function') return [];
+      try {
+        return (window.speechSynthesis.getVoices() || [])
+          .filter(v => v && v.lang && normalizeLang(v.lang).indexOf('en') === 0);
+      } catch (e) {
+        console.error('Voice list error:', e);
+        return [];
+      }
+    }
+
+    // 현재 억양에 맞는 기기 음성 선택: 저장한 음성 → 자연스러운 음성 → 첫 후보
+    function pickVoiceForAccent(accent, voiceList = null) {
+      const all = voiceList || getEnglishVoices();
+      const target = normalizeLang(accent);
+      const exact = all.filter(v => normalizeLang(v.lang) === target);
+      if (!exact.length) return null;
+      const savedUri = (state.voiceByAccent || {})[accent];
+      if (savedUri) {
+        const saved = exact.find(v => v.voiceURI === savedUri);
+        if (saved) return saved;
+      }
+      return exact.find(v => PREFERRED_VOICE_RE.test(v.name)) || exact[0];
+    }
+
+    function speakText(text, rate = 1.0, onEnd = null, accentOverride = null) {
+      if (!('speechSynthesis' in window)) {
+        showModal('음성 지원 안내', '현재 브라우저에서는 TTS 음성 재생이 지원되지 않습니다.');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      const accent = ACCENTS[accentOverride] ? accentOverride : (ACCENTS[state.accent] ? state.accent : 'en-US');
+      utter.lang = accent;
+      utter.rate = rate;
+      utter.pitch = 1.0;
+
+      // 선택한 억양 음성 → 없으면 같은 영어 계열 음성으로 자동 대체 (재생이 끊기지 않게)
+      const voice = pickVoiceForAccent(accent) || getEnglishVoices()[0] || null;
+      if (voice) {
+        utter.voice = voice;
+        if (normalizeLang(voice.lang) !== normalizeLang(accent)) utter.lang = voice.lang || accent;
+      }
+
+      // onend/onerror가 둘 다 불려도 콜백은 한 번만 (5회 반복 진행이 꼬이지 않도록)
+      let finished = false;
+      const finish = () => { if (finished) return; finished = true; if (onEnd) onEnd(); };
+      utter.onend = finish;
+      utter.onerror = finish;
+      window.speechSynthesis.speak(utter);
+    }
+
+    // ---------- 4개국 억양 선택기 & 기기 음성 선택 UI ----------
+    function renderAccentPills() {
+      const box = document.getElementById('accentPills');
+      if (!box) return;
+      box.innerHTML = ACCENT_ORDER.map(code => {
+        const a = ACCENTS[code];
+        const active = state.accent === code;
+        return `
+          <button type="button" onclick="setAccent('${code}')" aria-pressed="${active}"
+            class="px-1 py-1.5 rounded-lg border text-[11px] font-extrabold flex items-center justify-center gap-1 transition active:scale-95 ${
+              active
+                ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300'
+            }">
+            <span class="text-[12px] leading-none">${a.flag}</span><span>${a.label}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setAccent(code) {
+      if (!ACCENTS[code] || state.accent === code) return;
+      stopRepeatPlayback();
+      state.accent = code;
+      saveAppState();
+      renderAccentPills();
+      renderVoiceOptions();
+      renderActiveMode();
+    }
+
+    function renderVoiceOptions() {
+      const sel = document.getElementById('voiceSelect');
+      const hint = document.getElementById('voiceHint');
+      if (!sel) return;
+
+      const all = getEnglishVoices();
+      const exact = all.filter(v => normalizeLang(v.lang) === normalizeLang(state.accent));
+      const accentLabel = ACCENTS[state.accent] ? ACCENTS[state.accent].label : '';
+
+      if (!exact.length) {
+        // 이 기기에 해당 억양 음성 팩이 없는 경우 → 기본 영어 음성으로 자동 대체
+        sel.innerHTML = '<option value="">기본 영어 음성 (억양 팩 없음)</option>';
+        sel.disabled = true;
+        if (hint) {
+          hint.textContent = all.length
+            ? `이 기기에는 ${accentLabel} 음성 팩이 없어 기본 영어 음성으로 재생됩니다.`
+            : `이 브라우저에서는 기기 음성 목록을 불러오지 못했습니다. 기본 음성으로 재생됩니다.`;
+          hint.classList.remove('hidden');
+        }
+        return;
+      }
+
+      sel.disabled = false;
+      const chosen = pickVoiceForAccent(state.accent, all);
+      sel.innerHTML = exact.map(v =>
+        `<option value="${escapeHtml(v.voiceURI)}"${chosen && v.voiceURI === chosen.voiceURI ? ' selected' : ''}>${escapeHtml(v.name)} (${escapeHtml(v.lang)})</option>`
+      ).join('');
+      if (chosen) sel.value = chosen.voiceURI;
+      if (hint) hint.classList.add('hidden');
+    }
+
+    function onVoiceChange(uri) {
+      if (!state.voiceByAccent) state.voiceByAccent = {};
+      if (uri) state.voiceByAccent[state.accent] = uri;
+      else delete state.voiceByAccent[state.accent];
+      saveAppState();
+      previewAccent();
+    }
+
+    function previewAccent() {
+      stopRepeatPlayback();
+      speakText('Could I get a coffee, please?', state.speed);
+    }
+
+    function playSingleTTS(id, rate = null, accent = null) {
+      stopRepeatPlayback();
+      const item = SENTENCES.find(s => s.id === id);
+      if (!item) return;
+      markStudied(item.id);
+      speakText(item.en, rate == null ? state.speed : Number(rate), null, accent);
+    }
+
+    // 반복 단계별 재생 속도 (믹스: 처음 2회 0.85x → 이후 1.0x / 듣기속도: 고른 속도 그대로)
+    function repeatRateForStep(step) {
+      const pace = REPEAT_PACES[state.repeatPace] || REPEAT_PACES.mix;
+      if (pace.speedBased) return state.speed;
+      return step <= pace.warmup ? pace.slowRate : 1.0;
+    }
+
+    // 속도 라벨은 항상 소수 한 자리 (0.8x / 1.0x / 1.2x)
+    function formatSpeed(value = state.speed) {
+      return `${Number(value).toFixed(1)}x`;
+    }
+
+    function renderRepeatDots(completed, total = repeatState.times || REPEAT_TIMES) {
+      const box = document.getElementById('repeatDots');
+      if (!box) return;
+      const count = Math.max(1, Math.min(20, Number(total) || REPEAT_TIMES));
+      box.innerHTML = Array.from({ length: count }, (_, i) =>
+        `<span class="inline-block w-1.5 h-1.5 rounded-full ${i < completed ? 'bg-emerald-400' : 'bg-slate-600'}"></span>`
+      ).join('');
+    }
+
+    function renderSpeedPills() {
+      const box = document.getElementById('speedPills');
+      if (!box) return;
+      box.innerHTML = Object.keys(REPEAT_PACES).map(key => {
+        const pace = REPEAT_PACES[key];
+        const label = key === 'steady' ? `내 속도 ${formatSpeed()}` : pace.label;
+        const active = (state.repeatPace || 'mix') === key;
+        return `
+          <button type="button" onclick="setRepeatPace('${key}')" aria-pressed="${active}"
+            class="px-0.5 py-1 rounded-lg border text-[10px] font-extrabold whitespace-nowrap transition active:scale-95 ${
+              active
+                ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400'
+            }">
+            ${label}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setRepeatPace(key) {
+      if (!REPEAT_PACES[key]) return;
+      state.repeatPace = key;
+      saveAppState();
+      renderSpeedPills();
+      if (repeatState.active) {
+        const statusEl = document.getElementById('repeatStatusText');
+        if (statusEl) statusEl.textContent = `🔁 속도 변경: ${key === 'steady' ? `내 속도 ${formatSpeed()}` : REPEAT_PACES[key].label}`;
+      }
+    }
+
+    // ---------- 문장별 듣기 속도(5단계) · 억양(4개국) 버튼 ----------
+    // 속도 알약을 탭하면 그 속도를 기본값으로 저장하고 이 문장을 바로 그 속도로 들려준다
+    function setSpeed(rate, playId = null) {
+      const r = Number(rate);
+      if (SPEEDS.indexOf(r) < 0) return;
+      const changed = state.speed !== r;
+      state.speed = r;
+      if (changed) {
+        saveAppState();
+        renderSpeedPills();
+        renderActiveMode();
+      }
+      if (playId != null) playSingleTTS(playId);
+    }
+
+    function renderSpeedMiniButtons(id) {
+      return SPEEDS.map(rate => {
+        const active = Math.abs(state.speed - rate) < 0.001;
+        const label = `${rate.toFixed(1)}x`;
+        return `
+          <button type="button" onclick="setSpeed(${rate}, ${id})" aria-label="이 문장을 ${label} 속도로 듣기" aria-pressed="${active}"
+            class="py-1.5 rounded-lg border text-[10px] font-extrabold transition active:scale-95 ${
+              active
+                ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
+                : 'bg-slate-50 dark:bg-slate-700/60 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300'
+            }">${label}</button>
+        `;
+      }).join('');
+    }
+
+    function renderAccentMiniButtons(id) {
+      return ACCENT_ORDER.map(code => {
+        const a = ACCENTS[code];
+        const active = state.accent === code;
+        return `
+          <button type="button" onclick="playInAccent(${id}, '${code}')" aria-label="이 문장을 ${a.label} 억양으로 듣기" aria-pressed="${active}"
+            class="min-w-0 flex-1 py-1.5 px-0.5 rounded-lg border text-[10px] font-extrabold flex items-center justify-center gap-0.5 transition active:scale-95 ${
+              active
+                ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
+                : 'bg-slate-50 dark:bg-slate-700/60 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300'
+            }">
+            <span class="text-[12px] leading-none">${a.flag}</span><span class="accent-label">${a.label}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    // 카드에서 억양을 탭하면 그 억양을 선택 상태로 저장하고 이 문장을 바로 재생 (헤더까지 올라갈 필요 없음)
+    function playInAccent(id, code) {
+      if (!ACCENTS[code]) return;
+      if (state.accent !== code) setAccent(code);
+      playSingleTTS(id);
+    }
+
+    // 문장 카드의 3회·5회·10회 반복 버튼 (반복 속도는 믹스 / 내 속도 규칙을 그대로 따른다)
+    // 그 문장이 지금 이 횟수로 반복 중이면 버튼이 '⏹️ 멈춤'으로 바뀐다.
+    function renderRepeatMiniButtons(id, activeTimes = 0) {
+      return REPEAT_CHOICES.map(times => {
+        const active = Number(activeTimes) === times;
+        const label = active ? '이 문장 ' + times + '회 반복 멈춤' : '이 문장 ' + times + '회 반복';
+        return `
+          <button type="button" onclick="startRepeatN(${id}, ${times})" aria-label="${label}" aria-pressed="${active}"
+            class="py-1.5 px-0.5 rounded-lg ${
+              active
+                ? 'bg-rose-600 text-white'
+                : (times === 3 ? 'bg-indigo-500/90 hover:bg-indigo-700 text-white' : 'bg-indigo-600 hover:bg-indigo-700 text-white')
+            } text-[10px] font-extrabold flex items-center justify-center gap-0.5 shadow-sm active:scale-95 transition whitespace-nowrap">
+            <span>${active ? '⏹️' : '🔁'}</span><span>${active ? '멈춤' : times + '회'}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function startRepeatN(id, times = REPEAT_TIMES) {
+      const item = SENTENCES.find(s => s.id === id);
+      if (!item) return;
+      const reps = Math.max(1, Math.min(20, Number(times) || REPEAT_TIMES));
+
+      if (repeatState.active && !repeatState.loop && repeatState.sentenceId === id && repeatState.times === reps) {
+        stopRepeatPlayback();
+        return;
+      }
+
+      stopRepeatPlayback();
+      repeatState.active = true;
+      repeatState.loop = false;
+      repeatState.sentenceId = id;
+      repeatState.step = 1;
+      repeatState.times = reps;
+
+      const bar = document.getElementById('repeatFloatingBar');
+      bar.classList.remove('hidden');
+      document.getElementById('repeatSentenceText').textContent = item.en;
+      renderRepeatDots(0, reps);
+      markStudied(item.id);
+
+      runRepeatStep(item);
+      if (state.mode === 'list') renderListMode();
+      else if (state.mode === 'flash') renderFlashMode();
+    }
+
+    function startRepeat5x(id) { startRepeatN(id, 5); }
+    function startRepeat10x(id) { startRepeatN(id, 10); }
+    function startRepeat3x(id) { startRepeatN(id, 3); }
+
+    function runRepeatStep(item) {
+      if (!repeatState.active || repeatState.sentenceId !== item.id) return;
+      const step = repeatState.step;
+      const looping = Boolean(repeatState.loop);
+      const times = looping ? null : (repeatState.times || REPEAT_TIMES);
+      const rate = repeatRateForStep(step);
+      const statusEl = document.getElementById('repeatStatusText');
+      const accent = ACCENTS[state.accent] || ACCENTS['en-US'];
+      statusEl.textContent = looping
+        ? `🔁 연속 반복 중 (${step}회째 · ${rate}x ${accent.flag})`
+        : `🔊 ${accent.flag} 발음 (${step}/${times}회 · ${rate}x)`;
+
+      speakText(item.en, rate, () => {
+        if (!repeatState.active || repeatState.sentenceId !== item.id) return;
+        if (looping) {
+          renderRepeatDots(((step - 1) % LOOP_DOTS) + 1, LOOP_DOTS);
+          repeatState.timerId = setTimeout(() => {
+            if (!repeatState.active || repeatState.sentenceId !== item.id) return;
+            repeatState.step = step + 1;
+            runRepeatStep(item);
+          }, REPEAT_GAP_MS);
+          return;
+        }
+        renderRepeatDots(step, times);
+        if (step >= times) {
+          statusEl.textContent = `🎉 ${times}회 반복 청취 완료!`;
+          burstConfetti(12);
+          repeatState.timerId = setTimeout(() => stopRepeatPlayback(), 1400);
+          return;
+        }
+        statusEl.textContent = `🗣️ 따라 말해보세요! (${step}/${times}회 완료)`;
+        repeatState.timerId = setTimeout(() => {
+          if (!repeatState.active || repeatState.sentenceId !== item.id) return;
+          repeatState.step = step + 1;
+          runRepeatStep(item);
+        }, REPEAT_GAP_MS);
+      });
+    }
+
+    // =========================================================================
+    // 자동 연속재생 (필터된 목록을 문장마다 N회씩 읽고 자동으로 다음 문장으로)
+    // =========================================================================
+    function currentPlayingId() {
+      if (repeatState.active) return repeatState.sentenceId;
+      if (autoState.active && autoState.items[autoState.index]) return autoState.items[autoState.index].id;
+      return null;
+    }
+
+    function startAutoPlay(reps = 5) {
+      const items = getFilteredSentences();
+      if (!items.length) {
+        showModal('연속재생 안내', '지금 조건에 맞는 문장이 없습니다. 챕터나 검색 조건을 먼저 바꿔 주세요.');
+        return;
+      }
+      stopRepeatPlayback();
+      const r = Math.max(1, Math.min(10, Number(reps) || 5));
+      const startIdx = Math.max(0, Math.min(items.length - 1, (state.currentPage - 1) * PAGE_SIZE));
+      autoState = { active: true, items, index: startIdx, step: 1, reps: r, timerId: null };
+
+      document.getElementById('repeatFloatingBar').classList.remove('hidden');
+      renderRepeatDots(0, r);
+      runAutoStep();
+      if (state.mode === 'list') renderListMode();
+    }
+
+    // =========================================================================
+    // 문장별 '연속재생' — 그 문장 하나만 멈출 때까지 계속 반복 (다음 문장으로 넘어가지 않는다)
+    // =========================================================================
+    function startSingleLoop(id) {
+      const item = SENTENCES.find(s => s.id === id);
+      if (!item) return;
+
+      // 지금 이 문장을 연속재생 중이면 다시 누를 때 멈춘다
+      if (repeatState.active && repeatState.loop && repeatState.sentenceId === id) {
+        stopRepeatPlayback();
+        return;
+      }
+
+      stopRepeatPlayback();
+      repeatState.active = true;
+      repeatState.loop = true;
+      repeatState.sentenceId = id;
+      repeatState.step = 1;
+      repeatState.times = Infinity;
+
+      const bar = document.getElementById('repeatFloatingBar');
+      bar.classList.remove('hidden');
+      document.getElementById('repeatSentenceText').textContent = item.en;
+      renderRepeatDots(1, LOOP_DOTS);
+      markStudied(item.id);
+
+      runRepeatStep(item);
+      if (state.mode === 'list') renderListMode();
+      else if (state.mode === 'flash') renderFlashMode();
+    }
+
+    function runAutoStep() {
+      if (!autoState.active) return;
+      const item = autoState.items[autoState.index];
+      const total = autoState.items.length;
+      if (!item) { finishAutoPlay(); return; }
+
+      const statusEl = document.getElementById('repeatStatusText');
+      const rate = repeatRateForStep(autoState.step);
+      const accent = ACCENTS[state.accent] || ACCENTS['en-US'];
+
+      // 다음 페이지 문장으로 넘어가면 리스트도 따라 이동
+      if (state.mode === 'list') {
+        const pageOfIdx = Math.floor(autoState.index / PAGE_SIZE) + 1;
+        const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+        if (state.currentPage !== Math.min(pageOfIdx, totalPages)) {
+          state.currentPage = Math.min(pageOfIdx, totalPages);
+          renderListMode();
+        }
+      }
+
+      document.getElementById('repeatSentenceText').textContent = item.en;
+      statusEl.textContent = `🔁 연속재생 ${autoState.index + 1}/${total}문장 · ${autoState.step}/${autoState.reps}회 · ${rate}x ${accent.flag}`;
+      markStudied(item.id);
+
+      speakText(item.en, rate, () => {
+        if (!autoState.active) return;
+        renderRepeatDots(autoState.step, autoState.reps);
+        if (autoState.step >= autoState.reps) {
+          autoState.index += 1;
+          autoState.step = 1;
+          if (autoState.index >= autoState.items.length) { finishAutoPlay(); return; }
+          autoState.timerId = setTimeout(() => {
+            if (!autoState.active) return;
+            renderRepeatDots(0, autoState.reps);
+            runAutoStep();
+          }, 650);
+          return;
+        }
+        autoState.step += 1;
+        autoState.timerId = setTimeout(() => {
+          if (!autoState.active) return;
+          runAutoStep();
+        }, Math.round(REPEAT_GAP_MS * 0.7));
+      });
+    }
+
+    function stopAutoPlay() {
+      autoState.active = false;
+      if (autoState.timerId) {
+        clearTimeout(autoState.timerId);
+        autoState.timerId = null;
+      }
+    }
+
+    function finishAutoPlay() {
+      const played = autoState.items.length;
+      stopAutoPlay();
+      showCelebrate(`연속재생 완료! ${played}문장`, '🏁');
+      burstConfetti(18);
+      stopRepeatPlayback();
+    }
+
+    function stopRepeatPlayback() {
+      const wasPlaying = repeatState.active || autoState.active;
+      stopAutoPlay();
+      if (repeatState.timerId) {
+        clearTimeout(repeatState.timerId);
+        repeatState.timerId = null;
+      }
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      repeatState.active = false;
+      repeatState.sentenceId = null;
+      repeatState.step = 0;
+      repeatState.loop = false;
+      document.getElementById('repeatFloatingBar').classList.add('hidden');
+      if (wasPlaying && state.mode === 'list') renderListMode();
+      else if (wasPlaying && state.mode === 'flash') renderFlashMode();
+    }
+
+    // =========================================================================
+    // 6. 사용자 액션 핸들러 (암기/즐겨찾기/필터/탭)
+    // =========================================================================
+    function toggleMemorized(id) {
+      if (state.memorized[id]) {
+        delete state.memorized[id];
+      } else {
+        state.memorized[id] = true;
+        markStudied(id);
+      }
+      saveAppState();
+      updateDashboardStats();
+      renderActiveMode();
+    }
+
+    function toggleStarred(id) {
+      if (state.starred[id]) {
+        delete state.starred[id];
+      } else {
+        state.starred[id] = true;
+      }
+      saveAppState();
+      updateDashboardStats();
+      renderActiveMode();
+    }
+
+    // 🔥 Hard: 어려운 문장 표시 (리스트 카드·플래시카드 어디서든 토글)
+    function toggleHard(id) {
+      if (state.difficult[id]) {
+        delete state.difficult[id];
+      } else {
+        state.difficult[id] = true;
+      }
+      saveAppState();
+      updateDashboardStats();
+      renderActiveMode();
+    }
+
+    function onCategoryChange(cat) {
+      stopRepeatPlayback();
+      state.category = cat;
+      state.currentPage = 1;
+      state.flashIndex = 0;
+      state.flashFlipped = false;
+      state.flashDeckOrder = null;
+      document.getElementById('categorySelect').value = cat;
+      renderChapterPills();
+      saveAppState();
+      if (state.mode === 'quiz') initQuiz();
+      else renderActiveMode();
+    }
+
+    function onSearchInput(val) {
+      state.searchQuery = val;
+      state.currentPage = 1;
+      state.flashIndex = 0;
+      state.flashFlipped = false;
+      state.flashDeckOrder = null;
+      document.getElementById('clearSearchBtn').classList.toggle('hidden', !val);
+      if (state.mode === 'quiz') initQuiz();
+      else renderActiveMode();
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      onSearchInput('');
+    }
+
+    function setStatusFilter(filter) {
+      state.statusFilter = filter;
+      state.currentPage = 1;
+      state.flashIndex = 0;
+      state.flashFlipped = false;
+      state.flashDeckOrder = null;
+      renderStatusFilterButtons();
+      if (state.mode === 'quiz') initQuiz();
+      else renderActiveMode();
+    }
+
+    function toggleHideEnglish() {
+      state.hideEnglish = !state.hideEnglish;
+      const btn = document.getElementById('hideEnglishToggle');
+      const icon = document.getElementById('hideEnglishIcon');
+      const label = document.getElementById('hideEnglishLabel');
+      if (state.hideEnglish) {
+        btn.className = 'inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border border-indigo-600 bg-indigo-600 text-white active:scale-95 transition';
+        icon.textContent = '👁️';
+        label.textContent = '영어 다시보기';
+      } else {
+        btn.className = 'inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 active:scale-95 transition';
+        icon.textContent = '🙈';
+        label.textContent = '한국어만 보기';
+      }
+      renderActiveMode();
+    }
+
+    function switchMode(mode) {
+      stopRepeatPlayback();
+      state.mode = mode;
+      saveAppState();
+      renderModeTabs();
+      if (mode === 'quiz') {
+        initQuiz();
+      } else {
+        renderActiveMode();
+      }
+    }
+
+    function toggleInstallGuide() {
+      document.getElementById('installGuideBody').classList.toggle('hidden');
+    }
+
+    // =========================================================================
+    // 7. 상단 UI 및 탭 렌더링
+    // =========================================================================
+    function updateDashboardStats() {
+      const total = SENTENCES.length;
+      const memCount = Object.keys(state.memorized).length;
+      const starCount = Object.keys(state.starred).length;
+      const hardCount = Object.keys(state.difficult || {}).length;
+      const pct = Math.round((memCount / total) * 100);
+
+      document.getElementById('statMemorized').textContent = memCount;
+      const totalEl = document.getElementById('statTotal');
+      if (totalEl) totalEl.textContent = total;
+      document.getElementById('statStarred').textContent = starCount;
+      const hardEl = document.getElementById('statDifficult');
+      if (hardEl) hardEl.textContent = hardCount;
+      document.getElementById('statPercent').textContent = `${pct}%`;
+      document.getElementById('statProgressBar').style.width = `${pct}%`;
+    }
+
+    // 챕터 드롭다운을 실제 데이터 개수로 생성 (문장 수가 바뀌어도 라벨이 어긋나지 않게)
+    function renderCategoryOptions() {
+      const sel = document.getElementById('categorySelect');
+      if (!sel) return;
+      const counts = {};
+      SENTENCES.forEach(s => { counts[s.category] = (counts[s.category] || 0) + 1; });
+      sel.innerHTML = [
+        `<option value="all">📚 전체 챕터 보기 (${SENTENCES.length}문장)</option>`,
+        ...CHAPTER_META.filter(ch => ch.id !== 'all').map(ch =>
+          `<option value="${ch.id}">${ch.title} (${counts[ch.id] || 0}문장)</option>`
+        )
+      ].join('');
+    }
+
+    function renderModeTabs() {
+      ['list', 'flash', 'quiz'].forEach(m => {
+        const btn = document.getElementById(`mode-btn-${m}`);
+        if (state.mode === m) {
+          btn.className = 'py-2 px-2 rounded-lg text-xs font-extrabold transition-all flex items-center justify-center gap-1 bg-indigo-600 text-white shadow-sm';
+        } else {
+          btn.className = 'py-2 px-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1 text-slate-600 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700/60';
+        }
+      });
+    }
+
+    function renderChapterPills() {
+      const container = document.getElementById('chapterPills');
+      container.innerHTML = CHAPTER_META.map(ch => {
+        const active = state.category === ch.id;
+        return `
+          <button onclick="onCategoryChange('${ch.id}')"
+            class="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-bold border transition ${
+              active
+                ? 'bg-slate-900 dark:bg-indigo-600 text-white border-slate-900 dark:border-indigo-600'
+                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+            }">
+            ${ch.short}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderStatusFilterButtons() {
+      const map = {
+        all: '전체',
+        unmemorized: '미암기만',
+        memorized: '암기완료',
+        starred: '★ 즐겨찾기',
+        hard: '🔥 Hard'
+      };
+      Object.keys(map).forEach(key => {
+        const btn = document.getElementById(`filter-${key}`);
+        const active = state.statusFilter === key;
+        btn.textContent = map[key];
+        if (active) {
+          btn.className = 'status-filter-btn px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border transition whitespace-nowrap bg-indigo-50 dark:bg-indigo-950 border-indigo-500 text-indigo-700 dark:text-indigo-300';
+        } else {
+          btn.className = 'status-filter-btn px-2.5 py-1.5 rounded-lg text-[11px] font-bold border transition whitespace-nowrap bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300';
+        }
+      });
+    }
+
+    function renderActiveMode() {
+      updateFilterVisibility();
+      if (state.mode === 'list') renderListMode();
+      else if (state.mode === 'flash') renderFlashMode();
+      else if (state.mode === 'quiz') renderQuizMode();
+    }
+
+    // 검색·상태 필터는 리스트 모드에서만 노출 (플래시카드·퀴즈는 카드 영역을 넓게)
+    function updateFilterVisibility() {
+      const box = document.getElementById('listOnlyFilters');
+      if (!box) return;
+      const filtering = Boolean(state.searchQuery.trim()) || state.statusFilter !== 'all';
+      box.classList.toggle('hidden', state.mode !== 'list' && !filtering);
+    }
+
+    // =========================================================================
+    // 8. [모드 1] 카드 리스트 모드 (20개 페이지네이션 + TTS + 리듬강세)
+    // =========================================================================
+    function renderListMode() {
+      const main = document.getElementById('mainContent');
+      const filtered = getFilteredSentences();
+      const totalItems = filtered.length;
+
+      if (totalItems === 0) {
+        main.innerHTML = renderEmptyState();
+        return;
+      }
+
+      const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+      if (state.currentPage > totalPages) state.currentPage = totalPages;
+      const startIdx = (state.currentPage - 1) * PAGE_SIZE;
+      const pageItems = filtered.slice(startIdx, startIdx + PAGE_SIZE);
+
+      const cardsHtml = pageItems.map(item => {
+        const isMem = Boolean(state.memorized[item.id]);
+        const isStar = Boolean(state.starred[item.id]);
+        const isHard = Boolean(state.difficult[item.id]);
+        const isRepeating = currentPlayingId() === item.id;
+        const repeatTimesHere = (repeatState.active && !repeatState.loop && repeatState.sentenceId === item.id) ? repeatState.times : 0;
+        const isLoopHere = Boolean(repeatState.active && repeatState.loop && repeatState.sentenceId === item.id);
+        return `
+          <article class="bg-white dark:bg-slate-800 rounded-2xl border ${
+            isRepeating
+              ? 'border-indigo-500 ring-2 ring-indigo-200 dark:ring-indigo-900'
+              : isMem
+              ? 'border-emerald-300/80 dark:border-emerald-800'
+              : 'border-slate-200/90 dark:border-slate-700/80'
+          } p-4 shadow-sm transition-all">
+            <!-- 상단: 번호, 소리블록 배지, Hard·즐겨찾기·암기완료 버튼 -->
+            <div class="flex items-center justify-between gap-1.5 flex-wrap mb-2.5">
+              <div class="flex items-center gap-1.5 flex-wrap min-w-0">
+                <span class="text-xs font-extrabold text-slate-400 dark:text-slate-500">#${item.id}</span>
+                <span class="px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-indigo-50 dark:bg-indigo-950/90 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900">
+                  ${item.tag}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-1.5 shrink-0">
+                <!-- Hard(어려움) 표시 버튼 -->
+                <button onclick="toggleHard(${item.id})" aria-label="Hard 표시 (어려운 문장)" aria-pressed="${isHard}"
+                  class="px-2 py-1 rounded-xl text-[11px] font-extrabold border transition active:scale-90 flex items-center gap-0.5 ${
+                    isHard
+                      ? 'bg-rose-50 dark:bg-rose-950/60 border-rose-300 dark:border-rose-800 text-rose-600 dark:text-rose-300'
+                      : 'bg-slate-50 dark:bg-slate-700/60 border-slate-200 dark:border-slate-600 text-slate-400'
+                  }">
+                  <span>🔥</span><span>Hard</span>
+                </button>
+                <!-- 즐겨찾기 버튼 -->
+                <button onclick="toggleStarred(${item.id})" aria-label="즐겨찾기"
+                  class="px-2.5 py-1 rounded-xl text-xs font-extrabold border transition active:scale-90 ${
+                    isStar
+                      ? 'bg-amber-50 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700 text-amber-500'
+                      : 'bg-slate-50 dark:bg-slate-700/60 border-slate-200 dark:border-slate-600 text-slate-400'
+                  }">
+                  ${isStar ? '★' : '☆'}
+                </button>
+                <!-- 암기 완료 체크 버튼 -->
+                <button onclick="toggleMemorized(${item.id})" aria-label="암기 완료 체크"
+                  class="px-2 py-1 rounded-xl text-[11px] font-extrabold border transition active:scale-90 flex items-center gap-1 ${
+                    isMem
+                      ? 'bg-emerald-500 border-emerald-500 text-white shadow-sm'
+                      : 'bg-white dark:bg-slate-700/60 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300'
+                  }">
+                  <span>${isMem ? '✓ 암기완료' : '○ 암기체크'}</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 한국어 해석 -->
+            <p class="text-sm font-bold text-slate-800 dark:text-slate-100 mb-2 leading-snug">
+              ${item.ko}
+            </p>
+
+            <!-- 영어 원문 & 원어민 리듬/강세 가이드 박스 -->
+            <div class="rounded-xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/70 dark:border-slate-700/70 p-3 mb-3 relative">
+              <div class="${state.hideEnglish ? 'invisible select-none' : ''} transition-all">
+                <p class="font-en text-[16px] font-extrabold text-slate-900 dark:text-white leading-snug mb-1.5">
+                  ${item.en}
+                </p>
+                <div class="text-xs font-en leading-relaxed pt-1.5 border-t border-slate-200/60 dark:border-slate-800">
+                  <span class="text-[10px] font-bold text-slate-400 mr-1">리듬강세:</span>
+                  ${formatRhythmHighlight(item.en)}
+                </div>
+              </div>
+              ${state.hideEnglish ? `
+                <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-xl bg-slate-50 dark:bg-slate-900 px-2 text-center">
+                  ${(state.hintedIds && state.hintedIds[item.id])
+                    ? `<p class="font-en text-[15px] font-extrabold text-amber-600 dark:text-amber-300 leading-snug">${buildHintSentence(item.en)}</p>`
+                    : `<p class="text-[11px] font-bold text-slate-500 dark:text-slate-400">한국어를 보고 영어로 말해보세요</p>`}
+                  <div class="flex items-center justify-center gap-1.5">
+                    <button onclick="toggleHint(${item.id})"
+                      class="px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold border transition active:scale-95 ${
+                        (state.hintedIds && state.hintedIds[item.id])
+                          ? 'bg-amber-100 dark:bg-amber-950/70 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300'
+                          : 'bg-white dark:bg-slate-800 border-amber-200 dark:border-amber-900 text-amber-600 dark:text-amber-400'
+                      }">
+                      💡 ${(state.hintedIds && state.hintedIds[item.id]) ? '힌트 숨기기' : '힌트'}
+                    </button>
+                    <button onclick="toggleHideEnglish()"
+                      class="px-2.5 py-1.5 rounded-lg text-[11px] font-extrabold bg-slate-800 dark:bg-slate-700 text-white border border-slate-700 transition active:scale-95">
+                      👁️ 정답 보기
+                    </button>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- 하단: 듣기 속도 5단계 · 문장별 4개국 억양 · 3회/5회/10회 반복 · 연속재생(무한 반복) -->
+            <div class="space-y-1.5">
+              <div class="grid grid-cols-5 gap-1" role="group" aria-label="듣기 속도 5단계 (탭하면 이 문장을 그 속도로 재생)">
+                ${renderSpeedMiniButtons(item.id)}
+              </div>
+              <div class="flex items-center gap-1" role="group" aria-label="이 문장 억양 선택 (미국·영국·호주·인도)">
+                ${renderAccentMiniButtons(item.id)}
+              </div>
+              <div class="grid grid-cols-4 gap-1" role="group" aria-label="이 문장 3회·5회·10회 반복과 연속재생">
+                ${renderRepeatMiniButtons(item.id, repeatTimesHere)}
+                <button type="button" onclick="startSingleLoop(${item.id})" aria-label="${isLoopHere ? '이 문장 연속재생 멈춤' : '이 문장 연속재생 (멈출 때까지 무한 반복)'}" aria-pressed="${isLoopHere}"
+                  class="py-1.5 px-0.5 rounded-lg ${
+                    isLoopHere
+                      ? 'bg-rose-600 text-white'
+                      : 'bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white'
+                  } text-[10px] font-extrabold flex items-center justify-center gap-0.5 shadow-sm active:scale-95 transition whitespace-nowrap">
+                  <span>${isLoopHere ? '⏹️' : '🔁'}</span><span>${isLoopHere ? '멈춤' : '연속재생'}</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      // 페이지네이션 컨트롤 바
+      const paginationHtml = `
+        <div class="flex items-center justify-between bg-white dark:bg-slate-800 rounded-2xl p-3 border border-slate-200 dark:border-slate-700 shadow-sm mt-4">
+          <button onclick="changePage(${state.currentPage - 1})" ${state.currentPage <= 1 ? 'disabled' : ''}
+            class="px-3.5 py-2 rounded-xl text-xs font-extrabold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40 active:scale-95 transition">
+            ◀ 이전 20개
+          </button>
+          <div class="text-center">
+            <span class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400">${state.currentPage}</span>
+            <span class="text-xs font-bold text-slate-400"> / ${totalPages} 페이지</span>
+            <p class="text-[10px] text-slate-400 mt-0.5">총 ${totalItems}문장 중 ${startIdx + 1}~${Math.min(startIdx + PAGE_SIZE, totalItems)}번</p>
+          </div>
+          <button onclick="changePage(${state.currentPage + 1})" ${state.currentPage >= totalPages ? 'disabled' : ''}
+            class="px-3.5 py-2 rounded-xl text-xs font-extrabold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40 active:scale-95 transition">
+            다음 20개 ▶
+          </button>
+        </div>
+      `;
+
+      main.innerHTML = `
+        <div class="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-400 mb-2 px-0.5">
+          <span>검색 결과: <strong class="text-slate-800 dark:text-slate-200">${totalItems}</strong>문장</span>
+          <span>페이지 ${state.currentPage} / ${totalPages}</span>
+        </div>
+        <!-- 손 대지 않고 계속 듣기: 현재 필터된 목록을 문장마다 1회/5회씩 자동 재생 -->
+        <div class="grid grid-cols-2 gap-1.5 mb-3">
+          <button onclick="startAutoPlay(1)" class="py-2 rounded-xl bg-white dark:bg-slate-800 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-300 text-[11px] font-extrabold active:scale-95 transition">▶ 1회씩 연속재생</button>
+          <button onclick="startAutoPlay(5)" class="py-2 rounded-xl bg-indigo-600 text-white text-[11px] font-extrabold shadow-sm active:scale-95 transition">▶ 5회씩 연속재생</button>
+        </div>
+        <div class="space-y-3">
+          ${cardsHtml}
+        </div>
+        ${paginationHtml}
+      `;
+    }
+
+    function changePage(newPage) {
+      stopRepeatPlayback();
+      state.currentPage = newPage;
+      saveAppState();
+      renderListMode();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // =========================================================================
+    // 9. [모드 2] 플래시카드 모드 (스와이프 + 앞/뒷면 전환 + 셔플 + 자동 TTS)
+    // =========================================================================
+    function getFlashDeck() {
+      const filtered = getFilteredSentences();
+      if (!state.flashDeckOrder) return filtered;
+      const map = new Map(filtered.map(item => [item.id, item]));
+      const ordered = state.flashDeckOrder.map(id => map.get(id)).filter(Boolean);
+      return ordered.length === filtered.length ? ordered : filtered;
+    }
+
+    function renderFlashMode() {
+      const main = document.getElementById('mainContent');
+      const deck = getFlashDeck();
+
+      if (deck.length === 0) {
+        main.innerHTML = renderEmptyState();
+        return;
+      }
+
+      if (state.flashIndex >= deck.length) state.flashIndex = 0;
+      if (state.flashIndex < 0) state.flashIndex = deck.length - 1;
+
+      const card = deck[state.flashIndex];
+      const isMem = Boolean(state.memorized[card.id]);
+      const isStar = Boolean(state.starred[card.id]);
+      const isHard = Boolean(state.difficult[card.id]);
+      // 이 카드 문장만 무한 반복(연속재생) 중인지 — 버튼이 '⏹️ 멈춤'으로 바뀐다
+      const isLooping = Boolean(repeatState.active && repeatState.loop && repeatState.sentenceId === card.id);
+
+      main.innerHTML = `
+        <div class="space-y-3">
+          <!-- 상단 진행 표시 & 셔플 버튼 -->
+          <div class="flex items-center justify-between px-1">
+            <span class="text-xs font-extrabold text-slate-600 dark:text-slate-300">
+              카드 <strong class="text-indigo-600 dark:text-indigo-400">${state.flashIndex + 1}</strong> / ${deck.length}
+            </span>
+            <button onclick="shuffleFlashDeck()" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-extrabold text-slate-700 dark:text-slate-200 shadow-sm active:scale-95 transition">
+              <span>🔀</span><span>랜덤 섞기</span>
+            </button>
+          </div>
+
+          <!-- 플래시카드 본체 (터치 스와이프 및 탭 뒤집기 지원) -->
+          <div id="flashCardBox" onclick="flipFlashCard()"
+            class="flashcard-pop cursor-pointer min-h-[240px] rounded-3xl p-5 flex flex-col justify-between shadow-md border-2 transition-all select-none ${
+              state.flashFlipped
+                ? 'bg-indigo-50/70 dark:bg-slate-800 border-indigo-400 dark:border-indigo-500'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'
+            }">
+            
+            <!-- 카드 상단 메타 -->
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
+                ${card.tag}
+              </span>
+              <span class="text-[11px] font-bold text-slate-400">
+                ${state.flashFlipped ? '뒷면 · 영어 정답' : '앞면 · 한국어 문제'}
+              </span>
+            </div>
+
+            <!-- 카드 중앙 콘텐츠 -->
+            <div class="my-auto py-4 text-center">
+              ${!state.flashFlipped ? `
+                <p class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white leading-snug mb-4">
+                  ${card.ko}
+                </p>
+                <div class="inline-block px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700/80 text-xs font-bold text-slate-500 dark:text-slate-300">
+                  🏷️ ${card.tag}
+                </div>
+                ${state.flashHint ? `
+                  <p class="font-en text-[15px] font-extrabold text-amber-600 dark:text-amber-300 mt-3 leading-snug">${buildHintSentence(card.en)}</p>
+                ` : ''}
+                <div class="mt-3">
+                  <button onclick="event.stopPropagation(); toggleFlashHint()"
+                    class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-900 text-amber-700 dark:text-amber-300 text-[11px] font-extrabold active:scale-95 transition">
+                    💡 ${state.flashHint ? '힌트 숨기기' : '힌트 보기'}
+                  </button>
+                </div>
+              ` : `
+                <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mb-2">${card.ko}</p>
+                <p class="font-en text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white leading-snug mb-3">
+                  ${card.en}
+                </p>
+                <div class="text-xs font-en bg-white/90 dark:bg-slate-900/80 rounded-xl p-2.5 border border-indigo-100 dark:border-slate-700">
+                  ${formatRhythmHighlight(card.en)}
+                </div>
+              `}
+            </div>
+
+            <!-- 카드 하단 안내 -->
+            <div class="text-center text-[11px] font-bold text-slate-400">
+              👆 카드를 터치하면 ${state.flashFlipped ? '앞면(한국어)' : '뒷면(영어 + 자동발음)'}으로 전환됩니다
+            </div>
+          </div>
+
+          <!-- 빠른 재생 액션 바: 듣기(내 속도) · 느리게(0.8x) · 빠르게(1.2x) -->
+          <div class="grid grid-cols-3 gap-1.5">
+            <button onclick="playSingleTTS(${card.id})" aria-label="지금 듣기 속도로 재생"
+              class="py-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-extrabold text-slate-800 dark:text-slate-100 active:scale-95 transition">
+              🔊 듣기 ${formatSpeed()}
+            </button>
+            <button onclick="setSpeed(0.8, ${card.id})" aria-label="0.8배속 느리게 듣기" aria-pressed="${Math.abs(state.speed - 0.8) < 0.001}"
+              class="py-3 rounded-2xl border text-xs font-extrabold active:scale-95 transition ${
+                Math.abs(state.speed - 0.8) < 0.001
+                  ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
+                  : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100'
+              }">
+              🐢 느리게 0.8x
+            </button>
+            <button onclick="setSpeed(1.2, ${card.id})" aria-label="1.2배속 빠르게 듣기" aria-pressed="${Math.abs(state.speed - 1.2) < 0.001}"
+              class="py-3 rounded-2xl border text-xs font-extrabold active:scale-95 transition ${
+                Math.abs(state.speed - 1.2) < 0.001
+                  ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm'
+                  : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100'
+              }">
+              🐇 빠르게 1.2x
+            </button>
+          </div>
+
+          <!-- 듣기 속도 5단계 + 이 문장 4개국 억양 -->
+          <div class="space-y-1.5">
+            <div class="grid grid-cols-5 gap-1" role="group" aria-label="듣기 속도 5단계 (0.8x·0.9x·1.0x·1.1x·1.2x)">
+              ${renderSpeedMiniButtons(card.id)}
+            </div>
+            <div class="flex items-center gap-1" role="group" aria-label="이 문장 억양 선택 (미국·영국·호주·인도)">
+              ${renderAccentMiniButtons(card.id)}
+            </div>
+          </div>
+
+          <!-- 3회·5회·10회 반복 + 이 문장 연속재생(무한 반복) -->
+          <div class="grid grid-cols-3 gap-1.5">
+            ${REPEAT_CHOICES.map(times => {
+              const on = Boolean(repeatState.active && !repeatState.loop && repeatState.sentenceId === card.id && repeatState.times === times);
+              return `
+                <button onclick="startRepeatN(${card.id}, ${times})" aria-label="${on ? '이 문장 ' + times + '회 반복 멈춤' : '이 문장 ' + times + '회 반복'}" aria-pressed="${on}"
+                  class="py-3 rounded-2xl ${
+                    on ? 'bg-rose-600 text-white' : (times === 3 ? 'bg-indigo-500/90 text-white' : 'bg-indigo-600 text-white')
+                  } text-xs font-extrabold shadow-sm active:scale-95 transition whitespace-nowrap">
+                  ${on ? '⏹️ ' + times + '회 멈춤' : '🔁 ' + times + '회 반복'}
+                </button>
+              `;
+            }).join('')}
+          </div>
+          <button onclick="startSingleLoop(${card.id})" aria-label="${isLooping ? '이 문장 연속재생 멈춤' : '이 문장 연속재생 (멈출 때까지 무한 반복)'}" aria-pressed="${isLooping}"
+            class="w-full py-3 rounded-2xl ${
+              isLooping ? 'bg-rose-600 text-white' : 'bg-slate-900 dark:bg-slate-700 text-white'
+            } text-xs font-extrabold shadow-sm active:scale-95 transition">
+            ${isLooping ? '⏹️ 멈춤' : '🔁 연속재생'}
+          </button>
+
+          <!-- 별표 · Hard · 외웠어요 -->
+          <div class="grid grid-cols-3 gap-1.5">
+            <button onclick="toggleStarred(${card.id})" class="py-3 rounded-2xl border text-xs font-extrabold active:scale-95 transition ${
+              isStar
+                ? 'bg-amber-50 dark:bg-amber-950/60 border-amber-300 text-amber-500'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500'
+            }">
+              ${isStar ? '★ 별표됨' : '☆ 별표'}
+            </button>
+            <button onclick="toggleHard(${card.id})" aria-pressed="${isHard}" class="py-3 rounded-2xl border text-xs font-extrabold active:scale-95 transition ${
+              isHard
+                ? 'bg-rose-50 dark:bg-rose-950/60 border-rose-300 dark:border-rose-800 text-rose-600 dark:text-rose-300'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500'
+            }">
+              🔥 Hard
+            </button>
+            <button onclick="markFlashMemorized(${card.id})" class="py-3 rounded-2xl text-xs font-extrabold active:scale-95 transition ${
+              isMem
+                ? 'bg-emerald-500 text-white shadow-sm'
+                : 'bg-indigo-600 text-white shadow-sm'
+            }">
+              ${isMem ? '✓ 외웠어요' : '외웠어요 ✓'}
+            </button>
+          </div>
+
+          <!-- 이전 / 다음 큰 터치 네비게이션 -->
+          <div class="grid grid-cols-2 gap-2.5 pt-1">
+            <button onclick="moveFlashCard(-1)" class="py-3.5 rounded-2xl bg-slate-200/80 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm font-extrabold active:scale-95 transition">
+              ◀ 이전 카드
+            </button>
+            <button onclick="moveFlashCard(1)" class="py-3.5 rounded-2xl bg-slate-900 dark:bg-indigo-600 text-white text-sm font-extrabold active:scale-95 transition">
+              다음 카드 ▶
+            </button>
+          </div>
+        </div>
+      `;
+
+      attachFlashSwipeEvents();
+    }
+
+    function flipFlashCard() {
+      const deck = getFlashDeck();
+      if (!deck.length) return;
+      state.flashFlipped = !state.flashFlipped;
+      if (state.flashFlipped) state.flashHint = false;
+      renderFlashMode();
+      if (state.flashFlipped) {
+        const card = deck[state.flashIndex];
+        markStudied(card.id);
+        speakText(card.en, state.speed);
+      }
+    }
+
+    function moveFlashCard(delta) {
+      const deck = getFlashDeck();
+      if (!deck.length) return;
+      state.flashIndex = (state.flashIndex + delta + deck.length) % deck.length;
+      state.flashFlipped = false;
+      state.flashHint = false;
+      saveAppState();
+      renderFlashMode();
+    }
+
+    function markFlashMemorized(id) {
+      toggleMemorized(id);
+      // 외웠어요 체크 후 자동으로 다음 카드로 넘어가면 학습 흐름이 매우 쾌적함
+      if (state.memorized[id]) {
+        setTimeout(() => moveFlashCard(1), 250);
+      }
+    }
+
+    function shuffleFlashDeck() {
+      const filtered = getFilteredSentences();
+      const ids = filtered.map(s => s.id);
+      for (let i = ids.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [ids[i], ids[j]] = [ids[j], ids[i]];
+      }
+      state.flashDeckOrder = ids;
+      state.flashIndex = 0;
+      state.flashFlipped = false;
+      state.flashHint = false;
+      renderFlashMode();
+    }
+
+    function attachFlashSwipeEvents() {
+      const box = document.getElementById('flashCardBox');
+      if (!box) return;
+      let startX = 0;
+      box.addEventListener('touchstart', e => {
+        startX = e.changedTouches[0].clientX;
+      }, { passive: true });
+      box.addEventListener('touchend', e => {
+        const diffX = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diffX) > 55) {
+          e.stopPropagation();
+          moveFlashCard(diffX < 0 ? 1 : -1);
+        }
+      }, { passive: true });
+    }
+
+    // =========================================================================
+    // 10. [모드 3] 실전 스피킹 & 퀴즈 모드 (4지선다 + 어순 배열 블록 조립)
+    // =========================================================================
+    function initQuiz(customPool = null) {
+      const pool = customPool || getFilteredSentences();
+      if (pool.length === 0) {
+        document.getElementById('mainContent').innerHTML = renderEmptyState();
+        return;
+      }
+
+      // 최대 10문제 출제
+      const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, Math.min(10, pool.length));
+      quizState.questions = shuffled;
+      quizState.currentIdx = 0;
+      quizState.score = 0;
+      quizState.combo = 0;
+      quizState.wrongList = [];
+      quizState.finished = false;
+      prepareCurrentQuestion();
+      renderQuizMode();
+    }
+
+    function switchQuizType(type) {
+      quizState.type = type;
+      initQuiz();
+    }
+
+    // 보기 비교용 정규화: 대소문자·구두점·공백 차이로 같은 문장이 두 번 나오는 걸 막는다 (한글도 유지)
+    function normalizeChoiceText(text) {
+      return String(text || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+    }
+
+    // 오답 보기 추출: 정답과 영어 문장 또는 한국어 뜻이 겹치는 문장은 제외 (중복 보기 방지)
+    function pickDistractors(q, count = 3) {
+      const usedEn = new Set([normalizeChoiceText(q.en)]);
+      const usedKo = new Set([normalizeChoiceText(q.ko)]);
+      const picked = [];
+      const pools = [
+        getFilteredSentences().filter(s => s.id !== q.id), // 지금 고른 챕터 안에서 먼저
+        SENTENCES.filter(s => s.id !== q.id)               // 부족하면 전체 문장에서
+      ];
+
+      for (const pool of pools) {
+        const shuffled = [...pool].sort(() => Math.random() - 0.5);
+        for (const cand of shuffled) {
+          if (picked.length >= count) break;
+          const enKey = normalizeChoiceText(cand.en);
+          const koKey = normalizeChoiceText(cand.ko);
+          if (usedEn.has(enKey) || usedKo.has(koKey)) continue;
+          usedEn.add(enKey);
+          usedKo.add(koKey);
+          picked.push(cand);
+        }
+        if (picked.length >= count) break;
+      }
+      return picked;
+    }
+
+    function prepareCurrentQuestion() {
+      const q = quizState.questions[quizState.currentIdx];
+      quizState.answered = false;
+      quizState.selectedOption = null;
+
+      if (quizState.type === 'choice') {
+        // 오답 보기 3개 추출 (정답/이전 보기와 중복되는 문장은 제외)
+        const distractors = pickDistractors(q, 3);
+        quizState.options = [q, ...distractors].sort(() => Math.random() - 0.5);
+      } else {
+        // 어순 배열: 문장을 단어 단위로 분리 후 섞기
+        const words = q.en.split(' ');
+        quizState.orderedWords = [];
+        quizState.availableWords = words
+          .map((w, idx) => ({ id: idx, word: w }))
+          .sort(() => Math.random() - 0.5);
+      }
+    }
+
+    function renderQuizMode() {
+      const main = document.getElementById('mainContent');
+      if (!quizState.questions.length) {
+        main.innerHTML = renderEmptyState();
+        return;
+      }
+
+      // 결과 화면
+      if (quizState.finished) {
+        const total = quizState.questions.length;
+        const pct = Math.round((quizState.score / total) * 100);
+        main.innerHTML = `
+          <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 text-center shadow-sm space-y-4">
+            <div class="text-4xl">${pct >= 80 ? '🏆' : '💪'}</div>
+            <div>
+              <h2 class="text-lg font-extrabold text-slate-900 dark:text-white">실전 테스트 완료!</h2>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">총 ${total}문제 중 <strong class="text-indigo-600 dark:text-indigo-400">${quizState.score}문제</strong> 정답 (${pct}점)</p>
+            </div>
+
+            ${quizState.wrongList.length > 0 ? `
+              <div class="text-left bg-rose-50/70 dark:bg-rose-950/30 rounded-2xl p-3.5 border border-rose-200/80 dark:border-rose-900 space-y-2.5">
+                <p class="text-xs font-extrabold text-rose-700 dark:text-rose-300">📌 오답 즉시 복습 (${quizState.wrongList.length}문장)</p>
+                ${quizState.wrongList.map(w => `
+                  <div class="bg-white dark:bg-slate-800 rounded-xl p-2.5 border border-rose-100 dark:border-slate-700">
+                    <p class="text-xs font-bold text-slate-700 dark:text-slate-200">${w.ko}</p>
+                    <p class="font-en text-xs font-extrabold text-indigo-600 dark:text-indigo-400 mt-0.5">${w.en}</p>
+                    <button onclick="playSingleTTS(${w.id})" class="mt-1.5 text-[11px] font-bold text-slate-500 hover:text-indigo-600">🔊 발음 듣기</button>
+                  </div>
+                `).join('')}
+              </div>
+              <button onclick="retryWrongQuestions()" class="w-full py-3 rounded-2xl bg-rose-600 text-white text-xs font-extrabold shadow-sm active:scale-95 transition">
+                틀린 문제만 다시 풀기 (${quizState.wrongList.length}문제)
+              </button>
+            ` : `
+              <div class="bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-bold p-3 rounded-2xl">
+                완벽합니다! 모든 문장을 정확히 맞히셨어요 🎉
+              </div>
+            `}
+
+            <button onclick="initQuiz()" class="w-full py-3.5 rounded-2xl bg-indigo-600 text-white text-xs font-extrabold shadow-sm active:scale-95 transition">
+              새 문제 세트 시작하기 ↻
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      const q = quizState.questions[quizState.currentIdx];
+      const total = quizState.questions.length;
+
+      main.innerHTML = `
+        <div class="space-y-3">
+          <!-- 퀴즈 유형 선택기 -->
+          <div class="grid grid-cols-2 gap-1.5 bg-slate-200/70 dark:bg-slate-800 p-1 rounded-xl">
+            <button onclick="switchQuizType('choice')" class="py-1.5 rounded-lg text-xs font-extrabold transition ${
+              quizState.type === 'choice'
+                ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-300 shadow-sm'
+                : 'text-slate-600 dark:text-slate-400'
+            }">
+              4지선다 영작 퀴즈
+            </button>
+            <button onclick="switchQuizType('order')" class="py-1.5 rounded-lg text-xs font-extrabold transition ${
+              quizState.type === 'order'
+                ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-300 shadow-sm'
+                : 'text-slate-600 dark:text-slate-400'
+            }">
+              단어 블록 어순배열
+            </button>
+          </div>
+
+          <!-- 문제 카드 -->
+          <div class="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-400 mb-3">
+              <span>문제 ${quizState.currentIdx + 1} / ${total}</span>
+              <span class="flex items-center gap-1.5">
+                ${(quizState.combo || 0) >= 2 ? `<span class="combo-pop px-1.5 py-0.5 rounded-md bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 text-[10px] font-extrabold">🔥 ${quizState.combo}연속</span>` : ''}
+                <span class="text-indigo-600 dark:text-indigo-400">점수: ${quizState.score}</span>
+              </span>
+            </div>
+
+            <span class="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-extrabold bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 mb-2">
+              ${q.tag}
+            </span>
+            <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white leading-snug mb-4">
+              "${q.ko}"
+            </h3>
+
+            ${quizState.type === 'choice' ? renderChoiceQuizBody(q) : renderOrderQuizBody(q)}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderChoiceQuizBody(q) {
+      return `
+        <div class="space-y-2">
+          ${quizState.options.map(opt => {
+            let btnClass = 'bg-slate-50 dark:bg-slate-900/70 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100';
+            if (quizState.answered) {
+              if (opt.id === q.id) {
+                btnClass = 'bg-emerald-50 dark:bg-emerald-950/70 border-emerald-500 text-emerald-800 dark:text-emerald-200 font-extrabold';
+              } else if (opt.id === quizState.selectedOption) {
+                btnClass = 'bg-rose-50 dark:bg-rose-950/70 border-rose-500 text-rose-800 dark:text-rose-200';
+              }
+            }
+            return `
+              <button onclick="selectChoiceOption(${opt.id})" ${quizState.answered ? 'disabled' : ''}
+                class="w-full text-left p-3.5 rounded-2xl border text-xs sm:text-sm font-en font-bold transition active:scale-95 ${btnClass}">
+                ${opt.en}
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        ${quizState.answered ? `
+          <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between gap-2">
+            <button onclick="playSingleTTS(${q.id})" class="px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-extrabold">
+              🔊 정답 발음 듣기
+            </button>
+            <button onclick="nextQuizQuestion()" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-xs font-extrabold shadow-sm">
+              다음 문제 ▶
+            </button>
+          </div>
+        ` : ''}
+      `;
+    }
+
+    function selectChoiceOption(optId) {
+      if (quizState.answered) return;
+      const q = quizState.questions[quizState.currentIdx];
+      quizState.answered = true;
+      quizState.selectedOption = optId;
+
+      if (optId === q.id) {
+        quizState.score++;
+        quizState.combo = (quizState.combo || 0) + 1;
+        celebrateCorrect();
+      } else {
+        quizState.combo = 0;
+        quizState.wrongList.push(q);
+      }
+      markStudied(q.id);
+      speakText(q.en, 0.95);
+      renderQuizMode();
+    }
+
+    // 정답 축하: 기본은 토스트, 3연속 이상은 색종이까지
+    function celebrateCorrect() {
+      const combo = quizState.combo || 0;
+      if (combo >= 3) {
+        showCelebrate(`${combo}연속 정답! 🔥`, '🎉');
+        burstConfetti(14);
+      } else {
+        showCelebrate(combo >= 2 ? `${combo}연속 정답!` : '정답!', '✅');
+      }
+    }
+
+    function renderOrderQuizBody(q) {
+      const isCorrect = quizState.answered && quizState.orderedWords.map(w => w.word).join(' ') === q.en;
+
+      return `
+        <!-- 조립 영역 -->
+        <div class="min-h-[68px] p-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border-2 border-dashed ${
+          quizState.answered
+            ? isCorrect ? 'border-emerald-500 bg-emerald-50/40' : 'border-rose-500 bg-rose-50/40'
+            : 'border-indigo-300 dark:border-slate-600'
+        } flex flex-wrap gap-1.5 items-center mb-3">
+          ${quizState.orderedWords.length === 0
+            ? `<span class="text-xs text-slate-400">아래 단어 블록을 순서대로 터치해 문장을 완성하세요</span>`
+            : quizState.orderedWords.map((w, idx) => `
+                <button onclick="removeOrderedWord(${idx})" ${quizState.answered ? 'disabled' : ''}
+                  class="px-2.5 py-1.5 rounded-xl bg-indigo-600 text-white font-en text-xs font-extrabold shadow-sm active:scale-90">
+                  ${w.word}
+                </button>
+              `).join('')
+          }
+        </div>
+
+        <!-- 선택 가능한 단어 풀 -->
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          ${quizState.availableWords.map((w, idx) => `
+            <button onclick="pickAvailableWord(${idx})" ${quizState.answered ? 'disabled' : ''}
+              class="px-3 py-2 rounded-xl bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-slate-100 font-en text-xs font-bold shadow-sm active:scale-90">
+              ${w.word}
+            </button>
+          `).join('')}
+        </div>
+
+        ${!quizState.answered ? `
+          <button onclick="checkOrderAnswer()" ${quizState.orderedWords.length === 0 ? 'disabled' : ''}
+            class="w-full py-3 rounded-2xl bg-indigo-600 disabled:opacity-40 text-white text-xs font-extrabold shadow-sm active:scale-95 transition">
+            정답 확인하기
+          </button>
+        ` : `
+          <div class="space-y-2.5">
+            <div class="p-3 rounded-xl text-xs font-bold ${
+              isCorrect
+                ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300'
+                : 'bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300'
+            }">
+              ${isCorrect ? '🎉 정답입니다!' : `❌ 정답: <span class="font-en font-extrabold">${q.en}</span>`}
+            </div>
+            <div class="flex justify-between gap-2">
+              <button onclick="playSingleTTS(${q.id})" class="px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-extrabold">
+                🔊 발음 듣기
+              </button>
+              <button onclick="nextQuizQuestion()" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-xs font-extrabold">
+                다음 문제 ▶
+              </button>
+            </div>
+          </div>
+        `}
+      `;
+    }
+
+    function pickAvailableWord(idx) {
+      const item = quizState.availableWords.splice(idx, 1)[0];
+      quizState.orderedWords.push(item);
+      renderQuizMode();
+    }
+
+    function removeOrderedWord(idx) {
+      const item = quizState.orderedWords.splice(idx, 1)[0];
+      quizState.availableWords.push(item);
+      renderQuizMode();
+    }
+
+    function checkOrderAnswer() {
+      const q = quizState.questions[quizState.currentIdx];
+      const userSentence = quizState.orderedWords.map(w => w.word).join(' ');
+      quizState.answered = true;
+      if (userSentence === q.en) {
+        quizState.score++;
+        quizState.combo = (quizState.combo || 0) + 1;
+        celebrateCorrect();
+      } else {
+        quizState.combo = 0;
+        quizState.wrongList.push(q);
+      }
+      markStudied(q.id);
+      speakText(q.en, 0.95);
+      renderQuizMode();
+    }
+
+    function nextQuizQuestion() {
+      if (quizState.currentIdx + 1 >= quizState.questions.length) {
+        quizState.finished = true;
+        const total = quizState.questions.length;
+        const perfect = quizState.score === total;
+        burstConfetti(perfect ? 40 : 24);
+        showCelebrate(perfect ? `만점! ${total}문제 완벽해요` : `${total}문제 완료! ${quizState.score}문제 정답`, perfect ? '🏆' : '🏁');
+      } else {
+        quizState.currentIdx++;
+        prepareCurrentQuestion();
+      }
+      renderQuizMode();
+    }
+
+    function retryWrongQuestions() {
+      const wrongCopy = [...quizState.wrongList];
+      initQuiz(wrongCopy);
+    }
+
+    // =========================================================================
+    // 11. 빈 상태 UI 및 커스텀 모달
+    // =========================================================================
+    function renderEmptyState() {
+      const hardEmpty = state.statusFilter === 'hard';
+      return `
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 text-center border border-slate-200 dark:border-slate-700 my-4">
+          <div class="text-3xl mb-2">🔍</div>
+          <h3 class="text-sm font-extrabold text-slate-800 dark:text-white mb-1">조건에 맞는 문장이 없습니다</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">${hardEmpty
+            ? '아직 Hard로 표시한 문장이 없어요. 카드의 🔥 Hard 버튼으로 어려운 문장을 모아 두면 여기서 바로 반복·퀴즈할 수 있어요.'
+            : '검색어를 지우거나 필터를 [전체]로 변경해 보세요.'}</p>
+          <button onclick="resetFilters()" class="px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-extrabold">
+            필터 초기화
+          </button>
+        </div>
+      `;
+    }
+
+    function resetFilters() {
+      state.category = 'all';
+      state.statusFilter = 'all';
+      state.searchQuery = '';
+      state.currentPage = 1;
+      document.getElementById('categorySelect').value = 'all';
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      renderChapterPills();
+      renderStatusFilterButtons();
+      renderActiveMode();
+    }
+
+    function showModal(title, message, actionsHtml = null) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalMessage').textContent = message;
+      document.getElementById('modalActions').innerHTML = actionsHtml || `
+        <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-indigo-600 text-white text-xs font-extrabold">확인</button>
+      `;
+      document.getElementById('customModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('customModal').classList.add('hidden');
+    }
+
+    function openResetModal() {
+      showModal(
+        '학습 기록 초기화',
+        `${TOTAL_SENTENCES}문장의 암기 완료 · 즐겨찾기 · Hard 표시 기록을 모두 초기화하시겠습니까?`,
+        `
+          <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-extrabold">취소</button>
+          <button onclick="confirmFullReset()" class="px-4 py-2 rounded-xl bg-rose-600 text-white text-xs font-extrabold">초기화</button>
+        `
+      );
+    }
+
+    function confirmFullReset() {
+      stopRepeatPlayback();
+      state.memorized = {};
+      state.starred = {};
+      state.difficult = {};
+      state.currentPage = 1;
+      state.flashIndex = 0;
+      saveAppState();
+      updateDashboardStats();
+      renderActiveMode();
+      closeModal();
+    }
+
+    // =========================================================================
+    // 12. 앱 초기화 실행
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      loadAppState();
+      renderCategoryOptions();
+      document.getElementById('categorySelect').value = state.category;
+      updateDashboardStats();
+      renderModeTabs();
+      renderChapterPills();
+      renderStatusFilterButtons();
+      renderAccentPills();
+      renderSpeedPills();
+      renderVoiceOptions();
+      updateMissionUI();
+
+      if (state.mode === 'quiz') initQuiz();
+      else renderActiveMode();
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.getVoices();
+        window.speechSynthesis.onvoiceschanged = () => renderVoiceOptions();
+        // 일부 기기는 음성 목록을 늦게 채우기 때문에 한 번 더 확인
+        setTimeout(renderVoiceOptions, 500);
+        setTimeout(renderVoiceOptions, 1500);
+      }
+    });
+  </script>
+</body>
+</html>
