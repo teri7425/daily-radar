@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="아메리 5회" />
+<meta name="theme-color" content="#0f172a" />
+<link rel="manifest" href="./manifest.json" />
+<link rel="apple-touch-icon" href="./icon-180.png" />
+<link rel="icon" href="./icon-180.png" />
+<title>아메리코리아노 5회 반복 트레이너</title>
+<style>
+  /* 라틴 문자 전용 임베드 폰트 (기기별 폰트 차이 제거) */
+  @font-face{font-family:'AppSans';src:url(data:font/woff;base64,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) format('woff');font-weight:400 600;font-style:normal;font-display:swap}
+  @font-face{font-family:'AppSans';src:url(data:font/woff;base64,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) format('woff');font-weight:700 900;font-style:normal;font-display:swap}
+  :root{
+    --bg:#0b1220; --bg2:#0f172a; --card:#1b2436; --card2:#141d2e;
+    --line:#2b3a52; --primary:#3b82f6; --primary-d:#1d4ed8;
+    --accent:#f59e0b; --success:#10b981; --danger:#ef4444;
+    --text:#f1f5f9; --muted:#93a3ba; --muted2:#64748b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"AppSans",-apple-system,BlinkMacSystemFont,"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic","Noto Sans CJK KR",Roboto,"Segoe UI",sans-serif;
+    background:var(--bg); color:var(--text); padding-bottom:96px;
+    overscroll-behavior-y:contain;
+  }
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,textarea,select{font-family:inherit;font-size:15px}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(11,18,32,.96);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .top-bar{padding:13px 14px 6px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .brand{display:flex;align-items:center;gap:7px;min-width:0}
+  .top-bar h1{font-size:15.5px;font-weight:800;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .badge{background:var(--primary-d);font-size:11px;padding:4px 9px;border-radius:99px;font-weight:700;white-space:nowrap}
+  .badge.warm{background:#7c2d12;color:#fdba74}
+
+  .tabs{display:flex;overflow-x:auto;gap:6px;padding:6px 12px 11px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab-btn{
+    flex:0 0 auto;padding:7px 12px;border-radius:99px;border:1px solid var(--line);
+    background:var(--card2);color:var(--muted);font-size:12.5px;font-weight:700;transition:.15s;
+  }
+  .tab-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .tab-btn.hard.active{background:var(--accent);color:#111;border-color:var(--accent)}
+  .tab-btn.cat-tab.active{background:#1e3a8a;border-color:#3b82f6;color:#dbeafe}
+  .tab-btn .cnt{font-size:11px;opacity:.75;margin-left:3px;font-weight:600}
+
+  /* ---------- player ---------- */
+  .player-wrap{
+    position:relative;z-index:45;background:#000;width:100%;
+    aspect-ratio:16/9;max-height:186px;border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  body.looping .player-wrap{position:sticky;top:92px;z-index:50}
+  #yt-player{width:100%;height:100%;display:block}
+  .player-cover{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:7px;color:#94a3b8;font-size:12px;
+    background:radial-gradient(120% 130% at 50% 0%,#1c2b46 0%,#0c1524 60%,#070d16 100%);
+    text-align:center;padding:14px;
+  }
+  .player-cover .big-play{
+    width:52px;height:52px;border-radius:50%;background:#1e293b;border:1px solid #334155;
+    display:flex;align-items:center;justify-content:center;font-size:19px;color:#e2e8f0;
+  }
+  .player-cover .cap{font-size:11px;color:#64748b}
+  .player-cover.hidden{display:none}
+
+  /* ---------- trainer ---------- */
+  main{max-width:560px;margin:0 auto}
+  .panel{margin:10px 12px;padding:14px 14px 12px;background:var(--card);border-radius:18px;border:1px solid var(--line)}
+  .video-title{font-size:11.5px;color:var(--muted);margin-bottom:9px;line-height:1.45;display:flex;gap:5px;align-items:flex-start}
+  .video-title span{flex:1}
+  .video-title a{color:#7dd3fc;text-decoration:none;font-weight:700;white-space:nowrap;font-size:11px}
+  .sentence-en{font-family:"AppSans",-apple-system,"Noto Sans KR","Apple SD Gothic Neo",Roboto,"Noto Sans CJK KR",sans-serif;font-size:19px;font-weight:800;line-height:1.42;margin-bottom:7px;color:#fff;letter-spacing:-.2px;word-break:keep-all}
+  .sentence-ko{font-size:13.5px;color:#cbd5e1;margin-bottom:13px;line-height:1.5;word-break:keep-all}
+
+  .repeat-tracker{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--bg2);padding:8px 11px;border-radius:13px;margin-bottom:10px}
+  .dots{display:flex;gap:5px}
+  .dot{width:23px;height:23px;border-radius:50%;background:#334155;color:#94a3b8;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;transition:.18s}
+  .dot.done{background:var(--success);color:#fff}
+  .dot.current{background:var(--primary);color:#fff;transform:scale(1.14);box-shadow:0 0 0 3px #3b82f640}
+  .status-text{font-size:11.5px;color:var(--accent);font-weight:700;text-align:right;flex:1;line-height:1.3}
+
+  .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+  .btn{padding:12px 8px;border-radius:12px;font-size:13.5px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:5px;transition:.15s;border:1px solid transparent}
+  .btn:active{transform:scale(.975)}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-tts{background:#334155;color:#fff}
+  .btn-stop{background:#3f1d1d;color:#fca5a5;border-color:#7f1d1d}
+  .btn-hard{background:var(--card2);border:1px solid var(--accent);color:var(--accent)}
+  .btn-hard.saved{background:var(--accent);color:#111}
+  .btn-nav{background:var(--bg2);border:1px solid var(--line);color:#e2e8f0}
+  .btn.playing{box-shadow:0 0 0 2px #fff3 inset}
+  .btn[disabled]{opacity:.45}
+
+  .opt-block{margin-top:9px;padding-top:9px;border-top:1px dashed #2b3a52}
+  .opt-label{font-size:10.5px;font-weight:800;color:var(--muted2);letter-spacing:.4px;margin-bottom:6px;text-transform:uppercase}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{padding:6px 11px;border-radius:9px;background:var(--card2);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--muted)}
+  .chip.active{background:#1e3a8a;border-color:#60a5fa;color:#dbeafe}
+  .chip.acc.active{background:#312e81;border-color:#818cf8;color:#e0e7ff}
+
+  /* ---------- list ---------- */
+  .list-section{padding:0 12px}
+  .list-header{display:flex;align-items:center;justify-content:space-between;margin:14px 4px 8px;scroll-margin-top:150px}
+  .list-header .lt{font-size:12.5px;color:var(--muted);font-weight:700}
+  .list-header .lsub{font-size:11px;color:var(--muted2)}
+  .sentence-item{background:var(--card);padding:11px 13px;border-radius:13px;margin-bottom:7px;border:1px solid transparent;display:flex;justify-content:space-between;align-items:center;gap:9px;transition:.15s}
+  .sentence-item.active{border-color:var(--primary);background:#132444}
+  .item-text{flex:1;min-width:0}
+  .item-en{font-family:"AppSans",-apple-system,"Noto Sans KR","Apple SD Gothic Neo",Roboto,"Noto Sans CJK KR",sans-serif;font-size:13.5px;font-weight:700;margin-bottom:2px;line-height:1.4;word-break:keep-all}
+  .item-sub{font-size:10.5px;color:var(--muted2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .star-btn{font-size:19px;color:#475569;padding:3px 2px;line-height:1}
+  .star-btn.saved{color:var(--accent)}
+  .empty{padding:28px 16px;text-align:center;color:var(--muted);font-size:13px;line-height:1.6}
+  .empty b{color:#cbd5e1}
+
+  /* ---------- catalog ---------- */
+  #catalog-view{display:none;padding:12px}
+  #catalog-view.show{display:block}
+  #learn-view{display:block}
+  #learn-view.hide{display:none}
+  .search-box{display:flex;gap:7px;margin-bottom:10px}
+  .search-box input{flex:1;padding:11px 13px;border-radius:11px;border:1px solid var(--line);background:var(--card2);color:var(--text);outline:none}
+  .search-box input:focus{border-color:var(--primary)}
+  .filters{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .vid-row{background:var(--card);border-radius:12px;padding:11px 12px;margin-bottom:7px;display:flex;gap:10px;align-items:flex-start;border:1px solid transparent}
+  .vid-row.done{border-color:#1e3a8a66;background:#132444}
+  .vid-row .num{font-size:10.5px;color:var(--muted2);font-weight:800;min-width:22px;padding-top:2px}
+  .vid-row .body{flex:1;min-width:0}
+  .vid-row .t{font-size:13px;font-weight:700;line-height:1.42;margin-bottom:4px;word-break:keep-all}
+  .vid-row .meta{font-size:10.5px;color:var(--muted2);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .pill{font-size:10px;font-weight:800;padding:2px 7px;border-radius:99px;background:#1e293b;color:#94a3b8}
+  .pill.ok{background:#064e3b;color:#6ee7b7}
+  .pill.wait{background:#3f2d0d;color:#fcd34d}
+  .pill.vlog{background:#1f2937;color:#9ca3af}
+  .catalog-note{margin:4px 4px 12px;padding:11px 12px;border-radius:12px;background:#111c2e;border:1px dashed #2b3a52;font-size:11.5px;color:var(--muted);line-height:1.6}
+
+  /* ---------- modal ---------- */
+  .modal{position:fixed;inset:0;z-index:120;display:none;align-items:flex-end;justify-content:center;background:#000a}
+  .modal.show{display:flex}
+  .modal-card{width:100%;max-width:560px;max-height:86vh;overflow:auto;background:var(--bg2);border-radius:20px 20px 0 0;padding:18px 16px 22px;border-top:1px solid var(--line)}
+  .modal-card h3{font-size:15px;margin-bottom:4px}
+  .modal-card .hint{font-size:11.5px;color:var(--muted);margin-bottom:12px;line-height:1.55}
+  .field{margin-bottom:9px}
+  .field label{display:block;font-size:11px;font-weight:800;color:var(--muted2);margin-bottom:4px}
+  .field input,.field textarea,.field select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card2);color:var(--text);outline:none}
+  .field textarea{min-height:110px;resize:vertical;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5}
+  .modal-actions{display:flex;gap:8px;margin-top:12px}
+  .modal-actions .btn{flex:1}
+  .toast{position:fixed;left:50%;bottom:104px;transform:translateX(-50%) translateY(14px);background:#1e293b;color:#e2e8f0;padding:10px 16px;border-radius:99px;font-size:12.5px;font-weight:700;opacity:0;pointer-events:none;transition:.22s;z-index:200;border:1px solid var(--line);max-width:90vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* bottom bar */
+  .bottombar{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(11,18,32,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;gap:8px;padding:9px 12px calc(9px + env(safe-area-inset-bottom))}
+  .bottombar .btn{flex:1;padding:11px 6px;font-size:12.5px}
+  .bottombar .btn.ghost{background:var(--card2);border:1px solid var(--line);color:#cbd5e1}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top-bar">
+    <div class="brand">
+      <h1>🇺🇸 아메리코리아노 5회 반복</h1>
+    </div>
+    <span class="badge" id="progress-badge">불러오는 중…</span>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</header>
+
+<div id="learn-view">
+  <div class="player-wrap">
+    <div id="yt-player"></div>
+    <div class="player-cover" id="player-cover">
+      <div class="big-play">▶︎</div>
+      <div><b style="color:#e2e8f0">영상 구간 5회 반복</b>으로 듣고 따라 말하세요</div>
+      <div class="cap">유튜브 플레이어는 처음 재생할 때 연결됩니다</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="video-title">
+      <span id="current-video-title">영상을 불러오는 중…</span>
+      <a id="current-video-link" href="#" target="_blank" rel="noopener">원본 ↗</a>
+    </div>
+    <div class="sentence-en" id="current-en">문장을 선택해 주세요</div>
+    <div class="sentence-ko" id="current-ko"></div>
+
+    <div class="repeat-tracker">
+      <div class="dots" id="repeat-dots">
+        <div class="dot">1</div><div class="dot">2</div><div class="dot">3</div><div class="dot">4</div><div class="dot">5</div>
+      </div>
+      <div class="status-text" id="repeat-status">대기 중</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" id="btn-video5x" onclick="startVideo5x()">▶ 영상 구간 5회</button>
+      <button class="btn btn-tts" id="btn-tts" onclick="startTTS()"><span>🔊 음성만 <b id="tts-count-label" style="font-weight:800">5</b>회</span></button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-hard" id="toggle-hard-btn" onclick="toggleCurrentHard()">☆ 어려움 체크</button>
+      <button class="btn btn-nav" onclick="nextSentence()">다음 문장 ⏭</button>
+    </div>
+    <div class="btn-row" style="grid-template-columns:1fr">
+      <button class="btn btn-stop" onclick="stopAll(true)">⏹️ 멈춤</button>
+    </div>
+
+    <div class="opt-block">
+      <div class="opt-label">음성 반복 횟수</div>
+      <div class="chips" id="tts-count-chips">
+        <button class="chip" data-n="3">3회</button>
+        <button class="chip active" data-n="5">5회</button>
+        <button class="chip" data-n="10">10회</button>
+        <button class="chip" data-n="0">∞ 무한</button>
+      </div>
+    </div>
+    <div class="opt-block">
+      <div class="opt-label">속도 (영상 · 음성 공통)</div>
+      <div class="chips" id="speed-chips">
+        <button class="chip" data-s="0.8">0.8x</button>
+        <button class="chip" data-s="0.9">0.9x</button>
+        <button class="chip active" data-s="1.0">1.0x</button>
+        <button class="chip" data-s="1.1">1.1x</button>
+        <button class="chip" data-s="1.2">1.2x</button>
+      </div>
+    </div>
+    <div class="opt-block">
+      <div class="opt-label">TTS 억양 (음성 전용)</div>
+      <div class="chips" id="accent-chips">
+        <button class="chip acc active" data-a="en-US">🇺🇸 미국</button>
+        <button class="chip acc" data-a="en-GB">🇬🇧 영국</button>
+        <button class="chip acc" data-a="en-AU">🇦🇺 호주</button>
+        <button class="chip acc" data-a="en-IN">🇮🇳 인도</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="list-section">
+    <div class="list-header">
+      <div class="lt" id="list-header">문장 목록</div>
+      <div class="lsub" id="list-sub"></div>
+    </div>
+    <div id="sentence-list"></div>
+  </div>
+</div>
+
+<div id="catalog-view">
+  <div class="catalog-note">
+    <b style="color:#e2e8f0">@amekorean 147개 영상 전체 목록</b><br />
+    ✅ 표시된 영상은 문장이 이미 추출되어 바로 학습할 수 있어요. 나머지는 목록에서 원본을 열어 보거나, <b style="color:#e2e8f0">Jian에게 “다음 영상 자막 추출해줘”</b>라고 하면 이어서 채워집니다.
+  </div>
+  <div class="search-box">
+    <input id="cat-search" type="search" placeholder="제목 검색 (예: 전치사, 구동사, would)" oninput="renderCatalog()" />
+  </div>
+  <div class="filters" id="cat-filters"></div>
+  <div id="catalog-list"></div>
+</div>
+
+<div class="bottombar">
+  <button class="btn ghost" onclick="openModal('add')">＋ 내 문장</button>
+  <button class="btn ghost" onclick="openModal('json')">JSON 불러오기</button>
+  <button class="btn ghost" onclick="openModal('data')">내보내기</button>
+</div>
+
+<!-- 내 문장 추가 -->
+<div class="modal" id="modal-add">
+  <div class="modal-card">
+    <h3>＋ 내 문장 추가</h3>
+    <div class="hint">유튜브에서 직접 찾은 문장이나 강의 자료의 문장을 넣을 수 있어요. 영상 ID와 시작 초를 넣으면 ‘영상 구간 5회’도 그대로 동작합니다.</div>
+    <div class="field"><label>영어 문장</label><input id="add-en" placeholder="I'm running late." /></div>
+    <div class="field"><label>한국어 뜻</label><input id="add-ko" placeholder="나 늦었어." /></div>
+    <div class="field"><label>카테고리</label>
+      <select id="add-cat">
+        <option>회화</option><option>패턴</option><option>문법</option><option>전치사</option><option>동사</option>
+      </select>
+    </div>
+    <div class="field"><label>유튜브 영상 ID (선택)</label><input id="add-vid" placeholder="aIF0l4RD6F8" /></div>
+    <div class="field"><label>시작 초 / 끝 초 (선택)</label>
+      <div style="display:flex;gap:8px">
+        <input id="add-start" type="number" placeholder="75" />
+        <input id="add-end" type="number" placeholder="82" />
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-nav" onclick="closeModal('add')">취소</button>
+      <button class="btn btn-primary" onclick="saveCustomSentence()">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- JSON 불러오기 -->
+<div class="modal" id="modal-json">
+  <div class="modal-card">
+    <h3>JSON 불러오기</h3>
+    <div class="hint">추출한 문장 데이터를 붙여넣거나 파일을 선택하세요. 형식: <code>{"videos":{"영상ID":{"title":"…","category":"회화","sentences":[{"en":"…","ko":"…","start":1,"end":4}]}}}</code></div>
+    <div class="field"><label>파일 선택</label><input type="file" accept=".json,application/json" onchange="loadJsonFile(this)" /></div>
+    <div class="field"><label>또는 JSON 붙여넣기</label><textarea id="json-text" placeholder='{"videos": { … }}'></textarea></div>
+    <div class="modal-actions">
+      <button class="btn btn-nav" onclick="closeModal('json')">닫기</button>
+      <button class="btn btn-primary" onclick="importJsonText()">불러오기</button>
+    </div>
+  </div>
+</div>
+
+<!-- 내보내기 -->
+<div class="modal" id="modal-data">
+  <div class="modal-card">
+    <h3>내 학습 데이터</h3>
+    <div class="hint">어려움 체크와 내가 추가한 문장은 이 기기 브라우저에 저장됩니다. 아래에서 백업하거나 옮길 수 있어요.</div>
+    <div class="field"><label>현재 상태</label><div id="data-summary" style="font-size:12.5px;color:#cbd5e1;line-height:1.7"></div></div>
+    <div class="modal-actions">
+      <button class="btn btn-nav" onclick="closeModal('data')">닫기</button>
+      <button class="btn btn-primary" onclick="exportData()">JSON 내려받기</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-stop" onclick="resetProgress()">어려움 체크 초기화</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- 부트스트랩 데이터 (file:// 에서도 바로 동작) -->
+<script id="bootstrap-data" type="application/json">{"channel":{"name":"아메리코리아노","handle":"@amekorean","url":"https://www.youtube.com/@amekorean/videos","videoCount":147},"builtAt":"2026-11-24","categories":["회화","패턴","문법","전치사","동사"],"videos":{"aIF0l4RD6F8":{"id":"aIF0l4RD6F8","title":"(그냥 틀어두세요) 이 100문장만 무조건 외워보세요! 하루종일 영어가 가능해집니다","category":"회화","kind":"lesson","duration":1157,"sentences":[{"id":"aIF0l4RD6F8_1","en":"Time to get up.","ko":"일어날 시간이야.","start":75,"end":82},{"id":"aIF0l4RD6F8_2","en":"My alarm didn't go off.","ko":"알람이 안 울렸어.","start":82,"end":91},{"id":"aIF0l4RD6F8_3","en":"I need a few more minutes.","ko":"5분만 더 잘래.","start":91,"end":98},{"id":"aIF0l4RD6F8_4","en":"I slept terribly last night.","ko":"어젯밤에 잠을 완전 설쳤어.","start":108,"end":112},{"id":"aIF0l4RD6F8_5","en":"Did you sleep well?","ko":"잘 잤어?","start":112,"end":121},{"id":"aIF0l4RD6F8_6","en":"Make your bed.","ko":"이불 정리해라.","start":138,"end":145},{"id":"aIF0l4RD6F8_7","en":"I'm gonna use the bathroom.","ko":"화장실 좀 갈게.","start":145,"end":153},{"id":"aIF0l4RD6F8_8","en":"I'm gonna jump in the shower.","ko":"나 후딱 샤워하고 올게.","start":157,"end":165},{"id":"aIF0l4RD6F8_9","en":"Can you hand me a towel?","ko":"수건 좀 건네줄래?","start":173,"end":176},{"id":"aIF0l4RD6F8_10","en":"I'm drying my hair.","ko":"머리 말리는 중이야.","start":176,"end":185},{"id":"aIF0l4RD6F8_11","en":"I have nothing to wear.","ko":"입을 옷이 하나도 없네.","start":190,"end":196},{"id":"aIF0l4RD6F8_12","en":"I'm running late.","ko":"나 늦었어.","start":210,"end":218},{"id":"aIF0l4RD6F8_13","en":"Hurry up, we gotta go.","ko":"빨리 가야 돼.","start":218,"end":226},{"id":"aIF0l4RD6F8_14","en":"Did you make coffee?","ko":"커피 내렸어?","start":226,"end":235},{"id":"aIF0l4RD6F8_15","en":"I desperately need coffee.","ko":"커피가 완전 간절해.","start":243,"end":250},{"id":"aIF0l4RD6F8_16","en":"I'm just gonna grab a protein bar.","ko":"난 그냥 프로틴바 하나 챙겨갈게.","start":277,"end":281},{"id":"aIF0l4RD6F8_17","en":"Have you seen my keys?","ko":"내 열쇠 봤어?","start":288,"end":294},{"id":"aIF0l4RD6F8_18","en":"I can't find my phone.","ko":"핸드폰을 못 찾겠어.","start":303,"end":309},{"id":"aIF0l4RD6F8_19","en":"Do you have my charger?","ko":"내 충전기 가지고 있어?","start":313,"end":319},{"id":"aIF0l4RD6F8_20","en":"Grab a jacket, it's freezing out.","ko":"겉옷 챙겨, 밖에 엄청 추워.","start":325,"end":329},{"id":"aIF0l4RD6F8_21","en":"Are you ready to go?","ko":"갈 준비 다 됐어?","start":338,"end":345},{"id":"aIF0l4RD6F8_22","en":"Let's head out.","ko":"나가자.","start":345,"end":352},{"id":"aIF0l4RD6F8_23","en":"Text me when you get there.","ko":"도착하면 문자해.","start":357,"end":360}]},"AlHt38GUcXE":{"id":"AlHt38GUcXE","title":"원어민 일상회화의 핵심! 영어 왕초보가 가장 먼저 외워야 할 필수 패턴 30개","category":"패턴","kind":"lesson","duration":754,"sentences":[{"id":"AlHt38GUcXE_1","en":"I'm busy with a project at work.","ko":"뭐 하느라 바빠 — 일 때문에 프로젝트하느라 바빠.","start":115,"end":124},{"id":"AlHt38GUcXE_2","en":"I'm okay with anything.","ko":"난 뭐든 괜찮아, 상관 없어.","start":124,"end":136},{"id":"AlHt38GUcXE_3","en":"I'm done with you.","ko":"끝났어 — 너랑은 끝이야.","start":139,"end":148},{"id":"AlHt38GUcXE_4","en":"I'm worried about my husband.","ko":"뭐가 걱정돼 — 남편이 걱정돼.","start":151,"end":155},{"id":"AlHt38GUcXE_5","en":"I'm here to see you.","ko":"뭐 하러 왔어 — 너 보러 왔어.","start":161,"end":168},{"id":"AlHt38GUcXE_6","en":"I'm about to cry.","ko":"막 ~하려던 참이야 — 막 울 것 같아.","start":173,"end":181},{"id":"AlHt38GUcXE_7","en":"I'm looking for my phone.","ko":"뭐 찾고 있어 — 핸드폰 찾고 있어.","start":181,"end":189},{"id":"AlHt38GUcXE_8","en":"I'm working on it.","ko":"뭐 하는 중이야 — 하고 있어.","start":204,"end":211},{"id":"AlHt38GUcXE_9","en":"I'm looking forward to the party.","ko":"뭐 기대하고 있어 — 파티가 너무 기대돼.","start":213,"end":222},{"id":"AlHt38GUcXE_10","en":"I'm trying to understand.","ko":"~하려고 노력 중이야 — 이해하려고 하는 중이야.","start":235,"end":238},{"id":"AlHt38GUcXE_11","en":"I'm trying to see the Aurora.","ko":"오로라를 보려고 하는 중이야.","start":250,"end":254},{"id":"AlHt38GUcXE_12","en":"I'm thinking about you.","ko":"~에 대해 생각 중이야 — 너 생각 중이야.","start":254,"end":264},{"id":"AlHt38GUcXE_13","en":"I'm gonna go hungry then.","ko":"그럼 나 배고프게 될 거야.","start":273,"end":283},{"id":"AlHt38GUcXE_14","en":"I don't think I'll go today.","ko":"오늘은 안 갈 것 같아.","start":283,"end":290},{"id":"AlHt38GUcXE_15","en":"I like your outfit.","ko":"뭐가 마음에 들어 — 오늘 옷 마음에 들어.","start":306,"end":314},{"id":"AlHt38GUcXE_16","en":"I like watching TV.","ko":"~하는 걸 좋아해 — TV 보는 걸 좋아해.","start":317,"end":326},{"id":"AlHt38GUcXE_17","en":"I have trouble remembering.","ko":"~하는 데 어려움이 있어 — 기억하는 게 힘들어.","start":333,"end":342},{"id":"AlHt38GUcXE_18","en":"Make sure to take your medicine.","ko":"꼭 ~해 — 약 꼭 챙겨 먹어.","start":350,"end":358},{"id":"AlHt38GUcXE_19","en":"Let's go for a walk.","ko":"~하자 — 산책 가자.","start":358,"end":368},{"id":"AlHt38GUcXE_20","en":"I feel like dancing.","ko":"~하고 싶어 — 춤추고 싶어.","start":368,"end":376},{"id":"AlHt38GUcXE_21","en":"I don't feel like going out today.","ko":"~하고 싶지 않아 — 오늘은 나가기 싫어.","start":382,"end":390},{"id":"AlHt38GUcXE_22","en":"Feel free to open the window if you're hot.","ko":"편하게 ~해 — 더우면 창문 열어도 돼.","start":394,"end":403},{"id":"AlHt38GUcXE_23","en":"I'd like to see you tomorrow.","ko":"~하고 싶어요 — 내일 너 보고 싶어.","start":421,"end":427},{"id":"AlHt38GUcXE_24","en":"I should go.","ko":"~해야겠어 — 가 봐야겠어.","start":433,"end":445},{"id":"AlHt38GUcXE_25","en":"Can I get some water?","ko":"~ 좀 주시겠어요? — 물 좀 주시겠어요?","start":452,"end":463},{"id":"AlHt38GUcXE_26","en":"May I go to the bathroom?","ko":"~해도 될까요? — 화장실 가도 될까요?","start":463,"end":474},{"id":"AlHt38GUcXE_27","en":"Are you looking for someone?","ko":"뭐 찾고 있나요? — 누구 찾으세요?","start":474,"end":483},{"id":"AlHt38GUcXE_28","en":"Do you mind if I sit here?","ko":"~해도 괜찮을까요? — 여기 앉아도 괜찮을까요?","start":483,"end":493},{"id":"AlHt38GUcXE_29","en":"Where is the bathroom?","ko":"어디 있어요? — 화장실이 어디예요?","start":504,"end":530}]},"y7N2XhEeIj4":{"id":"y7N2XhEeIj4","title":"[전치사 바로잡기] 한국인들이 의외로 자주 틀리는 to vs. with","category":"전치사","kind":"lesson","duration":528,"sentences":[{"id":"y7N2XhEeIj4_1","en":"Be honest to me.","ko":"나한테 정직해라 — 한 방향으로 던지는 느낌(to).","start":0,"end":7},{"id":"y7N2XhEeIj4_2","en":"Be honest with me.","ko":"나한테 숨기지 말고 솔직하게 말해 — 함께 터놓는 느낌(with).","start":116,"end":124},{"id":"y7N2XhEeIj4_3","en":"I'm strict with students.","ko":"나는 학생들에게 엄격해.","start":20,"end":28},{"id":"y7N2XhEeIj4_4","en":"Can I speak to you?","ko":"잠시 말씀 좀 전해도 될까요? (일방향)","start":158,"end":161},{"id":"y7N2XhEeIj4_5","en":"Can I speak with you?","ko":"잠시 이야기 좀 나눌 수 있을까요? (양방향)","start":174,"end":181},{"id":"y7N2XhEeIj4_6","en":"I'm good with directions.","ko":"나는 길을 잘 알아.","start":211,"end":218},{"id":"y7N2XhEeIj4_7","en":"I'm bad with directions.","ko":"나는 길치야.","start":218,"end":221},{"id":"y7N2XhEeIj4_8","en":"She is good with money.","ko":"그녀는 돈을 잘 다뤄.","start":230,"end":233},{"id":"y7N2XhEeIj4_9","en":"I'm good with computers.","ko":"나는 컴퓨터를 잘 다뤄.","start":233,"end":237},{"id":"y7N2XhEeIj4_10","en":"Please be gentle with this package, it's fragile.","ko":"이 택배 살살 다뤄 주세요, 깨지기 쉬워요.","start":244,"end":253},{"id":"y7N2XhEeIj4_11","en":"Be gentle with the puppy.","ko":"강아지를 살살 다뤄 줘.","start":253,"end":262},{"id":"y7N2XhEeIj4_12","en":"Be careful with that knife.","ko":"그 칼 조심해.","start":262,"end":270},{"id":"y7N2XhEeIj4_13","en":"You should be careful with your words.","ko":"말을 신중하게 해야 돼.","start":270,"end":277},{"id":"y7N2XhEeIj4_14","en":"I'm strict with my students.","ko":"나는 학생들을 대할 때 엄격해.","start":299,"end":305},{"id":"y7N2XhEeIj4_15","en":"My parents were very strict with me when I was young.","ko":"내가 어릴 때 부모님이 나를 대할 때 굉장히 엄격하셨어.","start":305,"end":315},{"id":"y7N2XhEeIj4_16","en":"You need to be patient with beginners.","ko":"초보자들을 대할 때는 인내심을 가져야 돼.","start":328,"end":335},{"id":"y7N2XhEeIj4_17","en":"Thanks for being patient with me.","ko":"저를 참아 주시고 기다려 주셔서 고마워요.","start":335,"end":347},{"id":"y7N2XhEeIj4_18","en":"A dog is always faithful to its owner.","ko":"개는 주인에게 항상 충실해.","start":379,"end":386},{"id":"y7N2XhEeIj4_19","en":"How can people be so cruel to animals?","ko":"사람들이 어떻게 동물에게 그렇게 잔인할 수 있지?","start":396,"end":405},{"id":"y7N2XhEeIj4_20","en":"Why are you being so rude to me today?","ko":"오늘 나한테 왜 이렇게 무례하게 굴어?","start":412,"end":418}]},"btZtZTSvh0E":{"id":"btZtZTSvh0E","title":"[전치사 바로잡기] '~와 함께' 라고 외워서 'with'를 못 씁니다.","category":"전치사","kind":"lesson","duration":749,"sentences":[{"id":"btZtZTSvh0E_1","en":"I don't have my ID with me.","ko":"나 신분증 안 가져왔어. (내 몸에 세트로 안 챙겨 왔네)","start":200,"end":209},{"id":"btZtZTSvh0E_2","en":"Do you have an umbrella with you?","ko":"너 지금 우산 있니?","start":209,"end":218},{"id":"btZtZTSvh0E_3","en":"Does it come with a charger?","ko":"이거 충전기 포함이에요? (충전기가 세트로 딸려 오나요?)","start":225,"end":232},{"id":"btZtZTSvh0E_4","en":"A room with a great view.","ko":"전망 좋은 방 (좋은 전망이 옵션으로 달린 방)","start":232,"end":240},{"id":"btZtZTSvh0E_5","en":"A man with glasses.","ko":"안경 쓴 남자","start":249,"end":260},{"id":"btZtZTSvh0E_6","en":"I'm bad with directions.","ko":"나 길치야. (방향 감각이 꽝)","start":273,"end":281},{"id":"btZtZTSvh0E_7","en":"I'm bad with names.","ko":"나 사람 이름 잘 못 외워.","start":301,"end":307},{"id":"btZtZTSvh0E_8","en":"He is good with kids.","ko":"그는 애들을 잘 다뤄.","start":327,"end":331},{"id":"btZtZTSvh0E_9","en":"He is good with computers.","ko":"그는 컴퓨터를 잘 다뤄.","start":331,"end":336},{"id":"btZtZTSvh0E_10","en":"She is good with money.","ko":"그녀는 돈 관리를 잘해.","start":336,"end":345},{"id":"btZtZTSvh0E_11","en":"She is strict with her students.","ko":"그녀는 학생들에게 엄격해.","start":387,"end":403},{"id":"btZtZTSvh0E_12","en":"I'm so angry at you right now.","ko":"지금 너한테 엄청 화났어. (순간적으로 화살을 쏘는 느낌)","start":422,"end":436},{"id":"btZtZTSvh0E_13","en":"I'm happy with my job.","ko":"내 직업에 만족해. (지속적으로 만족)","start":473,"end":492},{"id":"btZtZTSvh0E_14","en":"A girl with long hair.","ko":"긴 머리 소녀","start":698,"end":708},{"id":"btZtZTSvh0E_15","en":"Coffee with milk.","ko":"우유 넣은 커피","start":708,"end":711},{"id":"btZtZTSvh0E_16","en":"I woke up with a headache.","ko":"두통을 달고 일어났어.","start":710,"end":721}]},"GAVB-FPg6bE":{"id":"GAVB-FPg6bE","title":"한국인들이 어려워하는 구동사, 무조건 이해하고 쓰는 법","category":"동사","kind":"lesson","duration":831,"sentences":[{"id":"GAVB-FPg6bE_1","en":"This loveseat takes up too much space.","ko":"이 소파가 공간을 너무 많이 차지해.","start":243,"end":253},{"id":"GAVB-FPg6bE_2","en":"This project is taking up my entire weekend.","ko":"이 프로젝트가 주말을 통째로 잡아먹고 있어.","start":253,"end":263},{"id":"GAVB-FPg6bE_3","en":"I think I'm going to take up Chinese this month.","ko":"이번 달에 중국어를 시작해 볼 것 같아.","start":283,"end":292},{"id":"GAVB-FPg6bE_4","en":"Can you take this away, please?","ko":"이거 좀 치워 주실래요?","start":320,"end":328},{"id":"GAVB-FPg6bE_5","en":"If you keep fighting, I will take your toys away.","ko":"계속 싸우면 장난감 다 압수할 거야.","start":331,"end":338},{"id":"GAVB-FPg6bE_6","en":"Take off your wet jacket before you catch a cold.","ko":"감기 걸리기 전에 젖은 겉옷 벗어.","start":364,"end":373},{"id":"GAVB-FPg6bE_7","en":"Her career really started to take off after that movie.","ko":"그 영화 이후로 그녀의 경력이 정말 치솟기 시작했어.","start":394,"end":401},{"id":"GAVB-FPg6bE_8","en":"I'm so sorry. I take back what I said.","ko":"정말 미안해. 내가 한 말 취소할게.","start":461,"end":469},{"id":"GAVB-FPg6bE_9","en":"It's too much information to take in all at once.","ko":"한꺼번에 받아들이기엔 정보가 너무 많아.","start":495,"end":504},{"id":"GAVB-FPg6bE_10","en":"Just sit back and take in the beautiful view.","ko":"그냥 편히 앉아서 아름다운 경치를 눈에 담아.","start":504,"end":512},{"id":"GAVB-FPg6bE_11","en":"Don't be taken in by his lies.","ko":"그의 거짓말에 속지 마.","start":530,"end":542},{"id":"GAVB-FPg6bE_12","en":"We need to talk it over before making a decision.","ko":"결정하기 전에 충분히 의논해 봐야 해.","start":603,"end":611},{"id":"GAVB-FPg6bE_13","en":"Can you read over this contract for me?","ko":"이 계약서 한 번 꼼꼼히 읽어 줄래?","start":621,"end":631},{"id":"GAVB-FPg6bE_14","en":"I'll take over from here.","ko":"여기서부터는 내가 이어받을게.","start":659,"end":664},{"id":"GAVB-FPg6bE_15","en":"Let's just start over.","ko":"그냥 처음부터 다시 하자.","start":673,"end":681},{"id":"GAVB-FPg6bE_16","en":"He handed over the company to his son.","ko":"그는 아들에게 회사를 완전히 넘겨줬어.","start":673,"end":681}]},"xQqKqKbn1r8":{"id":"xQqKqKbn1r8","title":"5형식, 제발 이렇게 배우세요｜원어민처럼 영어가 바로 나오는 공부법","category":"문법","kind":"lesson","duration":811,"sentences":[{"id":"xQqKqKbn1r8_1","en":"I find him helpful.","ko":"그가 도움이 된다고 느껴. (I think that he is a person who is helpful 대신)","start":151,"end":156},{"id":"xQqKqKbn1r8_2","en":"I found him at home.","ko":"그를 집에서 발견했어. (find + 목적어 + 장소)","start":229,"end":238},{"id":"xQqKqKbn1r8_3","en":"I found him helpful.","ko":"그가 도움이 되더라고. (find + 목적어 + 형용사)","start":229,"end":242},{"id":"xQqKqKbn1r8_4","en":"I find it helpful.","ko":"그거 도움이 되더라고.","start":293,"end":296},{"id":"xQqKqKbn1r8_5","en":"I find it useful.","ko":"그거 유용하더라고.","start":296,"end":299},{"id":"xQqKqKbn1r8_6","en":"I find it difficult.","ko":"그거 어렵더라고.","start":299,"end":301},{"id":"xQqKqKbn1r8_7","en":"I find it hard.","ko":"그거 힘들더라고.","start":301,"end":311},{"id":"xQqKqKbn1r8_8","en":"I find this book hard.","ko":"이 책 어렵더라고.","start":311,"end":317},{"id":"xQqKqKbn1r8_9","en":"I found myself thinking about him.","ko":"나도 모르게 그를 생각하고 있더라고.","start":398,"end":412},{"id":"xQqKqKbn1r8_10","en":"I found myself worrying about it.","ko":"나도 모르게 그걸 걱정하고 있더라고.","start":412,"end":414},{"id":"xQqKqKbn1r8_11","en":"I found myself saying the same thing.","ko":"나도 모르게 똑같은 말을 하고 있더라고.","start":414,"end":431},{"id":"xQqKqKbn1r8_12","en":"I came back to find my car damaged.","ko":"돌아와 보니 내 차가 손상돼 있더라고.","start":444,"end":449},{"id":"xQqKqKbn1r8_13","en":"I got home to find the door locked.","ko":"집에 와 보니까 문이 잠겨 있더라고.","start":489,"end":499},{"id":"xQqKqKbn1r8_14","en":"I got home to find everything prepared.","ko":"집에 와 보니 모든 게 준비되어 있더라고.","start":499,"end":510},{"id":"xQqKqKbn1r8_15","en":"I find it hard to say no.","ko":"거절하기가 어렵더라고.","start":552,"end":560},{"id":"xQqKqKbn1r8_16","en":"I find it hard to sleep.","ko":"잠들기가 어렵더라고.","start":560,"end":567},{"id":"xQqKqKbn1r8_17","en":"I find it easier to talk in person.","ko":"직접 만나서 이야기하는 게 더 편하더라고.","start":567,"end":576},{"id":"xQqKqKbn1r8_18","en":"I find it useful to take notes.","ko":"메모하는 게 유용하더라고.","start":576,"end":584}]},"IoS5rN9S1P8":{"id":"IoS5rN9S1P8","title":"한국인들이 헷갈려하는 'get' 이 영상으로 해결 하세요.","category":"동사","kind":"lesson","duration":1020,"sentences":[{"id":"IoS5rN9S1P8_1","en":"I don't get it.","ko":"뭔 소리인지 잘 모르겠어. (가벼운 상황, I don't understand it 대신)","start":27,"end":37},{"id":"IoS5rN9S1P8_2","en":"I got your email.","ko":"메일 받았어. (가볍게)","start":37,"end":45},{"id":"IoS5rN9S1P8_3","en":"I got home.","ko":"집에 도착했어. (I arrived home 대신 캐주얼)","start":37,"end":45},{"id":"IoS5rN9S1P8_4","en":"I got angry.","ko":"화가 났어. (He became angry 대신)","start":37,"end":45},{"id":"IoS5rN9S1P8_5","en":"I got him a present.","ko":"그에게 선물을 (어디서 구해서) 사줬어.","start":49,"end":56},{"id":"IoS5rN9S1P8_6","en":"I got a table.","ko":"(어찌어찌) 테이블을 확보했어.","start":172,"end":180},{"id":"IoS5rN9S1P8_7","en":"Let's get a drink.","ko":"야, 우리 어디 가서 한잔하자.","start":220,"end":226},{"id":"IoS5rN9S1P8_8","en":"Can I get a fork?","ko":"포크 좀 주시겠어요? (Give me a fork 보다 부드럽게)","start":261,"end":271},{"id":"IoS5rN9S1P8_9","en":"I got to the office.","ko":"사무실에 도착했어.","start":286,"end":296},{"id":"IoS5rN9S1P8_10","en":"It took a few years to get to this level.","ko":"이 수준까지 오는 데 몇 년이 걸렸어.","start":296,"end":309},{"id":"IoS5rN9S1P8_11","en":"I finally got to Paris.","ko":"와, 드디어 파리까지 왔구나.","start":343,"end":354},{"id":"IoS5rN9S1P8_12","en":"Let's get to know each other.","ko":"우리 서로 알아가 보자.","start":361,"end":370},{"id":"IoS5rN9S1P8_13","en":"I got to see Son Heung-min in person.","ko":"드디어 손흥민을 직접 봤어.","start":370,"end":378},{"id":"IoS5rN9S1P8_14","en":"I'll get you a taxi.","ko":"내가 불러서 너에게 택시가 오게 해줄게.","start":419,"end":429},{"id":"IoS5rN9S1P8_15","en":"I got my parents to buy me a new laptop.","ko":"부모님을 설득해서 새 노트북을 사게 했어.","start":485,"end":511},{"id":"IoS5rN9S1P8_16","en":"Get it done by tomorrow.","ko":"어떻게 해서든 내일까지 끝내.","start":581,"end":591},{"id":"IoS5rN9S1P8_17","en":"I got my windshield replaced.","ko":"앞유리를 (돈 내고) 교체했어.","start":629,"end":646},{"id":"IoS5rN9S1P8_18","en":"I got my phone fixed.","ko":"핸드폰 수리 맡겼어.","start":678,"end":685},{"id":"IoS5rN9S1P8_19","en":"I got my hair cut.","ko":"머리 (미용실 가서) 잘랐어.","start":685,"end":694},{"id":"IoS5rN9S1P8_20","en":"He got angry.","ko":"그가 화가 났어. (순간 이동 느낌)","start":706,"end":714},{"id":"IoS5rN9S1P8_21","en":"Did you get some sleep last night?","ko":"어젯밤에 잠 좀 잤어?","start":861,"end":866}]},"PNWuKuU3dwg":{"id":"PNWuKuU3dwg","title":"[전치사 바로잡기] '~을 위해' 라고 외워서 'for'을 못 씁니다.","category":"전치사","kind":"lesson","duration":629,"sentences":[{"id":"PNWuKuU3dwg_1","en":"You were tall for your age.","ko":"너 나이 치고는 키가 크다.","start":133,"end":138},{"id":"PNWuKuU3dwg_2","en":"She is fast for a beginner.","ko":"그녀는 초보치고는 빠르다.","start":138,"end":149},{"id":"PNWuKuU3dwg_3","en":"This is cheap for London.","ko":"이거 런던 치고는 싸다.","start":158,"end":167},{"id":"PNWuKuU3dwg_4","en":"He is strong for his size.","ko":"그는 체격 치고는 힘이 세다.","start":173,"end":180},{"id":"PNWuKuU3dwg_5","en":"I'm studying for the test.","ko":"시험을 기준으로 공부 중이야 — 시험 준비 중이야.","start":197,"end":205},{"id":"PNWuKuU3dwg_6","en":"I'm saving money for college.","ko":"대학 등록금 때문에 돈을 모으고 있어.","start":205,"end":213},{"id":"PNWuKuU3dwg_7","en":"I bought it for half price.","ko":"반값을 기준으로 샀어 — 반값에 샀어.","start":228,"end":234},{"id":"PNWuKuU3dwg_8","en":"We left for school.","ko":"학교를 향해서 떠났어 — 학교에 갔어.","start":242,"end":248},{"id":"PNWuKuU3dwg_9","en":"I'm sorry for bothering you.","ko":"널 방해한 것에 대해 미안해.","start":254,"end":259},{"id":"PNWuKuU3dwg_10","en":"He must be home for the lights are on.","ko":"불이 켜져 있는 걸 보니 집에 있나 봐.","start":288,"end":291},{"id":"PNWuKuU3dwg_11","en":"I gave a book to him.","ko":"내가 그에게 책을 줬어. (도착점 to)","start":325,"end":333},{"id":"PNWuKuU3dwg_12","en":"I bought a book for him.","ko":"그를 위해 책을 샀어. (기준점 for)","start":333,"end":339},{"id":"PNWuKuU3dwg_13","en":"I cook dinner for my wife.","ko":"아내를 위해 저녁을 해.","start":352,"end":360},{"id":"PNWuKuU3dwg_14","en":"This is cream for dry skin.","ko":"건조한 피부를 기준으로 한 크림이야.","start":381,"end":390},{"id":"PNWuKuU3dwg_15","en":"This is food for dogs.","ko":"강아지용 음식이야.","start":390,"end":396},{"id":"PNWuKuU3dwg_16","en":"She is smart for a kid.","ko":"아이치고는 똑똑해.","start":396,"end":407},{"id":"PNWuKuU3dwg_17","en":"It's small for an SUV.","ko":"SUV치고는 작네.","start":407,"end":417},{"id":"PNWuKuU3dwg_18","en":"Fight for freedom.","ko":"자유를 기준으로 싸워라.","start":421,"end":429},{"id":"PNWuKuU3dwg_19","en":"It's good for your health.","ko":"건강에 좋아.","start":514,"end":527}]},"F5O1qZ-48UQ":{"id":"F5O1qZ-48UQ","title":"짧은영어밖에 못하는 성인 초보가 길게 영어로 말하는 방법","category":"패턴","kind":"lesson","duration":541,"sentences":[{"id":"F5O1qZ-48UQ_1","en":"I saw the man.","ko":"나는 그 남자를 봤어. (기본 세팅: 주인공 + 동작 + 목적어)","start":134,"end":138},{"id":"F5O1qZ-48UQ_2","en":"I bought a toy.","ko":"나는 장난감을 샀어.","start":138,"end":151},{"id":"F5O1qZ-48UQ_3","en":"I saw the man who is handsome.","ko":"잘생긴 그 남자를 봤어. (렌즈 줌: who)","start":210,"end":227},{"id":"F5O1qZ-48UQ_4","en":"I bought a bag which is expensive.","ko":"비싼 그 가방을 샀어. (which)","start":233,"end":242},{"id":"F5O1qZ-48UQ_5","en":"The man who I met yesterday was wearing glasses.","ko":"내가 어제 만난 그 남자가 안경을 끼고 있더라고.","start":256,"end":272},{"id":"F5O1qZ-48UQ_6","en":"I saw a cat which was sleeping on my car.","ko":"내 차 위에서 자고 있는 고양이를 봤어.","start":314,"end":320},{"id":"F5O1qZ-48UQ_7","en":"I know a woman who has a son who plays soccer in the park where we exercise every morning.","ko":"우리가 매일 아침 운동하는 공원에서 축구하는 아들이 있는 여자를 알아.","start":336,"end":368},{"id":"F5O1qZ-48UQ_8","en":"I know a guy who has a sister who works at NASA.","ko":"NASA에서 일하는 여동생이 있는 남자를 알아.","start":416,"end":424},{"id":"F5O1qZ-48UQ_9","en":"I found the hotel where we stayed in the room which had a great ocean view.","ko":"오션뷰가 좋은 방에 머물렀던 그 호텔을 찾았어.","start":461,"end":468},{"id":"F5O1qZ-48UQ_10","en":"Where's the mommy who is talking to you?","ko":"너한테 말하는 엄마가 어디 있지?","start":476,"end":480}]}},"allVideos":[{"id":"aIF0l4RD6F8","title":"(그냥 틀어두세요) 이 100문장만 무조건 외워보세요! 하루종일 영어가 가능해집니다","category":"회화","kind":"lesson","duration":1157,"order":1,"url":"https://www.youtube.com/watch?v=aIF0l4RD6F8","extracted":true,"sentenceCount":23},{"id":"oBgrdOdGSeg","title":"미국인이 한국어를 배우며 깨달은 언어 공부의 진리","category":"회화","kind":"vlog","duration":290,"order":2,"url":"https://www.youtube.com/watch?v=oBgrdOdGSeg","extracted":false,"sentenceCount":0},{"id":"OVn9ozvfasM","title":"왕초보를 위한 말하기 영문법은 이 영상 하나면 됩니다","category":"문법","kind":"lesson","duration":667,"order":3,"url":"https://www.youtube.com/watch?v=OVn9ozvfasM","extracted":false,"sentenceCount":0},{"id":"AlHt38GUcXE","title":"원어민 일상회화의 핵심! 영어 왕초보가 가장 먼저 외워야 할 필수 패턴 30개","category":"패턴","kind":"lesson","duration":754,"order":4,"url":"https://www.youtube.com/watch?v=AlHt38GUcXE","extracted":true,"sentenceCount":29},{"id":"T-Qrll2b0a4","title":"1형식을 제대로 알면 영어가 쉬워집니다","category":"문법","kind":"lesson","duration":735,"order":5,"url":"https://www.youtube.com/watch?v=T-Qrll2b0a4","extracted":false,"sentenceCount":0},{"id":"ifWPajBfjQU","title":"왜 굳이 4형식으로 말하는 걸까?","category":"문법","kind":"lesson","duration":598,"order":6,"url":"https://www.youtube.com/watch?v=ifWPajBfjQU","extracted":false,"sentenceCount":0},{"id":"kUp6sMnX1D0","title":"would를 어려워하는 한국인들을 위한 원어민적 관점","category":"문법","kind":"lesson","duration":732,"order":7,"url":"https://www.youtube.com/watch?v=kUp6sMnX1D0","extracted":false,"sentenceCount":0},{"id":"wlBeKrmGG3c","title":"이 방법으로 영어 왕초보 남편을 꾸준히 훈련시켰더니...","category":"회화","kind":"lesson","duration":574,"order":8,"url":"https://www.youtube.com/watch?v=wlBeKrmGG3c","extracted":false,"sentenceCount":0},{"id":"EFhlqkPfcbk","title":"(왕초보필수) 머릿속 번역 과정을 건너뛰는 '성인 전용 영어 지름길 3단계'","category":"회화","kind":"lesson","duration":682,"order":9,"url":"https://www.youtube.com/watch?v=EFhlqkPfcbk","extracted":false,"sentenceCount":0},{"id":"CM1Bw6hCnWI","title":"한국어 말문이 빵 터졌던 순간, '이것' 딱 하나를 바꿨습니다 (영어 왕초보 필수 시청)","category":"회화","kind":"lesson","duration":884,"order":10,"url":"https://www.youtube.com/watch?v=CM1Bw6hCnWI","extracted":false,"sentenceCount":0},{"id":"Skp_28e_xq4","title":"원어민들이 매일 쓰는 필수 리액션 표현 30가지 (Really?만 쓰고계신가요?)","category":"패턴","kind":"lesson","duration":637,"order":11,"url":"https://www.youtube.com/watch?v=Skp_28e_xq4","extracted":false,"sentenceCount":0},{"id":"xQqKqKbn1r8","title":"5형식, 제발 이렇게 배우세요｜원어민처럼 영어가 바로 나오는 공부법","category":"문법","kind":"lesson","duration":811,"order":12,"url":"https://www.youtube.com/watch?v=xQqKqKbn1r8","extracted":true,"sentenceCount":18},{"id":"y7N2XhEeIj4","title":"[전치사 바로잡기] 한국인들이 의외로 자주 틀리는 to vs. with","category":"전치사","kind":"lesson","duration":528,"order":13,"url":"https://www.youtube.com/watch?v=y7N2XhEeIj4","extracted":true,"sentenceCount":20},{"id":"btZtZTSvh0E","title":"[전치사 바로잡기] '~와 함께' 라고 외워서 'with'를 못 씁니다.","category":"전치사","kind":"lesson","duration":749,"order":14,"url":"https://www.youtube.com/watch?v=btZtZTSvh0E","extracted":true,"sentenceCount":16},{"id":"PNWuKuU3dwg","title":"[전치사 바로잡기] '~을 위해' 라고 외워서 'for'을 못 씁니다.","category":"전치사","kind":"lesson","duration":629,"order":15,"url":"https://www.youtube.com/watch?v=PNWuKuU3dwg","extracted":true,"sentenceCount":19},{"id":"_mts2pbQoFk","title":"[몰아보기] 영어회화의 시작은 이 3단어(get,take,make) 확실히 알기 부터","category":"동사","kind":"lesson","duration":2545,"order":16,"url":"https://www.youtube.com/watch?v=_mts2pbQoFk","extracted":false,"sentenceCount":0},{"id":"GAVB-FPg6bE","title":"한국인들이 어려워하는 구동사, 무조건 이해하고 쓰는 법","category":"동사","kind":"lesson","duration":831,"order":17,"url":"https://www.youtube.com/watch?v=GAVB-FPg6bE","extracted":true,"sentenceCount":16},{"id":"-TOiZ4rjE7w","title":"should가 '~해야한다' 가 아닌 이유","category":"문법","kind":"lesson","duration":648,"order":18,"url":"https://www.youtube.com/watch?v=-TOiZ4rjE7w","extracted":false,"sentenceCount":0},{"id":"HPgAT_Y7Qi8","title":"나 수동태 공식 아는데 왜 말이 안 나오지? 학교에선 안 가르쳐주는 수동태의 본질","category":"문법","kind":"lesson","duration":986,"order":19,"url":"https://www.youtube.com/watch?v=HPgAT_Y7Qi8","extracted":false,"sentenceCount":0},{"id":"QL3MJ7Io6gI","title":"미국 파일럿캡틴 출신 아버지가 한국에서의  딸의 성공을 보고 흘린 진짜 속마음","category":"회화","kind":"vlog","duration":1274,"order":20,"url":"https://www.youtube.com/watch?v=QL3MJ7Io6gI","extracted":false,"sentenceCount":0},{"id":"25GpT7hqpek","title":"미국에서 손자 보러 날아오신 할아버지 반응","category":"회화","kind":"vlog","duration":1246,"order":21,"url":"https://www.youtube.com/watch?v=25GpT7hqpek","extracted":false,"sentenceCount":0},{"id":"x2Cqh-2HXUQ","title":"10분만에 긴 영어문장도 원어민처럼 이해하고 말하는 법(in which, about whom..)","category":"문법","kind":"lesson","duration":786,"order":22,"url":"https://www.youtube.com/watch?v=x2Cqh-2HXUQ","extracted":false,"sentenceCount":0},{"id":"5wbnrpngtuI","title":"영어 말하기 왕초보가 영어를 길~게 말하는 방법","category":"패턴","kind":"lesson","duration":911,"order":23,"url":"https://www.youtube.com/watch?v=5wbnrpngtuI","extracted":false,"sentenceCount":0},{"id":"F5O1qZ-48UQ","title":"짧은영어밖에 못하는 성인 초보가 길게 영어로 말하는 방법","category":"패턴","kind":"lesson","duration":541,"order":24,"url":"https://www.youtube.com/watch?v=F5O1qZ-48UQ","extracted":true,"sentenceCount":10},{"id":"gBJOyVxbSIc","title":"한국인들이 잘 모르는 make의 원어민 감각 꼭보세요!  (can't go 대신 can't make it 쓰는 이유)","category":"동사","kind":"lesson","duration":815,"order":25,"url":"https://www.youtube.com/watch?v=gBJOyVxbSIc","extracted":false,"sentenceCount":0},{"id":"MipfazssKNk","title":"한국인이 어려워하는 전치사(in,on,at,of,as,to,for) 끝내기 [1시간 몰아보기]","category":"전치사","kind":"lesson","duration":3645,"order":26,"url":"https://www.youtube.com/watch?v=MipfazssKNk","extracted":false,"sentenceCount":0},{"id":"THvkttZ7rWU","title":"한국인이 어려워하는 would vs. could vs. should 완벽한 사용법","category":"문법","kind":"lesson","duration":1320,"order":27,"url":"https://www.youtube.com/watch?v=THvkttZ7rWU","extracted":false,"sentenceCount":0},{"id":"Vxxf7NGgiFQ","title":"영어가 자연스러워 지는 마법의 단어 5가지","category":"패턴","kind":"lesson","duration":644,"order":28,"url":"https://www.youtube.com/watch?v=Vxxf7NGgiFQ","extracted":false,"sentenceCount":0},{"id":"owKlhxam0fw","title":"한국인들이 잘 모르는  전치사 of vs. for  무조건 구별해야 합니다.","category":"전치사","kind":"lesson","duration":732,"order":29,"url":"https://www.youtube.com/watch?v=owKlhxam0fw","extracted":false,"sentenceCount":0},{"id":"G6xbGAVcyJs","title":"한국인들이 헷갈려하는 to부정사 vs 동명사(ing)의 진짜 기준","category":"문법","kind":"lesson","duration":835,"order":30,"url":"https://www.youtube.com/watch?v=G6xbGAVcyJs","extracted":false,"sentenceCount":0},{"id":"7hmeCFZvjCQ","title":"한국인이 어려워하는 to부정사를 원어민처럼 이해하고 쓰는 법","category":"문법","kind":"lesson","duration":854,"order":31,"url":"https://www.youtube.com/watch?v=7hmeCFZvjCQ","extracted":false,"sentenceCount":0},{"id":"qMXZvKkhWew","title":"take의 본질 - 일상생활에서 take를 쓸 수 있게 됩니다.","category":"동사","kind":"vlog","duration":803,"order":32,"url":"https://www.youtube.com/watch?v=qMXZvKkhWew","extracted":false,"sentenceCount":0},{"id":"49b5wYqzRpQ","title":"한국인이 가장 어려워하는 영어식 사고 (이 영상 하나면 끝)","category":"회화","kind":"lesson","duration":1017,"order":33,"url":"https://www.youtube.com/watch?v=49b5wYqzRpQ","extracted":false,"sentenceCount":0},{"id":"IhU_c2hFy74","title":"외워도 못 쓰던 구동사, 20분 후 바로 써먹게 됩니다(구동사3편)","category":"동사","kind":"lesson","duration":1368,"order":34,"url":"https://www.youtube.com/watch?v=IhU_c2hFy74","extracted":false,"sentenceCount":0},{"id":"IoS5rN9S1P8","title":"한국인들이 헷갈려하는 'get' 이 영상으로 해결 하세요.","category":"동사","kind":"lesson","duration":1020,"order":35,"url":"https://www.youtube.com/watch?v=IoS5rN9S1P8","extracted":true,"sentenceCount":21},{"id":"oT3yl8uQJGg","title":"한국인들이 어려워하는 as 파헤치기","category":"전치사","kind":"lesson","duration":890,"order":36,"url":"https://www.youtube.com/watch?v=oT3yl8uQJGg","extracted":false,"sentenceCount":0},{"id":"LbTwcQvwk14","title":"한국인들이 헷갈려하는 that vs what 1초만에 구분 하는 법 (관계대명사)","category":"문법","kind":"lesson","duration":590,"order":37,"url":"https://www.youtube.com/watch?v=LbTwcQvwk14","extracted":false,"sentenceCount":0},{"id":"38VETtPeNpw","title":"[전치사바로잡기] 한국인들이 어려워하는 'of'의 본질","category":"전치사","kind":"lesson","duration":617,"order":38,"url":"https://www.youtube.com/watch?v=38VETtPeNpw","extracted":false,"sentenceCount":0},{"id":"L5YS_jQjIhs","title":"한국인들이 어려워하는 구동사, 듣는 즉시 이해하고 써먹을 수 있습니다. -[구동사2편]","category":"동사","kind":"lesson","duration":1036,"order":39,"url":"https://www.youtube.com/watch?v=L5YS_jQjIhs","extracted":false,"sentenceCount":0},{"id":"bY69Ppalb2g","title":"한국인들이 어려워하는 구동사, 듣는 즉시 이해하고 써먹을 수 있습니다.","category":"동사","kind":"lesson","duration":1012,"order":40,"url":"https://www.youtube.com/watch?v=bY69Ppalb2g","extracted":false,"sentenceCount":0},{"id":"PgGZLhP44t8","title":"한국어가 능통한 미국인이 말하는 2026년 영어공부의 절대적 기준2가지","category":"회화","kind":"lesson","duration":693,"order":41,"url":"https://www.youtube.com/watch?v=PgGZLhP44t8","extracted":false,"sentenceCount":0},{"id":"bSyADtynDIo","title":"한국인들이 쓰기 어려워 하는 '현재완료진행' 원어민의 시각으로 바로 쓰는 법","category":"문법","kind":"lesson","duration":619,"order":42,"url":"https://www.youtube.com/watch?v=bSyADtynDIo","extracted":false,"sentenceCount":0},{"id":"9OY_GE9IDOI","title":"한국인들이 헷갈리는 전치사 FOR 과 TO 바로 구별하는 법 - 영어 보는 관점이 확 달라져요!!","category":"전치사","kind":"lesson","duration":903,"order":43,"url":"https://www.youtube.com/watch?v=9OY_GE9IDOI","extracted":false,"sentenceCount":0},{"id":"w1UNt1FIuG8","title":"한국인들이 헷갈리는 Are you~? Do you~? 원어민 감각 익히기","category":"문법","kind":"lesson","duration":767,"order":44,"url":"https://www.youtube.com/watch?v=w1UNt1FIuG8","extracted":false,"sentenceCount":0},{"id":"aW8sU0uZNhE","title":"한국인들이 어려워 하는 A와 THE 바로 구별 하는 법 - 영어 보는 관점이 확 달라져요!!","category":"문법","kind":"lesson","duration":982,"order":45,"url":"https://www.youtube.com/watch?v=aW8sU0uZNhE","extracted":false,"sentenceCount":0},{"id":"8QIYhCeeRO8","title":"영어 리스닝, 이 훈련이면 고민 끝입니다. ","category":"회화","kind":"lesson","duration":819,"order":46,"url":"https://www.youtube.com/watch?v=8QIYhCeeRO8","extracted":false,"sentenceCount":0},{"id":"LTEHfjMI30E","title":"한국인 성인이 영어 잘 하는 방법 공개","category":"회화","kind":"lesson","duration":882,"order":47,"url":"https://www.youtube.com/watch?v=LTEHfjMI30E","extracted":false,"sentenceCount":0},{"id":"oeIfptpwIUg","title":"한국인들이 헷갈리는 전치사 on, at, in 무조건 구별 가능합니다.","category":"전치사","kind":"lesson","duration":721,"order":48,"url":"https://www.youtube.com/watch?v=oeIfptpwIUg","extracted":false,"sentenceCount":0},{"id":"Fxhq7P6bbvk","title":"'really?' 로만 반응 하면 안 되는 이유","category":"회화","kind":"vlog","duration":833,"order":49,"url":"https://www.youtube.com/watch?v=Fxhq7P6bbvk","extracted":false,"sentenceCount":0},{"id":"ZPKkNRo7Sz8","title":"내 생각 말하려면 무조건 알아야 할 3가지 표현","category":"패턴","kind":"lesson","duration":711,"order":50,"url":"https://www.youtube.com/watch?v=ZPKkNRo7Sz8","extracted":false,"sentenceCount":0},{"id":"oy9AZn2FUgE","title":"현재완료(have p.p)를 드디어 스피킹에 쓸 수있게 되는 영상","category":"문법","kind":"lesson","duration":801,"order":51,"url":"https://www.youtube.com/watch?v=oy9AZn2FUgE","extracted":false,"sentenceCount":0},{"id":"FJ-xkP4eaoo","title":"꼭 알아야 할 원어민들이 자주 쓰는 의외의 표현 두가지","category":"패턴","kind":"lesson","duration":554,"order":52,"url":"https://www.youtube.com/watch?v=FJ-xkP4eaoo","extracted":false,"sentenceCount":0},{"id":"IFiktdgsWj0","title":"would를 배워도 활용 못하는 한국인들을 위한 한국어능통자 원어민의 완벽한 설명","category":"문법","kind":"lesson","duration":694,"order":53,"url":"https://www.youtube.com/watch?v=IFiktdgsWj0","extracted":false,"sentenceCount":0},{"id":"v2LULe29JBE","title":"20분 뒤 여러분의 '영어듣기' 관점이 완전히 바뀝니다.","category":"회화","kind":"lesson","duration":1194,"order":54,"url":"https://www.youtube.com/watch?v=v2LULe29JBE","extracted":false,"sentenceCount":0},{"id":"IQZoDoMCBRM","title":"원어민이 듣기에 개그맨 김영철의 영어실력은 어느정도일까?","category":"회화","kind":"lesson","duration":875,"order":55,"url":"https://www.youtube.com/watch?v=IQZoDoMCBRM","extracted":false,"sentenceCount":0},{"id":"kbuU2sIQtSQ","title":"place는 = 장소가 아닙니다 그래서 영어가 안됩니다.","category":"회화","kind":"lesson","duration":826,"order":56,"url":"https://www.youtube.com/watch?v=kbuU2sIQtSQ","extracted":false,"sentenceCount":0},{"id":"z7dv9WB32s8","title":"한국어에 능통한 미국인이 말하는 한국인들이 영어를 못하는 이유","category":"회화","kind":"lesson","duration":589,"order":57,"url":"https://www.youtube.com/watch?v=z7dv9WB32s8","extracted":false,"sentenceCount":0},{"id":"e562_phnpY0","title":"겁없는 15개월 아기 이안이의 일상","category":"회화","kind":"vlog","duration":748,"order":58,"url":"https://www.youtube.com/watch?v=e562_phnpY0","extracted":false,"sentenceCount":0},{"id":"vzO-umJomQ0","title":"한미 커플 15개월 아기는 한국어, 영어 둘 다 이해가 가능할까?","category":"회화","kind":"vlog","duration":548,"order":59,"url":"https://www.youtube.com/watch?v=vzO-umJomQ0","extracted":false,"sentenceCount":0},{"id":"nm2Citz-hv4","title":"14개월 아기는 말을 얼마나 알아들을까?(2층에 사는 할부지,할머니와 함께하는 이안이의 일상)","category":"회화","kind":"vlog","duration":545,"order":60,"url":"https://www.youtube.com/watch?v=nm2Citz-hv4","extracted":false,"sentenceCount":0},{"id":"bA_61Un-7yg","title":"미국인은 이해 못하는 안타까운 한국 군대 문화는?","category":"회화","kind":"vlog","duration":558,"order":61,"url":"https://www.youtube.com/watch?v=bA_61Un-7yg","extracted":false,"sentenceCount":0},{"id":"-by_VXSGMLI","title":"여러분께 드릴 말씀이 있습니다.  14개월 아기키우는 국제커플 이야기","category":"회화","kind":"vlog","duration":676,"order":62,"url":"https://www.youtube.com/watch?v=-by_VXSGMLI","extracted":false,"sentenceCount":0},{"id":"7nzcrGoxV_M","title":"13개월 아기랑 마트 갔다가 하루 종일 웃은 이유 - 이안이의 일상","category":"회화","kind":"vlog","duration":505,"order":63,"url":"https://www.youtube.com/watch?v=7nzcrGoxV_M","extracted":false,"sentenceCount":0},{"id":"6kmrhYXXG6w","title":"100일된 아기가 일어나자마자 미국에서 온 외할아버지를 보자 보인 반응","category":"회화","kind":"vlog","duration":232,"order":64,"url":"https://www.youtube.com/watch?v=6kmrhYXXG6w","extracted":false,"sentenceCount":0},{"id":"MWLD6tHOWAc","title":"시부모님과 1,2층에 살면 좋은 점 feat. 장난꾸러기가 된 이안이","category":"회화","kind":"vlog","duration":564,"order":65,"url":"https://www.youtube.com/watch?v=MWLD6tHOWAc","extracted":false,"sentenceCount":0},{"id":"3KiW8KfJodI","title":"미국 며느리 시아버지랑 데이트 하는 날","category":"회화","kind":"vlog","duration":837,"order":66,"url":"https://www.youtube.com/watch?v=3KiW8KfJodI","extracted":false,"sentenceCount":0},{"id":"OlrHZlmMtwE","title":"(국제커플) 냉면먹다가 시어머님이 잔소리를 하신 이유","category":"회화","kind":"vlog","duration":644,"order":67,"url":"https://www.youtube.com/watch?v=OlrHZlmMtwE","extracted":false,"sentenceCount":0},{"id":"sBg3OaFldD0","title":"미국 아버지가 한국에서의 결혼생활을 허락한 결정적인 이유는?","category":"회화","kind":"vlog","duration":708,"order":68,"url":"https://www.youtube.com/watch?v=sBg3OaFldD0","extracted":false,"sentenceCount":0},{"id":"nKeUX56yMvM","title":"한국 방문하신 아버지께 최애음식 시어머님표 콩국수를 드렸더니 반응이..?","category":"회화","kind":"vlog","duration":715,"order":69,"url":"https://www.youtube.com/watch?v=nKeUX56yMvM","extracted":false,"sentenceCount":0},{"id":"ZKLNHj0AJM4","title":"(국제커플) 스몰웨딩 그리고 돌잔치.. 아버지와 함께 춤을..","category":"회화","kind":"vlog","duration":1032,"order":70,"url":"https://www.youtube.com/watch?v=ZKLNHj0AJM4","extracted":false,"sentenceCount":0},{"id":"BBwEscyqWus","title":"미국에서 오신 아빠, 시어머니표 요리를 드시더니 반응이...?","category":"회화","kind":"vlog","duration":768,"order":71,"url":"https://www.youtube.com/watch?v=BBwEscyqWus","extracted":false,"sentenceCount":0},{"id":"egJDxpNOiZ8","title":"100일 된 손자 재우기 VS 돌이 된 손자 재우기","category":"회화","kind":"vlog","duration":619,"order":72,"url":"https://www.youtube.com/watch?v=egJDxpNOiZ8","extracted":false,"sentenceCount":0},{"id":"svbdGpIMyiQ","title":"돌이 된 손자를 본 외할아버지의 반응","category":"회화","kind":"vlog","duration":713,"order":73,"url":"https://www.youtube.com/watch?v=svbdGpIMyiQ","extracted":false,"sentenceCount":0},{"id":"HS4FYAUMEic","title":"한국에서 출산 할 코메리칸(다니엘), 출산 한 아메리코리아노(가브리엘) -미네소타 그녀들2","category":"회화","kind":"vlog","duration":564,"order":74,"url":"https://www.youtube.com/watch?v=HS4FYAUMEic","extracted":false,"sentenceCount":0},{"id":"O_AiKClKm2Q","title":"드디어 만났다!! 코메리칸(다니엘) & 아메리코리아노(가브리엘) -미네소타 그녀들","category":"회화","kind":"vlog","duration":591,"order":75,"url":"https://www.youtube.com/watch?v=O_AiKClKm2Q","extracted":false,"sentenceCount":0},{"id":"OxUpByuF7r4","title":"(국제커플) 미국인이 한국 운전면허 시험을 보면 벌어지는 일","category":"회화","kind":"vlog","duration":676,"order":76,"url":"https://www.youtube.com/watch?v=OxUpByuF7r4","extracted":false,"sentenceCount":0},{"id":"JTgAqZXx23o","title":"(국제커플) 뒤로 걷는 아기.. 이게 맞아요...?ㅎㅎ(이안이의 일상)","category":"회화","kind":"vlog","duration":581,"order":77,"url":"https://www.youtube.com/watch?v=JTgAqZXx23o","extracted":false,"sentenceCount":0},{"id":"JoSYU0sRKxs","title":"결혼기념일 깜짝파티에 경상도 시부모님의 현실반응... (이안이의 일상)","category":"회화","kind":"vlog","duration":591,"order":78,"url":"https://www.youtube.com/watch?v=JoSYU0sRKxs","extracted":false,"sentenceCount":0},{"id":"3NUQ_mfnGt4","title":"(국제커플) 미국인이 11년째 한국에 살면 벌어지는 일 feat. 어느덧 10개월 이안이","category":"회화","kind":"vlog","duration":566,"order":79,"url":"https://www.youtube.com/watch?v=3NUQ_mfnGt4","extracted":false,"sentenceCount":0},{"id":"-bC6sohhauA","title":"(국제커플) 어떤 드레스가 이쁜가요? 골라주세요. feat. 9개월 운전하는 이안이","category":"회화","kind":"vlog","duration":629,"order":80,"url":"https://www.youtube.com/watch?v=-bC6sohhauA","extracted":false,"sentenceCount":0},{"id":"dYamcmcqbBQ","title":"달라도 너무 다른 한국식 이유식 vs. 미국식 이유식 문화차이","category":"회화","kind":"vlog","duration":566,"order":81,"url":"https://www.youtube.com/watch?v=dYamcmcqbBQ","extracted":false,"sentenceCount":0},{"id":"MX7aa7j8cMI","title":"한국에 처음 온 친구가 친구 시어머니께 한 말은…?(이안이 일상3)","category":"회화","kind":"vlog","duration":518,"order":82,"url":"https://www.youtube.com/watch?v=MX7aa7j8cMI","extracted":false,"sentenceCount":0},{"id":"huJHXbLbVLg","title":"시부모님댁이 바로 위층이면 생기는 일 (이안이의 일상2)","category":"회화","kind":"vlog","duration":581,"order":83,"url":"https://www.youtube.com/watch?v=huJHXbLbVLg","extracted":false,"sentenceCount":0},{"id":"9xnMLhXr9AI","title":"(국제커플) 이안이의 일상 feat. 드디어 한국에서의 결혼식, 돌잔치!!","category":"회화","kind":"vlog","duration":679,"order":84,"url":"https://www.youtube.com/watch?v=9xnMLhXr9AI","extracted":false,"sentenceCount":0},{"id":"CDxg3NRGgkc","title":"박자에 맞춰 춤추는 8개월 아기 ㅋㅋㅋ (개인기 5가지)","category":"회화","kind":"vlog","duration":127,"order":85,"url":"https://www.youtube.com/watch?v=CDxg3NRGgkc","extracted":false,"sentenceCount":0},{"id":"99KI3PZ4RjE","title":"내가 한국어를 배울 수 있었던 이유 (새해 영어공부 이렇게 하면 성공합니다!!)","category":"회화","kind":"lesson","duration":602,"order":86,"url":"https://www.youtube.com/watch?v=99KI3PZ4RjE","extracted":false,"sentenceCount":0},{"id":"Hvo4bK0BX5Q","title":"(국제커플) 미국에서 상류층이 한국 좁은 아파트에 사는 이유","category":"회화","kind":"vlog","duration":384,"order":87,"url":"https://www.youtube.com/watch?v=Hvo4bK0BX5Q","extracted":false,"sentenceCount":0},{"id":"gyrE1hBk2qc","title":"(국제커플) 수면교육을 했더니 벌어진 놀라운 일!! (feat. 이웃집 찰스 후기)","category":"회화","kind":"vlog","duration":396,"order":88,"url":"https://www.youtube.com/watch?v=gyrE1hBk2qc","extracted":false,"sentenceCount":0},{"id":"C7rviGGaz7c","title":"(국제커플) 한국인들은 생각못하는 한국이 육아하기 천국인 이유","category":"회화","kind":"vlog","duration":581,"order":89,"url":"https://www.youtube.com/watch?v=C7rviGGaz7c","extracted":false,"sentenceCount":0},{"id":"kVHTMtOo9M0","title":"한국남자를 만났다고.....?","category":"회화","kind":"vlog","duration":329,"order":90,"url":"https://www.youtube.com/watch?v=kVHTMtOo9M0","extracted":false,"sentenceCount":0},{"id":"fa_yBnqfbVo","title":"(국제커플) 태어나서~200일까지 아기는 어떻게 변할까?","category":"회화","kind":"vlog","duration":633,"order":91,"url":"https://www.youtube.com/watch?v=fa_yBnqfbVo","extracted":false,"sentenceCount":0},{"id":"ocDPA59HPTg","title":"(국제커플) 미국인 며느리가 한국인 시어머님과 노는 법","category":"회화","kind":"vlog","duration":659,"order":92,"url":"https://www.youtube.com/watch?v=ocDPA59HPTg","extracted":false,"sentenceCount":0},{"id":"mxVFd5vyLPQ","title":"(국제커플) 엄마 어릴적 사진을 본 6개월 아기의 반응은? feat. 중학교때부터 아빠랑 태권도를 배운 미국인 아내??!!","category":"회화","kind":"vlog","duration":474,"order":93,"url":"https://www.youtube.com/watch?v=mxVFd5vyLPQ","extracted":false,"sentenceCount":0},{"id":"iDStTTR6KTs","title":"(국제커플) 미국인아내, 왜 한국 겨울 간식에 빠진걸까?","category":"회화","kind":"vlog","duration":839,"order":94,"url":"https://www.youtube.com/watch?v=iDStTTR6KTs","extracted":false,"sentenceCount":0},{"id":"OFAylsnCXs4","title":"(국제커플) 미국인 아내가 올해 수능을 쳐봤는데... 요즘 수능영어의 진실!!","category":"회화","kind":"vlog","duration":971,"order":95,"url":"https://www.youtube.com/watch?v=OFAylsnCXs4","extracted":false,"sentenceCount":0},{"id":"rBL_pM416kA","title":"(국제커플) 판소리에 빠져버린 미국인아내ㅋㅋ feat.남편 드디어공개!","category":"회화","kind":"vlog","duration":827,"order":96,"url":"https://www.youtube.com/watch?v=rBL_pM416kA","extracted":false,"sentenceCount":0},{"id":"cI-VG8No-Wg","title":"반했다, 한국에","category":"회화","kind":"vlog","duration":586,"order":97,"url":"https://www.youtube.com/watch?v=cI-VG8No-Wg","extracted":false,"sentenceCount":0},{"id":"0dSEzzFL4lw","title":"(국제커플) 한미커플 첫만남부터 10년의 이야기, 어떻게 만났을까?","category":"회화","kind":"vlog","duration":634,"order":98,"url":"https://www.youtube.com/watch?v=0dSEzzFL4lw","extracted":false,"sentenceCount":0},{"id":"PPkveAuAGzw","title":"(국제커플) 한국 배송시스템에 충격 받은 미국 가족반응ㅋㅋㅋ 뭐!! 3일만에!!? with 쿠팡로켓직구","category":"회화","kind":"vlog","duration":445,"order":99,"url":"https://www.youtube.com/watch?v=PPkveAuAGzw","extracted":false,"sentenceCount":0},{"id":"67AWarON8LU","title":"(국제커플) 미국인 아내가 한국에 올 수 있었던 신기한 이유ㅋㅋㅋ","category":"회화","kind":"vlog","duration":495,"order":100,"url":"https://www.youtube.com/watch?v=67AWarON8LU","extracted":false,"sentenceCount":0},{"id":"zkMLdGTPcec","title":"(국제커플) 미국인 아내에게 한국이 천국인 이유 5가지ㅋㅋㅋ 절대 한국 안떠나!","category":"회화","kind":"vlog","duration":557,"order":101,"url":"https://www.youtube.com/watch?v=zkMLdGTPcec","extracted":false,"sentenceCount":0},{"id":"vGypzop5Rp4","title":"(국제커플) 한국 명절음식을 미국가족에게 시어머니께서 차려드렸더니... 왜 울었을까?","category":"회화","kind":"vlog","duration":539,"order":102,"url":"https://www.youtube.com/watch?v=vGypzop5Rp4","extracted":false,"sentenceCount":0},{"id":"lu7Fforx3G4","title":"(국제커플) 윷놀이에 빠져버린 미국에서 놀러온 가족ㅋㅋㅋ","category":"회화","kind":"vlog","duration":344,"order":103,"url":"https://www.youtube.com/watch?v=lu7Fforx3G4","extracted":false,"sentenceCount":0},{"id":"MqrpxDRe0zE","title":"(국제커플) 처음으로 미국에서 온 외할아버지를 본 100일 손주 반응ㅋㅋ","category":"회화","kind":"vlog","duration":161,"order":104,"url":"https://www.youtube.com/watch?v=MqrpxDRe0zE","extracted":false,"sentenceCount":0},{"id":"ltZMWcutpDE","title":"한국생활 10년차 미국인이 본 한국인이 불행한 이유(Why Koreans Are Unhappy: A 10-Year U.S. Resident's View)","category":"회화","kind":"vlog","duration":321,"order":105,"url":"https://www.youtube.com/watch?v=ltZMWcutpDE","extracted":false,"sentenceCount":0},{"id":"X29ut1QVFDM","title":"(국제커플) 엄마, 아빠 소리에 처음으로 소리내어 웃는걸 보면....","category":"회화","kind":"vlog","duration":271,"order":106,"url":"https://www.youtube.com/watch?v=X29ut1QVFDM","extracted":false,"sentenceCount":0},{"id":"o-v753WvENw","title":"(국제커플) 남자들에게 아기를 맡겼더니.....ㅋㅋ","category":"회화","kind":"vlog","duration":283,"order":107,"url":"https://www.youtube.com/watch?v=o-v753WvENw","extracted":false,"sentenceCount":0},{"id":"9h32CrLJlTg","title":"(국제커플) 엄마 어렸을 때 사진 공개!! 아기랑 똑같아ㅋㅋㅋ","category":"회화","kind":"vlog","duration":284,"order":108,"url":"https://www.youtube.com/watch?v=9h32CrLJlTg","extracted":false,"sentenceCount":0},{"id":"b9sdC4dh1o0","title":"(국제커플) 미국인 아내 VS 68일된 아기 승자는??","category":"회화","kind":"vlog","duration":97,"order":109,"url":"https://www.youtube.com/watch?v=b9sdC4dh1o0","extracted":false,"sentenceCount":0},{"id":"D-ER166b3j8","title":"(국제커플) 태어난지 60일 아기와는 어떻게 놀까? - 뇌발달에 중요한시기!","category":"회화","kind":"vlog","duration":428,"order":110,"url":"https://www.youtube.com/watch?v=D-ER166b3j8","extracted":false,"sentenceCount":0},{"id":"z354b8_k-dU","title":"(국제커플) 미국인 와이프가 숨죽이고 올림픽 보는 이유 ㅋㅋ찐 한국사랑","category":"회화","kind":"vlog","duration":173,"order":111,"url":"https://www.youtube.com/watch?v=z354b8_k-dU","extracted":false,"sentenceCount":0},{"id":"GzH2_cSkYDc","title":"(국제커플) 50일된 아기 벌써 엄마말을 따라하는거야?","category":"회화","kind":"vlog","duration":181,"order":112,"url":"https://www.youtube.com/watch?v=GzH2_cSkYDc","extracted":false,"sentenceCount":0},{"id":"1_hB2vFsB-Q","title":"(국제커플) 한국에게 미안하다는 미국인 아내.. 왜???","category":"회화","kind":"vlog","duration":572,"order":113,"url":"https://www.youtube.com/watch?v=1_hB2vFsB-Q","extracted":false,"sentenceCount":0},{"id":"eNX6VWHVe0w","title":"(국제커플) 한국에서 출산한 미국아내가 말하는 한국에서 출산이 최고인 이유","category":"회화","kind":"vlog","duration":376,"order":114,"url":"https://www.youtube.com/watch?v=eNX6VWHVe0w","extracted":false,"sentenceCount":0},{"id":"z0IvRkZZiKo","title":"30일 된 아기에게 본인 초음파영상을 보여줬더니!!","category":"회화","kind":"vlog","duration":240,"order":115,"url":"https://www.youtube.com/watch?v=z0IvRkZZiKo","extracted":false,"sentenceCount":0},{"id":"z-qRol9YGFM","title":"미국인 아내 시어머님표 된장찌개를 먹더니 반응이ㅋㅋfeat. 인생3주차 아기","category":"회화","kind":"vlog","duration":148,"order":116,"url":"https://www.youtube.com/watch?v=z-qRol9YGFM","extracted":false,"sentenceCount":0},{"id":"QUVulcPzP4E","title":"(국제커플) 미국인 아내와 낳은 아기 집으로 데려왔는데... 너 신생아 맞아??","category":"회화","kind":"vlog","duration":407,"order":117,"url":"https://www.youtube.com/watch?v=QUVulcPzP4E","extracted":false,"sentenceCount":0},{"id":"YKaObO4j2uY","title":"한국에서 출산 한 미국아내 출산 직후  미국부모님과 어떤 대화를 나눌까?","category":"회화","kind":"vlog","duration":446,"order":118,"url":"https://www.youtube.com/watch?v=YKaObO4j2uY","extracted":false,"sentenceCount":0},{"id":"sBPDm0o6e_w","title":"미국인 아내 한국에서 드디어 출산!! 출산 뒤 처음 한말은?ㅋㅋ","category":"회화","kind":"vlog","duration":292,"order":119,"url":"https://www.youtube.com/watch?v=sBPDm0o6e_w","extracted":false,"sentenceCount":0},{"id":"dImJ8c9yflc","title":"시어머님 콩국수를 드디어 먹은 미국인 아내 반응ㅋㅋ feat. 출산전 마지막 여행","category":"회화","kind":"vlog","duration":308,"order":120,"url":"https://www.youtube.com/watch?v=dImJ8c9yflc","extracted":false,"sentenceCount":0},{"id":"CDdsw0T_FDE","title":"윗집으로 이사오신 시부모님을 위해 요리를 해준 미국인 아내 과연 맛은?ㅋㅋ","category":"회화","kind":"vlog","duration":725,"order":121,"url":"https://www.youtube.com/watch?v=CDdsw0T_FDE","extracted":false,"sentenceCount":0},{"id":"X-pWhDpuFTQ","title":"(국제커플) 출산예정까지 2주남은 미국인 와이프가 노는법","category":"회화","kind":"vlog","duration":256,"order":122,"url":"https://www.youtube.com/watch?v=X-pWhDpuFTQ","extracted":false,"sentenceCount":0},{"id":"NFAptxDGBoU","title":"(국제커플) 막달 임산부지만 아기같은 미국인아내 노래취향은 K트로트ㅋㅋㅋ","category":"회화","kind":"vlog","duration":205,"order":123,"url":"https://www.youtube.com/watch?v=NFAptxDGBoU","extracted":false,"sentenceCount":0},{"id":"CgQFrVI08lc","title":"(국제커플) 시어머니표 콩국수가 먹고싶은 임산부 미국인ㅋㅋ feat. 출산D-30","category":"회화","kind":"vlog","duration":320,"order":124,"url":"https://www.youtube.com/watch?v=CgQFrVI08lc","extracted":false,"sentenceCount":0},{"id":"OGQVcne7PGY","title":"미국인 임산부를 위해 한국 시어머니가 반찬을 한가득해줬더니ㅋㅋㅋ","category":"회화","kind":"vlog","duration":294,"order":125,"url":"https://www.youtube.com/watch?v=OGQVcne7PGY","extracted":false,"sentenceCount":0},{"id":"sfsmKChm7Wc","title":"(국제커플) 12주만에 아기의 성별을 알아버릴 썰ㅋㅋㅋ","category":"회화","kind":"vlog","duration":289,"order":126,"url":"https://www.youtube.com/watch?v=sfsmKChm7Wc","extracted":false,"sentenceCount":0},{"id":"FfSwxRWP-eg","title":"(국제커플) 미국인 아내가 김치볶음밥을 해준다는데...ㅋㅋㅋ","category":"회화","kind":"vlog","duration":642,"order":127,"url":"https://www.youtube.com/watch?v=FfSwxRWP-eg","extracted":false,"sentenceCount":0},{"id":"-676bwoYUHw","title":"(국제커플) 문경새재 궁전안에서 춤추는 미국인아내 ㅋㅋ 말리는 시어머니ㅋㅋ","category":"회화","kind":"vlog","duration":656,"order":128,"url":"https://www.youtube.com/watch?v=-676bwoYUHw","extracted":false,"sentenceCount":0},{"id":"yIuE0gsuU0k","title":"(국제커플) 한국에 있는 늦둥이딸 임신소식을 알게된 미국부모님 반응","category":"회화","kind":"vlog","duration":342,"order":129,"url":"https://www.youtube.com/watch?v=yIuE0gsuU0k","extracted":false,"sentenceCount":0},{"id":"uwXcVstQ7KU","title":"(국제커플) 미국인아내 한국에서 임신소식.. 정말??한번에???","category":"회화","kind":"vlog","duration":351,"order":130,"url":"https://www.youtube.com/watch?v=uwXcVstQ7KU","extracted":false,"sentenceCount":0},{"id":"hJmS3AJ8L7M","title":"(국제커플) 순대국밥에 진심인 미국인아내 ㅋㅋㅋ","category":"회화","kind":"vlog","duration":660,"order":131,"url":"https://www.youtube.com/watch?v=hJmS3AJ8L7M","extracted":false,"sentenceCount":0},{"id":"zYh8mEIbcxQ","title":"미국인이 아시안게임 한일전 결승을 진심으로 응원하면...","category":"회화","kind":"vlog","duration":499,"order":132,"url":"https://www.youtube.com/watch?v=zYh8mEIbcxQ","extracted":false,"sentenceCount":0},{"id":"zKCTO0fKveM","title":"(국제커플) 민통선에서 시어머님과 미국인 아내의 숨막히는 대결 ｜Korean mother-in-law VS American daughter-in-law","category":"회화","kind":"vlog","duration":602,"order":133,"url":"https://www.youtube.com/watch?v=zKCTO0fKveM","extracted":false,"sentenceCount":0},{"id":"YHwn-0YErbw","title":"(국제커플) 미국인 아내가 의정부 부대찌개를 먹더니...스팸..???!!","category":"회화","kind":"vlog","duration":507,"order":134,"url":"https://www.youtube.com/watch?v=YHwn-0YErbw","extracted":false,"sentenceCount":0},{"id":"tWaUCCUa2ZM","title":"(국제커플) 아시안게임 한국축구중계 해설에 대비한 미국인아내ㅋㅋㅋ","category":"회화","kind":"vlog","duration":740,"order":135,"url":"https://www.youtube.com/watch?v=tWaUCCUa2ZM","extracted":false,"sentenceCount":0},{"id":"W_xz5WGJnxQ","title":"(국제커플) 미국인 아내 닭갈비 먹다가...","category":"회화","kind":"vlog","duration":520,"order":136,"url":"https://www.youtube.com/watch?v=W_xz5WGJnxQ","extracted":false,"sentenceCount":0},{"id":"CLzVGVdG8dE","title":"(국제커플) 미국에서 여유로운 삶을 포기하고 한국에서 사는 이유","category":"회화","kind":"vlog","duration":547,"order":137,"url":"https://www.youtube.com/watch?v=CLzVGVdG8dE","extracted":false,"sentenceCount":0},{"id":"QaxZlyLXTaA","title":"(국제커플) 시아버님 앞에서 춤추는 미국인 아내ㅋㅋㅋ","category":"회화","kind":"vlog","duration":590,"order":138,"url":"https://www.youtube.com/watch?v=QaxZlyLXTaA","extracted":false,"sentenceCount":0},{"id":"v3oo95ab010","title":"아빠한테 개인전용기가 있다고..?ㄷㄷ feat. 한국문화가 부러운 미국아빠","category":"회화","kind":"vlog","duration":422,"order":139,"url":"https://www.youtube.com/watch?v=v3oo95ab010","extracted":false,"sentenceCount":0},{"id":"XojsI3q1JGQ","title":"한국남자들에게 미네소타가 천국인 이유ㅋㅋ (feat. 5세조카 저 기억나요?!!)","category":"회화","kind":"vlog","duration":370,"order":140,"url":"https://www.youtube.com/watch?v=XojsI3q1JGQ","extracted":false,"sentenceCount":0},{"id":"loA4VYo5fpE","title":"'러시아' 사람이 만든 '미국' 길거리마켓에서 파는 '한국'김치ㅋㅋ 무슨조합이지..?ㅋㅋ","category":"회화","kind":"vlog","duration":250,"order":141,"url":"https://www.youtube.com/watch?v=loA4VYo5fpE","extracted":false,"sentenceCount":0},{"id":"5CTVdZ2bxf4","title":"한국과자를 처음먹어본 미국인 조카들의 반응ㅋㅋ 실감나는 요즘 한국 인기 한국산다고하면 친구들 반응이...","category":"회화","kind":"vlog","duration":339,"order":142,"url":"https://www.youtube.com/watch?v=5CTVdZ2bxf4","extracted":false,"sentenceCount":0},{"id":"WtDZ5GMgEAo","title":"미국인 아내가 3년만에 떠났습니다... 미네소타가 남자들의 로망인 이유 1","category":"회화","kind":"vlog","duration":288,"order":143,"url":"https://www.youtube.com/watch?v=WtDZ5GMgEAo","extracted":false,"sentenceCount":0},{"id":"VQNKLu-mvaY","title":"미국인 아내와 동해바다여행. 남편보다 시어머니와 여행 가고픈 이유ㅋㅋ","category":"회화","kind":"vlog","duration":970,"order":144,"url":"https://www.youtube.com/watch?v=VQNKLu-mvaY","extracted":false,"sentenceCount":0},{"id":"g9hyXAS74j4","title":"경상도 시어머니와 사투리로 대화하는 미국인아내ㅋㅋㅋ","category":"회화","kind":"vlog","duration":220,"order":145,"url":"https://www.youtube.com/watch?v=g9hyXAS74j4","extracted":false,"sentenceCount":0},{"id":"WmxwCdS4bzg","title":"미국인 아내의 김치찌개요리 첫 도전기","category":"회화","kind":"vlog","duration":267,"order":146,"url":"https://www.youtube.com/watch?v=WmxwCdS4bzg","extracted":false,"sentenceCount":0},{"id":"HqA_rRggwX0","title":"(국제커플) 명품가방 필요없고 스티커가 좋다는 미국인 아내ㅋㅋ","category":"회화","kind":"vlog","duration":66,"order":147,"url":"https://www.youtube.com/watch?v=HqA_rRggwX0","extracted":false,"sentenceCount":0}]}</script>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+/* =====================================================================
+   아메리코리아노 5회 반복 트레이너
+   - 5개 카테고리 + 🔥 Hard 복습 (localStorage)
+   - 유튜브 구간 5회 반복 / TTS 3·5·10·∞ + 속도 5단계 + 4개 억양
+   ===================================================================== */
+const LS = {
+  hard: 'amekorean_hard_ids',
+  custom: 'amekorean_custom_sentences',
+  cat: 'amekorean_last_category',
+  speed: 'amekorean_speed',
+  accent: 'amekorean_accent',
+  ttsCount: 'amekorean_tts_count'
+};
+const CATS = ['회화', '패턴', '문법', '전치사', '동사'];
+
+const state = {
+  data: null,
+  videos: {},        // video_id -> {id,title,category,sentences[]}
+  allVideos: [],
+  custom: [],
+  hardIds: new Set(),
+  category: '회화',
+  flat: [],
+  index: 0,
+  speed: 1.0,
+  accent: 'en-US',
+  ttsCount: 5,
+  player: null,
+  playerReady: false,
+  timer: null,
+  speaking: false,
+  repeat: 0,
+  running: false,
+  view: 'learn',
+  catalogFilter: 'all'
+};
+
+/* ---------------- 저장소 ---------------- */
+function readJSON(key, fallback) {
+  try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+  catch (e) { return fallback; }
+}
+function writeJSON(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+
+/* ---------------- 데이터 로드 ---------------- */
+async function loadData() {
+  let base = null;
+  try { base = JSON.parse(document.getElementById('bootstrap-data').textContent); } catch (e) {}
+  // http(s)로 열렸다면 data.json 이 더 최신일 수 있으니 시도 (실패하면 인라인 사용)
+  try {
+    if (location.protocol.startsWith('http')) {
+      const res = await fetch('./data.json', { cache: 'no-store' });
+      if (res.ok) { const j = await res.json(); if (j && j.videos) base = j; }
+    }
+  } catch (e) {}
+  if (!base) base = { videos: {}, allVideos: [], categories: CATS };
+
+  state.data = base;
+  state.videos = {};
+  Object.keys(base.videos || {}).forEach(id => {
+    const v = base.videos[id];
+    state.videos[id] = {
+      id: id,
+      title: v.title || '',
+      category: v.category || '회화',
+      sentences: (v.sentences || []).map((s, i) => ({
+        id: s.id || (id + '_' + (i + 1)),
+        en: s.en, ko: s.ko || '',
+        start: Number(s.start || 0),
+        end: Number(s.end || (Number(s.start || 0) + 4))
+      }))
+    };
+  });
+  state.allVideos = base.allVideos || [];
+
+  state.hardIds = new Set(readJSON(LS.hard, []));
+  state.custom = readJSON(LS.custom, []);
+  state.speed = Number(localStorage.getItem(LS.speed) || 1.0);
+  state.accent = localStorage.getItem(LS.accent) || 'en-US';
+  state.ttsCount = Number(localStorage.getItem(LS.ttsCount) || 5);
+
+  buildTabs();
+  syncOptionChips();
+  const savedCat = localStorage.getItem(LS.cat);
+  selectCategory(CATS.includes(savedCat) ? savedCat : '회화');
+  updateProgressBadge();
+}
+
+/* ---------------- 탭 ---------------- */
+function buildTabs() {
+  const el = document.getElementById('tabs');
+  const counts = categoryCounts();
+  let html = `<button class="tab-btn hard" data-cat="HARD">🔥 Hard<span class="cnt" id="hard-count">${state.hardIds.size}</span></button>`;
+  CATS.forEach(c => {
+    html += `<button class="tab-btn cat-tab" data-cat="${c}">${c}<span class="cnt">${counts[c] || 0}</span></button>`;
+  });
+  html += `<button class="tab-btn" data-cat="ALL">📚 전체<span class="cnt">${state.allVideos.length}</span></button>`;
+  el.innerHTML = html;
+  el.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const c = btn.dataset.cat;
+      if (c === 'ALL') { showCatalog(); return; }
+      showLearn();
+      selectCategory(c);
+    });
+  });
+}
+
+function categoryCounts() {
+  const out = {};
+  CATS.forEach(c => out[c] = 0);
+  Object.values(state.videos).forEach(v => {
+    if (out[v.category] == null) out[v.category] = 0;
+    out[v.category] += v.sentences.length;
+  });
+  state.custom.forEach(s => { out[s.category] = (out[s.category] || 0) + 1; });
+  return out;
+}
+
+function showLearn() {
+  state.view = 'learn';
+  document.getElementById('learn-view').classList.remove('hide');
+  document.getElementById('catalog-view').classList.remove('show');
+}
+function showCatalog() {
+  state.view = 'catalog';
+  stopAll(false);
+  document.getElementById('learn-view').classList.add('hide');
+  document.getElementById('catalog-view').classList.add('show');
+  buildCatalogFilters();
+  renderCatalog();
+  setActiveTab('ALL');
+}
+
+function setActiveTab(cat) {
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    const on = b.dataset.cat === String(cat);
+    b.classList.toggle('active', on);
+    if (on && b.scrollIntoView) {
+      try { b.scrollIntoView({ inline: 'center', block: 'nearest' }); } catch (e) {}
+    }
+  });
+}
+
+/* ---------------- 카테고리 선택 ---------------- */
+function selectCategory(cat) {
+  stopAll(false);
+  state.category = cat;
+  localStorage.setItem(LS.cat, cat);
+  setActiveTab(cat === 'HARD' ? 'HARD' : cat);
+  showLearn();
+  buildFlat();
+  state.index = 0;
+  renderList();
+  loadSentence(0);
+  updateProgressBadge();
+}
+
+function buildFlat() {
+  const out = [];
+  if (state.category === 'HARD') {
+    Object.values(state.videos).forEach(v => {
+      v.sentences.forEach(s => {
+        if (state.hardIds.has(s.id)) out.push({ ...s, video_id: v.id, video_title: v.title, group: v.category });
+      });
+    });
+    state.custom.forEach(s => {
+      if (state.hardIds.has(s.id)) out.push({ ...s, video_id: s.video_id || '', video_title: '내가 추가한 문장', group: s.category });
+    });
+  } else {
+    // 내 문장 먼저
+    state.custom.filter(s => s.category === state.category).forEach(s => {
+      out.push({ ...s, video_id: s.video_id || '', video_title: '✏️ 내가 추가한 문장' });
+    });
+    Object.values(state.videos).forEach(v => {
+      if (v.category !== state.category) return;
+      v.sentences.forEach(s => out.push({ ...s, video_id: v.id, video_title: v.title }));
+    });
+  }
+  state.flat = out;
+}
+
+/* ---------------- 목록/현재 문장 ---------------- */
+function renderList() {
+  const listEl = document.getElementById('sentence-list');
+  const header = document.getElementById('list-header');
+  const sub = document.getElementById('list-sub');
+  const label = state.category === 'HARD' ? '🔥 Hard 복습 문장' : state.category + ' 학습 문장';
+  header.textContent = `${label} (${state.flat.length}개)`;
+  sub.textContent = state.flat.length ? `${state.index + 1} / ${state.flat.length}` : '';
+
+  if (!state.flat.length) {
+    listEl.innerHTML = `<div class="empty">${state.category === 'HARD'
+      ? '아직 어려움 체크한 문장이 없어요.<br>학습 중 <b>☆ 어려움 체크</b>를 눌러 모아 보세요.'
+      : '이 탭에는 아직 문장이 없습니다.<br><b>📚 전체 영상</b>에서 다른 영상을 열거나, <b>＋ 내 문장</b>으로 추가하세요.'}</div>`;
+    return;
+  }
+  listEl.innerHTML = state.flat.map((s, idx) => `
+    <div class="sentence-item ${idx === state.index ? 'active' : ''}" onclick="loadSentence(${idx})">
+      <div class="item-text">
+        <div class="item-en">${idx + 1}. ${escapeHtml(s.en)}</div>
+        <div class="item-sub">${escapeHtml(s.ko || s.video_title || '')}</div>
+      </div>
+      <button class="star-btn ${state.hardIds.has(s.id) ? 'saved' : ''}"
+        onclick="event.stopPropagation(); toggleHardById('${s.id}')"
+        aria-label="어려움 체크">${state.hardIds.has(s.id) ? '★' : '☆'}</button>
+    </div>`).join('');
+}
+
+function loadSentence(idx) {
+  stopAll(false, true);
+  if (!state.flat.length) {
+    document.getElementById('current-video-title').textContent = '학습할 문장이 없습니다';
+    document.getElementById('current-en').textContent = '—';
+    document.getElementById('current-ko').textContent = '';
+    document.getElementById('current-video-link').style.display = 'none';
+    return;
+  }
+  state.index = ((idx % state.flat.length) + state.flat.length) % state.flat.length;
+  const item = state.flat[state.index];
+  document.getElementById('current-video-title').textContent = '📺 ' + (item.video_title || '내 문장');
+  const link = document.getElementById('current-video-link');
+  if (item.video_id) {
+    link.style.display = '';
+    link.href = 'https://www.youtube.com/watch?v=' + item.video_id + '&t=' + Math.max(0, item.start - 2) + 's';
+  } else {
+    link.style.display = 'none';
+  }
+  document.getElementById('current-en').textContent = item.en;
+  document.getElementById('current-ko').textContent = item.ko || '';
+  updateDots(0, '대기 중');
+  updateHardBtn();
+  renderList();
+  updateProgressBadge();
+
+  if (state.playerReady && item.video_id) {
+    try { state.player.cueVideoById({ videoId: item.video_id, startSeconds: item.start }); } catch (e) {}
+  }
+  // 플레이어가 같은 영상이면 미리 seek
+  if (state.playerReady && item.video_id) {
+    const cover = document.getElementById('player-cover');
+    if (cover) cover.classList.add('hidden');
+  }
+}
+
+function nextSentence() {
+  if (!state.flat.length) return;
+  loadSentence(state.index + 1);
+}
+function prevSentence() {
+  if (!state.flat.length) return;
+  loadSentence(state.index - 1);
+}
+
+/* ---------------- 어려움 ---------------- */
+function toggleCurrentHard() {
+  const item = state.flat[state.index];
+  if (!item) return;
+  toggleHardById(item.id);
+}
+function toggleHardById(id) {
+  if (state.hardIds.has(id)) state.hardIds.delete(id); else state.hardIds.add(id);
+  writeJSON(LS.hard, [...state.hardIds]);
+  const hc = document.getElementById('hard-count');
+  if (hc) hc.textContent = state.hardIds.size;
+  updateHardBtn();
+  if (state.category === 'HARD') { buildFlat(); state.index = Math.min(state.index, Math.max(0, state.flat.length - 1)); loadSentence(state.index); }
+  else renderList();
+  updateProgressBadge();
+}
+function updateHardBtn() {
+  const item = state.flat[state.index];
+  const btn = document.getElementById('toggle-hard-btn');
+  if (!btn) return;
+  if (item && state.hardIds.has(item.id)) {
+    btn.classList.add('saved'); btn.textContent = '★ 어려움 저장됨';
+  } else {
+    btn.classList.remove('saved'); btn.textContent = '☆ 어려움 체크';
+  }
+}
+
+/* ---------------- 유튜브 플레이어 ---------------- */
+function onYouTubeIframeAPIReady() {
+  const first = state.flat[state.index];
+  state.player = new YT.Player('yt-player', {
+    height: '100%', width: '100%',
+    videoId: (first && first.video_id) || 'aIF0l4RD6F8',
+    playerVars: { playsinline: 1, rel: 0, modestbranding: 1, origin: location.origin === 'null' ? undefined : location.origin },
+    events: {
+      onReady: () => {
+        state.playerReady = true;
+        try { state.player.setPlaybackRate(state.speed); } catch (e) {}
+        document.getElementById('player-cover').classList.add('hidden');
+        // API 준비 전에 누른 재생 요청이 있으면 이어서
+        if (state.pendingPlay) { const p = state.pendingPlay; state.pendingPlay = null; doVideoRepeat(p); }
+      },
+      onError: () => { /* 영상 재생 불가 시 문구 유지 */ }
+    }
+  });
+}
+
+/* ---------------- 영상 구간 5회 ---------------- */
+const MAX_REPEAT = 5;
+function startVideo5x() {
+  const item = state.flat[state.index];
+  if (!item) return;
+  if (!item.video_id) { toast('영상 ID가 없어요. TTS로 연습해 보세요.'); startTTS(); return; }
+  stopAll(false, true);
+  state.running = 'video';
+  document.body.classList.add('looping');
+  document.getElementById('btn-video5x').classList.add('playing');
+  state.repeat = 1;
+  if (!state.playerReady) { state.pendingPlay = item; updateDots(1, '플레이어 준비 중…'); return; }
+  doVideoRepeat(item);
+}
+
+function doVideoRepeat(item) {
+  const p = state.player;
+  if (!p) return;
+  const start = Math.max(0, Number(item.start) || 0);
+  const end = Math.max(start + 1.2, Number(item.end) || (start + 4));
+  updateDots(state.repeat, `🎧 ${state.repeat}/${MAX_REPEAT} 듣는 중`);
+  try {
+    p.loadVideoById({ videoId: item.video_id, startSeconds: start, endSeconds: end });
+    p.setPlaybackRate(state.speed);
+    p.playVideo();
+  } catch (e) {}
+
+  clearInterval(state.timer);
+  const deadline = Date.now() + ((end - start) / state.speed) * 1000 + 900;
+  state.timer = setInterval(() => {
+    if (state.running !== 'video') { clearInterval(state.timer); return; }
+    let t = 0;
+    try { t = p.getCurrentTime(); } catch (e) { t = end; }
+    const over = t >= end - 0.12 || Date.now() > deadline;
+    if (over) {
+      clearInterval(state.timer);
+      try { p.pauseVideo(); } catch (e) {}
+      if (state.repeat >= MAX_REPEAT) {
+        updateDots(MAX_REPEAT, '✅ 5회 완료');
+        finishRun();
+        return;
+      }
+      updateDots(state.repeat, `🗣️ ${state.repeat}회차 — 따라 말해요`);
+      state.repeat += 1;
+      state.timer = setTimeout(() => {
+        if (state.running === 'video') {
+          try { p.seekTo(start, true); } catch (e) {}
+          doVideoRepeat(item);
+        }
+      }, 2300);
+    }
+  }, 180);
+}
+
+/* ---------------- TTS 반복 ---------------- */
+function startTTS() {
+  const item = state.flat[state.index];
+  if (!item) return;
+  stopAll(false, true);
+  state.running = 'tts';
+  document.body.classList.add('looping');
+  state.repeat = 1;
+  document.getElementById('btn-tts').classList.add('playing');
+  speakOnce(item);
+}
+
+function speakOnce(item) {
+  if (state.running !== 'tts') return;
+  const total = state.ttsCount; // 0 = ∞
+  const label = total === 0 ? '∞' : total;
+  updateDots(total === 0 ? Math.min(state.repeat, 5) : state.repeat, `🔊 ${total === 0 ? '' : state.repeat + '/' + label + ' '}듣는 중`);
+  const u = new SpeechSynthesisUtterance(item.en);
+  u.lang = state.accent;
+  u.rate = state.speed;
+  u.pitch = 1;
+  const v = pickVoice(state.accent);
+  if (v) u.voice = v;
+  u.onend = () => {
+    if (state.running !== 'tts') return;
+    if (total !== 0 && state.repeat >= total) { updateDots(5, '✅ 반복 완료'); finishRun(); return; }
+    updateDots(total === 0 ? Math.min(state.repeat, 5) : state.repeat, `🗣️ 따라 말해요`);
+    state.repeat += 1;
+    state.timer = setTimeout(() => speakOnce(item), 1700);
+  };
+  u.onerror = () => { if (state.running === 'tts') finishRun(); };
+  try { speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) { finishRun(); }
+}
+
+let voiceCache = null;
+function pickVoice(lang) {
+  if (!('speechSynthesis' in window)) return null;
+  if (!voiceCache) voiceCache = speechSynthesis.getVoices() || [];
+  let list = voiceCache.filter(v => v.lang && v.lang.toLowerCase() === lang.toLowerCase());
+  if (!list.length) list = voiceCache.filter(v => v.lang && v.lang.toLowerCase().startsWith(lang.slice(0, 2)));
+  if (!list.length) list = voiceCache.filter(v => v.lang && v.lang.toLowerCase().startsWith('en'));
+  return list[0] || null;
+}
+if ('speechSynthesis' in window) {
+  speechSynthesis.onvoiceschanged = () => { voiceCache = speechSynthesis.getVoices(); };
+}
+
+/* ---------------- 정지/완료 ---------------- */
+function finishRun() {
+  state.running = false;
+  document.body.classList.remove('looping');
+  document.getElementById('btn-video5x').classList.remove('playing');
+  document.getElementById('btn-tts').classList.remove('playing');
+}
+function stopAll(showMsg, silent) {
+  clearInterval(state.timer);
+  clearTimeout(state.timer);
+  state.timer = null;
+  state.running = false;
+  document.body.classList.remove('looping');
+  state.pendingPlay = null;
+  try { speechSynthesis.cancel(); } catch (e) {}
+  if (state.playerReady && state.player && state.player.pauseVideo) {
+    try { state.player.pauseVideo(); } catch (e) {}
+  }
+  const b1 = document.getElementById('btn-video5x');
+  const b2 = document.getElementById('btn-tts');
+  if (b1) b1.classList.remove('playing');
+  if (b2) b2.classList.remove('playing');
+  if (!silent) updateDots(0, showMsg ? '⏹️ 멈춤' : '대기 중');
+}
+
+function updateDots(step, text) {
+  document.getElementById('repeat-status').textContent = text || '대기 중';
+  const dots = document.querySelectorAll('#repeat-dots .dot');
+  dots.forEach((d, i) => {
+    d.classList.remove('done', 'current');
+    if (step >= 999) { d.classList.add('done'); return; }
+    if (i + 1 < step) d.classList.add('done');
+    else if (i + 1 === step) d.classList.add('current');
+  });
+  if (step >= 5 && /완료/.test(text || '')) dots.forEach(d => { d.classList.add('done'); });
+}
+
+/* ---------------- 옵션 칩 ---------------- */
+function syncOptionChips() {
+  document.querySelectorAll('#speed-chips .chip').forEach(c => {
+    c.classList.toggle('active', Number(c.dataset.s) === state.speed);
+  });
+  document.querySelectorAll('#accent-chips .chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.a === state.accent);
+  });
+  document.querySelectorAll('#tts-count-chips .chip').forEach(c => {
+    c.classList.toggle('active', Number(c.dataset.n) === state.ttsCount);
+  });
+  const lbl = document.getElementById('tts-count-label');
+  if (lbl) lbl.textContent = state.ttsCount === 0 ? '∞' : state.ttsCount;
+}
+
+document.addEventListener('click', (e) => {
+  const chip = e.target.closest('.chip');
+  if (!chip) return;
+  if (chip.dataset.s) {
+    state.speed = Number(chip.dataset.s);
+    localStorage.setItem(LS.speed, String(state.speed));
+    if (state.playerReady) { try { state.player.setPlaybackRate(state.speed); } catch (e) {} }
+    toast('속도 ' + state.speed.toFixed(1) + 'x');
+  } else if (chip.dataset.a) {
+    state.accent = chip.dataset.a;
+    localStorage.setItem(LS.accent, state.accent);
+    toast('TTS 억양 ' + chip.textContent.trim());
+  } else if (chip.dataset.n !== undefined) {
+    state.ttsCount = Number(chip.dataset.n);
+    localStorage.setItem(LS.ttsCount, String(state.ttsCount));
+    toast('음성 반복 ' + (state.ttsCount === 0 ? '무한' : state.ttsCount + '회'));
+  }
+  syncOptionChips();
+});
+
+/* ---------------- 전체 영상 카탈로그 ---------------- */
+function buildCatalogFilters() {
+  const el = document.getElementById('cat-filters');
+  const opts = [
+    ['all', '전체'], ['done', '✅ 추출 완료'], ['todo', '⏳ 미추출'],
+    ['lesson', '📘 학습 영상'], ['vlog', '🏠 일상 브이로그'],
+    ...CATS.map(c => ['cat:' + c, c])
+  ];
+  el.innerHTML = opts.map(([k, label]) =>
+    `<button class="chip ${state.catalogFilter === k ? 'active' : ''}" data-f="${k}">${label}</button>`).join('');
+  el.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+    state.catalogFilter = b.dataset.f;
+    buildCatalogFilters(); renderCatalog();
+  }));
+}
+
+function renderCatalog() {
+  const q = (document.getElementById('cat-search').value || '').trim().toLowerCase();
+  let list = state.allVideos.slice();
+  const f = state.catalogFilter;
+  if (f === 'done') list = list.filter(v => v.extracted);
+  else if (f === 'todo') list = list.filter(v => !v.extracted);
+  else if (f === 'lesson') list = list.filter(v => v.kind === 'lesson');
+  else if (f === 'vlog') list = list.filter(v => v.kind === 'vlog');
+  else if (f.startsWith('cat:')) list = list.filter(v => v.category === f.slice(4));
+  if (q) list = list.filter(v => (v.title || '').toLowerCase().includes(q));
+
+  const el = document.getElementById('catalog-list');
+  if (!list.length) { el.innerHTML = '<div class="empty">조건에 맞는 영상이 없습니다.</div>'; return; }
+  el.innerHTML = list.map(v => `
+    <div class="vid-row ${v.extracted ? 'done' : ''}" onclick="catalogTap('${v.id}')">
+      <div class="num">${v.order || ''}</div>
+      <div class="body">
+        <div class="t">${escapeHtml(v.title)}</div>
+        <div class="meta">
+          <span class="pill">#${v.category}</span>
+          ${v.kind === 'vlog' ? '<span class="pill vlog">일상</span>' : ''}
+          ${v.extracted ? `<span class="pill ok">✅ ${v.sentenceCount}문장</span>` : '<span class="pill wait">⏳ 미추출</span>'}
+          ${v.duration ? `<span>${fmtDur(v.duration)}</span>` : ''}
+        </div>
+      </div>
+      <div style="font-size:16px;color:#475569">›</div>
+    </div>`).join('');
+}
+
+function catalogTap(id) {
+  const v = state.allVideos.find(x => x.id === id);
+  if (!v) return;
+  if (state.videos[id] && state.videos[id].sentences.length) {
+    showLearn();
+    selectCategory(state.videos[id].category);
+    const idx = state.flat.findIndex(s => s.video_id === id);
+    if (idx >= 0) loadSentence(idx);
+    toast('✅ ' + state.videos[id].sentences.length + '문장으로 시작합니다');
+  } else {
+    window.open('https://www.youtube.com/watch?v=' + id, '_blank', 'noopener');
+    toast('유튜브로 열었어요. 문장 추출은 Jian에게 요청!');
+  }
+}
+
+/* ---------------- 모달 ---------------- */
+function openModal(kind) {
+  if (kind === 'data') {
+    document.getElementById('data-summary').innerHTML =
+      `어려움 체크: <b>${state.hardIds.size}</b>개<br>내 문장: <b>${state.custom.length}</b>개<br>` +
+      `추출된 영상: <b>${Object.keys(state.videos).length}</b>개 / 전체 ${state.allVideos.length}개`;
+  }
+  if (kind === 'json') document.getElementById('json-text').value = '';
+  document.getElementById('modal-' + kind).classList.add('show');
+}
+function closeModal(kind) { document.getElementById('modal-' + kind).classList.remove('show'); }
+
+function saveCustomSentence() {
+  const en = document.getElementById('add-en').value.trim();
+  const ko = document.getElementById('add-ko').value.trim();
+  if (!en) { toast('영어 문장을 입력해 주세요'); return; }
+  const start = Number(document.getElementById('add-start').value || 0);
+  const end = Number(document.getElementById('add-end').value || (start + 5));
+  const rec = {
+    id: 'custom_' + Date.now(),
+    en: en, ko: ko,
+    category: document.getElementById('add-cat').value,
+    video_id: document.getElementById('add-vid').value.trim(),
+    start: start, end: end
+  };
+  state.custom.push(rec);
+  writeJSON(LS.custom, state.custom);
+  document.getElementById('add-en').value = '';
+  document.getElementById('add-ko').value = '';
+  document.getElementById('add-vid').value = '';
+  document.getElementById('add-start').value = '';
+  document.getElementById('add-end').value = '';
+  closeModal('add');
+  buildTabs();
+  selectCategory(rec.category);
+  toast('내 문장에 추가했어요');
+}
+
+function loadJsonFile(input) {
+  const f = input.files && input.files[0];
+  if (!f) return;
+  const r = new FileReader();
+  r.onload = () => { document.getElementById('json-text').value = r.result; toast('파일을 읽었어요. ‘불러오기’를 누르세요'); };
+  r.readAsText(f);
+}
+
+function importJsonText() {
+  const txt = document.getElementById('json-text').value.trim();
+  if (!txt) { toast('JSON을 붙여넣어 주세요'); return; }
+  let obj;
+  try { obj = JSON.parse(txt); } catch (e) { toast('JSON 형식이 올바르지 않아요'); return; }
+  let added = 0;
+  const src = obj.videos || obj;
+  Object.keys(src).forEach(id => {
+    const v = src[id];
+    if (!v || !Array.isArray(v.sentences)) return;
+    const cat = CATS.includes(v.category) ? v.category : '회화';
+    state.videos[id] = {
+      id: id, title: v.title || id, category: cat,
+      sentences: v.sentences.map((s, i) => ({
+        id: s.id || (id + '_' + (i + 1)),
+        en: s.en, ko: s.ko || '',
+        start: Number(s.start || 0), end: Number(s.end || (Number(s.start || 0) + 4))
+      })).filter(s => s.en)
+    };
+    added += state.videos[id].sentences.length;
+    const meta = state.allVideos.find(a => a.id === id);
+    if (meta) { meta.extracted = true; meta.sentenceCount = state.videos[id].sentences.length; }
+  });
+  buildTabs();
+  selectCategory(state.category);
+  closeModal('json');
+  toast(added ? added + '문장을 불러왔어요' : '새 문장이 없었어요');
+}
+
+function exportData() {
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    hardIds: [...state.hardIds],
+    custom: state.custom,
+    settings: { speed: state.speed, accent: state.accent, ttsCount: state.ttsCount }
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 1)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'amekorean-my-learning.json';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+  toast('내려받기 시작');
+}
+
+function resetProgress() {
+  if (!confirm('어려움 체크를 모두 지울까요? (내 문장은 그대로 둡니다)')) return;
+  state.hardIds = new Set();
+  writeJSON(LS.hard, []);
+  const hc = document.getElementById('hard-count');
+  if (hc) hc.textContent = '0';
+  buildFlat(); state.index = 0; renderList(); loadSentence(0);
+  closeModal('data');
+  toast('초기화했어요');
+}
+
+/* ---------------- 유틸 ---------------- */
+function updateProgressBadge() {
+  const total = Object.values(state.videos).reduce((n, v) => n + v.sentences.length, 0) + state.custom.length;
+  const badge = document.getElementById('progress-badge');
+  if (!badge) return;
+  badge.textContent = `${state.flat.length}문장 · ★${state.hardIds.size}`;
+  badge.classList.toggle('warm', state.category === 'HARD');
+  if (state.category !== 'HARD') badge.textContent = `${state.flat.length}문장 · ★${state.hardIds.size}`;
+}
+function escapeHtml(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function fmtDur(sec) {
+  sec = Number(sec) || 0;
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return m + ':' + String(s).padStart(2, '0');
+}
+let toastTimer = null;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 1900);
+}
+
+/* ---------------- 시작 ---------------- */
+document.addEventListener('keydown', (e) => {
+  if (e.target.matches('input,textarea,select')) return;
+  if (e.key === 'ArrowRight') nextSentence();
+  if (e.key === 'ArrowLeft') prevSentence();
+  if (e.key === ' ') { e.preventDefault(); startVideo5x(); }
+  if (e.key === 'Escape') stopAll(true);
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopAll(false, true);
+});
+loadData();
+</script>
+</body>
+</html>
