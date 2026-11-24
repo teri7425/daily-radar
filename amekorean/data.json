@@ -26,161 +26,207 @@
      "en": "Time to get up.",
      "ko": "일어날 시간이야.",
      "start": 75,
-     "end": 82
+     "end": 82,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_2",
      "en": "My alarm didn't go off.",
      "ko": "알람이 안 울렸어.",
      "start": 82,
-     "end": 91
+     "end": 91,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_3",
      "en": "I need a few more minutes.",
      "ko": "5분만 더 잘래.",
      "start": 91,
-     "end": 98
+     "end": 98,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_4",
      "en": "I slept terribly last night.",
      "ko": "어젯밤에 잠을 완전 설쳤어.",
      "start": 108,
-     "end": 112
+     "end": 112,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_5",
      "en": "Did you sleep well?",
      "ko": "잘 잤어?",
      "start": 112,
-     "end": 121
+     "end": 121,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_6",
      "en": "Make your bed.",
      "ko": "이불 정리해라.",
      "start": 138,
-     "end": 145
+     "end": 145,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_7",
      "en": "I'm gonna use the bathroom.",
      "ko": "화장실 좀 갈게.",
      "start": 145,
-     "end": 153
+     "end": 153,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_8",
      "en": "I'm gonna jump in the shower.",
      "ko": "나 후딱 샤워하고 올게.",
      "start": 157,
-     "end": 165
+     "end": 165,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_9",
      "en": "Can you hand me a towel?",
      "ko": "수건 좀 건네줄래?",
      "start": 173,
-     "end": 176
+     "end": 176,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_10",
      "en": "I'm drying my hair.",
      "ko": "머리 말리는 중이야.",
      "start": 176,
-     "end": 185
+     "end": 185,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_11",
      "en": "I have nothing to wear.",
      "ko": "입을 옷이 하나도 없네.",
      "start": 190,
-     "end": 196
+     "end": 196,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_12",
      "en": "I'm running late.",
      "ko": "나 늦었어.",
      "start": 210,
-     "end": 218
+     "end": 218,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_13",
      "en": "Hurry up, we gotta go.",
      "ko": "빨리 가야 돼.",
      "start": 218,
-     "end": 226
+     "end": 226,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_14",
      "en": "Did you make coffee?",
      "ko": "커피 내렸어?",
      "start": 226,
-     "end": 235
+     "end": 235,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_15",
      "en": "I desperately need coffee.",
      "ko": "커피가 완전 간절해.",
      "start": 243,
-     "end": 250
+     "end": 250,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_16",
      "en": "I'm just gonna grab a protein bar.",
      "ko": "난 그냥 프로틴바 하나 챙겨갈게.",
      "start": 277,
-     "end": 281
+     "end": 281,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_17",
      "en": "Have you seen my keys?",
      "ko": "내 열쇠 봤어?",
      "start": 288,
-     "end": 294
+     "end": 294,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_18",
      "en": "I can't find my phone.",
      "ko": "핸드폰을 못 찾겠어.",
      "start": 303,
-     "end": 309
+     "end": 309,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_19",
      "en": "Do you have my charger?",
      "ko": "내 충전기 가지고 있어?",
      "start": 313,
-     "end": 319
+     "end": 319,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_20",
      "en": "Grab a jacket, it's freezing out.",
      "ko": "겉옷 챙겨, 밖에 엄청 추워.",
      "start": 325,
-     "end": 329
+     "end": 329,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_21",
      "en": "Are you ready to go?",
      "ko": "갈 준비 다 됐어?",
      "start": 338,
-     "end": 345
+     "end": 345,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_22",
      "en": "Let's head out.",
      "ko": "나가자.",
      "start": 345,
-     "end": 352
+     "end": 352,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "aIF0l4RD6F8_23",
      "en": "Text me when you get there.",
      "ko": "도착하면 문자해.",
      "start": 357,
-     "end": 360
+     "end": 360,
+     "explainStart": null,
+     "explainEnd": null
     }
    ]
   },
@@ -196,203 +242,261 @@
      "en": "I'm busy with a project at work.",
      "ko": "뭐 하느라 바빠 — 일 때문에 프로젝트하느라 바빠.",
      "start": 115,
-     "end": 124
+     "end": 124,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_2",
      "en": "I'm okay with anything.",
      "ko": "난 뭐든 괜찮아, 상관 없어.",
      "start": 124,
-     "end": 136
+     "end": 136,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_3",
      "en": "I'm done with you.",
      "ko": "끝났어 — 너랑은 끝이야.",
      "start": 139,
-     "end": 148
+     "end": 148,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_4",
      "en": "I'm worried about my husband.",
      "ko": "뭐가 걱정돼 — 남편이 걱정돼.",
      "start": 151,
-     "end": 155
+     "end": 155,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_5",
      "en": "I'm here to see you.",
      "ko": "뭐 하러 왔어 — 너 보러 왔어.",
      "start": 161,
-     "end": 168
+     "end": 168,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_6",
      "en": "I'm about to cry.",
      "ko": "막 ~하려던 참이야 — 막 울 것 같아.",
      "start": 173,
-     "end": 181
+     "end": 181,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_7",
      "en": "I'm looking for my phone.",
      "ko": "뭐 찾고 있어 — 핸드폰 찾고 있어.",
      "start": 181,
-     "end": 189
+     "end": 189,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_8",
      "en": "I'm working on it.",
      "ko": "뭐 하는 중이야 — 하고 있어.",
      "start": 204,
-     "end": 211
+     "end": 211,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_9",
      "en": "I'm looking forward to the party.",
      "ko": "뭐 기대하고 있어 — 파티가 너무 기대돼.",
      "start": 213,
-     "end": 222
+     "end": 222,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_10",
      "en": "I'm trying to understand.",
      "ko": "~하려고 노력 중이야 — 이해하려고 하는 중이야.",
      "start": 235,
-     "end": 238
+     "end": 238,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_11",
      "en": "I'm trying to see the Aurora.",
      "ko": "오로라를 보려고 하는 중이야.",
      "start": 250,
-     "end": 254
+     "end": 254,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_12",
      "en": "I'm thinking about you.",
      "ko": "~에 대해 생각 중이야 — 너 생각 중이야.",
      "start": 254,
-     "end": 264
+     "end": 264,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_13",
      "en": "I'm gonna go hungry then.",
      "ko": "그럼 나 배고프게 될 거야.",
      "start": 273,
-     "end": 283
+     "end": 283,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_14",
      "en": "I don't think I'll go today.",
      "ko": "오늘은 안 갈 것 같아.",
      "start": 283,
-     "end": 290
+     "end": 290,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_15",
      "en": "I like your outfit.",
      "ko": "뭐가 마음에 들어 — 오늘 옷 마음에 들어.",
      "start": 306,
-     "end": 314
+     "end": 314,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_16",
      "en": "I like watching TV.",
      "ko": "~하는 걸 좋아해 — TV 보는 걸 좋아해.",
      "start": 317,
-     "end": 326
+     "end": 326,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_17",
      "en": "I have trouble remembering.",
      "ko": "~하는 데 어려움이 있어 — 기억하는 게 힘들어.",
      "start": 333,
-     "end": 342
+     "end": 342,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_18",
      "en": "Make sure to take your medicine.",
      "ko": "꼭 ~해 — 약 꼭 챙겨 먹어.",
      "start": 350,
-     "end": 358
+     "end": 358,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_19",
      "en": "Let's go for a walk.",
      "ko": "~하자 — 산책 가자.",
      "start": 358,
-     "end": 368
+     "end": 368,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_20",
      "en": "I feel like dancing.",
      "ko": "~하고 싶어 — 춤추고 싶어.",
      "start": 368,
-     "end": 376
+     "end": 376,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_21",
      "en": "I don't feel like going out today.",
      "ko": "~하고 싶지 않아 — 오늘은 나가기 싫어.",
      "start": 382,
-     "end": 390
+     "end": 390,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_22",
      "en": "Feel free to open the window if you're hot.",
      "ko": "편하게 ~해 — 더우면 창문 열어도 돼.",
      "start": 394,
-     "end": 403
+     "end": 403,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_23",
      "en": "I'd like to see you tomorrow.",
      "ko": "~하고 싶어요 — 내일 너 보고 싶어.",
      "start": 421,
-     "end": 427
+     "end": 427,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_24",
      "en": "I should go.",
      "ko": "~해야겠어 — 가 봐야겠어.",
      "start": 433,
-     "end": 445
+     "end": 445,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_25",
      "en": "Can I get some water?",
      "ko": "~ 좀 주시겠어요? — 물 좀 주시겠어요?",
      "start": 452,
-     "end": 463
+     "end": 463,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_26",
      "en": "May I go to the bathroom?",
      "ko": "~해도 될까요? — 화장실 가도 될까요?",
      "start": 463,
-     "end": 474
+     "end": 474,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_27",
      "en": "Are you looking for someone?",
      "ko": "뭐 찾고 있나요? — 누구 찾으세요?",
      "start": 474,
-     "end": 483
+     "end": 483,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_28",
      "en": "Do you mind if I sit here?",
      "ko": "~해도 괜찮을까요? — 여기 앉아도 괜찮을까요?",
      "start": 483,
-     "end": 493
+     "end": 493,
+     "explainStart": null,
+     "explainEnd": null
     },
     {
      "id": "AlHt38GUcXE_29",
      "en": "Where is the bathroom?",
      "ko": "어디 있어요? — 화장실이 어디예요?",
      "start": 504,
-     "end": 530
+     "end": 530,
+     "explainStart": null,
+     "explainEnd": null
     }
    ]
   },
@@ -408,140 +512,180 @@
      "en": "Be honest to me.",
      "ko": "나한테 정직해라 — 한 방향으로 던지는 느낌(to).",
      "start": 0,
-     "end": 7
+     "end": 7,
+     "explainStart": 102,
+     "explainEnd": 116
     },
     {
      "id": "y7N2XhEeIj4_2",
      "en": "Be honest with me.",
      "ko": "나한테 숨기지 말고 솔직하게 말해 — 함께 터놓는 느낌(with).",
      "start": 116,
-     "end": 124
+     "end": 124,
+     "explainStart": 116,
+     "explainEnd": 148
     },
     {
      "id": "y7N2XhEeIj4_3",
      "en": "I'm strict with students.",
      "ko": "나는 학생들에게 엄격해.",
      "start": 20,
-     "end": 28
+     "end": 28,
+     "explainStart": 284,
+     "explainEnd": 299
     },
     {
      "id": "y7N2XhEeIj4_4",
      "en": "Can I speak to you?",
      "ko": "잠시 말씀 좀 전해도 될까요? (일방향)",
      "start": 158,
-     "end": 161
+     "end": 161,
+     "explainStart": 159,
+     "explainEnd": 174
     },
     {
      "id": "y7N2XhEeIj4_5",
      "en": "Can I speak with you?",
      "ko": "잠시 이야기 좀 나눌 수 있을까요? (양방향)",
      "start": 174,
-     "end": 181
+     "end": 181,
+     "explainStart": 174,
+     "explainEnd": 189
     },
     {
      "id": "y7N2XhEeIj4_6",
      "en": "I'm good with directions.",
      "ko": "나는 길을 잘 알아.",
      "start": 211,
-     "end": 218
+     "end": 218,
+     "explainStart": 197,
+     "explainEnd": 221
     },
     {
      "id": "y7N2XhEeIj4_7",
      "en": "I'm bad with directions.",
      "ko": "나는 길치야.",
      "start": 218,
-     "end": 221
+     "end": 221,
+     "explainStart": 211,
+     "explainEnd": 233
     },
     {
      "id": "y7N2XhEeIj4_8",
      "en": "She is good with money.",
      "ko": "그녀는 돈을 잘 다뤄.",
      "start": 230,
-     "end": 233
+     "end": 233,
+     "explainStart": 221,
+     "explainEnd": 244
     },
     {
      "id": "y7N2XhEeIj4_9",
      "en": "I'm good with computers.",
      "ko": "나는 컴퓨터를 잘 다뤄.",
      "start": 233,
-     "end": 237
+     "end": 237,
+     "explainStart": 221,
+     "explainEnd": 244
     },
     {
      "id": "y7N2XhEeIj4_10",
      "en": "Please be gentle with this package, it's fragile.",
      "ko": "이 택배 살살 다뤄 주세요, 깨지기 쉬워요.",
      "start": 244,
-     "end": 253
+     "end": 253,
+     "explainStart": 237,
+     "explainEnd": 253
     },
     {
      "id": "y7N2XhEeIj4_11",
      "en": "Be gentle with the puppy.",
      "ko": "강아지를 살살 다뤄 줘.",
      "start": 253,
-     "end": 262
+     "end": 262,
+     "explainStart": 244,
+     "explainEnd": 262
     },
     {
      "id": "y7N2XhEeIj4_12",
      "en": "Be careful with that knife.",
      "ko": "그 칼 조심해.",
      "start": 262,
-     "end": 270
+     "end": 270,
+     "explainStart": 262,
+     "explainEnd": 284
     },
     {
      "id": "y7N2XhEeIj4_13",
      "en": "You should be careful with your words.",
      "ko": "말을 신중하게 해야 돼.",
      "start": 270,
-     "end": 277
+     "end": 277,
+     "explainStart": 270,
+     "explainEnd": 284
     },
     {
      "id": "y7N2XhEeIj4_14",
      "en": "I'm strict with my students.",
      "ko": "나는 학생들을 대할 때 엄격해.",
      "start": 299,
-     "end": 305
+     "end": 305,
+     "explainStart": 284,
+     "explainEnd": 305
     },
     {
      "id": "y7N2XhEeIj4_15",
      "en": "My parents were very strict with me when I was young.",
      "ko": "내가 어릴 때 부모님이 나를 대할 때 굉장히 엄격하셨어.",
      "start": 305,
-     "end": 315
+     "end": 315,
+     "explainStart": 293,
+     "explainEnd": 315
     },
     {
      "id": "y7N2XhEeIj4_16",
      "en": "You need to be patient with beginners.",
      "ko": "초보자들을 대할 때는 인내심을 가져야 돼.",
      "start": 328,
-     "end": 335
+     "end": 335,
+     "explainStart": 315,
+     "explainEnd": 335
     },
     {
      "id": "y7N2XhEeIj4_17",
      "en": "Thanks for being patient with me.",
      "ko": "저를 참아 주시고 기다려 주셔서 고마워요.",
      "start": 335,
-     "end": 347
+     "end": 347,
+     "explainStart": 322,
+     "explainEnd": 347
     },
     {
      "id": "y7N2XhEeIj4_18",
      "en": "A dog is always faithful to its owner.",
      "ko": "개는 주인에게 항상 충실해.",
      "start": 379,
-     "end": 386
+     "end": 386,
+     "explainStart": 371,
+     "explainEnd": 396
     },
     {
      "id": "y7N2XhEeIj4_19",
      "en": "How can people be so cruel to animals?",
      "ko": "사람들이 어떻게 동물에게 그렇게 잔인할 수 있지?",
      "start": 396,
-     "end": 405
+     "end": 405,
+     "explainStart": 396,
+     "explainEnd": 412
     },
     {
      "id": "y7N2XhEeIj4_20",
      "en": "Why are you being so rude to me today?",
      "ko": "오늘 나한테 왜 이렇게 무례하게 굴어?",
      "start": 412,
-     "end": 418
+     "end": 418,
+     "explainStart": 405,
+     "explainEnd": 425
     }
    ]
   },
@@ -557,112 +701,144 @@
      "en": "I don't have my ID with me.",
      "ko": "나 신분증 안 가져왔어. (내 몸에 세트로 안 챙겨 왔네)",
      "start": 200,
-     "end": 209
+     "end": 209,
+     "explainStart": 174,
+     "explainEnd": 209
     },
     {
      "id": "btZtZTSvh0E_2",
      "en": "Do you have an umbrella with you?",
      "ko": "너 지금 우산 있니?",
      "start": 209,
-     "end": 218
+     "end": 218,
+     "explainStart": 209,
+     "explainEnd": 218
     },
     {
      "id": "btZtZTSvh0E_3",
      "en": "Does it come with a charger?",
      "ko": "이거 충전기 포함이에요? (충전기가 세트로 딸려 오나요?)",
      "start": 225,
-     "end": 232
+     "end": 232,
+     "explainStart": 218,
+     "explainEnd": 232
     },
     {
      "id": "btZtZTSvh0E_4",
      "en": "A room with a great view.",
      "ko": "전망 좋은 방 (좋은 전망이 옵션으로 달린 방)",
      "start": 232,
-     "end": 240
+     "end": 240,
+     "explainStart": 232,
+     "explainEnd": 249
     },
     {
      "id": "btZtZTSvh0E_5",
      "en": "A man with glasses.",
      "ko": "안경 쓴 남자",
      "start": 249,
-     "end": 260
+     "end": 260,
+     "explainStart": 240,
+     "explainEnd": 260
     },
     {
      "id": "btZtZTSvh0E_6",
      "en": "I'm bad with directions.",
      "ko": "나 길치야. (방향 감각이 꽝)",
      "start": 273,
-     "end": 281
+     "end": 281,
+     "explainStart": 260,
+     "explainEnd": 301
     },
     {
      "id": "btZtZTSvh0E_7",
      "en": "I'm bad with names.",
      "ko": "나 사람 이름 잘 못 외워.",
      "start": 301,
-     "end": 307
+     "end": 307,
+     "explainStart": 294,
+     "explainEnd": 319
     },
     {
      "id": "btZtZTSvh0E_8",
      "en": "He is good with kids.",
      "ko": "그는 애들을 잘 다뤄.",
      "start": 327,
-     "end": 331
+     "end": 331,
+     "explainStart": 312,
+     "explainEnd": 331
     },
     {
      "id": "btZtZTSvh0E_9",
      "en": "He is good with computers.",
      "ko": "그는 컴퓨터를 잘 다뤄.",
      "start": 331,
-     "end": 336
+     "end": 336,
+     "explainStart": 319,
+     "explainEnd": 336
     },
     {
      "id": "btZtZTSvh0E_10",
      "en": "She is good with money.",
      "ko": "그녀는 돈 관리를 잘해.",
      "start": 336,
-     "end": 345
+     "end": 345,
+     "explainStart": 336,
+     "explainEnd": 354
     },
     {
      "id": "btZtZTSvh0E_11",
      "en": "She is strict with her students.",
      "ko": "그녀는 학생들에게 엄격해.",
      "start": 387,
-     "end": 403
+     "end": 403,
+     "explainStart": 354,
+     "explainEnd": 403
     },
     {
      "id": "btZtZTSvh0E_12",
      "en": "I'm so angry at you right now.",
      "ko": "지금 너한테 엄청 화났어. (순간적으로 화살을 쏘는 느낌)",
      "start": 422,
-     "end": 436
+     "end": 436,
+     "explainStart": 403,
+     "explainEnd": 445
     },
     {
      "id": "btZtZTSvh0E_13",
      "en": "I'm happy with my job.",
      "ko": "내 직업에 만족해. (지속적으로 만족)",
      "start": 473,
-     "end": 492
+     "end": 492,
+     "explainStart": 464,
+     "explainEnd": 512
     },
     {
      "id": "btZtZTSvh0E_14",
      "en": "A girl with long hair.",
      "ko": "긴 머리 소녀",
      "start": 698,
-     "end": 708
+     "end": 708,
+     "explainStart": 670,
+     "explainEnd": 708
     },
     {
      "id": "btZtZTSvh0E_15",
      "en": "Coffee with milk.",
      "ko": "우유 넣은 커피",
      "start": 708,
-     "end": 711
+     "end": 711,
+     "explainStart": 698,
+     "explainEnd": 728
     },
     {
      "id": "btZtZTSvh0E_16",
      "en": "I woke up with a headache.",
      "ko": "두통을 달고 일어났어.",
      "start": 710,
-     "end": 721
+     "end": 721,
+     "explainStart": 708,
+     "explainEnd": 728
     }
    ]
   },
@@ -678,112 +854,144 @@
      "en": "This loveseat takes up too much space.",
      "ko": "이 소파가 공간을 너무 많이 차지해.",
      "start": 243,
-     "end": 253
+     "end": 253,
+     "explainStart": 226,
+     "explainEnd": 253
     },
     {
      "id": "GAVB-FPg6bE_2",
      "en": "This project is taking up my entire weekend.",
      "ko": "이 프로젝트가 주말을 통째로 잡아먹고 있어.",
      "start": 253,
-     "end": 263
+     "end": 263,
+     "explainStart": 253,
+     "explainEnd": 283
     },
     {
      "id": "GAVB-FPg6bE_3",
      "en": "I think I'm going to take up Chinese this month.",
      "ko": "이번 달에 중국어를 시작해 볼 것 같아.",
      "start": 283,
-     "end": 292
+     "end": 292,
+     "explainStart": 270,
+     "explainEnd": 297
     },
     {
      "id": "GAVB-FPg6bE_4",
      "en": "Can you take this away, please?",
      "ko": "이거 좀 치워 주실래요?",
      "start": 320,
-     "end": 328
+     "end": 328,
+     "explainStart": 297,
+     "explainEnd": 328
     },
     {
      "id": "GAVB-FPg6bE_5",
      "en": "If you keep fighting, I will take your toys away.",
      "ko": "계속 싸우면 장난감 다 압수할 거야.",
      "start": 331,
-     "end": 338
+     "end": 338,
+     "explainStart": 321,
+     "explainEnd": 342
     },
     {
      "id": "GAVB-FPg6bE_6",
      "en": "Take off your wet jacket before you catch a cold.",
      "ko": "감기 걸리기 전에 젖은 겉옷 벗어.",
      "start": 364,
-     "end": 373
+     "end": 373,
+     "explainStart": 342,
+     "explainEnd": 380
     },
     {
      "id": "GAVB-FPg6bE_7",
      "en": "Her career really started to take off after that movie.",
      "ko": "그 영화 이후로 그녀의 경력이 정말 치솟기 시작했어.",
      "start": 394,
-     "end": 401
+     "end": 401,
+     "explainStart": 373,
+     "explainEnd": 410
     },
     {
      "id": "GAVB-FPg6bE_8",
      "en": "I'm so sorry. I take back what I said.",
      "ko": "정말 미안해. 내가 한 말 취소할게.",
      "start": 461,
-     "end": 469
+     "end": 469,
+     "explainStart": 410,
+     "explainEnd": 469
     },
     {
      "id": "GAVB-FPg6bE_9",
      "en": "It's too much information to take in all at once.",
      "ko": "한꺼번에 받아들이기엔 정보가 너무 많아.",
      "start": 495,
-     "end": 504
+     "end": 504,
+     "explainStart": 475,
+     "explainEnd": 504
     },
     {
      "id": "GAVB-FPg6bE_10",
      "en": "Just sit back and take in the beautiful view.",
      "ko": "그냥 편히 앉아서 아름다운 경치를 눈에 담아.",
      "start": 504,
-     "end": 512
+     "end": 512,
+     "explainStart": 488,
+     "explainEnd": 515
     },
     {
      "id": "GAVB-FPg6bE_11",
      "en": "Don't be taken in by his lies.",
      "ko": "그의 거짓말에 속지 마.",
      "start": 530,
-     "end": 542
+     "end": 542,
+     "explainStart": 512,
+     "explainEnd": 542
     },
     {
      "id": "GAVB-FPg6bE_12",
      "en": "We need to talk it over before making a decision.",
      "ko": "결정하기 전에 충분히 의논해 봐야 해.",
      "start": 603,
-     "end": 611
+     "end": 611,
+     "explainStart": 545,
+     "explainEnd": 611
     },
     {
      "id": "GAVB-FPg6bE_13",
      "en": "Can you read over this contract for me?",
      "ko": "이 계약서 한 번 꼼꼼히 읽어 줄래?",
      "start": 621,
-     "end": 631
+     "end": 631,
+     "explainStart": 611,
+     "explainEnd": 631
     },
     {
      "id": "GAVB-FPg6bE_14",
      "en": "I'll take over from here.",
      "ko": "여기서부터는 내가 이어받을게.",
      "start": 659,
-     "end": 664
+     "end": 664,
+     "explainStart": 631,
+     "explainEnd": 664
     },
     {
      "id": "GAVB-FPg6bE_15",
      "en": "Let's just start over.",
      "ko": "그냥 처음부터 다시 하자.",
      "start": 673,
-     "end": 681
+     "end": 681,
+     "explainStart": 664,
+     "explainEnd": 681
     },
     {
      "id": "GAVB-FPg6bE_16",
      "en": "He handed over the company to his son.",
      "ko": "그는 아들에게 회사를 완전히 넘겨줬어.",
      "start": 673,
-     "end": 681
+     "end": 681,
+     "explainStart": 664,
+     "explainEnd": 692
     }
    ]
   },
@@ -799,126 +1007,162 @@
      "en": "I find him helpful.",
      "ko": "그가 도움이 된다고 느껴. (I think that he is a person who is helpful 대신)",
      "start": 151,
-     "end": 156
+     "end": 156,
+     "explainStart": 134,
+     "explainEnd": 164
     },
     {
      "id": "xQqKqKbn1r8_2",
      "en": "I found him at home.",
      "ko": "그를 집에서 발견했어. (find + 목적어 + 장소)",
      "start": 229,
-     "end": 238
+     "end": 238,
+     "explainStart": 220,
+     "explainEnd": 254
     },
     {
      "id": "xQqKqKbn1r8_3",
      "en": "I found him helpful.",
      "ko": "그가 도움이 되더라고. (find + 목적어 + 형용사)",
      "start": 229,
-     "end": 242
+     "end": 242,
+     "explainStart": 242,
+     "explainEnd": 268
     },
     {
      "id": "xQqKqKbn1r8_4",
      "en": "I find it helpful.",
      "ko": "그거 도움이 되더라고.",
      "start": 293,
-     "end": 296
+     "end": 296,
+     "explainStart": 286,
+     "explainEnd": 317
     },
     {
      "id": "xQqKqKbn1r8_5",
      "en": "I find it useful.",
      "ko": "그거 유용하더라고.",
      "start": 296,
-     "end": 299
+     "end": 299,
+     "explainStart": 293,
+     "explainEnd": 317
     },
     {
      "id": "xQqKqKbn1r8_6",
      "en": "I find it difficult.",
      "ko": "그거 어렵더라고.",
      "start": 299,
-     "end": 301
+     "end": 301,
+     "explainStart": 293,
+     "explainEnd": 324
     },
     {
      "id": "xQqKqKbn1r8_7",
      "en": "I find it hard.",
      "ko": "그거 힘들더라고.",
      "start": 301,
-     "end": 311
+     "end": 311,
+     "explainStart": 301,
+     "explainEnd": 331
     },
     {
      "id": "xQqKqKbn1r8_8",
      "en": "I find this book hard.",
      "ko": "이 책 어렵더라고.",
      "start": 311,
-     "end": 317
+     "end": 317,
+     "explainStart": 311,
+     "explainEnd": 345
     },
     {
      "id": "xQqKqKbn1r8_9",
      "en": "I found myself thinking about him.",
      "ko": "나도 모르게 그를 생각하고 있더라고.",
      "start": 398,
-     "end": 412
+     "end": 412,
+     "explainStart": 375,
+     "explainEnd": 422
     },
     {
      "id": "xQqKqKbn1r8_10",
      "en": "I found myself worrying about it.",
      "ko": "나도 모르게 그걸 걱정하고 있더라고.",
      "start": 412,
-     "end": 414
+     "end": 414,
+     "explainStart": 385,
+     "explainEnd": 422
     },
     {
      "id": "xQqKqKbn1r8_11",
      "en": "I found myself saying the same thing.",
      "ko": "나도 모르게 똑같은 말을 하고 있더라고.",
      "start": 414,
-     "end": 431
+     "end": 431,
+     "explainStart": 391,
+     "explainEnd": 422
     },
     {
      "id": "xQqKqKbn1r8_12",
      "en": "I came back to find my car damaged.",
      "ko": "돌아와 보니 내 차가 손상돼 있더라고.",
      "start": 444,
-     "end": 449
+     "end": 449,
+     "explainStart": 431,
+     "explainEnd": 466
     },
     {
      "id": "xQqKqKbn1r8_13",
      "en": "I got home to find the door locked.",
      "ko": "집에 와 보니까 문이 잠겨 있더라고.",
      "start": 489,
-     "end": 499
+     "end": 499,
+     "explainStart": 466,
+     "explainEnd": 510
     },
     {
      "id": "xQqKqKbn1r8_14",
      "en": "I got home to find everything prepared.",
      "ko": "집에 와 보니 모든 게 준비되어 있더라고.",
      "start": 499,
-     "end": 510
+     "end": 510,
+     "explainStart": 482,
+     "explainEnd": 510
     },
     {
      "id": "xQqKqKbn1r8_15",
      "en": "I find it hard to say no.",
      "ko": "거절하기가 어렵더라고.",
      "start": 552,
-     "end": 560
+     "end": 560,
+     "explainStart": 518,
+     "explainEnd": 560
     },
     {
      "id": "xQqKqKbn1r8_16",
      "en": "I find it hard to sleep.",
      "ko": "잠들기가 어렵더라고.",
      "start": 560,
-     "end": 567
+     "end": 567,
+     "explainStart": 552,
+     "explainEnd": 576
     },
     {
      "id": "xQqKqKbn1r8_17",
      "en": "I find it easier to talk in person.",
      "ko": "직접 만나서 이야기하는 게 더 편하더라고.",
      "start": 567,
-     "end": 576
+     "end": 576,
+     "explainStart": 560,
+     "explainEnd": 584
     },
     {
      "id": "xQqKqKbn1r8_18",
      "en": "I find it useful to take notes.",
      "ko": "메모하는 게 유용하더라고.",
      "start": 576,
-     "end": 584
+     "end": 584,
+     "explainStart": 567,
+     "explainEnd": 592
     }
    ]
   },
@@ -934,147 +1178,189 @@
      "en": "I don't get it.",
      "ko": "뭔 소리인지 잘 모르겠어. (가벼운 상황, I don't understand it 대신)",
      "start": 27,
-     "end": 37
+     "end": 37,
+     "explainStart": 762,
+     "explainEnd": 797
     },
     {
      "id": "IoS5rN9S1P8_2",
      "en": "I got your email.",
      "ko": "메일 받았어. (가볍게)",
      "start": 37,
-     "end": 45
+     "end": 45,
+     "explainStart": 797,
+     "explainEnd": 837
     },
     {
      "id": "IoS5rN9S1P8_3",
      "en": "I got home.",
      "ko": "집에 도착했어. (I arrived home 대신 캐주얼)",
      "start": 37,
-     "end": 45
+     "end": 45,
+     "explainStart": 758,
+     "explainEnd": 783
     },
     {
      "id": "IoS5rN9S1P8_4",
      "en": "I got angry.",
      "ko": "화가 났어. (He became angry 대신)",
      "start": 37,
-     "end": 45
+     "end": 45,
+     "explainStart": 706,
+     "explainEnd": 749
     },
     {
      "id": "IoS5rN9S1P8_5",
      "en": "I got him a present.",
      "ko": "그에게 선물을 (어디서 구해서) 사줬어.",
      "start": 49,
-     "end": 56
+     "end": 56,
+     "explainStart": 390,
+     "explainEnd": 424
     },
     {
      "id": "IoS5rN9S1P8_6",
      "en": "I got a table.",
      "ko": "(어찌어찌) 테이블을 확보했어.",
      "start": 172,
-     "end": 180
+     "end": 180,
+     "explainStart": 156,
+     "explainEnd": 197
     },
     {
      "id": "IoS5rN9S1P8_7",
      "en": "Let's get a drink.",
      "ko": "야, 우리 어디 가서 한잔하자.",
      "start": 220,
-     "end": 226
+     "end": 226,
+     "explainStart": 180,
+     "explainEnd": 220
     },
     {
      "id": "IoS5rN9S1P8_8",
      "en": "Can I get a fork?",
      "ko": "포크 좀 주시겠어요? (Give me a fork 보다 부드럽게)",
      "start": 261,
-     "end": 271
+     "end": 271,
+     "explainStart": 226,
+     "explainEnd": 271
     },
     {
      "id": "IoS5rN9S1P8_9",
      "en": "I got to the office.",
      "ko": "사무실에 도착했어.",
      "start": 286,
-     "end": 296
+     "end": 296,
+     "explainStart": 271,
+     "explainEnd": 309
     },
     {
      "id": "IoS5rN9S1P8_10",
      "en": "It took a few years to get to this level.",
      "ko": "이 수준까지 오는 데 몇 년이 걸렸어.",
      "start": 296,
-     "end": 309
+     "end": 309,
+     "explainStart": 296,
+     "explainEnd": 339
     },
     {
      "id": "IoS5rN9S1P8_11",
      "en": "I finally got to Paris.",
      "ko": "와, 드디어 파리까지 왔구나.",
      "start": 343,
-     "end": 354
+     "end": 354,
+     "explainStart": 339,
+     "explainEnd": 361
     },
     {
      "id": "IoS5rN9S1P8_12",
      "en": "Let's get to know each other.",
      "ko": "우리 서로 알아가 보자.",
      "start": 361,
-     "end": 370
+     "end": 370,
+     "explainStart": 355,
+     "explainEnd": 378
     },
     {
      "id": "IoS5rN9S1P8_13",
      "en": "I got to see Son Heung-min in person.",
      "ko": "드디어 손흥민을 직접 봤어.",
      "start": 370,
-     "end": 378
+     "end": 378,
+     "explainStart": 370,
+     "explainEnd": 390
     },
     {
      "id": "IoS5rN9S1P8_14",
      "en": "I'll get you a taxi.",
      "ko": "내가 불러서 너에게 택시가 오게 해줄게.",
      "start": 419,
-     "end": 429
+     "end": 429,
+     "explainStart": 419,
+     "explainEnd": 438
     },
     {
      "id": "IoS5rN9S1P8_15",
      "en": "I got my parents to buy me a new laptop.",
      "ko": "부모님을 설득해서 새 노트북을 사게 했어.",
      "start": 485,
-     "end": 511
+     "end": 511,
+     "explainStart": 438,
+     "explainEnd": 485
     },
     {
      "id": "IoS5rN9S1P8_16",
      "en": "Get it done by tomorrow.",
      "ko": "어떻게 해서든 내일까지 끝내.",
      "start": 581,
-     "end": 591
+     "end": 591,
+     "explainStart": 535,
+     "explainEnd": 591
     },
     {
      "id": "IoS5rN9S1P8_17",
      "en": "I got my windshield replaced.",
      "ko": "앞유리를 (돈 내고) 교체했어.",
      "start": 629,
-     "end": 646
+     "end": 646,
+     "explainStart": 608,
+     "explainEnd": 646
     },
     {
      "id": "IoS5rN9S1P8_18",
      "en": "I got my phone fixed.",
      "ko": "핸드폰 수리 맡겼어.",
      "start": 678,
-     "end": 685
+     "end": 685,
+     "explainStart": 654,
+     "explainEnd": 689
     },
     {
      "id": "IoS5rN9S1P8_19",
      "en": "I got my hair cut.",
      "ko": "머리 (미용실 가서) 잘랐어.",
      "start": 685,
-     "end": 694
+     "end": 694,
+     "explainStart": 678,
+     "explainEnd": 706
     },
     {
      "id": "IoS5rN9S1P8_20",
      "en": "He got angry.",
      "ko": "그가 화가 났어. (순간 이동 느낌)",
      "start": 706,
-     "end": 714
+     "end": 714,
+     "explainStart": 694,
+     "explainEnd": 749
     },
     {
      "id": "IoS5rN9S1P8_21",
      "en": "Did you get some sleep last night?",
      "ko": "어젯밤에 잠 좀 잤어?",
      "start": 861,
-     "end": 866
+     "end": 866,
+     "explainStart": 844,
+     "explainEnd": 874
     }
    ]
   },
@@ -1090,133 +1376,171 @@
      "en": "You were tall for your age.",
      "ko": "너 나이 치고는 키가 크다.",
      "start": 133,
-     "end": 138
+     "end": 138,
+     "explainStart": 106,
+     "explainEnd": 138
     },
     {
      "id": "PNWuKuU3dwg_2",
      "en": "She is fast for a beginner.",
      "ko": "그녀는 초보치고는 빠르다.",
      "start": 138,
-     "end": 149
+     "end": 149,
+     "explainStart": 138,
+     "explainEnd": 158
     },
     {
      "id": "PNWuKuU3dwg_3",
      "en": "This is cheap for London.",
      "ko": "이거 런던 치고는 싸다.",
      "start": 158,
-     "end": 167
+     "end": 167,
+     "explainStart": 158,
+     "explainEnd": 173
     },
     {
      "id": "PNWuKuU3dwg_4",
      "en": "He is strong for his size.",
      "ko": "그는 체격 치고는 힘이 세다.",
      "start": 173,
-     "end": 180
+     "end": 180,
+     "explainStart": 173,
+     "explainEnd": 190
     },
     {
      "id": "PNWuKuU3dwg_5",
      "en": "I'm studying for the test.",
      "ko": "시험을 기준으로 공부 중이야 — 시험 준비 중이야.",
      "start": 197,
-     "end": 205
+     "end": 205,
+     "explainStart": 190,
+     "explainEnd": 205
     },
     {
      "id": "PNWuKuU3dwg_6",
      "en": "I'm saving money for college.",
      "ko": "대학 등록금 때문에 돈을 모으고 있어.",
      "start": 205,
-     "end": 213
+     "end": 213,
+     "explainStart": 205,
+     "explainEnd": 228
     },
     {
      "id": "PNWuKuU3dwg_7",
      "en": "I bought it for half price.",
      "ko": "반값을 기준으로 샀어 — 반값에 샀어.",
      "start": 228,
-     "end": 234
+     "end": 234,
+     "explainStart": 228,
+     "explainEnd": 242
     },
     {
      "id": "PNWuKuU3dwg_8",
      "en": "We left for school.",
      "ko": "학교를 향해서 떠났어 — 학교에 갔어.",
      "start": 242,
-     "end": 248
+     "end": 248,
+     "explainStart": 242,
+     "explainEnd": 254
     },
     {
      "id": "PNWuKuU3dwg_9",
      "en": "I'm sorry for bothering you.",
      "ko": "널 방해한 것에 대해 미안해.",
      "start": 254,
-     "end": 259
+     "end": 259,
+     "explainStart": 254,
+     "explainEnd": 273
     },
     {
      "id": "PNWuKuU3dwg_10",
      "en": "He must be home for the lights are on.",
      "ko": "불이 켜져 있는 걸 보니 집에 있나 봐.",
      "start": 288,
-     "end": 291
+     "end": 291,
+     "explainStart": 278,
+     "explainEnd": 300
     },
     {
      "id": "PNWuKuU3dwg_11",
      "en": "I gave a book to him.",
      "ko": "내가 그에게 책을 줬어. (도착점 to)",
      "start": 325,
-     "end": 333
+     "end": 333,
+     "explainStart": 300,
+     "explainEnd": 339
     },
     {
      "id": "PNWuKuU3dwg_12",
      "en": "I bought a book for him.",
      "ko": "그를 위해 책을 샀어. (기준점 for)",
      "start": 333,
-     "end": 339
+     "end": 339,
+     "explainStart": 323,
+     "explainEnd": 352
     },
     {
      "id": "PNWuKuU3dwg_13",
      "en": "I cook dinner for my wife.",
      "ko": "아내를 위해 저녁을 해.",
      "start": 352,
-     "end": 360
+     "end": 360,
+     "explainStart": 339,
+     "explainEnd": 372
     },
     {
      "id": "PNWuKuU3dwg_14",
      "en": "This is cream for dry skin.",
      "ko": "건조한 피부를 기준으로 한 크림이야.",
      "start": 381,
-     "end": 390
+     "end": 390,
+     "explainStart": 372,
+     "explainEnd": 390
     },
     {
      "id": "PNWuKuU3dwg_15",
      "en": "This is food for dogs.",
      "ko": "강아지용 음식이야.",
      "start": 390,
-     "end": 396
+     "end": 396,
+     "explainStart": 381,
+     "explainEnd": 396
     },
     {
      "id": "PNWuKuU3dwg_16",
      "en": "She is smart for a kid.",
      "ko": "아이치고는 똑똑해.",
      "start": 396,
-     "end": 407
+     "end": 407,
+     "explainStart": 390,
+     "explainEnd": 407
     },
     {
      "id": "PNWuKuU3dwg_17",
      "en": "It's small for an SUV.",
      "ko": "SUV치고는 작네.",
      "start": 407,
-     "end": 417
+     "end": 417,
+     "explainStart": 396,
+     "explainEnd": 421
     },
     {
      "id": "PNWuKuU3dwg_18",
      "en": "Fight for freedom.",
      "ko": "자유를 기준으로 싸워라.",
      "start": 421,
-     "end": 429
+     "end": 429,
+     "explainStart": 407,
+     "explainEnd": 429
     },
     {
      "id": "PNWuKuU3dwg_19",
      "en": "It's good for your health.",
      "ko": "건강에 좋아.",
      "start": 514,
-     "end": 527
+     "end": 527,
+     "explainStart": 594,
+     "explainEnd": 615
     }
    ]
   },
@@ -1232,70 +1556,90 @@
      "en": "I saw the man.",
      "ko": "나는 그 남자를 봤어. (기본 세팅: 주인공 + 동작 + 목적어)",
      "start": 134,
-     "end": 138
+     "end": 138,
+     "explainStart": 117,
+     "explainEnd": 151
     },
     {
      "id": "F5O1qZ-48UQ_2",
      "en": "I bought a toy.",
      "ko": "나는 장난감을 샀어.",
      "start": 138,
-     "end": 151
+     "end": 151,
+     "explainStart": 134,
+     "explainEnd": 166
     },
     {
      "id": "F5O1qZ-48UQ_3",
      "en": "I saw the man who is handsome.",
      "ko": "잘생긴 그 남자를 봤어. (렌즈 줌: who)",
      "start": 210,
-     "end": 227
+     "end": 227,
+     "explainStart": 157,
+     "explainEnd": 233
     },
     {
      "id": "F5O1qZ-48UQ_4",
      "en": "I bought a bag which is expensive.",
      "ko": "비싼 그 가방을 샀어. (which)",
      "start": 233,
-     "end": 242
+     "end": 242,
+     "explainStart": 196,
+     "explainEnd": 246
     },
     {
      "id": "F5O1qZ-48UQ_5",
      "en": "The man who I met yesterday was wearing glasses.",
      "ko": "내가 어제 만난 그 남자가 안경을 끼고 있더라고.",
      "start": 256,
-     "end": 272
+     "end": 272,
+     "explainStart": 246,
+     "explainEnd": 291
     },
     {
      "id": "F5O1qZ-48UQ_6",
      "en": "I saw a cat which was sleeping on my car.",
      "ko": "내 차 위에서 자고 있는 고양이를 봤어.",
      "start": 314,
-     "end": 320
+     "end": 320,
+     "explainStart": 291,
+     "explainEnd": 336
     },
     {
      "id": "F5O1qZ-48UQ_7",
      "en": "I know a woman who has a son who plays soccer in the park where we exercise every morning.",
      "ko": "우리가 매일 아침 운동하는 공원에서 축구하는 아들이 있는 여자를 알아.",
      "start": 336,
-     "end": 368
+     "end": 368,
+     "explainStart": 328,
+     "explainEnd": 376
     },
     {
      "id": "F5O1qZ-48UQ_8",
      "en": "I know a guy who has a sister who works at NASA.",
      "ko": "NASA에서 일하는 여동생이 있는 남자를 알아.",
      "start": 416,
-     "end": 424
+     "end": 424,
+     "explainStart": 376,
+     "explainEnd": 430
     },
     {
      "id": "F5O1qZ-48UQ_9",
      "en": "I found the hotel where we stayed in the room which had a great ocean view.",
      "ko": "오션뷰가 좋은 방에 머물렀던 그 호텔을 찾았어.",
      "start": 461,
-     "end": 468
+     "end": 468,
+     "explainStart": 424,
+     "explainEnd": 477
     },
     {
      "id": "F5O1qZ-48UQ_10",
      "en": "Where's the mommy who is talking to you?",
      "ko": "너한테 말하는 엄마가 어디 있지?",
      "start": 476,
-     "end": 480
+     "end": 480,
+     "explainStart": 468,
+     "explainEnd": 502
     }
    ]
   }

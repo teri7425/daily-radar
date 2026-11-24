@@ -96,6 +96,14 @@
   .btn:active{transform:scale(.975)}
   .btn-primary{background:var(--primary);color:#fff}
   .btn-tts{background:#334155;color:#fff}
+  .btn-explain{background:#3b0764;color:#e9d5ff;border-color:#7e22ce}
+  .btn-explain.playing{background:#7e22ce;color:#fff;box-shadow:0 0 0 2px #e9d5ff55 inset}
+  .btn-explain[disabled]{background:#1e293b;color:#64748b;border-color:#334155;box-shadow:none}
+  .btn-full{background:#0c4a6e;color:#bae6fd;border-color:#0369a1}
+  .btn-full.playing{background:#0369a1;color:#fff;box-shadow:0 0 0 2px #bae6fd55 inset}
+  .btn-full[disabled]{background:#1e293b;color:#64748b;border-color:#334155;box-shadow:none}
+  .yt-app-link{display:block;text-align:center;font-size:11px;font-weight:700;color:#7dd3fc;text-decoration:none;margin:-2px 0 9px;line-height:1.4}
+  .yt-app-link.hide{display:none}
   .btn-stop{background:#3f1d1d;color:#fca5a5;border-color:#7f1d1d}
   .btn-hard{background:var(--card2);border:1px solid var(--accent);color:var(--accent)}
   .btn-hard.saved{background:var(--accent);color:#111}
@@ -209,6 +217,11 @@
       <button class="btn btn-primary" id="btn-video5x" onclick="startVideo5x()">▶ 영상 구간 5회</button>
       <button class="btn btn-tts" id="btn-tts" onclick="startTTS()"><span>🔊 음성만 <b id="tts-count-label" style="font-weight:800">5</b>회</span></button>
     </div>
+    <div class="btn-row">
+      <button class="btn btn-explain" id="btn-explain" onclick="startExplain()" disabled>📖 설명 구간</button>
+      <button class="btn btn-full" id="btn-full" onclick="startFullVideo()">🎬 전체 영상</button>
+    </div>
+    <a class="yt-app-link hide" id="yt-app-link" href="#" target="_blank" rel="noopener">유튜브 앱에서 열기 ↗</a>
     <div class="btn-row">
       <button class="btn btn-hard" id="toggle-hard-btn" onclick="toggleCurrentHard()">☆ 어려움 체크</button>
       <button class="btn btn-nav" onclick="nextSentence()">다음 문장 ⏭</button>
@@ -406,7 +419,9 @@ async function loadData() {
         id: s.id || (id + '_' + (i + 1)),
         en: s.en, ko: s.ko || '',
         start: Number(s.start || 0),
-        end: Number(s.end || (Number(s.start || 0) + 4))
+        end: Number(s.end || (Number(s.start || 0) + 4)),
+        explainStart: (s.explainStart === null || s.explainStart === undefined) ? null : Number(s.explainStart),
+        explainEnd: (s.explainEnd === null || s.explainEnd === undefined) ? null : Number(s.explainEnd)
       }))
     };
   });
@@ -423,6 +438,8 @@ async function loadData() {
   const savedCat = localStorage.getItem(LS.cat);
   selectCategory(CATS.includes(savedCat) ? savedCat : '회화');
   updateProgressBadge();
+  // 데이터가 준비됐으니 플레이어 생성 재시도 (IFrame API가 먼저 왔을 수 있음)
+  initPlayer();
 }
 
 /* ---------------- 탭 ---------------- */
@@ -553,6 +570,10 @@ function loadSentence(idx) {
     document.getElementById('current-en').textContent = '—';
     document.getElementById('current-ko').textContent = '';
     document.getElementById('current-video-link').style.display = 'none';
+    const yl = document.getElementById('yt-app-link');
+    if (yl) { yl.classList.add('hide'); yl.href = '#'; }
+    updateExplainBtn();
+    updateFullBtn();
     return;
   }
   state.index = ((idx % state.flat.length) + state.flat.length) % state.flat.length;
@@ -565,10 +586,22 @@ function loadSentence(idx) {
   } else {
     link.style.display = 'none';
   }
+  const ytLink = document.getElementById('yt-app-link');
+  if (ytLink) {
+    if (item.video_id) {
+      ytLink.classList.remove('hide');
+      ytLink.href = 'https://www.youtube.com/watch?v=' + item.video_id + '&t=' + Math.max(0, Number(item.start) || 0) + 's';
+    } else {
+      ytLink.classList.add('hide');
+      ytLink.href = '#';
+    }
+  }
   document.getElementById('current-en').textContent = item.en;
   document.getElementById('current-ko').textContent = item.ko || '';
   updateDots(0, '대기 중');
   updateHardBtn();
+  updateExplainBtn();
+  updateFullBtn();
   renderList();
   updateProgressBadge();
 
@@ -618,12 +651,33 @@ function updateHardBtn() {
   }
 }
 
-/* ---------------- 유튜브 플레이어 ---------------- */
+/* ---------------- 유튜브 플레이어 ----------------
+   IFrame API(onYouTubeIframeAPIReady)와 data.json 로드(loadData)가 서로 먼저 끝날 수 있어서,
+   둘 다 끝난 시점에 한 번만 플레이어를 만든다. (videoId 없이 YT.Player를 만들면 Invalid video id) */
+let ytApiReady = false;
 function onYouTubeIframeAPIReady() {
-  const first = state.flat[state.index];
+  ytApiReady = true;
+  initPlayer();
+}
+
+function isVideoId(v) { return typeof v === 'string' && /^[A-Za-z0-9_-]{11}$/.test(v); }
+
+function pickPlayerVideoId() {
+  const cur = state.flat[state.index];
+  if (cur && isVideoId(cur.video_id)) return cur.video_id;
+  const anyFlat = state.flat.find(x => isVideoId(x.video_id));
+  if (anyFlat) return anyFlat.video_id;
+  const anyKey = Object.keys(state.videos || {}).find(k => isVideoId(k));
+  return anyKey || '';
+}
+
+function initPlayer() {
+  if (!ytApiReady || state.player || typeof YT === 'undefined' || !YT.Player) return;
+  const vid = pickPlayerVideoId();
+  if (!isVideoId(vid)) return; // 학습 데이터가 아직 준비되지 않음 → loadData 끝에서 다시 호출됨
   state.player = new YT.Player('yt-player', {
     height: '100%', width: '100%',
-    videoId: (first && first.video_id) || 'aIF0l4RD6F8',
+    videoId: vid,
     playerVars: { playsinline: 1, rel: 0, modestbranding: 1, origin: location.origin === 'null' ? undefined : location.origin },
     events: {
       onReady: () => {
@@ -631,11 +685,125 @@ function onYouTubeIframeAPIReady() {
         try { state.player.setPlaybackRate(state.speed); } catch (e) {}
         document.getElementById('player-cover').classList.add('hidden');
         // API 준비 전에 누른 재생 요청이 있으면 이어서
-        if (state.pendingPlay) { const p = state.pendingPlay; state.pendingPlay = null; doVideoRepeat(p); }
+        const pending = state.pendingPlay;
+        if (pending) {
+          state.pendingPlay = null;
+          if (pending.kind === 'explain') playExplain(pending.item);
+          else if (pending.kind === 'full') playFull(pending.item);
+          else doVideoRepeat(pending);
+        }
       },
-      onError: () => { /* 영상 재생 불가 시 문구 유지 */ }
+      onError: () => { /* 영상 재생 불가 시 문구 유지 */ },
+      onStateChange: (e) => {
+        // 0 = ENDED — 전체 영상이 끝까지 재생된 경우 상태 정리
+        if (e && e.data === 0 && state.running === 'full') {
+          updateDots(0, '✅ 전체 영상 끝까지 재생');
+          finishRun();
+        }
+      }
     }
   });
+}
+
+/* ---------------- 설명 구간 1회 재생 ---------------- */
+function fmtSec(s) {
+  s = Math.max(0, Math.floor(Number(s) || 0));
+  const m = Math.floor(s / 60), r = s % 60;
+  return m + ':' + String(r).padStart(2, '0');
+}
+
+function explainSpan(item) {
+  const a = Math.max(0, Number(item.explainStart) || 0);
+  const b = Math.max(a + 2, Number(item.explainEnd) || (a + 10));
+  return [a, b];
+}
+
+function startExplain() {
+  const item = state.flat[state.index];
+  if (!item) return;
+  if (!isVideoId(item.video_id)) { toast('이 문장에는 연결된 영상이 없어요.'); return; }
+  if (item.explainStart == null || item.explainEnd == null) { toast('이 문장은 따로 설명 구간이 없어요.'); return; }
+  stopAll(false, true);
+  state.running = 'explain';
+  document.body.classList.add('looping');
+  updateExplainBtn(); updateFullBtn();
+  const span = explainSpan(item);
+  if (!state.playerReady) { state.pendingPlay = { kind: 'explain', item: item }; updateDots(1, '플레이어 준비 중…'); return; }
+  playExplain(item);
+}
+
+function playExplain(item) {
+  const p = state.player;
+  if (!p) return;
+  const span = explainSpan(item);
+  const a = span[0], b = span[1];
+  updateDots(1, `📖 설명 ${fmtSec(a)}~${fmtSec(b)} 재생 중`);
+  try {
+    p.loadVideoById({ videoId: item.video_id, startSeconds: a });
+    p.setPlaybackRate(state.speed);
+    p.playVideo();
+  } catch (e) {}
+
+  clearInterval(state.timer);
+  const deadline = Date.now() + ((b - a) / state.speed) * 1000 + 2500;
+  state.timer = setInterval(() => {
+    if (state.running !== 'explain') { clearInterval(state.timer); return; }
+    let t = 0;
+    try { t = p.getCurrentTime(); } catch (e) { t = b; }
+    if (t >= b - 0.15 || Date.now() > deadline) {
+      clearInterval(state.timer);
+      try { p.pauseVideo(); } catch (e) {}
+      updateDots(5, '✅ 설명 구간 완료');
+      finishRun();
+    }
+  }, 180);
+}
+
+/* ---------------- 전체 영상 재생 (끊김 없이) ---------------- */
+function startFullVideo() {
+  const item = state.flat[state.index];
+  if (!item) return;
+  if (!isVideoId(item.video_id)) { toast('이 문장에는 연결된 영상이 없어요.'); return; }
+  stopAll(false, true);
+  state.running = 'full';
+  document.body.classList.add('looping');
+  updateExplainBtn(); updateFullBtn();
+  const s = Math.max(0, Number(item.start) || 0);
+  if (!state.playerReady) { state.pendingPlay = { kind: 'full', item: item }; updateDots(0, '플레이어 준비 중…'); return; }
+  playFull(item);
+}
+
+function playFull(item) {
+  const p = state.player;
+  if (!p) return;
+  const s = Math.max(0, Number(item.start) || 0);
+  updateDots(0, `🎬 전체 영상 ${fmtSec(s)}부터 재생 중`);
+  try {
+    p.loadVideoById({ videoId: item.video_id, startSeconds: s });
+    p.setPlaybackRate(state.speed);
+    p.playVideo();
+  } catch (e) {}
+}
+
+function updateExplainBtn() {
+  const btn = document.getElementById('btn-explain');
+  if (!btn) return;
+  const item = state.flat[state.index];
+  const has = !!(item && isVideoId(item.video_id) && item.explainStart != null && item.explainEnd != null);
+  btn.disabled = !has;
+  btn.classList.toggle('playing', state.running === 'explain');
+  btn.textContent = state.running === 'explain' ? '📖 설명 구간 재생 중' : '📖 설명 구간';
+  btn.title = has ? '이 문장의 규칙·전치사·구조를 선생님이 설명한 구간만 1회 재생' : '이 문장은 따로 설명 구간이 없어요';
+}
+
+function updateFullBtn() {
+  const btn = document.getElementById('btn-full');
+  if (!btn) return;
+  const item = state.flat[state.index];
+  btn.disabled = !(item && isVideoId(item.video_id));
+  btn.classList.toggle('playing', state.running === 'full');
+  btn.textContent = state.running === 'full' ? '🎬 전체 영상 재생 중' : '🎬 전체 영상';
+  btn.title = '이 문장이 나온 영상 전체를 처음부터 끊김 없이 재생';
 }
 
 /* ---------------- 영상 구간 5회 ---------------- */
@@ -745,6 +913,8 @@ function finishRun() {
   document.body.classList.remove('looping');
   document.getElementById('btn-video5x').classList.remove('playing');
   document.getElementById('btn-tts').classList.remove('playing');
+  updateExplainBtn();
+  updateFullBtn();
 }
 function stopAll(showMsg, silent) {
   clearInterval(state.timer);
@@ -761,6 +931,8 @@ function stopAll(showMsg, silent) {
   const b2 = document.getElementById('btn-tts');
   if (b1) b1.classList.remove('playing');
   if (b2) b2.classList.remove('playing');
+  updateExplainBtn();
+  updateFullBtn();
   if (!silent) updateDots(0, showMsg ? '⏹️ 멈춤' : '대기 중');
 }
 
