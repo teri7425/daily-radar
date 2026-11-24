@@ -440,6 +440,7 @@ async function loadData() {
   updateProgressBadge();
   // 데이터가 준비됐으니 플레이어 생성 재시도 (IFrame API가 먼저 왔을 수 있음)
   initPlayer();
+  tryInitWithExistingApi();
 }
 
 /* ---------------- 탭 ---------------- */
@@ -660,6 +661,13 @@ function onYouTubeIframeAPIReady() {
   initPlayer();
 }
 
+// iframe_api 스크립트가 (캐시 등으로) 먼저 실행돼 onYouTubeIframeAPIReady 콜백을 놓친 경우 보강:
+// window.YT 가 이미 준비돼 있으면 직접 플레이어를 만든다.
+function tryInitWithExistingApi() {
+  if (typeof YT !== 'undefined' && YT && YT.Player) { ytApiReady = true; initPlayer(); return true; }
+  return false;
+}
+
 function isVideoId(v) { return typeof v === 'string' && /^[A-Za-z0-9_-]{11}$/.test(v); }
 
 function pickPlayerVideoId() {
@@ -672,7 +680,9 @@ function pickPlayerVideoId() {
 }
 
 function initPlayer() {
-  if (!ytApiReady || state.player || typeof YT === 'undefined' || !YT.Player) return;
+  if (state.player) return;
+  if (typeof YT === 'undefined' || !YT || !YT.Player) return;
+  ytApiReady = true; // API가 이미 있으면 콜백을 놓쳤어도 진행
   const vid = pickPlayerVideoId();
   if (!isVideoId(vid)) return; // 학습 데이터가 아직 준비되지 않음 → loadData 끝에서 다시 호출됨
   state.player = new YT.Player('yt-player', {
@@ -704,6 +714,15 @@ function initPlayer() {
     }
   });
 }
+
+// API 준비를 놓쳤을 때를 대비한 안전망: YT가 나타나는 즉시 플레이어 생성 시도 (최대 약 10초)
+(function watchYTReady() {
+  let tries = 0;
+  const timer = setInterval(() => {
+    if (tryInitWithExistingApi()) { clearInterval(timer); return; }
+    if (++tries >= 40) clearInterval(timer);
+  }, 250);
+})();
 
 /* ---------------- 설명 구간 1회 재생 ---------------- */
 function fmtSec(s) {
