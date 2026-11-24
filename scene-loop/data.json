@@ -1,0 +1,1581 @@
+{
+ "app": "SceneLoop",
+ "builtAt": "2026-11-24",
+ "shows": [
+  {
+   "id": "friends",
+   "name": "프렌즈",
+   "nameEn": "Friends",
+   "tag": "US · 일상회화",
+   "region": "미국",
+   "season": "Season 1–10",
+   "accent": "en-US",
+   "emoji": "☕",
+   "hue": "#f59e0b",
+   "desc": "미국식 구어체, 리액션, 일상 필수 이디엄",
+   "tip": "짧은 대사가 많아 처음 시작하기 좋아요. 리액션 표현을 통째로 외워 보세요."
+  },
+  {
+   "id": "modern_family",
+   "name": "모던 패밀리",
+   "nameEn": "Modern Family",
+   "tag": "US · 빠른 템포",
+   "region": "미국",
+   "season": "Season 1–11",
+   "accent": "en-US",
+   "emoji": "🏠",
+   "hue": "#38bdf8",
+   "desc": "가족·직장 실생활 표현, 재치 있는 미국식 유머",
+   "tip": "말이 빠르고 겹쳐요. 0.8배속으로 문장을 나눠 듣는 게 좋아요."
+  },
+  {
+   "id": "sex_education",
+   "name": "오티스의 비밀 상담소",
+   "nameEn": "Sex Education",
+   "tag": "UK · 영국 영어",
+   "region": "영국",
+   "season": "Season 1–4",
+   "accent": "en-GB",
+   "emoji": "🎓",
+   "hue": "#a78bfa",
+   "desc": "영국식 억양과 10대 구어체, 감정 표현의 밀도",
+   "tip": "영국 억양은 기본값이 🇬🇧로 맞춰져 있어요. 톤과 모음이 미국식과 달라요."
+  }
+ ],
+ "clips": [
+  {
+   "id": "friends_atm",
+   "show": "friends",
+   "videoId": "h8rxZNIjC0U",
+   "title": "ATM 안에서 모델과 단둘이 갇히다",
+   "titleEn": "Chandler Is Stuck in an ATM Vestibule with a Model",
+   "channel": "Friends",
+   "episode": "S01E07 · The One with the Blackout",
+   "duration": 239,
+   "url": "https://www.youtube.com/watch?v=h8rxZNIjC0U",
+   "lines": [
+    {
+     "id": "friends_atm_01",
+     "sp": "챈들러",
+     "en": "Oh my God, it's her. It's Jill Goodacre.",
+     "ko": "맙소사, 저 사람이야. 질 굿에이커잖아.",
+     "start": 17.0,
+     "end": 20.7,
+     "idiom": "Oh my God",
+     "note": "놀람·충격을 나타내는 가장 흔한 감탄 표현. 'Oh my gosh'로 순화하기도 해요."
+    },
+    {
+     "id": "friends_atm_02",
+     "sp": "챈들러",
+     "en": "I am trapped in an ATM vestibule with Jill Goodacre.",
+     "ko": "난 지금 질 굿에이커와 ATM 부스에 갇혔어.",
+     "start": 28.0,
+     "end": 32.5,
+     "idiom": "trapped in",
+     "note": "'~에 갇히다'. 물리적 공간뿐 아니라 상황·대화에도 씁니다."
+    },
+    {
+     "id": "friends_atm_03",
+     "sp": "챈들러",
+     "en": "Yeah, I'm fine. I'm just stuck at the bank. In an ATM vestibule.",
+     "ko": "응, 괜찮아. 그냥 은행에 갇혔어. ATM 부스에.",
+     "start": 42.0,
+     "end": 46.9,
+     "idiom": "stuck at",
+     "note": "'~에서 꼼짝 못 하다'. stuck은 '막힌·갇힌' 상태를 말해요."
+    },
+    {
+     "id": "friends_atm_04",
+     "sp": "챈들러",
+     "en": "Jill says vestibule. I'm going with vestibule.",
+     "ko": "질이 '베스티뷸'이라고 했으니 나도 베스티뷸로 갈게.",
+     "start": 47.0,
+     "end": 50.3,
+     "idiom": "going with",
+     "note": "'~쪽으로 정하다·따르다'. 상대의 표현을 따라 말할 때 씁니다."
+    },
+    {
+     "id": "friends_atm_05",
+     "sp": "질",
+     "en": "Would you like some gum?",
+     "ko": "껌 좀 드실래요?",
+     "start": 73.0,
+     "end": 73.8,
+     "idiom": "Would you like",
+     "note": "정중한 권유 표현. 'Do you want'보다 공손합니다."
+    },
+    {
+     "id": "friends_atm_06",
+     "sp": "챈들러",
+     "en": "Oh, is it sugarless?",
+     "ko": "아, 무설탕인가요?",
+     "start": 74.0,
+     "end": 76.0,
+     "idiom": "sugarless",
+     "note": "'무설탕의'. -less는 '~이 없는'을 만드는 접미사예요."
+    },
+    {
+     "id": "friends_atm_07",
+     "sp": "챈들러",
+     "en": "Mental note: if Jill Goodacre offers you gum, you take it.",
+     "ko": "마음속 메모: 질 굿에이커가 껌을 주면 무조건 받아라.",
+     "start": 84.0,
+     "end": 89.0,
+     "idiom": "Mental note",
+     "note": "'머릿속에 적어 두기'. 나중에 기억할 것을 혼잣말로 정리할 때 씁니다."
+    },
+    {
+     "id": "friends_atm_08",
+     "sp": "챈들러",
+     "en": "You know, on second thought, gum would be perfection.",
+     "ko": "있잖아, 생각해 보니 껌이 딱 좋겠어.",
+     "start": 93.0,
+     "end": 97.1,
+     "idiom": "on second thought",
+     "note": "'다시 생각해 보니'. 말을 바꿀 때 쓰는 연결 표현이에요."
+    },
+    {
+     "id": "friends_atm_09",
+     "sp": "챈들러",
+     "en": "Gum would be perfection. Could have said 'gum would be nice.'",
+     "ko": "'껌이 완벽하겠어'라니. '껌 좋겠다'라고 하면 될 걸.",
+     "start": 100.0,
+     "end": 105.4,
+     "idiom": "Could have said",
+     "note": "'~라고 말할 수도 있었는데'. 후회를 담은 가정 표현입니다."
+    },
+    {
+     "id": "friends_atm_10",
+     "sp": "챈들러",
+     "en": "Blow a bubble. A bubble's good. It's got a boyish charm.",
+     "ko": "풍선을 불어라. 풍선이 좋아. 소년 같은 매력이 있잖아.",
+     "start": 114.0,
+     "end": 119.0,
+     "idiom": "boyish charm",
+     "note": "'소년 같은 매력'. -ish가 '~다운'의 느낌을 더합니다."
+    },
+    {
+     "id": "friends_atm_11",
+     "sp": "챈들러",
+     "en": "This is not my gum.",
+     "ko": "이건 내 껌이 아니야.",
+     "start": 156.0,
+     "end": 158.4,
+     "idiom": "not my",
+     "note": "내 것이 아님을 강조하는 짧은 부정문이에요."
+    },
+    {
+     "id": "friends_atm_12",
+     "sp": "질",
+     "en": "Oh my God. You're choking!",
+     "ko": "맙소사! 기도 막혔잖아요!",
+     "start": 168.0,
+     "end": 170.4,
+     "idiom": "choking",
+     "note": "'질식하다·목에 걸리다'. 음식이 목에 걸렸을 때 씁니다."
+    },
+    {
+     "id": "friends_atm_13",
+     "sp": "챈들러",
+     "en": "Yes. Thank you. That was... that was perfection.",
+     "ko": "네. 고마워요. 방금 그건… 정말 완벽했어요.",
+     "start": 176.0,
+     "end": 179.7,
+     "idiom": "that was perfection",
+     "note": "앞서 쓴 perfection을 되받아 쓰는 유머. 같은 단어를 반복해 웃음을 만듭니다."
+    },
+    {
+     "id": "friends_atm_14",
+     "sp": "질",
+     "en": "Chandler, I had a great blackout. See you.",
+     "ko": "챈들러, 즐거운 정전이었어요. 또 봐요.",
+     "start": 197.0,
+     "end": 200.7,
+     "idiom": "See you",
+     "note": "가볍게 헤어질 때 쓰는 인사. 'See you later'의 줄임이에요."
+    }
+   ]
+  },
+  {
+   "id": "friends_tan",
+   "show": "friends",
+   "videoId": "hc1C0I6x3lI",
+   "title": "로스, 셀프 태닝 기계에서 대참사",
+   "titleEn": "Ross Gets a Spray Tan",
+   "channel": "Friends",
+   "episode": "S10E03 · The One with Ross's Tan",
+   "duration": 283,
+   "url": "https://www.youtube.com/watch?v=hc1C0I6x3lI",
+   "lines": [
+    {
+     "id": "friends_tan_01",
+     "sp": "직원",
+     "en": "All right, Mr. Geller, right this way.",
+     "ko": "좋아요, 겔러 씨. 이쪽으로 오세요.",
+     "start": 2.0,
+     "end": 4.8,
+     "idiom": "right this way",
+     "note": "'이쪽으로 오세요'라는 안내 표현. 매장·식당에서 자주 듣습니다."
+    },
+    {
+     "id": "friends_tan_02",
+     "sp": "직원",
+     "en": "So how dark do you want to be? We have one, two, or three.",
+     "ko": "얼마나 어둡게 하실래요? 1, 2, 3단계가 있어요.",
+     "start": 5.0,
+     "end": 8.8,
+     "idiom": "how dark",
+     "note": "정도를 묻는 how + 형용사 패턴입니다."
+    },
+    {
+     "id": "friends_tan_03",
+     "sp": "로스",
+     "en": "Well, I like how you look. What are you? Puerto Rican?",
+     "ko": "음, 당신 피부가 좋은데. 뭐세요? 푸에르토리코 사람?",
+     "start": 9.0,
+     "end": 14.0,
+     "idiom": "What are you?",
+     "note": "외모·출신을 물을 때 쓰는 직설적 표현. 실제로는 무례할 수 있어요."
+    },
+    {
+     "id": "friends_tan_04",
+     "sp": "직원",
+     "en": "You're gonna face the red light. When the red light goes on, the spray's about to start.",
+     "ko": "빨간 불 쪽을 보고 서세요. 빨간 불이 켜지면 분사가 시작돼요.",
+     "start": 19.0,
+     "end": 23.9,
+     "idiom": "about to",
+     "note": "'막 ~하려고 하다'. 바로 앞의 일을 알릴 때 씁니다."
+    },
+    {
+     "id": "friends_tan_05",
+     "sp": "직원",
+     "en": "When the spray stops, count to five, pat yourself down, then turn around.",
+     "ko": "분사가 멈추면 5까지 세고, 몸을 두드려 물방울을 정리한 뒤 돌아서세요.",
+     "start": 24.0,
+     "end": 29.8,
+     "idiom": "pat yourself down",
+     "note": "'몸을 가볍게 두드리다'. pat은 손바닥으로 톡톡 치는 동작이에요."
+    },
+    {
+     "id": "friends_tan_06",
+     "sp": "로스",
+     "en": "Spray, count, pat, and turn.",
+     "ko": "분사, 세기, 두드리기, 돌기.",
+     "start": 31.0,
+     "end": 32.9,
+     "idiom": "count",
+     "note": "'수를 세다'. 동작을 요약해 되짚을 때 동사원형으로 나열합니다."
+    },
+    {
+     "id": "friends_tan_07",
+     "sp": "직원",
+     "en": "Wow, you catch on quick.",
+     "ko": "와, 이해가 빠르시네요.",
+     "start": 33.0,
+     "end": 35.5,
+     "idiom": "catch on quick",
+     "note": "'이해가 빠르다·눈치가 빠르다'. catch on은 요령을 파악한다는 뜻."
+    },
+    {
+     "id": "friends_tan_08",
+     "sp": "로스",
+     "en": "Well, I have a PhD.",
+     "ko": "뭐, 박사 학위가 있거든요.",
+     "start": 36.0,
+     "end": 38.5,
+     "idiom": "Well",
+     "note": "말을 시작하며 완충하는 감탄사. 겸손과 자랑 사이의 뉘앙스를 만듭니다."
+    },
+    {
+     "id": "friends_tan_09",
+     "sp": "로스",
+     "en": "One Mississippi, two Mississippi, three—",
+     "ko": "원 미시시피, 투 미시시피, 쓰리—",
+     "start": 63.0,
+     "end": 65.5,
+     "idiom": "Mississippi",
+     "note": "'미시시피'를 넣어 세는 미국식 방법. 1초보다 길게 세기 위한 장치예요."
+    },
+    {
+     "id": "friends_tan_10",
+     "sp": "로스",
+     "en": "I'm not finished counting!",
+     "ko": "아직 다 안 셌어요!",
+     "start": 69.0,
+     "end": 71.0,
+     "idiom": "finished",
+     "note": "'끝낸'. be finished는 '끝난 상태'를 말합니다."
+    },
+    {
+     "id": "friends_tan_11",
+     "sp": "로스",
+     "en": "No, I barely even got to three Mississippi.",
+     "ko": "아뇨, 겨우 3까지 갔어요.",
+     "start": 79.0,
+     "end": 82.7,
+     "idiom": "barely",
+     "note": "'간신히·거의 ~못하다'. 부정적 뉘앙스를 담습니다."
+    },
+    {
+     "id": "friends_tan_12",
+     "sp": "직원",
+     "en": "Ain't that bad yet, but it keeps getting darker for the next four hours.",
+     "ko": "지금은 그렇게 심하진 않은데, 앞으로 네 시간 더 어두워져요.",
+     "start": 87.0,
+     "end": 93.2,
+     "idiom": "keeps getting",
+     "note": "'계속 ~해지다'. keep + -ing는 변화가 이어진다는 뜻."
+    },
+    {
+     "id": "friends_tan_13",
+     "sp": "직원",
+     "en": "Yeah, but your back's a zero. You're gonna want to even that out.",
+     "ko": "그런데 등은 0단계예요. 그것도 맞춰서 균형을 잡아야 해요.",
+     "start": 95.0,
+     "end": 100.8,
+     "idiom": "even that out",
+     "note": "'고르게 맞추다'. even out은 차이를 없애는 것."
+    },
+    {
+     "id": "friends_tan_14",
+     "sp": "레이첼",
+     "en": "Was that place the sun?",
+     "ko": "그 장소가 혹시 '태양'이었어?",
+     "start": 163.0,
+     "end": 165.4,
+     "idiom": "Was that",
+     "note": "과거 사실을 되짚어 묻는 be동사 의문문. 여기선 농담의 핵심이에요."
+    },
+    {
+     "id": "friends_tan_15",
+     "sp": "모니카",
+     "en": "How could you mess this up? It's so easy.",
+     "ko": "이걸 어떻게 망칠 수가 있어? 이렇게 쉬운데.",
+     "start": 180.0,
+     "end": 184.1,
+     "idiom": "mess this up",
+     "note": "'일을 망치다'. mess up은 실수로 엉망으로 만드는 것."
+    },
+    {
+     "id": "friends_tan_16",
+     "sp": "챈들러",
+     "en": "No. I just had to get a picture of this. I'll see you later.",
+     "ko": "아니, 이 꼴을 사진으로 남겨야 해서. 나중에 보자.",
+     "start": 266.0,
+     "end": 272.2,
+     "idiom": "get a picture",
+     "note": "'사진을 찍다'. take a picture와 함께 쓰이는 구어 표현이에요."
+    }
+   ]
+  },
+  {
+   "id": "friends_unagi",
+   "show": "friends",
+   "videoId": "UPW3iSLPrPg",
+   "title": "우나기(Unagi)는 총체적 자각 상태",
+   "titleEn": "Unagi",
+   "channel": "Friends",
+   "episode": "S06E17 · The One with Unagi",
+   "duration": 299,
+   "url": "https://www.youtube.com/watch?v=UPW3iSLPrPg",
+   "lines": [
+    {
+     "id": "friends_unagi_01",
+     "sp": "조이",
+     "en": "What have you guys been up to?",
+     "ko": "너희 뭐 하고 지냈어?",
+     "start": 2.0,
+     "end": 5.3,
+     "idiom": "been up to",
+     "note": "'무엇을 하고 지내다'. 근황을 물을 때 쓰는 구어 표현."
+    },
+    {
+     "id": "friends_unagi_02",
+     "sp": "모니카",
+     "en": "We went to a self-defense class today.",
+     "ko": "우리 오늘 호신술 수업 들었어.",
+     "start": 7.0,
+     "end": 8.8,
+     "idiom": "self-defense",
+     "note": "'호신술'. defend(방어하다)에서 나온 말이에요."
+    },
+    {
+     "id": "friends_unagi_03",
+     "sp": "피비",
+     "en": "Kicking a guy in the crotch all morning really takes it out of you.",
+     "ko": "아침 내내 남자 사타구니를 걷어차는 건 정말 기운을 쭉 빼.",
+     "start": 9.0,
+     "end": 13.8,
+     "idiom": "takes it out of you",
+     "note": "'기운을 빼앗다·녹초가 되게 하다'. 힘든 일을 겪은 뒤 쓰는 표현."
+    },
+    {
+     "id": "friends_unagi_04",
+     "sp": "레이첼",
+     "en": "What, you want to see me self-defend myself?",
+     "ko": "뭐, 내가 날 지키는 걸 보고 싶어?",
+     "start": 14.0,
+     "end": 18.1,
+     "idiom": "self-defend",
+     "note": "'스스로를 방어하다'. 실제로는 defend oneself가 더 자연스러운 형태예요."
+    },
+    {
+     "id": "friends_unagi_05",
+     "sp": "로스",
+     "en": "Of course you could defend yourself from an attack you know is coming.",
+     "ko": "당연히 올 줄 아는 공격은 막을 수 있겠지.",
+     "start": 24.0,
+     "end": 29.8,
+     "idiom": "Of course",
+     "note": "'당연히'. 동의·양보를 강조할 때 문두에 씁니다."
+    },
+    {
+     "id": "friends_unagi_06",
+     "sp": "로스",
+     "en": "That's not enough.",
+     "ko": "그걸로는 충분하지 않아.",
+     "start": 30.0,
+     "end": 31.6,
+     "idiom": "not enough",
+     "note": "'충분하지 않다'. 서운함·아쉬움을 담는 짧은 문장."
+    },
+    {
+     "id": "friends_unagi_07",
+     "sp": "로스",
+     "en": "There's a concept you should really be familiar with.",
+     "ko": "너희가 꼭 알아야 할 개념이 있어.",
+     "start": 34.0,
+     "end": 38.1,
+     "idiom": "be familiar with",
+     "note": "'~에 익숙하다·잘 알다'. 지식·경험을 전제로 말합니다."
+    },
+    {
+     "id": "friends_unagi_08",
+     "sp": "로스",
+     "en": "It's what the Japanese call unagi.",
+     "ko": "일본 사람들이 '우나기'라고 부르는 거야.",
+     "start": 39.0,
+     "end": 40.9,
+     "idiom": "what the Japanese call",
+     "note": "'일본 사람들이 ~라고 부르는 것'. what절로 용어를 소개하는 틀."
+    },
+    {
+     "id": "friends_unagi_09",
+     "sp": "피비",
+     "en": "Isn't that a kind of sushi?",
+     "ko": "그거 회 종류 아니야?",
+     "start": 41.0,
+     "end": 43.9,
+     "idiom": "a kind of",
+     "note": "'~의 한 종류'. 종류를 묻거나 분류할 때 씁니다."
+    },
+    {
+     "id": "friends_unagi_10",
+     "sp": "로스",
+     "en": "It's freshwater eel. All right, maybe it means that too.",
+     "ko": "민물 장어야. 알았어, 그 뜻도 맞아.",
+     "start": 48.0,
+     "end": 52.5,
+     "idiom": "freshwater",
+     "note": "'민물의'. 바닷물은 saltwater예요."
+    },
+    {
+     "id": "friends_unagi_11",
+     "sp": "로스",
+     "en": "Unagi is a state of total awareness.",
+     "ko": "우나기는 완전한 자각 상태야.",
+     "start": 65.0,
+     "end": 68.3,
+     "idiom": "state of",
+     "note": "'~한 상태'. 감정·몸의 상태를 말할 때 쓰는 표현."
+    },
+    {
+     "id": "friends_unagi_12",
+     "sp": "로스",
+     "en": "Only by achieving true unagi can you be prepared for any danger that may befall you.",
+     "ko": "진정한 우나기를 얻어야만 어떤 위험에도 대비할 수 있어.",
+     "start": 73.0,
+     "end": 80.1,
+     "idiom": "be prepared for",
+     "note": "'~에 대비하다'. 준비된 상태를 말합니다."
+    },
+    {
+     "id": "friends_unagi_13",
+     "sp": "피비",
+     "en": "You mean in case someone's trying to steal your bamboo sleeping mat?",
+     "ko": "혹시 누가 네 대나무 돗자리를 훔쳐 갈 경우를 말하는 거야?",
+     "start": 82.0,
+     "end": 87.4,
+     "idiom": "in case",
+     "note": "'혹시 ~할 경우에 대비해'. if와 달리 대비의 뉘앙스가 있어요."
+    },
+    {
+     "id": "friends_unagi_14",
+     "sp": "레이첼",
+     "en": "What the hell was that?",
+     "ko": "방금 그게 대체 뭐야?",
+     "start": 136.0,
+     "end": 138.4,
+     "idiom": "What the hell",
+     "note": "'대체 뭐야'. 짜증·당황을 실은 강조 표현."
+    },
+    {
+     "id": "friends_unagi_15",
+     "sp": "로스",
+     "en": "I'm sorry I had to take such drastic measures to make my point.",
+     "ko": "내 주장을 하려고 이렇게 과격한 방법을 써서 미안해.",
+     "start": 160.0,
+     "end": 165.8,
+     "idiom": "drastic measures",
+     "note": "'과감한 조치'. measure는 '조치·수단'의 뜻이에요."
+    },
+    {
+     "id": "friends_unagi_16",
+     "sp": "레이첼",
+     "en": "Oh my god, why is he jumping on those women?",
+     "ko": "맙소사, 왜 저 여자들한테 뛰어드는 거야?",
+     "start": 270.0,
+     "end": 274.6,
+     "idiom": "jumping on",
+     "note": "'~위로 뛰어오르다'. 전치사 on이 목적물을 붙여 줍니다."
+    }
+   ]
+  },
+  {
+   "id": "mf_funparent",
+   "show": "modern_family",
+   "videoId": "ORfWypnbbyk",
+   "title": "클레어, '재미있는 부모' 자리를 맡다",
+   "titleEn": "Claire Takes Phil's Place as the \"Fun\" Parent",
+   "channel": "Peacock",
+   "episode": "S02E22 · Good Cop Bad Dog",
+   "duration": 313,
+   "url": "https://www.youtube.com/watch?v=ORfWypnbbyk",
+   "lines": [
+    {
+     "id": "mf_funparent_01",
+     "sp": "클레어",
+     "en": "May I have a word with you, Phil?",
+     "ko": "필, 잠깐 얘기 좀 할까요?",
+     "start": 8.0,
+     "end": 11.7,
+     "idiom": "have a word with",
+     "note": "'~와 잠깐 이야기하다'. 주로 사적인 대화를 청할 때 씁니다."
+    },
+    {
+     "id": "mf_funparent_02",
+     "sp": "클레어",
+     "en": "Phil, you sold me out behind my back.",
+     "ko": "필, 당신이 내 뒤통수 쳤잖아요.",
+     "start": 16.0,
+     "end": 17.9,
+     "idiom": "sold me out",
+     "note": "'배신하다·팔아넘기다'. sell out은 사람·신념을 버리는 것."
+    },
+    {
+     "id": "mf_funparent_03",
+     "sp": "필",
+     "en": "Sometimes you can get a little intense, and I feel like I need to swoop in.",
+     "ko": "가끔 당신이 좀 강해지니까, 내가 들어가서 달래야 할 것 같아서.",
+     "start": 18.0,
+     "end": 20.9,
+     "idiom": "get a little intense",
+     "note": "'조금 강해지다·과해지다'. get + 형용사는 상태 변화."
+    },
+    {
+     "id": "mf_funparent_04",
+     "sp": "필",
+     "en": "I need to swoop in and let the kids know they're still loved.",
+     "ko": "내가 들어가서 애들한테 아직 사랑받고 있다고 알려 줘야 할 것 같아.",
+     "start": 21.0,
+     "end": 24.9,
+     "idiom": "swoop in",
+     "note": "'훌쩍 들어가 구하다'. 새가 급강하하는 그림에서 온 말."
+    },
+    {
+     "id": "mf_funparent_05",
+     "sp": "필",
+     "en": "Honey, these are just the parts that we're playing.",
+     "ko": "여보, 이건 그냥 우리가 맡은 역할일 뿐이야.",
+     "start": 25.0,
+     "end": 29.1,
+     "idiom": "the parts that we're playing",
+     "note": "'우리가 연기하는 배역'. 부부의 역할 분담을 연극에 비유했어요."
+    },
+    {
+     "id": "mf_funparent_06",
+     "sp": "클레어",
+     "en": "I'm tired of being the bad cop.",
+     "ko": "나 이제 나쁜 경찰 역할은 지쳤어.",
+     "start": 30.0,
+     "end": 31.9,
+     "idiom": "the bad cop",
+     "note": "'나쁜 경찰'. good cop/bad cop은 부모의 훈육 역할 분담을 뜻하는 관용구예요."
+    },
+    {
+     "id": "mf_funparent_07",
+     "sp": "클레어",
+     "en": "You need to discipline them sometime and let me swoop in with all the love.",
+     "ko": "당신도 가끔은 혼내고, 나는 사랑으로 달래게 해 줘요.",
+     "start": 32.0,
+     "end": 35.9,
+     "idiom": "discipline",
+     "note": "'훈육하다·혼내다'. 명사로는 '규율'입니다."
+    },
+    {
+     "id": "mf_funparent_08",
+     "sp": "필",
+     "en": "Shouldn't we just stick with the stuff we're good at?",
+     "ko": "그냥 우리가 잘하는 것만 하는 게 낫지 않아?",
+     "start": 36.0,
+     "end": 37.5,
+     "idiom": "stick with",
+     "note": "'~을 계속 고수하다'. 함께 간다는 뉘앙스가 있어요."
+    },
+    {
+     "id": "mf_funparent_09",
+     "sp": "클레어",
+     "en": "Oh, my God, this bathroom is disgusting.",
+     "ko": "세상에, 이 화장실 너무 지저분해.",
+     "start": 36.0,
+     "end": 39.3,
+     "idiom": "disgusting",
+     "note": "'역겨운·형편없는'. 불쾌함을 강하게 전달합니다."
+    },
+    {
+     "id": "mf_funparent_10",
+     "sp": "클레어",
+     "en": "The girls told me they would clean it days ago.",
+     "ko": "애들이 며칠 전에 치우겠다고 했어.",
+     "start": 40.0,
+     "end": 43.9,
+     "idiom": "days ago",
+     "note": "'며칠 전'. ago는 기간 + ago 형태로만 씁니다."
+    },
+    {
+     "id": "mf_funparent_11",
+     "sp": "클레어",
+     "en": "I can't yell at them about it one more time. Phil, you handle it.",
+     "ko": "이걸로 또 소리칠 수는 없어. 필, 당신이 처리해요.",
+     "start": 44.0,
+     "end": 50.2,
+     "idiom": "yell at",
+     "note": "'~에게 소리치다'. at이 화살표처럼 대상을 향합니다."
+    },
+    {
+     "id": "mf_funparent_12",
+     "sp": "클레어",
+     "en": "You stay here, hound the girls about cleaning up this mess.",
+     "ko": "당신은 여기 남아서 애들한테 이 엉망을 치우라고 계속 졸라요.",
+     "start": 54.0,
+     "end": 59.0,
+     "idiom": "hound",
+     "note": "'끈질기게 조르다·몰아세우다'. 사냥개(hound)에서 온 동사예요."
+    },
+    {
+     "id": "mf_funparent_13",
+     "sp": "클레어",
+     "en": "Hey, guys, guess who's taking you go-karting today?",
+     "ko": "얘들아, 오늘 누가 너희 카트 태워 주러 가는지 맞혀 봐.",
+     "start": 70.0,
+     "end": 72.8,
+     "idiom": "guess who",
+     "note": "'누군지 맞혀 봐'. 놀라게 할 때 쓰는 도입 표현."
+    },
+    {
+     "id": "mf_funparent_14",
+     "sp": "루크",
+     "en": "Why? Are we in trouble?",
+     "ko": "왜? 우리 혼나는 거야?",
+     "start": 73.0,
+     "end": 75.5,
+     "idiom": "in trouble",
+     "note": "'곤란한·혼날 상황인'. 문제에 휘말린 상태를 말해요."
+    },
+    {
+     "id": "mf_funparent_15",
+     "sp": "클레어",
+     "en": "Today's just all about having fun.",
+     "ko": "오늘은 그냥 신나게 노는 날이야.",
+     "start": 78.0,
+     "end": 80.9,
+     "idiom": "all about",
+     "note": "'~가 전부인'. 그날의 주제를 강조하는 구어 표현."
+    },
+    {
+     "id": "mf_funparent_16",
+     "sp": "필",
+     "en": "And because I'm your dad and I'm older than you. And I call the shots around here.",
+     "ko": "왜냐면 내가 너희 아빠고 너희보다 나이가 많으니까. 그리고 여기선 내가 결정해.",
+     "start": 131.0,
+     "end": 138.5,
+     "idiom": "call the shots",
+     "note": "'결정권을 쥐다·지시하다'. 사격 지휘에서 온 관용구예요."
+    },
+    {
+     "id": "mf_funparent_17",
+     "sp": "필",
+     "en": "Note to Claire: if you want intense family drama, rent Spy Kids.",
+     "ko": "클레어에게 한마디: 진한 가족 드라마가 보고 싶으면 '스파이 키즈'를 빌려 봐.",
+     "start": 177.0,
+     "end": 182.4,
+     "idiom": "Note to",
+     "note": "'~에게 남기는 메모'. 농담조로 충고할 때 씁니다."
+    },
+    {
+     "id": "mf_funparent_18",
+     "sp": "필",
+     "en": "You are not a good bad cop.",
+     "ko": "당신은 나쁜 경찰을 잘 못해.",
+     "start": 270.0,
+     "end": 273.3,
+     "idiom": "good bad cop",
+     "note": "good cop/bad cop을 비틀어 '나쁜 경찰 연기를 잘한다'는 뜻으로 만든 말장난."
+    },
+    {
+     "id": "mf_funparent_19",
+     "sp": "필",
+     "en": "And I am a very bad, good cop.",
+     "ko": "그리고 나는 아주 형편없는 좋은 경찰이야.",
+     "start": 279.0,
+     "end": 280.9,
+     "idiom": "very bad",
+     "note": "'아주 못하는'. good과 대비해 아이러니를 만듭니다."
+    },
+    {
+     "id": "mf_funparent_20",
+     "sp": "필",
+     "en": "I feel really shaky. I don't like being you.",
+     "ko": "나 진짜 속이 떨려. 당신 역할은 싫어.",
+     "start": 281.0,
+     "end": 285.1,
+     "idiom": "shaky",
+     "note": "'떨리는·불안한'. 몸과 마음 모두에 씁니다."
+    }
+   ]
+  },
+  {
+   "id": "mf_boyfriend",
+   "show": "modern_family",
+   "videoId": "2ZGvEQWNqqQ",
+   "title": "딸의 연상 남자친구를 대하는 필의 방식",
+   "titleEn": "Phil Does Not Like Haley's Older Boyfriend",
+   "channel": "Peacock",
+   "episode": "S04E12 · Party Crasher",
+   "duration": 253,
+   "url": "https://www.youtube.com/watch?v=2ZGvEQWNqqQ",
+   "lines": [
+    {
+     "id": "mf_boyfriend_01",
+     "sp": "필",
+     "en": "That's crazy. I'm gonna fight him.",
+     "ko": "말도 안 돼. 내가 그 녀석과 싸울 거야.",
+     "start": 0.0,
+     "end": 2.9,
+     "idiom": "That's crazy",
+     "note": "'말도 안 돼'. 황당함을 나타내는 짧은 반응."
+    },
+    {
+     "id": "mf_boyfriend_02",
+     "sp": "필",
+     "en": "No, Claire, I'm gonna fight him up real nice.",
+     "ko": "아니, 클레어. 아주 얌전하게 싸울 거야.",
+     "start": 7.0,
+     "end": 11.1,
+     "idiom": "real nice",
+     "note": "'아주 착하게'. 구어에서 really 대신 real을 씁니다."
+    },
+    {
+     "id": "mf_boyfriend_03",
+     "sp": "클레어",
+     "en": "He's about to drop the hammer on Haley's new boyfriend.",
+     "ko": "아빠가 헤일리의 새 남자친구한테 한 방 먹이려는 참이야.",
+     "start": 19.0,
+     "end": 21.9,
+     "idiom": "drop the hammer",
+     "note": "'강하게 제재하다·한 방 먹이다'. 망치를 내리치는 그림."
+    },
+    {
+     "id": "mf_boyfriend_04",
+     "sp": "클레어",
+     "en": "He's twice her age, and it's disgusting.",
+     "ko": "나이가 헤일리의 두 배야. 역겨워.",
+     "start": 22.0,
+     "end": 25.3,
+     "idiom": "twice her age",
+     "note": "'그녀 나이의 두 배'. 배수를 말하는 twice."
+    },
+    {
+     "id": "mf_boyfriend_05",
+     "sp": "필",
+     "en": "I know why Haley is doing this. She's doing it to get back at you.",
+     "ko": "헤일리가 왜 그러는지 알아. 당신한테 앙갚음하려는 거야.",
+     "start": 50.0,
+     "end": 56.6,
+     "idiom": "get back at",
+     "note": "'~에게 앙갚음하다'. 복수·반격을 뜻합니다."
+    },
+    {
+     "id": "mf_boyfriend_06",
+     "sp": "필",
+     "en": "And do you think I'm just going to let this happen?",
+     "ko": "내가 이걸 그냥 두고 볼 것 같아?",
+     "start": 59.0,
+     "end": 60.5,
+     "idiom": "let this happen",
+     "note": "'이 일이 일어나게 두다'. let + 목적어 + 동사원형."
+    },
+    {
+     "id": "mf_boyfriend_07",
+     "sp": "클레어",
+     "en": "Trust me, the more it bothers you, the longer he stays.",
+     "ko": "믿어 봐. 당신이 신경 쓸수록 그는 더 오래 있어.",
+     "start": 59.0,
+     "end": 64.0,
+     "idiom": "the more",
+     "note": "'~할수록 더 ~'. the 비교급 구문의 대표 형태."
+    },
+    {
+     "id": "mf_boyfriend_08",
+     "sp": "필",
+     "en": "The sooner Willie Nelson's on the road again.",
+     "ko": "윌리 넬슨이 빨리 '다시 길 위로' 가겠지.",
+     "start": 67.0,
+     "end": 70.7,
+     "idiom": "on the road again",
+     "note": "'다시 여행길에 오르다'. 윌리 넬슨의 노래 제목을 빌린 농담."
+    },
+    {
+     "id": "mf_boyfriend_09",
+     "sp": "필",
+     "en": "I'm so conflicted. What you're saying makes sense up here.",
+     "ko": "나 지금 너무 갈등돼. 네 말은 머리로는 맞아.",
+     "start": 77.0,
+     "end": 79.8,
+     "idiom": "makes sense",
+     "note": "'말이 되다·이해가 되다'. 논리적 타당성을 말합니다."
+    },
+    {
+     "id": "mf_boyfriend_10",
+     "sp": "필",
+     "en": "It just feels so damn comfortable down here.",
+     "ko": "여기(가슴)는 하라는 대로 못 하겠어. 너무 편하다고.",
+     "start": 80.0,
+     "end": 83.7,
+     "idiom": "damn",
+     "note": "형용사를 강조하는 구어적 부사. 가볍게 짜증을 실어요."
+    },
+    {
+     "id": "mf_boyfriend_11",
+     "sp": "클레어",
+     "en": "Manny seems to me like a real old soul.",
+     "ko": "매니는 정말 늙은 영혼 같아.",
+     "start": 101.0,
+     "end": 105.1,
+     "idiom": "old soul",
+     "note": "'늙은 영혼'. 또래보다 성숙한 사람을 일컫는 표현."
+    },
+    {
+     "id": "mf_boyfriend_12",
+     "sp": "필",
+     "en": "Age is nothing but a state of mind.",
+     "ko": "나이는 그저 마음가짐일 뿐이야.",
+     "start": 111.0,
+     "end": 114.7,
+     "idiom": "nothing but",
+     "note": "'단지 ~에 불과하다'. 강한 한정 표현."
+    },
+    {
+     "id": "mf_boyfriend_13",
+     "sp": "필",
+     "en": "In fact, it has been such a pleasure getting to know Kenny. It's our treat.",
+     "ko": "사실 케니를 알게 돼서 정말 기뻐. 우리가 살게.",
+     "start": 141.0,
+     "end": 147.7,
+     "idiom": "It's our treat",
+     "note": "'우리가 낼게'. 식사·경험을 대접할 때 쓰는 표현."
+    },
+    {
+     "id": "mf_boyfriend_14",
+     "sp": "필",
+     "en": "Well, sweetheart, you are only young once.",
+     "ko": "여보, 인생에서 젊은 때는 한 번뿐이야.",
+     "start": 149.0,
+     "end": 152.3,
+     "idiom": "only young once",
+     "note": "'젊음은 한 번뿐'. YOLO와 같은 뉘앙스의 격려."
+    },
+    {
+     "id": "mf_boyfriend_15",
+     "sp": "헤일리",
+     "en": "You were going to let me go with him?",
+     "ko": "나를 그 사람과 보내려고 했어?",
+     "start": 193.0,
+     "end": 196.8,
+     "idiom": "going to let",
+     "note": "'~하게 둘 작정이었다'. be going to + 동사원형."
+    },
+    {
+     "id": "mf_boyfriend_16",
+     "sp": "헤일리",
+     "en": "You've been acting so weird ever since I left college.",
+     "ko": "내가 대학 그만둔 뒤로 계속 이상하게 구네.",
+     "start": 197.0,
+     "end": 201.6,
+     "idiom": "ever since",
+     "note": "'~한 이후로 쭉'. 현재완료와 함께 씁니다."
+    },
+    {
+     "id": "mf_boyfriend_17",
+     "sp": "필",
+     "en": "This little chicken game may work for your dad, but it doesn't work for me.",
+     "ko": "이 닭싸움 같은 게 네 아빠한테는 통할지 몰라도 나한테는 안 통해.",
+     "start": 217.0,
+     "end": 222.8,
+     "idiom": "chicken game",
+     "note": "'겁쟁이 게임'. 서로 버티는 승부를 뜻합니다."
+    },
+    {
+     "id": "mf_boyfriend_18",
+     "sp": "필",
+     "en": "No guy on earth is good enough for her, let alone some slimy jeans salesman.",
+     "ko": "이 세상 어떤 남자도 그 애에게 부족해. 끈적한 청바지 판매원은 말할 것도 없지.",
+     "start": 223.0,
+     "end": 229.7,
+     "idiom": "let alone",
+     "note": "'~은 말할 것도 없고'. 더 강한 경우를 덧붙입니다."
+    }
+   ]
+  },
+  {
+   "id": "mf_earthquake",
+   "show": "modern_family",
+   "videoId": "JJivFinaNPY",
+   "title": "지진을 이용해 밀린 집안일을 끝내다",
+   "titleEn": "Phil Uses the Earthquake To His Advantage",
+   "channel": "Peacock",
+   "episode": "S02E03 · Earthquake",
+   "duration": 301,
+   "url": "https://www.youtube.com/watch?v=JJivFinaNPY",
+   "lines": [
+    {
+     "id": "mf_earthquake_01",
+     "sp": "미첼",
+     "en": "If they find us in these outfits, it's going to be very bad for the gays.",
+     "ko": "이런 옷차림으로 들키면 동성애자들 욕먹는 거야.",
+     "start": 20.0,
+     "end": 27.1,
+     "idiom": "very bad for",
+     "note": "'~에게 아주 안 좋은'. 결과를 걱정할 때 씁니다."
+    },
+    {
+     "id": "mf_earthquake_02",
+     "sp": "루크",
+     "en": "That thing almost fell on me.",
+     "ko": "저게 나한테 떨어질 뻔했어.",
+     "start": 28.0,
+     "end": 29.9,
+     "idiom": "almost fell",
+     "note": "'거의 떨어졌다'. almost는 아슬아슬한 실패를 나타냅니다."
+    },
+    {
+     "id": "mf_earthquake_03",
+     "sp": "루크",
+     "en": "It came this close to my head.",
+     "ko": "내 머리 바로 앞까지 왔어.",
+     "start": 30.0,
+     "end": 33.3,
+     "idiom": "this close",
+     "note": "'이만큼 가까이'. 손으로 거리를 보여 줄 때 쓰는 말."
+    },
+    {
+     "id": "mf_earthquake_04",
+     "sp": "루크",
+     "en": "I'm not gonna wait around here until I do.",
+     "ko": "난 당할 때까지 여기서 기다리진 않을 거야.",
+     "start": 38.0,
+     "end": 42.1,
+     "idiom": "wait around",
+     "note": "'빈둥대며 기다리다'. 목적 없이 머무는 느낌."
+    },
+    {
+     "id": "mf_earthquake_05",
+     "sp": "제이",
+     "en": "That is a doozy.",
+     "ko": "이건 정말 대단한 지진이네.",
+     "start": 45.0,
+     "end": 47.0,
+     "idiom": "a doozy",
+     "note": "'대단한 것·굉장한 것'. 크고 인상적인 일에 쓰는 구어 표현."
+    },
+    {
+     "id": "mf_earthquake_06",
+     "sp": "제이",
+     "en": "We lost Phil.",
+     "ko": "필이랑 연락이 끊겼어.",
+     "start": 60.0,
+     "end": 61.6,
+     "idiom": "we lost",
+     "note": "'연결이 끊겼다·잃었다'. 통화·신호가 끊길 때 씁니다."
+    },
+    {
+     "id": "mf_earthquake_07",
+     "sp": "캠",
+     "en": "Great. Now Gloria's gone.",
+     "ko": "좋네. 이제 글로리아도 사라졌어.",
+     "start": 68.0,
+     "end": 70.0,
+     "idiom": "gone",
+     "note": "'가 버린·없는'. gone은 사라진 상태를 말합니다."
+    },
+    {
+     "id": "mf_earthquake_08",
+     "sp": "글로리아",
+     "en": "Of course I'm alive.",
+     "ko": "당연히 살아 있지.",
+     "start": 74.0,
+     "end": 76.0,
+     "idiom": "alive",
+     "note": "'살아 있는'. live(동사)와 구별되는 형용사예요."
+    },
+    {
+     "id": "mf_earthquake_09",
+     "sp": "필",
+     "en": "For months, Claire has been after me and dogging me.",
+     "ko": "몇 달 동안 클레어가 나를 계속 졸라 댔어.",
+     "start": 77.0,
+     "end": 81.5,
+     "idiom": "has been after me",
+     "note": "'계속 나를 쫓아다녔다·졸랐다'. 현재완료 진행의 지속."
+    },
+    {
+     "id": "mf_earthquake_10",
+     "sp": "필",
+     "en": "Anchor the cabinet to the wall. We've got kids in the house, blah blah blah.",
+     "ko": "수납장을 벽에 고정해. 집에 애들이 있잖아, 어쩌고저쩌고.",
+     "start": 84.0,
+     "end": 90.7,
+     "idiom": "blah blah blah",
+     "note": "'어쩌고저쩌고'. 반복되는 말을 흘려들을 때 씁니다."
+    },
+    {
+     "id": "mf_earthquake_11",
+     "sp": "필",
+     "en": "It reached the point where I had no choice but to just roll up my sleeves.",
+     "ko": "결국엔 내가 소매를 걷어붙이는 수밖에 없는 지경이 됐지.",
+     "start": 93.0,
+     "end": 100.1,
+     "idiom": "roll up my sleeves",
+     "note": "'소매를 걷어붙이다'. 본격적으로 일을 시작한다는 관용구."
+    },
+    {
+     "id": "mf_earthquake_12",
+     "sp": "클레어",
+     "en": "We're fine. The door is jammed.",
+     "ko": "우린 괜찮아. 문이 끼었어.",
+     "start": 110.0,
+     "end": 112.9,
+     "idiom": "jammed",
+     "note": "'끼다·걸리다'. 기계·문이 움직이지 않을 때 씁니다."
+    },
+    {
+     "id": "mf_earthquake_13",
+     "sp": "필",
+     "en": "I'm gonna push, you pull. Okay, on three.",
+     "ko": "내가 밀게, 네가 당겨. 셋에 하는 거야.",
+     "start": 116.0,
+     "end": 119.7,
+     "idiom": "on three",
+     "note": "'셋에 맞춰'. 함께 동작을 시작할 때 쓰는 말."
+    },
+    {
+     "id": "mf_earthquake_14",
+     "sp": "필",
+     "en": "Okay, here's the thing.",
+     "ko": "있잖아, 사실은 말이지.",
+     "start": 125.0,
+     "end": 127.0,
+     "idiom": "here's the thing",
+     "note": "'사실은 말이야'. 본론을 꺼내기 전 쓰는 도입 표현."
+    },
+    {
+     "id": "mf_earthquake_15",
+     "sp": "필",
+     "en": "It dawned on me that as long as Claire was stuck, I'd have time.",
+     "ko": "클레어가 갇혀 있는 동안 시간이 생긴다는 걸 깨달았어.",
+     "start": 132.0,
+     "end": 134.8,
+     "idiom": "It dawned on me",
+     "note": "'문득 깨달았다'. 생각이 떠오르는 순간을 말합니다."
+    },
+    {
+     "id": "mf_earthquake_16",
+     "sp": "필",
+     "en": "Sometimes when God closes a door, he closes it so hard that your wife can't get out.",
+     "ko": "신이 문을 닫을 땐 아내가 못 나올 만큼 세게 닫기도 하지.",
+     "start": 135.0,
+     "end": 142.5,
+     "idiom": "closes a door",
+     "note": "'문을 닫으면 창문이 열린다'는 속담을 비트는 대사. 원래 속담을 문장 안에서 비틀어 웃음을 만듭니다."
+    },
+    {
+     "id": "mf_earthquake_17",
+     "sp": "클레어",
+     "en": "Get a crowbar, if you have one.",
+     "ko": "쇠지렛대 있어? 있으면 가져와.",
+     "start": 148.0,
+     "end": 149.8,
+     "idiom": "if you have one",
+     "note": "'있으면'. 조건을 붙여 부탁할 때 씁니다."
+    },
+    {
+     "id": "mf_earthquake_18",
+     "sp": "필",
+     "en": "Like I'm some dandy who doesn't have a crowbar?",
+     "ko": "내가 쇠지렛대도 없는 멋쟁이인 줄 알아?",
+     "start": 150.0,
+     "end": 154.1,
+     "idiom": "some dandy",
+     "note": "'어떤 멋쟁이'. some은 비꼬는 뉘앙스를 담기도 합니다."
+    },
+    {
+     "id": "mf_earthquake_19",
+     "sp": "필",
+     "en": "Dandy is a term coined by miners in the 15th century.",
+     "ko": "댄디는 15세기 광부들이 만든 말이야.",
+     "start": 156.0,
+     "end": 161.0,
+     "idiom": "coined by",
+     "note": "'~가 만들어 낸'. 단어를 새로 만들 때 coin을 씁니다."
+    },
+    {
+     "id": "mf_earthquake_20",
+     "sp": "클레어",
+     "en": "Don't you dare leave this house.",
+     "ko": "이 집에서 나갈 생각 하지 마.",
+     "start": 190.0,
+     "end": 192.9,
+     "idiom": "Don't you dare",
+     "note": "'감히 ~하지 마'. 강한 금지 표현."
+    },
+    {
+     "id": "mf_earthquake_21",
+     "sp": "클레어",
+     "en": "Just for that, you are grounded one week.",
+     "ko": "그래서 벌로 일주일 외출 금지야.",
+     "start": 199.0,
+     "end": 201.8,
+     "idiom": "grounded",
+     "note": "'외출 금지당한'. 부모가 벌을 주는 상황에서 씁니다."
+    },
+    {
+     "id": "mf_earthquake_22",
+     "sp": "클레어",
+     "en": "Want to double it? Keep talking.",
+     "ko": "두 배로 늘려 줄까? 계속 말해 봐.",
+     "start": 202.0,
+     "end": 204.9,
+     "idiom": "Keep talking",
+     "note": "'계속 말해 봐'. 위협조로 쓰이는 명령형."
+    },
+    {
+     "id": "mf_earthquake_23",
+     "sp": "필",
+     "en": "This cabinet barely moved. That's just perspective.",
+     "ko": "이 수납장 거의 안 움직였어. 그건 그냥 원근법이야.",
+     "start": 224.0,
+     "end": 227.3,
+     "idiom": "barely moved",
+     "note": "'거의 움직이지 않았다'. barely는 부정에 가깝습니다."
+    },
+    {
+     "id": "mf_earthquake_24",
+     "sp": "필",
+     "en": "I brought the wrong screwdriver, so I'll be right back.",
+     "ko": "드라이버를 잘못 가져왔어. 금방 올게.",
+     "start": 264.0,
+     "end": 268.6,
+     "idiom": "be right back",
+     "note": "'금방 돌아올게'. 자리를 잠깐 비울 때 씁니다."
+    }
+   ]
+  },
+  {
+   "id": "se_voicemail",
+   "show": "sex_education",
+   "videoId": "95jRV9nVlQY",
+   "title": "그 음성 메시지, 사실은 이랬어",
+   "titleEn": "Otis FINALLY Tells Maeve What The Voicemail Said",
+   "channel": "Still Watching Netflix",
+   "episode": "S03E08 · Episode 8",
+   "duration": 162,
+   "url": "https://www.youtube.com/watch?v=95jRV9nVlQY",
+   "lines": [
+    {
+     "id": "se_voicemail_01",
+     "sp": "메이브",
+     "en": "What did it say? The voicemail.",
+     "ko": "뭐라고 했어? 그 음성 메시지.",
+     "start": 2.0,
+     "end": 4.8,
+     "idiom": "What did it say",
+     "note": "'뭐라고 했어?' 말의 내용을 묻는 과거형 질문."
+    },
+    {
+     "id": "se_voicemail_02",
+     "sp": "오티스",
+     "en": "Doesn't matter. It was ages ago.",
+     "ko": "상관없어. 엄청 오래전 일이야.",
+     "start": 5.0,
+     "end": 7.9,
+     "idiom": "ages ago",
+     "note": "'아주 오래전'. ages는 '오랜 시간'의 구어 표현."
+    },
+    {
+     "id": "se_voicemail_03",
+     "sp": "메이브",
+     "en": "It matters to me.",
+     "ko": "나한테는 중요해.",
+     "start": 12.0,
+     "end": 14.0,
+     "idiom": "It matters to me",
+     "note": "'나에게 중요하다'. matter는 '중요하다'의 동사."
+    },
+    {
+     "id": "se_voicemail_04",
+     "sp": "오티스",
+     "en": "It was something like, \"Hi, Maeve. I'm watching you on TV right now.\"",
+     "ko": "대충 이런 거였어. '안녕, 메이브. 지금 TV에서 너를 보고 있어.'",
+     "start": 24.0,
+     "end": 29.8,
+     "idiom": "something like",
+     "note": "'대충 ~ 같은 것'. 정확하지 않은 인용을 할 때 씁니다."
+    },
+    {
+     "id": "se_voicemail_05",
+     "sp": "오티스",
+     "en": "\"And I wanted to let you know how proud I am of you.\"",
+     "ko": "'그리고 네가 얼마나 자랑스러운지 말해 주고 싶었어.'",
+     "start": 38.0,
+     "end": 43.8,
+     "idiom": "let you know",
+     "note": "'알려 주다'. 정중하게 정보를 전달할 때 쓰는 표현."
+    },
+    {
+     "id": "se_voicemail_06",
+     "sp": "오티스",
+     "en": "\"And how you saying you had feelings for me was all I ever wanted to hear.\"",
+     "ko": "'네가 나한테 감정이 있다고 한 게 내가 듣고 싶던 전부였어.'",
+     "start": 46.0,
+     "end": 51.9,
+     "idiom": "had feelings for",
+     "note": "'~에게 감정이 있다·좋아하다'. 연애 감정을 완곡하게 말합니다."
+    },
+    {
+     "id": "se_voicemail_07",
+     "sp": "오티스",
+     "en": "\"Because it's always been you.\"",
+     "ko": "'왜냐면 언제나 너였으니까.'",
+     "start": 52.0,
+     "end": 54.5,
+     "idiom": "always been you",
+     "note": "'늘 너였다'. 현재완료로 지속을 강조하는 고백 표현."
+    },
+    {
+     "id": "se_voicemail_08",
+     "sp": "오티스",
+     "en": "\"I love you.\" Anyway, it was… stupid.",
+     "ko": "'사랑해.' 아무튼, 그건… 바보 같았어.",
+     "start": 56.0,
+     "end": 59.3,
+     "idiom": "Anyway",
+     "note": "'아무튼'. 화제를 접거나 바꿀 때 쓰는 연결어."
+    },
+    {
+     "id": "se_voicemail_09",
+     "sp": "메이브",
+     "en": "Did you mean it?",
+     "ko": "진심이었어?",
+     "start": 68.0,
+     "end": 70.0,
+     "idiom": "mean it",
+     "note": "'진심으로 말하다'. 말의 진의를 확인할 때 씁니다."
+    },
+    {
+     "id": "se_voicemail_10",
+     "sp": "오티스",
+     "en": "Of course I meant it.",
+     "ko": "당연히 진심이었지.",
+     "start": 85.0,
+     "end": 87.5,
+     "idiom": "Of course",
+     "note": "'물론이지'. 당연함을 강조하는 답."
+    },
+    {
+     "id": "se_voicemail_11",
+     "sp": "오티스",
+     "en": "I can't… I can't do this.",
+     "ko": "난… 이건 못 하겠어.",
+     "start": 107.0,
+     "end": 109.9,
+     "idiom": "I can't do this",
+     "note": "'못 하겠다'. 감정적으로 버거울 때 자주 쓰는 말."
+    },
+    {
+     "id": "se_voicemail_12",
+     "sp": "메이브",
+     "en": "I don't want to lose you again.",
+     "ko": "난… 또 너를 잃고 싶지 않아.",
+     "start": 121.0,
+     "end": 123.8,
+     "idiom": "lose you",
+     "note": "'너를 잃다'. 관계를 잃는 것을 lose로 표현합니다."
+    },
+    {
+     "id": "se_voicemail_13",
+     "sp": "오티스",
+     "en": "I'm confused. This is confusing me.",
+     "ko": "나 혼란스러워. 이게 나를 헷갈리게 해.",
+     "start": 124.0,
+     "end": 126.9,
+     "idiom": "confused",
+     "note": "'혼란스러운'. 사람은 confused, 상황은 confusing입니다."
+    }
+   ]
+  },
+  {
+   "id": "se_looks",
+   "show": "sex_education",
+   "videoId": "9DenrhhJkZM",
+   "title": "오티스와 메이브, 말하지 못한 마음",
+   "titleEn": "Maeve and Otis - The Lingering Looks of Love",
+   "channel": "Still Watching Netflix",
+   "episode": "S02 명장면 모음",
+   "duration": 217,
+   "url": "https://www.youtube.com/watch?v=9DenrhhJkZM",
+   "lines": [
+    {
+     "id": "se_looks_01",
+     "sp": "아이작",
+     "en": "Who's the intense starey guy?",
+     "ko": "저 빤히 쳐다보는 무서운 남자는 누구야?",
+     "start": 0.0,
+     "end": 2.5,
+     "idiom": "starey",
+     "note": "'빤히 보는'. stare에서 만든 구어적 형용사예요."
+    },
+    {
+     "id": "se_looks_02",
+     "sp": "메이브",
+     "en": "That's Otis. It's his party. Things are a bit weird between us right now.",
+     "ko": "오티스야. 그의 파티야. 지금 우리 사이가 좀 이상해.",
+     "start": 3.0,
+     "end": 8.8,
+     "idiom": "a bit weird",
+     "note": "'좀 이상한'. a bit으로 부드럽게 만든 표현."
+    },
+    {
+     "id": "se_looks_03",
+     "sp": "아이작",
+     "en": "Is he your boyfriend?",
+     "ko": "걔 네 남자친구야?",
+     "start": 9.0,
+     "end": 11.0,
+     "idiom": "boyfriend",
+     "note": "'남자친구'. 관계를 직접 확인하는 질문."
+    },
+    {
+     "id": "se_looks_04",
+     "sp": "메이브",
+     "en": "No.",
+     "ko": "아니.",
+     "start": 12.0,
+     "end": 13.5,
+     "idiom": "No.",
+     "note": "단호하게 선을 긋는 한 단어 대답."
+    },
+    {
+     "id": "se_looks_05",
+     "sp": "아이작",
+     "en": "But you want him to be your boyfriend?",
+     "ko": "그런데 걔가 네 남자친구였으면 좋겠어?",
+     "start": 14.0,
+     "end": 17.7,
+     "idiom": "want him to be",
+     "note": "'그가 ~이길 바라다'. 목적격 + to부정사."
+    },
+    {
+     "id": "se_looks_06",
+     "sp": "오티스",
+     "en": "Have you seen Ola anywhere?",
+     "ko": "혹시 올라 봤어?",
+     "start": 29.0,
+     "end": 31.4,
+     "idiom": "anywhere",
+     "note": "의문문에서 '어디든'의 뜻으로 쓰는 anywhere."
+    },
+    {
+     "id": "se_looks_07",
+     "sp": "오티스",
+     "en": "If you see Ola, I'm looking for her.",
+     "ko": "올라 보면 나가 찾고 있다고 해 줘.",
+     "start": 35.0,
+     "end": 38.7,
+     "idiom": "I'm looking for",
+     "note": "'~을 찾고 있다'. 진행형으로 현재 상황을 말합니다."
+    },
+    {
+     "id": "se_looks_08",
+     "sp": "오티스",
+     "en": "How's the rest of your birthday?",
+     "ko": "생일 나머지는 어땠어?",
+     "start": 48.0,
+     "end": 49.9,
+     "idiom": "the rest of",
+     "note": "'~의 나머지'. 남은 부분을 가리킵니다."
+    },
+    {
+     "id": "se_looks_09",
+     "sp": "메이브",
+     "en": "Unexpected.",
+     "ko": "예상 밖이었어.",
+     "start": 50.0,
+     "end": 51.5,
+     "idiom": "Unexpected",
+     "note": "'예상치 못한'. 한 단어로 감정을 압축한 대답."
+    },
+    {
+     "id": "se_looks_10",
+     "sp": "오티스",
+     "en": "Well, I got you something.",
+     "ko": "뭐, 너한테 줄 게 있어.",
+     "start": 53.0,
+     "end": 55.5,
+     "idiom": "got you something",
+     "note": "'너에게 뭘 사 왔어'. get은 '구하다·사다'의 뜻."
+    },
+    {
+     "id": "se_looks_11",
+     "sp": "메이브",
+     "en": "Just visiting.",
+     "ko": "그냥 들른 거야.",
+     "start": 79.0,
+     "end": 80.5,
+     "idiom": "Just visiting",
+     "note": "'그냥 방문 중'. 짧게 상황을 설명하는 말."
+    },
+    {
+     "id": "se_looks_12",
+     "sp": "메이브",
+     "en": "Nothing unusual. We're just hanging out, you know. Boyfriend, girlfriend hang times.",
+     "ko": "별거 아니야. 그냥 어울려 노는 거지. 남친·여친이 노는 시간.",
+     "start": 87.0,
+     "end": 92.4,
+     "idiom": "hanging out",
+     "note": "'어울려 놀다·시간을 보내다'. 계획 없는 만남을 말합니다."
+    },
+    {
+     "id": "se_looks_13",
+     "sp": "오티스",
+     "en": "Changed your hair.",
+     "ko": "머리 바꿨네.",
+     "start": 94.0,
+     "end": 94.8,
+     "idiom": "Changed your hair",
+     "note": "주어를 생략한 회화체. '머리 바꿨어'를 짧게 던지는 말."
+    },
+    {
+     "id": "se_looks_14",
+     "sp": "메이브",
+     "en": "Perceptive.",
+     "ko": "눈썰미 있네.",
+     "start": 95.0,
+     "end": 96.5,
+     "idiom": "Perceptive",
+     "note": "'관찰력이 좋은'. 칭찬과 비꼼 사이의 한 단어."
+    },
+    {
+     "id": "se_looks_15",
+     "sp": "오티스",
+     "en": "I ripped out all your birthday pages so you don't have to celebrate one for another five years.",
+     "ko": "네 생일 페이지는 다 찢어 놨어. 5년 동안 생일 안 챙겨도 되게.",
+     "start": 102.0,
+     "end": 109.9,
+     "idiom": "ripped out",
+     "note": "'찢어 냈다'. rip은 거칠게 잡아 뜯는 동작."
+    },
+    {
+     "id": "se_looks_16",
+     "sp": "메이브",
+     "en": "I don't think I'm over Otis.",
+     "ko": "난 아직 오티스를 잊지 못한 것 같아.",
+     "start": 116.0,
+     "end": 118.8,
+     "idiom": "I'm over",
+     "note": "'~을 극복하다·잊다'. 감정이 정리된 상태."
+    },
+    {
+     "id": "se_looks_17",
+     "sp": "메이브",
+     "en": "I better get to class.",
+     "ko": "수업 가 봐야겠다.",
+     "start": 119.0,
+     "end": 121.5,
+     "idiom": "I better",
+     "note": "'~하는 게 낫겠다'. had better의 구어 축약."
+    },
+    {
+     "id": "se_looks_18",
+     "sp": "오티스",
+     "en": "This is entirely about the money.",
+     "ko": "이건 전적으로 돈 때문에 하는 거야.",
+     "start": 140.0,
+     "end": 141.8,
+     "idiom": "entirely about",
+     "note": "'전적으로 ~에 관한'. 강조 부사 entirely."
+    },
+    {
+     "id": "se_looks_19",
+     "sp": "메이브",
+     "en": "It's good to be back in business.",
+     "ko": "다시 일하는 것도 좋네.",
+     "start": 142.0,
+     "end": 145.3,
+     "idiom": "back in business",
+     "note": "'다시 일을 시작하다·복귀하다'. 원래대로 돌아왔다는 관용구."
+    },
+    {
+     "id": "se_looks_20",
+     "sp": "오티스",
+     "en": "I got kicked out. 'Cause I mess everything up.",
+     "ko": "응, 쫓겨났어. 난 뭐든 망치니까.",
+     "start": 148.0,
+     "end": 152.1,
+     "idiom": "got kicked out",
+     "note": "'쫓겨났다'. get + 과거분사로 수동을 만든 구어 표현."
+    },
+    {
+     "id": "se_looks_21",
+     "sp": "메이브",
+     "en": "You don't mess everything up.",
+     "ko": "넌 뭐든 망치는 거 아니야.",
+     "start": 156.0,
+     "end": 158.4,
+     "idiom": "mess everything up",
+     "note": "'모든 걸 망치다'. mess up의 강조형."
+    },
+    {
+     "id": "se_looks_22",
+     "sp": "메이브",
+     "en": "I think I'm gonna have to punch you in the face if you ever buy me a birthday present again.",
+     "ko": "또 내 생일 선물 사 오면 얼굴 한 대 때려야 할 것 같아.",
+     "start": 179.0,
+     "end": 187.8,
+     "idiom": "punch you in the face",
+     "note": "'얼굴을 때리다'. punch + 사람 + in the + 신체 부위."
+    }
+   ]
+  }
+ ]
+}

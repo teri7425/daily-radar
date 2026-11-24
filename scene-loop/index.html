@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="SceneLoop" />
+<meta name="theme-color" content="#0B0E14" />
+<meta name="description" content="프렌즈·모던 패밀리·오티스의 비밀 상담소 실제 클립으로 구간 반복 쉐도잉" />
+<link rel="manifest" href="./manifest.json" />
+<link rel="apple-touch-icon" href="./icon-180.png" />
+<link rel="icon" href="./icon-180.png" />
+<title>SceneLoop · 미드·영드 실전 쉐도잉 스튜디오</title>
+<style>
+  @font-face{font-family:'AppSans';src:url(data:font/woff;base64,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) format('woff');font-weight:400 600;font-style:normal;font-display:swap}
+  @font-face{font-family:'AppSans';src:url(data:font/woff;base64,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) format('woff');font-weight:700 900;font-style:normal;font-display:swap}
+  :root{
+    --bg:#0B0E14; --card:#151A23; --elev:#1E2532; --line:#252d3d;
+    --red:#E50914; --red-d:#b0060f; --blue:#3B82F6; --green:#10B981;
+    --purple:#8B5CF6; --amber:#F59E0B;
+    --text:#F3F4F6; --muted:#9aa7bb; --muted2:#697586;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'AppSans',-apple-system,BlinkMacSystemFont,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',Roboto,'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif;
+    background:var(--bg); color:var(--text); overflow-x:hidden;
+    padding-bottom:78px; overscroll-behavior-y:contain;
+    -webkit-user-select:none; user-select:none;
+  }
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,textarea{font-family:inherit;font-size:15px}
+  ::-webkit-scrollbar{width:5px;height:5px}
+  ::-webkit-scrollbar-thumb{background:#2A3241;border-radius:99px}
+
+  /* ---------------- header ---------------- */
+  header{position:sticky;top:0;z-index:60;background:rgba(11,14,20,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 14px 8px}
+  .brand{display:flex;align-items:center;gap:9px;min-width:0}
+  .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#E50914,#7f0006);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(229,9,20,.28);flex:0 0 auto}
+  .logo svg{width:20px;height:20px}
+  .brand h1{font-size:17px;font-weight:800;letter-spacing:-.3px;line-height:1.05;white-space:nowrap}
+  .brand h1 span{color:var(--red)}
+  .brand p{font-size:10.5px;color:var(--muted);margin-top:2px;white-space:nowrap}
+  .drill{font-size:10.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:99px;padding:5px 9px;white-space:nowrap;display:flex;align-items:center;gap:5px}
+  .drill b{color:#fff}
+  .dot-live{width:6px;height:6px;border-radius:99px;background:var(--green);box-shadow:0 0 0 3px rgba(16,185,129,.14)}
+
+  .modes{display:flex;gap:6px;padding:0 12px 10px}
+  .mode{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:5px;
+    padding:8px 4px;border-radius:11px;background:var(--card);border:1px solid var(--line);
+    font-size:11.5px;font-weight:800;color:var(--muted);transition:.15s;white-space:nowrap;overflow:hidden}
+  .mode.active{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 4px 14px rgba(229,9,20,.25)}
+  .mode .cnt{font-size:10px;background:rgba(255,255,255,.16);padding:1px 5px;border-radius:99px}
+
+  main{padding:12px 12px 4px}
+  .view{display:none}
+  .view.active{display:block}
+
+  /* ---------------- show cards ---------------- */
+  .shows{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .shows::-webkit-scrollbar{display:none}
+  .show{flex:0 0 auto;width:46%;min-width:142px;text-align:left;background:var(--card);border:1.5px solid var(--line);
+    border-radius:15px;padding:10px 11px;transition:.15s;position:relative;overflow:hidden}
+  .show.on{border-color:var(--red);background:linear-gradient(160deg,rgba(229,9,20,.13),var(--card) 65%)}
+  .show .tag{font-size:9px;font-weight:800;letter-spacing:.3px;padding:2px 6px;border-radius:5px;display:inline-block}
+  .show h3{font-size:13px;font-weight:800;margin-top:6px;line-height:1.25}
+  .show .sub{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .show .emo{position:absolute;right:8px;top:8px;font-size:17px;opacity:.85}
+
+  /* ---------------- clip strip ---------------- */
+  .strip{display:flex;gap:6px;overflow-x:auto;margin:9px 0 10px;padding-bottom:2px;scrollbar-width:none}
+  .strip::-webkit-scrollbar{display:none}
+  .clip-chip{flex:0 0 auto;max-width:230px;background:var(--elev);border:1px solid var(--line);border-radius:10px;
+    padding:7px 10px;font-size:11px;font-weight:700;color:var(--muted);text-align:left;line-height:1.3;transition:.15s}
+  .clip-chip b{display:block;font-size:9px;color:var(--muted2,#697586);font-weight:800;letter-spacing:.3px}
+  .clip-chip.on{border-color:var(--blue);background:rgba(59,130,246,.14);color:#dbeafe}
+
+  /* ---------------- player ---------------- */
+  .player{position:relative;background:#000;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9}
+  .player iframe,.player #yt-player{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .p-cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+    background:radial-gradient(circle at 50% 40%,#18202e,#05070a 75%);z-index:3;transition:.25s;text-align:center;padding:10px}
+  .p-cover.hidden{opacity:0;pointer-events:none}
+  .p-cover .em{font-size:26px}
+  .p-cover p{font-size:11px;color:var(--muted);line-height:1.45}
+  .p-cover .clap{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#E50914,#7f0006);display:flex;align-items:center;justify-content:center}
+  .p-cover .clap svg{width:26px;height:26px}
+  .p-top{position:absolute;top:7px;left:7px;right:7px;display:flex;justify-content:space-between;gap:6px;z-index:4;pointer-events:none}
+  .p-badge{background:rgba(11,14,20,.82);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:9px;font-weight:800;
+    padding:3px 6px;color:#cfd8e6;backdrop-filter:blur(6px);white-space:nowrap}
+  .p-badge.live{color:#6ee7b7;border-color:rgba(16,185,129,.45);display:none}
+  body.looping .p-badge.live{display:inline-block}
+
+  /* ---------------- repeat controls ---------------- */
+  .ctl{margin-top:9px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px}
+  .tracker{display:flex;align-items:center;justify-content:space-between;gap:6px;background:var(--bg);border:1px solid var(--line);
+    border-radius:11px;padding:7px 10px;margin-bottom:9px;flex-wrap:wrap}
+  .tracker .lbl{font-size:11px;font-weight:800;color:var(--muted)}
+  .dots{display:flex;gap:4px}
+  .dots i{width:15px;height:5px;border-radius:99px;background:#2c3547;display:block;transition:.2s}
+  .dots i.done{background:var(--green)}
+  .dots i.cur{background:var(--red);box-shadow:0 0 0 2px rgba(229,9,20,.22)}
+  .status{font-size:10.5px;color:var(--muted);text-align:right;flex:1 0 100%;min-width:0;line-height:1.35}
+
+  .row{display:flex;gap:6px}
+  .row + .row{margin-top:6px}
+  .btn{flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;gap:4px;
+    padding:10px 4px;border-radius:10px;font-size:12px;font-weight:800;border:1px solid var(--line);
+    background:var(--elev);color:#dbe3ef;transition:.14s;white-space:nowrap}
+  .btn:active{transform:scale(.975)}
+  .btn.play{background:linear-gradient(180deg,#E50914,#bd0810);border-color:#ff3b45;color:#fff;box-shadow:0 3px 12px rgba(229,9,20,.3)}
+  .btn.play.playing{background:linear-gradient(180deg,#10B981,#0a8f63);border-color:#34d399;box-shadow:0 3px 12px rgba(16,185,129,.3)}
+  .btn.ghost{background:transparent;color:var(--muted)}
+  .btn.stop{background:#2a1215;border-color:#7f1d24;color:#fda4af}
+  .btn.sm{font-size:11px;padding:8px 4px}
+  .btn:disabled{opacity:.45}
+
+  /* ---------------- current line ---------------- */
+  .line-card{margin-top:10px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--red);
+    border-radius:13px;padding:11px 12px}
+  .lc-head{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:6px}
+  .sp{font-size:10.5px;font-weight:800;color:#111;background:#c9d4e6;padding:2px 7px;border-radius:99px}
+  .lc-time{font-size:10px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .lc-en{font-size:15.5px;font-weight:700;line-height:1.45;letter-spacing:-.1px}
+  .lc-ko{font-size:12.5px;color:#b9c4d4;margin-top:5px;line-height:1.5}
+  .idiom-hit{background:rgba(59,130,246,.22);border-bottom:2px solid var(--blue);color:#bfdbfe;
+    padding:0 3px;border-radius:4px;font-weight:800;cursor:pointer;transition:.15s}
+  .idiom-hit:active,.idiom-hit.show{background:rgba(59,130,246,.42);color:#fff}
+  .idiom-note{margin-top:8px;background:rgba(59,130,246,.09);border:1px dashed rgba(59,130,246,.42);
+    border-radius:10px;padding:8px 10px;font-size:11.5px;color:#c7d7f4;line-height:1.5;display:none}
+  .idiom-note.on{display:block}
+  .idiom-note b{color:#93c5fd}
+
+  /* ---------------- options ---------------- */
+  .opt{margin-top:9px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:10px 11px}
+  .opt-h{font-size:10.5px;font-weight:800;color:var(--muted);letter-spacing:.3px;margin-bottom:7px}
+  .chips{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;padding:6px 10px;border-radius:8px;background:var(--elev);border:1px solid var(--line);
+    font-size:11.5px;font-weight:800;color:var(--muted);transition:.14s}
+  .chip.on{background:#1e3a8a;border-color:var(--blue);color:#dbeafe}
+  .chip.on.acc{background:#3f2d6b;border-color:var(--purple);color:#e9d5ff}
+  .chip.on.pad{background:#0e3a2f;border-color:var(--green);color:#a7f3d0}
+  .hint{font-size:10px;color:#697586;margin-top:6px;line-height:1.4}
+
+  /* ---------------- script list ---------------- */
+  .sec-h{display:flex;align-items:center;justify-content:space-between;margin:16px 2px 8px}
+  .sec-h h2{font-size:12.5px;font-weight:800;color:#dbe3ef}
+  .sec-h span{font-size:10.5px;color:var(--muted)}
+  .line-item{display:flex;gap:9px;padding:9px 10px;border-radius:11px;background:var(--card);
+    border:1px solid transparent;margin-bottom:5px;transition:.14s;align-items:flex-start}
+  .line-item.on{background:linear-gradient(90deg,rgba(229,9,20,.16),rgba(21,26,35,.9));border-color:rgba(229,9,20,.35)}
+  .li-play{flex:0 0 auto;width:26px;height:26px;border-radius:99px;background:var(--elev);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:10px;color:#cbd5e1;margin-top:1px}
+  .line-item.on .li-play{background:var(--red);border-color:#ff4d56;color:#fff}
+  .li-body{flex:1 1 auto;min-width:0}
+  .li-meta{display:flex;align-items:center;gap:5px;font-size:9.5px;color:#697586;margin-bottom:3px}
+  .li-sp{color:#a7b3c6;font-weight:800}
+  .li-en{font-size:12.8px;line-height:1.42;font-weight:600;word-break:break-word}
+  .li-ko{font-size:11px;color:#94a3b8;margin-top:3px;line-height:1.4}
+  .star{flex:0 0 auto;font-size:15px;color:#475569;padding:2px 1px;line-height:1}
+  .star.on{color:var(--amber)}
+
+  /* ---------------- audio view ---------------- */
+  .audio-card{background:linear-gradient(170deg,#1a2130,#0f131b);border:1px solid var(--line);border-radius:18px;padding:16px 15px;margin-top:4px;text-align:center}
+  .wave{display:flex;align-items:center;justify-content:center;gap:3px;height:34px;margin-bottom:10px}
+  .wave i{width:3px;border-radius:2px;background:linear-gradient(180deg,#E50914,#7c0006);height:9px;animation:wv 1s ease-in-out infinite}
+  @keyframes wv{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1.15)}}
+  body:not(.looping) .wave.stop i,body:not(.sync-ready) .wave.stop i{animation-play-state:paused;transform:scaleY(.3)}
+  body:not(.looping) .wave i{animation-play-state:paused;transform:scaleY(.55);opacity:.6}
+  .audio-card .sp{background:rgba(229,9,20,.2);color:#fecaca;border:1px solid rgba(229,9,20,.35)}
+  .audio-en{font-size:17.5px;font-weight:800;line-height:1.42;margin-top:8px;letter-spacing:-.2px}
+  .audio-ko{font-size:12.5px;color:#a9b6c8;margin-top:7px;line-height:1.5}
+  .audio-nav{display:flex;gap:6px;margin-top:10px}
+  .audio-meta{font-size:10.5px;color:var(--muted);margin-top:9px}
+
+  /* ---------------- saved / quiz ---------------- */
+  .saved-top{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);
+    border-radius:13px;padding:10px 12px;margin-bottom:10px}
+  .saved-top .big{font-size:19px;font-weight:900;color:var(--amber)}
+  .saved-top p{font-size:10.5px;color:var(--muted);line-height:1.45}
+  .quiz{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:13px;margin-bottom:12px}
+  .quiz .q-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+  .quiz .q-h b{font-size:11.5px;color:#e2e8f0}
+  .quiz .q-h span{font-size:10px;color:var(--muted)}
+  .q-en{font-size:14px;font-weight:800;line-height:1.4;margin-bottom:10px}
+  .opt-btn{display:block;width:100%;text-align:left;background:var(--elev);border:1px solid var(--line);
+    border-radius:10px;padding:9px 11px;font-size:11.8px;color:#dbe3ef;margin-bottom:6px;line-height:1.4;transition:.14s}
+  .opt-btn.ok{background:rgba(16,185,129,.16);border-color:var(--green);color:#a7f3d0}
+  .opt-btn.no{background:rgba(229,9,20,.14);border-color:var(--red);color:#fecaca}
+  .empty{padding:26px 14px;text-align:center;color:var(--muted);font-size:12px;line-height:1.6}
+
+  /* ---------------- bottombar ---------------- */
+  .bottom{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:6px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+    background:rgba(11,14,20,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .bottom .btn{font-size:11.5px;padding:10px 4px}
+
+  /* ---------------- modal / toast ---------------- */
+  .modal{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.6);display:none;align-items:flex-end;justify-content:center}
+  .modal.show{display:flex}
+  .sheet{width:100%;max-width:540px;max-height:86vh;overflow:auto;background:#121722;border-radius:18px 18px 0 0;
+    border-top:1px solid var(--line);padding:16px 15px calc(18px + env(safe-area-inset-bottom))}
+  .sheet h3{font-size:14px;font-weight:800;margin-bottom:4px}
+  .sheet p.d{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:11px}
+  .field{margin-bottom:9px}
+  .field label{display:block;font-size:10.5px;font-weight:800;color:var(--muted);margin-bottom:4px}
+  .field input,.field textarea{width:100%;padding:10px 11px;border-radius:9px;background:var(--elev);
+    border:1px solid var(--line);color:var(--text);outline:none;font-size:13px}
+  .field textarea{min-height:74px;resize:vertical}
+  .sheet-actions{display:flex;gap:6px;margin-top:11px}
+  .toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(12px);z-index:200;
+    background:#1e2532;border:1px solid var(--line);color:#e2e8f0;padding:9px 15px;border-radius:99px;
+    font-size:11.5px;font-weight:700;opacity:0;pointer-events:none;transition:.22s;max-width:90vw;text-align:center}
+  .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  .foot{text-align:center;font-size:9.5px;color:#5b6675;padding:14px 8px 4px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 9.5h16"/><path d="M4 9.5 5.6 5.2 20 5.2l-.6 4.3"/><rect x="4" y="9.5" width="16" height="9.5" rx="1.6"/>
+          <path d="M9 13.4a3 3 0 1 1 3 3"/><path d="M12 16.4l-1.7-.1.1-1.7"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Scene<span>Loop</span></h1>
+        <p>미드·영드 실전 쉐도잉 스튜디오</p>
+      </div>
+    </div>
+    <div class="drill"><span class="dot-live"></span>오늘 <b id="drill-count">0</b>회</div>
+  </div>
+  <div class="modes">
+    <button class="mode active" id="mode-video" onclick="setMode('video')">▶ 실제 영상 학습</button>
+    <button class="mode" id="mode-audio" onclick="setMode('audio')">🔊 음성 쉐도잉</button>
+    <button class="mode" id="mode-saved" onclick="setMode('saved')">🔥 Hard·퀴즈<span class="cnt" id="saved-cnt">0</span></button>
+  </div>
+</header>
+
+<main>
+  <!-- ============ 실제 영상 학습 ============ -->
+  <section class="view active" id="view-video">
+    <div class="shows" id="shows"></div>
+    <div class="strip" id="clips"></div>
+
+    <div class="player">
+      <div id="yt-player"></div>
+      <div class="p-cover" id="p-cover">
+        <div class="clap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+            <path d="M4 9.5h16"/><rect x="4" y="9.5" width="16" height="9.5" rx="1.6"/>
+          </svg>
+        </div>
+        <p id="cover-text">유튜브 플레이어를 준비하고 있어요…</p>
+      </div>
+      <div class="p-top">
+        <span class="p-badge" id="p-ep">S01E07</span>
+        <span class="p-badge live" id="p-live">● 반복 재생 중</span>
+      </div>
+    </div>
+    <p class="hint" id="embed-hint" style="display:none;margin:7px 2px 0"></p>
+
+    <div class="ctl">
+      <div class="tracker">
+        <span class="lbl">구간 반복</span>
+        <div class="dots" id="dots"><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="status" id="status">대기 중</span>
+      </div>
+      <div class="row">
+        <button class="btn play" id="btn-r3" onclick="repeatVideo(3)">▶ 3회</button>
+        <button class="btn play" id="btn-r5" onclick="repeatVideo(5)">▶ 5회</button>
+        <button class="btn play" id="btn-r10" onclick="repeatVideo(10)">▶ 10회</button>
+      </div>
+      <div class="row">
+        <button class="btn" id="btn-scene" onclick="playWholeScene()">🎬 전체 씬 보기</button>
+        <button class="btn stop" id="btn-stop-v" onclick="stopAll('⏹️ 멈춤')">⏹️ 멈춤</button>
+      </div>
+      <div class="row">
+        <a class="btn ghost" id="yt-app" href="#" target="_blank" rel="noopener">유튜브 앱 ↗</a>
+        <button class="btn ghost" onclick="openModal('url')">다른 영상 URL</button>
+      </div>
+    </div>
+
+    <div class="line-card" id="line-card">
+      <div class="lc-head">
+        <span class="sp" id="cur-sp">챈들러</span>
+        <span class="lc-time" id="cur-time">0:17 – 0:21</span>
+      </div>
+      <p class="lc-en" id="cur-en"></p>
+      <p class="lc-ko" id="cur-ko"></p>
+      <div class="idiom-note" id="cur-note"></div>
+    </div>
+
+    <div class="opt">
+      <div class="opt-h">속도</div>
+      <div class="chips" id="speed-chips"></div>
+    </div>
+    <div class="opt">
+      <div class="opt-h">억양 (음성 반복에 적용)</div>
+      <div class="chips" id="accent-chips"></div>
+      <div class="hint" id="accent-hint"></div>
+    </div>
+    <div class="opt">
+      <div class="opt-h">구간 여백</div>
+      <div class="chips" id="pad-chips"></div>
+      <div class="hint" id="pad-hint">문장 끝이 살짝 잘리면 +3초를 눌러 보세요</div>
+    </div>
+
+    <div class="sec-h"><h2>전체 대사</h2><span id="script-count"></span></div>
+    <div id="script-list"></div>
+    <p class="foot">영상은 유튜브에 실제로 올라가 있는 공식 클립이에요.<br>재생이 안 되면 ‘유튜브 앱 ↗’으로 열어 주세요.</p>
+  </section>
+
+  <!-- ============ 음성 집중 ============ -->
+  <section class="view" id="view-audio">
+    <div class="audio-card">
+      <div class="wave" id="wave"></div>
+      <span class="sp" id="a-sp">챈들러</span>
+      <p class="audio-en" id="a-en"></p>
+      <p class="audio-ko" id="a-ko"></p>
+      <p class="audio-meta" id="a-meta"></p>
+    </div>
+
+    <div class="ctl">
+      <div class="tracker">
+        <span class="lbl">음성 반복</span>
+        <div class="dots" id="a-dots"><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="status" id="a-status">대기 중</span>
+      </div>
+      <div class="row">
+        <button class="btn play" id="btn-t3" onclick="repeatAudio(3)">🔊 3회</button>
+        <button class="btn play" id="btn-t5" onclick="repeatAudio(5)">🔊 5회</button>
+        <button class="btn play" id="btn-t10" onclick="repeatAudio(10)">🔊 10회</button>
+        <button class="btn play" id="btn-t0" onclick="repeatAudio(0)">🔊 ∞</button>
+      </div>
+      <div class="row">
+        <button class="btn stop" onclick="stopAll('⏹️ 멈춤')">⏹️ 멈춤</button>
+        <button class="btn ghost" onclick="repeatOne('audio')">한 번만 듣기</button>
+      </div>
+      <div class="audio-nav">
+        <button class="btn sm" onclick="moveLine(-1)">◀ 이전 대사</button>
+        <button class="btn sm" onclick="moveLine(1)">다음 대사 ▶</button>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="opt-h">속도</div>
+      <div class="chips" id="a-speed-chips"></div>
+    </div>
+    <div class="opt">
+      <div class="opt-h">억양</div>
+      <div class="chips" id="a-accent-chips"></div>
+    </div>
+
+    <div class="sec-h"><h2 id="a-clip-title">대사 목록</h2><span id="a-idx"></span></div>
+    <div id="audio-list"></div>
+  </section>
+
+  <!-- ============ Hard · 보관함 & 퀴즈 ============ -->
+  <section class="view" id="view-saved">
+    <div class="saved-top">
+      <span class="big" id="hard-num">0</span>
+      <p><b style="color:#e2e8f0">Hard 문장</b>을 모았어요.<br>별을 누르면 보관함에 담기고, 아래 퀴즈로 복습할 수 있어요.</p>
+    </div>
+
+    <div class="quiz" id="quiz-box">
+      <div class="q-h"><b>4지선다 복습 퀴즈</b><span id="quiz-score"></span></div>
+      <p class="q-en" id="q-prompt">Hard 문장을 4개 이상 담으면 퀴즈가 열려요.</p>
+      <div id="q-options"></div>
+      <div class="row" style="margin-top:8px">
+        <button class="btn sm" onclick="nextQuiz()">다음 문제 ▶</button>
+        <button class="btn sm ghost" onclick="toggleQuizMode()" id="quiz-mode-btn">영어 → 한국어</button>
+      </div>
+    </div>
+
+    <div class="sec-h"><h2>내가 담은 문장</h2><span id="saved-sub"></span></div>
+    <div id="saved-list"></div>
+  </section>
+</main>
+
+<div class="bottom">
+  <button class="btn" onclick="openModal('custom')">＋ 내 문장</button>
+  <button class="btn" onclick="openModal('url')">유튜브 URL</button>
+  <button class="btn" onclick="openModal('json')">JSON</button>
+</div>
+
+<!-- ---------------- modals ---------------- -->
+<div class="modal" id="m-custom">
+  <div class="sheet">
+    <h3>내 문장 추가</h3>
+    <p class="d">실제 영상 문장을 붙여 넣으면 보관함·퀴즈에 함께 담깁니다.</p>
+    <div class="field"><label>영어</label><input id="c-en" placeholder="I'll be right back." /></div>
+    <div class="field"><label>한국어</label><input id="c-ko" placeholder="금방 올게." /></div>
+    <div class="field"><label>영상 URL (선택)</label><input id="c-url" placeholder="https://www.youtube.com/watch?v=..." /></div>
+    <div class="sheet-actions">
+      <button class="btn" onclick="closeModal('custom')">취소</button>
+      <button class="btn play" onclick="saveCustomLine()">저장</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m-url">
+  <div class="sheet">
+    <h3>유튜브 URL 연동</h3>
+    <p class="d">공식 클립 대신 다른 영상으로 연습할 수 있어요. 현재 클립의 대사 타이밍은 그대로 두고 영상만 바뀝니다.</p>
+    <div class="field"><label>유튜브 URL 또는 영상 ID</label><input id="u-url" placeholder="https://youtu.be/xxxxxxxxxxx" /></div>
+    <div class="sheet-actions">
+      <button class="btn" onclick="closeModal('url')">취소</button>
+      <button class="btn play" onclick="applyUrl()">적용</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="m-json">
+  <div class="sheet">
+    <h3>JSON 불러오기 · 내보내기</h3>
+    <p class="d">Hard 문장·내 문장·퀴즈 기록을 파일로 옮길 수 있어요.</p>
+    <div class="sheet-actions">
+      <button class="btn" onclick="exportJson()">내보내기(복사)</button>
+      <button class="btn" onclick="downloadJson()">파일로 저장</button>
+    </div>
+    <div class="field" style="margin-top:10px"><label>불러올 JSON 붙여 넣기</label><textarea id="j-in" placeholder='{"saved":[],"custom":[]}'></textarea></div>
+    <div class="sheet-actions">
+      <button class="btn" onclick="closeModal('json')">닫기</button>
+      <button class="btn play" onclick="importJson()">불러오기</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script id="bootstrap-data" type="application/json">{"app":"SceneLoop","builtAt":"2026-11-24","shows":[{"id":"friends","name":"프렌즈","nameEn":"Friends","tag":"US · 일상회화","region":"미국","season":"Season 1–10","accent":"en-US","emoji":"☕","hue":"#f59e0b","desc":"미국식 구어체, 리액션, 일상 필수 이디엄","tip":"짧은 대사가 많아 처음 시작하기 좋아요. 리액션 표현을 통째로 외워 보세요."},{"id":"modern_family","name":"모던 패밀리","nameEn":"Modern Family","tag":"US · 빠른 템포","region":"미국","season":"Season 1–11","accent":"en-US","emoji":"🏠","hue":"#38bdf8","desc":"가족·직장 실생활 표현, 재치 있는 미국식 유머","tip":"말이 빠르고 겹쳐요. 0.8배속으로 문장을 나눠 듣는 게 좋아요."},{"id":"sex_education","name":"오티스의 비밀 상담소","nameEn":"Sex Education","tag":"UK · 영국 영어","region":"영국","season":"Season 1–4","accent":"en-GB","emoji":"🎓","hue":"#a78bfa","desc":"영국식 억양과 10대 구어체, 감정 표현의 밀도","tip":"영국 억양은 기본값이 🇬🇧로 맞춰져 있어요. 톤과 모음이 미국식과 달라요."}],"clips":[{"id":"friends_atm","show":"friends","videoId":"h8rxZNIjC0U","title":"ATM 안에서 모델과 단둘이 갇히다","titleEn":"Chandler Is Stuck in an ATM Vestibule with a Model","channel":"Friends","episode":"S01E07 · The One with the Blackout","duration":239,"url":"https://www.youtube.com/watch?v=h8rxZNIjC0U","lines":[{"id":"friends_atm_01","sp":"챈들러","en":"Oh my God, it's her. It's Jill Goodacre.","ko":"맙소사, 저 사람이야. 질 굿에이커잖아.","start":17.0,"end":20.7,"idiom":"Oh my God","note":"놀람·충격을 나타내는 가장 흔한 감탄 표현. 'Oh my gosh'로 순화하기도 해요."},{"id":"friends_atm_02","sp":"챈들러","en":"I am trapped in an ATM vestibule with Jill Goodacre.","ko":"난 지금 질 굿에이커와 ATM 부스에 갇혔어.","start":28.0,"end":32.5,"idiom":"trapped in","note":"'~에 갇히다'. 물리적 공간뿐 아니라 상황·대화에도 씁니다."},{"id":"friends_atm_03","sp":"챈들러","en":"Yeah, I'm fine. I'm just stuck at the bank. In an ATM vestibule.","ko":"응, 괜찮아. 그냥 은행에 갇혔어. ATM 부스에.","start":42.0,"end":46.9,"idiom":"stuck at","note":"'~에서 꼼짝 못 하다'. stuck은 '막힌·갇힌' 상태를 말해요."},{"id":"friends_atm_04","sp":"챈들러","en":"Jill says vestibule. I'm going with vestibule.","ko":"질이 '베스티뷸'이라고 했으니 나도 베스티뷸로 갈게.","start":47.0,"end":50.3,"idiom":"going with","note":"'~쪽으로 정하다·따르다'. 상대의 표현을 따라 말할 때 씁니다."},{"id":"friends_atm_05","sp":"질","en":"Would you like some gum?","ko":"껌 좀 드실래요?","start":73.0,"end":73.8,"idiom":"Would you like","note":"정중한 권유 표현. 'Do you want'보다 공손합니다."},{"id":"friends_atm_06","sp":"챈들러","en":"Oh, is it sugarless?","ko":"아, 무설탕인가요?","start":74.0,"end":76.0,"idiom":"sugarless","note":"'무설탕의'. -less는 '~이 없는'을 만드는 접미사예요."},{"id":"friends_atm_07","sp":"챈들러","en":"Mental note: if Jill Goodacre offers you gum, you take it.","ko":"마음속 메모: 질 굿에이커가 껌을 주면 무조건 받아라.","start":84.0,"end":89.0,"idiom":"Mental note","note":"'머릿속에 적어 두기'. 나중에 기억할 것을 혼잣말로 정리할 때 씁니다."},{"id":"friends_atm_08","sp":"챈들러","en":"You know, on second thought, gum would be perfection.","ko":"있잖아, 생각해 보니 껌이 딱 좋겠어.","start":93.0,"end":97.1,"idiom":"on second thought","note":"'다시 생각해 보니'. 말을 바꿀 때 쓰는 연결 표현이에요."},{"id":"friends_atm_09","sp":"챈들러","en":"Gum would be perfection. Could have said 'gum would be nice.'","ko":"'껌이 완벽하겠어'라니. '껌 좋겠다'라고 하면 될 걸.","start":100.0,"end":105.4,"idiom":"Could have said","note":"'~라고 말할 수도 있었는데'. 후회를 담은 가정 표현입니다."},{"id":"friends_atm_10","sp":"챈들러","en":"Blow a bubble. A bubble's good. It's got a boyish charm.","ko":"풍선을 불어라. 풍선이 좋아. 소년 같은 매력이 있잖아.","start":114.0,"end":119.0,"idiom":"boyish charm","note":"'소년 같은 매력'. -ish가 '~다운'의 느낌을 더합니다."},{"id":"friends_atm_11","sp":"챈들러","en":"This is not my gum.","ko":"이건 내 껌이 아니야.","start":156.0,"end":158.4,"idiom":"not my","note":"내 것이 아님을 강조하는 짧은 부정문이에요."},{"id":"friends_atm_12","sp":"질","en":"Oh my God. You're choking!","ko":"맙소사! 기도 막혔잖아요!","start":168.0,"end":170.4,"idiom":"choking","note":"'질식하다·목에 걸리다'. 음식이 목에 걸렸을 때 씁니다."},{"id":"friends_atm_13","sp":"챈들러","en":"Yes. Thank you. That was... that was perfection.","ko":"네. 고마워요. 방금 그건… 정말 완벽했어요.","start":176.0,"end":179.7,"idiom":"that was perfection","note":"앞서 쓴 perfection을 되받아 쓰는 유머. 같은 단어를 반복해 웃음을 만듭니다."},{"id":"friends_atm_14","sp":"질","en":"Chandler, I had a great blackout. See you.","ko":"챈들러, 즐거운 정전이었어요. 또 봐요.","start":197.0,"end":200.7,"idiom":"See you","note":"가볍게 헤어질 때 쓰는 인사. 'See you later'의 줄임이에요."}]},{"id":"friends_tan","show":"friends","videoId":"hc1C0I6x3lI","title":"로스, 셀프 태닝 기계에서 대참사","titleEn":"Ross Gets a Spray Tan","channel":"Friends","episode":"S10E03 · The One with Ross's Tan","duration":283,"url":"https://www.youtube.com/watch?v=hc1C0I6x3lI","lines":[{"id":"friends_tan_01","sp":"직원","en":"All right, Mr. Geller, right this way.","ko":"좋아요, 겔러 씨. 이쪽으로 오세요.","start":2.0,"end":4.8,"idiom":"right this way","note":"'이쪽으로 오세요'라는 안내 표현. 매장·식당에서 자주 듣습니다."},{"id":"friends_tan_02","sp":"직원","en":"So how dark do you want to be? We have one, two, or three.","ko":"얼마나 어둡게 하실래요? 1, 2, 3단계가 있어요.","start":5.0,"end":8.8,"idiom":"how dark","note":"정도를 묻는 how + 형용사 패턴입니다."},{"id":"friends_tan_03","sp":"로스","en":"Well, I like how you look. What are you? Puerto Rican?","ko":"음, 당신 피부가 좋은데. 뭐세요? 푸에르토리코 사람?","start":9.0,"end":14.0,"idiom":"What are you?","note":"외모·출신을 물을 때 쓰는 직설적 표현. 실제로는 무례할 수 있어요."},{"id":"friends_tan_04","sp":"직원","en":"You're gonna face the red light. When the red light goes on, the spray's about to start.","ko":"빨간 불 쪽을 보고 서세요. 빨간 불이 켜지면 분사가 시작돼요.","start":19.0,"end":23.9,"idiom":"about to","note":"'막 ~하려고 하다'. 바로 앞의 일을 알릴 때 씁니다."},{"id":"friends_tan_05","sp":"직원","en":"When the spray stops, count to five, pat yourself down, then turn around.","ko":"분사가 멈추면 5까지 세고, 몸을 두드려 물방울을 정리한 뒤 돌아서세요.","start":24.0,"end":29.8,"idiom":"pat yourself down","note":"'몸을 가볍게 두드리다'. pat은 손바닥으로 톡톡 치는 동작이에요."},{"id":"friends_tan_06","sp":"로스","en":"Spray, count, pat, and turn.","ko":"분사, 세기, 두드리기, 돌기.","start":31.0,"end":32.9,"idiom":"count","note":"'수를 세다'. 동작을 요약해 되짚을 때 동사원형으로 나열합니다."},{"id":"friends_tan_07","sp":"직원","en":"Wow, you catch on quick.","ko":"와, 이해가 빠르시네요.","start":33.0,"end":35.5,"idiom":"catch on quick","note":"'이해가 빠르다·눈치가 빠르다'. catch on은 요령을 파악한다는 뜻."},{"id":"friends_tan_08","sp":"로스","en":"Well, I have a PhD.","ko":"뭐, 박사 학위가 있거든요.","start":36.0,"end":38.5,"idiom":"Well","note":"말을 시작하며 완충하는 감탄사. 겸손과 자랑 사이의 뉘앙스를 만듭니다."},{"id":"friends_tan_09","sp":"로스","en":"One Mississippi, two Mississippi, three—","ko":"원 미시시피, 투 미시시피, 쓰리—","start":63.0,"end":65.5,"idiom":"Mississippi","note":"'미시시피'를 넣어 세는 미국식 방법. 1초보다 길게 세기 위한 장치예요."},{"id":"friends_tan_10","sp":"로스","en":"I'm not finished counting!","ko":"아직 다 안 셌어요!","start":69.0,"end":71.0,"idiom":"finished","note":"'끝낸'. be finished는 '끝난 상태'를 말합니다."},{"id":"friends_tan_11","sp":"로스","en":"No, I barely even got to three Mississippi.","ko":"아뇨, 겨우 3까지 갔어요.","start":79.0,"end":82.7,"idiom":"barely","note":"'간신히·거의 ~못하다'. 부정적 뉘앙스를 담습니다."},{"id":"friends_tan_12","sp":"직원","en":"Ain't that bad yet, but it keeps getting darker for the next four hours.","ko":"지금은 그렇게 심하진 않은데, 앞으로 네 시간 더 어두워져요.","start":87.0,"end":93.2,"idiom":"keeps getting","note":"'계속 ~해지다'. keep + -ing는 변화가 이어진다는 뜻."},{"id":"friends_tan_13","sp":"직원","en":"Yeah, but your back's a zero. You're gonna want to even that out.","ko":"그런데 등은 0단계예요. 그것도 맞춰서 균형을 잡아야 해요.","start":95.0,"end":100.8,"idiom":"even that out","note":"'고르게 맞추다'. even out은 차이를 없애는 것."},{"id":"friends_tan_14","sp":"레이첼","en":"Was that place the sun?","ko":"그 장소가 혹시 '태양'이었어?","start":163.0,"end":165.4,"idiom":"Was that","note":"과거 사실을 되짚어 묻는 be동사 의문문. 여기선 농담의 핵심이에요."},{"id":"friends_tan_15","sp":"모니카","en":"How could you mess this up? It's so easy.","ko":"이걸 어떻게 망칠 수가 있어? 이렇게 쉬운데.","start":180.0,"end":184.1,"idiom":"mess this up","note":"'일을 망치다'. mess up은 실수로 엉망으로 만드는 것."},{"id":"friends_tan_16","sp":"챈들러","en":"No. I just had to get a picture of this. I'll see you later.","ko":"아니, 이 꼴을 사진으로 남겨야 해서. 나중에 보자.","start":266.0,"end":272.2,"idiom":"get a picture","note":"'사진을 찍다'. take a picture와 함께 쓰이는 구어 표현이에요."}]},{"id":"friends_unagi","show":"friends","videoId":"UPW3iSLPrPg","title":"우나기(Unagi)는 총체적 자각 상태","titleEn":"Unagi","channel":"Friends","episode":"S06E17 · The One with Unagi","duration":299,"url":"https://www.youtube.com/watch?v=UPW3iSLPrPg","lines":[{"id":"friends_unagi_01","sp":"조이","en":"What have you guys been up to?","ko":"너희 뭐 하고 지냈어?","start":2.0,"end":5.3,"idiom":"been up to","note":"'무엇을 하고 지내다'. 근황을 물을 때 쓰는 구어 표현."},{"id":"friends_unagi_02","sp":"모니카","en":"We went to a self-defense class today.","ko":"우리 오늘 호신술 수업 들었어.","start":7.0,"end":8.8,"idiom":"self-defense","note":"'호신술'. defend(방어하다)에서 나온 말이에요."},{"id":"friends_unagi_03","sp":"피비","en":"Kicking a guy in the crotch all morning really takes it out of you.","ko":"아침 내내 남자 사타구니를 걷어차는 건 정말 기운을 쭉 빼.","start":9.0,"end":13.8,"idiom":"takes it out of you","note":"'기운을 빼앗다·녹초가 되게 하다'. 힘든 일을 겪은 뒤 쓰는 표현."},{"id":"friends_unagi_04","sp":"레이첼","en":"What, you want to see me self-defend myself?","ko":"뭐, 내가 날 지키는 걸 보고 싶어?","start":14.0,"end":18.1,"idiom":"self-defend","note":"'스스로를 방어하다'. 실제로는 defend oneself가 더 자연스러운 형태예요."},{"id":"friends_unagi_05","sp":"로스","en":"Of course you could defend yourself from an attack you know is coming.","ko":"당연히 올 줄 아는 공격은 막을 수 있겠지.","start":24.0,"end":29.8,"idiom":"Of course","note":"'당연히'. 동의·양보를 강조할 때 문두에 씁니다."},{"id":"friends_unagi_06","sp":"로스","en":"That's not enough.","ko":"그걸로는 충분하지 않아.","start":30.0,"end":31.6,"idiom":"not enough","note":"'충분하지 않다'. 서운함·아쉬움을 담는 짧은 문장."},{"id":"friends_unagi_07","sp":"로스","en":"There's a concept you should really be familiar with.","ko":"너희가 꼭 알아야 할 개념이 있어.","start":34.0,"end":38.1,"idiom":"be familiar with","note":"'~에 익숙하다·잘 알다'. 지식·경험을 전제로 말합니다."},{"id":"friends_unagi_08","sp":"로스","en":"It's what the Japanese call unagi.","ko":"일본 사람들이 '우나기'라고 부르는 거야.","start":39.0,"end":40.9,"idiom":"what the Japanese call","note":"'일본 사람들이 ~라고 부르는 것'. what절로 용어를 소개하는 틀."},{"id":"friends_unagi_09","sp":"피비","en":"Isn't that a kind of sushi?","ko":"그거 회 종류 아니야?","start":41.0,"end":43.9,"idiom":"a kind of","note":"'~의 한 종류'. 종류를 묻거나 분류할 때 씁니다."},{"id":"friends_unagi_10","sp":"로스","en":"It's freshwater eel. All right, maybe it means that too.","ko":"민물 장어야. 알았어, 그 뜻도 맞아.","start":48.0,"end":52.5,"idiom":"freshwater","note":"'민물의'. 바닷물은 saltwater예요."},{"id":"friends_unagi_11","sp":"로스","en":"Unagi is a state of total awareness.","ko":"우나기는 완전한 자각 상태야.","start":65.0,"end":68.3,"idiom":"state of","note":"'~한 상태'. 감정·몸의 상태를 말할 때 쓰는 표현."},{"id":"friends_unagi_12","sp":"로스","en":"Only by achieving true unagi can you be prepared for any danger that may befall you.","ko":"진정한 우나기를 얻어야만 어떤 위험에도 대비할 수 있어.","start":73.0,"end":80.1,"idiom":"be prepared for","note":"'~에 대비하다'. 준비된 상태를 말합니다."},{"id":"friends_unagi_13","sp":"피비","en":"You mean in case someone's trying to steal your bamboo sleeping mat?","ko":"혹시 누가 네 대나무 돗자리를 훔쳐 갈 경우를 말하는 거야?","start":82.0,"end":87.4,"idiom":"in case","note":"'혹시 ~할 경우에 대비해'. if와 달리 대비의 뉘앙스가 있어요."},{"id":"friends_unagi_14","sp":"레이첼","en":"What the hell was that?","ko":"방금 그게 대체 뭐야?","start":136.0,"end":138.4,"idiom":"What the hell","note":"'대체 뭐야'. 짜증·당황을 실은 강조 표현."},{"id":"friends_unagi_15","sp":"로스","en":"I'm sorry I had to take such drastic measures to make my point.","ko":"내 주장을 하려고 이렇게 과격한 방법을 써서 미안해.","start":160.0,"end":165.8,"idiom":"drastic measures","note":"'과감한 조치'. measure는 '조치·수단'의 뜻이에요."},{"id":"friends_unagi_16","sp":"레이첼","en":"Oh my god, why is he jumping on those women?","ko":"맙소사, 왜 저 여자들한테 뛰어드는 거야?","start":270.0,"end":274.6,"idiom":"jumping on","note":"'~위로 뛰어오르다'. 전치사 on이 목적물을 붙여 줍니다."}]},{"id":"mf_funparent","show":"modern_family","videoId":"ORfWypnbbyk","title":"클레어, '재미있는 부모' 자리를 맡다","titleEn":"Claire Takes Phil's Place as the \"Fun\" Parent","channel":"Peacock","episode":"S02E22 · Good Cop Bad Dog","duration":313,"url":"https://www.youtube.com/watch?v=ORfWypnbbyk","lines":[{"id":"mf_funparent_01","sp":"클레어","en":"May I have a word with you, Phil?","ko":"필, 잠깐 얘기 좀 할까요?","start":8.0,"end":11.7,"idiom":"have a word with","note":"'~와 잠깐 이야기하다'. 주로 사적인 대화를 청할 때 씁니다."},{"id":"mf_funparent_02","sp":"클레어","en":"Phil, you sold me out behind my back.","ko":"필, 당신이 내 뒤통수 쳤잖아요.","start":16.0,"end":17.9,"idiom":"sold me out","note":"'배신하다·팔아넘기다'. sell out은 사람·신념을 버리는 것."},{"id":"mf_funparent_03","sp":"필","en":"Sometimes you can get a little intense, and I feel like I need to swoop in.","ko":"가끔 당신이 좀 강해지니까, 내가 들어가서 달래야 할 것 같아서.","start":18.0,"end":20.9,"idiom":"get a little intense","note":"'조금 강해지다·과해지다'. get + 형용사는 상태 변화."},{"id":"mf_funparent_04","sp":"필","en":"I need to swoop in and let the kids know they're still loved.","ko":"내가 들어가서 애들한테 아직 사랑받고 있다고 알려 줘야 할 것 같아.","start":21.0,"end":24.9,"idiom":"swoop in","note":"'훌쩍 들어가 구하다'. 새가 급강하하는 그림에서 온 말."},{"id":"mf_funparent_05","sp":"필","en":"Honey, these are just the parts that we're playing.","ko":"여보, 이건 그냥 우리가 맡은 역할일 뿐이야.","start":25.0,"end":29.1,"idiom":"the parts that we're playing","note":"'우리가 연기하는 배역'. 부부의 역할 분담을 연극에 비유했어요."},{"id":"mf_funparent_06","sp":"클레어","en":"I'm tired of being the bad cop.","ko":"나 이제 나쁜 경찰 역할은 지쳤어.","start":30.0,"end":31.9,"idiom":"the bad cop","note":"'나쁜 경찰'. good cop/bad cop은 부모의 훈육 역할 분담을 뜻하는 관용구예요."},{"id":"mf_funparent_07","sp":"클레어","en":"You need to discipline them sometime and let me swoop in with all the love.","ko":"당신도 가끔은 혼내고, 나는 사랑으로 달래게 해 줘요.","start":32.0,"end":35.9,"idiom":"discipline","note":"'훈육하다·혼내다'. 명사로는 '규율'입니다."},{"id":"mf_funparent_08","sp":"필","en":"Shouldn't we just stick with the stuff we're good at?","ko":"그냥 우리가 잘하는 것만 하는 게 낫지 않아?","start":36.0,"end":37.5,"idiom":"stick with","note":"'~을 계속 고수하다'. 함께 간다는 뉘앙스가 있어요."},{"id":"mf_funparent_09","sp":"클레어","en":"Oh, my God, this bathroom is disgusting.","ko":"세상에, 이 화장실 너무 지저분해.","start":36.0,"end":39.3,"idiom":"disgusting","note":"'역겨운·형편없는'. 불쾌함을 강하게 전달합니다."},{"id":"mf_funparent_10","sp":"클레어","en":"The girls told me they would clean it days ago.","ko":"애들이 며칠 전에 치우겠다고 했어.","start":40.0,"end":43.9,"idiom":"days ago","note":"'며칠 전'. ago는 기간 + ago 형태로만 씁니다."},{"id":"mf_funparent_11","sp":"클레어","en":"I can't yell at them about it one more time. Phil, you handle it.","ko":"이걸로 또 소리칠 수는 없어. 필, 당신이 처리해요.","start":44.0,"end":50.2,"idiom":"yell at","note":"'~에게 소리치다'. at이 화살표처럼 대상을 향합니다."},{"id":"mf_funparent_12","sp":"클레어","en":"You stay here, hound the girls about cleaning up this mess.","ko":"당신은 여기 남아서 애들한테 이 엉망을 치우라고 계속 졸라요.","start":54.0,"end":59.0,"idiom":"hound","note":"'끈질기게 조르다·몰아세우다'. 사냥개(hound)에서 온 동사예요."},{"id":"mf_funparent_13","sp":"클레어","en":"Hey, guys, guess who's taking you go-karting today?","ko":"얘들아, 오늘 누가 너희 카트 태워 주러 가는지 맞혀 봐.","start":70.0,"end":72.8,"idiom":"guess who","note":"'누군지 맞혀 봐'. 놀라게 할 때 쓰는 도입 표현."},{"id":"mf_funparent_14","sp":"루크","en":"Why? Are we in trouble?","ko":"왜? 우리 혼나는 거야?","start":73.0,"end":75.5,"idiom":"in trouble","note":"'곤란한·혼날 상황인'. 문제에 휘말린 상태를 말해요."},{"id":"mf_funparent_15","sp":"클레어","en":"Today's just all about having fun.","ko":"오늘은 그냥 신나게 노는 날이야.","start":78.0,"end":80.9,"idiom":"all about","note":"'~가 전부인'. 그날의 주제를 강조하는 구어 표현."},{"id":"mf_funparent_16","sp":"필","en":"And because I'm your dad and I'm older than you. And I call the shots around here.","ko":"왜냐면 내가 너희 아빠고 너희보다 나이가 많으니까. 그리고 여기선 내가 결정해.","start":131.0,"end":138.5,"idiom":"call the shots","note":"'결정권을 쥐다·지시하다'. 사격 지휘에서 온 관용구예요."},{"id":"mf_funparent_17","sp":"필","en":"Note to Claire: if you want intense family drama, rent Spy Kids.","ko":"클레어에게 한마디: 진한 가족 드라마가 보고 싶으면 '스파이 키즈'를 빌려 봐.","start":177.0,"end":182.4,"idiom":"Note to","note":"'~에게 남기는 메모'. 농담조로 충고할 때 씁니다."},{"id":"mf_funparent_18","sp":"필","en":"You are not a good bad cop.","ko":"당신은 나쁜 경찰을 잘 못해.","start":270.0,"end":273.3,"idiom":"good bad cop","note":"good cop/bad cop을 비틀어 '나쁜 경찰 연기를 잘한다'는 뜻으로 만든 말장난."},{"id":"mf_funparent_19","sp":"필","en":"And I am a very bad, good cop.","ko":"그리고 나는 아주 형편없는 좋은 경찰이야.","start":279.0,"end":280.9,"idiom":"very bad","note":"'아주 못하는'. good과 대비해 아이러니를 만듭니다."},{"id":"mf_funparent_20","sp":"필","en":"I feel really shaky. I don't like being you.","ko":"나 진짜 속이 떨려. 당신 역할은 싫어.","start":281.0,"end":285.1,"idiom":"shaky","note":"'떨리는·불안한'. 몸과 마음 모두에 씁니다."}]},{"id":"mf_boyfriend","show":"modern_family","videoId":"2ZGvEQWNqqQ","title":"딸의 연상 남자친구를 대하는 필의 방식","titleEn":"Phil Does Not Like Haley's Older Boyfriend","channel":"Peacock","episode":"S04E12 · Party Crasher","duration":253,"url":"https://www.youtube.com/watch?v=2ZGvEQWNqqQ","lines":[{"id":"mf_boyfriend_01","sp":"필","en":"That's crazy. I'm gonna fight him.","ko":"말도 안 돼. 내가 그 녀석과 싸울 거야.","start":0.0,"end":2.9,"idiom":"That's crazy","note":"'말도 안 돼'. 황당함을 나타내는 짧은 반응."},{"id":"mf_boyfriend_02","sp":"필","en":"No, Claire, I'm gonna fight him up real nice.","ko":"아니, 클레어. 아주 얌전하게 싸울 거야.","start":7.0,"end":11.1,"idiom":"real nice","note":"'아주 착하게'. 구어에서 really 대신 real을 씁니다."},{"id":"mf_boyfriend_03","sp":"클레어","en":"He's about to drop the hammer on Haley's new boyfriend.","ko":"아빠가 헤일리의 새 남자친구한테 한 방 먹이려는 참이야.","start":19.0,"end":21.9,"idiom":"drop the hammer","note":"'강하게 제재하다·한 방 먹이다'. 망치를 내리치는 그림."},{"id":"mf_boyfriend_04","sp":"클레어","en":"He's twice her age, and it's disgusting.","ko":"나이가 헤일리의 두 배야. 역겨워.","start":22.0,"end":25.3,"idiom":"twice her age","note":"'그녀 나이의 두 배'. 배수를 말하는 twice."},{"id":"mf_boyfriend_05","sp":"필","en":"I know why Haley is doing this. She's doing it to get back at you.","ko":"헤일리가 왜 그러는지 알아. 당신한테 앙갚음하려는 거야.","start":50.0,"end":56.6,"idiom":"get back at","note":"'~에게 앙갚음하다'. 복수·반격을 뜻합니다."},{"id":"mf_boyfriend_06","sp":"필","en":"And do you think I'm just going to let this happen?","ko":"내가 이걸 그냥 두고 볼 것 같아?","start":59.0,"end":60.5,"idiom":"let this happen","note":"'이 일이 일어나게 두다'. let + 목적어 + 동사원형."},{"id":"mf_boyfriend_07","sp":"클레어","en":"Trust me, the more it bothers you, the longer he stays.","ko":"믿어 봐. 당신이 신경 쓸수록 그는 더 오래 있어.","start":59.0,"end":64.0,"idiom":"the more","note":"'~할수록 더 ~'. the 비교급 구문의 대표 형태."},{"id":"mf_boyfriend_08","sp":"필","en":"The sooner Willie Nelson's on the road again.","ko":"윌리 넬슨이 빨리 '다시 길 위로' 가겠지.","start":67.0,"end":70.7,"idiom":"on the road again","note":"'다시 여행길에 오르다'. 윌리 넬슨의 노래 제목을 빌린 농담."},{"id":"mf_boyfriend_09","sp":"필","en":"I'm so conflicted. What you're saying makes sense up here.","ko":"나 지금 너무 갈등돼. 네 말은 머리로는 맞아.","start":77.0,"end":79.8,"idiom":"makes sense","note":"'말이 되다·이해가 되다'. 논리적 타당성을 말합니다."},{"id":"mf_boyfriend_10","sp":"필","en":"It just feels so damn comfortable down here.","ko":"여기(가슴)는 하라는 대로 못 하겠어. 너무 편하다고.","start":80.0,"end":83.7,"idiom":"damn","note":"형용사를 강조하는 구어적 부사. 가볍게 짜증을 실어요."},{"id":"mf_boyfriend_11","sp":"클레어","en":"Manny seems to me like a real old soul.","ko":"매니는 정말 늙은 영혼 같아.","start":101.0,"end":105.1,"idiom":"old soul","note":"'늙은 영혼'. 또래보다 성숙한 사람을 일컫는 표현."},{"id":"mf_boyfriend_12","sp":"필","en":"Age is nothing but a state of mind.","ko":"나이는 그저 마음가짐일 뿐이야.","start":111.0,"end":114.7,"idiom":"nothing but","note":"'단지 ~에 불과하다'. 강한 한정 표현."},{"id":"mf_boyfriend_13","sp":"필","en":"In fact, it has been such a pleasure getting to know Kenny. It's our treat.","ko":"사실 케니를 알게 돼서 정말 기뻐. 우리가 살게.","start":141.0,"end":147.7,"idiom":"It's our treat","note":"'우리가 낼게'. 식사·경험을 대접할 때 쓰는 표현."},{"id":"mf_boyfriend_14","sp":"필","en":"Well, sweetheart, you are only young once.","ko":"여보, 인생에서 젊은 때는 한 번뿐이야.","start":149.0,"end":152.3,"idiom":"only young once","note":"'젊음은 한 번뿐'. YOLO와 같은 뉘앙스의 격려."},{"id":"mf_boyfriend_15","sp":"헤일리","en":"You were going to let me go with him?","ko":"나를 그 사람과 보내려고 했어?","start":193.0,"end":196.8,"idiom":"going to let","note":"'~하게 둘 작정이었다'. be going to + 동사원형."},{"id":"mf_boyfriend_16","sp":"헤일리","en":"You've been acting so weird ever since I left college.","ko":"내가 대학 그만둔 뒤로 계속 이상하게 구네.","start":197.0,"end":201.6,"idiom":"ever since","note":"'~한 이후로 쭉'. 현재완료와 함께 씁니다."},{"id":"mf_boyfriend_17","sp":"필","en":"This little chicken game may work for your dad, but it doesn't work for me.","ko":"이 닭싸움 같은 게 네 아빠한테는 통할지 몰라도 나한테는 안 통해.","start":217.0,"end":222.8,"idiom":"chicken game","note":"'겁쟁이 게임'. 서로 버티는 승부를 뜻합니다."},{"id":"mf_boyfriend_18","sp":"필","en":"No guy on earth is good enough for her, let alone some slimy jeans salesman.","ko":"이 세상 어떤 남자도 그 애에게 부족해. 끈적한 청바지 판매원은 말할 것도 없지.","start":223.0,"end":229.7,"idiom":"let alone","note":"'~은 말할 것도 없고'. 더 강한 경우를 덧붙입니다."}]},{"id":"mf_earthquake","show":"modern_family","videoId":"JJivFinaNPY","title":"지진을 이용해 밀린 집안일을 끝내다","titleEn":"Phil Uses the Earthquake To His Advantage","channel":"Peacock","episode":"S02E03 · Earthquake","duration":301,"url":"https://www.youtube.com/watch?v=JJivFinaNPY","lines":[{"id":"mf_earthquake_01","sp":"미첼","en":"If they find us in these outfits, it's going to be very bad for the gays.","ko":"이런 옷차림으로 들키면 동성애자들 욕먹는 거야.","start":20.0,"end":27.1,"idiom":"very bad for","note":"'~에게 아주 안 좋은'. 결과를 걱정할 때 씁니다."},{"id":"mf_earthquake_02","sp":"루크","en":"That thing almost fell on me.","ko":"저게 나한테 떨어질 뻔했어.","start":28.0,"end":29.9,"idiom":"almost fell","note":"'거의 떨어졌다'. almost는 아슬아슬한 실패를 나타냅니다."},{"id":"mf_earthquake_03","sp":"루크","en":"It came this close to my head.","ko":"내 머리 바로 앞까지 왔어.","start":30.0,"end":33.3,"idiom":"this close","note":"'이만큼 가까이'. 손으로 거리를 보여 줄 때 쓰는 말."},{"id":"mf_earthquake_04","sp":"루크","en":"I'm not gonna wait around here until I do.","ko":"난 당할 때까지 여기서 기다리진 않을 거야.","start":38.0,"end":42.1,"idiom":"wait around","note":"'빈둥대며 기다리다'. 목적 없이 머무는 느낌."},{"id":"mf_earthquake_05","sp":"제이","en":"That is a doozy.","ko":"이건 정말 대단한 지진이네.","start":45.0,"end":47.0,"idiom":"a doozy","note":"'대단한 것·굉장한 것'. 크고 인상적인 일에 쓰는 구어 표현."},{"id":"mf_earthquake_06","sp":"제이","en":"We lost Phil.","ko":"필이랑 연락이 끊겼어.","start":60.0,"end":61.6,"idiom":"we lost","note":"'연결이 끊겼다·잃었다'. 통화·신호가 끊길 때 씁니다."},{"id":"mf_earthquake_07","sp":"캠","en":"Great. Now Gloria's gone.","ko":"좋네. 이제 글로리아도 사라졌어.","start":68.0,"end":70.0,"idiom":"gone","note":"'가 버린·없는'. gone은 사라진 상태를 말합니다."},{"id":"mf_earthquake_08","sp":"글로리아","en":"Of course I'm alive.","ko":"당연히 살아 있지.","start":74.0,"end":76.0,"idiom":"alive","note":"'살아 있는'. live(동사)와 구별되는 형용사예요."},{"id":"mf_earthquake_09","sp":"필","en":"For months, Claire has been after me and dogging me.","ko":"몇 달 동안 클레어가 나를 계속 졸라 댔어.","start":77.0,"end":81.5,"idiom":"has been after me","note":"'계속 나를 쫓아다녔다·졸랐다'. 현재완료 진행의 지속."},{"id":"mf_earthquake_10","sp":"필","en":"Anchor the cabinet to the wall. We've got kids in the house, blah blah blah.","ko":"수납장을 벽에 고정해. 집에 애들이 있잖아, 어쩌고저쩌고.","start":84.0,"end":90.7,"idiom":"blah blah blah","note":"'어쩌고저쩌고'. 반복되는 말을 흘려들을 때 씁니다."},{"id":"mf_earthquake_11","sp":"필","en":"It reached the point where I had no choice but to just roll up my sleeves.","ko":"결국엔 내가 소매를 걷어붙이는 수밖에 없는 지경이 됐지.","start":93.0,"end":100.1,"idiom":"roll up my sleeves","note":"'소매를 걷어붙이다'. 본격적으로 일을 시작한다는 관용구."},{"id":"mf_earthquake_12","sp":"클레어","en":"We're fine. The door is jammed.","ko":"우린 괜찮아. 문이 끼었어.","start":110.0,"end":112.9,"idiom":"jammed","note":"'끼다·걸리다'. 기계·문이 움직이지 않을 때 씁니다."},{"id":"mf_earthquake_13","sp":"필","en":"I'm gonna push, you pull. Okay, on three.","ko":"내가 밀게, 네가 당겨. 셋에 하는 거야.","start":116.0,"end":119.7,"idiom":"on three","note":"'셋에 맞춰'. 함께 동작을 시작할 때 쓰는 말."},{"id":"mf_earthquake_14","sp":"필","en":"Okay, here's the thing.","ko":"있잖아, 사실은 말이지.","start":125.0,"end":127.0,"idiom":"here's the thing","note":"'사실은 말이야'. 본론을 꺼내기 전 쓰는 도입 표현."},{"id":"mf_earthquake_15","sp":"필","en":"It dawned on me that as long as Claire was stuck, I'd have time.","ko":"클레어가 갇혀 있는 동안 시간이 생긴다는 걸 깨달았어.","start":132.0,"end":134.8,"idiom":"It dawned on me","note":"'문득 깨달았다'. 생각이 떠오르는 순간을 말합니다."},{"id":"mf_earthquake_16","sp":"필","en":"Sometimes when God closes a door, he closes it so hard that your wife can't get out.","ko":"신이 문을 닫을 땐 아내가 못 나올 만큼 세게 닫기도 하지.","start":135.0,"end":142.5,"idiom":"closes a door","note":"'문을 닫으면 창문이 열린다'는 속담을 비트는 대사. 원래 속담을 문장 안에서 비틀어 웃음을 만듭니다."},{"id":"mf_earthquake_17","sp":"클레어","en":"Get a crowbar, if you have one.","ko":"쇠지렛대 있어? 있으면 가져와.","start":148.0,"end":149.8,"idiom":"if you have one","note":"'있으면'. 조건을 붙여 부탁할 때 씁니다."},{"id":"mf_earthquake_18","sp":"필","en":"Like I'm some dandy who doesn't have a crowbar?","ko":"내가 쇠지렛대도 없는 멋쟁이인 줄 알아?","start":150.0,"end":154.1,"idiom":"some dandy","note":"'어떤 멋쟁이'. some은 비꼬는 뉘앙스를 담기도 합니다."},{"id":"mf_earthquake_19","sp":"필","en":"Dandy is a term coined by miners in the 15th century.","ko":"댄디는 15세기 광부들이 만든 말이야.","start":156.0,"end":161.0,"idiom":"coined by","note":"'~가 만들어 낸'. 단어를 새로 만들 때 coin을 씁니다."},{"id":"mf_earthquake_20","sp":"클레어","en":"Don't you dare leave this house.","ko":"이 집에서 나갈 생각 하지 마.","start":190.0,"end":192.9,"idiom":"Don't you dare","note":"'감히 ~하지 마'. 강한 금지 표현."},{"id":"mf_earthquake_21","sp":"클레어","en":"Just for that, you are grounded one week.","ko":"그래서 벌로 일주일 외출 금지야.","start":199.0,"end":201.8,"idiom":"grounded","note":"'외출 금지당한'. 부모가 벌을 주는 상황에서 씁니다."},{"id":"mf_earthquake_22","sp":"클레어","en":"Want to double it? Keep talking.","ko":"두 배로 늘려 줄까? 계속 말해 봐.","start":202.0,"end":204.9,"idiom":"Keep talking","note":"'계속 말해 봐'. 위협조로 쓰이는 명령형."},{"id":"mf_earthquake_23","sp":"필","en":"This cabinet barely moved. That's just perspective.","ko":"이 수납장 거의 안 움직였어. 그건 그냥 원근법이야.","start":224.0,"end":227.3,"idiom":"barely moved","note":"'거의 움직이지 않았다'. barely는 부정에 가깝습니다."},{"id":"mf_earthquake_24","sp":"필","en":"I brought the wrong screwdriver, so I'll be right back.","ko":"드라이버를 잘못 가져왔어. 금방 올게.","start":264.0,"end":268.6,"idiom":"be right back","note":"'금방 돌아올게'. 자리를 잠깐 비울 때 씁니다."}]},{"id":"se_voicemail","show":"sex_education","videoId":"95jRV9nVlQY","title":"그 음성 메시지, 사실은 이랬어","titleEn":"Otis FINALLY Tells Maeve What The Voicemail Said","channel":"Still Watching Netflix","episode":"S03E08 · Episode 8","duration":162,"url":"https://www.youtube.com/watch?v=95jRV9nVlQY","lines":[{"id":"se_voicemail_01","sp":"메이브","en":"What did it say? The voicemail.","ko":"뭐라고 했어? 그 음성 메시지.","start":2.0,"end":4.8,"idiom":"What did it say","note":"'뭐라고 했어?' 말의 내용을 묻는 과거형 질문."},{"id":"se_voicemail_02","sp":"오티스","en":"Doesn't matter. It was ages ago.","ko":"상관없어. 엄청 오래전 일이야.","start":5.0,"end":7.9,"idiom":"ages ago","note":"'아주 오래전'. ages는 '오랜 시간'의 구어 표현."},{"id":"se_voicemail_03","sp":"메이브","en":"It matters to me.","ko":"나한테는 중요해.","start":12.0,"end":14.0,"idiom":"It matters to me","note":"'나에게 중요하다'. matter는 '중요하다'의 동사."},{"id":"se_voicemail_04","sp":"오티스","en":"It was something like, \"Hi, Maeve. I'm watching you on TV right now.\"","ko":"대충 이런 거였어. '안녕, 메이브. 지금 TV에서 너를 보고 있어.'","start":24.0,"end":29.8,"idiom":"something like","note":"'대충 ~ 같은 것'. 정확하지 않은 인용을 할 때 씁니다."},{"id":"se_voicemail_05","sp":"오티스","en":"\"And I wanted to let you know how proud I am of you.\"","ko":"'그리고 네가 얼마나 자랑스러운지 말해 주고 싶었어.'","start":38.0,"end":43.8,"idiom":"let you know","note":"'알려 주다'. 정중하게 정보를 전달할 때 쓰는 표현."},{"id":"se_voicemail_06","sp":"오티스","en":"\"And how you saying you had feelings for me was all I ever wanted to hear.\"","ko":"'네가 나한테 감정이 있다고 한 게 내가 듣고 싶던 전부였어.'","start":46.0,"end":51.9,"idiom":"had feelings for","note":"'~에게 감정이 있다·좋아하다'. 연애 감정을 완곡하게 말합니다."},{"id":"se_voicemail_07","sp":"오티스","en":"\"Because it's always been you.\"","ko":"'왜냐면 언제나 너였으니까.'","start":52.0,"end":54.5,"idiom":"always been you","note":"'늘 너였다'. 현재완료로 지속을 강조하는 고백 표현."},{"id":"se_voicemail_08","sp":"오티스","en":"\"I love you.\" Anyway, it was… stupid.","ko":"'사랑해.' 아무튼, 그건… 바보 같았어.","start":56.0,"end":59.3,"idiom":"Anyway","note":"'아무튼'. 화제를 접거나 바꿀 때 쓰는 연결어."},{"id":"se_voicemail_09","sp":"메이브","en":"Did you mean it?","ko":"진심이었어?","start":68.0,"end":70.0,"idiom":"mean it","note":"'진심으로 말하다'. 말의 진의를 확인할 때 씁니다."},{"id":"se_voicemail_10","sp":"오티스","en":"Of course I meant it.","ko":"당연히 진심이었지.","start":85.0,"end":87.5,"idiom":"Of course","note":"'물론이지'. 당연함을 강조하는 답."},{"id":"se_voicemail_11","sp":"오티스","en":"I can't… I can't do this.","ko":"난… 이건 못 하겠어.","start":107.0,"end":109.9,"idiom":"I can't do this","note":"'못 하겠다'. 감정적으로 버거울 때 자주 쓰는 말."},{"id":"se_voicemail_12","sp":"메이브","en":"I don't want to lose you again.","ko":"난… 또 너를 잃고 싶지 않아.","start":121.0,"end":123.8,"idiom":"lose you","note":"'너를 잃다'. 관계를 잃는 것을 lose로 표현합니다."},{"id":"se_voicemail_13","sp":"오티스","en":"I'm confused. This is confusing me.","ko":"나 혼란스러워. 이게 나를 헷갈리게 해.","start":124.0,"end":126.9,"idiom":"confused","note":"'혼란스러운'. 사람은 confused, 상황은 confusing입니다."}]},{"id":"se_looks","show":"sex_education","videoId":"9DenrhhJkZM","title":"오티스와 메이브, 말하지 못한 마음","titleEn":"Maeve and Otis - The Lingering Looks of Love","channel":"Still Watching Netflix","episode":"S02 명장면 모음","duration":217,"url":"https://www.youtube.com/watch?v=9DenrhhJkZM","lines":[{"id":"se_looks_01","sp":"아이작","en":"Who's the intense starey guy?","ko":"저 빤히 쳐다보는 무서운 남자는 누구야?","start":0.0,"end":2.5,"idiom":"starey","note":"'빤히 보는'. stare에서 만든 구어적 형용사예요."},{"id":"se_looks_02","sp":"메이브","en":"That's Otis. It's his party. Things are a bit weird between us right now.","ko":"오티스야. 그의 파티야. 지금 우리 사이가 좀 이상해.","start":3.0,"end":8.8,"idiom":"a bit weird","note":"'좀 이상한'. a bit으로 부드럽게 만든 표현."},{"id":"se_looks_03","sp":"아이작","en":"Is he your boyfriend?","ko":"걔 네 남자친구야?","start":9.0,"end":11.0,"idiom":"boyfriend","note":"'남자친구'. 관계를 직접 확인하는 질문."},{"id":"se_looks_04","sp":"메이브","en":"No.","ko":"아니.","start":12.0,"end":13.5,"idiom":"No.","note":"단호하게 선을 긋는 한 단어 대답."},{"id":"se_looks_05","sp":"아이작","en":"But you want him to be your boyfriend?","ko":"그런데 걔가 네 남자친구였으면 좋겠어?","start":14.0,"end":17.7,"idiom":"want him to be","note":"'그가 ~이길 바라다'. 목적격 + to부정사."},{"id":"se_looks_06","sp":"오티스","en":"Have you seen Ola anywhere?","ko":"혹시 올라 봤어?","start":29.0,"end":31.4,"idiom":"anywhere","note":"의문문에서 '어디든'의 뜻으로 쓰는 anywhere."},{"id":"se_looks_07","sp":"오티스","en":"If you see Ola, I'm looking for her.","ko":"올라 보면 나가 찾고 있다고 해 줘.","start":35.0,"end":38.7,"idiom":"I'm looking for","note":"'~을 찾고 있다'. 진행형으로 현재 상황을 말합니다."},{"id":"se_looks_08","sp":"오티스","en":"How's the rest of your birthday?","ko":"생일 나머지는 어땠어?","start":48.0,"end":49.9,"idiom":"the rest of","note":"'~의 나머지'. 남은 부분을 가리킵니다."},{"id":"se_looks_09","sp":"메이브","en":"Unexpected.","ko":"예상 밖이었어.","start":50.0,"end":51.5,"idiom":"Unexpected","note":"'예상치 못한'. 한 단어로 감정을 압축한 대답."},{"id":"se_looks_10","sp":"오티스","en":"Well, I got you something.","ko":"뭐, 너한테 줄 게 있어.","start":53.0,"end":55.5,"idiom":"got you something","note":"'너에게 뭘 사 왔어'. get은 '구하다·사다'의 뜻."},{"id":"se_looks_11","sp":"메이브","en":"Just visiting.","ko":"그냥 들른 거야.","start":79.0,"end":80.5,"idiom":"Just visiting","note":"'그냥 방문 중'. 짧게 상황을 설명하는 말."},{"id":"se_looks_12","sp":"메이브","en":"Nothing unusual. We're just hanging out, you know. Boyfriend, girlfriend hang times.","ko":"별거 아니야. 그냥 어울려 노는 거지. 남친·여친이 노는 시간.","start":87.0,"end":92.4,"idiom":"hanging out","note":"'어울려 놀다·시간을 보내다'. 계획 없는 만남을 말합니다."},{"id":"se_looks_13","sp":"오티스","en":"Changed your hair.","ko":"머리 바꿨네.","start":94.0,"end":94.8,"idiom":"Changed your hair","note":"주어를 생략한 회화체. '머리 바꿨어'를 짧게 던지는 말."},{"id":"se_looks_14","sp":"메이브","en":"Perceptive.","ko":"눈썰미 있네.","start":95.0,"end":96.5,"idiom":"Perceptive","note":"'관찰력이 좋은'. 칭찬과 비꼼 사이의 한 단어."},{"id":"se_looks_15","sp":"오티스","en":"I ripped out all your birthday pages so you don't have to celebrate one for another five years.","ko":"네 생일 페이지는 다 찢어 놨어. 5년 동안 생일 안 챙겨도 되게.","start":102.0,"end":109.9,"idiom":"ripped out","note":"'찢어 냈다'. rip은 거칠게 잡아 뜯는 동작."},{"id":"se_looks_16","sp":"메이브","en":"I don't think I'm over Otis.","ko":"난 아직 오티스를 잊지 못한 것 같아.","start":116.0,"end":118.8,"idiom":"I'm over","note":"'~을 극복하다·잊다'. 감정이 정리된 상태."},{"id":"se_looks_17","sp":"메이브","en":"I better get to class.","ko":"수업 가 봐야겠다.","start":119.0,"end":121.5,"idiom":"I better","note":"'~하는 게 낫겠다'. had better의 구어 축약."},{"id":"se_looks_18","sp":"오티스","en":"This is entirely about the money.","ko":"이건 전적으로 돈 때문에 하는 거야.","start":140.0,"end":141.8,"idiom":"entirely about","note":"'전적으로 ~에 관한'. 강조 부사 entirely."},{"id":"se_looks_19","sp":"메이브","en":"It's good to be back in business.","ko":"다시 일하는 것도 좋네.","start":142.0,"end":145.3,"idiom":"back in business","note":"'다시 일을 시작하다·복귀하다'. 원래대로 돌아왔다는 관용구."},{"id":"se_looks_20","sp":"오티스","en":"I got kicked out. 'Cause I mess everything up.","ko":"응, 쫓겨났어. 난 뭐든 망치니까.","start":148.0,"end":152.1,"idiom":"got kicked out","note":"'쫓겨났다'. get + 과거분사로 수동을 만든 구어 표현."},{"id":"se_looks_21","sp":"메이브","en":"You don't mess everything up.","ko":"넌 뭐든 망치는 거 아니야.","start":156.0,"end":158.4,"idiom":"mess everything up","note":"'모든 걸 망치다'. mess up의 강조형."},{"id":"se_looks_22","sp":"메이브","en":"I think I'm gonna have to punch you in the face if you ever buy me a birthday present again.","ko":"또 내 생일 선물 사 오면 얼굴 한 대 때려야 할 것 같아.","start":179.0,"end":187.8,"idiom":"punch you in the face","note":"'얼굴을 때리다'. punch + 사람 + in the + 신체 부위."}]}]}</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+/* =====================================================================
+   SceneLoop — 실제 미드·영드 클립 구간 반복 쉐도잉
+   · 영상 구간 3·5·10회 반복 / 전체 씬 / 구간 여백(기본·+3·+6)
+   · 음성만 3·5·10·∞ 반복 + 5단계 속도 + 4개 억양
+   · Hard 보관함 · 4지선다 퀴즈 (localStorage)
+   · 내 문장 / 유튜브 URL 연동 / JSON 불러오기·내보내기
+   ===================================================================== */
+const LS = {
+  saved:'sceneloop_hard_v1', custom:'sceneloop_custom_v1',
+  speed:'sceneloop_speed', accent:'sceneloop_accent', pad:'sceneloop_pad',
+  show:'sceneloop_show', clip:'sceneloop_clip', quiz:'sceneloop_quiz_stat', drill:'sceneloop_drill'
+};
+const SPEEDS = [0.8,0.9,1.0,1.1,1.2];
+const ACCENTS = [
+  {code:'en-US', label:'🇺🇸 미국'},
+  {code:'en-GB', label:'🇬🇧 영국'},
+  {code:'en-AU', label:'🇦🇺 호주'},
+  {code:'en-IN', label:'🇮🇳 인도'}
+];
+const PADS = [{v:0,label:'기본'},{v:3,label:'+3초'},{v:6,label:'+6초'}];
+
+function read(key, fb){ try{ const v = localStorage.getItem(key); return v===null?fb:JSON.parse(v); }catch(e){ return fb; } }
+function write(key, val){ try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){} }
+
+const state = {
+  data:null, shows:[], clips:[],
+  showId:'friends', clipId:'',
+  idx:0,
+  speed:1.0, accent:'en-US', pad:0,
+  saved:new Set(), custom:[],
+  player:null, playerReady:false, ytApiReady:false,
+  timer:null, running:false, repeat:0, maxRepeat:0, totalRepeat:0,
+  mode:'video', pendingPlay:null, drill:0,
+  quizMode:'en2ko', quizOrder:0, quizScore:0, quizTotal:0
+};
+
+/* ---------------- 부팅 ---------------- */
+function boot(){
+  let d = null;
+  try { d = JSON.parse(document.getElementById('bootstrap-data').textContent); } catch(e){}
+  if (!d || !d.clips) { toast('데이터를 읽지 못했어요'); return; }
+  state.data = d; state.shows = d.shows; state.clips = d.clips;
+  state.saved = new Set(read(LS.saved, []));
+  state.custom = read(LS.custom, []);
+  const sp = Number(read(LS.speed, 1.0));  state.speed = SPEEDS.includes(sp)?sp:1.0;
+  const ac = read(LS.accent, '');          state.accent = ACCENTS.some(a=>a.code===ac)?ac:'';
+  const pd = Number(read(LS.pad, 0));      state.pad = PADS.some(p=>p.v===pd)?pd:0;
+  state.drill = Number(read(LS.drill, 0))||0;
+  const sid = read(LS.show, 'friends');
+  state.showId = state.shows.some(s=>s.id===sid) ? sid : state.shows[0].id;
+  const cid = read(LS.clip, '');
+  const first = state.clips.find(c=>c.show===state.showId);
+  state.clipId = (state.clips.find(c=>c.id===cid && c.show===state.showId) ? cid : (first?first.id:''));
+  if (!state.accent) state.accent = showById(state.showId).accent;
+
+  buildChips();
+  renderShows(); renderClips(); selectClip(state.clipId, true);
+  updateSavedUI(); renderSaved(); renderAudioPanel(); buildWave();
+  document.getElementById('drill-count').textContent = state.drill;
+  document.body.classList.add('sync-ready');
+  initPlayer();
+  // 안전망: YT API가 늦게 떠도 데이터/플레이어가 준비되면 다시 시도
+  setInterval(()=>{ if (!state.playerReady) initPlayer(); }, 250);
+}
+document.addEventListener('DOMContentLoaded', boot);
+
+/* ---------------- 공통 ---------------- */
+function showById(id){ return state.shows.find(s=>s.id===id) || state.shows[0]; }
+function clipById(id){ return state.clips.find(c=>c.id===id) || null; }
+function currentClip(){ return clipById(state.clipId); }
+function currentLine(){ const c = currentClip(); return c && c.lines[state.idx] ? c.lines[state.idx] : null; }
+function linesOf(clip){ return clip ? clip.lines : []; }
+function mmss(s){ s = Math.max(0, Math.round(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+let toastT = null;
+function toast(msg){
+  const el = document.getElementById('toast'); el.textContent = msg; el.classList.add('on');
+  clearTimeout(toastT); toastT = setTimeout(()=>el.classList.remove('on'), 2000);
+}
+function hitIdiom(en, idiom){
+  const safe = esc(en);
+  if (!idiom) return safe;
+  const i = safe.toLowerCase().indexOf(esc(idiom).toLowerCase());
+  if (i < 0) return safe;
+  const a = safe.slice(0,i), b = safe.slice(i, i+esc(idiom).length), c = safe.slice(i+esc(idiom).length);
+  return a + '<span class="idiom-hit" data-idiom="'+esc(idiom)+'">'+b+'</span>' + c;
+}
+
+/* ---------------- 모드 ---------------- */
+function setMode(m){
+  stopAll('', true);
+  state.mode = m;
+  ['video','audio','saved'].forEach(x=>{
+    document.getElementById('mode-'+x).classList.toggle('active', x===m);
+    document.getElementById('view-'+x).classList.toggle('active', x===m);
+  });
+  if (m==='audio'){ renderAudioPanel(); }
+  if (m==='saved'){ renderSaved(); }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------------- 렌더: 쇼 · 클립 ---------------- */
+function renderShows(){
+  const box = document.getElementById('shows');
+  box.innerHTML = state.shows.map(s=>{
+    const n = state.clips.filter(c=>c.show===s.id).length;
+    const on = s.id===state.showId ? ' on' : '';
+    return `<button class="show${on}" onclick="selectShow('${s.id}')">
+      <span class="emo">${s.emoji}</span>
+      <span class="tag" style="background:${s.hue}22;color:${s.hue};border:1px solid ${s.hue}55">${esc(s.tag)}</span>
+      <h3>${esc(s.name)}</h3>
+      <p class="sub">${esc(s.desc)}</p>
+      <p class="sub" style="color:#697586;margin-top:4px">클립 ${n}개 · ${esc(s.season)}</p>
+    </button>`;
+  }).join('');
+}
+function renderClips(){
+  const box = document.getElementById('clips');
+  box.innerHTML = state.clips.filter(c=>c.show===state.showId).map(c=>{
+    const on = c.id===state.clipId ? ' on' : '';
+    return `<button class="clip-chip${on}" onclick="selectClip('${c.id}')">
+      <b>${esc(c.episode)}</b>${esc(c.title)}</button>`;
+  }).join('');
+}
+function selectShow(id){
+  if (state.showId===id) return;
+  stopAll('', true);
+  state.showId = id; write(LS.show, id);
+  const first = state.clips.find(c=>c.show===id);
+  state.accent = showById(id).accent; write(LS.accent, state.accent);
+  renderShows(); renderClips(); buildChips();
+  selectClip(first?first.id:'', true);
+}
+function selectClip(id, noScroll){
+  const c = clipById(id); if (!c) return;
+  stopAll('', true);
+  state.clipId = id; state.idx = 0; write(LS.clip, id);
+  renderClips();
+  document.getElementById('p-cover').classList.remove('hidden');
+  document.getElementById('cover-text').textContent = '영상을 준비하고 있어요…';
+  const eh = document.getElementById('embed-hint'); if (eh){ eh.style.display='none'; eh.innerHTML=''; }
+  document.getElementById('p-live').style.display = '';
+  document.getElementById('p-ep').textContent = c.episode.split(' · ')[0];
+  const yt = document.getElementById('yt-app');
+  yt.href = 'https://www.youtube.com/watch?v=' + c.videoId + '&t=' + Math.max(0, Math.round(c.lines[0].start - 2)) + 's';
+  renderScript(); renderLine(); renderAudioPanel();
+  if (state.playerReady && state.player && state.player.loadVideoById){
+    try { state.player.cueVideoById({videoId:c.videoId, startSeconds:c.lines[0].start}); } catch(e){}
+  }
+  if (!noScroll) window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------------- 렌더: 대사 ---------------- */
+function renderLine(){
+  const l = currentLine(); if (!l) return;
+  document.getElementById('cur-sp').textContent = l.sp;
+  document.getElementById('cur-time').textContent = mmss(l.start) + ' – ' + mmss(l.end);
+  document.getElementById('cur-en').innerHTML = hitIdiom(l.en, l.idiom);
+  document.getElementById('cur-ko').textContent = l.ko;
+  const note = document.getElementById('cur-note');
+  note.className = 'idiom-note on';
+  note.innerHTML = '<b>' + esc(l.idiom) + '</b> · ' + esc(l.note);
+  const c = currentClip();
+  document.getElementById('yt-app').href = 'https://www.youtube.com/watch?v=' + c.videoId + '&t=' + Math.max(0, Math.round(l.start - 2)) + 's';
+  document.querySelectorAll('#script-list .line-item').forEach((el,i)=>el.classList.toggle('on', i===state.idx));
+  document.querySelectorAll('#audio-list .line-item').forEach((el,i)=>el.classList.toggle('on', i===state.idx));
+  const item = document.querySelector('#script-list .line-item.on');
+  if (item && state.mode==='video' && state.running) item.scrollIntoView({block:'nearest'});
+}
+function renderScript(){
+  const c = currentClip(); if (!c) return;
+  document.getElementById('script-count').textContent = c.lines.length + '문장 · ' + mmss(c.duration);
+  document.getElementById('script-list').innerHTML = c.lines.map((l,i)=>lineItemHTML(l,i,'script')).join('');
+  bindIdioms();
+}
+function lineItemHTML(l,i,kind){
+  const on = i===state.idx ? ' on' : '';
+  const saved = state.saved.has(l.id) ? ' on' : '';
+  return `<div class="line-item${on}" data-i="${i}" data-kind="${kind}" onclick="pickLine(${i})">
+    <button class="li-play" onclick="event.stopPropagation();repeatOne('${kind}',${i})">▶</button>
+    <div class="li-body">
+      <div class="li-meta"><span class="li-sp">${esc(l.sp)}</span><span>${mmss(l.start)}</span></div>
+      <div class="li-en">${hitIdiom(l.en, l.idiom)}</div>
+      <div class="li-ko">${esc(l.ko)}</div>
+    </div>
+    <button class="star${saved}" onclick="event.stopPropagation();toggleSaved('${l.id}')" aria-label="Hard">★</button>
+  </div>`;
+}
+function bindIdioms(){
+  document.querySelectorAll('.idiom-hit').forEach(el=>{
+    el.onclick = (e)=>{ e.stopPropagation(); el.classList.toggle('show'); };
+  });
+}
+function pickLine(i){
+  state.idx = i;
+  const l = currentLine(); if (!l) return;
+  renderLine();
+  if (state.mode==='video' && state.playerReady && state.player && state.player.seekTo){
+    try { state.player.seekTo(l.start, true); } catch(e){}
+  }
+}
+function moveLine(d){
+  const c = currentClip(); if (!c) return;
+  state.idx = (state.idx + d + c.lines.length) % c.lines.length;
+  renderLine(); renderAudioPanel();
+}
+
+/* ---------------- 옵션 칩 ---------------- */
+function buildChips(){
+  document.getElementById('speed-chips').innerHTML = SPEEDS.map(s=>
+    `<button class="chip${s===state.speed?' on':''}" data-s="${s}" onclick="setSpeed(${s})">${s.toFixed(1)}x</button>`).join('');
+  document.getElementById('a-speed-chips').innerHTML = SPEEDS.map(s=>
+    `<button class="chip${s===state.speed?' on':''}" data-s="${s}" onclick="setSpeed(${s})">${s.toFixed(1)}x</button>`).join('');
+  const accHTML = ACCENTS.map(a=>
+    `<button class="chip acc${a.code===state.accent?' on':''}" data-a="${a.code}" onclick="setAccent('${a.code}')">${a.label}</button>`).join('');
+  document.getElementById('accent-chips').innerHTML = accHTML;
+  document.getElementById('a-accent-chips').innerHTML = accHTML;
+  document.getElementById('pad-chips').innerHTML = PADS.map(p=>
+    `<button class="chip pad${p.v===state.pad?' on':''}" data-p="${p.v}" onclick="setPad(${p.v})">${p.label}</button>`).join('');
+  document.getElementById('accent-hint').textContent =
+    showById(state.showId).accent===state.accent
+      ? showById(state.showId).name + ' 기본 억양으로 맞춰져 있어요 · ' + showById(state.showId).tip
+      : '음성 반복(TTS)에 적용되는 억양이에요. 영상 속 실제 발음은 그대로입니다.';
+}
+function setSpeed(v){
+  state.speed = v; write(LS.speed, v);
+  document.querySelectorAll('.chip[data-s]').forEach(c=>c.classList.toggle('on', Number(c.dataset.s)===v));
+  if (state.playerReady && state.player && state.player.setPlaybackRate){
+    try { state.player.setPlaybackRate(v); } catch(e){}
+  }
+}
+function setAccent(code){
+  state.accent = code; write(LS.accent, code);
+  document.querySelectorAll('.chip[data-a]').forEach(c=>c.classList.toggle('on', c.dataset.a===code));
+  buildChips();
+  toast(ACCENTS.find(a=>a.code===code).label + ' 억양으로 설정');
+}
+function setPad(v){
+  state.pad = v; write(LS.pad, v);
+  document.querySelectorAll('.chip[data-p]').forEach(c=>c.classList.toggle('on', Number(c.dataset.p)===v));
+  document.getElementById('pad-hint').textContent = v===0
+    ? '문장 끝이 살짝 잘리면 +3초를 눌러 보세요'
+    : '영상 끝을 ' + v + '초 더 재생합니다';
+}
+
+/* ---------------- 유튜브 플레이어 (경합·재로딩 안전) ---------------- */
+function onYouTubeIframeAPIReady(){
+  state.ytApiReady = true;
+  initPlayer();
+}
+function initPlayer(){
+  // 재로딩 시 iframe_api 스크립트가 캐시에서 먼저 실행되어 onYouTubeIframeAPIReady가
+  // 이미 지나가 버릴 수 있다. YT 객체가 준비되어 있으면 직접 플래그를 세운다.
+  if (!state.ytApiReady && typeof YT !== 'undefined' && YT && YT.Player) state.ytApiReady = true;
+  const c = currentClip();
+  const vid = c ? c.videoId : '';
+  if (!state.ytApiReady || state.player || typeof YT==='undefined' || !YT.Player) return;
+  if (!/^[-\w]{11}$/.test(vid)) return;
+  const origin = location.protocol.startsWith('http') ? location.origin : undefined;
+  try {
+    state.player = new YT.Player('yt-player', {
+      width:'100%', height:'100%', videoId:vid,
+      playerVars:{playsinline:1, rel:0, modestbranding:1, origin:origin, enablejsapi:1},
+      events:{
+        onReady:()=>{
+          state.playerReady = true;
+          try { state.player.setPlaybackRate(state.speed); } catch(e){}
+          const cover = document.getElementById('p-cover');
+          document.getElementById('cover-text').textContent = '재생 준비 완료';
+          cover.classList.add('hidden');
+          if (state.pendingPlay){ const p = state.pendingPlay; state.pendingPlay = null; p(); }
+        },
+        onError:(e)=>{
+          const code = e && e.data;
+          // 유튜브가 재생을 거부하면 커버 대신 영상 화면(썸네일)은 그대로 두고,
+          // 플레이어 아래에만 짧게 안내한다.
+          document.getElementById('p-cover').classList.add('hidden');
+          const hint = document.getElementById('embed-hint');
+          hint.style.display = 'block';
+          hint.innerHTML = (code===101 || code===150)
+            ? '⚠️ 이 영상은 앱 안 재생이 막혀 있어요(코드 '+code+'). <b>유튜브 앱 ↗</b>으로 열면 같은 구간부터 볼 수 있어요.'
+            : (code===153)
+              ? '⚠️ 브라우저가 영상을 불러오지 못했어요(코드 153). <b>유튜브 앱 ↗</b>으로 열어 주세요.'
+              : '⚠️ 영상을 재생할 수 없어요(코드 '+code+'). <b>유튜브 앱 ↗</b>으로 열어 주세요.';
+          document.getElementById('p-live').style.display = 'none';
+        },
+        onStateChange:(e)=>{
+          if (e.data===YT.PlayerState.PLAYING && state.running){
+            document.getElementById('p-cover').classList.add('hidden');
+          }
+        }
+      }
+    });
+  } catch(e){ /* 다음 250ms 폴링에서 재시도 */ }
+}
+
+/* ---------------- 영상 구간 반복 ---------------- */
+function withPlayer(fn){
+  if (state.playerReady && state.player) { fn(); return; }
+  state.pendingPlay = fn;
+  toast('플레이어 준비 중… 곧 시작할게요');
+}
+function repeatVideo(times){
+  const c = currentClip(); if (!c) return;
+  stopAll('', true);
+  state.mode = 'video'; setModeKeep('video');
+  state.running = true; state.totalRepeat = times; state.repeat = 1;
+  document.body.classList.add('looping');
+  document.getElementById('btn-r3').classList.remove('playing');
+  document.getElementById('btn-r5').classList.remove('playing');
+  document.getElementById('btn-r10').classList.remove('playing');
+  const btn = document.getElementById('btn-r'+times); if (btn) btn.classList.add('playing');
+  withPlayer(()=>playSegment(times));
+}
+function setModeKeep(m){
+  ['video','audio','saved'].forEach(x=>{
+    document.getElementById('mode-'+x).classList.toggle('active', x===m);
+    document.getElementById('view-'+x).classList.toggle('active', x===m);
+  });
+}
+function segmentBounds(l, dur){
+  const start = Math.max(0, Number(l.start)||0);
+  let end = Math.max(start+1.2, (Number(l.end)||(start+4)) + state.pad);
+  if (dur) end = Math.min(end, Math.max(start+1.2, dur-0.6));
+  return {start, end};
+}
+function playSegment(times){
+  const c = currentClip(); const l = currentLine(); const p = state.player;
+  if (!c || !l || !p) { stopAll('', true); return; }
+  const {start, end} = segmentBounds(l, c.duration);
+  const label = `${state.repeat}/${times}`;
+  updateStatus(state.repeat, `🎧 ${label} 듣는 중`);
+  try {
+    p.loadVideoById({videoId:c.videoId, startSeconds:start, endSeconds:end});
+    p.setPlaybackRate(state.speed);
+    p.playVideo();
+  } catch(e){}
+  clearInterval(state.timer);
+  const deadline = Date.now() + ((end-start)/state.speed)*1000 + 1100;
+  state.timer = setInterval(()=>{
+    if (!state.running) { clearInterval(state.timer); return; }
+    let t = start;
+    try { t = p.getCurrentTime(); } catch(e){ t = end; }
+    const over = t >= end - 0.12 || Date.now() > deadline;
+    if (!over) return;
+    clearInterval(state.timer);
+    try { p.pauseVideo(); } catch(e){}
+    bumpDrill();
+    if (state.repeat >= times){
+      updateStatus(times, '✅ ' + times + '회 완료');
+      finishRun();
+      return;
+    }
+    updateStatus(state.repeat, `🗣️ ${state.repeat}회차 끝 — 따라 말해요`);
+    state.repeat += 1;
+    state.timer = setTimeout(()=>{
+      if (!state.running) return;
+      playSegment(times);
+    }, 2200);
+  }, 180);
+}
+function playWholeScene(){
+  const c = currentClip(); if (!c) return;
+  stopAll('', true);
+  state.mode='video'; setModeKeep('video');
+  state.running = true; state.totalRepeat = 1; state.repeat = 1;
+  document.body.classList.add('looping');
+  withPlayer(()=>{
+    const p = state.player;
+    try {
+      p.loadVideoById({videoId:c.videoId, startSeconds:Math.max(0, c.lines[0].start - 1)});
+      p.setPlaybackRate(state.speed); p.playVideo();
+    } catch(e){}
+    updateStatus(1, '🎬 전체 씬 재생 중');
+    clearInterval(state.timer);
+    state.timer = setInterval(()=>{
+      if (!state.running) { clearInterval(state.timer); return; }
+      let t = 0;
+      try { t = p.getCurrentTime(); } catch(e){ return; }
+      const hit = c.lines.findIndex(l=>t >= l.start - 0.15 && t < l.end + 0.25);
+      if (hit >= 0 && hit !== state.idx){ state.idx = hit; renderLine(); }
+      if (t >= c.duration - 0.6){ clearInterval(state.timer); finishRun(); updateStatus(5,'🎬 씬 끝'); }
+    }, 400);
+  });
+}
+
+/* ---------------- 음성 반복 (TTS) ---------------- */
+function buildWave(){
+  const w = document.getElementById('wave');
+  w.className = 'wave';
+  w.innerHTML = Array.from({length:22},(_,i)=>`<i style="animation-delay:${(i*0.055).toFixed(2)}s;height:${6+((i*7)%22)}px"></i>`).join('');
+}
+function pickVoice(lang){
+  if (!('speechSynthesis' in window)) return null;
+  const vs = speechSynthesis.getVoices() || [];
+  const exact = vs.filter(v=>v.lang && v.lang.toLowerCase()===lang.toLowerCase());
+  const loose = vs.filter(v=>v.lang && v.lang.toLowerCase().replace('_','-').startsWith(lang.slice(0,2)+'-'+lang.slice(3,5).toLowerCase()));
+  const any = vs.filter(v=>v.lang && v.lang.toLowerCase().startsWith('en'));
+  return (exact[0] || loose[0] || any[0] || null);
+}
+if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = ()=>{};
+
+function repeatAudio(times){
+  const l = currentLine(); if (!l) return;
+  if (!('speechSynthesis' in window)){ toast('이 브라우저는 음성 반복을 지원하지 않아요'); return; }
+  stopAll('', true);
+  state.mode='audio'; setModeKeep('audio');
+  state.running = true; state.totalRepeat = times; state.repeat = 1;
+  document.body.classList.add('looping');
+  ['t3','t5','t10','t0'].forEach(k=>document.getElementById('btn-'+k).classList.remove('playing'));
+  const btn = document.getElementById('btn-t'+(times===0?'0':String(times)));
+  if (btn) btn.classList.add('playing');
+  speakOnce(times);
+}
+function speakOnce(times){
+  const l = currentLine(); if (!l || !state.running) return;
+  const label = times===0 ? '∞' : String(times);
+  updateStatus(state.repeat, times===0 ? '🔊 무한 반복 중' : `🔊 ${state.repeat}/${label} 듣는 중`, 'a-');
+  const u = new SpeechSynthesisUtterance(l.en);
+  u.lang = state.accent; u.rate = state.speed; u.pitch = 1;
+  const v = pickVoice(state.accent); if (v) u.voice = v;
+  u.onend = ()=>{
+    if (!state.running) return;
+    bumpDrill();
+    if (times!==0 && state.repeat >= times){
+      updateStatus(times, '✅ ' + times + '회 완료', 'a-'); finishRun(); return;
+    }
+    updateStatus(state.repeat, '🗣️ 따라 말해요', 'a-');
+    state.repeat += 1;
+    state.timer = setTimeout(()=>{ if (state.running) speakOnce(times); }, 1500);
+  };
+  u.onerror = ()=>{
+    if (!state.running) return;
+    updateStatus(0, '🔇 이 기기에서 음성 엔진을 찾지 못했어요', 'a-');
+    finishRun();
+  };
+  try { speechSynthesis.cancel(); speechSynthesis.speak(u); }
+  catch(e){ updateStatus(0, '🔇 음성 합성을 사용할 수 없어요', 'a-'); finishRun(); }
+}
+function repeatOne(kind, i){
+  if (typeof i==='number'){ state.idx = i; renderLine(); }
+  const l = currentLine(); if (!l) return;
+  stopAll('', true);
+  state.mode = kind==='audio' ? 'audio' : state.mode;
+  state.running = true; state.totalRepeat = 1;
+  updateStatus(1, '🔊 한 번 재생', kind==='audio'?'a-':'');
+  const u = new SpeechSynthesisUtterance(l.en);
+  u.lang = state.accent; u.rate = state.speed;
+  const v = pickVoice(state.accent); if (v) u.voice = v;
+  u.onend = ()=>{ bumpDrill(); finishRun(); };
+  u.onerror = ()=>finishRun();
+  try { speechSynthesis.cancel(); speechSynthesis.speak(u); } catch(e){ finishRun(); }
+}
+
+function speakCustom(id){
+  const c = state.custom.find(x=>x.id===id); if (!c) return;
+  stopAll('', true);
+  state.running = true;
+  const u = new SpeechSynthesisUtterance(c.en);
+  u.lang = state.accent; u.rate = state.speed;
+  const v = pickVoice(state.accent); if (v) u.voice = v;
+  u.onend = ()=>{ bumpDrill(); finishRun(); };
+  u.onerror = ()=>finishRun();
+  try { speechSynthesis.cancel(); speechSynthesis.speak(u); } catch(e){ finishRun(); }
+}
+
+/* ---------------- 상태 표시 ---------------- */
+function updateStatus(step, text, pre){
+  pre = pre || '';
+  const st = document.getElementById(pre+'status'); if (st) st.textContent = text || '대기 중';
+  const dots = document.querySelectorAll('#'+pre+'dots i');
+  dots.forEach((d,i)=>{
+    d.classList.toggle('done', i+1 < step);
+    d.classList.toggle('cur', i+1 === step);
+  });
+  if (step>=5 && /완료/.test(text||'')) dots.forEach(d=>d.classList.add('done'));
+}
+function finishRun(){
+  state.running = false;
+  document.body.classList.remove('looping');
+  ['btn-r3','btn-r5','btn-r10','btn-scene','btn-t3','btn-t5','btn-t10','btn-t0'].forEach(id=>{
+    const el = document.getElementById(id); if (el) el.classList.remove('playing');
+  });
+}
+function stopAll(msg, silent){
+  clearInterval(state.timer); clearTimeout(state.timer); state.timer = null;
+  state.running = false; state.pendingPlay = null;
+  document.body.classList.remove('looping');
+  try { speechSynthesis.cancel(); } catch(e){}
+  if (state.playerReady && state.player && state.player.pauseVideo){ try { state.player.pauseVideo(); } catch(e){} }
+  finishRun();
+  if (!silent){
+    updateStatus(0, msg || '대기 중');
+    updateStatus(0, msg || '대기 중', 'a-');
+  }
+}
+function bumpDrill(){
+  state.drill += 1; write(LS.drill, state.drill);
+  document.getElementById('drill-count').textContent = state.drill;
+}
+
+/* ---------------- Hard / 보관함 ---------------- */
+function allLineById(id){
+  for (const c of state.clips){ const l = c.lines.find(x=>x.id===id); if (l) return {clip:c, line:l}; }
+  return null;
+}
+function toggleSaved(id){
+  if (state.saved.has(id)) { state.saved.delete(id); toast('Hard에서 뺐어요'); }
+  else { state.saved.add(id); toast('Hard에 담았어요 ★'); }
+  write(LS.saved, [...state.saved]);
+  updateSavedUI(); renderScript(); renderSaved();
+}
+function updateSavedUI(){
+  document.getElementById('saved-cnt').textContent = state.saved.size;
+  document.getElementById('hard-num').textContent = state.saved.size;
+  document.getElementById('saved-sub').textContent = state.saved.size + '문장';
+  const mine = state.custom.length ? ' · 내 문장 ' + state.custom.length : '';
+  document.getElementById('saved-sub').textContent = state.saved.size + '문장' + mine;
+}
+function savedLines(){
+  const arr = [];
+  [...state.saved].forEach(id=>{
+    const f = allLineById(id);
+    if (f) arr.push({...f.line, clipTitle:f.clip.title, show:f.clip.show, videoId:f.clip.videoId});
+  });
+  state.custom.forEach((c,i)=>{
+    if (state.saved.has(c.id)) arr.push({...c, clipTitle:'내 문장', show:'custom'});
+  });
+  return arr;
+}
+function renderSaved(){
+  const list = document.getElementById('saved-list');
+  const arr = savedLines();
+  if (!arr.length){
+    list.innerHTML = '<div class="empty">아직 담은 문장이 없어요.<br>영상 학습에서 문장 오른쪽 ★를 눌러 보세요.</div>';
+  } else {
+    list.innerHTML = arr.map(l=>`<div class="line-item">
+      <button class="li-play" onclick="playSaved('${l.id}')">▶</button>
+      <div class="li-body">
+        <div class="li-meta"><span class="li-sp">${esc(l.sp||'내 문장')}</span><span>${esc(l.clipTitle||'')}</span></div>
+        <div class="li-en">${hitIdiom(l.en, l.idiom||'')}</div>
+        <div class="li-ko">${esc(l.ko||'')}</div>
+      </div>
+      <button class="star on" onclick="toggleSaved('${l.id}')">★</button>
+    </div>`).join('');
+    bindIdioms();
+  }
+  // 내 문장(저장 전)도 목록에 보여 주기
+  if (state.custom.length){
+    list.innerHTML += '<div class="sec-h" style="margin-top:10px"><h2>내 문장</h2><span>' + state.custom.length + '개</span></div>' +
+      state.custom.map(c=>`<div class="line-item">
+        <button class="li-play" onclick="speakCustom('${c.id}')">▶</button>
+        <div class="li-body"><div class="li-meta"><span class="li-sp">내 문장</span></div>
+        <div class="li-en">${esc(c.en)}</div><div class="li-ko">${esc(c.ko||'')}</div></div>
+        <button class="star ${state.saved.has(c.id)?'on':''}" onclick="toggleSaved('${c.id}')">★</button>
+      </div>`).join('');
+  }
+  renderLine();
+  drawQuiz();
+}
+function playSaved(id){
+  const f = allLineById(id); if (!f) return;
+  const c = f.clip;
+  if (c.show !== state.showId){ state.showId = c.show; write(LS.show, c.show); renderShows(); }
+  state.clipId = c.id; write(LS.clip, c.id); renderClips();
+  state.idx = c.lines.findIndex(l=>l.id===id);
+  renderScript(); renderLine(); renderAudioPanel();
+  setMode('video');
+  setTimeout(()=>repeatVideo(3), 260);
+}
+
+/* ---------------- 퀴즈 ---------------- */
+function drawQuiz(){
+  const pool = savedLines();
+  const prompt = document.getElementById('q-prompt');
+  const box = document.getElementById('q-options');
+  const scoreEl = document.getElementById('quiz-score');
+  scoreEl.textContent = state.quizTotal ? `${state.quizScore}/${state.quizTotal}` : '';
+  document.getElementById('quiz-mode-btn').textContent = state.quizMode==='en2ko' ? '영어 → 한국어' : '한국어 → 영어';
+  if (pool.length < 4){
+    prompt.textContent = 'Hard 문장을 4개 이상 담으면 퀴즈가 열려요. (' + pool.length + '/4)';
+    box.innerHTML = '';
+    return;
+  }
+  const q = pool[state.quizOrder % pool.length];
+  const others = pool.filter(x=>x.id!==q.id);
+  const picks = shuffle(others).slice(0,3);
+  const correct = state.quizMode==='en2ko' ? q.ko : q.en;
+  const opts = shuffle([{t:correct, ok:true}, ...picks.map(p=>({t: state.quizMode==='en2ko'?p.ko:p.en, ok:false}))]);
+  prompt.textContent = state.quizMode==='en2ko' ? q.en : q.ko;
+  box.innerHTML = opts.map(o=>`<button class="opt-btn" data-ok="${o.ok}" onclick="answerQuiz(this)">${esc(o.t)}</button>`).join('');
+}
+function answerQuiz(el){
+  const box = document.getElementById('q-options');
+  if (box.dataset.done) return;
+  box.dataset.done = '1';
+  state.quizTotal += 1;
+  const ok = el.dataset.ok === 'true';
+  if (ok){ state.quizScore += 1; el.classList.add('ok'); }
+  else {
+    el.classList.add('no');
+    [...box.querySelectorAll('.opt-btn')].forEach(b=>{ if (b.dataset.ok === 'true') b.classList.add('ok'); });
+  }
+  document.getElementById('quiz-score').textContent = state.quizScore + '/' + state.quizTotal;
+  write(LS.quiz, {s:state.quizScore, t:state.quizTotal});
+}
+function nextQuiz(){
+  const box = document.getElementById('q-options'); box.dataset.done = '';
+  state.quizOrder += 1; drawQuiz();
+}
+function toggleQuizMode(){
+  state.quizMode = state.quizMode==='en2ko' ? 'ko2en' : 'en2ko';
+  const box = document.getElementById('q-options'); box.dataset.done = '';
+  drawQuiz();
+}
+function shuffle(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+
+/* ---------------- 음성 집중 뷰 ---------------- */
+function renderAudioPanel(){
+  const l = currentLine(); const c = currentClip(); if (!l || !c) return;
+  document.getElementById('a-sp').textContent = l.sp;
+  document.getElementById('a-en').innerHTML = hitIdiom(l.en, l.idiom);
+  document.getElementById('a-ko').textContent = l.ko;
+  document.getElementById('a-meta').textContent = l.idiom + ' · ' + mmss(l.start) + ' – ' + mmss(l.end);
+  document.getElementById('a-clip-title').textContent = c.title;
+  document.getElementById('a-idx').textContent = (state.idx+1) + ' / ' + c.lines.length;
+  document.getElementById('audio-list').innerHTML = c.lines.map((x,i)=>lineItemHTML(x,i,'audio')).join('');
+  bindIdioms();
+  updateStatus(0, '대기 중', 'a-');
+}
+
+/* ---------------- 내 문장 · URL · JSON ---------------- */
+function openModal(k){ document.getElementById('m-'+k).classList.add('show'); }
+function closeModal(k){ document.getElementById('m-'+k).classList.remove('show'); }
+function saveCustomLine(){
+  const en = document.getElementById('c-en').value.trim();
+  const ko = document.getElementById('c-ko').value.trim();
+  const url = document.getElementById('c-url').value.trim();
+  if (!en){ toast('영어 문장을 입력해 주세요'); return; }
+  const id = 'custom_' + Date.now();
+  let vid = url ? (url.match(/[-\w]{11}/)||[''])[0] : '';
+  state.custom.push({id, sp:'내 문장', en, ko, start:0, end:6, idiom:'', note:'', videoId:vid});
+  state.saved.add(id);
+  write(LS.custom, state.custom); write(LS.saved, [...state.saved]);
+  document.getElementById('c-en').value=''; document.getElementById('c-ko').value=''; document.getElementById('c-url').value='';
+  closeModal('custom'); updateSavedUI(); renderSaved(); renderScript();
+  toast('내 문장을 Hard에 담았어요');
+}
+function applyUrl(){
+  const raw = document.getElementById('u-url').value.trim();
+  const m = raw.match(/[-\w]{11}/);
+  if (!m){ toast('유튜브 URL을 확인해 주세요'); return; }
+  const c = currentClip(); if (!c) return;
+  if (state.playerReady && state.player && state.player.loadVideoById){
+    try { state.player.loadVideoById({videoId:m[0], startSeconds:c.lines[state.idx].start}); } catch(e){}
+  }
+  document.getElementById('yt-app').href = 'https://www.youtube.com/watch?v=' + m[0];
+  closeModal('url');
+  toast('영상을 바꿨어요. 대사 타이밍은 그대로예요.');
+}
+function exportJson(){
+  const payload = {app:'SceneLoop', saved:[...state.saved], custom:state.custom,
+    quiz:read(LS.quiz,{s:0,t:0}), exportedAt:new Date().toISOString()};
+  const txt = JSON.stringify(payload, null, 2);
+  document.getElementById('j-in').value = txt;
+  try { navigator.clipboard.writeText(txt); toast('JSON을 복사했어요'); }
+  catch(e){ toast('아래 칸의 JSON을 복사해 주세요'); }
+}
+function downloadJson(){
+  const payload = {app:'SceneLoop', saved:[...state.saved], custom:state.custom};
+  const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'sceneloop-progress.json';
+  document.body.appendChild(a); a.click(); a.remove();
+  toast('파일로 저장했어요');
+}
+function importJson(){
+  const raw = document.getElementById('j-in').value.trim();
+  if (!raw){ toast('불러올 JSON을 붙여 넣어 주세요'); return; }
+  try {
+    const j = JSON.parse(raw);
+    if (Array.isArray(j.saved)) j.saved.forEach(id=>state.saved.add(id));
+    if (Array.isArray(j.custom)) state.custom = j.custom.concat(state.custom.filter(c=>!j.custom.some(x=>x.id===c.id)));
+    write(LS.saved, [...state.saved]); write(LS.custom, state.custom);
+    updateSavedUI(); renderSaved(); renderScript(); closeModal('json');
+    toast('불러왔어요 · Hard ' + state.saved.size + '문장');
+  } catch(e){ toast('JSON 형식을 확인해 주세요'); }
+}
+</script>
+</body>
+</html>
