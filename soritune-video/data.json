@@ -28,2123 +28,6 @@
    "9": "9. 상황별 ⑥ 호텔 & 숙박"
   }
  },
- "videos": {
-  "hu2_8I1CBzE": {
-   "id": "hu2_8I1CBzE",
-   "title": "해외 여행에서 무조건 쓰는 마법의 50문장 ㅣ 공항, 기내 영어",
-   "category": "공항·기내",
-   "duration": 4132,
-   "sentences": [
-    {
-     "id": "hu2_8I1CBzE_1",
-     "en": "Where can I check in for my flight?",
-     "ko": "제 비행기 체크인은 어디에서 하나요?",
-     "start": 36,
-     "end": 40,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_2",
-     "en": "What time does boarding start?",
-     "ko": "탑승은 언제 시작하나요?",
-     "start": 53,
-     "end": 57,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_3",
-     "en": "Where is the security check?",
-     "ko": "보안 검색대는 어디에 있나요?",
-     "start": 69,
-     "end": 73
-    },
-    {
-     "id": "hu2_8I1CBzE_4",
-     "en": "Can I bring this on the plane?",
-     "ko": "이걸 비행기에 가지고 탈 수 있나요?",
-     "start": 78,
-     "end": 82,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_5",
-     "en": "Where is the customs office?",
-     "ko": "세관은 어디에 있나요?",
-     "start": 97,
-     "end": 101,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_6",
-     "en": "Where is the baggage claim area?",
-     "ko": "수화물 찾는 곳은 어디인가요?",
-     "start": 112,
-     "end": 116,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_7",
-     "en": "My luggage is lost.",
-     "ko": "제 수화물이 없어졌어요.",
-     "start": 120,
-     "end": 124,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_8",
-     "en": "Where is the nearest restroom?",
-     "ko": "가장 가까운 화장실이 어디에 있나요?",
-     "start": 139,
-     "end": 143,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_9",
-     "en": "Is there a currency exchange here?",
-     "ko": "여기에 환전소가 있나요?",
-     "start": 155,
-     "end": 159,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_10",
-     "en": "Where can I find a taxi stand?",
-     "ko": "택시 승차장은 어디에 있나요?",
-     "start": 164,
-     "end": 168
-    },
-    {
-     "id": "hu2_8I1CBzE_11",
-     "en": "How much is a taxi to downtown?",
-     "ko": "시내까지 택시 요금이 얼마인가요?",
-     "start": 182,
-     "end": 186,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_12",
-     "en": "Can I get a map of the airport?",
-     "ko": "공항 지도를 받을 수 있을까요?",
-     "start": 205,
-     "end": 209,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_13",
-     "en": "What time does the shuttle leave?",
-     "ko": "셔틀버스는 언제 출발하나요?",
-     "start": 220,
-     "end": 224
-    },
-    {
-     "id": "hu2_8I1CBzE_14",
-     "en": "Can I store my luggage here?",
-     "ko": "여기서 짐을 보관할 수 있나요?",
-     "start": 238,
-     "end": 242,
-     "ref402": 9
-    },
-    {
-     "id": "hu2_8I1CBzE_15",
-     "en": "Could I have a blanket, please?",
-     "ko": "담요를 주실 수 있나요?",
-     "start": 253,
-     "end": 257,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_16",
-     "en": "Can I get some water, please?",
-     "ko": "물 좀 주실 수 있나요?",
-     "start": 262,
-     "end": 266,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_17",
-     "en": "What time do we arrive?",
-     "ko": "도착 시간이 언제인가요?",
-     "start": 280,
-     "end": 284
-    },
-    {
-     "id": "hu2_8I1CBzE_18",
-     "en": "Can I change seats?",
-     "ko": "좌석을 바꿀 수 있을까요?",
-     "start": 287,
-     "end": 291,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_19",
-     "en": "Is there a flight meal service?",
-     "ko": "기내식 서비스가 있나요?",
-     "start": 304,
-     "end": 308
-    },
-    {
-     "id": "hu2_8I1CBzE_20",
-     "en": "Could I have a vegetarian meal, please?",
-     "ko": "채식 메뉴를 주실 수 있나요?",
-     "start": 321,
-     "end": 326
-    },
-    {
-     "id": "hu2_8I1CBzE_21",
-     "en": "Can I recline my seat?",
-     "ko": "좌석을 젖혀도 되나요?",
-     "start": 339,
-     "end": 343,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_22",
-     "en": "Can I use the lavatory now?",
-     "ko": "지금 화장실을 사용할 수 있나요?",
-     "start": 351,
-     "end": 355,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_23",
-     "en": "Can I have some more coffee, please?",
-     "ko": "커피를 좀 더 주실 수 있나요?",
-     "start": 361,
-     "end": 366
-    },
-    {
-     "id": "hu2_8I1CBzE_24",
-     "en": "Do you have any customs forms?",
-     "ko": "세관 신고서가 있나요?",
-     "start": 376,
-     "end": 380,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_25",
-     "en": "Where can I find the emergency exit?",
-     "ko": "비상구는 어디에 있나요?",
-     "start": 400,
-     "end": 404,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_26",
-     "en": "Could you help me with my luggage?",
-     "ko": "짐을 도와주실 수 있나요?",
-     "start": 420,
-     "end": 424,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_27",
-     "en": "When will the seat belt sign be turned off?",
-     "ko": "좌석 벨트 사인이 언제 꺼지나요?",
-     "start": 428,
-     "end": 433,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_28",
-     "en": "Could I get earphones?",
-     "ko": "이어폰을 받을 수 있을까요?",
-     "start": 455,
-     "end": 459
-    },
-    {
-     "id": "hu2_8I1CBzE_29",
-     "en": "Is this a direct flight?",
-     "ko": "직항 편인가요?",
-     "start": 463,
-     "end": 467,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_30",
-     "en": "Can you wake me up for meals?",
-     "ko": "기내식 때 깨워 주실 수 있나요?",
-     "start": 476,
-     "end": 480,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_31",
-     "en": "How long is the flight?",
-     "ko": "비행 시간은 얼마나 되나요?",
-     "start": 495,
-     "end": 499,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_32",
-     "en": "What's the local time at our destination?",
-     "ko": "도착지의 현지 시간이 몇 시인가요?",
-     "start": 503,
-     "end": 508,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_33",
-     "en": "Is there a layover on this flight?",
-     "ko": "이 비행기의 경유지가 있나요?",
-     "start": 525,
-     "end": 530
-    },
-    {
-     "id": "hu2_8I1CBzE_34",
-     "en": "Could I have some ice, please?",
-     "ko": "얼음을 좀 주실 수 있나요?",
-     "start": 541,
-     "end": 545,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_35",
-     "en": "Can you help me fill out this form?",
-     "ko": "이 양식을 작성하는 것을 도와주실 수 있나요?",
-     "start": 549,
-     "end": 554,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_36",
-     "en": "Thank you for your assistance.",
-     "ko": "도와주셔서 감사합니다.",
-     "start": 570,
-     "end": 574
-    },
-    {
-     "id": "hu2_8I1CBzE_37",
-     "en": "Could you tell me how to get to my gate?",
-     "ko": "제 게이트로 가는 길을 알려주실 수 있나요?",
-     "start": 578,
-     "end": 584,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_38",
-     "en": "Is this the line for security?",
-     "ko": "이 줄이 보안 검색인가요?",
-     "start": 604,
-     "end": 608
-    },
-    {
-     "id": "hu2_8I1CBzE_39",
-     "en": "How much time do I have before boarding?",
-     "ko": "탑승까지 시간이 얼마나 남았나요?",
-     "start": 620,
-     "end": 625,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_40",
-     "en": "Is there a place to charge my phone?",
-     "ko": "제 휴대폰을 충전할 곳이 있나요?",
-     "start": 643,
-     "end": 648,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_41",
-     "en": "Where can I find the smoking area?",
-     "ko": "흡연 구역은 어디에 있나요?",
-     "start": 661,
-     "end": 665,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_42",
-     "en": "Can I use my electronic devices now?",
-     "ko": "이제 전자기기를 사용할 수 있나요?",
-     "start": 678,
-     "end": 683,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_43",
-     "en": "What should I do if I miss my flight?",
-     "ko": "비행기를 놓치면 어떻게 해야 하나요?",
-     "start": 690,
-     "end": 695,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_44",
-     "en": "Are there any updates on my flight?",
-     "ko": "제 비행기에 대한 업데이트가 있나요?",
-     "start": 719,
-     "end": 724,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_45",
-     "en": "Is this the right gate for the flight to Paris?",
-     "ko": "파리행 비행기 탑승 게이트가 맞나요?",
-     "start": 738,
-     "end": 744,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_46",
-     "en": "Can I get a refund for my ticket?",
-     "ko": "제 티켓 환불이 가능할까요?",
-     "start": 754,
-     "end": 759,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_47",
-     "en": "How long will the delay be?",
-     "ko": "지연 시간이 얼마나 될까요?",
-     "start": 772,
-     "end": 776,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_48",
-     "en": "Will my luggage be transferred automatically?",
-     "ko": "제 수화물이 자동으로 승계되나요?",
-     "start": 792,
-     "end": 798,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_49",
-     "en": "Where can I find the lost and found?",
-     "ko": "분실물 보관소는 어디에 있나요?",
-     "start": 815,
-     "end": 819,
-     "ref402": 4
-    },
-    {
-     "id": "hu2_8I1CBzE_50",
-     "en": "What's the weather like at the destination?",
-     "ko": "도착지의 날씨는 어떤가요?",
-     "start": 825,
-     "end": 830
-    }
-   ]
-  },
-  "4dz5_HqnLQg": {
-   "id": "4dz5_HqnLQg",
-   "title": "해외 여행에서 무조건 쓰는 마법의 50문장 ㅣ 숙소, 호텔편",
-   "category": "호텔·숙소",
-   "duration": 3942,
-   "sentences": [
-    {
-     "id": "4dz5_HqnLQg_1",
-     "en": "Where is the nearest hotel?",
-     "ko": "가장 가까운 호텔이 어디에 있나요?",
-     "start": 40,
-     "end": 44,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_2",
-     "en": "Do you have any rooms available?",
-     "ko": "빈방이 있나요?",
-     "start": 58,
-     "end": 63,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_3",
-     "en": "Can I check in early?",
-     "ko": "일찍 체크인할 수 있나요?",
-     "start": 80,
-     "end": 84,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_4",
-     "en": "What time is check-in?",
-     "ko": "체크인 시간은 몇 시인가요?",
-     "start": 87,
-     "end": 91,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_5",
-     "en": "What time is check-out?",
-     "ko": "체크아웃 시간은 언제인가요?",
-     "start": 112,
-     "end": 116,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_6",
-     "en": "Can I get a room with a view?",
-     "ko": "전망이 좋은 방을 받을 수 있나요?",
-     "start": 123,
-     "end": 128,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_7",
-     "en": "Do you have any non-smoking rooms?",
-     "ko": "금연 객실이 있나요?",
-     "start": 150,
-     "end": 155,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_8",
-     "en": "How much is a night's stay?",
-     "ko": "1박 요금이 얼마인가요?",
-     "start": 173,
-     "end": 178,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_9",
-     "en": "Do you offer room service?",
-     "ko": "룸서비스가 있나요?",
-     "start": 192,
-     "end": 196,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_10",
-     "en": "Is breakfast included?",
-     "ko": "아침 식사가 포함되어 있나요?",
-     "start": 204,
-     "end": 208,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_11",
-     "en": "Where is the dining area?",
-     "ko": "식사 공간은 어디에 있나요?",
-     "start": 227,
-     "end": 231,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_12",
-     "en": "Can I get a wake-up call?",
-     "ko": "모닝콜을 받을 수 있나요?",
-     "start": 247,
-     "end": 251,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_13",
-     "en": "Do you have a laundry service?",
-     "ko": "세탁 서비스가 있나요?",
-     "start": 255,
-     "end": 260,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_14",
-     "en": "Can I request extra towels?",
-     "ko": "추가 수건을 요청할 수 있나요?",
-     "start": 274,
-     "end": 279,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_15",
-     "en": "Where is the elevator?",
-     "ko": "엘리베이터는 어디에 있나요?",
-     "start": 304,
-     "end": 308,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_16",
-     "en": "Is there a restaurant near here?",
-     "ko": "근처에 레스토랑이 있나요?",
-     "start": 313,
-     "end": 318
-    },
-    {
-     "id": "4dz5_HqnLQg_17",
-     "en": "What time is breakfast served?",
-     "ko": "아침 식사는 몇 시에 제공되나요?",
-     "start": 339,
-     "end": 344,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_18",
-     "en": "Where is the nearest convenience store?",
-     "ko": "가장 가까운 편의점은 어디에 있나요?",
-     "start": 359,
-     "end": 364,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_19",
-     "en": "Is there an airport shuttle service?",
-     "ko": "공항셔틀 서비스가 있나요?",
-     "start": 382,
-     "end": 387,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_20",
-     "en": "Can I store my luggage here?",
-     "ko": "여기서 짐을 보관할 수 있나요?",
-     "start": 402,
-     "end": 406,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_21",
-     "en": "Is the pool open?",
-     "ko": "수영장은 개장했나요?",
-     "start": 422,
-     "end": 426,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_22",
-     "en": "Can I get a late check-out?",
-     "ko": "늦게 체크아웃 할 수 있나요?",
-     "start": 430,
-     "end": 435,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_23",
-     "en": "Is there a business center?",
-     "ko": "비즈니스 센터가 있나요?",
-     "start": 453,
-     "end": 457,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_24",
-     "en": "Can I book a taxi from here?",
-     "ko": "여기서 택시를 예약할 수 있나요?",
-     "start": 468,
-     "end": 473,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_25",
-     "en": "How do I get to the nearest train station?",
-     "ko": "가장 가까운 기차역은 어떻게 가나요?",
-     "start": 489,
-     "end": 495,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_26",
-     "en": "Can I change my room?",
-     "ko": "방을 바꿀 수 있을까요?",
-     "start": 514,
-     "end": 518,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_27",
-     "en": "Is there a minibar in the room?",
-     "ko": "객실에 미니바가 있나요?",
-     "start": 529,
-     "end": 534,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_28",
-     "en": "Can I pay by credit card?",
-     "ko": "신용카드로 결제할 수 있나요?",
-     "start": 547,
-     "end": 551,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_29",
-     "en": "Can I get an extra blanket?",
-     "ko": "추가 담요를 받을 수 있나요?",
-     "start": 558,
-     "end": 563,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_30",
-     "en": "Is there a safe in the room?",
-     "ko": "방에 금고가 있나요?",
-     "start": 585,
-     "end": 589,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_31",
-     "en": "Where is the front desk?",
-     "ko": "프런트 데스크는 어디에 있나요?",
-     "start": 603,
-     "end": 607,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_32",
-     "en": "Do you have a hair dryer in the room?",
-     "ko": "방에 헤어드라이어가 있나요?",
-     "start": 613,
-     "end": 618,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_33",
-     "en": "Can I have my room cleaned?",
-     "ko": "방 청소를 해 주실 수 있나요?",
-     "start": 642,
-     "end": 647,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_34",
-     "en": "Can I order room service?",
-     "ko": "룸서비스를 주문할 수 있나요?",
-     "start": 660,
-     "end": 664,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_35",
-     "en": "Do you provide bathrobes?",
-     "ko": "목욕가운을 제공하나요?",
-     "start": 678,
-     "end": 682,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_36",
-     "en": "Where can I park my car?",
-     "ko": "차를 어디에 주차할 수 있나요?",
-     "start": 691,
-     "end": 695,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_37",
-     "en": "Do you offer valet parking?",
-     "ko": "발레파킹 서비스가 있나요?",
-     "start": 715,
-     "end": 719,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_38",
-     "en": "Could you tell me how to get downtown?",
-     "ko": "시내로 가는 길을 알려주시겠어요?",
-     "start": 735,
-     "end": 740
-    },
-    {
-     "id": "4dz5_HqnLQg_39",
-     "en": "Is there a phone in the room?",
-     "ko": "방에 전화기가 있나요?",
-     "start": 760,
-     "end": 764,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_40",
-     "en": "What amenities are included?",
-     "ko": "포함된 편의 시설은 무엇인가요?",
-     "start": 775,
-     "end": 780,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_41",
-     "en": "Is there a hot tub in the hotel?",
-     "ko": "호텔에 온수 욕조가 있나요?",
-     "start": 796,
-     "end": 801,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_42",
-     "en": "Where can I find the vending machines?",
-     "ko": "자판기는 어디에 있나요?",
-     "start": 816,
-     "end": 821,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_43",
-     "en": "Can I get an extra pillow?",
-     "ko": "추가 베개를 받을 수 있나요?",
-     "start": 832,
-     "end": 837,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_44",
-     "en": "Where is the emergency exit?",
-     "ko": "비상구는 어디에 있나요?",
-     "start": 858,
-     "end": 862,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_45",
-     "en": "Can you recommend a good restaurant nearby?",
-     "ko": "근처 좋은 레스토랑을 추천해 주실 수 있나요?",
-     "start": 878,
-     "end": 884,
-     "ref402": 2
-    },
-    {
-     "id": "4dz5_HqnLQg_46",
-     "en": "Do you have a room with two beds?",
-     "ko": "침대가 두 개인 방이 있나요?",
-     "start": 902,
-     "end": 907,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_47",
-     "en": "Can I get a taxi to the airport?",
-     "ko": "공항으로 가는 택시를 부를 수 있나요?",
-     "start": 923,
-     "end": 928
-    },
-    {
-     "id": "4dz5_HqnLQg_48",
-     "en": "Where can I find the nearest ATM?",
-     "ko": "가장 가까운 현금인출기 어디에 있나요?",
-     "start": 945,
-     "end": 950,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_49",
-     "en": "Is there a spa in the hotel?",
-     "ko": "호텔에 스파가 있나요?",
-     "start": 973,
-     "end": 977,
-     "ref402": 9
-    },
-    {
-     "id": "4dz5_HqnLQg_50",
-     "en": "Can I get help with my luggage?",
-     "ko": "제 짐을 도와주실 수 있나요?",
-     "start": 995,
-     "end": 1000,
-     "ref402": 9
-    }
-   ]
-  },
-  "kdD3RV_YORc": {
-   "id": "kdD3RV_YORc",
-   "title": "해외 여행에서 무조건 쓰는 마법의 50문장 ㅣ 식당, 카페편",
-   "category": "식당·카페",
-   "duration": 3801,
-   "sentences": [
-    {
-     "id": "kdD3RV_YORc_1",
-     "en": "Table for two, please.",
-     "ko": "두 명 자리 부탁합니다.",
-     "start": 20,
-     "end": 24,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_2",
-     "en": "Is there a wait?",
-     "ko": "기다려야 하나요?",
-     "start": 36,
-     "end": 39,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_3",
-     "en": "Can I get a table by the window?",
-     "ko": "창가 자리로 부탁드릴 수 있을까요?",
-     "start": 49,
-     "end": 54,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_4",
-     "en": "Do you have a vegetarian menu?",
-     "ko": "채식 메뉴가 있나요?",
-     "start": 62,
-     "end": 66,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_5",
-     "en": "Can we sit outside?",
-     "ko": "밖에서 앉을 수 있을까요?",
-     "start": 79,
-     "end": 83,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_6",
-     "en": "Can I see the menu, please?",
-     "ko": "메뉴판을 볼 수 있을까요?",
-     "start": 89,
-     "end": 93,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_7",
-     "en": "What do you recommend?",
-     "ko": "추천해 주실 만한 게 있나요?",
-     "start": 103,
-     "end": 107,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_8",
-     "en": "I'll have the special of the day.",
-     "ko": "오늘의 특별 요리로 할게요.",
-     "start": 115,
-     "end": 120,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_9",
-     "en": "Can I have the same as them?",
-     "ko": "저 사람들과 같은 걸로 주세요.",
-     "start": 131,
-     "end": 136,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_10",
-     "en": "Can I have a glass of water, please?",
-     "ko": "물 한 잔 부탁합니다.",
-     "start": 145,
-     "end": 150,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_11",
-     "en": "Could I get this without onions?",
-     "ko": "양파 없이 해 주실 수 있나요?",
-     "start": 160,
-     "end": 165,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_12",
-     "en": "Can I add extra cheese?",
-     "ko": "치즈를 추가할 수 있나요?",
-     "start": 175,
-     "end": 180,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_13",
-     "en": "Is this dish spicy?",
-     "ko": "이 요리는 매운가요?",
-     "start": 183,
-     "end": 187,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_14",
-     "en": "I'll have a medium steak.",
-     "ko": "스테이크를 미디엄으로 해주세요.",
-     "start": 201,
-     "end": 206,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_15",
-     "en": "Can I get it to go?",
-     "ko": "포장해 주실 수 있나요?",
-     "start": 216,
-     "end": 220,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_16",
-     "en": "Can I have the check, please?",
-     "ko": "계산서 좀 부탁합니다.",
-     "start": 221,
-     "end": 226,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_17",
-     "en": "Can I have a coffee, please?",
-     "ko": "커피 한 잔 부탁합니다.",
-     "start": 241,
-     "end": 245,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_18",
-     "en": "Can I get a latte with almond milk?",
-     "ko": "아몬드 우유로 라떼 하나 주세요.",
-     "start": 257,
-     "end": 263,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_19",
-     "en": "Is this coffee decaf?",
-     "ko": "이 커피는 디카페인인가요?",
-     "start": 279,
-     "end": 283,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_20",
-     "en": "Could I have it iced?",
-     "ko": "아이스로 해 주실 수 있나요?",
-     "start": 288,
-     "end": 292,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_21",
-     "en": "Can I get a refill, please?",
-     "ko": "리필해 주실 수 있을까요?",
-     "start": 305,
-     "end": 309,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_22",
-     "en": "Do you have any non-dairy milk options?",
-     "ko": "비유제품 우유 옵션이 있나요?",
-     "start": 314,
-     "end": 320,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_23",
-     "en": "What's your most popular dessert?",
-     "ko": "가장 인기 있는 디저트가 뭐예요?",
-     "start": 338,
-     "end": 343,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_24",
-     "en": "I'll have a slice of cheesecake, please.",
-     "ko": "치즈케이크 한 조각 부탁합니다.",
-     "start": 354,
-     "end": 360,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_25",
-     "en": "Do you have any vegan desserts?",
-     "ko": "비건 디저트가 있나요?",
-     "start": 373,
-     "end": 378,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_26",
-     "en": "Can I get that to go?",
-     "ko": "그거 포장해 주실 수 있나요?",
-     "start": 388,
-     "end": 392,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_27",
-     "en": "Is this gluten free?",
-     "ko": "이거 글루텐프리인가요?",
-     "start": 406,
-     "end": 410,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_28",
-     "en": "I think there's a mistake with my order.",
-     "ko": "주문에 문제가 있는 것 같아요.",
-     "start": 414,
-     "end": 420,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_29",
-     "en": "This isn't what I ordered.",
-     "ko": "이건 제가 주문한 게 아니에요.",
-     "start": 438,
-     "end": 443,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_30",
-     "en": "Can you heat this up a little more?",
-     "ko": "이거 조금 더 데워 주실 수 있나요?",
-     "start": 459,
-     "end": 465
-    },
-    {
-     "id": "kdD3RV_YORc_31",
-     "en": "I'm sorry but this is too salty.",
-     "ko": "죄송하지만 이건 너무 짜요.",
-     "start": 465,
-     "end": 471
-    },
-    {
-     "id": "kdD3RV_YORc_32",
-     "en": "Could you bring me a clean fork?",
-     "ko": "깨끗한 포크 좀 가져다 주실 수 있나요?",
-     "start": 484,
-     "end": 489,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_33",
-     "en": "Can I speak to the manager, please?",
-     "ko": "매니저와 이야기할 수 있을까요?",
-     "start": 499,
-     "end": 504,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_34",
-     "en": "Can I pay with a credit card?",
-     "ko": "신용카드로 결제할 수 있나요?",
-     "start": 518,
-     "end": 523,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_35",
-     "en": "Do you accept cash?",
-     "ko": "현금 받으시나요?",
-     "start": 530,
-     "end": 534,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_36",
-     "en": "Can I split the bill?",
-     "ko": "계산을 나눌 수 있나요?",
-     "start": 543,
-     "end": 548,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_37",
-     "en": "Could we have separate checks?",
-     "ko": "따로따로 계산서 받을 수 있을까요?",
-     "start": 553,
-     "end": 558,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_38",
-     "en": "Is service included?",
-     "ko": "서비스료가 포함되어 있나요?",
-     "start": 568,
-     "end": 572,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_39",
-     "en": "Do you take tips?",
-     "ko": "팁 받으시나요?",
-     "start": 582,
-     "end": 586,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_40",
-     "en": "Excuse me, where is the restroom?",
-     "ko": "실례지만 화장실이 어디인가요?",
-     "start": 595,
-     "end": 600
-    },
-    {
-     "id": "kdD3RV_YORc_41",
-     "en": "Can you recommend a good local dish?",
-     "ko": "현지에서 좋은 요리 추천해 주실 수 있나요?",
-     "start": 612,
-     "end": 618,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_42",
-     "en": "How long will it take for the food to be ready?",
-     "ko": "음식 준비되는데 얼마나 걸릴까요?",
-     "start": 634,
-     "end": 640,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_43",
-     "en": "Can you bring the check when you're ready?",
-     "ko": "준비되셨을 때 계산서 가져다 주실 수 있나요?",
-     "start": 653,
-     "end": 659,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_44",
-     "en": "Can I have some more napkins, please?",
-     "ko": "냅킨 좀 더 주실 수 있나요?",
-     "start": 672,
-     "end": 677,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_45",
-     "en": "Can I order something else?",
-     "ko": "다른 것을 주문할 수 있을까요?",
-     "start": 691,
-     "end": 696,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_46",
-     "en": "What's in this dish?",
-     "ko": "이 요리에는 뭐가 들어가 있나요?",
-     "start": 705,
-     "end": 709,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_47",
-     "en": "Do you have a kids menu?",
-     "ko": "어린이 메뉴가 있나요?",
-     "start": 715,
-     "end": 720,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_48",
-     "en": "Could I get some ice with that?",
-     "ko": "얼음 좀 주실 수 있을까요?",
-     "start": 731,
-     "end": 735,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_49",
-     "en": "Can I have a straw, please?",
-     "ko": "빨대 하나 주실 수 있나요?",
-     "start": 743,
-     "end": 747,
-     "ref402": 5
-    },
-    {
-     "id": "kdD3RV_YORc_50",
-     "en": "Can we get a high chair for the baby?",
-     "ko": "아기용 의자 하나 받을 수 있을까요?",
-     "start": 758,
-     "end": 763,
-     "ref402": 5
-    }
-   ]
-  },
-  "DloQDMSuMK8": {
-   "id": "DloQDMSuMK8",
-   "title": "해외 여행에서 무조건 쓰는 마법의 50문장 ㅣ 관광지, 길거리편",
-   "category": "관광·명소",
-   "duration": 4066,
-   "sentences": [
-    {
-     "id": "DloQDMSuMK8_1",
-     "en": "Where is the nearest tourist information center?",
-     "ko": "가장 가까운 관광 안내소가 어디인가요?",
-     "start": 36,
-     "end": 41,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_2",
-     "en": "Are there any guided tours available?",
-     "ko": "가이드 투어가 있나요?",
-     "start": 60,
-     "end": 65,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_3",
-     "en": "How much is the entrance fee?",
-     "ko": "입장료는 얼마인가요?",
-     "start": 83,
-     "end": 88,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_4",
-     "en": "Do I need to book tickets in advance?",
-     "ko": "미리 티켓을 예약해야 하나요?",
-     "start": 102,
-     "end": 108,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_5",
-     "en": "What time does the museum open?",
-     "ko": "박물관은 몇 시에 여나요?",
-     "start": 117,
-     "end": 122,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_6",
-     "en": "Is there a map of this place?",
-     "ko": "이 장소에 지도가 있나요?",
-     "start": 146,
-     "end": 151,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "DloQDMSuMK8_7",
-     "en": "Do you offer audio guides?",
-     "ko": "오디오 가이드를 제공하나요?",
-     "start": 164,
-     "end": 169,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_8",
-     "en": "Can I get a brochure in English?",
-     "ko": "영어로 된 브로슈어를 받을 수 있을까요?",
-     "start": 178,
-     "end": 184,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_9",
-     "en": "How long is the tour?",
-     "ko": "투어는 얼마나 걸리나요?",
-     "start": 197,
-     "end": 201,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_10",
-     "en": "Is there a student discount?",
-     "ko": "학생 할인이 있나요?",
-     "start": 212,
-     "end": 216,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "DloQDMSuMK8_11",
-     "en": "Where is the ticket counter?",
-     "ko": "티켓 카운터는 어디인가요?",
-     "start": 239,
-     "end": 244,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_12",
-     "en": "Is this a famous landmark?",
-     "ko": "이곳은 유명한 명소인가요?",
-     "start": 250,
-     "end": 255,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_13",
-     "en": "Can I take pictures here?",
-     "ko": "여기서 사진을 찍어도 되나요?",
-     "start": 276,
-     "end": 281,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_14",
-     "en": "Are there any events today?",
-     "ko": "오늘 어떤 행사가 있나요?",
-     "start": 285,
-     "end": 290,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_15",
-     "en": "Is this place wheelchair accessible?",
-     "ko": "이곳은 휠체어로 접근할 수 있나요?",
-     "start": 304,
-     "end": 310,
-     "cat": "관광·명소",
-     "ref402": 6
-    },
-    {
-     "id": "DloQDMSuMK8_16",
-     "en": "Excuse me, how do I get to the train station?",
-     "ko": "기차역으로 어떻게 가나요?",
-     "start": 336,
-     "end": 342,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_17",
-     "en": "Can you show me on the map?",
-     "ko": "지도에서 보여주실 수 있나요?",
-     "start": 365,
-     "end": 370,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_18",
-     "en": "Is it far from here?",
-     "ko": "여기서 멀리 있나요?",
-     "start": 382,
-     "end": 386,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_19",
-     "en": "How long does it take to get there?",
-     "ko": "거기까지 가는데 얼마나 걸리나요?",
-     "start": 398,
-     "end": 404,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_20",
-     "en": "Can I walk there or do I need to take a bus?",
-     "ko": "거기까지 걸어갈 수 있나요, 아니면 버스를 타야 하나요?",
-     "start": 422,
-     "end": 429,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "DloQDMSuMK8_21",
-     "en": "Which direction is the subway?",
-     "ko": "지하철은 어느 방향인가요?",
-     "start": 450,
-     "end": 455,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "DloQDMSuMK8_22",
-     "en": "Is there a shortcut?",
-     "ko": "지름길이 있나요?",
-     "start": 467,
-     "end": 471,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_23",
-     "en": "How do I get to the main square?",
-     "ko": "메인 광장으로 어떻게 가나요?",
-     "start": 476,
-     "end": 481,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_24",
-     "en": "Is it safe to walk around here at night?",
-     "ko": "밤에 이 주변을 걸어다녀도 안전한가요?",
-     "start": 496,
-     "end": 502,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_25",
-     "en": "Where can I find a taxi?",
-     "ko": "택시를 어디서 찾을 수 있나요?",
-     "start": 527,
-     "end": 532,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_26",
-     "en": "When is the next train?",
-     "ko": "다음 기차는 언제 오나요?",
-     "start": 550,
-     "end": 555,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_27",
-     "en": "Where can I buy a bus ticket?",
-     "ko": "버스 티켓은 어디서 살 수 있나요?",
-     "start": 562,
-     "end": 568,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_28",
-     "en": "How much is a one-way ticket?",
-     "ko": "편도 티켓은 얼마인가요?",
-     "start": 578,
-     "end": 583,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_29",
-     "en": "Are there round-trip ticket options?",
-     "ko": "왕복 티켓 옵션이 있나요?",
-     "start": 598,
-     "end": 603,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "DloQDMSuMK8_30",
-     "en": "Where is the bus stop?",
-     "ko": "버스 정류장은 어디인가요?",
-     "start": 620,
-     "end": 624,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_31",
-     "en": "How long is the ride?",
-     "ko": "이동 시간은 얼마나 걸리나요?",
-     "start": 635,
-     "end": 639,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_32",
-     "en": "Does this bus go to the airport?",
-     "ko": "이 버스는 공항으로 가나요?",
-     "start": 652,
-     "end": 657,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_33",
-     "en": "Do I need to transfer trains?",
-     "ko": "기차를 환승해야 하나요?",
-     "start": 674,
-     "end": 679,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_34",
-     "en": "Is this the right platform?",
-     "ko": "이 플랫폼이 맞나요?",
-     "start": 694,
-     "end": 698,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_35",
-     "en": "Can you call me a taxi, please?",
-     "ko": "택시를 불러 주실 수 있나요?",
-     "start": 710,
-     "end": 715,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_36",
-     "en": "How much is the fare?",
-     "ko": "요금이 얼마인가요?",
-     "start": 723,
-     "end": 728,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_37",
-     "en": "Do you accept credit cards?",
-     "ko": "신용카드 받으시나요?",
-     "start": 749,
-     "end": 754,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_38",
-     "en": "Can I pay with cash?",
-     "ko": "현금으로 지불해도 되나요?",
-     "start": 767,
-     "end": 772,
-     "cat": "교통·길찾기",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_39",
-     "en": "Excuse me, could you help me?",
-     "ko": "실례합니다, 도와주실 수 있나요?",
-     "start": 785,
-     "end": 790,
-     "cat": "긴급·기타",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_40",
-     "en": "Where can I find a restroom?",
-     "ko": "화장실은 어디서 찾을 수 있나요?",
-     "start": 811,
-     "end": 816,
-     "cat": "긴급·기타",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_41",
-     "en": "Is there a convenience store near here?",
-     "ko": "근처에 편의점이 있나요?",
-     "start": 831,
-     "end": 836,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "DloQDMSuMK8_42",
-     "en": "Where is the nearest pharmacy?",
-     "ko": "가장 가까운 약국은 어디인가요?",
-     "start": 847,
-     "end": 852,
-     "cat": "긴급·기타",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_43",
-     "en": "Where can I exchange currency?",
-     "ko": "환전은 어디서 할 수 있나요?",
-     "start": 888,
-     "end": 893,
-     "cat": "긴급·기타",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_44",
-     "en": "Can I use my phone here?",
-     "ko": "여기서 제 폰을 사용해도 되나요?",
-     "start": 878,
-     "end": 883,
-     "cat": "긴급·기타",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_45",
-     "en": "Where can I charge my phone?",
-     "ko": "어디서 휴대폰을 충전할 수 있나요?",
-     "start": 910,
-     "end": 915,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "DloQDMSuMK8_46",
-     "en": "Help! I need assistance.",
-     "ko": "도와주세요! 도움이 필요해요.",
-     "start": 933,
-     "end": 938,
-     "cat": "긴급·기타",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_47",
-     "en": "Can you call the police for me?",
-     "ko": "경찰을 불러주실 수 있나요?",
-     "start": 961,
-     "end": 966,
-     "cat": "긴급·기타",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_48",
-     "en": "I lost my passport.",
-     "ko": "여권을 잃어버렸어요.",
-     "start": 983,
-     "end": 987,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "DloQDMSuMK8_49",
-     "en": "Can I borrow your phone, please?",
-     "ko": "전화기를 빌려주실 수 있나요?",
-     "start": 1000,
-     "end": 1006,
-     "cat": "긴급·기타",
-     "ref402": 7
-    },
-    {
-     "id": "DloQDMSuMK8_50",
-     "en": "I've been robbed. Can you help me?",
-     "ko": "도둑을 맞았어요. 도와주실 수 있나요?",
-     "start": 1031,
-     "end": 1037,
-     "cat": "긴급·기타",
-     "ref402": 7
-    }
-   ]
-  },
-  "IwI5qkUAIx8": {
-   "id": "IwI5qkUAIx8",
-   "title": "해외여행에서 무조건 쓰는 기적의 100문장 [왕초보 영어회화]",
-   "category": "교통·길찾기",
-   "duration": 3305,
-   "sentences": [
-    {
-     "id": "IwI5qkUAIx8_1",
-     "en": "Where do I transfer?",
-     "ko": "환승은 어디서 하나요?",
-     "start": 371,
-     "end": 375,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_2",
-     "en": "Where should I get off?",
-     "ko": "어디서 내려야 하나요?",
-     "start": 385,
-     "end": 389,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_3",
-     "en": "When is the next bus?",
-     "ko": "다음 버스는 언제인가요?",
-     "start": 399,
-     "end": 403,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_4",
-     "en": "Is this the last stop?",
-     "ko": "여기가 종점인가요?",
-     "start": 414,
-     "end": 418,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_5",
-     "en": "Do I need to transfer?",
-     "ko": "환승해야 하나요?",
-     "start": 429,
-     "end": 433,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_6",
-     "en": "Which line should I take?",
-     "ko": "몇 호선을 타야 하나요?",
-     "start": 444,
-     "end": 448,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_7",
-     "en": "Could you open the trunk?",
-     "ko": "트렁크 좀 열어 주시겠어요?",
-     "start": 458,
-     "end": 462,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_8",
-     "en": "Where can I buy a ticket?",
-     "ko": "표는 어디서 살 수 있나요?",
-     "start": 472,
-     "end": 476,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_9",
-     "en": "How many stops is it from here?",
-     "ko": "여기서 몇 정거장인가요?",
-     "start": 488,
-     "end": 493,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_10",
-     "en": "Can I buy a ticket on the bus?",
-     "ko": "버스에서 표를 살 수 있나요?",
-     "start": 505,
-     "end": 510,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_11",
-     "en": "Is this train express or local?",
-     "ko": "이 기차는 급행인가요, 완행인가요?",
-     "start": 521,
-     "end": 526,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_12",
-     "en": "Is this the right way to City Hall?",
-     "ko": "시청으로 가는 길이 맞나요?",
-     "start": 538,
-     "end": 543,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_13",
-     "en": "Does this train stop at Central Station?",
-     "ko": "이 기차 센트럴역에 서나요?",
-     "start": 556,
-     "end": 562,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_14",
-     "en": "Could you drop me off over there?",
-     "ko": "저쪽에서 내려 주시겠어요?",
-     "start": 576,
-     "end": 581,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_15",
-     "en": "Please let me know when we get there.",
-     "ko": "도착하면 알려 주세요.",
-     "start": 592,
-     "end": 597,
-     "cat": "교통·길찾기"
-    },
-    {
-     "id": "IwI5qkUAIx8_16",
-     "en": "Is this on sale?",
-     "ko": "이거 세일 중인가요?",
-     "start": 1196,
-     "end": 1200,
-     "cat": "쇼핑·결제",
-     "ref402": 8
-    },
-    {
-     "id": "IwI5qkUAIx8_17",
-     "en": "It doesn't fit me.",
-     "ko": "이거 제 몸에 안 맞아요.",
-     "start": 1215,
-     "end": 1219,
-     "cat": "쇼핑·결제"
-    },
-    {
-     "id": "IwI5qkUAIx8_18",
-     "en": "Do you have a new one?",
-     "ko": "새것으로 있나요?",
-     "start": 1224,
-     "end": 1228,
-     "cat": "쇼핑·결제"
-    },
-    {
-     "id": "IwI5qkUAIx8_19",
-     "en": "Do you have a smaller one?",
-     "ko": "더 작은 사이즈 있나요?",
-     "start": 1237,
-     "end": 1242,
-     "cat": "쇼핑·결제"
-    },
-    {
-     "id": "IwI5qkUAIx8_20",
-     "en": "Where is the fitting room?",
-     "ko": "탈의실은 어디인가요?",
-     "start": 1252,
-     "end": 1256,
-     "cat": "쇼핑·결제"
-    },
-    {
-     "id": "IwI5qkUAIx8_21",
-     "en": "Can I pay in cash?",
-     "ko": "현금으로 결제할 수 있나요?",
-     "start": 1267,
-     "end": 1271,
-     "cat": "쇼핑·결제"
-    },
-    {
-     "id": "IwI5qkUAIx8_22",
-     "en": "Could I get a receipt?",
-     "ko": "영수증 받을 수 있을까요?",
-     "start": 1282,
-     "end": 1286,
-     "cat": "쇼핑·결제"
-    },
-    {
-     "id": "IwI5qkUAIx8_23",
-     "en": "Do you have this in another color?",
-     "ko": "다른 색상 있나요?",
-     "start": 1295,
-     "end": 1300,
-     "cat": "쇼핑·결제",
-     "ref402": 8
-    },
-    {
-     "id": "IwI5qkUAIx8_24",
-     "en": "Where can I get a tax refund?",
-     "ko": "택스 리펀은 어디서 받나요?",
-     "start": 1313,
-     "end": 1318,
-     "cat": "쇼핑·결제"
-    },
-    {
-     "id": "IwI5qkUAIx8_25",
-     "en": "Can I return this at another location?",
-     "ko": "다른 지점에서 반품할 수 있나요?",
-     "start": 1330,
-     "end": 1336,
-     "cat": "쇼핑·결제"
-    },
-    {
-     "id": "IwI5qkUAIx8_26",
-     "en": "Where is the entrance?",
-     "ko": "입구가 어디인가요?",
-     "start": 1356,
-     "end": 1360,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_27",
-     "en": "Where is the exit?",
-     "ko": "출구가 어디인가요?",
-     "start": 1371,
-     "end": 1375,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_28",
-     "en": "Is admission free?",
-     "ko": "입장이 무료인가요?",
-     "start": 1384,
-     "end": 1388,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_29",
-     "en": "Are tickets still available?",
-     "ko": "티켓 아직 있나요?",
-     "start": 1398,
-     "end": 1403,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_30",
-     "en": "What time does the tour start?",
-     "ko": "투어는 몇 시에 시작하나요?",
-     "start": 1414,
-     "end": 1419,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_31",
-     "en": "Are we allowed to take pictures?",
-     "ko": "사진 찍어도 되나요?",
-     "start": 1432,
-     "end": 1437,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_32",
-     "en": "Can I buy tickets in advance?",
-     "ko": "미리 티켓을 살 수 있나요?",
-     "start": 1447,
-     "end": 1452,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_33",
-     "en": "Is there a guided tour available?",
-     "ko": "가이드 투어가 있나요?",
-     "start": 1464,
-     "end": 1469,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_34",
-     "en": "Is there an English audio guide?",
-     "ko": "영어 오디오 가이드가 있나요?",
-     "start": 1480,
-     "end": 1485,
-     "cat": "관광·명소"
-    },
-    {
-     "id": "IwI5qkUAIx8_35",
-     "en": "Is there a place to charge my phone?",
-     "ko": "휴대폰 충전할 곳이 있나요?",
-     "start": 1497,
-     "end": 1502,
-     "cat": "관광·명소",
-     "ref402": 4
-    },
-    {
-     "id": "IwI5qkUAIx8_36",
-     "en": "What should I do now?",
-     "ko": "이제 어떻게 해야 하나요?",
-     "start": 1524,
-     "end": 1528,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_37",
-     "en": "My phone is out of battery.",
-     "ko": "휴대폰 배터리가 다 됐어요.",
-     "start": 1539,
-     "end": 1544,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_38",
-     "en": "I can't find my luggage.",
-     "ko": "제 짐을 못 찾겠어요.",
-     "start": 1556,
-     "end": 1561,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_39",
-     "en": "I was charged twice.",
-     "ko": "돈이 두 번 결제됐어요.",
-     "start": 1572,
-     "end": 1577,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_40",
-     "en": "Could you translate this for me?",
-     "ko": "이거 번역 좀 해 주시겠어요?",
-     "start": 1588,
-     "end": 1593,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_41",
-     "en": "Could you write it down for me?",
-     "ko": "종이에 적어 주시겠어요?",
-     "start": 1601,
-     "end": 1607,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_42",
-     "en": "Could you show me on the map?",
-     "ko": "지도에서 보여 주시겠어요?",
-     "start": 1616,
-     "end": 1621,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_43",
-     "en": "I think there's been a mistake.",
-     "ko": "뭔가 착오가 있는 것 같아요.",
-     "start": 1633,
-     "end": 1638,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_44",
-     "en": "I locked myself out of my room.",
-     "ko": "방문이 잠겨서 못 들어가요.",
-     "start": 1650,
-     "end": 1656,
-     "cat": "긴급·기타"
-    },
-    {
-     "id": "IwI5qkUAIx8_45",
-     "en": "I don't understand what you mean.",
-     "ko": "무슨 말인지 모르겠어요.",
-     "start": 1668,
-     "end": 1673,
-     "cat": "긴급·기타"
-    }
-   ]
-  },
-  "HLpA-MMbxHY": {
-   "id": "HLpA-MMbxHY",
-   "title": "✈️ 해외여행 필수 문장 10가지!(공항 편)",
-   "category": "공항·기내",
-   "duration": 675,
-   "sentences": [
-    {
-     "id": "HLpA-MMbxHY_1",
-     "en": "Where can I check in for my flight?",
-     "ko": "제 비행기 체크인은 어디서 하나요?",
-     "start": 32,
-     "end": 36,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_2",
-     "en": "What time does boarding start?",
-     "ko": "탑승은 언제 시작하나요?",
-     "start": 91,
-     "end": 95,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_3",
-     "en": "Where is the security checkpoint?",
-     "ko": "보안 검색대는 어디에 있나요?",
-     "start": 159,
-     "end": 164,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_4",
-     "en": "Can I bring this on the plane?",
-     "ko": "이거 비행기에 가지고 탈 수 있나요?",
-     "start": 210,
-     "end": 215,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_5",
-     "en": "Where is the customs office?",
-     "ko": "세관은 어디에 있나요?",
-     "start": 256,
-     "end": 261,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_6",
-     "en": "Where is the baggage claim area?",
-     "ko": "수화물 찾는 곳은 어디인가요?",
-     "start": 303,
-     "end": 308,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_7",
-     "en": "My luggage is lost.",
-     "ko": "제 수화물이 없어졌어요.",
-     "start": 368,
-     "end": 372,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_8",
-     "en": "How much is a taxi to downtown?",
-     "ko": "시내까지 택시 요금이 얼마인가요?",
-     "start": 411,
-     "end": 416,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_9",
-     "en": "Can I get a map of the airport?",
-     "ko": "공항 지도를 받을 수 있을까요?",
-     "start": 488,
-     "end": 493,
-     "ref402": 4
-    },
-    {
-     "id": "HLpA-MMbxHY_10",
-     "en": "What should I do if I miss my flight?",
-     "ko": "비행기를 놓치면 어떻게 해야 하나요?",
-     "start": 536,
-     "end": 542,
-     "ref402": 4
-    }
-   ]
-  }
- },
  "allVideos": [
   {
    "id": "IwI5qkUAIx8",
@@ -2559,5 +442,2122 @@
     "교통·길찾기"
    ]
   }
- ]
+ ],
+ "videos": {
+  "hu2_8I1CBzE": {
+   "id": "hu2_8I1CBzE",
+   "title": "해외 여행에서 무조건 쓰는 마법의 50문장 ㅣ 공항, 기내 영어",
+   "category": "공항·기내",
+   "duration": 4132,
+   "sentences": [
+    {
+     "id": "hu2_8I1CBzE_1",
+     "en": "Where can I check in for my flight?",
+     "ko": "제 비행기 체크인은 어디에서 하나요?",
+     "start": 1671.0,
+     "end": 1696.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_2",
+     "en": "What time does boarding start?",
+     "ko": "탑승은 언제 시작하나요?",
+     "start": 871.0,
+     "end": 895.5,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_3",
+     "en": "Where is the security check?",
+     "ko": "보안 검색대는 어디에 있나요?",
+     "start": 68.0,
+     "end": 87.0
+    },
+    {
+     "id": "hu2_8I1CBzE_4",
+     "en": "Can I bring this on the plane?",
+     "ko": "이걸 비행기에 가지고 탈 수 있나요?",
+     "start": 79.5,
+     "end": 100.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_5",
+     "en": "Where is the customs office?",
+     "ko": "세관은 어디에 있나요?",
+     "start": 98.5,
+     "end": 115.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_6",
+     "en": "Where is the baggage claim area?",
+     "ko": "수화물 찾는 곳은 어디인가요?",
+     "start": 3385.5,
+     "end": 3408.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_7",
+     "en": "My luggage is lost.",
+     "ko": "제 수화물이 없어졌어요.",
+     "start": 121.5,
+     "end": 142.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_8",
+     "en": "Where is the nearest restroom?",
+     "ko": "가장 가까운 화장실이 어디에 있나요?",
+     "start": 2589.5,
+     "end": 2608.5,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_9",
+     "en": "Is there a currency exchange here?",
+     "ko": "여기에 환전소가 있나요?",
+     "start": 156.5,
+     "end": 174.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_10",
+     "en": "Where can I find a taxi stand?",
+     "ko": "택시 승차장은 어디에 있나요?",
+     "start": 165.5,
+     "end": 190.0
+    },
+    {
+     "id": "hu2_8I1CBzE_11",
+     "en": "How much is a taxi to downtown?",
+     "ko": "시내까지 택시 요금이 얼마인가요?",
+     "start": 183.5,
+     "end": 208.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_12",
+     "en": "Can I get a map of the airport?",
+     "ko": "공항 지도를 받을 수 있을까요?",
+     "start": 3478.0,
+     "end": 3503.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_13",
+     "en": "What time does the shuttle leave?",
+     "ko": "셔틀버스는 언제 출발하나요?",
+     "start": 221.5,
+     "end": 246.0
+    },
+    {
+     "id": "hu2_8I1CBzE_14",
+     "en": "Can I store my luggage here?",
+     "ko": "여기서 짐을 보관할 수 있나요?",
+     "start": 3511.0,
+     "end": 3536.0,
+     "ref402": 9
+    },
+    {
+     "id": "hu2_8I1CBzE_15",
+     "en": "Could I have a blanket, please?",
+     "ko": "담요를 주실 수 있나요?",
+     "start": 252.0,
+     "end": 277.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_16",
+     "en": "Can I get some water, please?",
+     "ko": "물 좀 주실 수 있나요?",
+     "start": 260.5,
+     "end": 283.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_17",
+     "en": "What time do we arrive?",
+     "ko": "도착 시간이 언제인가요?",
+     "start": 281.5,
+     "end": 299.0
+    },
+    {
+     "id": "hu2_8I1CBzE_18",
+     "en": "Can I change seats?",
+     "ko": "좌석을 바꿀 수 있을까요?",
+     "start": 288.5,
+     "end": 307.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_19",
+     "en": "Is there a flight meal service?",
+     "ko": "기내식 서비스가 있나요?",
+     "start": 1942.5,
+     "end": 1965.0
+    },
+    {
+     "id": "hu2_8I1CBzE_20",
+     "en": "Could I have a vegetarian meal, please?",
+     "ko": "채식 메뉴를 주실 수 있나요?",
+     "start": 1951.5,
+     "end": 1974.0
+    },
+    {
+     "id": "hu2_8I1CBzE_21",
+     "en": "Can I recline my seat?",
+     "ko": "좌석을 젖혀도 되나요?",
+     "start": 1968.5,
+     "end": 1991.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_22",
+     "en": "Can I use the lavatory now?",
+     "ko": "지금 화장실을 사용할 수 있나요?",
+     "start": 1169.0,
+     "end": 1194.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_23",
+     "en": "Can I have some more coffee, please?",
+     "ko": "커피를 좀 더 주실 수 있나요?",
+     "start": 1179.5,
+     "end": 1202.0
+    },
+    {
+     "id": "hu2_8I1CBzE_24",
+     "en": "Do you have any customs forms?",
+     "ko": "세관 신고서가 있나요?",
+     "start": 377.5,
+     "end": 402.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_25",
+     "en": "Where can I find the emergency exit?",
+     "ko": "비상구는 어디에 있나요?",
+     "start": 2031.5,
+     "end": 2054.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_26",
+     "en": "Could you help me with my luggage?",
+     "ko": "짐을 도와주실 수 있나요?",
+     "start": 419.0,
+     "end": 438.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_27",
+     "en": "When will the seat belt sign be turned off?",
+     "ko": "좌석 벨트 사인이 언제 꺼지나요?",
+     "start": 429.5,
+     "end": 454.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_28",
+     "en": "Could I get earphones?",
+     "ko": "이어폰을 받을 수 있을까요?",
+     "start": 454.0,
+     "end": 466.0
+    },
+    {
+     "id": "hu2_8I1CBzE_29",
+     "en": "Is this a direct flight?",
+     "ko": "직항 편인가요?",
+     "start": 464.5,
+     "end": 486.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_30",
+     "en": "Can you wake me up for meals?",
+     "ko": "기내식 때 깨워 주실 수 있나요?",
+     "start": 477.5,
+     "end": 502.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_31",
+     "en": "How long is the flight?",
+     "ko": "비행 시간은 얼마나 되나요?",
+     "start": 496.5,
+     "end": 513.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_32",
+     "en": "What's the local time at our destination?",
+     "ko": "도착지의 현지 시간이 몇 시인가요?",
+     "start": 504.5,
+     "end": 528.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_33",
+     "en": "Is there a layover on this flight?",
+     "ko": "이 비행기의 경유지가 있나요?",
+     "start": 526.5,
+     "end": 544.0
+    },
+    {
+     "id": "hu2_8I1CBzE_34",
+     "en": "Could I have some ice, please?",
+     "ko": "얼음을 좀 주실 수 있나요?",
+     "start": 540.0,
+     "end": 552.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_35",
+     "en": "Can you help me fill out this form?",
+     "ko": "이 양식을 작성하는 것을 도와주실 수 있나요?",
+     "start": 2191.5,
+     "end": 2213.5,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_36",
+     "en": "Thank you for your assistance.",
+     "ko": "도와주셔서 감사합니다.",
+     "start": 569.0,
+     "end": 587.0
+    },
+    {
+     "id": "hu2_8I1CBzE_37",
+     "en": "Could you tell me how to get to my gate?",
+     "ko": "제 게이트로 가는 길을 알려주실 수 있나요?",
+     "start": 579.5,
+     "end": 604.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_38",
+     "en": "Is this the line for security?",
+     "ko": "이 줄이 보안 검색인가요?",
+     "start": 603.0,
+     "end": 623.0
+    },
+    {
+     "id": "hu2_8I1CBzE_39",
+     "en": "How much time do I have before boarding?",
+     "ko": "탑승까지 시간이 얼마나 남았나요?",
+     "start": 2257.0,
+     "end": 2274.5,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_40",
+     "en": "Is there a place to charge my phone?",
+     "ko": "제 휴대폰을 충전할 곳이 있나요?",
+     "start": 642.0,
+     "end": 664.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_41",
+     "en": "Where can I find the smoking area?",
+     "ko": "흡연 구역은 어디에 있나요?",
+     "start": 1479.0,
+     "end": 1503.5,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_42",
+     "en": "Can I use my electronic devices now?",
+     "ko": "이제 전자기기를 사용할 수 있나요?",
+     "start": 677.0,
+     "end": 700.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_43",
+     "en": "What should I do if I miss my flight?",
+     "ko": "비행기를 놓치면 어떻게 해야 하나요?",
+     "start": 691.5,
+     "end": 716.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_44",
+     "en": "Are there any updates on my flight?",
+     "ko": "제 비행기에 대한 업데이트가 있나요?",
+     "start": 718.0,
+     "end": 745.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_45",
+     "en": "Is this the right gate for the flight to Paris?",
+     "ko": "파리행 비행기 탑승 게이트가 맞나요?",
+     "start": 739.5,
+     "end": 764.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_46",
+     "en": "Can I get a refund for my ticket?",
+     "ko": "제 티켓 환불이 가능할까요?",
+     "start": 755.5,
+     "end": 775.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_47",
+     "en": "How long will the delay be?",
+     "ko": "지연 시간이 얼마나 될까요?",
+     "start": 773.5,
+     "end": 798.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_48",
+     "en": "Will my luggage be transferred automatically?",
+     "ko": "제 수화물이 자동으로 승계되나요?",
+     "start": 793.5,
+     "end": 818.0,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_49",
+     "en": "Where can I find the lost and found?",
+     "ko": "분실물 보관소는 어디에 있나요?",
+     "start": 2449.0,
+     "end": 2470.5,
+     "ref402": 4
+    },
+    {
+     "id": "hu2_8I1CBzE_50",
+     "en": "What's the weather like at the destination?",
+     "ko": "도착지의 날씨는 어떤가요?",
+     "start": 4106.0,
+     "end": 4121.5
+    }
+   ]
+  },
+  "4dz5_HqnLQg": {
+   "id": "4dz5_HqnLQg",
+   "title": "해외 여행에서 무조건 쓰는 마법의 50문장 ㅣ 숙소, 호텔편",
+   "category": "호텔·숙소",
+   "duration": 3942,
+   "sentences": [
+    {
+     "id": "4dz5_HqnLQg_1",
+     "en": "Where is the nearest hotel?",
+     "ko": "가장 가까운 호텔이 어디에 있나요?",
+     "start": 1981.5,
+     "end": 1999.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_2",
+     "en": "Do you have any rooms available?",
+     "ko": "빈방이 있나요?",
+     "start": 57.0,
+     "end": 83.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_3",
+     "en": "Can I check in early?",
+     "ko": "일찍 체크인할 수 있나요?",
+     "start": 81.5,
+     "end": 99.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_4",
+     "en": "What time is check-in?",
+     "ko": "체크인 시간은 몇 시인가요?",
+     "start": 88.5,
+     "end": 113.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_5",
+     "en": "What time is check-out?",
+     "ko": "체크아웃 시간은 언제인가요?",
+     "start": 113.5,
+     "end": 133.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_6",
+     "en": "Can I get a room with a view?",
+     "ko": "전망이 좋은 방을 받을 수 있나요?",
+     "start": 1107.5,
+     "end": 1130.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_7",
+     "en": "Do you have any non-smoking rooms?",
+     "ko": "금연 객실이 있나요?",
+     "start": 149.0,
+     "end": 176.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_8",
+     "en": "How much is a night's stay?",
+     "ko": "1박 요금이 얼마인가요?",
+     "start": 1147.0,
+     "end": 1172.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_9",
+     "en": "Do you offer room service?",
+     "ko": "룸서비스가 있나요?",
+     "start": 2134.5,
+     "end": 2157.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_10",
+     "en": "Is breakfast included?",
+     "ko": "아침 식사가 포함되어 있나요?",
+     "start": 205.5,
+     "end": 230.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_11",
+     "en": "Where is the dining area?",
+     "ko": "식사 공간은 어디에 있나요?",
+     "start": 228.5,
+     "end": 250.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_12",
+     "en": "Can I get a wake-up call?",
+     "ko": "모닝콜을 받을 수 있나요?",
+     "start": 246.0,
+     "end": 265.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_13",
+     "en": "Do you have a laundry service?",
+     "ko": "세탁 서비스가 있나요?",
+     "start": 256.5,
+     "end": 281.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_14",
+     "en": "Can I request extra towels?",
+     "ko": "추가 수건을 요청할 수 있나요?",
+     "start": 2232.5,
+     "end": 2246.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_15",
+     "en": "Where is the elevator?",
+     "ko": "엘리베이터는 어디에 있나요?",
+     "start": 303.0,
+     "end": 323.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_16",
+     "en": "Is there a restaurant near here?",
+     "ko": "근처에 레스토랑이 있나요?",
+     "start": 314.5,
+     "end": 339.0
+    },
+    {
+     "id": "4dz5_HqnLQg_17",
+     "en": "What time is breakfast served?",
+     "ko": "아침 식사는 몇 시에 제공되나요?",
+     "start": 340.5,
+     "end": 362.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_18",
+     "en": "Where is the nearest convenience store?",
+     "ko": "가장 가까운 편의점은 어디에 있나요?",
+     "start": 358.0,
+     "end": 385.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_19",
+     "en": "Is there an airport shuttle service?",
+     "ko": "공항셔틀 서비스가 있나요?",
+     "start": 381.0,
+     "end": 405.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_20",
+     "en": "Can I store my luggage here?",
+     "ko": "여기서 짐을 보관할 수 있나요?",
+     "start": 403.5,
+     "end": 425.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_21",
+     "en": "Is the pool open?",
+     "ko": "수영장은 개장했나요?",
+     "start": 421.0,
+     "end": 440.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_22",
+     "en": "Can I get a late check-out?",
+     "ko": "늦게 체크아웃 할 수 있나요?",
+     "start": 1405.5,
+     "end": 1426.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_23",
+     "en": "Is there a business center?",
+     "ko": "비즈니스 센터가 있나요?",
+     "start": 1420.5,
+     "end": 1436.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_24",
+     "en": "Can I book a taxi from here?",
+     "ko": "여기서 택시를 예약할 수 있나요?",
+     "start": 3391.0,
+     "end": 3407.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_25",
+     "en": "How do I get to the nearest train station?",
+     "ko": "가장 가까운 기차역은 어떻게 가나요?",
+     "start": 488.0,
+     "end": 515.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_26",
+     "en": "Can I change my room?",
+     "ko": "방을 바꿀 수 있을까요?",
+     "start": 513.0,
+     "end": 539.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_27",
+     "en": "Is there a minibar in the room?",
+     "ko": "객실에 미니바가 있나요?",
+     "start": 530.5,
+     "end": 548.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_28",
+     "en": "Can I pay by credit card?",
+     "ko": "신용카드로 결제할 수 있나요?",
+     "start": 1515.5,
+     "end": 1538.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_29",
+     "en": "Can I get an extra blanket?",
+     "ko": "추가 담요를 받을 수 있나요?",
+     "start": 559.5,
+     "end": 584.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_30",
+     "en": "Is there a safe in the room?",
+     "ko": "방에 금고가 있나요?",
+     "start": 1559.0,
+     "end": 1584.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_31",
+     "en": "Where is the front desk?",
+     "ko": "프런트 데스크는 어디에 있나요?",
+     "start": 602.0,
+     "end": 623.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_32",
+     "en": "Do you have a hair dryer in the room?",
+     "ko": "방에 헤어드라이어가 있나요?",
+     "start": 3538.5,
+     "end": 3561.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_33",
+     "en": "Can I have my room cleaned?",
+     "ko": "방 청소를 해 주실 수 있나요?",
+     "start": 641.0,
+     "end": 663.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_34",
+     "en": "Can I order room service?",
+     "ko": "룸서비스를 주문할 수 있나요?",
+     "start": 1627.5,
+     "end": 1643.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_35",
+     "en": "Do you provide bathrobes?",
+     "ko": "목욕가운을 제공하나요?",
+     "start": 679.5,
+     "end": 694.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_36",
+     "en": "Where can I park my car?",
+     "ko": "차를 어디에 주차할 수 있나요?",
+     "start": 2641.5,
+     "end": 2664.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_37",
+     "en": "Do you offer valet parking?",
+     "ko": "발레파킹 서비스가 있나요?",
+     "start": 716.5,
+     "end": 741.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_38",
+     "en": "Could you tell me how to get downtown?",
+     "ko": "시내로 가는 길을 알려주시겠어요?",
+     "start": 736.5,
+     "end": 761.0
+    },
+    {
+     "id": "4dz5_HqnLQg_39",
+     "en": "Is there a phone in the room?",
+     "ko": "방에 전화기가 있나요?",
+     "start": 759.0,
+     "end": 778.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_40",
+     "en": "What amenities are included?",
+     "ko": "포함된 편의 시설은 무엇인가요?",
+     "start": 776.5,
+     "end": 799.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_41",
+     "en": "Is there a hot tub in the hotel?",
+     "ko": "호텔에 온수 욕조가 있나요?",
+     "start": 797.5,
+     "end": 819.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_42",
+     "en": "Where can I find the vending machines?",
+     "ko": "자판기는 어디에 있나요?",
+     "start": 817.5,
+     "end": 842.0,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_43",
+     "en": "Can I get an extra pillow?",
+     "ko": "추가 베개를 받을 수 있나요?",
+     "start": 1814.5,
+     "end": 1834.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_44",
+     "en": "Where is the emergency exit?",
+     "ko": "비상구는 어디에 있나요?",
+     "start": 1832.0,
+     "end": 1853.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_45",
+     "en": "Can you recommend a good restaurant nearby?",
+     "ko": "근처 좋은 레스토랑을 추천해 주실 수 있나요?",
+     "start": 879.5,
+     "end": 904.0,
+     "ref402": 2
+    },
+    {
+     "id": "4dz5_HqnLQg_46",
+     "en": "Do you have a room with two beds?",
+     "ko": "침대가 두 개인 방이 있나요?",
+     "start": 2850.0,
+     "end": 2873.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_47",
+     "en": "Can I get a taxi to the airport?",
+     "ko": "공항으로 가는 택시를 부를 수 있나요?",
+     "start": 922.0,
+     "end": 948.0
+    },
+    {
+     "id": "4dz5_HqnLQg_48",
+     "en": "Where can I find the nearest ATM?",
+     "ko": "가장 가까운 현금인출기 어디에 있나요?",
+     "start": 1919.0,
+     "end": 1942.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_49",
+     "en": "Is there a spa in the hotel?",
+     "ko": "호텔에 스파가 있나요?",
+     "start": 2922.5,
+     "end": 2935.5,
+     "ref402": 9
+    },
+    {
+     "id": "4dz5_HqnLQg_50",
+     "en": "Can I get help with my luggage?",
+     "ko": "제 짐을 도와주실 수 있나요?",
+     "start": 994.0,
+     "end": 1021.0,
+     "ref402": 9
+    }
+   ]
+  },
+  "kdD3RV_YORc": {
+   "id": "kdD3RV_YORc",
+   "title": "해외 여행에서 무조건 쓰는 마법의 50문장 ㅣ 식당, 카페편",
+   "category": "식당·카페",
+   "duration": 3801,
+   "sentences": [
+    {
+     "id": "kdD3RV_YORc_1",
+     "en": "Table for two, please.",
+     "ko": "두 명 자리 부탁합니다.",
+     "start": 19.0,
+     "end": 39.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_2",
+     "en": "Is there a wait?",
+     "ko": "기다려야 하나요?",
+     "start": 35.0,
+     "end": 50.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_3",
+     "en": "Can I get a table by the window?",
+     "ko": "창가 자리로 부탁드릴 수 있을까요?",
+     "start": 46.0,
+     "end": 65.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_4",
+     "en": "Do you have a vegetarian menu?",
+     "ko": "채식 메뉴가 있나요?",
+     "start": 61.0,
+     "end": 82.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_5",
+     "en": "Can we sit outside?",
+     "ko": "밖에서 앉을 수 있을까요?",
+     "start": 78.0,
+     "end": 92.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_6",
+     "en": "Can I see the menu, please?",
+     "ko": "메뉴판을 볼 수 있을까요?",
+     "start": 88.0,
+     "end": 106.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_7",
+     "en": "What do you recommend?",
+     "ko": "추천해 주실 만한 게 있나요?",
+     "start": 102.0,
+     "end": 118.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_8",
+     "en": "I'll have the special of the day.",
+     "ko": "오늘의 특별 요리로 할게요.",
+     "start": 114.0,
+     "end": 134.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_9",
+     "en": "Can I have the same as them?",
+     "ko": "저 사람들과 같은 걸로 주세요.",
+     "start": 123.5,
+     "end": 145.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_10",
+     "en": "Can I have a glass of water, please?",
+     "ko": "물 한 잔 부탁합니다.",
+     "start": 136.5,
+     "end": 161.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_11",
+     "en": "Could I get this without onions?",
+     "ko": "양파 없이 해 주실 수 있나요?",
+     "start": 154.5,
+     "end": 173.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_12",
+     "en": "Can I add extra cheese?",
+     "ko": "치즈를 추가할 수 있나요?",
+     "start": 164.5,
+     "end": 189.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_13",
+     "en": "Is this dish spicy?",
+     "ko": "이 요리는 매운가요?",
+     "start": 184.5,
+     "end": 202.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_14",
+     "en": "I'll have a medium steak.",
+     "ko": "스테이크를 미디엄으로 해주세요.",
+     "start": 193.5,
+     "end": 217.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_15",
+     "en": "Can I get it to go?",
+     "ko": "포장해 주실 수 있나요?",
+     "start": 211.5,
+     "end": 224.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_16",
+     "en": "Can I have the check, please?",
+     "ko": "계산서 좀 부탁합니다.",
+     "start": 222.5,
+     "end": 244.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_17",
+     "en": "Can I have a coffee, please?",
+     "ko": "커피 한 잔 부탁합니다.",
+     "start": 240.0,
+     "end": 258.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_18",
+     "en": "Can I get a latte with almond milk?",
+     "ko": "아몬드 우유로 라떼 하나 주세요.",
+     "start": 250.5,
+     "end": 275.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_19",
+     "en": "Is this coffee decaf?",
+     "ko": "이 커피는 디카페인인가요?",
+     "start": 267.5,
+     "end": 291.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_20",
+     "en": "Could I have it iced?",
+     "ko": "아이스로 해 주실 수 있나요?",
+     "start": 1041.0,
+     "end": 1063.5,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_21",
+     "en": "Can I get a refill, please?",
+     "ko": "리필해 주실 수 있을까요?",
+     "start": 298.0,
+     "end": 317.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_22",
+     "en": "Do you have any non-dairy milk options?",
+     "ko": "비유제품 우유 옵션이 있나요?",
+     "start": 315.5,
+     "end": 339.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_23",
+     "en": "What's your most popular dessert?",
+     "ko": "가장 인기 있는 디저트가 뭐예요?",
+     "start": 335.0,
+     "end": 355.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_24",
+     "en": "I'll have a slice of cheesecake, please.",
+     "ko": "치즈케이크 한 조각 부탁합니다.",
+     "start": 351.0,
+     "end": 372.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_25",
+     "en": "Do you have any vegan desserts?",
+     "ko": "비건 디저트가 있나요?",
+     "start": 363.5,
+     "end": 388.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_26",
+     "en": "Can I get that to go?",
+     "ko": "그거 포장해 주실 수 있나요?",
+     "start": 389.5,
+     "end": 405.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_27",
+     "en": "Is this gluten free?",
+     "ko": "이거 글루텐프리인가요?",
+     "start": 401.0,
+     "end": 423.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_28",
+     "en": "I think there's a mistake with my order.",
+     "ko": "주문에 문제가 있는 것 같아요.",
+     "start": 415.5,
+     "end": 439.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_29",
+     "en": "This isn't what I ordered.",
+     "ko": "이건 제가 주문한 게 아니에요.",
+     "start": 435.0,
+     "end": 453.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_30",
+     "en": "Can you heat this up a little more?",
+     "ko": "이거 조금 더 데워 주실 수 있나요?",
+     "start": 449.0,
+     "end": 468.0
+    },
+    {
+     "id": "kdD3RV_YORc_31",
+     "en": "I'm sorry but this is too salty.",
+     "ko": "죄송하지만 이건 너무 짜요.",
+     "start": 464.0,
+     "end": 487.0
+    },
+    {
+     "id": "kdD3RV_YORc_32",
+     "en": "Could you bring me a clean fork?",
+     "ko": "깨끗한 포크 좀 가져다 주실 수 있나요?",
+     "start": 483.0,
+     "end": 502.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_33",
+     "en": "Can I speak to the manager, please?",
+     "ko": "매니저와 이야기할 수 있을까요?",
+     "start": 498.0,
+     "end": 519.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_34",
+     "en": "Can I pay with a credit card?",
+     "ko": "신용카드로 결제할 수 있나요?",
+     "start": 515.0,
+     "end": 533.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_35",
+     "en": "Do you accept cash?",
+     "ko": "현금 받으시나요?",
+     "start": 529.0,
+     "end": 545.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_36",
+     "en": "Can I split the bill?",
+     "ko": "계산을 나눌 수 있나요?",
+     "start": 541.0,
+     "end": 562.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_37",
+     "en": "Could we have separate checks?",
+     "ko": "따로따로 계산서 받을 수 있을까요?",
+     "start": 554.5,
+     "end": 571.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_38",
+     "en": "Is service included?",
+     "ko": "서비스료가 포함되어 있나요?",
+     "start": 569.5,
+     "end": 587.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_39",
+     "en": "Do you take tips?",
+     "ko": "팁 받으시나요?",
+     "start": 573.5,
+     "end": 596.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_40",
+     "en": "Excuse me, where is the restroom?",
+     "ko": "실례지만 화장실이 어디인가요?",
+     "start": 592.0,
+     "end": 615.0
+    },
+    {
+     "id": "kdD3RV_YORc_41",
+     "en": "Can you recommend a good local dish?",
+     "ko": "현지에서 좋은 요리 추천해 주실 수 있나요?",
+     "start": 613.5,
+     "end": 634.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_42",
+     "en": "How long will it take for the food to be ready?",
+     "ko": "음식 준비되는데 얼마나 걸릴까요?",
+     "start": 630.0,
+     "end": 656.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_43",
+     "en": "Can you bring the check when you're ready?",
+     "ko": "준비되셨을 때 계산서 가져다 주실 수 있나요?",
+     "start": 2161.0,
+     "end": 2186.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_44",
+     "en": "Can I have some more napkins, please?",
+     "ko": "냅킨 좀 더 주실 수 있나요?",
+     "start": 663.5,
+     "end": 688.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_45",
+     "en": "Can I order something else?",
+     "ko": "다른 것을 주문할 수 있을까요?",
+     "start": 688.0,
+     "end": 706.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_46",
+     "en": "What's in this dish?",
+     "ko": "이 요리에는 뭐가 들어가 있나요?",
+     "start": 699.5,
+     "end": 718.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_47",
+     "en": "Do you have a kids menu?",
+     "ko": "어린이 메뉴가 있나요?",
+     "start": 714.0,
+     "end": 732.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_48",
+     "en": "Could I get some ice with that?",
+     "ko": "얼음 좀 주실 수 있을까요?",
+     "start": 728.0,
+     "end": 744.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_49",
+     "en": "Can I have a straw, please?",
+     "ko": "빨대 하나 주실 수 있나요?",
+     "start": 740.0,
+     "end": 758.0,
+     "ref402": 5
+    },
+    {
+     "id": "kdD3RV_YORc_50",
+     "en": "Can we get a high chair for the baby?",
+     "ko": "아기용 의자 하나 받을 수 있을까요?",
+     "start": 754.0,
+     "end": 775.0,
+     "ref402": 5
+    }
+   ]
+  },
+  "DloQDMSuMK8": {
+   "id": "DloQDMSuMK8",
+   "title": "해외 여행에서 무조건 쓰는 마법의 50문장 ㅣ 관광지, 길거리편",
+   "category": "관광·명소",
+   "duration": 4066,
+   "sentences": [
+    {
+     "id": "DloQDMSuMK8_1",
+     "en": "Where is the nearest tourist information center?",
+     "ko": "가장 가까운 관광 안내소가 어디인가요?",
+     "start": 35.0,
+     "end": 62.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_2",
+     "en": "Are there any guided tours available?",
+     "ko": "가이드 투어가 있나요?",
+     "start": 2071.0,
+     "end": 2093.5,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_3",
+     "en": "How much is the entrance fee?",
+     "ko": "입장료는 얼마인가요?",
+     "start": 84.5,
+     "end": 105.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_4",
+     "en": "Do I need to book tickets in advance?",
+     "ko": "미리 티켓을 예약해야 하나요?",
+     "start": 101.0,
+     "end": 127.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_5",
+     "en": "What time does the museum open?",
+     "ko": "박물관은 몇 시에 여나요?",
+     "start": 118.5,
+     "end": 143.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_6",
+     "en": "Is there a map of this place?",
+     "ko": "이 장소에 지도가 있나요?",
+     "start": 147.5,
+     "end": 167.0,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "DloQDMSuMK8_7",
+     "en": "Do you offer audio guides?",
+     "ko": "오디오 가이드를 제공하나요?",
+     "start": 165.5,
+     "end": 188.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_8",
+     "en": "Can I get a brochure in English?",
+     "ko": "영어로 된 브로슈어를 받을 수 있을까요?",
+     "start": 179.5,
+     "end": 204.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_9",
+     "en": "How long is the tour?",
+     "ko": "투어는 얼마나 걸리나요?",
+     "start": 198.5,
+     "end": 222.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_10",
+     "en": "Is there a student discount?",
+     "ko": "학생 할인이 있나요?",
+     "start": 1219.5,
+     "end": 1239.5,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "DloQDMSuMK8_11",
+     "en": "Where is the ticket counter?",
+     "ko": "티켓 카운터는 어디인가요?",
+     "start": 238.0,
+     "end": 260.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_12",
+     "en": "Is this a famous landmark?",
+     "ko": "이곳은 유명한 명소인가요?",
+     "start": 3275.5,
+     "end": 3298.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_13",
+     "en": "Can I take pictures here?",
+     "ko": "여기서 사진을 찍어도 되나요?",
+     "start": 275.0,
+     "end": 295.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_14",
+     "en": "Are there any events today?",
+     "ko": "오늘 어떤 행사가 있나요?",
+     "start": 286.5,
+     "end": 311.0,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_15",
+     "en": "Is this place wheelchair accessible?",
+     "ko": "이곳은 휠체어로 접근할 수 있나요?",
+     "start": 3330.0,
+     "end": 3345.5,
+     "cat": "관광·명소",
+     "ref402": 6
+    },
+    {
+     "id": "DloQDMSuMK8_16",
+     "en": "Excuse me, how do I get to the train station?",
+     "ko": "기차역으로 어떻게 가나요?",
+     "start": 335.0,
+     "end": 362.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_17",
+     "en": "Can you show me on the map?",
+     "ko": "지도에서 보여주실 수 있나요?",
+     "start": 364.0,
+     "end": 385.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_18",
+     "en": "Is it far from here?",
+     "ko": "여기서 멀리 있나요?",
+     "start": 383.5,
+     "end": 395.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_19",
+     "en": "How long does it take to get there?",
+     "ko": "거기까지 가는데 얼마나 걸리나요?",
+     "start": 393.5,
+     "end": 415.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_20",
+     "en": "Can I walk there or do I need to take a bus?",
+     "ko": "거기까지 걸어갈 수 있나요, 아니면 버스를 타야 하나요?",
+     "start": 413.5,
+     "end": 438.0,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "DloQDMSuMK8_21",
+     "en": "Which direction is the subway?",
+     "ko": "지하철은 어느 방향인가요?",
+     "start": 449.0,
+     "end": 470.0,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "DloQDMSuMK8_22",
+     "en": "Is there a shortcut?",
+     "ko": "지름길이 있나요?",
+     "start": 466.0,
+     "end": 479.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_23",
+     "en": "How do I get to the main square?",
+     "ko": "메인 광장으로 어떻게 가나요?",
+     "start": 477.5,
+     "end": 502.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_24",
+     "en": "Is it safe to walk around here at night?",
+     "ko": "밤에 이 주변을 걸어다녀도 안전한가요?",
+     "start": 494.5,
+     "end": 519.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_25",
+     "en": "Where can I find a taxi?",
+     "ko": "택시를 어디서 찾을 수 있나요?",
+     "start": 526.0,
+     "end": 548.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_26",
+     "en": "When is the next train?",
+     "ko": "다음 기차는 언제 오나요?",
+     "start": 544.0,
+     "end": 571.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_27",
+     "en": "Where can I buy a bus ticket?",
+     "ko": "버스 티켓은 어디서 살 수 있나요?",
+     "start": 563.5,
+     "end": 588.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_28",
+     "en": "How much is a one-way ticket?",
+     "ko": "편도 티켓은 얼마인가요?",
+     "start": 577.0,
+     "end": 604.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_29",
+     "en": "Are there round-trip ticket options?",
+     "ko": "왕복 티켓 옵션이 있나요?",
+     "start": 599.5,
+     "end": 612.0,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "DloQDMSuMK8_30",
+     "en": "Where is the bus stop?",
+     "ko": "버스 정류장은 어디인가요?",
+     "start": 610.5,
+     "end": 635.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_31",
+     "en": "How long is the ride?",
+     "ko": "이동 시간은 얼마나 걸리나요?",
+     "start": 634.0,
+     "end": 661.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_32",
+     "en": "Does this bus go to the airport?",
+     "ko": "이 버스는 공항으로 가나요?",
+     "start": 3664.5,
+     "end": 3680.5,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_33",
+     "en": "Do I need to transfer trains?",
+     "ko": "기차를 환승해야 하나요?",
+     "start": 2687.5,
+     "end": 2704.5,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_34",
+     "en": "Is this the right platform?",
+     "ko": "이 플랫폼이 맞나요?",
+     "start": 685.5,
+     "end": 710.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_35",
+     "en": "Can you call me a taxi, please?",
+     "ko": "택시를 불러 주실 수 있나요?",
+     "start": 711.5,
+     "end": 733.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_36",
+     "en": "How much is the fare?",
+     "ko": "요금이 얼마인가요?",
+     "start": 724.5,
+     "end": 749.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_37",
+     "en": "Do you accept credit cards?",
+     "ko": "신용카드 받으시나요?",
+     "start": 748.0,
+     "end": 775.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_38",
+     "en": "Can I pay with cash?",
+     "ko": "현금으로 지불해도 되나요?",
+     "start": 768.5,
+     "end": 786.0,
+     "cat": "교통·길찾기",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_39",
+     "en": "Excuse me, could you help me?",
+     "ko": "실례합니다, 도와주실 수 있나요?",
+     "start": 777.5,
+     "end": 802.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_40",
+     "en": "Where can I find a restroom?",
+     "ko": "화장실은 어디서 찾을 수 있나요?",
+     "start": 802.0,
+     "end": 827.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_41",
+     "en": "Is there a convenience store near here?",
+     "ko": "근처에 편의점이 있나요?",
+     "start": 825.5,
+     "end": 850.0,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "DloQDMSuMK8_42",
+     "en": "Where is the nearest pharmacy?",
+     "ko": "가장 가까운 약국은 어디인가요?",
+     "start": 848.5,
+     "end": 873.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_43",
+     "en": "Where can I exchange currency?",
+     "ko": "환전은 어디서 할 수 있나요?",
+     "start": 879.5,
+     "end": 898.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_44",
+     "en": "Can I use my phone here?",
+     "ko": "여기서 제 폰을 사용해도 되나요?",
+     "start": 2880.0,
+     "end": 2905.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_45",
+     "en": "Where can I charge my phone?",
+     "ko": "어디서 휴대폰을 충전할 수 있나요?",
+     "start": 900.5,
+     "end": 925.0,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "DloQDMSuMK8_46",
+     "en": "Help! I need assistance.",
+     "ko": "도와주세요! 도움이 필요해요.",
+     "start": 929.0,
+     "end": 956.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_47",
+     "en": "Can you call the police for me?",
+     "ko": "경찰을 불러주실 수 있나요?",
+     "start": 954.5,
+     "end": 975.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_48",
+     "en": "I lost my passport.",
+     "ko": "여권을 잃어버렸어요.",
+     "start": 971.0,
+     "end": 994.0,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "DloQDMSuMK8_49",
+     "en": "Can I borrow your phone, please?",
+     "ko": "전화기를 빌려주실 수 있나요?",
+     "start": 990.0,
+     "end": 1013.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    },
+    {
+     "id": "DloQDMSuMK8_50",
+     "en": "I've been robbed. Can you help me?",
+     "ko": "도둑을 맞았어요. 도와주실 수 있나요?",
+     "start": 1011.5,
+     "end": 1034.0,
+     "cat": "긴급·기타",
+     "ref402": 7
+    }
+   ]
+  },
+  "IwI5qkUAIx8": {
+   "id": "IwI5qkUAIx8",
+   "title": "해외여행에서 무조건 쓰는 기적의 100문장 [왕초보 영어회화]",
+   "category": "교통·길찾기",
+   "duration": 3305,
+   "sentences": [
+    {
+     "id": "IwI5qkUAIx8_1",
+     "en": "Where do I transfer?",
+     "ko": "환승은 어디서 하나요?",
+     "start": 370.0,
+     "end": 384.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_2",
+     "en": "Where should I get off?",
+     "ko": "어디서 내려야 하나요?",
+     "start": 384.0,
+     "end": 398.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_3",
+     "en": "When is the next bus?",
+     "ko": "다음 버스는 언제인가요?",
+     "start": 398.0,
+     "end": 413.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_4",
+     "en": "Is this the last stop?",
+     "ko": "여기가 종점인가요?",
+     "start": 413.0,
+     "end": 428.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_5",
+     "en": "Do I need to transfer?",
+     "ko": "환승해야 하나요?",
+     "start": 428.0,
+     "end": 443.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_6",
+     "en": "Which line should I take?",
+     "ko": "몇 호선을 타야 하나요?",
+     "start": 443.0,
+     "end": 457.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_7",
+     "en": "Could you open the trunk?",
+     "ko": "트렁크 좀 열어 주시겠어요?",
+     "start": 457.0,
+     "end": 471.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_8",
+     "en": "Where can I buy a ticket?",
+     "ko": "표는 어디서 살 수 있나요?",
+     "start": 471.0,
+     "end": 487.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_9",
+     "en": "How many stops is it from here?",
+     "ko": "여기서 몇 정거장인가요?",
+     "start": 487.0,
+     "end": 494,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_10",
+     "en": "Can I buy a ticket on the bus?",
+     "ko": "버스에서 표를 살 수 있나요?",
+     "start": 490.0,
+     "end": 508.0,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_11",
+     "en": "Is this train express or local?",
+     "ko": "이 기차는 급행인가요, 완행인가요?",
+     "start": 520.0,
+     "end": 537.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_12",
+     "en": "Is this the right way to City Hall?",
+     "ko": "시청으로 가는 길이 맞나요?",
+     "start": 537.0,
+     "end": 555.0,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_13",
+     "en": "Does this train stop at Central Station?",
+     "ko": "이 기차 센트럴역에 서나요?",
+     "start": 555.0,
+     "end": 573.0,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_14",
+     "en": "Could you drop me off over there?",
+     "ko": "저쪽에서 내려 주시겠어요?",
+     "start": 575.0,
+     "end": 591.7,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_15",
+     "en": "Please let me know when we get there.",
+     "ko": "도착하면 알려 주세요.",
+     "start": 591.0,
+     "end": 609.0,
+     "cat": "교통·길찾기"
+    },
+    {
+     "id": "IwI5qkUAIx8_16",
+     "en": "Is this on sale?",
+     "ko": "이거 세일 중인가요?",
+     "start": 1195.0,
+     "end": 1213.0,
+     "cat": "쇼핑·결제",
+     "ref402": 8
+    },
+    {
+     "id": "IwI5qkUAIx8_17",
+     "en": "It doesn't fit me.",
+     "ko": "이거 제 몸에 안 맞아요.",
+     "start": 1214.0,
+     "end": 1223.7,
+     "cat": "쇼핑·결제"
+    },
+    {
+     "id": "IwI5qkUAIx8_18",
+     "en": "Do you have a new one?",
+     "ko": "새것으로 있나요?",
+     "start": 1223.0,
+     "end": 1236.7,
+     "cat": "쇼핑·결제"
+    },
+    {
+     "id": "IwI5qkUAIx8_19",
+     "en": "Do you have a smaller one?",
+     "ko": "더 작은 사이즈 있나요?",
+     "start": 1236.0,
+     "end": 1251.7,
+     "cat": "쇼핑·결제"
+    },
+    {
+     "id": "IwI5qkUAIx8_20",
+     "en": "Where is the fitting room?",
+     "ko": "탈의실은 어디인가요?",
+     "start": 1251.0,
+     "end": 1266.7,
+     "cat": "쇼핑·결제"
+    },
+    {
+     "id": "IwI5qkUAIx8_21",
+     "en": "Can I pay in cash?",
+     "ko": "현금으로 결제할 수 있나요?",
+     "start": 1266.0,
+     "end": 1281.7,
+     "cat": "쇼핑·결제"
+    },
+    {
+     "id": "IwI5qkUAIx8_22",
+     "en": "Could I get a receipt?",
+     "ko": "영수증 받을 수 있을까요?",
+     "start": 1281.0,
+     "end": 1294.7,
+     "cat": "쇼핑·결제"
+    },
+    {
+     "id": "IwI5qkUAIx8_23",
+     "en": "Do you have this in another color?",
+     "ko": "다른 색상 있나요?",
+     "start": 1294.0,
+     "end": 1312.0,
+     "cat": "쇼핑·결제",
+     "ref402": 8
+    },
+    {
+     "id": "IwI5qkUAIx8_24",
+     "en": "Where can I get a tax refund?",
+     "ko": "택스 리펀은 어디서 받나요?",
+     "start": 1312.0,
+     "end": 1329.7,
+     "cat": "쇼핑·결제"
+    },
+    {
+     "id": "IwI5qkUAIx8_25",
+     "en": "Can I return this at another location?",
+     "ko": "다른 지점에서 반품할 수 있나요?",
+     "start": 1329.0,
+     "end": 1347.0,
+     "cat": "쇼핑·결제"
+    },
+    {
+     "id": "IwI5qkUAIx8_26",
+     "en": "Where is the entrance?",
+     "ko": "입구가 어디인가요?",
+     "start": 1355.0,
+     "end": 1370.7,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_27",
+     "en": "Where is the exit?",
+     "ko": "출구가 어디인가요?",
+     "start": 1370.0,
+     "end": 1383.7,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_28",
+     "en": "Is admission free?",
+     "ko": "입장이 무료인가요?",
+     "start": 1383.0,
+     "end": 1397.7,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_29",
+     "en": "Are tickets still available?",
+     "ko": "티켓 아직 있나요?",
+     "start": 1397.0,
+     "end": 1413.7,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_30",
+     "en": "What time does the tour start?",
+     "ko": "투어는 몇 시에 시작하나요?",
+     "start": 1413.0,
+     "end": 1431.0,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_31",
+     "en": "Are we allowed to take pictures?",
+     "ko": "사진 찍어도 되나요?",
+     "start": 1431.0,
+     "end": 1446.7,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_32",
+     "en": "Can I buy tickets in advance?",
+     "ko": "미리 티켓을 살 수 있나요?",
+     "start": 1446.0,
+     "end": 1463.7,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_33",
+     "en": "Is there a guided tour available?",
+     "ko": "가이드 투어가 있나요?",
+     "start": 1463.0,
+     "end": 1479.7,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_34",
+     "en": "Is there an English audio guide?",
+     "ko": "영어 오디오 가이드가 있나요?",
+     "start": 1479.0,
+     "end": 1496.7,
+     "cat": "관광·명소"
+    },
+    {
+     "id": "IwI5qkUAIx8_35",
+     "en": "Is there a place to charge my phone?",
+     "ko": "휴대폰 충전할 곳이 있나요?",
+     "start": 1496.0,
+     "end": 1514.0,
+     "cat": "관광·명소",
+     "ref402": 4
+    },
+    {
+     "id": "IwI5qkUAIx8_36",
+     "en": "What should I do now?",
+     "ko": "이제 어떻게 해야 하나요?",
+     "start": 1523.0,
+     "end": 1538.7,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_37",
+     "en": "My phone is out of battery.",
+     "ko": "휴대폰 배터리가 다 됐어요.",
+     "start": 1538.0,
+     "end": 1555.7,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_38",
+     "en": "I can't find my luggage.",
+     "ko": "제 짐을 못 찾겠어요.",
+     "start": 1555.0,
+     "end": 1571.7,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_39",
+     "en": "I was charged twice.",
+     "ko": "돈이 두 번 결제됐어요.",
+     "start": 1571.0,
+     "end": 1587.7,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_40",
+     "en": "Could you translate this for me?",
+     "ko": "이거 번역 좀 해 주시겠어요?",
+     "start": 1587.0,
+     "end": 1600.7,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_41",
+     "en": "Could you write it down for me?",
+     "ko": "종이에 적어 주시겠어요?",
+     "start": 1600.0,
+     "end": 1615.7,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_42",
+     "en": "Could you show me on the map?",
+     "ko": "지도에서 보여 주시겠어요?",
+     "start": 1615.0,
+     "end": 1632.7,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_43",
+     "en": "I think there's been a mistake.",
+     "ko": "뭔가 착오가 있는 것 같아요.",
+     "start": 1632.0,
+     "end": 1649.7,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_44",
+     "en": "I locked myself out of my room.",
+     "ko": "방문이 잠겨서 못 들어가요.",
+     "start": 1649.0,
+     "end": 1667.0,
+     "cat": "긴급·기타"
+    },
+    {
+     "id": "IwI5qkUAIx8_45",
+     "en": "I don't understand what you mean.",
+     "ko": "무슨 말인지 모르겠어요.",
+     "start": 1667.0,
+     "end": 1681.0,
+     "cat": "긴급·기타"
+    }
+   ]
+  },
+  "HLpA-MMbxHY": {
+   "id": "HLpA-MMbxHY",
+   "title": "✈️ 해외여행 필수 문장 10가지!(공항 편)",
+   "category": "공항·기내",
+   "duration": 675,
+   "sentences": [
+    {
+     "id": "HLpA-MMbxHY_1",
+     "en": "Where can I check in for my flight?",
+     "ko": "제 비행기 체크인은 어디서 하나요?",
+     "start": 31.0,
+     "end": 62.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_2",
+     "en": "What time does boarding start?",
+     "ko": "탑승은 언제 시작하나요?",
+     "start": 103.0,
+     "end": 134.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_3",
+     "en": "Where is the security checkpoint?",
+     "ko": "보안 검색대는 어디에 있나요?",
+     "start": 190.0,
+     "end": 206.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_4",
+     "en": "Can I bring this on the plane?",
+     "ko": "이거 비행기에 가지고 탈 수 있나요?",
+     "start": 202.0,
+     "end": 233.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_5",
+     "en": "Where is the customs office?",
+     "ko": "세관은 어디에 있나요?",
+     "start": 257.5,
+     "end": 286.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_6",
+     "en": "Where is the baggage claim area?",
+     "ko": "수화물 찾는 곳은 어디인가요?",
+     "start": 297.5,
+     "end": 326.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_7",
+     "en": "My luggage is lost.",
+     "ko": "제 수화물이 없어졌어요.",
+     "start": 367.0,
+     "end": 398.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_8",
+     "en": "How much is a taxi to downtown?",
+     "ko": "시내까지 택시 요금이 얼마인가요?",
+     "start": 407.0,
+     "end": 438.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_9",
+     "en": "Can I get a map of the airport?",
+     "ko": "공항 지도를 받을 수 있을까요?",
+     "start": 468.5,
+     "end": 497.0,
+     "ref402": 4
+    },
+    {
+     "id": "HLpA-MMbxHY_10",
+     "en": "What should I do if I miss my flight?",
+     "ko": "비행기를 놓치면 어떻게 해야 하나요?",
+     "start": 535.0,
+     "end": 549.0,
+     "ref402": 4
+    }
+   ]
+  }
+ }
 }

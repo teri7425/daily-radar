@@ -107,6 +107,7 @@
 
   .opt-block{margin-top:9px;padding-top:9px;border-top:1px dashed #2b3a52}
   .opt-label{font-size:10.5px;font-weight:800;color:var(--muted2);letter-spacing:.4px;margin-bottom:6px;text-transform:uppercase}
+  .pad-hint{font-size:10.5px;color:var(--muted2);margin-top:6px;line-height:1.4}
   .chips{display:flex;flex-wrap:wrap;gap:6px}
   .chip{padding:6px 11px;border-radius:9px;background:var(--card2);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--muted)}
   .chip.active{background:#1e3a8a;border-color:#60a5fa;color:#dbeafe}
@@ -221,6 +222,15 @@
       <button class="btn btn-stop" onclick="stopAll(true)">⏹️ 멈춤</button>
     </div>
 
+    <div class="opt-block">
+      <div class="opt-label">구간 여백 · 영상 끝을 더 들을 초</div>
+      <div class="chips" id="pad-chips">
+        <button class="chip active" data-p="0">기본</button>
+        <button class="chip" data-p="3">+3초</button>
+        <button class="chip" data-p="6">+6초</button>
+      </div>
+      <div class="pad-hint" id="pad-hint">문장 끝이 살짝 잘리면 +3초를 눌러 보세요</div>
+    </div>
     <div class="opt-block">
       <div class="opt-label">음성 반복 횟수</div>
       <div class="chips" id="tts-count-chips">
@@ -353,7 +363,8 @@ const LS = {
   cat: 'soritune_video_last_category',
   speed: 'soritune_video_speed',
   accent: 'soritune_video_accent',
-  ttsCount: 'soritune_video_tts_count'
+  ttsCount: 'soritune_video_tts_count',
+  pad: 'soritune_video_end_pad'
 };
 const CATS = ['공항·기내', '호텔·숙소', '식당·카페', '쇼핑·결제', '교통·길찾기', '관광·명소', '긴급·기타'];
 
@@ -370,6 +381,7 @@ const state = {
   speed: 1.0,
   accent: 'en-US',
   ttsCount: 5,
+  pad: 0,
   player: null,
   playerReady: false,
   timer: null,
@@ -426,6 +438,8 @@ async function loadData() {
   state.speed = Number(localStorage.getItem(LS.speed) || 1.0);
   state.accent = localStorage.getItem(LS.accent) || 'en-US';
   state.ttsCount = Number(localStorage.getItem(LS.ttsCount) || 5);
+  const savedPad = Number(localStorage.getItem(LS.pad) || 0);
+  state.pad = [0, 3, 6].includes(savedPad) ? savedPad : 0;
 
   buildTabs();
   syncOptionChips();
@@ -696,7 +710,9 @@ function doVideoRepeat(item) {
   const p = state.player;
   if (!p) return;
   const start = Math.max(0, Number(item.start) || 0);
-  const end = Math.max(start + 1.2, Number(item.end) || (start + 4));
+  let end = Math.max(start + 1.2, (Number(item.end) || (start + 4)) + (state.pad || 0));
+  const dur = (state.videos[item.video_id] || {}).duration || 0;
+  if (dur) end = Math.min(end, Math.max(start + 1.2, dur - 0.5));
   updateDots(state.repeat, `🎧 ${state.repeat}/${MAX_REPEAT} 듣는 중`);
   try {
     p.loadVideoById({ videoId: item.video_id, startSeconds: start, endSeconds: end });
@@ -826,6 +842,13 @@ function syncOptionChips() {
   document.querySelectorAll('#tts-count-chips .chip').forEach(c => {
     c.classList.toggle('active', Number(c.dataset.n) === state.ttsCount);
   });
+  document.querySelectorAll('#pad-chips .chip').forEach(c => {
+    c.classList.toggle('active', Number(c.dataset.p) === state.pad);
+  });
+  const ph = document.getElementById('pad-hint');
+  if (ph) ph.textContent = state.pad === 0
+    ? '문장 끝이 살짝 잘리면 +3초를 눌러 보세요'
+    : `영상 끝을 ${state.pad}초 더 재생합니다`;
   const lbl = document.getElementById('tts-count-label');
   if (lbl) lbl.textContent = state.ttsCount === 0 ? '∞' : state.ttsCount;
 }
@@ -846,6 +869,10 @@ document.addEventListener('click', (e) => {
     state.ttsCount = Number(chip.dataset.n);
     localStorage.setItem(LS.ttsCount, String(state.ttsCount));
     toast('음성 반복 ' + (state.ttsCount === 0 ? '무한' : state.ttsCount + '회'));
+  } else if (chip.dataset.p !== undefined) {
+    state.pad = Number(chip.dataset.p) || 0;
+    localStorage.setItem(LS.pad, String(state.pad));
+    toast(state.pad === 0 ? '구간 여백 기본' : '구간 여백 +' + state.pad + '초');
   }
   syncOptionChips();
 });
