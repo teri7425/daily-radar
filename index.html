@@ -438,6 +438,7 @@ html[data-theme="light"] #toast{color:#fff}
   body{font-size:15.5px}
   .phead h2{font-size:23px}
   .grid2{grid-template-columns:repeat(3,1fr)}
+  .grid2.g22{grid-template-columns:1fr 1fr}
   .tiles{grid-template-columns:repeat(3,1fr)}
 }
 @media (prefers-reduced-motion:reduce){
@@ -575,7 +576,7 @@ html[data-theme="light"] #toast{color:#fff}
       <div class="titem"><div class="tn"><span>BTC.D</span><span class="cur">58.4%</span></div>
         <div class="tl"><span class="chip lo">50% 근처</span><span class="chip lo">45% 근처</span><span class="chip">±0.5%p 진입</span><span class="chip hi">60%↑</span></div></div>
     </div>
-    <p class="hint">※ 카드 수치는 11/25 한국·미국 종가, 가상자산은 11/26 06:54 KST 기준이고, 자동 감시는 공개 시세 API(Yahoo Finance · TradingView · CoinGecko · CNN)의 <b>실시간 값</b>으로 판정합니다. 원/달러는 역외(KRW=X), BTC.D는 TradingView(상위 125개) 기준입니다. 코스피 공포탐욕은 공식 지수가 없어 재구성 참고 지표로만 쓰고 감시에서 제외했습니다.</p>
+    <p class="hint">※ 카드 수치는 11/25 한국·미국 종가, 가상자산은 11/26 06:54 KST 기준이고, 자동 감시는 공개 시세 API(Yahoo Finance · TradingView · CoinGecko · CNN)의 <b>실시간 값</b>으로 판정합니다. 원/달러는 역외(KRW=X), BTC.D는 TradingView(상위 125개) 기준입니다. <b>VKOSPI·코스피 공포탐욕은 공개 실시간 API가 없어</b> 자동 감시에서 제외하고 마감치로만 반영합니다(심리·변동성 카드의 산출 기준 참조).</p>
   </div>
 
   <div class="card">
@@ -644,16 +645,18 @@ html[data-theme="light"] #toast{color:#fff}
 
   <div class="card">
     <h3>심리 · 변동성</h3>
-    <div class="grid2">
+    <div class="grid2 g22">
       <div class="metric"><div class="k">CNN 공포탐욕<span class="d down">극단적 공포</span></div><div class="v">15</div><div class="sub" style="margin-top:2px">1주 전 30 · 6회 연속 극단공포</div>
         <div class="trig"><span class="chip lo hit">≤20</span><span class="chip lo hit">≤15</span><span class="chip lo">≤10</span><span class="chip hi">45↑</span><span class="chip hi">75↑</span></div>
       </div>
       <div class="metric"><div class="k">VIX<span class="d down">▲7.32%</span></div><div class="v">28.29</div><div class="sub" style="margin-top:2px">장중 34.95까지 급등 후 28선 마감 · 전일 26.36</div>
         <div class="trig"><span class="chip hi hit">25↑ 경계</span><span class="chip hi">30↑ 공포</span><span class="chip hi">40↑ 패닉</span><span class="chip lo">20↓ 안정</span></div>
       </div>
-      <div class="metric"><div class="k">코스피 공포탐욕<span class="d down">극단공포 추정</span></div><div class="v">참고</div><div class="sub" style="margin-top:2px">공식 지수 없음 · CNN 방식 재구성 — 판단 근거로 쓰지 않음</div></div>
+      <div class="metric"><div class="k">코스피 공포탐욕<span class="d down">극단적 공포</span></div><div class="v">19.4</div><div class="sub" style="margin-top:2px">주달 11/25 기준 · ScorePort 24(공포) · WAEDGE 10(참고) — 공식 지수 없어 민간 산출 병기</div></div>
+      <div class="metric"><div class="k">VKOSPI<span class="d down">▲0.12%</span></div><div class="v">58.52</div><div class="sub" style="margin-top:2px">한국형 공포지수(코스피200 30일 기대변동성) · 24거래일 연속 50↑ · 11/24 장중 61.44 · KRX 집계 58.51</div></div>
     </div>
     <p class="hint">※ CNN 지수 구성 7개 중 <b>6개가 extreme fear</b>(모멘텀 2.8·시장 폭 17.8·풋콜 7.6·안전자산 4.2·투기등급 채권수요 13). 유일하게 VIX 항목만 ‘fear(34.8)’입니다. 즉 <b>‘공포의 강도’보다 ‘공포의 폭’이 넓은</b> 국면 — 이런 때는 지수 반등보다 <b>개별 종목 이벤트(실적·금통위)</b>가 방향을 정합니다.</p>
+    <p class="hint">※ 한국 쪽은 <b>VKOSPI 58.52</b>(코스피200 옵션이 반영한 향후 30일 기대변동성·KRX 11/25 마감)로 <b>공포의 절대 수준</b>을 봅니다. 10/23 이후 <b>24거래일 연속 종가 50선 상회</b>이고, 코스피가 -6.16% 빠진 날에도 지수는 +0.12% — <b>옵션시장이 보는 향후 변동폭은 줄지 않았습니다</b>(11/24 장중 61.44). 지난해 연평균 24.08의 2.4배 수준입니다. <b>코스피 공포탐욕 19.4</b>는 거래소 공식 지수가 없어 <b>산출 주체별로 갈립니다</b>(주달 19.4 · ScorePort 24 · WAEDGE 10) — 절대값 비교 대신 <b>‘극단적 공포권’이라는 방향</b>만 쓰세요.</p>
   </div>
 
   <div class="card">
@@ -721,6 +724,8 @@ html[data-theme="light"] #toast{color:#fff}
       <li>닛케이 — <a href="https://www.nikkei.com/article/DGXZQOFL25CC80V21C26A1000000/" target="_blank" rel="noopener">WTI $83.68·금 2월물 $3,564.6·장중 $3,453.8</a> · 뉴스핌 — <a href="https://ir.newspim.com/news/view/20261126000032" target="_blank" rel="noopener">브렌트 $94.61·현물 금 $3,547.29·EIA 재고</a> · 국제금융센터 — <a href="https://www.kcif.or.kr/chart/commList" target="_blank" rel="noopener">Brent $93.00·구리·WTI 조회치</a></li>
       <li>SMM — <a href="https://news.metal.com/ko/newscontent/BKSHXJ65GFRYSFIYZ7IJF6YYM5GIZMCYPP7L4JY" target="_blank" rel="noopener">LME 구리·은 11/24 낙폭</a> · 짚뉴스 — <a href="https://zipnews.kr/copper-price-today/" target="_blank" rel="noopener">COMEX 구리 $5.3095/lb·LME 현물 $11,797</a> · 아주경제 — <a href="https://www.ajunews.com/view/20261125140735435" target="_blank" rel="noopener">구리 월간 -16.7%·ART 변수</a></li>
       <li>BotHub — <a href="https://fire.bothub.chat/en/ticker/indices/vix/history/2026-11-25" target="_blank" rel="noopener">VIX 28.29(+7.32%)·장중 34.95</a> · fgscore — <a href="https://fgscore.com/ko/markets/sp500" target="_blank" rel="noopener">CNN F&amp;G 15·구성 지표</a> · INDEXerGO — <a href="https://www.indexergo.com/series/?frq=D&amp;idxDetail=24501" target="_blank" rel="noopener">15.41(11/25 마감)</a></li>
+      <li>Investing.com — <a href="https://kr.investing.com/indices/kospi-volatility-historical-data" target="_blank" rel="noopener">VKOSPI 58.52(+0.12%)·11/24 장중 61.44·일별 종가</a> · 파이낸셜뉴스 — <a href="https://www.fnnews.com/news/202611251823595426" target="_blank" rel="noopener">KRX 집계 58.51·24거래일 연속 50선 상회</a> · 헤럴드경제 — <a href="https://biz.heraldcorp.com/article/10948749" target="_blank" rel="noopener">올해 평균 59.1(작년 24.08의 2.45배)</a></li>
+      <li>주달 — <a href="https://www.judal.co.kr/?view=fearMap" target="_blank" rel="noopener">코스피 공포탐욕 19.4(11/25)</a> · ScorePort — <a href="https://scoreport.kr/fear-greed" target="_blank" rel="noopener">코스피 24·산출식(추세 35%·참여도 30%·위험 20%·거래량 15%)</a> · WAEDGE — <a href="https://news.waedge.ai/s/diag_topbottom.html" target="_blank" rel="noopener">한국 공탐 10(11/25·참고 구간)</a></li>
       <li>토큰포스트 — <a href="https://www.tokenpost.kr/news/briefing/444506" target="_blank" rel="noopener">모닝 시세·BTC.D 58.38%·전체 시총</a> · <a href="https://www.tokenpost.kr/news/cryptocurrency/444351" target="_blank" rel="noopener">갤럭시 약세장 판단 철회</a> · 주달 — <a href="https://www.judal.co.kr/usMarket/15/crypto?tab=quote" target="_blank" rel="noopener">BTC $60,205(06:54)</a> · 블록미디어 — <a href="https://coincost.co.kr/news/20261126-4o3m1g" target="_blank" rel="noopener">청산·시총</a></li>
       <li>연합뉴스 — <a href="https://www.yna.co.kr/view/AKR20261125128400002" target="_blank" rel="noopener">금통위 3.25%·수정전망·점도표</a> · 노컷뉴스 — <a href="https://www.nocutnews.co.kr/news/6612732" target="_blank" rel="noopener">증권사 16곳·최종 3.50%·씨티 가계손실 563조</a> · 디지털타임스 — <a href="https://www.dt.co.kr/article/12097243" target="_blank" rel="noopener">점도표 3.50/3.75 논쟁</a> · EBN — <a href="https://kr.investing.com/news/stock-market-news/article-2188147" target="_blank" rel="noopener">채권 전문가 54% 인상</a></li>
     </ul>
@@ -1410,7 +1415,7 @@ html[data-theme="light"] #toast{color:#fff}
 
     <div class="callout">
       <span class="t">오늘 시장에 대입하면</span>
-      VIX <b>28.29</b>·CNN 공포탐욕 <b>15</b> 구간입니다. 지수가 -6.16% 급락한 날 VIX가 28선에서 마감(장중 34.95)한 것은 <b>공포가 아직 ‘패닉’까지 가지 않았다</b>는 뜻이고, 반대로 CNN 지수는 <b>6회 연속 극단공포</b>입니다. 이런 구간에서는 <b>현금 버퍼를 25~40%, 분할 횟수를 5~8회</b>로 두는 조합이 1회차 충격을 줄입니다. 공포탐욕이 45 이상으로 회복되면 버퍼를 줄이는 방향으로 조정합니다.
+      VIX <b>28.29</b>·CNN 공포탐욕 <b>15</b>, 그리고 VKOSPI <b>58.52</b>(코스피200 옵션이 보는 30일 기대변동성 — 지난해 연평균 24.08의 2.4배)·코스피 공포탐욕 <b>19.4</b> 구간입니다. 지수가 -6.16% 급락한 날 VIX가 28선에서 마감(장중 34.95)한 것은 <b>공포가 아직 ‘패닉’까지 가지 않았다</b>는 뜻이고, 반대로 CNN 지수는 <b>6회 연속 극단공포</b>입니다. 이런 구간에서는 <b>현금 버퍼를 25~40%, 분할 횟수를 5~8회</b>로 두는 조합이 1회차 충격을 줄입니다. 공포탐욕이 45 이상으로 회복되면 버퍼를 줄이는 방향으로 조정합니다.
     </div>
     <p class="hint">※ 원금 보장이 아닙니다. 분할은 ‘평균 단가’를 낮추는 도구가 아니라 <b>판단 시점을 나누는</b> 도구입니다.</p>
   </div>
@@ -1650,7 +1655,8 @@ html[data-theme="light"] #toast{color:#fff}
       "· 원/달러 1,343.2 (+0.8원, 장중 1,349.0) / 달러인덱스 104.05",
       "· 美10Y 4.87% (-3bp) / 2Y 4.63% / 韓3Y 3.583% (-5.7bp, 6개월 만 3.6% 하회) / 韓10Y 3.761% (-5.8bp)",
       "· WTI $83.68 (+2.0%, 후티-사우디 정유시설) / 브렌트 $94.61 (+3.5%) / 금 $3,547(1년여 최저) / 구리 -1.11%",
-      "· CNN 공포탐욕 15 (1주 전 30) / VIX 28.29 (장중 34.95) / 사이드카 연 102회·4거래일 연속",
+      "· CNN 공포탐욕 15 (1주 전 30) / VIX 28.29 (장중 34.95) / VKOSPI 58.52 (+0.12%, 24거래일 연속 50선 상회·24일 장중 61.44)",
+      "· 코스피 공포탐욕 19.4 극단적 공포 (주달 · ScorePort 24 · WAEDGE 10) / 사이드카 연 102회·4거래일 연속",
       "· 비트코인 $60,205 (새벽 $58,370 → 회복) · 11월 ETF 유출 $47.1억(기록) / BTC.D 58.4%",
       "· 금리: 韓 3.00% → 오늘 09:50 3.25% 유력(점도표 3.50%) / 美 3.75~4.00%, 12월 인상 사실상 100%",
       "→ 대응: 금통위·삼성전자 17만원·SK하이닉스 100만원 확인 후 1차. 분할 5~8회·현금 25~40%"
