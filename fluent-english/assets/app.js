@@ -84,6 +84,11 @@
   }, read(K_SET, {}));
   var last = read(K_LAST, null);
 
+  /* 예전에 저장된 값이 깨져 있어도 안전하게 보정 */
+  if (['us', 'uk', 'au', 'in'].indexOf(settings.accent) < 0) settings.accent = 'us';
+  settings.rate = Number(settings.rate) > 0 ? Number(settings.rate) : 1;
+  settings.repeat = Number(settings.repeat) > 0 ? Number(settings.repeat) : 2;
+
   function saveSettings() { write(K_SET, settings); }
   function setDone(id, on) {
     progress[id] = Object.assign({}, progress[id] || {});
@@ -106,11 +111,12 @@
      ============================================================ */
   var LANG = { us: 'en-US', uk: 'en-GB', au: 'en-AU', in: 'en-IN', ko: 'ko-KR' };
   var ACCENTS = [
-    { id: 'us', label: '미국' },
-    { id: 'uk', label: '영국' },
-    { id: 'au', label: '호주' },
-    { id: 'in', label: '인도' }
+    { id: 'us', label: '미국', flag: '🇺🇸' },
+    { id: 'uk', label: '영국', flag: '🇬🇧' },
+    { id: 'au', label: '호주', flag: '🇦🇺' },
+    { id: 'in', label: '인도', flag: '🇮🇳' }
   ];
+  var RATES = [0.75, 0.9, 1, 1.15];
 
   var speech = {
     ok: (typeof window.speechSynthesis !== 'undefined' &&
@@ -118,26 +124,55 @@
     voices: []
   };
 
+  function normLang(l) {
+    return String(l || '').replace(/_/g, '-').toLowerCase();
+  }
+
   function loadVoices() {
     try { speech.voices = window.speechSynthesis.getVoices() || []; }
     catch (e) { speech.voices = []; }
   }
   if (speech.ok) {
     loadVoices();
-    try { window.speechSynthesis.onvoiceschanged = loadVoices; } catch (e) {}
+    try {
+      if (typeof window.speechSynthesis.addEventListener === 'function') {
+        window.speechSynthesis.addEventListener('voiceschanged', loadVoices);
+      } else {
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+      }
+    } catch (e) {}
+    /* 음성 목록이 늦게 채워지는 브라우저(iOS·안드로이드) 대비 */
+    setTimeout(function () { loadVoices(); renderSpeechBar(); }, 250);
+    setTimeout(function () { loadVoices(); renderSpeechBar(); }, 1200);
+  }
+
+  /* lang에 맞는 음성을 찾습니다. exact = 같은 지역(en-GB), region = 같은 지역의 변형
+     (en-GB-x-rp 등), base = 같은 언어(en-*)입니다. */
+  function voiceFor(lang) {
+    var want = normLang(lang);
+    var wantBase = want.split('-')[0];
+    var wantRegion = want.split('-')[1] || '';
+    var vs = speech.voices || [];
+    var exact = null, region = null, base = null;
+    for (var i = 0; i < vs.length; i++) {
+      var v = vs[i];
+      var vl = normLang(v.lang);
+      if (!vl) continue;
+      var parts = vl.split('-');
+      var vb = parts[0], vr = parts[1] || '';
+      if (!exact && vl === want) exact = v;
+      else if (!region && wantRegion && vb === wantBase && vr.indexOf(wantRegion) === 0) region = v;
+      else if (!base && vb === wantBase) base = v;
+    }
+    return { exact: exact, match: exact || region, base: base };
   }
 
   function pickVoice(lang) {
-    var vs = speech.voices || [];
-    if (!vs.length) return null;
-    var exact = null, base = null;
-    var b = lang.split('-')[0];
-    for (var i = 0; i < vs.length; i++) {
-      var v = vs[i];
-      if (!exact && v.lang && v.lang.toLowerCase() === lang.toLowerCase()) exact = v;
-      if (!base && v.lang && v.lang.toLowerCase().indexOf(b) === 0) base = v;
-    }
-    return exact || base || null;
+    var r = voiceFor(lang);
+    if (r.match) return r.match;
+    /* 한국어는 지역 변형 음성밖에 없어도 그대로 사용 */
+    if (normLang(lang).indexOf('ko') === 0) return r.base;
+    return null;
   }
 
   function speak(text, lang, rate) {
@@ -169,6 +204,46 @@
 
   function enLang() { return LANG[settings.accent] || 'en-US'; }
   function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  /* ---------- 억양·배속 바 (장 화면 전체 모드 공통) ---------- */
+  function accentHint() {
+    if (!speech.ok || !speech.voices.length) return '';
+    var a = null;
+    for (var i = 0; i < ACCENTS.length; i++) if (ACCENTS[i].id === settings.accent) a = ACCENTS[i];
+    if (!a) return '';
+    if (voiceFor(LANG[a.id]).match) return '';
+    return '이 기기에는 ' + a.label + ' 영어 음성이 없어 기본 영어 음성으로 들립니다.';
+  }
+
+  function renderSpeechBar() {
+    var box = $('#speechBar');
+    if (!box) return;
+    var html = '<div class="sb-row">' +
+      '<span class="sb-cap" aria-hidden="true">🗣 억양</span>' +
+      '<div class="sb-chips" role="group" aria-label="영어 억양 선택">';
+    ACCENTS.forEach(function (a) {
+      var on = settings.accent === a.id;
+      html += '<button type="button" class="sb-chip' + (on ? ' on' : '') + '"' +
+        ' data-accent="' + a.id + '" aria-pressed="' + (on ? 'true' : 'false') + '">' +
+        '<span class="flag" aria-hidden="true">' + a.flag + '</span>' + a.label + '</button>';
+    });
+    html += '</div></div><div class="sb-row">' +
+      '<span class="sb-cap" aria-hidden="true">⏩ 배속</span>' +
+      '<div class="sb-chips" role="group" aria-label="재생 배속 선택">';
+    RATES.forEach(function (n) {
+      var on = settings.rate === n;
+      html += '<button type="button" class="sb-chip rate' + (on ? ' on' : '') + '"' +
+        ' data-rate="' + n + '" aria-pressed="' + (on ? 'true' : 'false') + '">' +
+        (n === 1 ? '1x' : n + 'x') + '</button>';
+    });
+    html += '</div></div>';
+    var hint = accentHint();
+    if (hint) html += '<p class="sb-hint">⚠️ ' + esc(hint) + '</p>';
+    box.innerHTML = html;
+  }
+
+  /* 억양 미리 듣기 문장 — 학습 문장의 정답을 미리 읽어 주지 않도록 고정 예문 사용 */
+  var PREVIEW_EN = 'Nice to meet you. Where are you from?';
 
   /* ============================================================
      3. 공통 DOM
@@ -448,6 +523,7 @@
     else if (st.mode === 'course') renderCourse();
     else renderTalk();
     renderModeTabs();
+    renderSpeechBar();
   }
 
   /* ---------- ② 통역 · 티키타카 ---------- */
@@ -728,17 +804,8 @@
         [1, 2, 3, 5].map(function (n) {
           return '<option value="' + n + '"' + (settings.repeat === n ? ' selected' : '') + '>' + n + '회</option>';
         }).join('') +
-      '</select></div>' +
-      '<div class="opt"><label>배속</label><select data-opt="rate">' +
-        [0.75, 0.9, 1, 1.15].map(function (n) {
-          return '<option value="' + n + '"' + (settings.rate === n ? ' selected' : '') + '>' + n.toFixed(2).replace(/0$/, '') + 'x</option>';
-        }).join('') +
-      '</select></div>' +
-      '<div class="opt"><label>억양</label><select data-opt="accent">' +
-        ACCENTS.map(function (a) {
-          return '<option value="' + a.id + '"' + (settings.accent === a.id ? ' selected' : '') + '>' + a.label + '</option>';
-        }).join('') +
       '</select></div>';
+    /* 억양·배속은 모드 탭 아래 공통 바에서 바꿉니다 */
     card.appendChild(opts);
 
     var now = el('div', 'now-line');
@@ -900,6 +967,33 @@
     renderMode();
   });
 
+  /* 억양·배속 바: 모든 모드 공통 */
+  $('#speechBar').addEventListener('click', function (e) {
+    var a = e.target.closest('[data-accent]');
+    if (a) {
+      var id = a.getAttribute('data-accent');
+      if (!LANG[id] || !cur()) return;
+      var changed = settings.accent !== id;
+      settings.accent = id;
+      saveSettings();
+      renderSpeechBar();
+      /* 고른 억양을 바로 확인할 수 있게 짧은 예문을 들려줍니다 */
+      if (changed && !(st.mode === 'course' && st.course.playing)) {
+        speak(PREVIEW_EN, LANG[id], settings.rate);
+      }
+      return;
+    }
+    var r = e.target.closest('[data-rate]');
+    if (r) {
+      var rate = Number(r.getAttribute('data-rate'));
+      if (!(rate > 0)) return;
+      settings.rate = rate;
+      saveSettings();
+      renderSpeechBar();
+      if (st.mode === 'course') { stopCourse(); renderCourse(); }
+    }
+  });
+
   /* 모드 패널: 위임 */
   modePanel.addEventListener('click', function (e) {
     var c = cur(); if (!c) return;
@@ -1049,7 +1143,10 @@
     sourceChapters: SRC_CH,
     madeChapters: TOTAL_CH - SRC_CH,
     formulas: ALL.filter(function (c) { return c.F; }).length,
+    formulaChapters: ALL.filter(function (c) { return c.F; }).map(function (c) { return c.id; }),
     chapterItems: function (id) { return BY_ID[id] ? BY_ID[id].I.length : 0; },
+    settings: settings,
+    accentLang: function () { return enLang(); },
     open: openChapter
   };
 })();
