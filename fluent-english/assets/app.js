@@ -8,6 +8,8 @@
      0. 데이터 정규화
      ============================================================ */
   var RAW = window.FE_PARTS || [];
+  /* 나머지 장의 ①공식 대입 데이터 — assets/data/formulas.js */
+  var FORMULAS = window.FE_FORMULAS || {};
 
   function normItem(it) {
     var yes = (it[2] || '').replace(/^-\s*/, '');
@@ -46,7 +48,7 @@
           L: c.L || [],
           T: c.T || [],
           I: (c.I || []).map(normItem),
-          F: c.F || null
+          F: c.F || FORMULAS['p' + p.id + 'c' + c.n] || null
         };
       })
     };
@@ -417,7 +419,8 @@
     var c = cur();
     if (!keepMode) st.mode = 'talk';   /* 기본은 ② 통역·티키타카 (책의 핵심 훈련) */
     st.talk = { i: 0, revealed: false, ans: null, thinking: false, timer: null };
-    st.fm = { set: 0, aux: (c.F && c.F.aux[0]) || 'do' };
+    var a0 = c.F && c.F.aux && c.F.aux[0];
+    st.fm = { set: 0, aux: (a0 && a0.id) ? a0.id : (a0 || 'do') };
     st.course = { i: 0, playing: false, token: 0 };
 
     last = { id: c.id, at: new Date().toISOString() };
@@ -660,118 +663,511 @@
   }
 
   /* ---------- ① 공식 대입 ---------- */
+  /* 조동사·시제 축.  fam: verb(일반동사) | perfect(완료) | prog(진행) |
+     be(be동사) | passive(수동) | custom(장마다 직접 쓴 문장) */
   var AUX_META = {
-    do: { label: 'Do', tense: '현재' },
-    did: { label: 'Did', tense: '과거' },
-    will: { label: 'Will', tense: '미래' },
-    can: { label: 'Can', tense: '가능' },
-    wantto: { label: 'want to', tense: '원함' },
-    haveto: { label: 'have to', tense: '의무' },
-    usedto: { label: 'used to', tense: '과거 습관' },
-    goingto: { label: 'be going to', tense: '예정' }
+    do:         { label: 'Do',                tense: '현재',      fam: 'verb' },
+    dont:       { label: "Don't",             tense: '부정 현재', fam: 'verb' },
+    did:        { label: 'Did',               tense: '과거',      fam: 'verb' },
+    didnt:      { label: "Didn't",            tense: '부정 과거', fam: 'verb' },
+    will:       { label: 'Will',              tense: '미래',      fam: 'verb' },
+    can:        { label: 'Can',               tense: '가능',      fam: 'verb' },
+    could:      { label: 'Could',             tense: '공손',      fam: 'verb' },
+    would:      { label: 'Would',             tense: '공손 요청', fam: 'verb' },
+    should:     { label: 'Should',            tense: '충고',      fam: 'verb' },
+    must:       { label: 'Must',              tense: '의무',      fam: 'verb' },
+    may:        { label: 'May',               tense: '허락',      fam: 'verb' },
+    shall:      { label: 'Shall',             tense: '제안',      fam: 'verb' },
+    wantto:     { label: 'want to',           tense: '원함',      fam: 'verb' },
+    needto:     { label: 'need to',           tense: '필요',      fam: 'verb' },
+    intendto:   { label: 'intend to',         tense: '작정',      fam: 'verb' },
+    planto:     { label: 'plan to',           tense: '계획',      fam: 'verb' },
+    expectto:   { label: 'expect to',         tense: '기대',      fam: 'verb' },
+    liketo:     { label: 'like to',           tense: '좋아함',    fam: 'verb' },
+    haveto:     { label: 'have to',           tense: '의무',      fam: 'verb' },
+    usedto:     { label: 'used to',           tense: '과거 습관', fam: 'verb' },
+    goingto:    { label: 'going to',          tense: '예정',      fam: 'verb' },
+    ableto:     { label: 'be able to',        tense: '능력',      fam: 'verb' },
+    wouldlike:  { label: 'would like',        tense: '권유',      fam: 'verb' },
+    wouldliketo:{ label: 'would like to',     tense: '권유',      fam: 'verb' },
+    have:       { label: 'Have',              tense: '현재완료',  fam: 'perfect' },
+    had:        { label: 'Had',               tense: '과거완료',  fam: 'perfect' },
+    willhave:   { label: 'Will have',         tense: '미래완료',  fam: 'perfect' },
+    prog:       { label: 'Are you -ing',      tense: '현재진행',  fam: 'prog' },
+    progpast:   { label: 'Were you -ing',     tense: '과거진행',  fam: 'prog' },
+    progwill:   { label: 'Will you be -ing',  tense: '미래진행',  fam: 'prog' },
+    be:         { label: 'Are you',           tense: '현재',      fam: 'be' },
+    bep:        { label: 'Were you',          tense: '과거',      fam: 'be' },
+    willbe:     { label: 'Will you be',       tense: '미래',      fam: 'be' },
+    goingtobe:  { label: 'going to be',       tense: '예정',      fam: 'be' },
+    havebe:     { label: 'Have you been',     tense: '완료',      fam: 'be' },
+    pbe:        { label: 'is + p.p',          tense: '수동 현재', fam: 'passive' },
+    pwas:       { label: 'was + p.p',         tense: '수동 과거', fam: 'passive' },
+    pwill:      { label: 'will be + p.p',     tense: '수동 미래', fam: 'passive' },
+    phas:       { label: 'has been + p.p',    tense: '수동 완료', fam: 'passive' },
+    pcan:       { label: 'can be + p.p',      tense: '수동 가능', fam: 'passive' }
   };
 
-  function compose(aux, s) {
-    var o = s.o ? ' ' + s.o : '';
-    var v = s.v, past = s.past || s.v;
-    var q, yes, no;
+  /* ---------- 주어 인칭·수 ---------- */
+  var PRON_PL = { you: 1, we: 1, they: 1 };
+  var PRON_SG = { i: 1, he: 1, she: 1, it: 1, this: 1, that: 1,
+                  everybody: 1, everyone: 1, somebody: 1, nobody: 1, each: 1 };
+
+  function agrOf(who, agr) {
+    if (agr === 'pl') return true;
+    if (agr === 'sg') return false;
+    var s = String(who == null ? '' : who).trim().toLowerCase();
+    if (PRON_PL[s]) return true;
+    if (PRON_SG[s]) return false;
+    if (/(?:ss|us|news|series|sheep|fish|means)$/.test(s)) return false;
+    if (/(?:s|people|children|men|women)$/.test(s)) return true;
+    return false;
+  }
+  function beW(who, agr, tense) {
+    var pl = agrOf(who, agr);
+    if (tense === 'past') return pl ? 'were' : 'was';
+    if (pl) return 'are';
+    return String(who == null ? '' : who).trim().toLowerCase() === 'i' ? 'am' : 'is';
+  }
+  function bePos(who, agr) {            /* I'm / you're / he's / the book is */
+    var w = beW(who, agr, 'pres');
+    if (w === 'am') return "I'm";
+    if (w === 'are') return String(who).trim().toLowerCase() + "'re";
+    if (w === 'is') {
+      var lw = String(who).trim().toLowerCase();
+      if (PRON_SG[lw]) return lw + "'s";
+      return who + ' is';
+    }
+    return who + ' ' + w;
+  }
+  function beNeg(who, agr) {            /* I'm not / you aren't / he isn't */
+    var w = beW(who, agr, 'pres');
+    if (w === 'am') return "I'm not";
+    if (w === 'are') {
+      var lw = String(who).trim().toLowerCase();
+      return (PRON_PL[lw] ? lw : who) + " aren't";
+    }
+    var lw2 = String(who).trim().toLowerCase();
+    if (PRON_SG[lw2]) return lw2 + " isn't";
+    return who + " isn't";
+  }
+  /* 3인칭 단수일 때만 -s/does/has 를 씁니다 (I·you·we 는 복수형 취급) */
+  function is3s(who, agr) {
+    var s = String(who == null ? '' : who).trim().toLowerCase();
+    if (s === 'i' || s === 'you' || s === 'we' || s === 'they') return false;
+    if (agr === 'pl') return false;
+    if (agr === 'sg') return true;
+    return !agrOf(who, agr);
+  }
+  function doW(who, agr) { return is3s(who, agr) ? 'does' : 'do'; }
+  function doNeg(who, agr) { return is3s(who, agr) ? "doesn't" : "don't"; }
+  function haveW(who, agr) { return is3s(who, agr) ? 'has' : 'have'; }
+
+  /* 3인칭 단수 현재형 — 규칙 + 자주 쓰는 불규칙 */
+  var V3 = { have: 'has', do: 'does', go: 'goes', be: 'is' };
+  function third(v) {
+    var sp = String(v || '').split(' ');
+    var w = sp[0], rest = sp.slice(1).join(' ');
+    if (!w) return v;
+    var t = V3[w.toLowerCase()];
+    if (!t) {
+      if (/(?:s|sh|ch|x|z|o)$/.test(w)) t = w + 'es';
+      else if (/[^aeiou]y$/.test(w)) t = w.slice(0, -1) + 'ies';
+      else t = w + 's';
+    }
+    return t + (rest ? ' ' + rest : '');
+  }
+  /* 묻는 사람과 답하는 사람이 바뀔 때 대명사를 맞바꿉니다 (flip) */
+  var FLIP = { your: 'my', yours: 'mine', yourself: 'myself', you: 'me',
+               my: 'your', mine: 'yours', myself: 'yourself', me: 'you' };
+  function flipPerson(t) {
+    return String(t || '').replace(/\b(your|yours|yourself|you|my|mine|myself|me)\b/gi,
+      function (w) {
+        var m = FLIP[w.toLowerCase()];
+        if (!m) return w;
+        return (w.charAt(0) === w.charAt(0).toUpperCase()) ? cap(m) : m;
+      });
+  }
+  function cap(s) {
+    s = String(s == null ? '' : s);
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+  function jw() {  /* 빈 조각을 빼고 한 칸으로 잇습니다 */
+    var out = [];
+    for (var i = 0; i < arguments.length; i++) {
+      var a = arguments[i];
+      if (a != null && String(a).trim() !== '') out.push(String(a).trim());
+    }
+    return out.join(' ');
+  }
+
+  /* ---------- 축 목록 (문자열 id 또는 {id,label,tense} 객체) ---------- */
+  function auxListOf(F) {
+    var out = [];
+    (F.aux || []).forEach(function (a) {
+      if (typeof a === 'string') {
+        var m = AUX_META[a];
+        out.push(m ? { id: a, label: m.label, tense: m.tense, fam: m.fam }
+                   : { id: a, label: a, tense: '', fam: 'custom' });
+      } else if (a && a.id) {
+        out.push({ id: a.id, label: a.label || a.id, tense: a.tense || '', fam: 'custom' });
+      }
+    });
+    return out;
+  }
+  function auxById(F, id) {
+    var l = auxListOf(F);
+    for (var i = 0; i < l.length; i++) if (l[i].id === id) return l[i];
+    return null;
+  }
+  /* 이 조동사로 말할 수 있는 동사구만 남깁니다 (set.only) */
+  function setsFor(F, auxId) {
+    var all = F.sets || [];
+    var pick = all.filter(function (s) { return !s.only || s.only.indexOf(auxId) >= 0; });
+    return pick.length ? pick : all;
+  }
+
+  /* ---------- 문장 조립 ---------- */
+  /* build(): 질문 1개 + 긍정 서술문(dpos) + 부정 서술문(dneg)
+     Pd 는 긍정 서술문에만 쓰는 동사구(의문사 답의 정보를 붙인 형태) */
+  function build(aux, s, F, extra) {
+    var wh = (s.wh !== undefined) ? s.wh : (F.wh || '');
+    var subj = s.subj || F.subj || 'you';
+    var asub = s.asub || F.asub || 'I';
+    var P  = jw(s.v, s.o);
+    var PAST = s.past ? jw(s.past, s.o) : P;
+    var PP = s.pp ? jw(s.pp, s.o) : PAST;
+    var ING = s.ing ? jw(s.ing, s.o) : P;
+    /* 긍정 서술문에만 의문사의 답 정보(extra)를 붙입니다 */
+    var Px = jw(P, extra), PASTx = jw(PAST, extra);
+    var PPx = jw(PP, extra), INGx = jw(ING, extra);
+    var mid = s.mid ? s.mid + ' ' : '';
+    var pre = jw(wh, s.hw) ? jw(wh, s.hw) + ' ' : '';
+    var S = subj, A = asub;
+    var pl = agrOf(S, s.agr), apl = agrOf(A, s.asubAgr);
+    var a3 = is3s(A, s.asubAgr);
+    var aDo = a3 ? 'does' : 'do';
+    var aHave = a3 ? 'has' : 'have';
+    var q, dpos, dneg;
+
     switch (aux) {
       case 'did':
-        q = 'Did you ' + v + o + '?';
-        yes = 'Yes, I ' + past + o + '.';
-        no = "No, I didn't " + v + o + '.';
-        break;
+        q = pre + 'did ' + S + ' ' + mid + P + '?';
+        dpos = A + ' ' + mid + PASTx; dneg = A + " didn't " + mid + P; break;
+      case 'dont':
+        q = pre + "don't " + S + ' ' + mid + P + '?';
+        dpos = A + ' ' + mid + (a3 ? third(Px) : Px);
+        dneg = A + ' ' + doNeg(A, s.asubAgr) + ' ' + mid + P; break;
+      case 'didnt':
+        q = pre + "didn't " + S + ' ' + mid + P + '?';
+        dpos = A + ' ' + mid + PASTx; dneg = A + " didn't " + mid + P; break;
       case 'will':
-        q = 'Will you ' + v + o + '?';
-        yes = 'Yes, I will ' + v + o + '.';
-        no = "No, I won't " + v + o + '.';
-        break;
+        q = pre + 'will ' + S + ' ' + mid + P + '?';
+        dpos = A + ' will ' + mid + Px; dneg = A + " won't " + mid + P; break;
       case 'can':
-        q = 'Can you ' + v + o + '?';
-        yes = 'Yes, I can ' + v + o + '.';
-        no = "No, I can't " + v + o + '.';
-        break;
+        q = pre + 'can ' + S + ' ' + mid + P + '?';
+        dpos = A + ' can ' + mid + Px; dneg = A + " can't " + mid + P; break;
+      case 'could':
+        q = pre + 'could ' + S + ' ' + mid + P + '?';
+        dpos = A + ' can ' + mid + Px; dneg = A + " can't " + mid + P; break;
+      case 'would':
+        q = pre + 'would ' + S + ' ' + mid + P + '?';
+        dpos = A + ' will ' + mid + Px; dneg = A + " won't " + mid + P; break;
+      case 'should':
+        q = pre + 'should ' + S + ' ' + mid + P + '?';
+        dpos = A + ' should ' + mid + Px; dneg = A + " shouldn't " + mid + P; break;
+      case 'must':
+        q = pre + 'must ' + S + ' ' + mid + P + '?';
+        dpos = A + ' must ' + mid + Px;
+        dneg = A + ' ' + aDo + "n't have to " + mid + P; break;
+      case 'may':
+        q = pre + 'may ' + S + ' ' + mid + P + '?';
+        dpos = A + ' may ' + mid + Px; dneg = A + ' may not ' + mid + P; break;
+      case 'shall':
+        q = pre + 'shall ' + S + ' ' + mid + P + '?';
+        dpos = "let's " + mid + Px; dneg = "let's not " + mid + P; break;
       case 'wantto':
-        q = 'Do you want to ' + v + o + '?';
-        yes = 'Yes, I want to ' + v + o + '.';
-        no = "No, I don't want to " + v + o + '.';
-        break;
+        q = pre + doW(S, s.agr) + ' ' + S + ' ' + mid + 'want to ' + P + '?';
+        dpos = A + ' ' + (a3 ? 'wants' : 'want') + ' to ' + mid + Px;
+        dneg = A + ' ' + aDo + "n't want to " + mid + P; break;
+      case 'needto':
+        q = pre + doW(S, s.agr) + ' ' + S + ' ' + mid + 'need to ' + P + '?';
+        dpos = A + ' ' + (a3 ? 'needs' : 'need') + ' to ' + mid + Px;
+        dneg = A + ' ' + aDo + "n't need to " + mid + P; break;
+      case 'intendto':
+        q = pre + doW(S, s.agr) + ' ' + S + ' ' + mid + 'intend to ' + P + '?';
+        dpos = A + ' ' + (a3 ? 'intends' : 'intend') + ' to ' + mid + Px;
+        dneg = A + ' ' + aDo + "n't intend to " + mid + P; break;
+      case 'planto':
+        q = pre + doW(S, s.agr) + ' ' + S + ' ' + mid + 'plan to ' + P + '?';
+        dpos = A + ' ' + (a3 ? 'plans' : 'plan') + ' to ' + mid + Px;
+        dneg = A + ' ' + aDo + "n't plan to " + mid + P; break;
+      case 'expectto':
+        q = pre + doW(S, s.agr) + ' ' + S + ' ' + mid + 'expect to ' + P + '?';
+        dpos = A + ' ' + (a3 ? 'expects' : 'expect') + ' to ' + mid + Px;
+        dneg = A + ' ' + aDo + "n't expect to " + mid + P; break;
+      case 'liketo':
+        q = pre + doW(S, s.agr) + ' ' + S + ' ' + mid + 'like to ' + P + '?';
+        dpos = A + ' ' + (a3 ? 'likes' : 'like') + ' to ' + mid + Px;
+        dneg = A + ' ' + aDo + "n't like to " + mid + P; break;
       case 'haveto':
-        q = 'Do you have to ' + v + o + '?';
-        yes = 'Yes, I have to ' + v + o + '.';
-        no = "No, I don't have to " + v + o + '.';
-        break;
+        q = pre + doW(S, s.agr) + ' ' + S + ' ' + mid + 'have to ' + P + '?';
+        dpos = A + ' ' + (a3 ? 'has' : 'have') + ' to ' + mid + Px;
+        dneg = A + ' ' + aDo + "n't have to " + mid + P; break;
       case 'usedto':
-        q = 'Did you use to ' + v + o + '?';
-        yes = 'Yes, I used to ' + v + o + '.';
-        no = "No, I didn't use to " + v + o + '.';
-        break;
+        q = pre + 'did ' + S + ' ' + mid + 'use to ' + P + '?';
+        dpos = A + ' used to ' + mid + Px; dneg = A + " didn't use to " + mid + P; break;
       case 'goingto':
-        q = 'Are you going to ' + v + o + '?';
-        yes = 'Yes, I am going to ' + v + o + '.';
-        no = "No, I'm not going to " + v + o + '.';
-        break;
+        q = pre + beW(S, s.agr) + ' ' + S + ' ' + mid + 'going to ' + P + '?';
+        dpos = bePos(A, s.asubAgr) + ' going to ' + mid + Px;
+        dneg = beNeg(A, s.asubAgr) + ' going to ' + mid + P; break;
+      case 'ableto':
+        q = pre + beW(S, s.agr) + ' ' + S + ' ' + mid + 'able to ' + P + '?';
+        dpos = bePos(A, s.asubAgr) + ' able to ' + mid + Px;
+        dneg = beNeg(A, s.asubAgr) + ' able to ' + mid + P; break;
+      case 'wouldlike':
+        q = pre + 'would ' + S + ' ' + mid + 'like ' + P + '?';
+        dpos = A + "'d like " + mid + Px;
+        dneg = A + " wouldn't like " + mid + P; break;
+      case 'wouldliketo':
+        q = pre + 'would ' + S + ' ' + mid + 'like to ' + P + '?';
+        dpos = A + "'d like to " + mid + Px;
+        dneg = A + " wouldn't like to " + mid + P; break;
+
+      /* ---- 완료 ---- */
+      case 'have':
+        q = pre + haveW(S, s.agr) + ' ' + S + ' ' + mid + PP + '?';
+        dpos = A + ' ' + aHave + ' ' + PPx;
+        dneg = A + ' ' + (a3 ? "hasn't" : "haven't") + ' ' + PP; break;
+      case 'had':
+        q = pre + 'Had ' + S + ' ' + mid + PP + '?';
+        dpos = A + ' had ' + PPx; dneg = A + " hadn't " + PP; break;
+      case 'willhave':
+        q = pre + 'will ' + S + ' have ' + mid + PP + '?';
+        dpos = A + ' will have ' + PPx;
+        dneg = A + " won't have " + PP; break;
+
+      /* ---- 진행 ---- */
+      case 'prog':
+        q = pre + beW(S, s.agr) + ' ' + S + ' ' + mid + ING + '?';
+        dpos = bePos(A, s.asubAgr) + ' ' + mid + INGx;
+        dneg = beNeg(A, s.asubAgr) + ' ' + mid + ING; break;
+      case 'progpast':
+        q = pre + beW(S, s.agr, 'past') + ' ' + S + ' ' + mid + ING + '?';
+        dpos = A + ' ' + (apl ? 'were' : 'was') + ' ' + mid + INGx;
+        dneg = A + ' ' + (apl ? "weren't" : "wasn't") + ' ' + mid + ING; break;
+      case 'progwill':
+        q = pre + 'will ' + S + ' be ' + mid + ING + '?';
+        dpos = A + ' will be ' + mid + INGx;
+        dneg = A + " won't be " + mid + ING; break;
+
+      /* ---- be동사 ---- */
+      case 'be':
+        q = jw(pre + beW(S, s.agr), S, mid + P) + '?';
+        dpos = jw(bePos(A, s.asubAgr), mid + Px);
+        dneg = jw(beNeg(A, s.asubAgr), mid + P); break;
+      case 'bep':
+        q = jw(pre + beW(S, s.agr, 'past'), S, mid + P) + '?';
+        dpos = jw(A, apl ? 'were' : 'was', mid + Px);
+        dneg = jw(A, apl ? "weren't" : "wasn't", mid + P); break;
+      case 'willbe':
+        q = jw(pre + 'will', S, 'be', mid + P) + '?';
+        dpos = jw(A, 'will be', mid + Px); dneg = jw(A, "won't be", mid + P); break;
+      case 'goingtobe':
+        q = jw(pre + beW(S, s.agr), S, 'going to be', mid + P) + '?';
+        dpos = jw(bePos(A, s.asubAgr), 'going to be', mid + Px);
+        dneg = jw(beNeg(A, s.asubAgr), 'going to be', mid + P); break;
+      case 'havebe':
+        q = jw(pre + haveW(S, s.agr), S, 'been', mid + P) + '?';
+        dpos = jw(A, aHave, 'been', mid + Px);
+        dneg = jw(A, a3 ? "hasn't" : "haven't", 'been', mid + P); break;
+
+      /* ---- 수동 (be + p.p) ---- */
+      case 'pbe':
+        q = jw(pre + beW(S, s.agr), S, mid + PP) + '?';
+        dpos = jw(bePos(A, s.asubAgr), mid + PPx);
+        dneg = jw(beNeg(A, s.asubAgr), mid + PP); break;
+      case 'pwas':
+        q = jw(pre + beW(S, s.agr, 'past'), S, mid + PP) + '?';
+        dpos = jw(A, apl ? 'were' : 'was', mid + PPx);
+        dneg = jw(A, apl ? "weren't" : "wasn't", mid + PP); break;
+      case 'pwill':
+        q = jw(pre + 'will', S, 'be', mid + PP) + '?';
+        dpos = jw(A, 'will be', mid + PPx); dneg = jw(A, "won't be", mid + PP); break;
+      case 'phas':
+        q = jw(pre + haveW(S, s.agr), S, 'been', mid + PP) + '?';
+        dpos = jw(A, aHave, 'been', mid + PPx);
+        dneg = jw(A, a3 ? "hasn't" : "haven't", 'been', mid + PP); break;
+      case 'pcan':
+        q = jw(pre + 'can', S, 'be', mid + PP) + '?';
+        dpos = jw(A, 'can be', mid + PPx); dneg = jw(A, "can't be", mid + PP); break;
+
+      /* ---- 일반동사 (기본) ---- */
       default:
-        q = 'Do you ' + v + o + '?';
-        yes = 'Yes, I ' + v + o + '.';
-        no = "No, I don't " + v + o + '.';
+        q = pre + doW(S, s.agr) + ' ' + S + ' ' + mid + P + '?';
+        dpos = A + ' ' + mid + (a3 ? third(Px) : Px);
+        dneg = A + ' ' + doNeg(A, s.asubAgr) + ' ' + mid + P;
     }
-    return { q: q, yes: yes, no: no };
+    q = q.replace(/\s+\?/g, '?');
+    return { q: cap(q), dpos: jw(dpos), dneg: jw(dneg) };
+  }
+
+  /* 질문·Yes·No(또는 의문사 답)를 만듭니다 */
+  function compose(aux, s, F) {
+    F = F || {};
+    /* 장에서 직접 쓴 문장이 있으면 그대로 씁니다 */
+    if (s.forms && s.forms[aux]) {
+      var f = s.forms[aux];
+      return { q: f.q || '', yes: f.yes || '', no: f.no || '',
+               wh: !!f.wh, custom: true };
+    }
+    var wh = (s.wh !== undefined) ? s.wh : (F.wh || '');
+    var whTxt = wh ? jw(wh, s.hw) : '';
+    var base = build(aux, s, F, wh ? (s.ans || '') : '');
+    if (s.flip) {
+      base = { q: base.q, dpos: flipPerson(base.dpos), dneg: flipPerson(base.dneg) };
+    }
+    var out = { q: base.q, yes: '', no: '', wh: !!wh, custom: false };
+    if (wh) {
+      /* 의문사 질문에는 Yes/No 대신 완전한 대답 문장을 붙입니다 */
+      var ansLine = s.say || base.dpos;
+      out.yes = cap(ansLine.replace(/[.?!]*$/, '') + '.');
+      out.no = '';
+    } else if (s.yes || s.no) {
+      out.yes = s.yes || ('Yes, ' + base.dpos + '.');
+      out.no = s.no || ('No, ' + base.dneg + '.');
+    } else {
+      out.yes = 'Yes, ' + base.dpos + '.';
+      out.no = 'No, ' + base.dneg + '.';
+    }
+    out.whWord = whTxt;
+    return out;
+  }
+
+  /* 공식 머리글에 쓰는 틀: [ Do ] you …? / [ Are ] you …? 처럼 */
+  function auxFrame(id, s, F) {
+    var a = auxById(F, id);
+    if (a && a.fam === 'custom') return a.label;
+    var subj = s.subj || F.subj || 'you';
+    var agr = s.agr || F.agr;
+    switch (id) {
+      case 'be': return cap(beW(subj, agr)) + ' ' + subj;
+      case 'bep': return cap(beW(subj, agr, 'past')) + ' ' + subj;
+      case 'willbe': return 'Will ' + subj + ' be';
+      case 'goingtobe': return cap(beW(subj, agr)) + ' ' + subj + ' going to be';
+      case 'havebe': return cap(haveW(subj, agr)) + ' ' + subj + ' been';
+      case 'prog': return cap(beW(subj, agr)) + ' ' + subj;
+      case 'progpast': return cap(beW(subj, agr, 'past')) + ' ' + subj;
+      case 'progwill': return 'Will ' + subj + ' be';
+      case 'have': return cap(haveW(subj, agr)) + ' ' + subj;
+      case 'had': return 'Had ' + subj;
+      case 'willhave': return 'Will ' + subj + ' have';
+      case 'pbe': return cap(beW(subj, agr)) + ' ' + subj;
+      case 'pwas': return cap(beW(subj, agr, 'past')) + ' ' + subj;
+      case 'pwill': return 'Will ' + subj + ' be';
+      case 'phas': return cap(haveW(subj, agr)) + ' ' + subj + ' been';
+      case 'pcan': return 'Can ' + subj + ' be';
+      case 'do': case 'did': case 'will': case 'can': case 'could':
+      case 'should': case 'must': case 'may': case 'shall': case 'dont': case 'didnt':
+        return a.label + ' ' + subj;
+      default:
+        return (a ? a.label : id) + ' ' + subj;
+    }
+  }
+
+  function setPredLabel(id, s, F) {
+    var a = auxById(F, id);
+    var fam = a ? a.fam : 'verb';
+    if (fam === 'passive' || fam === 'perfect') return 'p.p';
+    if (fam === 'prog') return '-ing';
+    if (fam === 'be') return '보어';
+    return '동사구';
+  }
+  function setPredText(id, s, F) {
+    var a = auxById(F, id);
+    var fam = a ? a.fam : 'verb';
+    var t;
+    if (fam === 'passive' || fam === 'perfect') t = s.pp || s.past || jw(s.v, s.o);
+    else if (fam === 'prog') t = s.ing || jw(s.v, s.o);
+    else t = jw(s.v, s.o);
+    return t || '—';
   }
 
   function renderFormula() {
     beginPanel();
     var c = cur();
     var F = c.F;
-    var auxList = F.aux.filter(function (a) { return AUX_META[a]; });
-    var set = F.sets[Math.min(st.fm.set, F.sets.length - 1)];
-    if (auxList.indexOf(st.fm.aux) < 0) st.fm.aux = auxList[0];
-    var lines = compose(st.fm.aux, set);
-    var meta = AUX_META[st.fm.aux];
+    var auxes = auxListOf(F);
+    if (!auxes.length) return;
+    var known = false;
+    for (var i = 0; i < auxes.length; i++) if (auxes[i].id === st.fm.aux) known = true;
+    if (!known) st.fm.aux = auxes[0].id;
+
+    var sets = setsFor(F, st.fm.aux);
+    if (st.fm.set >= sets.length) st.fm.set = 0;
+    if (st.fm.set < 0) st.fm.set = 0;
+    var set = sets[st.fm.set];
+    var auxMeta = auxById(F, st.fm.aux) || { label: st.fm.aux, tense: '' };
+    var lines = compose(st.fm.aux, set, F);
+    var subjTxt = set.subj || F.subj || 'you';
+    var frame = auxFrame(st.fm.aux, set, F);
 
     var card = el('div', 'card');
-    card.appendChild(el('div', 'card-head',
-      '<span class="label">공식 [ ' + esc(AUX_META[st.fm.aux].label) + ' ] you …?</span>' +
-      '<span class="progress-pill">' + (st.fm.set + 1) + ' / ' + F.sets.length + '</span>'));
+    var head = el('div', 'card-head fm');
+    head.innerHTML = '<span class="label">공식 ' +
+      (lines.wh && lines.whWord ? '<b class="whword">' + esc(lines.whWord) + '</b> · ' : '') +
+      '[ ' + esc(frame) + ' ] …?</span>' +
+      '<span class="progress-pill">' + (st.fm.set + 1) + ' / ' + sets.length + '</span>';
+    card.appendChild(head);
 
     var aux = el('div', 'auxrow');
-    auxList.forEach(function (a) {
-      var b = el('button', 'aux-btn' + (a === st.fm.aux ? ' active' : ''));
+    auxes.forEach(function (a) {
+      var b = el('button', 'aux-btn' + (a.id === st.fm.aux ? ' active' : ''));
       b.type = 'button';
-      b.textContent = AUX_META[a].label;
-      b.setAttribute('data-aux', a);
+      b.textContent = a.label;
+      b.setAttribute('data-aux', a.id);
       aux.appendChild(b);
     });
     card.appendChild(aux);
 
     var setrow = el('div', 'setrow');
-    setrow.innerHTML = '<span>동사구 <b class="vname">' + esc(set.v) + '</b></span>';
+    setrow.innerHTML = '<span>' + esc(setPredLabel(st.fm.aux, set, F)) +
+      ' <b class="vname">' + esc(setPredText(st.fm.aux, set, F)) + '</b></span>' +
+      (set.ans && lines.wh ? '<span>답 <b class="vname">' + esc(set.ans) + '</b></span>' : '');
     card.appendChild(setrow);
 
     var koLine = el('p', 'ko-line');
-    koLine.innerHTML = esc(set.ko) + '<span class="tense-chip">' + meta.tense + '</span>';
+    koLine.innerHTML = esc(set.ko) + '<span class="tense-chip">' + esc(auxMeta.tense || '') + '</span>';
     card.appendChild(koLine);
 
     card.appendChild(el('p', 'en-line', esc(lines.q)));
-    card.appendChild(el('div', 'sub-en', '✅ ' + esc(lines.yes)));
-    card.appendChild(el('div', 'sub-en', '🚫 ' + esc(lines.no)));
+    if (lines.wh) {
+      card.appendChild(el('div', 'sub-en', '💬 ' + esc(lines.yes)));
+    } else {
+      if (lines.yes) card.appendChild(el('div', 'sub-en', '✅ ' + esc(lines.yes)));
+      if (lines.no) card.appendChild(el('div', 'sub-en', '🚫 ' + esc(lines.no)));
+    }
 
     var acts = el('div', 'row-actions');
     acts.innerHTML =
       '<button class="btn small primary" data-act="f-q">🔊 질문</button>' +
-      '<button class="btn small" data-act="f-yes">🔊 Yes</button>' +
-      '<button class="btn small" data-act="f-no">🔊 No</button>';
+      '<button class="btn small' + (lines.wh ? ' primary' : '') + '" data-act="f-yes">🔊 ' +
+        (lines.wh ? '대답' : 'Yes') + '</button>' +
+      (lines.wh ? '' : '<button class="btn small" data-act="f-no">🔊 No</button>');
     card.appendChild(acts);
 
     var nav = el('div', 'nav-row');
     nav.innerHTML =
-      '<button class="btn" data-act="f-prev" ' + (st.fm.set === 0 ? 'disabled' : '') + '>← 이전 동사</button>' +
-      '<button class="btn primary" data-act="f-next">' + (st.fm.set === F.sets.length - 1 ? '처음으로' : '다음 동사 →') + '</button>';
+      '<button class="btn" data-act="f-prev" ' + (st.fm.set === 0 ? 'disabled' : '') + '>← 이전 동사구</button>' +
+      '<button class="btn primary" data-act="f-next">' +
+        (st.fm.set === sets.length - 1 ? '처음으로' : '다음 동사구 →') + '</button>';
     card.appendChild(nav);
     modePanel.appendChild(card);
 
-    if (F.note) modePanel.appendChild(el('p', 'foot', esc(F.note) +
-      '<br>버튼으로 조동사를 바꾸면 같은 뜻을 현재·과거·미래·가능·의무로 바로 말할 수 있습니다.'));
+    if (F.note) {
+      modePanel.appendChild(el('p', 'foot', esc(F.note) +
+        '<br>위 버튼으로 공식을 바꾸면 같은 동사구를 현재·과거·미래·가능·의무로 바로 말할 수 있습니다.'));
+    }
   }
 
   /* ---------- ③ 연속 코스 ---------- */
@@ -1062,17 +1458,24 @@
 
     /* 공식 */
     if (act === 'f-q' || act === 'f-yes' || act === 'f-no') {
-      var set = c.F.sets[st.fm.set];
-      var L2 = compose(st.fm.aux, set);
+      if (!c.F) return;
+      var fSets = setsFor(c.F, st.fm.aux);
+      var set = fSets[Math.min(st.fm.set, fSets.length - 1)];
+      if (!set) return;
+      var L2 = compose(st.fm.aux, set, c.F);
       speak(act === 'f-q' ? L2.q : (act === 'f-yes' ? L2.yes : L2.no), enLang(), settings.rate);
       return;
     }
     if (act === 'f-prev') {
-      st.fm.set = (st.fm.set - 1 + c.F.sets.length) % c.F.sets.length;
+      if (!c.F) return;
+      var nPrev = setsFor(c.F, st.fm.aux).length;
+      st.fm.set = (st.fm.set - 1 + nPrev) % nPrev;
       renderFormula(); return;
     }
     if (act === 'f-next') {
-      st.fm.set = (st.fm.set + 1) % c.F.sets.length;
+      if (!c.F) return;
+      var nNext = setsFor(c.F, st.fm.aux).length;
+      st.fm.set = (st.fm.set + 1) % nNext;
       renderFormula(); return;
     }
 
@@ -1094,9 +1497,11 @@
     var aux = e.target.closest('[data-aux]');
     if (aux && cur() && cur().F) {
       st.fm.aux = aux.getAttribute('data-aux');
+      st.fm.set = 0;                 /* 조동사에 따라 동사구 목록이 달라집니다 */
       renderFormula();
-      var set = cur().F.sets[st.fm.set];
-      speak(compose(st.fm.aux, set).q, enLang(), settings.rate);
+      var fSets = setsFor(cur().F, st.fm.aux);
+      var fSet = fSets[0];
+      if (fSet) speak(compose(st.fm.aux, fSet, cur().F).q, enLang(), settings.rate);
       return;
     }
     var line = e.target.closest('[data-line]');
@@ -1147,6 +1552,28 @@
     chapterItems: function (id) { return BY_ID[id] ? BY_ID[id].I.length : 0; },
     settings: settings,
     accentLang: function () { return enLang(); },
-    open: openChapter
+    open: openChapter,
+    /* 검증용: 모든 장의 공식 조립 결과를 그대로 돌려줍니다 */
+    formulaAudit: function () {
+      var out = [];
+      ALL.forEach(function (c) {
+        if (!c.F) { out.push({ id: c.id, title: c.t, F: false }); return; }
+        var rows = [];
+        auxListOf(c.F).forEach(function (a) {
+          setsFor(c.F, a.id).forEach(function (s, i) {
+            var L = compose(a.id, s, c.F);
+            rows.push({ aux: a.id, i: i, ko: s.ko, q: L.q, yes: L.yes, no: L.no,
+                        wh: !!L.wh, custom: !!L.custom, frame: auxFrame(a.id, s, c.F) });
+          });
+        });
+        out.push({ id: c.id, part: c.part, n: c.n, title: c.t, F: true,
+                   sets: c.F.sets.length, aux: auxListOf(c.F).map(function (a) { return a.id; }), rows: rows });
+      });
+      return out;
+    },
+    setMode: function (m) { st.mode = m; renderMode(); },
+    setAux: function (a) { st.fm.aux = a; st.fm.set = 0; renderFormula(); },
+    setSet: function (i) { st.fm.set = i; renderFormula(); },
+    panelText: function () { return modePanel.textContent; }
   };
 })();

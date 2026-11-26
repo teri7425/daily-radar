@@ -8,13 +8,19 @@
 - `assets/styles.css` — 390×844 기준 모바일 스타일
 - `assets/app.js` — 목차·3가지 훈련 모드·음성·로컬 저장
 - `assets/data/parts.js` — 전체 목차와 문장 데이터 (PART 1~6, 107장, 1,107문장)
+- `assets/data/formulas.js` — ① 공식 대입 데이터 (나머지 94개 장, 471세트)
 
 ## 데이터 표기
 - 📖 **교재 원문** — 사진으로 확인한 실제 본문(PART 1 제1~19장, PART 2 제1~4장, p.14~79)
 - ✨ **교재 방식 구성** — 목차 제목에 책의 훈련 공식([ ] you …? → 통역 → Yes/No 완전문장)을 적용해 새로 구성
 
 ## 훈련 모드
-1. **공식 대입** — [ ] you …? 의 조동사를 Do·Did·Will·Can·want to·have to·used to로 바꿔 말하기 (PART 1의 13개 장)
+1. **공식 대입** — [ ] you …? 의 조동사를 바꿔 말하기 (**전체 107개 장**, 567세트)
+   - 일반동사: Do·Did·Will·Can·want to·have to·used to·intend to·plan to·would like to
+   - be동사: Are you / Were you / Will you be / Have you been (형용사·전치사 장)
+   - 완료·진행·수동: Have you p.p / Are you -ing / Is it p.p
+   - 의문사: What·Where·When·Why·How·Who·Which + [ ] you …? (답 문장까지 한 벌)
+   - 부정·부가 의문문: Don't you …? / …, aren't you?
 2. **통역 · 티키타카** — 우리말 보고 영어로 말하기 → 영어 질문 듣기 → Yes/No 완전문장으로 답하기
 3. **연속 코스** — 한→영 / 영→Yes→No / 영어만, 반복 1·2·3·5회
 
