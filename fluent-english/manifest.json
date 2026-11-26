@@ -1,0 +1,26 @@
+{
+  "name": "유창한 영어회화 1",
+  "short_name": "유창한 영어1",
+  "description": "《유창한 영어회화를 꼭 원하는 분 1》 목차 훈련 앱 — 문장으로 익히는 영어회화",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#312e81",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
