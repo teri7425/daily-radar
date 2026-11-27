@@ -1,0 +1,20 @@
+{
+  "name": "AI 매거진 데스크",
+  "short_name": "AI 매거진",
+  "description": "매일 오전 9시, 실제 사례와 출처로 정리하는 AI 활용 매거진. 업무·가족·아이디어에 붙이는 적용 포인트까지.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070d17",
+  "theme_color": "#070d17",
+  "categories": ["news", "productivity", "education"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-180.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ]
+}
