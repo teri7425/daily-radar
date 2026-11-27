@@ -65,6 +65,20 @@ async def main():
         rec("JS 페이지 에러 0", len(errors) == 0, errors)
         rec("콘솔 error 0", len(console_err) == 0, console_err[:4])
 
+        # ---------- 1-b. 기본 w=0.8 ----------
+        st0 = await page.evaluate("window.__val.state().w")
+        chip0 = await page.evaluate("document.querySelector('#wsel .chip.on')?.dataset.w || null")
+        meta0 = await page.evaluate("document.getElementById('listCount').innerText")
+        first0 = await page.evaluate("""() => {
+          const row = document.querySelector('#list .row');
+          return {r2: row ? row.querySelector('.r2').innerText.replace(/\\s+/g,' ') : '',
+                  badge: row ? row.querySelector('.badge').innerText : ''};
+        }""")
+        rec("기본 w=0.8 (상태값)", abs(st0 - 0.8) < 1e-9, st0)
+        rec("기본 w=0.8 칩 활성", chip0 is not None and abs(float(chip0) - 0.8) < 1e-9, chip0)
+        rec("목록 메타 w=0.8 표시", "w=0.8" in meta0, meta0)
+        rec("초기 적정주가·Gap% 표시", "적정" in first0["r2"] and any(c.isdigit() for c in first0["r2"]) and "%" in first0["badge"], first0)
+
         # ---------- 2. 가로 넘침 ----------
         ov = await page.evaluate("""() => {
           const de = document.documentElement;
@@ -134,10 +148,14 @@ async def main():
         await page.evaluate("window.__val.setSort('gap')")
 
         # ---------- 7. w 선택 ----------
-        await page.evaluate("window.__val.setW(0.8)")
+        await page.evaluate("window.__val.setW(0.7)")
         st = await page.evaluate("window.__val.state().w")
-        rec("w 선택 0.8 반영", abs(st - 0.8) < 1e-9, st)
-        await page.evaluate("window.__val.setW(1.0)")
+        rec("w 선택 0.7 반영", abs(st - 0.7) < 1e-9, st)
+        gap07 = await page.evaluate("window.__val.rows().map(r=>r.gap)")
+        await page.evaluate("window.__val.setW(0.8)")
+        rec("w 칩 재선택 0.8 반영", abs(await page.evaluate("window.__val.state().w") - 0.8) < 1e-9)
+        gap08 = await page.evaluate("window.__val.rows().map(r=>r.gap)")
+        rec("w 변경 시 Gap% 재계산", any(a is not None and b is not None and abs(a-b) > 1e-6 for a, b in zip(gap07, gap08)), (gap07[:3], gap08[:3]))
 
         # ---------- 8. 상세 ----------
         await page.evaluate("window.__val.open('005930')")
@@ -152,6 +170,7 @@ async def main():
         rec("상세 w 테이블 4행(1.0/0.9/0.8/0.7)", sum(1 for x in d["t"] if x.startswith("w") or x[:3] in ("1.0", "0.9", "0.8", "0.7")) >= 4, d["t"])
         rec("상세 바차트 현재가+w 4개", len(d["bars"]) == 5, d["bars"])
         rec("모델 표에 Ke·B₀·초과이익", any("할인율" in x for x in d["kv"]) and any("자기자본" in x for x in d["kv"]) and any("초과이익" in x for x in d["kv"]), d["kv"])
+        rec("상세 기본 기준 w=0.8", "w=0.8" in d["h"], d["h"][:200])
 
         # 계산 검증: 페이지 계산 vs 파이썬 재계산
         calc = await page.evaluate("""() => {
@@ -200,10 +219,11 @@ async def main():
         await page.evaluate("window.__val.simCalc()")
         await page.wait_for_timeout(200)
         sim = await page.evaluate("window.__simResult")
-        # 예시: price 5만, shares 1천만, equity 3천억, ROE 12, Ke 10.45
+        # 예시: price 5만, shares 1천만, equity 3천억, ROE 12, Ke 10.45 — 기본 w=0.8 기준
         eqv, rv, kv = 3e11, 0.12, 0.1045
-        exp_sim = (eqv + eqv * (rv - kv) * (1 / (1 + kv - 1))) / 1e7
-        rec("직접 입력 계산 일치", sim and abs(sim["fair1"] - exp_sim) < 1.0, (sim, exp_sim))
+        exp_sim = (eqv + eqv * (rv - kv) * (0.8 / (1 + kv - 0.8))) / 1e7
+        rec("직접 입력 계산 일치(w=0.8)", sim and abs(sim["fair"] - exp_sim) < 1.0, (sim, exp_sim))
+        rec("직접 입력 기본 w=0.8 표시", "w=0.8" in (await page.locator("#simRes").inner_text()), await page.locator("#simRes").inner_text())
         rec("직접 입력 결과 표시", await page.locator("#simRes .tbl tr").count() >= 5)
 
         # 잘못된 입력
@@ -212,10 +232,12 @@ async def main():
         rec("입력 누락 안내", "입력" in (await page.locator("#simRes").inner_text()))
 
         # ---------- 11. 스크린샷 ----------
-        await page.evaluate("window.__val.setTab('ALL'); window.__val.setSort('gap'); window.__val.setW(1.0)")
+        await page.evaluate("window.__val.setTab('ALL'); window.__val.setSort('gap'); window.__val.setW(0.8)")
         await page.wait_for_timeout(250)
         await page.screenshot(path=os.path.join(OUT, "valuation-lab-home.png"))
         rec("홈 스크린샷", os.path.exists(os.path.join(OUT, "valuation-lab-home.png")))
+        await page.screenshot(path=os.path.join(OUT, "valuation-lab-w08.png"))
+        rec("기본 w=0.8 홈 스크린샷", os.path.exists(os.path.join(OUT, "valuation-lab-w08.png")))
 
         await page.evaluate("window.__val.open('005930')")
         await page.wait_for_timeout(400)
