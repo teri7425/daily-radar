@@ -1,0 +1,16 @@
+{
+  "name": "S-RIM Valuation Lab · 적정주가",
+  "short_name": "S-RIM Lab",
+  "description": "사경인 S-RIM — 지배주주자본과 컨센서스 ROE로 한국·미국 시총 상위 종목의 적정주가와 Gap%를 계산하는 모바일 밸류에이션 앱",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070c15",
+  "theme_color": "#070c15",
+  "icons": [
+    { "src": "./icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

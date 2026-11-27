@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070c15">
+<meta name="description" content="사경인 S-RIM 밸류에이션 — 지배주주자본과 컨센서스 ROE로 한국·미국 시총 상위 30종목의 적정주가와 Gap%를 계산하는 모바일 웹앱">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="S-RIM Lab">
+<title>S-RIM Valuation Lab — 적정주가·Gap%</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<style>
+:root{
+  --bg:#070c15; --bg2:#0b1322; --card:#101a2b; --card2:#14203a;
+  --line:#1e2b44; --line2:#26364f;
+  --txt:#dce6f3; --muted:#8296b3; --dim:#5e7090;
+  --gold:#f2c76e; --gold2:#f7dc9e; --mint:#5fe3c0; --coral:#ff7a85; --sky:#78b7ff;
+  --up:#ff7a85; --down:#5fa8ff;
+  --r:14px;
+  --fs-num: "SF Mono", "Roboto Mono", "D2Coding", ui-monospace, monospace;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:
+    radial-gradient(900px 420px at 50% -140px, rgba(242,199,110,.10), transparent 60%),
+    radial-gradient(700px 360px at 100% 8%, rgba(95,227,192,.07), transparent 62%),
+    linear-gradient(180deg, #070c15 0%, #080f1c 42%, #060a12 100%);
+  background-attachment:fixed;
+  color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  font-size:14px; line-height:1.42;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+}
+button,input,select{font-family:inherit; color:inherit}
+button{cursor:pointer; background:none; border:none; padding:0}
+.num{font-family:var(--fs-num); font-variant-numeric:tabular-nums; letter-spacing:-.2px}
+.app{max-width:520px; margin:0 auto; padding:0 12px 96px}
+
+/* ---------- header ---------- */
+.topbar{position:sticky; top:0; z-index:30; margin:0 -12px; padding:10px 14px 9px;
+  background:linear-gradient(180deg, rgba(7,12,21,.97) 62%, rgba(7,12,21,.86) 100%);
+  backdrop-filter:blur(14px); border-bottom:1px solid var(--line)}
+.brand{display:flex; align-items:center; gap:9px}
+.gem{width:26px;height:26px;flex:0 0 26px;border-radius:8px;
+  background:linear-gradient(150deg,#2a2213,#4a3a1c 55%,#6b5326);
+  border:1px solid #6d5527; display:grid; place-items:center;
+  box-shadow:0 0 0 1px rgba(242,199,110,.08), 0 4px 14px -6px rgba(242,199,110,.5)}
+.gem svg{width:15px;height:15px}
+.brand h1{font-size:14.5px; margin:0; letter-spacing:.3px; font-weight:800; color:#f2f5fb}
+.brand h1 small{display:block; font-size:9.5px; font-weight:600; letter-spacing:.7px; color:var(--dim); margin-top:1px}
+.asof{margin-left:auto; font-size:9px; color:var(--dim); text-align:right; line-height:1.3}
+.asof b{display:block; color:var(--muted); font-weight:700; font-size:9.5px}
+
+.idxbar{display:grid; grid-template-columns:repeat(5,1fr); gap:5px; margin-top:9px}
+.idx{background:rgba(20,32,58,.72); border:1px solid var(--line); border-radius:10px; padding:5px 5px 4px; text-align:center; min-width:0}
+.idx .k{font-size:8.6px; color:var(--dim); letter-spacing:.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.idx .v{font-size:11px; font-weight:700; margin-top:1px; letter-spacing:-.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.idx .c{font-size:8.6px; font-weight:700; letter-spacing:-.2px}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--muted)}
+
+.ratebar{display:flex; gap:5px; margin-top:6px; align-items:stretch}
+.rate{flex:1 1 0; min-width:0; background:linear-gradient(180deg, rgba(30,43,68,.55), rgba(16,26,43,.55));
+  border:1px solid var(--line2); border-radius:9px; padding:4px 7px; display:flex; align-items:baseline; gap:5px}
+.rate .t{font-size:8.8px; color:var(--dim); white-space:nowrap}
+.rate .n{font-size:12px; font-weight:800; color:var(--gold); letter-spacing:-.3px}
+.rate.mint .n{color:var(--mint)}
+
+/* ---------- tabs ---------- */
+.tabs{display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin:10px 0 8px;
+  background:rgba(12,20,35,.9); border:1px solid var(--line); border-radius:12px; padding:4px}
+.tabs button{font-size:11.2px; font-weight:700; color:var(--muted); padding:8px 2px; border-radius:9px; letter-spacing:-.3px; white-space:nowrap; overflow:hidden}
+.tabs button.on{color:#0a1020; background:linear-gradient(180deg,var(--gold2),var(--gold)); box-shadow:0 4px 14px -8px var(--gold)}
+
+/* ---------- controls ---------- */
+.controls{display:flex; flex-direction:column; gap:7px; margin-bottom:8px}
+.searchbox{position:relative}
+.searchbox input{width:100%; background:var(--card); border:1px solid var(--line2); border-radius:11px;
+  padding:10px 12px 10px 32px; font-size:13px; color:var(--txt); outline:none}
+.searchbox input::placeholder{color:var(--dim)}
+.searchbox input:focus{border-color:#3a4e73; box-shadow:0 0 0 3px rgba(120,183,255,.08)}
+.searchbox .ic{position:absolute; left:11px; top:50%; transform:translateY(-50%); width:14px; height:14px; opacity:.5}
+.sortrow{display:flex; gap:5px; align-items:center}
+.chips{display:flex; gap:5px; flex:1 1 auto; min-width:0; overflow:hidden}
+.chip{font-size:10.6px; font-weight:700; color:var(--muted); background:var(--card); border:1px solid var(--line);
+  border-radius:8px; padding:6px 7px; letter-spacing:-.3px; white-space:nowrap}
+.chip.on{color:var(--gold2); border-color:#5d4a22; background:#221b0d}
+.wsel{display:flex; gap:3px; flex:0 0 auto}
+.wsel .chip{padding:6px 5px; font-size:10.2px; min-width:30px; text-align:center}
+.listmeta{display:flex; justify-content:space-between; align-items:center; font-size:9.6px; color:var(--dim); padding:2px 2px 6px}
+
+/* ---------- list ---------- */
+.list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px}
+.row{background:linear-gradient(180deg, rgba(20,32,58,.86), rgba(16,26,43,.92));
+  border:1px solid var(--line); border-radius:13px; padding:10px 11px; position:relative; overflow:hidden;
+  transition:border-color .15s, transform .1s}
+.row:active{transform:scale(.995); border-color:#3a4e73}
+.row .r1{display:flex; align-items:center; gap:6px}
+.rank{flex:0 0 18px; font-size:9.5px; color:var(--dim); font-weight:700; font-family:var(--fs-num)}
+.nm{font-size:13.5px; font-weight:800; letter-spacing:-.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1 1 auto; min-width:0}
+.tk{font-size:9px; color:var(--dim); font-family:var(--fs-num); flex:0 0 auto}
+.badge{flex:0 0 auto; font-size:10.6px; font-weight:800; padding:3px 6px; border-radius:7px; letter-spacing:-.2px;
+  font-family:var(--fs-num); border:1px solid transparent}
+.badge.pos{color:#06231d; background:linear-gradient(180deg,#7df0d3,#46cfae); border-color:#3fbba1}
+.badge.neg{color:#2b0709; background:linear-gradient(180deg,#ff9aa3,#f0707c); border-color:#d2616c}
+.badge.na{color:var(--muted); background:#17233a; border-color:var(--line2)}
+.row .r2{display:flex; align-items:baseline; gap:7px; margin-top:4px; font-size:10.4px; color:var(--muted)}
+.row .r2 b{font-size:11.6px; color:var(--txt); font-weight:700; font-family:var(--fs-num)}
+.row .r2 .sep{color:#33455f}
+.row .r2 .fair{color:var(--dim)}
+.bar{height:3px; border-radius:2px; background:#1b2740; margin-top:7px; overflow:hidden; position:relative}
+.bar i{position:absolute; left:0; top:0; bottom:0; border-radius:2px; background:linear-gradient(90deg,#3c8f7c,#5fe3c0)}
+.bar i.neg{background:linear-gradient(90deg,#8a3f48,#ff7a85)}
+.mk{font-size:8.4px; padding:1.5px 4px; border-radius:4px; border:1px solid var(--line2); color:var(--dim); font-weight:700; letter-spacing:.3px}
+.mk.us{color:#9fc7ff; border-color:#2b4570}
+
+/* ---------- sheet ---------- */
+.sheet{position:fixed; inset:0; z-index:60; display:none; background:rgba(4,8,14,.62); backdrop-filter:blur(2px)}
+.sheet.open{display:block}
+.sheet .panel{position:absolute; inset:0; max-width:520px; margin:0 auto; background:linear-gradient(180deg,#0a1220,#070d18 60%,#070c15);
+  overflow-y:auto; -webkit-overflow-scrolling:touch; padding:0 12px 92px; animation:up .22s ease-out}
+@keyframes up{from{transform:translateY(14px); opacity:.4} to{transform:none; opacity:1}}
+.sheet .shead{position:sticky; top:0; z-index:5; margin:0 -12px; padding:10px 14px 9px;
+  background:#0a1220;
+  border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px}
+.sheet .shead .who{flex:1 1 auto; min-width:0}
+.sheet .shead .who h2{font-size:15px; margin:0; font-weight:800; letter-spacing:-.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.sheet .shead .who p{margin:1px 0 0; font-size:10px; color:var(--dim); font-family:var(--fs-num)}
+.xbtn{flex:0 0 auto; width:30px; height:30px; border-radius:9px; border:1px solid var(--line2); background:#131e33; color:var(--muted); font-size:15px; line-height:1; display:grid; place-items:center}
+
+.hl{display:grid; grid-template-columns:1fr 1fr; gap:7px; margin:11px 0 0}
+.hl .box{background:linear-gradient(180deg,rgba(20,32,58,.9),rgba(16,26,43,.95)); border:1px solid var(--line); border-radius:12px; padding:9px 10px}
+.hl .box .t{font-size:9.4px; color:var(--dim); letter-spacing:.2px}
+.hl .box .v{font-size:17px; font-weight:800; letter-spacing:-.6px; margin-top:2px; font-family:var(--fs-num)}
+.hl .box .s{font-size:9.4px; color:var(--muted); margin-top:1px}
+.hl .box.gold .v{color:var(--gold2)}
+.hl .box.pos .v{color:var(--mint)} .hl .box.neg .v{color:var(--coral)}
+
+.seg{display:flex; gap:4px; margin:10px 0 0; background:#0d1729; border:1px solid var(--line); border-radius:10px; padding:3px}
+.seg button{flex:1 1 0; font-size:10.6px; font-weight:700; color:var(--muted); padding:6px 3px; border-radius:7px; letter-spacing:-.3px}
+.seg button.on{color:#0a1020; background:linear-gradient(180deg,var(--gold2),var(--gold))}
+
+.card{background:linear-gradient(180deg,rgba(20,32,58,.72),rgba(15,24,40,.92)); border:1px solid var(--line); border-radius:14px; padding:11px 11px; margin-top:9px}
+.card h3{margin:0 0 8px; font-size:11.4px; font-weight:800; letter-spacing:-.2px; color:#e8eefa; display:flex; align-items:center; gap:6px}
+.card h3 .tag{font-size:8.6px; color:var(--dim); font-weight:700; border:1px solid var(--line2); border-radius:5px; padding:1px 4px}
+
+/* bars */
+.wbars{display:flex; flex-direction:column; gap:7px}
+.wb{display:grid; grid-template-columns:44px 1fr 92px; align-items:center; gap:7px}
+.wb .lb{font-size:10px; color:var(--muted); font-weight:700; letter-spacing:-.2px}
+.wb .track{height:9px; border-radius:5px; background:#16223a; overflow:hidden; position:relative}
+.wb .fill{position:absolute; left:0; top:0; bottom:0; border-radius:5px; background:linear-gradient(90deg,#2f7d6c,#5fe3c0); transition:width .28s}
+.wb .fill.cur{background:linear-gradient(90deg,#6d5a2a,#f2c76e)}
+.wb .fill.neg{background:linear-gradient(90deg,#7d3038,#ff7a85)}
+.wb .vl{display:flex; flex-direction:column; align-items:flex-end; line-height:1.18; font-family:var(--fs-num); color:var(--txt); font-weight:700; white-space:nowrap}
+.wb .vl b{font-size:10.6px; font-weight:700}
+.wb .vl .gp{font-size:9.2px; font-weight:800}
+.wb.sel .lb{color:var(--gold2)}
+.wb .gap{font-size:9px; font-weight:700; margin-left:2px}
+
+/* table */
+.tbl{width:100%; border-collapse:collapse; font-size:11px}
+.tbl th{font-size:9.4px; color:var(--dim); font-weight:700; text-align:right; padding:4px 3px; border-bottom:1px solid var(--line)}
+.tbl th:first-child{text-align:left}
+.tbl td{padding:6px 3px; border-bottom:1px solid rgba(30,43,68,.6); text-align:right; font-family:var(--fs-num); font-size:11.2px; color:#cfdaea}
+.tbl td:first-child{text-align:left; font-family:inherit; color:var(--muted); font-size:10.6px; letter-spacing:-.2px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.sel td{background:rgba(242,199,110,.07); color:#fff}
+.tbl tr.sel td:first-child{color:var(--gold2); font-weight:800; border-radius:6px 0 0 6px}
+.tbl tr.sel td:last-child{border-radius:0 6px 6px 0}
+.tbl .pos{color:var(--mint)} .tbl .neg{color:var(--coral)} .tbl .dim{color:var(--dim)}
+.kv{display:flex; flex-direction:column; gap:0}
+.kv .r{display:flex; align-items:baseline; gap:8px; padding:6px 0; border-bottom:1px dashed rgba(38,54,79,.55)}
+.kv .r:last-child{border-bottom:none}
+.kv .k{font-size:10.6px; color:var(--muted); letter-spacing:-.2px; flex:1 1 auto}
+.kv .k em{font-style:normal; color:var(--dim); font-size:9.4px; display:block; margin-top:1px}
+.kv .v{font-family:var(--fs-num); font-size:12px; font-weight:700; text-align:right; white-space:nowrap}
+.kv .v small{font-family:inherit; font-size:9.4px; color:var(--dim); font-weight:600; margin-left:3px}
+
+/* sliders */
+.sim .srow{margin-top:10px}
+.sim .srow .top{display:flex; align-items:baseline; gap:6px; margin-bottom:5px}
+.sim .srow .top .l{font-size:10.4px; color:var(--muted); font-weight:700}
+.sim .srow .top .val{margin-left:auto; font-family:var(--fs-num); font-size:13px; font-weight:800; color:var(--gold2)}
+input[type=range]{-webkit-appearance:none; width:100%; height:22px; background:transparent; margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:5px; border-radius:3px; background:linear-gradient(90deg,#2a3a58,#1a2740)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:19px; height:19px; margin-top:-7px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #fbe7bb, #f2c76e 62%, #b98f36); border:1px solid #8d6f2b; box-shadow:0 2px 10px -2px rgba(242,199,110,.75)}
+input[type=range]::-moz-range-track{height:5px; border-radius:3px; background:#1a2740}
+input[type=range]::-moz-range-thumb{width:19px;height:19px;border-radius:50%;background:#f2c76e;border:1px solid #8d6f2b}
+.simout{display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:10px}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:5px; font-size:11px; font-weight:800;
+  padding:9px 12px; border-radius:10px; border:1px solid var(--line2); background:#152135; color:var(--muted); letter-spacing:-.2px}
+.btn.gold{background:linear-gradient(180deg,var(--gold2),var(--gold)); color:#0a1020; border-color:#b98f36}
+.btn.wide{width:100%}
+
+.note{font-size:9.6px; color:var(--dim); line-height:1.5; margin-top:8px}
+.note b{color:var(--muted)}
+.warn{display:flex; gap:6px; align-items:flex-start; background:rgba(255,122,133,.08); border:1px solid rgba(255,122,133,.28);
+  border-radius:10px; padding:8px 9px; font-size:10.2px; color:#ffb9bf; margin-top:9px; line-height:1.45}
+.warn.mint{background:rgba(95,227,192,.07); border-color:rgba(95,227,192,.28); color:#9ff0da}
+
+/* sim tab */
+.form{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.form .fld{display:flex; flex-direction:column; gap:3px}
+.form .fld.wide{grid-column:1/-1}
+.form label{font-size:9.8px; color:var(--dim); font-weight:700; letter-spacing:-.1px}
+.form input{width:100%; background:#0d1729; border:1px solid var(--line2); border-radius:9px; padding:9px 10px; font-size:13px; color:var(--txt); outline:none; font-family:var(--fs-num)}
+.form input:focus{border-color:#3a4e73}
+.form input::placeholder{color:#3f5170; font-family:inherit}
+.res{margin-top:15px; border-top:1px solid var(--line); padding-top:12px}
+.res .big{display:flex; align-items:baseline; gap:8px}
+.res .big .v{font-family:var(--fs-num); font-size:22px; font-weight:800; color:var(--gold2); letter-spacing:-.8px}
+.res .big .g{font-size:12px; font-weight:800}
+
+footer.src{margin:18px 2px 0; font-size:9.4px; color:var(--dim); line-height:1.6}
+footer.src b{color:var(--muted)}
+footer.src .sep{height:1px; background:var(--line); margin:10px 0}
+.skeleton{opacity:.4}
+[hidden]{display:none !important}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="gem"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.6 20.2 7v10L12 21.4 3.8 17V7Z" stroke="#f2c76e" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.2 14.4c.6 1.3 1.9 2 3.8 2 2.2 0 3.5-1 3.5-2.6 0-1.5-1.1-2.2-3.5-2.7-2.3-.5-3.3-1.2-3.3-2.6 0-1.5 1.3-2.5 3.3-2.5 1.8 0 3 .7 3.5 1.9" stroke="#f7dc9e" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+      <div style="min-width:0">
+        <h1>S-RIM Valuation Lab<small>SAGYEONGIN S-RIM · 적정주가 · GAP%</small></h1>
+      </div>
+      <div class="asof"><b id="asofDate">—</b><span id="asofTime"></span></div>
+    </div>
+    <div class="idxbar" id="idxbar"></div>
+    <div class="ratebar" id="ratebar"></div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-mkt="ALL" class="on">전체</button>
+    <button data-mkt="KR">한국 TOP 30</button>
+    <button data-mkt="US">미국 TOP 30</button>
+    <button data-mkt="SIM">직접 입력</button>
+  </nav>
+
+  <main id="viewList">
+    <div class="controls">
+      <div class="searchbox">
+        <svg class="ic" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#9db0cc" stroke-width="2"/><path d="m16.5 16.5 4 4" stroke="#9db0cc" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="회사명 · 티커 검색 (예: 삼성전자, NVDA)" autocomplete="off" enterkeyhint="search">
+      </div>
+      <div class="sortrow">
+        <div class="chips" id="sorts">
+          <button class="chip on" data-sort="gap">Gap% 높은순</button>
+          <button class="chip" data-sort="mcap">시총순</button>
+          <button class="chip" data-sort="roe">ROE순</button>
+        </div>
+        <div class="wsel" id="wsel">
+          <button class="chip" data-w="1">w1.0</button>
+          <button class="chip" data-w="0.9">0.9</button>
+          <button class="chip" data-w="0.8">0.8</button>
+          <button class="chip" data-w="0.7">0.7</button>
+        </div>
+      </div>
+    </div>
+    <div class="listmeta"><span id="listCount">—</span><span id="listHint">적정주가 = B₀ + 초과이익 × w/(1+Ke−w)</span></div>
+    <ul class="list" id="list"></ul>
+  </main>
+
+  <main id="viewSim" hidden>
+    <div class="card">
+      <h3>직접 입력 시뮬레이터 <span class="tag">임의 종목</span></h3>
+      <div class="form" id="simForm">
+        <div class="fld wide"><label>종목명 (선택)</label><input id="f-name" placeholder="예: 나의 종목" autocomplete="off"></div>
+        <div class="fld"><label>현재가 (원)</label><input id="f-price" inputmode="decimal" placeholder="50000"></div>
+        <div class="fld"><label>발행주식수 (주)</label><input id="f-shares" inputmode="numeric" placeholder="10000000"></div>
+        <div class="fld"><label>자기자본 B₀ (원)</label><input id="f-equity" inputmode="decimal" placeholder="300000000000"></div>
+        <div class="fld"><label>ROE (%)</label><input id="f-roe" inputmode="decimal" placeholder="12"></div>
+        <div class="fld"><label>할인율 Ke (%)</label><input id="f-ke" inputmode="decimal" placeholder="10.45"></div>
+        <div class="fld"><label>자기주식수 (선택)</label><input id="f-treasury" inputmode="numeric" placeholder="0"></div>
+        <div class="fld wide"><label>우선주 시총 (선택, 원)</label><input id="f-pref" inputmode="decimal" placeholder="0"></div>
+      </div>
+      <div style="display:flex; gap:6px; margin-top:10px">
+        <button class="btn gold" id="simRun" style="flex:1.4">계산하기</button>
+        <button class="btn" id="simExample" style="flex:1">예시 채우기</button>
+      </div>
+      <div id="simRes" class="res"></div>
+      <div class="note">입력값은 저장되지 않아요. 같은 S-RIM 식으로 w 1.0 / 0.9 / 0.8 / 0.7을 한 번에 계산합니다.</div>
+    </div>
+  </main>
+
+  <footer class="src">
+    <div class="sep"></div>
+    <div><b>데이터</b> · 한국 시세 네이버금융 / 한국 재무·컨센서스 WISEfn / 할인율 KIS채권평가 무보증회사채 BBB- 5년 / 미국 시세·재무 Nasdaq / 지수·금리 Yahoo Finance</div>
+    <div style="margin-top:5px"><b>계산</b> · 초과이익 = B₀ × (ROE − Ke) · 기업가치 = B₀ + 초과이익 × [w ÷ (1 + Ke − w)] · 적정주가 = (기업가치 − 우선주 시총) ÷ (발행주식수 − 자기주식수)</div>
+    <div style="margin-top:5px">투자 판단의 참고 자료이며 매수·매도 추천이 아닙니다. ROE 가정에 따라 결과가 크게 달라집니다.</div>
+  </footer>
+</div>
+
+<!-- ================= detail sheet ================= -->
+<div class="sheet" id="sheet" aria-hidden="true">
+  <div class="panel" id="sheetPanel">
+    <div class="shead">
+      <div class="who"><h2 id="dName">—</h2><p id="dSub">—</p></div>
+      <button class="xbtn" id="dClose" aria-label="닫기">✕</button>
+    </div>
+    <div id="dBody"></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const EMBEDDED_DATA = {"generatedAt":"2026-11-27T23:49:34+09:00","asOfDate":"2026-11-27","title":"S-RIM Valuation Lab","rates":{"kr":{"market":"KR","label":"KR BBB- 5Y","valuePct":10.45,"detail":"무보증회사채 BBB- 5년","bbb3yPct":10.15,"treasury5yPct":3.73,"asOf":"2026.11.27","source":"KIS채권평가 등급별금리스프레드 (kisrating.com)","url":"https://www.kisrating.com/ratingsStatistics/statics_spread.do"},"us":{"market":"US","label":"US Ke","valuePct":9.9,"ust10yPct":4.9,"erpPct":5.0,"asOf":"2026-11-27 23:26 KST","source":"Yahoo Finance ^TNX(미 10년물) + ERP 5.0%p 가정","url":"https://query1.finance.yahoo.com/v8/finance/chart/%5ETNX?interval=1d&range=5d"}},"indices":[{"id":"KOSPI","name":"코스피","value":4915.68,"changePct":4.34,"asOf":"2026-11-27T20:15:00+09:00","source":"네이버 금융"},{"id":"KOSDAQ","name":"코스닥","value":708.99,"changePct":8.13,"asOf":"2026-11-27T20:15:00+09:00","source":"네이버 금융"},{"id":"SPX","name":"S&P 500","value":7234.13,"changePct":0.715,"asOf":"2026-11-27 09:41 ET","source":"Yahoo Finance"},{"id":"NDX","name":"NASDAQ 100","value":26254.307,"changePct":0.797,"asOf":"2026-11-27 09:41 ET","source":"Yahoo Finance"},{"id":"SOX","name":"SOX(반도체)","value":8848.745,"changePct":0.842,"asOf":"2026-11-27 09:41 ET","source":"Yahoo Finance"}],"stocks":[{"market":"KR","code":"005930","name":"삼성전자","price":179500.0,"changePct":4.79,"endType":"stock","tradedAt":"2026-11-27T20:20:22+09:00","prefList":[{"code":"005935","name":"삼성전자우","mcapEok":1167450.0}],"ticker":"005930","currency":"KRW","per":5.64,"pbr":1.93,"shares":5846278608,"treasury":136722409,"roe":{"y1":10.85,"y0":53.75,"yn":53.75},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":1049407000000000.0,"prefMarketCap":116745000000000.0,"equity":605444000000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"000660","name":"SK하이닉스","price":1111000.0,"changePct":5.51,"endType":"stock","tradedAt":"2026-11-27T20:20:25+09:00","prefList":[],"ticker":"000660","currency":"KRW","per":4.25,"pbr":2.56,"shares":706799093,"treasury":7989519,"roe":{"y1":44.15,"y0":100.59,"yn":68.26},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":785253800000000.0,"prefMarketCap":0.0,"equity":308494900000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"402340","name":"SK스퀘어","price":687000.0,"changePct":5.37,"endType":"stock","tradedAt":"2026-11-27T20:20:22+09:00","prefList":[],"ticker":"402340","currency":"KRW","per":2.12,"pbr":1.36,"shares":131923998,"treasury":149899,"roe":{"y1":37.82,"y0":99.79,"yn":66.64},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":90631800000000.0,"prefMarketCap":0.0,"equity":66469700000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"373220","name":"LG에너지솔루션","price":316000.0,"changePct":4.64,"endType":"stock","tradedAt":"2026-11-27T20:20:20+09:00","prefList":[],"ticker":"373220","currency":"KRW","per":null,"pbr":3.92,"shares":234000000,"treasury":0,"roe":{"y1":-5.19,"y0":-5.42,"yn":4.69},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":73944000000000.0,"prefMarketCap":0.0,"equity":18847100000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"207940","name":"삼성바이오로직스","price":1347000.0,"changePct":0.75,"endType":"stock","tradedAt":"2026-11-27T20:20:24+09:00","prefList":[],"ticker":"207940","currency":"KRW","per":36.61,"pbr":7.23,"shares":48560951,"treasury":51433,"roe":{"y1":19.44,"y0":20.54,"yn":19.32},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":62353900000000.0,"prefMarketCap":0.0,"equity":8689300000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"009150","name":"삼성전기","price":823000.0,"changePct":4.97,"endType":"stock","tradedAt":"2026-11-27T20:20:27+09:00","prefList":[{"code":"009155","name":"삼성전기우","mcapEok":8503.0}],"ticker":"009150","currency":"KRW","per":50.83,"pbr":6.09,"shares":74693696,"treasury":2000000,"roe":{"y1":7.7,"y0":16.71,"yn":28.21},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":61472900000000.0,"prefMarketCap":850300000000.0,"equity":10217100000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"005380","name":"현대차","price":270500.0,"changePct":4.44,"endType":"stock","tradedAt":"2026-11-27T20:20:26+09:00","prefList":[{"code":"005387","name":"현대차2우B","mcapEok":50735.0},{"code":"005385","name":"현대차우","mcapEok":32637.0},{"code":"005389","name":"현대차3우B","mcapEok":3299.0}],"ticker":"005380","currency":"KRW","per":9.45,"pbr":0.61,"shares":203466492,"treasury":131874,"roe":{"y1":8.41,"y0":7.4,"yn":7.49},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":55037700000000.0,"prefMarketCap":8667100000000.0,"equity":116222000000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"105560","name":"KB금융","price":145500.0,"changePct":0.14,"endType":"stock","tradedAt":"2026-11-27T20:20:21+09:00","prefList":[],"ticker":"105560","currency":"KRW","per":8.69,"pbr":0.84,"shares":354687734,"treasury":0,"roe":{"y1":9.98,"y0":11.1,"yn":10.83},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/06","warnings":[],"ke":10.45,"marketCap":51607100000000.0,"prefMarketCap":0.0,"equity":60890800000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"068270","name":"셀트리온","price":221000.0,"changePct":2.55,"endType":"stock","tradedAt":"2026-11-27T20:20:23+09:00","prefList":[],"ticker":"068270","currency":"KRW","per":39.77,"pbr":2.9,"shares":232129189,"treasury":5033313,"roe":{"y1":5.94,"y0":7.92,"yn":9.96},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":51300600000000.0,"prefMarketCap":0.0,"equity":17318200000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"032830","name":"삼성생명","price":235500.0,"changePct":5.13,"endType":"stock","tradedAt":"2026-11-27T20:20:23+09:00","prefList":[],"ticker":"032830","currency":"KRW","per":16.81,"pbr":0.29,"shares":200000000,"treasury":20425221,"roe":{"y1":4.96,"y0":4.48,"yn":4.61},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/06","warnings":[],"ke":10.45,"marketCap":47100000000000.0,"prefMarketCap":0.0,"equity":144838800000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"028260","name":"삼성물산","price":259000.0,"changePct":5.5,"endType":"stock","tradedAt":"2026-11-27T20:20:21+09:00","prefList":[{"code":"02826K","name":"삼성물산우B","mcapEok":2442.0}],"ticker":"028260","currency":"KRW","per":15.54,"pbr":0.48,"shares":162167581,"treasury":0,"roe":{"y1":6.02,"y0":4.24,"yn":4.08},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":42001400000000.0,"prefMarketCap":244200000000.0,"equity":88146700000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"055550","name":"신한지주","price":84000.0,"changePct":-0.83,"endType":"stock","tradedAt":"2026-11-27T20:20:22+09:00","prefList":[],"ticker":"055550","currency":"KRW","per":7.52,"pbr":0.66,"shares":462911723,"treasury":1300000,"roe":{"y1":8.72,"y0":9.82,"yn":9.64},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/06","warnings":[],"ke":10.45,"marketCap":38884600000000.0,"prefMarketCap":0.0,"equity":60100700000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"000270","name":"기아","price":95100.0,"changePct":1.49,"endType":"stock","tradedAt":"2026-11-27T20:20:22+09:00","prefList":[],"ticker":"000270","currency":"KRW","per":5.37,"pbr":0.59,"shares":390412998,"treasury":1756955,"roe":{"y1":12.92,"y0":10.91,"yn":10.64},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":37128300000000.0,"prefMarketCap":0.0,"equity":62271200000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"006400","name":"삼성SDI","price":452500.0,"changePct":8.25,"endType":"stock","tradedAt":"2026-11-27T20:20:21+09:00","prefList":[{"code":"006405","name":"삼성SDI우","mcapEok":3019.0}],"ticker":"006400","currency":"KRW","per":63.02,"pbr":1.55,"shares":80585530,"treasury":3331391,"roe":{"y1":-3.15,"y0":3.66,"yn":5.67},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":36465000000000.0,"prefMarketCap":301900000000.0,"equity":22915500000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"034730","name":"SK","price":473000.0,"changePct":10.0,"endType":"stock","tradedAt":"2026-11-27T20:20:26+09:00","prefList":[{"code":"03473K","name":"SK우","mcapEok":1984.0}],"ticker":"034730","currency":"KRW","per":2.72,"pbr":0.64,"shares":72502703,"treasury":17959328,"roe":{"y1":6.35,"y0":47.93,"yn":29.01},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":34293800000000.0,"prefMarketCap":198400000000.0,"equity":40657600000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"012450","name":"한화에어로스페이스","price":661000.0,"changePct":5.42,"endType":"stock","tradedAt":"2026-11-27T20:20:23+09:00","prefList":[],"ticker":"012450","currency":"KRW","per":23.3,"pbr":3.05,"shares":51563401,"treasury":344001,"roe":{"y1":19.14,"y0":15.52,"yn":19.58},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":34083400000000.0,"prefMarketCap":0.0,"equity":11137200000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"086790","name":"하나금융지주","price":118400.0,"changePct":-0.67,"endType":"stock","tradedAt":"2026-11-27T20:20:24+09:00","prefList":[],"ticker":"086790","currency":"KRW","per":8.04,"pbr":0.67,"shares":269084204,"treasury":0,"roe":{"y1":9.17,"y0":9.62,"yn":9.56},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/06","warnings":[],"ke":10.45,"marketCap":31859600000000.0,"prefMarketCap":0.0,"equity":46876500000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"012330","name":"현대모비스","price":340000.0,"changePct":3.19,"endType":"stock","tradedAt":"2026-11-27T20:20:23+09:00","prefList":[],"ticker":"012330","currency":"KRW","per":9.34,"pbr":0.61,"shares":89820585,"treasury":1552000,"roe":{"y1":7.68,"y0":7.17,"yn":7.88},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":30539000000000.0,"prefMarketCap":0.0,"equity":49502000000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"034020","name":"두산에너빌리티","price":44100.0,"changePct":8.89,"endType":"stock","tradedAt":"2026-11-27T20:20:24+09:00","prefList":[],"ticker":"034020","currency":"KRW","per":130.09,"pbr":3.79,"shares":640561146,"treasury":1428328,"roe":{"y1":1.11,"y0":3.44,"yn":6.17},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":28248700000000.0,"prefMarketCap":0.0,"equity":7444800000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"329180","name":"HD현대중공업","price":250000.0,"changePct":4.82,"endType":"stock","tradedAt":"2026-11-27T20:20:21+09:00","prefList":[],"ticker":"329180","currency":"KRW","per":10.48,"pbr":2.57,"shares":104961225,"treasury":28451,"roe":{"y1":18.82,"y0":27.02,"yn":28.37},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":26240300000000.0,"prefMarketCap":0.0,"equity":10218600000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"035420","name":"NAVER","price":164000.0,"changePct":2.37,"endType":"stock","tradedAt":"2026-11-27T20:20:23+09:00","prefList":[],"ticker":"035420","currency":"KRW","per":15.09,"pbr":0.89,"shares":158684979,"treasury":2238815,"roe":{"y1":7.36,"y0":6.26,"yn":6.59},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":26024300000000.0,"prefMarketCap":0.0,"equity":27559700000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"066570","name":"LG전자","price":146100.0,"changePct":8.06,"endType":"stock","tradedAt":"2026-11-27T20:20:24+09:00","prefList":[{"code":"066575","name":"LG전자우","mcapEok":9278.0}],"ticker":"066570","currency":"KRW","per":19.95,"pbr":1.06,"shares":162884638,"treasury":588589,"roe":{"y1":4.28,"y0":7.72,"yn":8.8},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":23797400000000.0,"prefMarketCap":927800000000.0,"equity":24701700000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"000810","name":"삼성화재","price":524000.0,"changePct":2.14,"endType":"stock","tradedAt":"2026-11-27T20:20:23+09:00","prefList":[{"code":"000815","name":"삼성화재우","mcapEok":10885.0}],"ticker":"000810","currency":"KRW","per":11.91,"pbr":0.62,"shares":44647473,"treasury":4819177,"roe":{"y1":10.97,"y0":9.02,"yn":8.31},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/06","warnings":[],"ke":10.45,"marketCap":23395300000000.0,"prefMarketCap":1088500000000.0,"equity":36175000000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"316140","name":"우리금융지주","price":31100.0,"changePct":-0.32,"endType":"stock","tradedAt":"2026-11-27T20:20:20+09:00","prefList":[],"ticker":"316140","currency":"KRW","per":7.19,"pbr":0.58,"shares":736729188,"treasury":4543266,"roe":{"y1":8.91,"y0":8.64,"yn":8.54},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/06","warnings":[],"ke":10.45,"marketCap":22912300000000.0,"prefMarketCap":0.0,"equity":38884700000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"011200","name":"HMM","price":22350.0,"changePct":0.9,"endType":"stock","tradedAt":"2026-11-27T20:20:26+09:00","prefList":[],"ticker":"011200","currency":"KRW","per":7.91,"pbr":0.79,"shares":943237970,"treasury":0,"roe":{"y1":6.9,"y0":11.13,"yn":6.69},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":21081400000000.0,"prefMarketCap":0.0,"equity":26717300000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"138040","name":"메리츠금융지주","price":125800.0,"changePct":2.44,"endType":"stock","tradedAt":"2026-11-27T20:20:24+09:00","prefList":[],"ticker":"138040","currency":"KRW","per":9.06,"pbr":1.79,"shares":167347273,"treasury":10421622,"roe":{"y1":22.53,"y0":21.46,"yn":21.68},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/06","warnings":[],"ke":10.45,"marketCap":21052300000000.0,"prefMarketCap":0.0,"equity":11303400000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"005490","name":"POSCO홀딩스","price":258000.0,"changePct":3.82,"endType":"stock","tradedAt":"2026-11-27T20:20:21+09:00","prefList":[],"ticker":"005490","currency":"KRW","per":17.69,"pbr":0.35,"shares":79241527,"treasury":3620748,"roe":{"y1":1.18,"y0":3.0,"yn":3.54},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":20444300000000.0,"prefMarketCap":0.0,"equity":56158300000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"033780","name":"KT&G","price":176600.0,"changePct":-1.62,"endType":"stock","tradedAt":"2026-11-27T20:20:26+09:00","prefList":[],"ticker":"033780","currency":"KRW","per":17.5,"pbr":1.95,"shares":103810456,"treasury":0,"roe":{"y1":11.77,"y0":10.79,"yn":13.49},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":18332900000000.0,"prefMarketCap":0.0,"equity":9384500000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"010120","name":"LS ELECTRIC","price":121500.0,"changePct":7.14,"endType":"stock","tradedAt":"2026-11-27T20:20:20+09:00","prefList":[],"ticker":"010120","currency":"KRW","per":39.31,"pbr":7.2,"shares":150000000,"treasury":1182130,"roe":{"y1":14.67,"y0":24.59,"yn":29.73},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":18225000000000.0,"prefMarketCap":0.0,"equity":2510800000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"KR","code":"010130","name":"고려아연","price":810000.0,"changePct":5.74,"endType":"stock","tradedAt":"2026-11-27T20:20:21+09:00","prefList":[],"ticker":"010130","currency":"KRW","per":15.12,"pbr":1.56,"shares":20872969,"treasury":0,"roe":{"y1":8.66,"y0":9.67,"yn":7.27},"roeLabels":{"y1":"2025/12","y0":"2026/12(E)","yn":"2027/12(E)"},"roeSource":"컨센서스(WISEfn)","equityAsOf":"2026/09","warnings":[],"ke":10.45,"marketCap":16907100000000.0,"prefMarketCap":0.0,"equity":10619700000000.0,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"AAPL","name":"Apple Inc.","currency":"USD","marketCap":5167353275560.0,"price":356.34,"changePct":0.21,"sector":"Technology","warnings":[],"equity":112093000000.0,"equityAsOf":"9/26/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":122.25,"yn":134.67,"y1":117.92},"roeLabels":{"y0":"Sep 2027(E)","yn":"Sep 2028(E)","y1":"2026.09 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:42 AM ET","shares":14501187842,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Sep 2027","eps":9.45},{"fy":"Sep 2028","eps":10.41},{"fy":"Sep 2029","eps":12.06}],"per":39.09,"pbr":46.1,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"MSFT","name":"Microsoft Corporation","currency":"USD","marketCap":3638315496861.0,"price":494.12,"changePct":0.86,"sector":"Technology","warnings":[],"equity":470509000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":31.16,"yn":37.26,"y1":28.43},"roeLabels":{"y0":"Jun 2027(E)","yn":"Jun 2028(E)","y1":"2026.06 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:42 AM ET","shares":7363222490,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Jun 2027","eps":19.91},{"fy":"Jun 2028","eps":23.81},{"fy":"Jun 2029","eps":29.27}],"per":27.2,"pbr":7.73,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"NVDA","name":"NVIDIA Corporation","currency":"USD","marketCap":3598130000000.0,"price":146.8,"changePct":-1.67,"sector":"Technology","warnings":[],"equity":228984000000.0,"equityAsOf":"7/26/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":102.76,"yn":174.58,"y1":52.43},"roeLabels":{"y0":"Jan 2027(E)","yn":"Jan 2028(E)","y1":"2026.01 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:42 AM ET","shares":24510422343,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Jan 2027","eps":9.6},{"fy":"Jan 2028","eps":16.31},{"fy":"Jan 2029","eps":22.42}],"per":29.97,"pbr":15.71,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"GOOGL","name":"Alphabet Inc.","currency":"USD","marketCap":3357491400000.0,"price":274.245,"changePct":0.42,"sector":"Technology","warnings":[],"equity":677549000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":35.72,"yn":26.98,"y1":19.51},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":12242671334,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":19.77},{"fy":"Dec 2027","eps":14.93},{"fy":"Dec 2028","eps":18.47}],"per":25.4,"pbr":4.96,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"AMZN","name":"Amazon.com Inc.","currency":"USD","marketCap":2643055396136.0,"price":250.23,"changePct":2.37,"sector":"Consumer Discretionary","warnings":[],"equity":613601000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":13.43,"yn":18.56,"y1":12.66},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":10562504081,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":7.8},{"fy":"Dec 2027","eps":10.78},{"fy":"Dec 2028","eps":14.37}],"per":34.03,"pbr":4.31,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"SPCX","name":"Space Exploration Technologies Corp.","currency":"USD","marketCap":1730770759075.0,"price":130.5,"changePct":2.4,"sector":"Technology","warnings":["나스닥 재무상태표 없음: 'NoneType' object is not subscriptable","나스닥 손익계산서 없음: 'NoneType' object is not subscriptable","나스닥 재무제표 없어 SEC 공시값 사용(2026-09-30, USD→USD 환산)","순이익도 SEC 값 사용(2026-09-30, 전액 달러 환산)"],"equity":176768000000.0,"equityAsOf":"2026-09-30","prefMarketCap":0,"treasury":0,"roe":{"y0":1.73,"yn":30.91,"y1":1.02},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2026.09 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":13262611181,"equitySource":"SEC XBRL(10-Q, USD→USD 환산)","equityLocal":{"value":176768000000.0,"currency":"USD","fxToUsd":1.0},"roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":0.23},{"fy":"Dec 2027","eps":4.12},{"fy":"Dec 2028","eps":9.7}],"per":961.01,"pbr":9.79,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"META","name":"Meta Platforms Inc.","currency":"USD","marketCap":1559025977792.0,"price":621.1,"changePct":1.84,"sector":"Technology","warnings":[],"equity":272386000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":26.73,"yn":31.01,"y1":22.2},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":2510104617,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":29.01},{"fy":"Dec 2027","eps":33.65},{"fy":"Dec 2028","eps":39.03}],"per":25.79,"pbr":5.72,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"TSLA","name":"Tesla Inc.","currency":"USD","marketCap":1502601405592.0,"price":390.25,"changePct":2.66,"sector":"Industrials","warnings":[],"equity":89289000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":2.89,"yn":4.57,"y1":4.25},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":3850355940,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":0.67},{"fy":"Dec 2027","eps":1.06},{"fy":"Dec 2028","eps":1.36}],"per":396.05,"pbr":16.83,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"AVGO","name":"Broadcom Inc.","currency":"USD","marketCap":1436194281184.0,"price":307.32,"changePct":2.15,"sector":"Technology","warnings":[],"equity":99690000000.0,"equityAsOf":"8/2/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":47.82,"yn":81.15,"y1":23.2},"roeLabels":{"y0":"Oct 2026(E)","yn":"Oct 2027(E)","y1":"2025.11 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":4673286090,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Oct 2026","eps":10.2},{"fy":"Oct 2027","eps":17.31},{"fy":"Oct 2028","eps":28.08}],"per":62.1,"pbr":14.41,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"LLY","name":"Eli Lilly and Company","currency":"USD","marketCap":1309771084310.0,"price":1396.765,"changePct":0.33,"sector":"Health Care","warnings":[],"equity":40271000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":83.2,"yn":119.52,"y1":51.25},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":937717572,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":35.73},{"fy":"Dec 2027","eps":51.33},{"fy":"Dec 2028","eps":58.72}],"per":63.46,"pbr":32.52,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"BRK.B","name":"Berkshire Hathaway Inc.","currency":"USD","marketCap":1279410486009.0,"price":581.69,"changePct":0.41,"sector":"","warnings":[],"equity":761368000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":8.8,"yn":8.8,"y1":8.8},"roeLabels":{"y1":"2025.12 실적","y0":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:46 AM ET","shares":2199471344,"equitySource":"나스닥 분기 재무상태표","roeSource":"TTM(재무제표)","per":19.1,"pbr":1.68,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"ANT","name":"Anthropic PBC","currency":"USD","marketCap":1094454184030.0,"price":86.0,"changePct":3.88,"sector":"Technology","warnings":["나스닥 재무상태표 없음: 'NoneType' object is not subscriptable","나스닥 손익계산서 없음: 'NoneType' object is not subscriptable","재무데이터 없음(S-RIM 계산 불가)"],"equity":0,"equityAsOf":null,"prefMarketCap":0,"treasury":0,"roe":{"y0":null,"yn":null,"y1":null},"roeLabels":{},"dataMissing":true,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":12726211442,"roeSource":"TTM(재무제표)","ke":9.9,"fiscalYear":2026,"hasEstimates":false},{"market":"US","ticker":"WMT","name":"Walmart Inc.","currency":"USD","marketCap":1046778479038.0,"price":131.96,"changePct":0.02,"sector":"Consumer Discretionary","warnings":[],"equity":98238000000.0,"equityAsOf":"7/31/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":23.34,"yn":26.0,"y1":22.29},"roeLabels":{"y0":"Jan 2027(E)","yn":"Jan 2028(E)","y1":"2026.01 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":7932543794,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Jan 2027","eps":2.89},{"fy":"Jan 2028","eps":3.22},{"fy":"Jan 2029","eps":3.54}],"per":47.81,"pbr":10.66,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"JPM","name":"JP Morgan Chase & Co.","currency":"USD","marketCap":841429872927.0,"price":322.76,"changePct":1.9,"sector":"Finance","warnings":[],"equity":372368000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":16.77,"yn":18.11,"y1":14.95},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":2606983123,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":23.95},{"fy":"Dec 2027","eps":25.87},{"fy":"Dec 2028","eps":27.49}],"per":15.11,"pbr":2.26,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"V","name":"Visa Inc.","currency":"USD","marketCap":765387560714.0,"price":425.74,"changePct":0.32,"sector":"Consumer Discretionary","warnings":[],"equity":36111000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":74.78,"yn":84.73,"y1":65.09},"roeLabels":{"y0":"Sep 2027(E)","yn":"Sep 2028(E)","y1":"2026.09 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":1797781652,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Sep 2027","eps":15.02},{"fy":"Sep 2028","eps":17.02},{"fy":"Sep 2029","eps":18.96}],"per":32.56,"pbr":21.2,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"MU","name":"Micron Technology Inc.","currency":"USD","marketCap":681065310998.0,"price":612.1908,"changePct":1.82,"sector":"Technology","warnings":[],"equity":138378000000.0,"equityAsOf":"9/3/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":140.42,"yn":173.79,"y1":61.4},"roeLabels":{"y0":"Aug 2027(E)","yn":"Aug 2028(E)","y1":"2026.09 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":1112504976,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Aug 2027","eps":174.66},{"fy":"Aug 2028","eps":216.17},{"fy":"Aug 2029","eps":183.07}],"per":8.02,"pbr":4.92,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"AMD","name":"Advanced Micro Devices Inc.","currency":"USD","marketCap":672514598179.0,"price":408.86,"changePct":0.7,"sector":"Technology","warnings":[],"equity":68389000000.0,"equityAsOf":"9/26/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":16.67,"yn":38.58,"y1":6.34},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":1644853001,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":6.93},{"fy":"Dec 2027","eps":16.04},{"fy":"Dec 2028","eps":25.07}],"per":155.14,"pbr":9.83,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"JNJ","name":"Johnson & Johnson","currency":"USD","marketCap":659494683922.0,"price":274.225,"changePct":0.1,"sector":"Health Care","warnings":[],"equity":81529000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":32.8,"yn":33.92,"y1":32.88},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":2404940045,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":11.12},{"fy":"Dec 2027","eps":11.5},{"fy":"Dec 2028","eps":13.79}],"per":24.6,"pbr":8.09,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"XOM","name":"ExxonMobil Holdings Corporation","currency":"USD","marketCap":645210613967.0,"price":160.455,"changePct":1.5,"sector":"Energy","warnings":["나스닥 재무상태표 없음: 'NoneType' object is not subscriptable","나스닥 손익계산서 없음: 'NoneType' object is not subscriptable","나스닥 재무제표 없어 SEC 공시값 사용(2026-09-30, USD→USD 환산)","순이익도 SEC 값 사용(2026-09-30, 전액 달러 환산)"],"equity":265789000000.0,"equityAsOf":"2026-09-30","prefMarketCap":0,"treasury":0,"roe":{"y0":20.18,"yn":20.39,"y1":16.77},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2026.09 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":4021131245,"equitySource":"SEC XBRL(10-Q, USD→USD 환산)","equityLocal":{"value":265789000000.0,"currency":"USD","fxToUsd":1.0},"roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":13.34},{"fy":"Dec 2027","eps":13.48},{"fy":"Dec 2028","eps":10.61}],"per":14.48,"pbr":2.43,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"MA","name":"Mastercard Incorporated","currency":"USD","marketCap":574993658762.0,"price":661.02,"changePct":0.16,"sector":"Consumer Discretionary","warnings":[],"equity":6753000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":257.88,"yn":297.81,"y1":221.65},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":869858187,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":20.02},{"fy":"Dec 2027","eps":23.12},{"fy":"Dec 2028","eps":26.59}],"per":38.41,"pbr":85.15,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"ABBV","name":"AbbVie Inc.","currency":"USD","marketCap":520563002117.0,"price":292.1699,"changePct":-0.78,"sector":"Health Care","warnings":[],"equity":-4583000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":-543.88,"yn":-625.14,"y1":-92.21},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":1781713319,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":13.99},{"fy":"Dec 2027","eps":16.08},{"fy":"Dec 2028","eps":18.13}],"per":123.18,"pbr":-113.59,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"COST","name":"Costco Wholesale Corporation","currency":"USD","marketCap":481597407787.0,"price":1092.46,"changePct":0.52,"sector":"Consumer Discretionary","warnings":[],"equity":35803000000.0,"equityAsOf":"8/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":27.99,"yn":30.77,"y1":25.77},"roeLabels":{"y0":"Aug 2027(E)","yn":"Aug 2028(E)","y1":"2026.08 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":440837566,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Aug 2027","eps":22.73},{"fy":"Aug 2028","eps":24.99},{"fy":"Aug 2029","eps":27.4}],"per":52.2,"pbr":13.45,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"KO","name":"Coca-Cola Company (The)","currency":"USD","marketCap":420080763013.0,"price":97.0,"changePct":-0.6,"sector":"Consumer Staples","warnings":[],"equity":37372000000.0,"equityAsOf":"10/2/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":38.82,"yn":41.02,"y1":35.07},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":4330729516,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":3.35},{"fy":"Dec 2027","eps":3.54},{"fy":"Dec 2028","eps":3.83}],"per":32.05,"pbr":11.24,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"CVX","name":"Chevron Corporation","currency":"USD","marketCap":414703975746.0,"price":214.33,"changePct":1.6,"sector":"Energy","warnings":[],"equity":194327000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":18.63,"yn":17.89,"y1":6.33},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":1934885344,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":18.71},{"fy":"Dec 2027","eps":17.97},{"fy":"Dec 2028","eps":13.66}],"per":33.72,"pbr":2.13,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"PG","name":"Procter & Gamble Company (The)","currency":"USD","marketCap":401509573862.0,"price":172.7,"changePct":-0.31,"sector":"Consumer Discretionary","warnings":[],"equity":55097000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":29.5,"yn":31.27,"y1":29.12},"roeLabels":{"y0":"Jun 2027(E)","yn":"Jun 2028(E)","y1":"2026.06 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":2324896201,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Jun 2027","eps":6.99},{"fy":"Jun 2028","eps":7.41},{"fy":"Jun 2029","eps":7.92}],"per":25.02,"pbr":7.29,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"PLTR","name":"Palantir Technologies Inc.","currency":"USD","marketCap":394169691772.0,"price":165.1488,"changePct":0.95,"sector":"Technology","warnings":[],"equity":11227981000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":28.91,"yn":42.09,"y1":14.47},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":2386754804,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":1.36},{"fy":"Dec 2027","eps":1.98},{"fy":"Dec 2028","eps":3.09}],"per":242.56,"pbr":35.11,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"CSCO","name":"Cisco Systems Inc. Common Stock (DE)","currency":"USD","marketCap":371378618933.0,"price":96.035,"changePct":1.95,"sector":"Telecommunications","warnings":[],"equity":51607000000.0,"equityAsOf":"10/24/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":35.82,"yn":38.29,"y1":25.71},"roeLabels":{"y0":"Jul 2027(E)","yn":"Jul 2028(E)","y1":"2026.07 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":3867117394,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Jul 2027","eps":4.78},{"fy":"Jul 2028","eps":5.11},{"fy":"Jul 2029","eps":5.58}],"per":27.99,"pbr":7.2,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"HD","name":"Home Depot Inc. (The)","currency":"USD","marketCap":360593866498.0,"price":361.445,"changePct":0.05,"sector":"Consumer Discretionary","warnings":[],"equity":18134000000.0,"equityAsOf":"11/1/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":82.47,"yn":86.7,"y1":78.06},"roeLabels":{"y0":"Jan 2027(E)","yn":"Jan 2028(E)","y1":"2026.02 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:43 AM ET","shares":997645192,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Jan 2027","eps":14.99},{"fy":"Jan 2028","eps":15.76},{"fy":"Jan 2029","eps":17.12}],"per":25.47,"pbr":19.88,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"MRK","name":"Merck & Company Inc. Common Stock (new)","currency":"USD","marketCap":346095842138.0,"price":141.58,"changePct":0.92,"sector":"Health Care","warnings":[],"equity":44893000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":15.41,"yn":49.33,"y1":40.66},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:47 AM ET","shares":2444524948,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":2.83},{"fy":"Dec 2027","eps":9.06},{"fy":"Dec 2028","eps":10.43}],"per":18.96,"pbr":7.71,"ke":9.9,"fiscalYear":2026,"hasEstimates":true},{"market":"US","ticker":"BAC","name":"Bank of America Corporation","currency":"USD","marketCap":334798140971.0,"price":49.115,"changePct":1.18,"sector":"Finance","warnings":[],"equity":296749000000.0,"equityAsOf":"9/30/2026","prefMarketCap":0,"treasury":0,"roe":{"y0":10.36,"yn":11.9,"y1":9.79},"roeLabels":{"y0":"Dec 2026(E)","yn":"Dec 2027(E)","y1":"2025.12 실적"},"dataMissing":false,"quoteTime":"Nov 27, 2026 9:47 AM ET","shares":6816616939,"equitySource":"나스닥 분기 재무상태표","roeSource":"컨센서스 EPS÷BPS(나스닥)","epsEst":[{"fy":"Dec 2026","eps":4.51},{"fy":"Dec 2027","eps":5.18},{"fy":"Dec 2028","eps":5.83}],"per":11.52,"pbr":1.13,"ke":9.9,"fiscalYear":2026,"hasEstimates":true}],"counts":{"kr":30,"us":30},"notes":[],"method":{"excess":"초과이익 = B0 × (ROE − Ke)","value":"기업가치 = B0 + 초과이익 × [w / (1 + Ke − w)]","common":"기업가치_보통주 = 기업가치 − 우선주 시총","fair":"적정주가 = 기업가치_보통주 ÷ (발행주식수 − 자기주식수)","gap":"Gap% = (적정주가 − 현재가) ÷ 현재가 × 100"}}; /* __DATA_START__ */
+let DATA = null, D = null;
+const S = { tab:'ALL', sort:'gap', q:'', w:1.0, sel:null, roeMode:'y0', keOverride:null, roeOverride:null };
+
+/* ---------------- format ---------------- */
+const nf = (v, d=0) => (v==null || !isFinite(v)) ? '—' : v.toLocaleString('ko-KR',{minimumFractionDigits:d, maximumFractionDigits:d});
+function krBig(v){ // 원 단위 → 조/억
+  if(v==null || !isFinite(v)) return '—';
+  const a = Math.abs(v);
+  if(a >= 1e12) return (v/1e12).toFixed(a>=1e14?0:1).replace(/\.0$/,'')+'조';
+  if(a >= 1e8) return Math.round(v/1e8).toLocaleString('ko-KR')+'억';
+  return Math.round(v).toLocaleString('ko-KR');
+}
+function usdBig(v){
+  if(v==null || !isFinite(v)) return '—';
+  const a=Math.abs(v);
+  if(a>=1e12) return '$'+(v/1e12).toFixed(2)+'T';
+  if(a>=1e9) return '$'+(v/1e9).toFixed(1)+'B';
+  if(a>=1e6) return '$'+(v/1e6).toFixed(1)+'M';
+  return '$'+Math.round(v).toLocaleString('en-US');
+}
+function priceStr(v, ccy){
+  if(v==null || !isFinite(v)) return '—';
+  if(ccy==='KRW') return Math.round(v).toLocaleString('ko-KR')+'원';
+  return '$'+v.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2});
+}
+function bigStr(v, ccy){ return ccy==='KRW' ? krBig(v) : usdBig(v); }
+function pct(v, d=1){ return (v==null||!isFinite(v)) ? '—' : (v>0?'+':'')+v.toFixed(d)+'%'; }
+function cls(v){ return v==null||!isFinite(v) ? 'flat' : (v>0?'up':(v<0?'down':'flat')); }
+function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+function stamp(v){
+  if(!v) return '';
+  const s = String(v);
+  let m = s.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+  if(m) return `${m[1]}.${m[2]}.${m[3]} ${m[4]}:${m[5]}`;
+  m = s.match(/^(\w{3}) (\d{1,2}), (\d{4}) (\d{1,2}:\d{2} [AP]M)\s*(\w+)?/);
+  if(m){
+    const M = {Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'};
+    const [hh, mm] = m[4].split(' ')[0].split(':').map(Number);
+    const ampm = m[4].includes('PM');
+    const h24 = (hh % 12) + (ampm ? 12 : 0);
+    return `${m[3]}.${M[m[1]]||m[1]}.${String(m[2]).padStart(2,'0')} ${String(h24).padStart(2,'0')}:${String(mm).padStart(2,'0')} ${m[5]||''}`.trim();
+  }
+  return s.slice(0,16);
+}
+
+/* ---------------- model ---------------- */
+function roeOf(s, mode){
+  const r = s.roe||{};
+  if(mode==='avg'){
+    const parts = [[r.y1,1],[r.y0,2],[r.yn,3]].filter(p=>p[0]!=null && isFinite(p[0]));
+    if(!parts.length) return null;
+    const wsum = parts.reduce((a,p)=>a+p[1],0);
+    return parts.reduce((a,p)=>a+p[0]*p[1],0)/wsum;
+  }
+  return (r.y0!=null? r.y0 : (r.y1!=null? r.y1 : null));
+}
+function model(s, kePct, roePct, w){
+  const eq = s.equity||0;
+  const ke = (kePct||0)/100;
+  const roe = roePct==null ? null : roePct/100;
+  const denom = (1 + ke - w);
+  let excess = null, evAll = null, evCommon = null, fair = null, gap = null;
+  if(roe!=null && eq>0 && denom>0){
+    excess = eq*(roe-ke);
+    evAll = eq + excess*(w/denom);
+    evCommon = evAll - (s.prefMarketCap||0);
+    const sh = (s.shares||0) - (s.treasury||0);
+    if(sh>0){ fair = evCommon/sh; if(s.price>0 && fair>0) gap = (fair - s.price)/s.price*100; }
+  }
+  return {eq, kePct, roePct, w, excess, evAll, evCommon, fair, gap, denom, negFair: (fair!=null && fair<=0)};
+}
+const WS = [1.0, 0.9, 0.8, 0.7];
+
+/* ---------------- load ---------------- */
+async function loadData(){
+  try{
+    const r = await fetch('data/valuation.json', {cache:'no-store'});
+    if(r.ok){ DATA = await r.json(); }
+  }catch(e){ /* file:// 등 */ }
+  if(!DATA && EMBEDDED_DATA) DATA = EMBEDDED_DATA;
+  if(!DATA){
+    document.getElementById('list').innerHTML =
+      '<li class="card" style="color:#ffb9bf">데이터를 불러오지 못했어요. data/valuation.json 위치를 확인해 주세요.</li>';
+    return;
+  }
+  D = DATA;
+  renderHeader();
+  renderList();
+}
+
+function renderHeader(){
+  const dtStr = (D.asOfDate||'').replace(/-/g,'.');
+  const gen = (D.generatedAt||'').slice(11,16);
+  document.getElementById('asofDate').textContent = dtStr;
+  document.getElementById('asofTime').textContent = gen ? gen+' 기준' : '';
+  const ib = document.getElementById('idxbar');
+  ib.innerHTML = (D.indices||[]).map(i=>{
+    const v = i.value==null ? '—' : (i.value>=1000 ? i.value.toLocaleString('ko-KR',{maximumFractionDigits:2}) : i.value.toFixed(2));
+    return `<div class="idx"><div class="k">${i.name}</div><div class="v num">${v}</div>
+      <div class="c num ${cls(i.changePct)}">${pct(i.changePct,2)}</div></div>`;
+  }).join('');
+  const kr = D.rates?.kr, us = D.rates?.us;
+  document.getElementById('ratebar').innerHTML = `
+    <div class="rate"><span class="t">${kr?kr.label:'KR'}</span><span class="n num">${kr?kr.valuePct.toFixed(2)+'%':'—'}</span></div>
+    <div class="rate mint"><span class="t">${us?us.label:'US'}</span><span class="n num">${us?us.valuePct.toFixed(2)+'%':'—'}</span></div>`;
+}
+
+/* ---------------- list ---------------- */
+function filtered(){
+  let arr = (D.stocks||[]).slice();
+  if(S.tab==='KR'||S.tab==='US') arr = arr.filter(s=>s.market===S.tab);
+  if(S.q){
+    const q = S.q.trim().toLowerCase();
+    arr = arr.filter(s=> (s.name||'').toLowerCase().includes(q) || (s.ticker||'').toLowerCase().includes(q));
+  }
+  const gapOf = s=>{
+    if(s.dataMissing || !s.equity) return null;
+    const m = model(s, s.ke, roeOf(s,S.roeMode), S.w);
+    return m.gap;
+  };
+  if(S.sort==='gap'){
+    arr.sort((a,b)=>{ const ga=gapOf(a), gb=gapOf(b);
+      if(ga==null && gb==null) return 0; if(ga==null) return 1; if(gb==null) return -1; return gb-ga; });
+  }else if(S.sort==='mcap'){
+    arr.sort((a,b)=>(b.marketCap||0)-(a.marketCap||0));
+  }else{
+    arr.sort((a,b)=>(roeOf(b,S.roeMode)||-999)-(roeOf(a,S.roeMode)||-999));
+  }
+  return arr.map(s=>({s, gap:gapOf(s)}));
+}
+function renderList(){
+  const rows = filtered();
+  const ul = document.getElementById('list');
+  document.getElementById('listCount').textContent =
+    `${rows.length}종목 · ${S.sort==='gap'?'Gap% 순':(S.sort==='mcap'?'시총 순':'ROE 순')} · w=${S.w.toFixed(1)}`;
+  if(!rows.length){
+    ul.innerHTML = '<li class="card" style="text-align:center; color:var(--dim); font-size:12px">검색 결과가 없습니다</li>';
+    return;
+  }
+  const maxGap = Math.max(60, ...rows.map(r=>Math.abs(r.gap||0)));
+  ul.innerHTML = rows.map(({s,gap},i)=>{
+    const ccy = s.currency;
+    const roe = roeOf(s,S.roeMode);
+    const fair = (gap==null)?null:model(s,s.ke,roe,S.w).fair;
+    const gp = gap==null ? '' : (Math.abs(gap)>maxGap? maxGap : Math.abs(gap))/maxGap*100;
+    const bcls = gap==null ? 'na' : (gap>=0?'pos':'neg');
+    return `<li class="row" data-tk="${s.ticker}" data-mk="${s.market}">
+      <div class="r1">
+        <span class="rank">${i+1}</span>
+        <span class="nm">${s.name}</span>
+        <span class="mk ${s.market==='US'?'us':''}">${s.market}</span>
+        <span class="tk">${s.ticker}</span>
+        <span class="badge ${bcls} num">${gap==null?'N/A':pct(gap)}</span>
+      </div>
+      <div class="r2">
+        <b>${priceStr(s.price,ccy)}</b>
+        <span class="sep">·</span>
+        <span>적정 <span class="fair">${fair==null?'—':priceStr(fair,ccy)}</span></span>
+        <span class="sep">·</span><span class="fair">ROE ${roe==null?'—':roe.toFixed(1)+'%'}</span>
+      </div>
+      <div class="bar"><i class="${bcls==='neg'?'neg':''}" style="width:${gap==null?0:gp.toFixed(1)}%"></i></div>
+    </li>`;
+  }).join('');
+  ul.querySelectorAll('.row').forEach(el=>{
+    el.addEventListener('click', ()=> openDetail(el.dataset.tk));
+  });
+}
+
+/* ---------------- detail ---------------- */
+function byTicker(tk){ return (D.stocks||[]).find(s=>s.ticker===tk); }
+
+function openDetail(tk){
+  const s = byTicker(tk); if(!s) return;
+  S.sel = tk; S.roeMode='y0'; S.keOverride=null; S.roeOverride=null;
+  renderDetail();
+  const sh = document.getElementById('sheet');
+  sh.classList.add('open'); sh.setAttribute('aria-hidden','false');
+  document.getElementById('sheetPanel').scrollTop = 0;
+  document.body.style.overflow='hidden';
+}
+function closeDetail(){
+  const sh = document.getElementById('sheet');
+  sh.classList.remove('open'); sh.setAttribute('aria-hidden','true');
+  document.body.style.overflow=''; S.sel=null;
+}
+
+function curKe(s){ return S.keOverride ?? s.ke; }
+function curRoe(s){ return S.roeOverride ?? roeOf(s, S.roeMode); }
+
+function renderDetail(){
+  const s = byTicker(S.sel); if(!s) return;
+  const ccy = s.currency;
+  const ke = curKe(s), roe = curRoe(s);
+  const m = model(s, ke, roe, S.w);
+  const rows = WS.map(w=> model(s, ke, roe, w));
+  const bps = s.shares ? (s.equity / s.shares) : null;
+  const rr = s.roe||{};
+  const f2 = v => (v==null||!isFinite(v)) ? '—' : Number(v).toFixed(2);
+  const roeNote = S.roeMode==='avg'
+    ? `Y-1 ${f2(rr.y1)} / Y ${f2(rr.y0)} / Y+1 ${f2(rr.yn)} · 가중 1:2:3`
+    : `${s.roeLabels?.y0||''} · ${s.roeSource||''}`;
+  const netShares = (s.shares||0) - (s.treasury||0);
+
+  document.getElementById('dName').textContent = s.name;
+  document.getElementById('dSub').textContent =
+    `${s.ticker} · ${s.market==='KR'?'한국':'미국'} · ${priceStr(s.price,ccy)} (${pct(s.changePct,2)})`;
+
+  const warnHtml = [];
+  if(s.dataMissing) warnHtml.push('<div class="warn">재무데이터가 아직 공개되지 않아 S-RIM 계산을 할 수 없습니다(신규 상장 등). 현재가·시총만 참고하세요.</div>');
+  else if((s.equity||0)<=0) warnHtml.push('<div class="warn">B₀(지배주주자기자본)가 0 이하 — 자본잠식으로 S-RIM 적용 주의.</div>');
+  else if(roe!=null && roe<=0) warnHtml.push('<div class="warn">ROE가 0 이하 — 적자 기업으로 S-RIM 적용 주의.</div>');
+  else if(m.negFair) warnHtml.push('<div class="warn">ROE &lt; Ke 로 초과이익이 마이너스 — 이 가정에서는 보통주 가치가 0 이하가 되어 적정주가·Gap을 표시하지 않습니다.</div>');
+  else if(roe!=null && roe < ke) warnHtml.push('<div class="warn">ROE &lt; Ke — 초과이익이 마이너스라 w가 클수록 적정가치가 급감합니다.</div>');
+
+  const maxV = Math.max(s.price||0, ...rows.map(r=>Math.max(0,r.fair||0)));
+  const barRow = (label, val, isCur, sel, gap)=>{
+    const wPct = maxV>0 ? clamp(Math.abs(val||0)/maxV*100, 0, 100) : 0;
+    const negative = (val||0) < 0;
+    return `<div class="wb ${sel?'sel':''}">
+      <span class="lb">${label}</span>
+      <span class="track"><i class="fill ${isCur?'cur':''} ${negative?'neg':''}" style="width:${wPct.toFixed(1)}%"></i></span>
+      <span class="vl"><b>${priceStr(val,ccy)}</b>${gap==null?'':`<span class="gp ${gap>=0?'up':'down'}">${pct(gap)}</span>`}</span>
+    </div>`;
+  };
+
+  document.getElementById('dBody').innerHTML = `
+    <div class="hl">
+      <div class="box gold"><div class="t">현재가</div><div class="v">${priceStr(s.price,ccy)}</div>
+        <div class="s">${s.market==='KR'?'종가':'실시간'} · ${stamp(s.tradedAt||s.quoteTime||'')}</div></div>
+      <div class="box ${m.negFair?'neg':(m.gap==null?'':(m.gap>=0?'pos':'neg'))}"><div class="t">적정주가 · w=${S.w.toFixed(1)}</div>
+        <div class="v">${m.fair==null?'—':priceStr(m.fair,ccy)}</div>
+        <div class="s">Gap ${m.gap==null?'—':pct(m.gap)}</div></div>
+    </div>
+    ${warnHtml.join('')}
+
+    <div class="seg" id="roeSeg">
+      <button data-mode="y0" class="${S.roeMode==='y0'?'on':''}">컨센서스 ROE ${s.roeLabels?.y0? '('+s.roeLabels.y0+')':''}</button>
+      <button data-mode="avg" class="${S.roeMode==='avg'?'on':''}">3개년 가중평균</button>
+    </div>
+
+    <div class="card">
+      <h3>현재가 vs w별 적정주가 <span class="tag">${ccy==='KRW'?'원':'USD'}</span></h3>
+      <div class="wbars">
+        ${barRow('현재가', s.price, true, false, null)}
+        ${rows.map(r=> barRow('w '+r.w.toFixed(1), r.fair, false, Math.abs(r.w-S.w)<1e-9, r.gap)).join('')}
+      </div>
+      <div class="note">w = 초과이익 지속계수. 1.0은 초과이익이 영구히 유지된다는 가정, 0.7은 7년 후 사라진다는 가정에 가깝습니다.</div>
+    </div>
+
+    <div class="card">
+      <h3>S-RIM 산출 내역 <span class="tag">모델 전체</span></h3>
+      <div class="kv">
+        <div class="r"><span class="k">할인율 Ke<em>${s.market==='KR'?'KIS채권평가 BBB- 5년':'미 10년물 + ERP 5.0%p'}</em></span><span class="v">${(ke||0).toFixed(2)}%</span></div>
+        <div class="r"><span class="k">B₀ 지배주주 자기자본<em>${s.equityAsOf||''} ${s.equitySource?('· '+s.equitySource):''}</em></span><span class="v">${bigStr(s.equity,ccy)}</span></div>
+        <div class="r"><span class="k">ROE<em>${roeNote}</em></span><span class="v">${roe==null?'—':roe.toFixed(2)+'%'}</span></div>
+        <div class="r"><span class="k">초과이익 = B₀×(ROE−Ke)</span><span class="v ${(m.excess||0)<0?'neg':'pos'}">${m.excess==null?'—':bigStr(m.excess,ccy)}</span></div>
+        <div class="r"><span class="k">시총 전체<em>현재 주가 기준</em></span><span class="v">${bigStr(s.marketCap,ccy)}</span></div>
+        <div class="r"><span class="k">우선주 시총 차감</span><span class="v">${bigStr(s.prefMarketCap||0,ccy)}</span></div>
+        <div class="r"><span class="k">보통주 주식수<em>${(s.treasury||0)>0?('자기주식 '+nf(s.treasury)+'주 제외'):(s.market==='US'?'시총 ÷ 주가 기준':(s.shares?'발행주식수 기준':''))}</em></span><span class="v">${nf(netShares)}주</span></div>
+      </div>
+      <table class="tbl" style="margin-top:9px">
+        <thead><tr><th>w</th><th>기업가치</th><th>보통주 가치</th><th>적정주가</th><th>Gap</th></tr></thead>
+        <tbody>
+          ${rows.map(r=>`<tr class="${Math.abs(r.w-S.w)<1e-9?'sel':''}">
+            <td>${r.w.toFixed(1)}</td>
+            <td>${r.evAll==null?'—':bigStr(r.evAll,ccy)}</td>
+            <td>${r.evCommon==null?'—':bigStr(r.evCommon,ccy)}</td>
+            <td>${r.fair==null?'—':priceStr(r.fair,ccy)}</td>
+            <td class="${r.gap==null?'dim':(r.gap>=0?'pos':'neg')}">${r.gap==null?(r.negFair?'음수':'—'):pct(r.gap)}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+      <div class="kv" style="margin-top:6px">
+        <div class="r"><span class="k">참고 PER<em>${s.market==='KR'?'TTM(네이버)':'TTM(나스닥)'}</em></span><span class="v">${s.per==null?'—':s.per.toFixed(2)+'배'}</span></div>
+        <div class="r"><span class="k">참고 PBR</span><span class="v">${s.pbr==null?'—':s.pbr.toFixed(2)+'배'}</span></div>
+        <div class="r"><span class="k">주당순자산 BPS<em>B₀ ÷ 보통주 발행주식수</em></span><span class="v">${bps==null?'—':priceStr(bps,ccy)}</span></div>
+      </div>
+    </div>
+
+    <div class="card sim">
+      <h3>실시간 시뮬레이터 <span class="tag">Ke · ROE</span></h3>
+      <div class="srow">
+        <div class="top"><span class="l">할인율 Ke</span><span class="val num" id="keVal">${ke.toFixed(2)}%</span></div>
+        <input type="range" id="keRange" min="5" max="20" step="0.05" value="${ke}">
+      </div>
+      <div class="srow">
+        <div class="top"><span class="l">ROE</span><span class="val num" id="roeVal">${roe==null?'—':roe.toFixed(2)+'%'}</span></div>
+        <input type="range" id="roeRange" min="-10" max="150" step="0.1" value="${roe==null?0:clamp(roe,-10,150)}">
+      </div>
+      <div class="simout">
+        <div class="box" style="background:#111b2e;border:1px solid var(--line);border-radius:11px;padding:9px">
+          <div style="font-size:9.4px;color:var(--dim)">적정주가 (w=${S.w.toFixed(1)})</div>
+          <div class="num" style="font-size:16px;font-weight:800;color:var(--gold2)" id="simFair">${m.fair==null?'—':priceStr(m.fair,ccy)}</div>
+        </div>
+        <div class="box" style="background:#111b2e;border:1px solid var(--line);border-radius:11px;padding:9px">
+          <div style="font-size:9.4px;color:var(--dim)">Gap</div>
+          <div class="num" style="font-size:16px;font-weight:800" id="simGap">${m.gap==null?'—':pct(m.gap)}</div>
+        </div>
+      </div>
+      <button class="btn wide" id="simReset" style="margin-top:9px">초기값 복원</button>
+      <div class="note">슬라이더를 움직이면 w=${S.w.toFixed(1)} 기준 적정주가와 Gap이 즉시 다시 계산됩니다. 위 w 선택을 바꾸면 다른 지속계수로도 볼 수 있어요.</div>
+    </div>
+  `;
+
+  // events
+  document.querySelectorAll('#roeSeg button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      S.roeMode = b.dataset.mode; S.roeOverride = null; renderDetail();
+    });
+  });
+  const keR = document.getElementById('keRange'), roeR = document.getElementById('roeRange');
+  const upd = ()=>{
+    S.keOverride = parseFloat(keR.value);
+    S.roeOverride = parseFloat(roeR.value);
+    const ke2 = S.keOverride, roe2 = S.roeOverride;
+    document.getElementById('keVal').textContent = ke2.toFixed(2)+'%';
+    document.getElementById('roeVal').textContent = roe2.toFixed(2)+'%';
+    const mm = model(s, ke2, roe2, S.w);
+    const elF = document.getElementById('simFair'), elG = document.getElementById('simGap');
+    elF.textContent = mm.fair==null?'—':priceStr(mm.fair,ccy);
+    elG.textContent = mm.gap==null?'—':pct(mm.gap);
+    elG.style.color = mm.gap>=0?'var(--mint)':'var(--coral)';
+  };
+  keR.addEventListener('input', upd);
+  roeR.addEventListener('input', upd);
+  document.getElementById('simReset').addEventListener('click', ()=>{
+    S.keOverride=null; S.roeOverride=null; renderDetail();
+  });
+}
+
+/* ---------------- sim tab ---------------- */
+function simExample(){
+  const f = (id,v)=>{ document.getElementById(id).value = v; };
+  f('f-name','예시: 가상 제조사');
+  f('f-price','50000'); f('f-shares','10000000');
+  f('f-equity','300000000000'); f('f-roe','12');
+  f('f-ke', (D?.rates?.kr?.valuePct ?? 10.45).toFixed(2));
+  f('f-treasury','0'); f('f-pref','0');
+}
+function numOf(id){ const v = document.getElementById(id).value.replace(/[, \u00a0]/g,''); return v===''?null:Number(v); }
+function runSim(){
+  const price=numOf('f-price'), shares=numOf('f-shares'), equity=numOf('f-equity'),
+        roe=numOf('f-roe'), ke=numOf('f-ke'), tres=numOf('f-treasury')||0, pref=numOf('f-pref')||0;
+  const box = document.getElementById('simRes');
+  if(!price||!shares||!equity||roe==null||ke==null){
+    box.innerHTML = '<div class="warn">현재가·발행주식수·자기자본·ROE·할인율을 모두 입력해 주세요.</div>'; return;
+  }
+  const s = {price, shares, equity, treasury:tres, prefMarketCap:pref, roe:{y0:roe}, currency:'KRW'};
+  const m = model(s, ke, roe, 1.0);
+  const rows = WS.map(w=>model(s, ke, roe, w));
+  const maxV = Math.max(price, ...rows.map(r=>Math.max(0,r.fair||0)));
+  box.innerHTML = `
+    <div class="big"><span class="v">${m.fair==null?'—':priceStr(m.fair,'KRW')}</span>
+      <span class="g ${m.gap>=0?'up':'down'}">${m.gap==null?'—':pct(m.gap)}</span></div>
+    <div style="font-size:10px;color:var(--dim);margin-top:2px">w=1.0 적정주가 · 현재가 ${priceStr(price,'KRW')}</div>
+    <div class="wbars" style="margin-top:10px">
+      ${rows.map(r=>{
+        const wPct = maxV>0?clamp(Math.abs(r.fair||0)/maxV*100,0,100):0;
+        return `<div class="wb"><span class="lb">w ${r.w.toFixed(1)}</span>
+          <span class="track"><i class="fill ${(r.fair||0)<0?'neg':''}" style="width:${wPct.toFixed(1)}%"></i></span>
+          <span class="vl">${r.fair==null?'—':priceStr(r.fair,'KRW')}</span></div>`;
+      }).join('')}
+    </div>
+    <table class="tbl" style="margin-top:8px">
+      <thead><tr><th>w</th><th>기업가치</th><th>보통주 가치</th><th>Gap</th></tr></thead>
+      <tbody>${rows.map(r=>`<tr><td>${r.w.toFixed(1)}</td><td>${bigStr(r.evAll,'KRW')}</td>
+        <td>${bigStr(r.evCommon,'KRW')}</td><td class="${r.gap>=0?'pos':'neg'}">${r.gap==null?'—':pct(r.gap)}</td></tr>`).join('')}</tbody>
+    </table>
+    <div class="note">초과이익 ${bigStr(m.excess,'KRW')} · 보통주 주식수 ${nf(shares-tres)}주</div>`;
+  window.__simResult = {fair1:m.fair, gap1:m.gap, rows};
+}
+
+/* ---------------- events ---------------- */
+document.getElementById('tabs').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  S.tab = b.dataset.mkt;
+  document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on', x===b));
+  const isSim = S.tab==='SIM';
+  document.getElementById('viewList').hidden = isSim;
+  document.getElementById('viewSim').hidden = !isSim;
+  if(!isSim) renderList();
+});
+document.getElementById('sorts').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  S.sort = b.dataset.sort;
+  document.querySelectorAll('#sorts .chip').forEach(x=>x.classList.toggle('on', x===b));
+  renderList();
+});
+document.getElementById('wsel').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  S.w = parseFloat(b.dataset.w);
+  document.querySelectorAll('#wsel .chip').forEach(x=>x.classList.toggle('on', x===b));
+  renderList();
+  if(S.sel) renderDetail();
+});
+document.getElementById('q').addEventListener('input', e=>{ S.q = e.target.value; renderList(); });
+document.getElementById('dClose').addEventListener('click', closeDetail);
+document.getElementById('sheet').addEventListener('click', e=>{ if(e.target.id==='sheet') closeDetail(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && S.sel) closeDetail(); });
+document.getElementById('simRun').addEventListener('click', runSim);
+document.getElementById('simExample').addEventListener('click', simExample);
+
+/* ---------------- test api ---------------- */
+window.__val = {
+  data: ()=>D,
+  state: ()=>({...S}),
+  setTab:(m)=>{ document.querySelector(`#tabs button[data-mkt="${m}"]`).click(); },
+  setSort:(s)=>{ document.querySelector(`#sorts button[data-sort="${s}"]`).click(); },
+  setW:(w)=>{ document.querySelector(`#wsel button[data-w="${w}"]`).click(); },
+  setQuery:(q)=>{ const el=document.getElementById('q'); el.value=q; el.dispatchEvent(new Event('input')); },
+  open:(tk)=>openDetail(tk),
+  close:()=>closeDetail(),
+  setRoeMode:(m)=>{ document.querySelector(`#roeSeg button[data-mode="${m}"]`).click(); },
+  slide:(ke,roe)=>{
+    const k=document.getElementById('keRange'), r=document.getElementById('roeRange');
+    if(ke!=null){ k.value=ke; k.dispatchEvent(new Event('input')); }
+    if(roe!=null){ r.value=roe; r.dispatchEvent(new Event('input')); }
+  },
+  reset:()=>document.getElementById('simReset').click(),
+  model, roeOf,
+  simFill: simExample, simCalc: runSim,
+  rows: ()=>filtered().map(r=>({ticker:r.s.ticker, gap:r.gap})),
+};
+
+loadData();
+</script>
+</body>
+</html>

@@ -1,0 +1,2650 @@
+{
+ "generatedAt": "2026-11-27T23:49:34+09:00",
+ "asOfDate": "2026-11-27",
+ "title": "S-RIM Valuation Lab",
+ "rates": {
+  "kr": {
+   "market": "KR",
+   "label": "KR BBB- 5Y",
+   "valuePct": 10.45,
+   "detail": "무보증회사채 BBB- 5년",
+   "bbb3yPct": 10.15,
+   "treasury5yPct": 3.73,
+   "asOf": "2026.11.27",
+   "source": "KIS채권평가 등급별금리스프레드 (kisrating.com)",
+   "url": "https://www.kisrating.com/ratingsStatistics/statics_spread.do"
+  },
+  "us": {
+   "market": "US",
+   "label": "US Ke",
+   "valuePct": 9.9,
+   "ust10yPct": 4.9,
+   "erpPct": 5.0,
+   "asOf": "2026-11-27 23:26 KST",
+   "source": "Yahoo Finance ^TNX(미 10년물) + ERP 5.0%p 가정",
+   "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5ETNX?interval=1d&range=5d"
+  }
+ },
+ "indices": [
+  {
+   "id": "KOSPI",
+   "name": "코스피",
+   "value": 4915.68,
+   "changePct": 4.34,
+   "asOf": "2026-11-27T20:15:00+09:00",
+   "source": "네이버 금융"
+  },
+  {
+   "id": "KOSDAQ",
+   "name": "코스닥",
+   "value": 708.99,
+   "changePct": 8.13,
+   "asOf": "2026-11-27T20:15:00+09:00",
+   "source": "네이버 금융"
+  },
+  {
+   "id": "SPX",
+   "name": "S&P 500",
+   "value": 7234.13,
+   "changePct": 0.715,
+   "asOf": "2026-11-27 09:41 ET",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "NDX",
+   "name": "NASDAQ 100",
+   "value": 26254.307,
+   "changePct": 0.797,
+   "asOf": "2026-11-27 09:41 ET",
+   "source": "Yahoo Finance"
+  },
+  {
+   "id": "SOX",
+   "name": "SOX(반도체)",
+   "value": 8848.745,
+   "changePct": 0.842,
+   "asOf": "2026-11-27 09:41 ET",
+   "source": "Yahoo Finance"
+  }
+ ],
+ "stocks": [
+  {
+   "market": "KR",
+   "code": "005930",
+   "name": "삼성전자",
+   "price": 179500.0,
+   "changePct": 4.79,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:22+09:00",
+   "prefList": [
+    {
+     "code": "005935",
+     "name": "삼성전자우",
+     "mcapEok": 1167450.0
+    }
+   ],
+   "ticker": "005930",
+   "currency": "KRW",
+   "per": 5.64,
+   "pbr": 1.93,
+   "shares": 5846278608,
+   "treasury": 136722409,
+   "roe": {
+    "y1": 10.85,
+    "y0": 53.75,
+    "yn": 53.75
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 1049407000000000.0,
+   "prefMarketCap": 116745000000000.0,
+   "equity": 605444000000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "000660",
+   "name": "SK하이닉스",
+   "price": 1111000.0,
+   "changePct": 5.51,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:25+09:00",
+   "prefList": [],
+   "ticker": "000660",
+   "currency": "KRW",
+   "per": 4.25,
+   "pbr": 2.56,
+   "shares": 706799093,
+   "treasury": 7989519,
+   "roe": {
+    "y1": 44.15,
+    "y0": 100.59,
+    "yn": 68.26
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 785253800000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 308494900000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "402340",
+   "name": "SK스퀘어",
+   "price": 687000.0,
+   "changePct": 5.37,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:22+09:00",
+   "prefList": [],
+   "ticker": "402340",
+   "currency": "KRW",
+   "per": 2.12,
+   "pbr": 1.36,
+   "shares": 131923998,
+   "treasury": 149899,
+   "roe": {
+    "y1": 37.82,
+    "y0": 99.79,
+    "yn": 66.64
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 90631800000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 66469700000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "373220",
+   "name": "LG에너지솔루션",
+   "price": 316000.0,
+   "changePct": 4.64,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:20+09:00",
+   "prefList": [],
+   "ticker": "373220",
+   "currency": "KRW",
+   "per": null,
+   "pbr": 3.92,
+   "shares": 234000000,
+   "treasury": 0,
+   "roe": {
+    "y1": -5.19,
+    "y0": -5.42,
+    "yn": 4.69
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 73944000000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 18847100000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "207940",
+   "name": "삼성바이오로직스",
+   "price": 1347000.0,
+   "changePct": 0.75,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:24+09:00",
+   "prefList": [],
+   "ticker": "207940",
+   "currency": "KRW",
+   "per": 36.61,
+   "pbr": 7.23,
+   "shares": 48560951,
+   "treasury": 51433,
+   "roe": {
+    "y1": 19.44,
+    "y0": 20.54,
+    "yn": 19.32
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 62353900000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 8689300000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "009150",
+   "name": "삼성전기",
+   "price": 823000.0,
+   "changePct": 4.97,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:27+09:00",
+   "prefList": [
+    {
+     "code": "009155",
+     "name": "삼성전기우",
+     "mcapEok": 8503.0
+    }
+   ],
+   "ticker": "009150",
+   "currency": "KRW",
+   "per": 50.83,
+   "pbr": 6.09,
+   "shares": 74693696,
+   "treasury": 2000000,
+   "roe": {
+    "y1": 7.7,
+    "y0": 16.71,
+    "yn": 28.21
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 61472900000000.0,
+   "prefMarketCap": 850300000000.0,
+   "equity": 10217100000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "005380",
+   "name": "현대차",
+   "price": 270500.0,
+   "changePct": 4.44,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:26+09:00",
+   "prefList": [
+    {
+     "code": "005387",
+     "name": "현대차2우B",
+     "mcapEok": 50735.0
+    },
+    {
+     "code": "005385",
+     "name": "현대차우",
+     "mcapEok": 32637.0
+    },
+    {
+     "code": "005389",
+     "name": "현대차3우B",
+     "mcapEok": 3299.0
+    }
+   ],
+   "ticker": "005380",
+   "currency": "KRW",
+   "per": 9.45,
+   "pbr": 0.61,
+   "shares": 203466492,
+   "treasury": 131874,
+   "roe": {
+    "y1": 8.41,
+    "y0": 7.4,
+    "yn": 7.49
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 55037700000000.0,
+   "prefMarketCap": 8667100000000.0,
+   "equity": 116222000000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "105560",
+   "name": "KB금융",
+   "price": 145500.0,
+   "changePct": 0.14,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:21+09:00",
+   "prefList": [],
+   "ticker": "105560",
+   "currency": "KRW",
+   "per": 8.69,
+   "pbr": 0.84,
+   "shares": 354687734,
+   "treasury": 0,
+   "roe": {
+    "y1": 9.98,
+    "y0": 11.1,
+    "yn": 10.83
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/06",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 51607100000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 60890800000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "068270",
+   "name": "셀트리온",
+   "price": 221000.0,
+   "changePct": 2.55,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:23+09:00",
+   "prefList": [],
+   "ticker": "068270",
+   "currency": "KRW",
+   "per": 39.77,
+   "pbr": 2.9,
+   "shares": 232129189,
+   "treasury": 5033313,
+   "roe": {
+    "y1": 5.94,
+    "y0": 7.92,
+    "yn": 9.96
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 51300600000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 17318200000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "032830",
+   "name": "삼성생명",
+   "price": 235500.0,
+   "changePct": 5.13,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:23+09:00",
+   "prefList": [],
+   "ticker": "032830",
+   "currency": "KRW",
+   "per": 16.81,
+   "pbr": 0.29,
+   "shares": 200000000,
+   "treasury": 20425221,
+   "roe": {
+    "y1": 4.96,
+    "y0": 4.48,
+    "yn": 4.61
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/06",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 47100000000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 144838800000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "028260",
+   "name": "삼성물산",
+   "price": 259000.0,
+   "changePct": 5.5,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:21+09:00",
+   "prefList": [
+    {
+     "code": "02826K",
+     "name": "삼성물산우B",
+     "mcapEok": 2442.0
+    }
+   ],
+   "ticker": "028260",
+   "currency": "KRW",
+   "per": 15.54,
+   "pbr": 0.48,
+   "shares": 162167581,
+   "treasury": 0,
+   "roe": {
+    "y1": 6.02,
+    "y0": 4.24,
+    "yn": 4.08
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 42001400000000.0,
+   "prefMarketCap": 244200000000.0,
+   "equity": 88146700000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "055550",
+   "name": "신한지주",
+   "price": 84000.0,
+   "changePct": -0.83,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:22+09:00",
+   "prefList": [],
+   "ticker": "055550",
+   "currency": "KRW",
+   "per": 7.52,
+   "pbr": 0.66,
+   "shares": 462911723,
+   "treasury": 1300000,
+   "roe": {
+    "y1": 8.72,
+    "y0": 9.82,
+    "yn": 9.64
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/06",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 38884600000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 60100700000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "000270",
+   "name": "기아",
+   "price": 95100.0,
+   "changePct": 1.49,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:22+09:00",
+   "prefList": [],
+   "ticker": "000270",
+   "currency": "KRW",
+   "per": 5.37,
+   "pbr": 0.59,
+   "shares": 390412998,
+   "treasury": 1756955,
+   "roe": {
+    "y1": 12.92,
+    "y0": 10.91,
+    "yn": 10.64
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 37128300000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 62271200000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "006400",
+   "name": "삼성SDI",
+   "price": 452500.0,
+   "changePct": 8.25,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:21+09:00",
+   "prefList": [
+    {
+     "code": "006405",
+     "name": "삼성SDI우",
+     "mcapEok": 3019.0
+    }
+   ],
+   "ticker": "006400",
+   "currency": "KRW",
+   "per": 63.02,
+   "pbr": 1.55,
+   "shares": 80585530,
+   "treasury": 3331391,
+   "roe": {
+    "y1": -3.15,
+    "y0": 3.66,
+    "yn": 5.67
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 36465000000000.0,
+   "prefMarketCap": 301900000000.0,
+   "equity": 22915500000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "034730",
+   "name": "SK",
+   "price": 473000.0,
+   "changePct": 10.0,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:26+09:00",
+   "prefList": [
+    {
+     "code": "03473K",
+     "name": "SK우",
+     "mcapEok": 1984.0
+    }
+   ],
+   "ticker": "034730",
+   "currency": "KRW",
+   "per": 2.72,
+   "pbr": 0.64,
+   "shares": 72502703,
+   "treasury": 17959328,
+   "roe": {
+    "y1": 6.35,
+    "y0": 47.93,
+    "yn": 29.01
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 34293800000000.0,
+   "prefMarketCap": 198400000000.0,
+   "equity": 40657600000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "012450",
+   "name": "한화에어로스페이스",
+   "price": 661000.0,
+   "changePct": 5.42,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:23+09:00",
+   "prefList": [],
+   "ticker": "012450",
+   "currency": "KRW",
+   "per": 23.3,
+   "pbr": 3.05,
+   "shares": 51563401,
+   "treasury": 344001,
+   "roe": {
+    "y1": 19.14,
+    "y0": 15.52,
+    "yn": 19.58
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 34083400000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 11137200000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "086790",
+   "name": "하나금융지주",
+   "price": 118400.0,
+   "changePct": -0.67,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:24+09:00",
+   "prefList": [],
+   "ticker": "086790",
+   "currency": "KRW",
+   "per": 8.04,
+   "pbr": 0.67,
+   "shares": 269084204,
+   "treasury": 0,
+   "roe": {
+    "y1": 9.17,
+    "y0": 9.62,
+    "yn": 9.56
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/06",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 31859600000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 46876500000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "012330",
+   "name": "현대모비스",
+   "price": 340000.0,
+   "changePct": 3.19,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:23+09:00",
+   "prefList": [],
+   "ticker": "012330",
+   "currency": "KRW",
+   "per": 9.34,
+   "pbr": 0.61,
+   "shares": 89820585,
+   "treasury": 1552000,
+   "roe": {
+    "y1": 7.68,
+    "y0": 7.17,
+    "yn": 7.88
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 30539000000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 49502000000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "034020",
+   "name": "두산에너빌리티",
+   "price": 44100.0,
+   "changePct": 8.89,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:24+09:00",
+   "prefList": [],
+   "ticker": "034020",
+   "currency": "KRW",
+   "per": 130.09,
+   "pbr": 3.79,
+   "shares": 640561146,
+   "treasury": 1428328,
+   "roe": {
+    "y1": 1.11,
+    "y0": 3.44,
+    "yn": 6.17
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 28248700000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 7444800000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "329180",
+   "name": "HD현대중공업",
+   "price": 250000.0,
+   "changePct": 4.82,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:21+09:00",
+   "prefList": [],
+   "ticker": "329180",
+   "currency": "KRW",
+   "per": 10.48,
+   "pbr": 2.57,
+   "shares": 104961225,
+   "treasury": 28451,
+   "roe": {
+    "y1": 18.82,
+    "y0": 27.02,
+    "yn": 28.37
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 26240300000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 10218600000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "035420",
+   "name": "NAVER",
+   "price": 164000.0,
+   "changePct": 2.37,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:23+09:00",
+   "prefList": [],
+   "ticker": "035420",
+   "currency": "KRW",
+   "per": 15.09,
+   "pbr": 0.89,
+   "shares": 158684979,
+   "treasury": 2238815,
+   "roe": {
+    "y1": 7.36,
+    "y0": 6.26,
+    "yn": 6.59
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 26024300000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 27559700000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "066570",
+   "name": "LG전자",
+   "price": 146100.0,
+   "changePct": 8.06,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:24+09:00",
+   "prefList": [
+    {
+     "code": "066575",
+     "name": "LG전자우",
+     "mcapEok": 9278.0
+    }
+   ],
+   "ticker": "066570",
+   "currency": "KRW",
+   "per": 19.95,
+   "pbr": 1.06,
+   "shares": 162884638,
+   "treasury": 588589,
+   "roe": {
+    "y1": 4.28,
+    "y0": 7.72,
+    "yn": 8.8
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 23797400000000.0,
+   "prefMarketCap": 927800000000.0,
+   "equity": 24701700000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "000810",
+   "name": "삼성화재",
+   "price": 524000.0,
+   "changePct": 2.14,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:23+09:00",
+   "prefList": [
+    {
+     "code": "000815",
+     "name": "삼성화재우",
+     "mcapEok": 10885.0
+    }
+   ],
+   "ticker": "000810",
+   "currency": "KRW",
+   "per": 11.91,
+   "pbr": 0.62,
+   "shares": 44647473,
+   "treasury": 4819177,
+   "roe": {
+    "y1": 10.97,
+    "y0": 9.02,
+    "yn": 8.31
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/06",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 23395300000000.0,
+   "prefMarketCap": 1088500000000.0,
+   "equity": 36175000000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "316140",
+   "name": "우리금융지주",
+   "price": 31100.0,
+   "changePct": -0.32,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:20+09:00",
+   "prefList": [],
+   "ticker": "316140",
+   "currency": "KRW",
+   "per": 7.19,
+   "pbr": 0.58,
+   "shares": 736729188,
+   "treasury": 4543266,
+   "roe": {
+    "y1": 8.91,
+    "y0": 8.64,
+    "yn": 8.54
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/06",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 22912300000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 38884700000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "011200",
+   "name": "HMM",
+   "price": 22350.0,
+   "changePct": 0.9,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:26+09:00",
+   "prefList": [],
+   "ticker": "011200",
+   "currency": "KRW",
+   "per": 7.91,
+   "pbr": 0.79,
+   "shares": 943237970,
+   "treasury": 0,
+   "roe": {
+    "y1": 6.9,
+    "y0": 11.13,
+    "yn": 6.69
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 21081400000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 26717300000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "138040",
+   "name": "메리츠금융지주",
+   "price": 125800.0,
+   "changePct": 2.44,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:24+09:00",
+   "prefList": [],
+   "ticker": "138040",
+   "currency": "KRW",
+   "per": 9.06,
+   "pbr": 1.79,
+   "shares": 167347273,
+   "treasury": 10421622,
+   "roe": {
+    "y1": 22.53,
+    "y0": 21.46,
+    "yn": 21.68
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/06",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 21052300000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 11303400000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "005490",
+   "name": "POSCO홀딩스",
+   "price": 258000.0,
+   "changePct": 3.82,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:21+09:00",
+   "prefList": [],
+   "ticker": "005490",
+   "currency": "KRW",
+   "per": 17.69,
+   "pbr": 0.35,
+   "shares": 79241527,
+   "treasury": 3620748,
+   "roe": {
+    "y1": 1.18,
+    "y0": 3.0,
+    "yn": 3.54
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 20444300000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 56158300000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "033780",
+   "name": "KT&G",
+   "price": 176600.0,
+   "changePct": -1.62,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:26+09:00",
+   "prefList": [],
+   "ticker": "033780",
+   "currency": "KRW",
+   "per": 17.5,
+   "pbr": 1.95,
+   "shares": 103810456,
+   "treasury": 0,
+   "roe": {
+    "y1": 11.77,
+    "y0": 10.79,
+    "yn": 13.49
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 18332900000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 9384500000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "010120",
+   "name": "LS ELECTRIC",
+   "price": 121500.0,
+   "changePct": 7.14,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:20+09:00",
+   "prefList": [],
+   "ticker": "010120",
+   "currency": "KRW",
+   "per": 39.31,
+   "pbr": 7.2,
+   "shares": 150000000,
+   "treasury": 1182130,
+   "roe": {
+    "y1": 14.67,
+    "y0": 24.59,
+    "yn": 29.73
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 18225000000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 2510800000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "KR",
+   "code": "010130",
+   "name": "고려아연",
+   "price": 810000.0,
+   "changePct": 5.74,
+   "endType": "stock",
+   "tradedAt": "2026-11-27T20:20:21+09:00",
+   "prefList": [],
+   "ticker": "010130",
+   "currency": "KRW",
+   "per": 15.12,
+   "pbr": 1.56,
+   "shares": 20872969,
+   "treasury": 0,
+   "roe": {
+    "y1": 8.66,
+    "y0": 9.67,
+    "yn": 7.27
+   },
+   "roeLabels": {
+    "y1": "2025/12",
+    "y0": "2026/12(E)",
+    "yn": "2027/12(E)"
+   },
+   "roeSource": "컨센서스(WISEfn)",
+   "equityAsOf": "2026/09",
+   "warnings": [],
+   "ke": 10.45,
+   "marketCap": 16907100000000.0,
+   "prefMarketCap": 0.0,
+   "equity": 10619700000000.0,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "AAPL",
+   "name": "Apple Inc.",
+   "currency": "USD",
+   "marketCap": 5167353275560.0,
+   "price": 356.34,
+   "changePct": 0.21,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 112093000000.0,
+   "equityAsOf": "9/26/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 122.25,
+    "yn": 134.67,
+    "y1": 117.92
+   },
+   "roeLabels": {
+    "y0": "Sep 2027(E)",
+    "yn": "Sep 2028(E)",
+    "y1": "2026.09 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:42 AM ET",
+   "shares": 14501187842,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Sep 2027",
+     "eps": 9.45
+    },
+    {
+     "fy": "Sep 2028",
+     "eps": 10.41
+    },
+    {
+     "fy": "Sep 2029",
+     "eps": 12.06
+    }
+   ],
+   "per": 39.09,
+   "pbr": 46.1,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "MSFT",
+   "name": "Microsoft Corporation",
+   "currency": "USD",
+   "marketCap": 3638315496861.0,
+   "price": 494.12,
+   "changePct": 0.86,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 470509000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 31.16,
+    "yn": 37.26,
+    "y1": 28.43
+   },
+   "roeLabels": {
+    "y0": "Jun 2027(E)",
+    "yn": "Jun 2028(E)",
+    "y1": "2026.06 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:42 AM ET",
+   "shares": 7363222490,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Jun 2027",
+     "eps": 19.91
+    },
+    {
+     "fy": "Jun 2028",
+     "eps": 23.81
+    },
+    {
+     "fy": "Jun 2029",
+     "eps": 29.27
+    }
+   ],
+   "per": 27.2,
+   "pbr": 7.73,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "NVDA",
+   "name": "NVIDIA Corporation",
+   "currency": "USD",
+   "marketCap": 3598130000000.0,
+   "price": 146.8,
+   "changePct": -1.67,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 228984000000.0,
+   "equityAsOf": "7/26/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 102.76,
+    "yn": 174.58,
+    "y1": 52.43
+   },
+   "roeLabels": {
+    "y0": "Jan 2027(E)",
+    "yn": "Jan 2028(E)",
+    "y1": "2026.01 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:42 AM ET",
+   "shares": 24510422343,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Jan 2027",
+     "eps": 9.6
+    },
+    {
+     "fy": "Jan 2028",
+     "eps": 16.31
+    },
+    {
+     "fy": "Jan 2029",
+     "eps": 22.42
+    }
+   ],
+   "per": 29.97,
+   "pbr": 15.71,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "GOOGL",
+   "name": "Alphabet Inc.",
+   "currency": "USD",
+   "marketCap": 3357491400000.0,
+   "price": 274.245,
+   "changePct": 0.42,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 677549000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 35.72,
+    "yn": 26.98,
+    "y1": 19.51
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 12242671334,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 19.77
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 14.93
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 18.47
+    }
+   ],
+   "per": 25.4,
+   "pbr": 4.96,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "AMZN",
+   "name": "Amazon.com Inc.",
+   "currency": "USD",
+   "marketCap": 2643055396136.0,
+   "price": 250.23,
+   "changePct": 2.37,
+   "sector": "Consumer Discretionary",
+   "warnings": [],
+   "equity": 613601000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 13.43,
+    "yn": 18.56,
+    "y1": 12.66
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 10562504081,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 7.8
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 10.78
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 14.37
+    }
+   ],
+   "per": 34.03,
+   "pbr": 4.31,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "SPCX",
+   "name": "Space Exploration Technologies Corp.",
+   "currency": "USD",
+   "marketCap": 1730770759075.0,
+   "price": 130.5,
+   "changePct": 2.4,
+   "sector": "Technology",
+   "warnings": [
+    "나스닥 재무상태표 없음: 'NoneType' object is not subscriptable",
+    "나스닥 손익계산서 없음: 'NoneType' object is not subscriptable",
+    "나스닥 재무제표 없어 SEC 공시값 사용(2026-09-30, USD→USD 환산)",
+    "순이익도 SEC 값 사용(2026-09-30, 전액 달러 환산)"
+   ],
+   "equity": 176768000000.0,
+   "equityAsOf": "2026-09-30",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 1.73,
+    "yn": 30.91,
+    "y1": 1.02
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2026.09 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 13262611181,
+   "equitySource": "SEC XBRL(10-Q, USD→USD 환산)",
+   "equityLocal": {
+    "value": 176768000000.0,
+    "currency": "USD",
+    "fxToUsd": 1.0
+   },
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 0.23
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 4.12
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 9.7
+    }
+   ],
+   "per": 961.01,
+   "pbr": 9.79,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "META",
+   "name": "Meta Platforms Inc.",
+   "currency": "USD",
+   "marketCap": 1559025977792.0,
+   "price": 621.1,
+   "changePct": 1.84,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 272386000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 26.73,
+    "yn": 31.01,
+    "y1": 22.2
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 2510104617,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 29.01
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 33.65
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 39.03
+    }
+   ],
+   "per": 25.79,
+   "pbr": 5.72,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "TSLA",
+   "name": "Tesla Inc.",
+   "currency": "USD",
+   "marketCap": 1502601405592.0,
+   "price": 390.25,
+   "changePct": 2.66,
+   "sector": "Industrials",
+   "warnings": [],
+   "equity": 89289000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 2.89,
+    "yn": 4.57,
+    "y1": 4.25
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 3850355940,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 0.67
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 1.06
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 1.36
+    }
+   ],
+   "per": 396.05,
+   "pbr": 16.83,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "AVGO",
+   "name": "Broadcom Inc.",
+   "currency": "USD",
+   "marketCap": 1436194281184.0,
+   "price": 307.32,
+   "changePct": 2.15,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 99690000000.0,
+   "equityAsOf": "8/2/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 47.82,
+    "yn": 81.15,
+    "y1": 23.2
+   },
+   "roeLabels": {
+    "y0": "Oct 2026(E)",
+    "yn": "Oct 2027(E)",
+    "y1": "2025.11 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 4673286090,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Oct 2026",
+     "eps": 10.2
+    },
+    {
+     "fy": "Oct 2027",
+     "eps": 17.31
+    },
+    {
+     "fy": "Oct 2028",
+     "eps": 28.08
+    }
+   ],
+   "per": 62.1,
+   "pbr": 14.41,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "LLY",
+   "name": "Eli Lilly and Company",
+   "currency": "USD",
+   "marketCap": 1309771084310.0,
+   "price": 1396.765,
+   "changePct": 0.33,
+   "sector": "Health Care",
+   "warnings": [],
+   "equity": 40271000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 83.2,
+    "yn": 119.52,
+    "y1": 51.25
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 937717572,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 35.73
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 51.33
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 58.72
+    }
+   ],
+   "per": 63.46,
+   "pbr": 32.52,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "BRK.B",
+   "name": "Berkshire Hathaway Inc.",
+   "currency": "USD",
+   "marketCap": 1279410486009.0,
+   "price": 581.69,
+   "changePct": 0.41,
+   "sector": "",
+   "warnings": [],
+   "equity": 761368000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 8.8,
+    "yn": 8.8,
+    "y1": 8.8
+   },
+   "roeLabels": {
+    "y1": "2025.12 실적",
+    "y0": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:46 AM ET",
+   "shares": 2199471344,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "TTM(재무제표)",
+   "per": 19.1,
+   "pbr": 1.68,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "ANT",
+   "name": "Anthropic PBC",
+   "currency": "USD",
+   "marketCap": 1094454184030.0,
+   "price": 86.0,
+   "changePct": 3.88,
+   "sector": "Technology",
+   "warnings": [
+    "나스닥 재무상태표 없음: 'NoneType' object is not subscriptable",
+    "나스닥 손익계산서 없음: 'NoneType' object is not subscriptable",
+    "재무데이터 없음(S-RIM 계산 불가)"
+   ],
+   "equity": 0,
+   "equityAsOf": null,
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": null,
+    "yn": null,
+    "y1": null
+   },
+   "roeLabels": {},
+   "dataMissing": true,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 12726211442,
+   "roeSource": "TTM(재무제표)",
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": false
+  },
+  {
+   "market": "US",
+   "ticker": "WMT",
+   "name": "Walmart Inc.",
+   "currency": "USD",
+   "marketCap": 1046778479038.0,
+   "price": 131.96,
+   "changePct": 0.02,
+   "sector": "Consumer Discretionary",
+   "warnings": [],
+   "equity": 98238000000.0,
+   "equityAsOf": "7/31/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 23.34,
+    "yn": 26.0,
+    "y1": 22.29
+   },
+   "roeLabels": {
+    "y0": "Jan 2027(E)",
+    "yn": "Jan 2028(E)",
+    "y1": "2026.01 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 7932543794,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Jan 2027",
+     "eps": 2.89
+    },
+    {
+     "fy": "Jan 2028",
+     "eps": 3.22
+    },
+    {
+     "fy": "Jan 2029",
+     "eps": 3.54
+    }
+   ],
+   "per": 47.81,
+   "pbr": 10.66,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "JPM",
+   "name": "JP Morgan Chase & Co.",
+   "currency": "USD",
+   "marketCap": 841429872927.0,
+   "price": 322.76,
+   "changePct": 1.9,
+   "sector": "Finance",
+   "warnings": [],
+   "equity": 372368000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 16.77,
+    "yn": 18.11,
+    "y1": 14.95
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 2606983123,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 23.95
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 25.87
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 27.49
+    }
+   ],
+   "per": 15.11,
+   "pbr": 2.26,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "V",
+   "name": "Visa Inc.",
+   "currency": "USD",
+   "marketCap": 765387560714.0,
+   "price": 425.74,
+   "changePct": 0.32,
+   "sector": "Consumer Discretionary",
+   "warnings": [],
+   "equity": 36111000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 74.78,
+    "yn": 84.73,
+    "y1": 65.09
+   },
+   "roeLabels": {
+    "y0": "Sep 2027(E)",
+    "yn": "Sep 2028(E)",
+    "y1": "2026.09 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 1797781652,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Sep 2027",
+     "eps": 15.02
+    },
+    {
+     "fy": "Sep 2028",
+     "eps": 17.02
+    },
+    {
+     "fy": "Sep 2029",
+     "eps": 18.96
+    }
+   ],
+   "per": 32.56,
+   "pbr": 21.2,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "MU",
+   "name": "Micron Technology Inc.",
+   "currency": "USD",
+   "marketCap": 681065310998.0,
+   "price": 612.1908,
+   "changePct": 1.82,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 138378000000.0,
+   "equityAsOf": "9/3/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 140.42,
+    "yn": 173.79,
+    "y1": 61.4
+   },
+   "roeLabels": {
+    "y0": "Aug 2027(E)",
+    "yn": "Aug 2028(E)",
+    "y1": "2026.09 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 1112504976,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Aug 2027",
+     "eps": 174.66
+    },
+    {
+     "fy": "Aug 2028",
+     "eps": 216.17
+    },
+    {
+     "fy": "Aug 2029",
+     "eps": 183.07
+    }
+   ],
+   "per": 8.02,
+   "pbr": 4.92,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "AMD",
+   "name": "Advanced Micro Devices Inc.",
+   "currency": "USD",
+   "marketCap": 672514598179.0,
+   "price": 408.86,
+   "changePct": 0.7,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 68389000000.0,
+   "equityAsOf": "9/26/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 16.67,
+    "yn": 38.58,
+    "y1": 6.34
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 1644853001,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 6.93
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 16.04
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 25.07
+    }
+   ],
+   "per": 155.14,
+   "pbr": 9.83,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "JNJ",
+   "name": "Johnson & Johnson",
+   "currency": "USD",
+   "marketCap": 659494683922.0,
+   "price": 274.225,
+   "changePct": 0.1,
+   "sector": "Health Care",
+   "warnings": [],
+   "equity": 81529000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 32.8,
+    "yn": 33.92,
+    "y1": 32.88
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 2404940045,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 11.12
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 11.5
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 13.79
+    }
+   ],
+   "per": 24.6,
+   "pbr": 8.09,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "XOM",
+   "name": "ExxonMobil Holdings Corporation",
+   "currency": "USD",
+   "marketCap": 645210613967.0,
+   "price": 160.455,
+   "changePct": 1.5,
+   "sector": "Energy",
+   "warnings": [
+    "나스닥 재무상태표 없음: 'NoneType' object is not subscriptable",
+    "나스닥 손익계산서 없음: 'NoneType' object is not subscriptable",
+    "나스닥 재무제표 없어 SEC 공시값 사용(2026-09-30, USD→USD 환산)",
+    "순이익도 SEC 값 사용(2026-09-30, 전액 달러 환산)"
+   ],
+   "equity": 265789000000.0,
+   "equityAsOf": "2026-09-30",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 20.18,
+    "yn": 20.39,
+    "y1": 16.77
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2026.09 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 4021131245,
+   "equitySource": "SEC XBRL(10-Q, USD→USD 환산)",
+   "equityLocal": {
+    "value": 265789000000.0,
+    "currency": "USD",
+    "fxToUsd": 1.0
+   },
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 13.34
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 13.48
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 10.61
+    }
+   ],
+   "per": 14.48,
+   "pbr": 2.43,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "MA",
+   "name": "Mastercard Incorporated",
+   "currency": "USD",
+   "marketCap": 574993658762.0,
+   "price": 661.02,
+   "changePct": 0.16,
+   "sector": "Consumer Discretionary",
+   "warnings": [],
+   "equity": 6753000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 257.88,
+    "yn": 297.81,
+    "y1": 221.65
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 869858187,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 20.02
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 23.12
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 26.59
+    }
+   ],
+   "per": 38.41,
+   "pbr": 85.15,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "ABBV",
+   "name": "AbbVie Inc.",
+   "currency": "USD",
+   "marketCap": 520563002117.0,
+   "price": 292.1699,
+   "changePct": -0.78,
+   "sector": "Health Care",
+   "warnings": [],
+   "equity": -4583000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": -543.88,
+    "yn": -625.14,
+    "y1": -92.21
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 1781713319,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 13.99
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 16.08
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 18.13
+    }
+   ],
+   "per": 123.18,
+   "pbr": -113.59,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "COST",
+   "name": "Costco Wholesale Corporation",
+   "currency": "USD",
+   "marketCap": 481597407787.0,
+   "price": 1092.46,
+   "changePct": 0.52,
+   "sector": "Consumer Discretionary",
+   "warnings": [],
+   "equity": 35803000000.0,
+   "equityAsOf": "8/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 27.99,
+    "yn": 30.77,
+    "y1": 25.77
+   },
+   "roeLabels": {
+    "y0": "Aug 2027(E)",
+    "yn": "Aug 2028(E)",
+    "y1": "2026.08 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 440837566,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Aug 2027",
+     "eps": 22.73
+    },
+    {
+     "fy": "Aug 2028",
+     "eps": 24.99
+    },
+    {
+     "fy": "Aug 2029",
+     "eps": 27.4
+    }
+   ],
+   "per": 52.2,
+   "pbr": 13.45,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "KO",
+   "name": "Coca-Cola Company (The)",
+   "currency": "USD",
+   "marketCap": 420080763013.0,
+   "price": 97.0,
+   "changePct": -0.6,
+   "sector": "Consumer Staples",
+   "warnings": [],
+   "equity": 37372000000.0,
+   "equityAsOf": "10/2/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 38.82,
+    "yn": 41.02,
+    "y1": 35.07
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 4330729516,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 3.35
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 3.54
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 3.83
+    }
+   ],
+   "per": 32.05,
+   "pbr": 11.24,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "CVX",
+   "name": "Chevron Corporation",
+   "currency": "USD",
+   "marketCap": 414703975746.0,
+   "price": 214.33,
+   "changePct": 1.6,
+   "sector": "Energy",
+   "warnings": [],
+   "equity": 194327000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 18.63,
+    "yn": 17.89,
+    "y1": 6.33
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 1934885344,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 18.71
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 17.97
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 13.66
+    }
+   ],
+   "per": 33.72,
+   "pbr": 2.13,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "PG",
+   "name": "Procter & Gamble Company (The)",
+   "currency": "USD",
+   "marketCap": 401509573862.0,
+   "price": 172.7,
+   "changePct": -0.31,
+   "sector": "Consumer Discretionary",
+   "warnings": [],
+   "equity": 55097000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 29.5,
+    "yn": 31.27,
+    "y1": 29.12
+   },
+   "roeLabels": {
+    "y0": "Jun 2027(E)",
+    "yn": "Jun 2028(E)",
+    "y1": "2026.06 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 2324896201,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Jun 2027",
+     "eps": 6.99
+    },
+    {
+     "fy": "Jun 2028",
+     "eps": 7.41
+    },
+    {
+     "fy": "Jun 2029",
+     "eps": 7.92
+    }
+   ],
+   "per": 25.02,
+   "pbr": 7.29,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "PLTR",
+   "name": "Palantir Technologies Inc.",
+   "currency": "USD",
+   "marketCap": 394169691772.0,
+   "price": 165.1488,
+   "changePct": 0.95,
+   "sector": "Technology",
+   "warnings": [],
+   "equity": 11227981000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 28.91,
+    "yn": 42.09,
+    "y1": 14.47
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 2386754804,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 1.36
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 1.98
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 3.09
+    }
+   ],
+   "per": 242.56,
+   "pbr": 35.11,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "CSCO",
+   "name": "Cisco Systems Inc. Common Stock (DE)",
+   "currency": "USD",
+   "marketCap": 371378618933.0,
+   "price": 96.035,
+   "changePct": 1.95,
+   "sector": "Telecommunications",
+   "warnings": [],
+   "equity": 51607000000.0,
+   "equityAsOf": "10/24/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 35.82,
+    "yn": 38.29,
+    "y1": 25.71
+   },
+   "roeLabels": {
+    "y0": "Jul 2027(E)",
+    "yn": "Jul 2028(E)",
+    "y1": "2026.07 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 3867117394,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Jul 2027",
+     "eps": 4.78
+    },
+    {
+     "fy": "Jul 2028",
+     "eps": 5.11
+    },
+    {
+     "fy": "Jul 2029",
+     "eps": 5.58
+    }
+   ],
+   "per": 27.99,
+   "pbr": 7.2,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "HD",
+   "name": "Home Depot Inc. (The)",
+   "currency": "USD",
+   "marketCap": 360593866498.0,
+   "price": 361.445,
+   "changePct": 0.05,
+   "sector": "Consumer Discretionary",
+   "warnings": [],
+   "equity": 18134000000.0,
+   "equityAsOf": "11/1/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 82.47,
+    "yn": 86.7,
+    "y1": 78.06
+   },
+   "roeLabels": {
+    "y0": "Jan 2027(E)",
+    "yn": "Jan 2028(E)",
+    "y1": "2026.02 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:43 AM ET",
+   "shares": 997645192,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Jan 2027",
+     "eps": 14.99
+    },
+    {
+     "fy": "Jan 2028",
+     "eps": 15.76
+    },
+    {
+     "fy": "Jan 2029",
+     "eps": 17.12
+    }
+   ],
+   "per": 25.47,
+   "pbr": 19.88,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "MRK",
+   "name": "Merck & Company Inc. Common Stock (new)",
+   "currency": "USD",
+   "marketCap": 346095842138.0,
+   "price": 141.58,
+   "changePct": 0.92,
+   "sector": "Health Care",
+   "warnings": [],
+   "equity": 44893000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 15.41,
+    "yn": 49.33,
+    "y1": 40.66
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:47 AM ET",
+   "shares": 2444524948,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 2.83
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 9.06
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 10.43
+    }
+   ],
+   "per": 18.96,
+   "pbr": 7.71,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  },
+  {
+   "market": "US",
+   "ticker": "BAC",
+   "name": "Bank of America Corporation",
+   "currency": "USD",
+   "marketCap": 334798140971.0,
+   "price": 49.115,
+   "changePct": 1.18,
+   "sector": "Finance",
+   "warnings": [],
+   "equity": 296749000000.0,
+   "equityAsOf": "9/30/2026",
+   "prefMarketCap": 0,
+   "treasury": 0,
+   "roe": {
+    "y0": 10.36,
+    "yn": 11.9,
+    "y1": 9.79
+   },
+   "roeLabels": {
+    "y0": "Dec 2026(E)",
+    "yn": "Dec 2027(E)",
+    "y1": "2025.12 실적"
+   },
+   "dataMissing": false,
+   "quoteTime": "Nov 27, 2026 9:47 AM ET",
+   "shares": 6816616939,
+   "equitySource": "나스닥 분기 재무상태표",
+   "roeSource": "컨센서스 EPS÷BPS(나스닥)",
+   "epsEst": [
+    {
+     "fy": "Dec 2026",
+     "eps": 4.51
+    },
+    {
+     "fy": "Dec 2027",
+     "eps": 5.18
+    },
+    {
+     "fy": "Dec 2028",
+     "eps": 5.83
+    }
+   ],
+   "per": 11.52,
+   "pbr": 1.13,
+   "ke": 9.9,
+   "fiscalYear": 2026,
+   "hasEstimates": true
+  }
+ ],
+ "counts": {
+  "kr": 30,
+  "us": 30
+ },
+ "notes": [],
+ "method": {
+  "excess": "초과이익 = B0 × (ROE − Ke)",
+  "value": "기업가치 = B0 + 초과이익 × [w / (1 + Ke − w)]",
+  "common": "기업가치_보통주 = 기업가치 − 우선주 시총",
+  "fair": "적정주가 = 기업가치_보통주 ÷ (발행주식수 − 자기주식수)",
+  "gap": "Gap% = (적정주가 − 현재가) ÷ 현재가 × 100"
+ }
+}
