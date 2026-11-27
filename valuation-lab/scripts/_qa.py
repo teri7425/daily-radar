@@ -6,8 +6,9 @@
 - 가로 넘침 0px
 - 한국 30 · 미국 30 로드, 검색, 정렬
 - 종목 상세: w별 적정주가 · 모델 표 · ROE 토글 · 슬라이더 재계산 · 초기값 복원
-- 직접 입력 시뮬레이터 계산
-- 스크린샷 downloads/valuation-lab-home.png / -detail.png
+- 산출 로직 블록: 5단계 공식·대입·결과 표시, w/ROE토글/슬라이더 동적 갱신, 값 일치
+- 직접 입력 시뮬레이터 계산 · 산출 로직 요약
+- 스크린샷 downloads/valuation-lab-home.png / -detail.png / -logic-detail.png
 """
 import asyncio
 import functools
@@ -185,6 +186,156 @@ async def main():
             abs(exp_fair - calc["fair"]) < 1e-3 and abs((exp_fair / calc["price"] - 1) * 100 - calc["gap"]) < 1e-6,
             (calc["fair"], exp_fair))
 
+        # ---------- 8-b. 산출 로직 · 실제 대입 과정 블록 ----------
+        raw = json.load(open(os.path.join(ROOT, "data", "valuation.json"), encoding="utf-8"))
+        RAW = {s["ticker"]: s for s in raw["stocks"]}
+
+        def lg_amt(v, ccy):
+            if v is None:
+                return "—"
+            sg = "−" if v < 0 else ""
+            a = abs(v)
+            if ccy == "KRW":
+                if a >= 1e12:
+                    return sg + format(a / 1e12, ",.2f") + "조"
+                if a >= 1e8:
+                    return sg + format(round(a / 1e8), ",") + "억"
+                return sg + format(round(a), ",") + "원"
+            if a >= 1e9:
+                return sg + "$" + format(a / 1e9, ",.2f") + "B"
+            if a >= 1e6:
+                return sg + "$" + format(a / 1e6, ",.2f") + "M"
+            return sg + "$" + format(round(a), ",")
+
+        def exp_logic(s, ke, roe, w):
+            eq = s["equity"]
+            ex = eq * (roe / 100 - ke / 100)
+            mult = w / (1 + ke / 100 - w)
+            ev = eq + ex * mult
+            evc = ev - (s.get("prefMarketCap") or 0)
+            sh = s["shares"] - (s.get("treasury") or 0)
+            fair = evc / sh
+            gap = (fair - s["price"]) / s["price"] * 100 if s["price"] > 0 and fair > 0 else None
+            return {"excess": ex, "mult": mult, "evAll": ev, "evCommon": evc, "fair": fair, "gap": gap}
+
+        def near(a, b, rel=1e-7, abs_=1e-4):
+            if a is None or b is None:
+                return a is None and b is None
+            return abs(a - b) <= max(abs_, abs(b) * rel)
+
+        async def dom_logic(box="logicBox"):
+            return await page.evaluate("""(box) => {
+              const els = [...document.querySelectorAll('#'+box+' .lgstep')];
+              return els.map(s=>{
+                const r = s.querySelector('.lgr');
+                return {
+                  tt: (s.querySelector('.tt')?.innerText||'').replace(/\\s+/g,' ').trim(),
+                  ff: (s.querySelector('.ff')?.innerText||'').trim(),
+                  sub: (s.querySelector('.lgs')?.innerText||'').replace(/\\s+/g,' ').trim(),
+                  sub2: (s.querySelector('.lgs2')?.innerText||'').replace(/\\s+/g,' ').trim(),
+                  hint: (s.querySelector('.lghint')?.innerText||'').replace(/\\s+/g,' ').trim(),
+                  txt: r ? r.innerText.replace(/\\s+/g,' ').trim() : '',
+                  v: r && r.dataset.v!==undefined ? parseFloat(r.dataset.v) : null
+                };
+              });
+            }""", box)
+
+        lg = await dom_logic()
+        tag0 = await page.evaluate("document.querySelector('#logicCard h3 .tag').textContent")
+        s_ss = RAW["005930"]
+        e0 = exp_logic(s_ss, 10.45, 53.75, 0.8)
+        rec("상세 산출 로직 카드 표시", len(lg) == 5, len(lg))
+        rec("산출 로직 5단계 제목",
+            len(lg) == 5 and "초과이익" in lg[0]["tt"] and "기업가치" in lg[1]["tt"] and "지속계수" in lg[1]["tt"]
+            and "보통주 가치" in lg[2]["tt"] and "적정주가" in lg[3]["tt"] and "Gap" in lg[4]["tt"],
+            [x["tt"] for x in lg])
+        rec("각 단계 공식 표시",
+            len(lg) == 5 and "B₀ × (ROE − Ke)" in lg[0]["ff"] and "w/(1+Ke−w)" in lg[1]["ff"]
+            and "우선주" in lg[2]["ff"] and "÷" in lg[3]["ff"] and "× 100" in lg[4]["ff"],
+            [x["ff"] for x in lg])
+        rec("각 단계 실제 수치 대입",
+            all(any(ch.isdigit() for ch in x["sub"]) for x in lg)
+            and "53.75%" in lg[0]["sub"] and "10.45%" in lg[0]["sub"],
+            [x["sub"] for x in lg])
+        rec("산출 로직 값 = 모델 계산(삼성전자 w0.8)",
+            all(near(x["v"], e0[k]) for x, k in zip(lg, ["excess", "evAll", "evCommon", "fair", "gap"])),
+            ([(x["v"], round(e0[k], 2)) for x, k in zip(lg, ["excess", "evAll", "evCommon", "fair", "gap"])]))
+        rec("= 결과 표기 = 표시 형식 값",
+            lg[0]["txt"].replace("= ", "") == lg_amt(e0["excess"], "KRW")
+            and lg[4]["txt"].replace("= ", "") == ("+%.1f%%" % e0["gap"]),
+            (lg[0]["txt"], lg_amt(e0["excess"], "KRW"), lg[4]["txt"]))
+        rec("승수 w/(1+Ke−w) 계산 표시", "= 2.6273" in lg[1]["sub2"], lg[1]["sub2"])
+        rec("w 의미 안내(w=0.8 → 20% 감소)", "20%" in lg[1]["hint"] and "감소" in lg[1]["hint"], lg[1]["hint"])
+        rec("카드 태그 w=0.8", tag0.strip() == "w=0.8", tag0)
+        rec("우선주 있는 종목 금액 차감 표시", "우선주 없음" not in lg[2]["sub"] and lg_amt(116745000000000, "KRW") in lg[2]["sub"], lg[2]["sub"])
+        rec("유효 보통주 수 표시(발행−자기주식)", "5,846,278,608" in lg[3]["sub2"] and "136,722,409" in lg[3]["sub2"], lg[3]["sub2"])
+        rec("적정주가 대입식에 보통주 가치·주식수", lg_amt(e0["evCommon"], "KRW") in lg[3]["sub"] and "5,709,556,199" in lg[3]["sub"], lg[3]["sub"])
+        rec("Gap 대입식에 적정주가·현재가", "179,500원" in lg[4]["sub"] and "206,225원" in lg[4]["sub"], lg[4]["sub"])
+
+        # 우선주 0 종목
+        await page.evaluate("window.__val.close(); window.__val.open('000660')")
+        await page.wait_for_timeout(250)
+        lg_p = await dom_logic()
+        e_p = exp_logic(RAW["000660"], RAW["000660"]["ke"], RAW["000660"]["roe"]["y0"], 0.8)
+        rec("우선주 없음(0) 깔끔 표시", "우선주 없음(0)" in lg_p[2]["sub"], lg_p[2]["sub"])
+        rec("SK하이닉스 산출 로직 값 일치", all(
+            near(x["v"], e_p[k]) for x, k in zip(lg_p, ["excess", "evAll", "evCommon", "fair", "gap"])),
+            [(x["v"], round(e_p[k], 1)) for x, k in zip(lg_p, ["excess", "evAll", "evCommon", "fair", "gap"])])
+        await page.evaluate("window.__val.close(); window.__val.open('005930')")
+        await page.wait_for_timeout(250)
+
+        # w 변경 동적 갱신
+        await page.evaluate("window.__val.setW(0.7)")
+        await page.wait_for_timeout(150)
+        lg7 = await dom_logic()
+        tag7 = await page.evaluate("document.querySelector('#logicCard h3 .tag').textContent")
+        e7 = exp_logic(s_ss, 10.45, 53.75, 0.7)
+        rec("w=0.7 산출 로직 재계산",
+            tag7.strip() == "w=0.7" and all(near(x["v"], e7[k]) for x, k in zip(lg7, ["excess", "evAll", "evCommon", "fair", "gap"])),
+            (tag7, [(x["v"], round(e7[k], 1)) for x, k in zip(lg7, ["excess", "evAll", "evCommon", "fair", "gap"])]))
+        rec("w 변경 시 승수·안내 갱신", "30%" in lg7[1]["hint"] and "= 1.7305" in lg7[1]["sub2"], (lg7[1]["hint"], lg7[1]["sub2"]))
+        rec("w 변경 시 초과이익 단계는 불변", near(lg7[0]["v"], e0["excess"]), (lg7[0]["v"], e0["excess"]))
+        await page.evaluate("window.__val.setW(1.0)")
+        await page.wait_for_timeout(120)
+        lg10 = await dom_logic()
+        rec("w=1.0 안내(영구 지속)", "영구" in lg10[1]["hint"], lg10[1]["hint"])
+        await page.evaluate("window.__val.setW(0.8)")
+        await page.wait_for_timeout(120)
+
+        # ROE 기준 토글 → 산출 로직 갱신
+        avg_roe = (1 * s_ss["roe"]["y1"] + 2 * s_ss["roe"]["y0"] + 3 * s_ss["roe"]["yn"]) / 6
+        await page.evaluate("window.__val.setRoeMode('avg')")
+        await page.wait_for_timeout(180)
+        lga = await dom_logic()
+        ea = exp_logic(s_ss, 10.45, avg_roe, 0.8)
+        rec("ROE 토글 시 산출 로직 재계산",
+            all(near(x["v"], ea[k]) for x, k in zip(lga, ["excess", "evAll", "evCommon", "fair", "gap"])),
+            (avg_roe, [(x["v"], round(ea[k], 1)) for x, k in zip(lga, ["excess", "evAll", "evCommon", "fair", "gap"])]))
+        rec("ROE 토글 시 대입식 ROE 값 반영", ("%.2f%%" % avg_roe) in lga[0]["sub"], lga[0]["sub"])
+
+        # 슬라이더 → 산출 로직 즉시 갱신
+        await page.evaluate("window.__val.slide(12.0, 30.0)")
+        await page.wait_for_timeout(180)
+        lgs_ = await dom_logic()
+        es = exp_logic(s_ss, 12.0, 30.0, 0.8)
+        rec("슬라이더 조정 시 산출 로직 갱신",
+            all(near(x["v"], es[k]) for x, k in zip(lgs_, ["excess", "evAll", "evCommon", "fair", "gap"])),
+            ([(x["v"], round(es[k], 1)) for x, k in zip(lgs_, ["excess", "evAll", "evCommon", "fair", "gap"])]))
+        rec("슬라이더 값이 대입식에 표시", "30.00%" in lgs_[0]["sub"] and "12.00%" in lgs_[0]["sub"], lgs_[0]["sub"])
+        await page.evaluate("window.__val.reset()")
+        await page.wait_for_timeout(180)
+        lgr_ = await dom_logic()
+        er_ = exp_logic(s_ss, 10.45, avg_roe, 0.8)  # 초기값 복원은 ROE 기준(avg) 유지
+        rec("초기값 복원 시 산출 로직도 복원",
+            all(near(x["v"], er_[k]) for x, k in zip(lgr_, ["excess", "evAll", "evCommon", "fair", "gap"])),
+            [(x["v"], round(er_[k], 1)) for x, k in zip(lgr_, ["excess", "evAll", "evCommon", "fair", "gap"])])
+
+        # ROE 토글"avg" → "y0"로 되돌리고 상세 넘침 확인
+        await page.evaluate("window.__val.setRoeMode('y0')")
+        await page.wait_for_timeout(120)
+        ovd = await page.evaluate("({sw:document.documentElement.scrollWidth, bw:document.body.scrollWidth, pl:document.getElementById('sheetPanel').scrollWidth})")
+        rec("산출 로직 포함 상세 가로 넘침 0px", ovd["sw"] <= 390 and ovd["bw"] <= 390 and ovd["pl"] <= 391, ovd)
+
         # ROE 토글
         roe0 = await page.evaluate("window.__val.data().stocks.find(s=>s.ticker==='005930').roe")
         await page.evaluate("window.__val.setRoeMode('avg')")
@@ -210,6 +361,15 @@ async def main():
         nv = await page.evaluate("({name:document.getElementById('dName').innerText, body:document.getElementById('dBody').innerText})")
         rec("미국 종목 상세 렌더(NVDA)", "NVIDIA" in nv["name"] and "Gap" in nv["body"] and "USD" in nv["body"], nv["name"])
 
+        lgus = await dom_logic()
+        e_us = exp_logic(RAW["NVDA"], RAW["NVDA"]["ke"], RAW["NVDA"]["roe"]["y0"], 0.8)
+        rec("미국 종목 산출 로직 표시", len(lgus) == 5 and "$" in lgus[0]["sub"], [x["sub"] for x in lgus[:1]])
+        rec("미국 종목 산출 로직 값 일치",
+            all(near(x["v"], e_us[k]) for x, k in zip(lgus, ["excess", "evAll", "evCommon", "fair", "gap"])),
+            [(x["v"], round(e_us[k], 2)) for x, k in zip(lgus, ["excess", "evAll", "evCommon", "fair", "gap"])])
+        rec("미국 종목 적정주가·Gap 달러 표시",
+            "$" in lgus[3]["txt"] and "%" in lgus[4]["txt"], (lgus[3]["txt"], lgus[4]["txt"]))
+
         await page.evaluate("window.__val.close()")
 
         # ---------- 10. 직접 입력 시뮬레이터 ----------
@@ -225,6 +385,19 @@ async def main():
         rec("직접 입력 계산 일치(w=0.8)", sim and abs(sim["fair"] - exp_sim) < 1.0, (sim, exp_sim))
         rec("직접 입력 기본 w=0.8 표시", "w=0.8" in (await page.locator("#simRes").inner_text()), await page.locator("#simRes").inner_text())
         rec("직접 입력 결과 표시", await page.locator("#simRes .tbl tr").count() >= 5)
+
+        # 시뮬레이터 산출 로직 요약
+        lgsim = await dom_logic("simLogicBox")
+        s_sim = {"equity": 3e11, "shares": 1e7, "treasury": 0, "prefMarketCap": 0, "price": 50000}
+        e_sim = exp_logic(s_sim, 10.45, 12.0, 0.8)
+        rec("시뮬레이터 산출 로직 5단계", len(lgsim) == 5, len(lgsim))
+        rec("시뮬레이터 산출 로직 값 일치",
+            all(near(x["v"], e_sim[k]) for x, k in zip(lgsim, ["excess", "evAll", "evCommon", "fair", "gap"])),
+            [(x["v"], round(e_sim[k], 2)) for x, k in zip(lgsim, ["excess", "evAll", "evCommon", "fair", "gap"])])
+        rec("시뮬레이터 산출 로직 대입값(12%, 10.45%, 50,000원)",
+            "12.00%" in lgsim[0]["sub"] and "10.45%" in lgsim[0]["sub"] and "50,000원" in lgsim[4]["sub"],
+            (lgsim[0]["sub"], lgsim[4]["sub"]))
+        rec("시뮬레이터 우선주 없음 표시", "우선주 없음(0)" in lgsim[2]["sub"], lgsim[2]["sub"])
 
         # 잘못된 입력
         await page.evaluate("document.getElementById('f-price').value=''")
@@ -253,6 +426,12 @@ async def main():
         await page.wait_for_timeout(300)
         await page.screenshot(path=os.path.join(OUT, "valuation-lab-detail.png"), full_page=True)
         rec("상세 스크린샷", os.path.exists(os.path.join(OUT, "valuation-lab-detail.png")))
+
+        # 산출 로직 카드만 별도 컷
+        await page.locator("#logicCard").screenshot(path=os.path.join(OUT, "valuation-lab-logic-detail.png"))
+        rec("산출 로직 스크린샷", os.path.exists(os.path.join(OUT, "valuation-lab-logic-detail.png")))
+        lgb = await page.evaluate("() => {const r=document.getElementById('logicBox').getBoundingClientRect(); return {w:Math.round(r.width), h:Math.round(r.height)};}")
+        rec("산출 로직 블록 높이·폭 적정", lgb["w"] <= 390 and 240 <= lgb["h"] <= 760, lgb)
 
         # 넘침 재확인 (상세 화면)
         ov2 = await page.evaluate("({sw:document.documentElement.scrollWidth, bw:document.body.scrollWidth})")

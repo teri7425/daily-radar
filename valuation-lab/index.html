@@ -205,6 +205,28 @@ input[type=range]::-moz-range-thumb{width:19px;height:19px;border-radius:50%;bac
   border-radius:10px; padding:8px 9px; font-size:10.2px; color:#ffb9bf; margin-top:9px; line-height:1.45}
 .warn.mint{background:rgba(95,227,192,.07); border-color:rgba(95,227,192,.28); color:#9ff0da}
 
+/* ---------- 산출 로직 스텝 ---------- */
+.lgbox{display:flex; flex-direction:column; gap:6px}
+.lgstep{background:rgba(13,23,41,.72); border:1px solid rgba(38,54,79,.8); border-radius:11px; padding:7px 9px 8px}
+.lgstep.hi{border-color:#58471f; background:linear-gradient(180deg,rgba(34,27,13,.5),rgba(13,23,41,.72))}
+.lgh{display:flex; flex-wrap:wrap; align-items:baseline; gap:5px}
+.lgh .no{flex:0 0 auto; width:14px; height:14px; border-radius:4px; background:rgba(242,199,110,.16); color:var(--gold2);
+  font-family:var(--fs-num); font-size:8.8px; font-weight:800; display:grid; place-items:center; transform:translateY(-1px)}
+.lgh .tt{font-size:10.8px; font-weight:800; color:#eaf1fb; letter-spacing:-.2px}
+.lgh .tt em{font-style:normal; font-size:9px; color:var(--dim); font-weight:700; margin-left:3px}
+.lgh .ff{flex:1 1 auto; min-width:0; font-family:var(--fs-num); font-size:9.4px; color:var(--dim); letter-spacing:-.1px; overflow-wrap:anywhere}
+.lgs{margin-top:3px; font-family:var(--fs-num); font-size:10.4px; color:#a9bad2; line-height:1.45; letter-spacing:-.2px; overflow-wrap:anywhere}
+.lgs b{color:#fff; font-weight:700}
+.lgs .mt{color:var(--dim)}
+.lgs2{margin-top:2px; font-family:var(--fs-num); font-size:9.6px; color:var(--dim); line-height:1.45; overflow-wrap:anywhere}
+.lgr{margin-top:4px; font-family:var(--fs-num); font-size:12px; font-weight:800; color:var(--gold2); letter-spacing:-.3px; overflow-wrap:anywhere}
+.lgr b{color:inherit}
+.lgr.pos{color:var(--mint)} .lgr.neg{color:var(--coral)}
+.lghint{margin-top:3px; font-size:9.2px; color:var(--dim); letter-spacing:-.2px; line-height:1.4}
+.lgh3{display:flex; align-items:center; gap:6px; font-size:10.6px; font-weight:800; color:#e8eefa; letter-spacing:-.2px; margin:12px 0 6px}
+.lgh3 .tag{font-size:8.6px; color:var(--dim); font-weight:700; border:1px solid var(--line2); border-radius:5px; padding:1px 4px}
+.lgnote{font-size:9px; color:var(--dim); margin-top:7px; line-height:1.5}
+
 /* sim tab */
 .form{display:grid; grid-template-columns:1fr 1fr; gap:8px}
 .form .fld{display:flex; flex-direction:column; gap:3px}
@@ -386,6 +408,86 @@ function model(s, kePct, roePct, w){
   return {eq, kePct, roePct, w, excess, evAll, evCommon, fair, gap, denom, negFair: (fair!=null && fair<=0)};
 }
 const WS = [1.0, 0.9, 0.8, 0.7];
+
+/* ---------------- 산출 로직(공식 + 실제 대입) ---------------- */
+function lgAmt(v, ccy){
+  if(v==null || !isFinite(v)) return '—';
+  const a = Math.abs(v), sg = v<0 ? '−' : '';
+  if(ccy==='KRW'){
+    if(a>=1e12) return sg+(a/1e12).toLocaleString('ko-KR',{minimumFractionDigits:2, maximumFractionDigits:2})+'조';
+    if(a>=1e8)  return sg+Math.round(a/1e8).toLocaleString('ko-KR')+'억';
+    return sg+Math.round(a).toLocaleString('ko-KR')+'원';
+  }
+  if(a>=1e9) return sg+'$'+(a/1e9).toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2})+'B';
+  if(a>=1e6) return sg+'$'+(a/1e6).toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2})+'M';
+  return sg+'$'+Math.round(a).toLocaleString('en-US');
+}
+function lgShares(n){
+  return (n==null||!isFinite(n)) ? '—' : Math.round(n).toLocaleString('ko-KR')+'주';
+}
+function lgWEffect(w){
+  if(w>=0.999) return 'w=1.0 → 초과이익이 영구히 지속된다고 가정';
+  const d = Math.round((1-w)*1000)/10;
+  return 'w='+w.toFixed(1)+' → 초과이익이 매년 '+d+'%씩 감소한다고 가정';
+}
+function logicHtml(s, kePct, roePct, m){
+  const ccy = s.currency || 'KRW';
+  const w = m.w;
+  const ke = (kePct==null || !isFinite(kePct)) ? 0 : kePct;
+  const roe = roePct;
+  const eq = m.eq || 0;
+  if(s.dataMissing || m.excess==null || !(eq>0) || roe==null){
+    let why = '재무데이터(B₀·ROE)가 없어 산출 과정을 표시할 수 없습니다.';
+    if(!s.dataMissing && eq<=0) why = 'B₀(지배주주 자기자본)가 0 이하라 산출 과정을 표시할 수 없습니다.';
+    else if(!s.dataMissing && roe==null) why = 'ROE 값이 없어 산출 과정을 표시할 수 없습니다.';
+    return '<div class="warn">'+why+' 현재가·시총만 참고하세요.</div>';
+  }
+  const pref = s.prefMarketCap || 0;
+  const mult = w/(1 + ke/100 - w);
+  const netSh = (s.shares||0) - (s.treasury||0);
+  const fair = m.fair;
+  const fairTxt = fair==null ? '—' : priceStr(fair, ccy);
+  const px = priceStr(s.price, ccy);
+  const gapTxt = m.gap==null ? '—' : pct(m.gap);
+  const exNeg = (m.excess||0) < 0;
+  const dv = v => (v==null || !isFinite(v)) ? '' : ' data-v="'+v+'"';
+  const n2 = v => (v<0?'−':'') + Math.abs(v).toFixed(2);
+  const shNote = (s.treasury||0) > 0
+    ? '발행 '+lgShares(s.shares)+' − 자기주식 '+lgShares(s.treasury)
+    : '발행주식수 '+lgShares(s.shares);
+  return `
+  <div class="lgstep">
+    <div class="lgh"><span class="no">1</span><span class="tt">초과이익</span><span class="ff">B₀ × (ROE − Ke)</span></div>
+    <div class="lgs"><b>${lgAmt(eq,ccy)}</b> × (<b>${n2(roe)}%</b> − <b>${n2(ke)}%</b>)</div>
+    <div class="lgr${exNeg?' neg':''}" data-k="excess"${dv(m.excess)}>= <b>${lgAmt(m.excess,ccy)}</b></div>
+  </div>
+  <div class="lgstep hi">
+    <div class="lgh"><span class="no">2</span><span class="tt">기업가치<em>지속계수 w 반영</em></span><span class="ff">B₀ + 초과이익 × w/(1+Ke−w)</span></div>
+    <div class="lgs2">w ÷ (1 + Ke − w) = ${w.toFixed(1)} ÷ (1 + ${n2(ke)}% − ${w.toFixed(1)}) = ${mult.toFixed(4)}</div>
+    <div class="lgs"><b>${lgAmt(eq,ccy)}</b> ${exNeg?'−':'+'} <b>${lgAmt(Math.abs(m.excess),ccy)}</b> × <b>${mult.toFixed(4)}</b></div>
+    <div class="lgr" data-k="evAll"${dv(m.evAll)}>= <b>${lgAmt(m.evAll,ccy)}</b></div>
+    <div class="lghint">${lgWEffect(w)}</div>
+  </div>
+  <div class="lgstep">
+    <div class="lgh"><span class="no">3</span><span class="tt">보통주 가치</span><span class="ff">기업가치 − 우선주 시총</span></div>
+    <div class="lgs"><b>${lgAmt(m.evAll,ccy)}</b> − ${pref>0 ? '<b>'+lgAmt(pref,ccy)+'</b>' : '<span class="mt">우선주 없음(0)</span>'}</div>
+    <div class="lgr${(m.evCommon||0)<0?' neg':''}" data-k="evCommon"${dv(m.evCommon)}>= <b>${lgAmt(m.evCommon,ccy)}</b></div>
+  </div>
+  <div class="lgstep">
+    <div class="lgh"><span class="no">4</span><span class="tt">보통주 적정주가</span><span class="ff">보통주 가치 ÷ 유효 보통주 수</span></div>
+    <div class="lgs"><b>${lgAmt(m.evCommon,ccy)}</b> ÷ <b>${lgShares(netSh)}</b></div>
+    <div class="lgs2">유효 보통주 수 = ${shNote}</div>
+    <div class="lgr${fair!=null&&fair<0?' neg':''}" data-k="fair"${dv(fair)}>= <b>${fairTxt}</b></div>
+  </div>
+  <div class="lgstep">
+    <div class="lgh"><span class="no">5</span><span class="tt">Gap</span><span class="ff">(적정주가 − 현재가) ÷ 현재가 × 100</span></div>
+    <div class="lgs">(${fairTxt} − <b>${px}</b>) ÷ <b>${px}</b> × 100</div>
+    <div class="lgr ${m.gap==null?'':(m.gap>=0?'pos':'neg')}" data-k="gap"${dv(m.gap)}>= <b>${gapTxt}</b></div>
+    ${m.gap==null?'<div class="lghint">적정주가가 0 이하이거나 현재가가 없어 Gap%를 표시하지 않습니다.</div>':''}
+  </div>
+  <div class="lgnote">${LGNORM}</div>`;
+}
+const LGNORM = '※ 조·억(달러 B·M) 단위는 반올림 표시입니다. 계산은 원(달러) 단위 정밀값으로 하므로 마지막 자리에서 ±1 차이가 날 수 있고, = 결과가 정확값입니다.';
 
 /* ---------------- load ---------------- */
 async function loadData(){
@@ -594,6 +696,11 @@ function renderDetail(){
       </div>
     </div>
 
+    <div class="card" id="logicCard">
+      <h3>산출 로직 · 실제 대입 과정 <span class="tag">w=${S.w.toFixed(1)}</span></h3>
+      <div class="lgbox" id="logicBox">${logicHtml(s, ke, roe, m)}</div>
+    </div>
+
     <div class="card sim">
       <h3>실시간 시뮬레이터 <span class="tag">Ke · ROE</span></h3>
       <div class="srow">
@@ -637,6 +744,10 @@ function renderDetail(){
     elF.textContent = mm.fair==null?'—':priceStr(mm.fair,ccy);
     elG.textContent = mm.gap==null?'—':pct(mm.gap);
     elG.style.color = mm.gap>=0?'var(--mint)':'var(--coral)';
+    const lg = document.getElementById('logicBox');
+    if(lg) lg.innerHTML = logicHtml(s, ke2, roe2, mm);
+    const lgc = document.querySelector('#logicCard h3 .tag');
+    if(lgc) lgc.textContent = 'w='+S.w.toFixed(1);
   };
   keR.addEventListener('input', upd);
   roeR.addEventListener('input', upd);
@@ -683,7 +794,9 @@ function runSim(){
       <tbody>${rows.map(r=>`<tr><td>${r.w.toFixed(1)}</td><td>${bigStr(r.evAll,'KRW')}</td>
         <td>${bigStr(r.evCommon,'KRW')}</td><td class="${r.gap>=0?'pos':'neg'}">${r.gap==null?'—':pct(r.gap)}</td></tr>`).join('')}</tbody>
     </table>
-    <div class="note">초과이익 ${bigStr(m.excess,'KRW')} · 보통주 주식수 ${nf(shares-tres)}주</div>`;
+    <div class="note">초과이익 ${bigStr(m.excess,'KRW')} · 보통주 주식수 ${nf(shares-tres)}주</div>
+    <div class="lgh3">산출 로직 · 실제 대입 과정 <span class="tag">w=${S.w.toFixed(1)}</span></div>
+    <div class="lgbox" id="simLogicBox">${logicHtml(s, ke, roe, m)}</div>`;
   window.__simResult = {fair1:model(s,ke,roe,1.0).fair, fair:m.fair, gap:m.gap, w:S.w, rows};
 }
 
