@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-11-27T23:49:34+09:00",
- "asOfDate": "2026-11-27",
+ "generatedAt": "2026-11-28T06:03:09+09:00",
+ "asOfDate": "2026-11-28",
  "title": "S-RIM Valuation Lab",
  "rates": {
   "kr": {
@@ -17,10 +17,10 @@
   "us": {
    "market": "US",
    "label": "US Ke",
-   "valuePct": 9.9,
-   "ust10yPct": 4.9,
+   "valuePct": 9.94,
+   "ust10yPct": 4.94,
    "erpPct": 5.0,
-   "asOf": "2026-11-27 23:26 KST",
+   "asOf": "2026-11-28 04:59 KST",
    "source": "Yahoo Finance ^TNX(미 10년물) + ERP 5.0%p 가정",
    "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5ETNX?interval=1d&range=5d"
   }
@@ -45,25 +45,25 @@
   {
    "id": "SPX",
    "name": "S&P 500",
-   "value": 7234.13,
-   "changePct": 0.715,
-   "asOf": "2026-11-27 09:41 ET",
+   "value": 7297.49,
+   "changePct": 1.597,
+   "asOf": "2026-11-27 13:38 ET",
    "source": "Yahoo Finance"
   },
   {
    "id": "NDX",
    "name": "NASDAQ 100",
-   "value": 26254.307,
-   "changePct": 0.797,
-   "asOf": "2026-11-27 09:41 ET",
+   "value": 26726.389,
+   "changePct": 2.609,
+   "asOf": "2026-11-27 14:15 ET",
    "source": "Yahoo Finance"
   },
   {
    "id": "SOX",
    "name": "SOX(반도체)",
-   "value": 8848.745,
-   "changePct": 0.842,
-   "asOf": "2026-11-27 09:41 ET",
+   "value": 9186.706,
+   "changePct": 4.693,
+   "asOf": "2026-11-27 14:15 ET",
    "source": "Yahoo Finance"
   }
  ],
@@ -161,8 +161,8 @@
    "treasury": 149899,
    "roe": {
     "y1": 37.82,
-    "y0": 99.79,
-    "yn": 66.64
+    "y0": 99.69,
+    "yn": 64.84
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -272,8 +272,8 @@
    "treasury": 2000000,
    "roe": {
     "y1": 7.7,
-    "y0": 16.71,
-    "yn": 28.21
+    "y0": 16.73,
+    "yn": 28.26
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -323,8 +323,8 @@
    "treasury": 131874,
    "roe": {
     "y1": 8.41,
-    "y0": 7.4,
-    "yn": 7.49
+    "y0": 7.32,
+    "yn": 7.41
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -428,8 +428,8 @@
    "treasury": 20425221,
    "roe": {
     "y1": 4.96,
-    "y0": 4.48,
-    "yn": 4.61
+    "y0": 4.56,
+    "yn": 4.29
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -580,7 +580,7 @@
    "treasury": 3331391,
    "roe": {
     "y1": -3.15,
-    "y0": 3.66,
+    "y0": 3.8,
     "yn": 5.67
    },
    "roeLabels": {
@@ -621,8 +621,8 @@
    "treasury": 17959328,
    "roe": {
     "y1": 6.35,
-    "y0": 47.93,
-    "yn": 29.01
+    "y0": 48.78,
+    "yn": 32.15
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -727,7 +727,7 @@
    "roe": {
     "y1": 7.68,
     "y0": 7.17,
-    "yn": 7.88
+    "yn": 7.85
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -832,7 +832,7 @@
    "roe": {
     "y1": 7.36,
     "y0": 6.26,
-    "yn": 6.59
+    "yn": 6.58
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -913,8 +913,8 @@
    "treasury": 4819177,
    "roe": {
     "y1": 10.97,
-    "y0": 9.02,
-    "yn": 8.31
+    "y0": 9.05,
+    "yn": 8.55
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -1018,8 +1018,8 @@
    "treasury": 10421622,
    "roe": {
     "y1": 22.53,
-    "y0": 21.46,
-    "yn": 21.68
+    "y0": 21.58,
+    "yn": 21.83
    },
    "roeLabels": {
     "y1": "2025/12",
@@ -1182,8 +1182,8 @@
    "name": "Apple Inc.",
    "currency": "USD",
    "marketCap": 5167353275560.0,
-   "price": 356.34,
-   "changePct": 0.21,
+   "price": 359.08,
+   "changePct": 0.15,
    "sector": "Technology",
    "warnings": [],
    "equity": 112093000000.0,
@@ -1191,8 +1191,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 122.25,
-    "yn": 134.67,
+    "y0": 121.32,
+    "yn": 133.64,
     "y1": 117.92
    },
    "roeLabels": {
@@ -1201,8 +1201,8 @@
     "y1": "2026.09 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:42 AM ET",
-   "shares": 14501187842,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 14390534910,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1221,7 +1221,7 @@
    ],
    "per": 39.09,
    "pbr": 46.1,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1231,8 +1231,8 @@
    "name": "Microsoft Corporation",
    "currency": "USD",
    "marketCap": 3638315496861.0,
-   "price": 494.12,
-   "changePct": 0.86,
+   "price": 495.51,
+   "changePct": 0.54,
    "sector": "Technology",
    "warnings": [],
    "equity": 470509000000.0,
@@ -1240,8 +1240,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 31.16,
-    "yn": 37.26,
+    "y0": 31.07,
+    "yn": 37.16,
     "y1": 28.43
    },
    "roeLabels": {
@@ -1250,8 +1250,8 @@
     "y1": "2026.06 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:42 AM ET",
-   "shares": 7363222490,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 7342567248,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1270,7 +1270,7 @@
    ],
    "per": 27.2,
    "pbr": 7.73,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1280,8 +1280,8 @@
    "name": "NVIDIA Corporation",
    "currency": "USD",
    "marketCap": 3598130000000.0,
-   "price": 146.8,
-   "changePct": -1.67,
+   "price": 150.01,
+   "changePct": -0.32,
    "sector": "Technology",
    "warnings": [],
    "equity": 228984000000.0,
@@ -1289,8 +1289,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 102.76,
-    "yn": 174.58,
+    "y0": 100.56,
+    "yn": 170.85,
     "y1": 52.43
    },
    "roeLabels": {
@@ -1299,8 +1299,8 @@
     "y1": "2026.01 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:42 AM ET",
-   "shares": 24510422343,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 23985934271,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1319,7 +1319,7 @@
    ],
    "per": 29.97,
    "pbr": 15.71,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1329,8 +1329,8 @@
    "name": "Alphabet Inc.",
    "currency": "USD",
    "marketCap": 3357491400000.0,
-   "price": 274.245,
-   "changePct": 0.42,
+   "price": 276.0,
+   "changePct": 0.38,
    "sector": "Technology",
    "warnings": [],
    "equity": 677549000000.0,
@@ -1338,8 +1338,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 35.72,
-    "yn": 26.98,
+    "y0": 35.5,
+    "yn": 26.81,
     "y1": 19.51
    },
    "roeLabels": {
@@ -1348,8 +1348,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 12242671334,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 12164823913,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1368,7 +1368,7 @@
    ],
    "per": 25.4,
    "pbr": 4.96,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1378,8 +1378,8 @@
    "name": "Amazon.com Inc.",
    "currency": "USD",
    "marketCap": 2643055396136.0,
-   "price": 250.23,
-   "changePct": 2.37,
+   "price": 254.89,
+   "changePct": 0.3,
    "sector": "Consumer Discretionary",
    "warnings": [],
    "equity": 613601000000.0,
@@ -1387,8 +1387,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 13.43,
-    "yn": 18.56,
+    "y0": 13.18,
+    "yn": 18.22,
     "y1": 12.66
    },
    "roeLabels": {
@@ -1397,8 +1397,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 10562504081,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 10369396195,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1417,7 +1417,7 @@
    ],
    "per": 34.03,
    "pbr": 4.31,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1427,8 +1427,8 @@
    "name": "Space Exploration Technologies Corp.",
    "currency": "USD",
    "marketCap": 1730770759075.0,
-   "price": 130.5,
-   "changePct": 2.4,
+   "price": 132.56,
+   "changePct": -0.77,
    "sector": "Technology",
    "warnings": [
     "나스닥 재무상태표 없음: 'NoneType' object is not subscriptable",
@@ -1441,8 +1441,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 1.73,
-    "yn": 30.91,
+    "y0": 1.7,
+    "yn": 30.43,
     "y1": 1.02
    },
    "roeLabels": {
@@ -1451,8 +1451,8 @@
     "y1": "2026.09 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 13262611181,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 13056508442,
    "equitySource": "SEC XBRL(10-Q, USD→USD 환산)",
    "equityLocal": {
     "value": 176768000000.0,
@@ -1476,7 +1476,7 @@
    ],
    "per": 961.01,
    "pbr": 9.79,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1486,8 +1486,8 @@
    "name": "Meta Platforms Inc.",
    "currency": "USD",
    "marketCap": 1559025977792.0,
-   "price": 621.1,
-   "changePct": 1.84,
+   "price": 629.49,
+   "changePct": 0.08,
    "sector": "Technology",
    "warnings": [],
    "equity": 272386000000.0,
@@ -1495,8 +1495,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 26.73,
-    "yn": 31.01,
+    "y0": 26.38,
+    "yn": 30.6,
     "y1": 22.2
    },
    "roeLabels": {
@@ -1505,8 +1505,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 2510104617,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 2476649316,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1525,7 +1525,7 @@
    ],
    "per": 25.79,
    "pbr": 5.72,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1535,8 +1535,8 @@
    "name": "Tesla Inc.",
    "currency": "USD",
    "marketCap": 1502601405592.0,
-   "price": 390.25,
-   "changePct": 2.66,
+   "price": 398.8,
+   "changePct": -0.3,
    "sector": "Industrials",
    "warnings": [],
    "equity": 89289000000.0,
@@ -1544,8 +1544,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 2.89,
-    "yn": 4.57,
+    "y0": 2.83,
+    "yn": 4.47,
     "y1": 4.25
    },
    "roeLabels": {
@@ -1554,8 +1554,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 3850355940,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 3767806935,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1574,7 +1574,7 @@
    ],
    "per": 396.05,
    "pbr": 16.83,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1584,8 +1584,8 @@
    "name": "Broadcom Inc.",
    "currency": "USD",
    "marketCap": 1436194281184.0,
-   "price": 307.32,
-   "changePct": 2.15,
+   "price": 311.99,
+   "changePct": -0.11,
    "sector": "Technology",
    "warnings": [],
    "equity": 99690000000.0,
@@ -1593,8 +1593,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 47.82,
-    "yn": 81.15,
+    "y0": 47.1,
+    "yn": 79.93,
     "y1": 23.2
    },
    "roeLabels": {
@@ -1603,8 +1603,8 @@
     "y1": "2025.11 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 4673286090,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 4603334341,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1623,7 +1623,7 @@
    ],
    "per": 62.1,
    "pbr": 14.41,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1633,8 +1633,8 @@
    "name": "Eli Lilly and Company",
    "currency": "USD",
    "marketCap": 1309771084310.0,
-   "price": 1396.765,
-   "changePct": 0.33,
+   "price": 1398.7382,
+   "changePct": 0.29,
    "sector": "Health Care",
    "warnings": [],
    "equity": 40271000000.0,
@@ -1642,8 +1642,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 83.2,
-    "yn": 119.52,
+    "y0": 83.08,
+    "yn": 119.35,
     "y1": 51.25
    },
    "roeLabels": {
@@ -1652,8 +1652,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 937717572,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 936394734,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1672,7 +1672,7 @@
    ],
    "per": 63.46,
    "pbr": 32.52,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1682,8 +1682,8 @@
    "name": "Berkshire Hathaway Inc.",
    "currency": "USD",
    "marketCap": 1279410486009.0,
-   "price": 581.69,
-   "changePct": 0.41,
+   "price": 582.79,
+   "changePct": 0.18,
    "sector": "",
    "warnings": [],
    "equity": 761368000000.0,
@@ -1700,13 +1700,13 @@
     "y0": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:46 AM ET",
-   "shares": 2199471344,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 2195319903,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "TTM(재무제표)",
    "per": 19.1,
    "pbr": 1.68,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1716,8 +1716,8 @@
    "name": "Anthropic PBC",
    "currency": "USD",
    "marketCap": 1094454184030.0,
-   "price": 86.0,
-   "changePct": 3.88,
+   "price": 91.7219,
+   "changePct": -0.17,
    "sector": "Technology",
    "warnings": [
     "나스닥 재무상태표 없음: 'NoneType' object is not subscriptable",
@@ -1735,10 +1735,10 @@
    },
    "roeLabels": {},
    "dataMissing": true,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 12726211442,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 11932310430,
    "roeSource": "TTM(재무제표)",
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": false
   },
@@ -1748,8 +1748,8 @@
    "name": "Walmart Inc.",
    "currency": "USD",
    "marketCap": 1046778479038.0,
-   "price": 131.96,
-   "changePct": 0.02,
+   "price": 133.37,
+   "changePct": 0.18,
    "sector": "Consumer Discretionary",
    "warnings": [],
    "equity": 98238000000.0,
@@ -1757,8 +1757,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 23.34,
-    "yn": 26.0,
+    "y0": 23.09,
+    "yn": 25.73,
     "y1": 22.29
    },
    "roeLabels": {
@@ -1767,8 +1767,8 @@
     "y1": "2026.01 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 7932543794,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 7848680206,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1787,7 +1787,7 @@
    ],
    "per": 47.81,
    "pbr": 10.66,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1797,8 +1797,8 @@
    "name": "JP Morgan Chase & Co.",
    "currency": "USD",
    "marketCap": 841429872927.0,
-   "price": 322.76,
-   "changePct": 1.9,
+   "price": 323.62,
+   "changePct": 0.08,
    "sector": "Finance",
    "warnings": [],
    "equity": 372368000000.0,
@@ -1806,8 +1806,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 16.77,
-    "yn": 18.11,
+    "y0": 16.72,
+    "yn": 18.06,
     "y1": 14.95
    },
    "roeLabels": {
@@ -1816,8 +1816,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 2606983123,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 2600055228,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1836,7 +1836,7 @@
    ],
    "per": 15.11,
    "pbr": 2.26,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1846,8 +1846,8 @@
    "name": "Visa Inc.",
    "currency": "USD",
    "marketCap": 765387560714.0,
-   "price": 425.74,
-   "changePct": 0.32,
+   "price": 431.08,
+   "changePct": 0.04,
    "sector": "Consumer Discretionary",
    "warnings": [],
    "equity": 36111000000.0,
@@ -1855,8 +1855,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 74.78,
-    "yn": 84.73,
+    "y0": 73.85,
+    "yn": 83.68,
     "y1": 65.09
    },
    "roeLabels": {
@@ -1865,8 +1865,8 @@
     "y1": "2026.09 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 1797781652,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 1775511647,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1885,7 +1885,7 @@
    ],
    "per": 32.56,
    "pbr": 21.2,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1895,8 +1895,8 @@
    "name": "Micron Technology Inc.",
    "currency": "USD",
    "marketCap": 681065310998.0,
-   "price": 612.1908,
-   "changePct": 1.82,
+   "price": 645.0001,
+   "changePct": -0.3,
    "sector": "Technology",
    "warnings": [],
    "equity": 138378000000.0,
@@ -1904,8 +1904,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 140.42,
-    "yn": 173.79,
+    "y0": 133.28,
+    "yn": 164.95,
     "y1": 61.4
    },
    "roeLabels": {
@@ -1914,8 +1914,8 @@
     "y1": "2026.09 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 1112504976,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 1055915047,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1934,7 +1934,7 @@
    ],
    "per": 8.02,
    "pbr": 4.92,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1944,8 +1944,8 @@
    "name": "Advanced Micro Devices Inc.",
    "currency": "USD",
    "marketCap": 672514598179.0,
-   "price": 408.86,
-   "changePct": 0.7,
+   "price": 422.57,
+   "changePct": -0.46,
    "sector": "Technology",
    "warnings": [],
    "equity": 68389000000.0,
@@ -1953,8 +1953,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 16.67,
-    "yn": 38.58,
+    "y0": 16.13,
+    "yn": 37.33,
     "y1": 6.34
    },
    "roeLabels": {
@@ -1963,8 +1963,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 1644853001,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 1591486850,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -1983,7 +1983,7 @@
    ],
    "per": 155.14,
    "pbr": 9.83,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -1993,8 +1993,8 @@
    "name": "Johnson & Johnson",
    "currency": "USD",
    "marketCap": 659494683922.0,
-   "price": 274.225,
-   "changePct": 0.1,
+   "price": 276.99,
+   "changePct": 0.37,
    "sector": "Health Care",
    "warnings": [],
    "equity": 81529000000.0,
@@ -2002,8 +2002,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 32.8,
-    "yn": 33.92,
+    "y0": 32.47,
+    "yn": 33.58,
     "y1": 32.88
    },
    "roeLabels": {
@@ -2012,8 +2012,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 2404940045,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 2380933189,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2032,7 +2032,7 @@
    ],
    "per": 24.6,
    "pbr": 8.09,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2042,8 +2042,8 @@
    "name": "ExxonMobil Holdings Corporation",
    "currency": "USD",
    "marketCap": 645210613967.0,
-   "price": 160.455,
-   "changePct": 1.5,
+   "price": 161.8287,
+   "changePct": 0.88,
    "sector": "Energy",
    "warnings": [
     "나스닥 재무상태표 없음: 'NoneType' object is not subscriptable",
@@ -2056,8 +2056,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 20.18,
-    "yn": 20.39,
+    "y0": 20.01,
+    "yn": 20.22,
     "y1": 16.77
    },
    "roeLabels": {
@@ -2066,8 +2066,8 @@
     "y1": "2026.09 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 4021131245,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 3986997448,
    "equitySource": "SEC XBRL(10-Q, USD→USD 환산)",
    "equityLocal": {
     "value": 265789000000.0,
@@ -2091,7 +2091,7 @@
    ],
    "per": 14.48,
    "pbr": 2.43,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2101,8 +2101,8 @@
    "name": "Mastercard Incorporated",
    "currency": "USD",
    "marketCap": 574993658762.0,
-   "price": 661.02,
-   "changePct": 0.16,
+   "price": 672.71,
+   "changePct": 0.7,
    "sector": "Consumer Discretionary",
    "warnings": [],
    "equity": 6753000000.0,
@@ -2110,8 +2110,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 257.88,
-    "yn": 297.81,
+    "y0": 253.4,
+    "yn": 292.63,
     "y1": 221.65
    },
    "roeLabels": {
@@ -2120,8 +2120,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 869858187,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 854742250,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2140,7 +2140,7 @@
    ],
    "per": 38.41,
    "pbr": 85.15,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2150,8 +2150,8 @@
    "name": "AbbVie Inc.",
    "currency": "USD",
    "marketCap": 520563002117.0,
-   "price": 292.1699,
-   "changePct": -0.78,
+   "price": 294.6782,
+   "changePct": 0.92,
    "sector": "Health Care",
    "warnings": [],
    "equity": -4583000000.0,
@@ -2159,8 +2159,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": -543.88,
-    "yn": -625.14,
+    "y0": -539.25,
+    "yn": -619.81,
     "y1": -92.21
    },
    "roeLabels": {
@@ -2169,8 +2169,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 1781713319,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 1766547380,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2189,7 +2189,7 @@
    ],
    "per": 123.18,
    "pbr": -113.59,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2199,8 +2199,8 @@
    "name": "Costco Wholesale Corporation",
    "currency": "USD",
    "marketCap": 481597407787.0,
-   "price": 1092.46,
-   "changePct": 0.52,
+   "price": 1098.7009,
+   "changePct": 0.08,
    "sector": "Consumer Discretionary",
    "warnings": [],
    "equity": 35803000000.0,
@@ -2208,8 +2208,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 27.99,
-    "yn": 30.77,
+    "y0": 27.83,
+    "yn": 30.6,
     "y1": 25.77
    },
    "roeLabels": {
@@ -2218,8 +2218,8 @@
     "y1": "2026.08 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 440837566,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 438333497,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2238,7 +2238,7 @@
    ],
    "per": 52.2,
    "pbr": 13.45,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2248,8 +2248,8 @@
    "name": "Coca-Cola Company (The)",
    "currency": "USD",
    "marketCap": 420080763013.0,
-   "price": 97.0,
-   "changePct": -0.6,
+   "price": 97.784,
+   "changePct": 0.26,
    "sector": "Consumer Staples",
    "warnings": [],
    "equity": 37372000000.0,
@@ -2257,8 +2257,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 38.82,
-    "yn": 41.02,
+    "y0": 38.51,
+    "yn": 40.69,
     "y1": 35.07
    },
    "roeLabels": {
@@ -2267,8 +2267,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 4330729516,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 4296007149,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2287,7 +2287,7 @@
    ],
    "per": 32.05,
    "pbr": 11.24,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2297,8 +2297,8 @@
    "name": "Chevron Corporation",
    "currency": "USD",
    "marketCap": 414703975746.0,
-   "price": 214.33,
-   "changePct": 1.6,
+   "price": 213.975,
+   "changePct": 0.65,
    "sector": "Energy",
    "warnings": [],
    "equity": 194327000000.0,
@@ -2306,8 +2306,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 18.63,
-    "yn": 17.89,
+    "y0": 18.66,
+    "yn": 17.92,
     "y1": 6.33
    },
    "roeLabels": {
@@ -2316,8 +2316,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 1934885344,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 1938095459,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2336,7 +2336,7 @@
    ],
    "per": 33.72,
    "pbr": 2.13,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2346,8 +2346,8 @@
    "name": "Procter & Gamble Company (The)",
    "currency": "USD",
    "marketCap": 401509573862.0,
-   "price": 172.7,
-   "changePct": -0.31,
+   "price": 173.3,
+   "changePct": 0.17,
    "sector": "Consumer Discretionary",
    "warnings": [],
    "equity": 55097000000.0,
@@ -2355,8 +2355,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 29.5,
-    "yn": 31.27,
+    "y0": 29.39,
+    "yn": 31.16,
     "y1": 29.12
    },
    "roeLabels": {
@@ -2365,8 +2365,8 @@
     "y1": "2026.06 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 2324896201,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 2316846935,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2385,7 +2385,7 @@
    ],
    "per": 25.02,
    "pbr": 7.29,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2395,8 +2395,8 @@
    "name": "Palantir Technologies Inc.",
    "currency": "USD",
    "marketCap": 394169691772.0,
-   "price": 165.1488,
-   "changePct": 0.95,
+   "price": 172.09,
+   "changePct": -0.05,
    "sector": "Technology",
    "warnings": [],
    "equity": 11227981000.0,
@@ -2404,8 +2404,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 28.91,
-    "yn": 42.09,
+    "y0": 27.74,
+    "yn": 40.39,
     "y1": 14.47
    },
    "roeLabels": {
@@ -2414,8 +2414,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 2386754804,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 2290485745,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2434,7 +2434,7 @@
    ],
    "per": 242.56,
    "pbr": 35.11,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2444,8 +2444,8 @@
    "name": "Cisco Systems Inc. Common Stock (DE)",
    "currency": "USD",
    "marketCap": 371378618933.0,
-   "price": 96.035,
-   "changePct": 1.95,
+   "price": 97.4302,
+   "changePct": 0.4,
    "sector": "Telecommunications",
    "warnings": [],
    "equity": 51607000000.0,
@@ -2453,8 +2453,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 35.82,
-    "yn": 38.29,
+    "y0": 35.31,
+    "yn": 37.74,
     "y1": 25.71
    },
    "roeLabels": {
@@ -2463,8 +2463,8 @@
     "y1": "2026.07 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 3867117394,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 3811740291,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2483,7 +2483,7 @@
    ],
    "per": 27.99,
    "pbr": 7.2,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2493,8 +2493,8 @@
    "name": "Home Depot Inc. (The)",
    "currency": "USD",
    "marketCap": 360593866498.0,
-   "price": 361.445,
-   "changePct": 0.05,
+   "price": 364.2,
+   "changePct": 0.5,
    "sector": "Consumer Discretionary",
    "warnings": [],
    "equity": 18134000000.0,
@@ -2502,8 +2502,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 82.47,
-    "yn": 86.7,
+    "y0": 81.84,
+    "yn": 86.05,
     "y1": 78.06
    },
    "roeLabels": {
@@ -2512,8 +2512,8 @@
     "y1": "2026.02 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:43 AM ET",
-   "shares": 997645192,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 990098480,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2532,7 +2532,7 @@
    ],
    "per": 25.47,
    "pbr": 19.88,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2542,8 +2542,8 @@
    "name": "Merck & Company Inc. Common Stock (new)",
    "currency": "USD",
    "marketCap": 346095842138.0,
-   "price": 141.58,
-   "changePct": 0.92,
+   "price": 140.0,
+   "changePct": -1.01,
    "sector": "Health Care",
    "warnings": [],
    "equity": 44893000000.0,
@@ -2551,8 +2551,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 15.41,
-    "yn": 49.33,
+    "y0": 15.58,
+    "yn": 49.89,
     "y1": 40.66
    },
    "roeLabels": {
@@ -2561,8 +2561,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:47 AM ET",
-   "shares": 2444524948,
+   "quoteTime": "Nov 27, 2026 4:02 PM ET",
+   "shares": 2472113158,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2581,7 +2581,7 @@
    ],
    "per": 18.96,
    "pbr": 7.71,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   },
@@ -2591,8 +2591,8 @@
    "name": "Bank of America Corporation",
    "currency": "USD",
    "marketCap": 334798140971.0,
-   "price": 49.115,
-   "changePct": 1.18,
+   "price": 49.21,
+   "changePct": 0.16,
    "sector": "Finance",
    "warnings": [],
    "equity": 296749000000.0,
@@ -2600,8 +2600,8 @@
    "prefMarketCap": 0,
    "treasury": 0,
    "roe": {
-    "y0": 10.36,
-    "yn": 11.9,
+    "y0": 10.34,
+    "yn": 11.88,
     "y1": 9.79
    },
    "roeLabels": {
@@ -2610,8 +2610,8 @@
     "y1": "2025.12 실적"
    },
    "dataMissing": false,
-   "quoteTime": "Nov 27, 2026 9:47 AM ET",
-   "shares": 6816616939,
+   "quoteTime": "Nov 27, 2026 4:03 PM ET",
+   "shares": 6803457447,
    "equitySource": "나스닥 분기 재무상태표",
    "roeSource": "컨센서스 EPS÷BPS(나스닥)",
    "epsEst": [
@@ -2630,7 +2630,7 @@
    ],
    "per": 11.52,
    "pbr": 1.13,
-   "ke": 9.9,
+   "ke": 9.94,
    "fiscalYear": 2026,
    "hasEstimates": true
   }
